@@ -2,6 +2,8 @@
 
 </script>
 <template>
-    <HomeHero />
-    <HomeMyStack/>
+    <div>
+        <HomeHero />
+        <HomeMyStack/>
+    </div>
 </template>
