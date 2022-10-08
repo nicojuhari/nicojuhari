@@ -5,5 +5,6 @@
     <div>
         <HomeHero />
         <HomeMyStack/>
+        <ProjectsList/>
     </div>
 </template>
