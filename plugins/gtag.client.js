@@ -2,7 +2,7 @@ export default defineNuxtPlugin(() => {
 
     const config = useRuntimeConfig();
 
-    //if (process.dev) return;
+    if (process.dev) return;
 
     let script = document.createElement("script");
     script.setAttribute("defer", "");
