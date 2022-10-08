@@ -5,6 +5,6 @@
     <div>
         <HomeHero />
         <HomeMyStack/>
-        <ProjectsList/>
+        <ProjectsList :projects_limit=3 :view_all_projects=true />
     </div>
 </template>
