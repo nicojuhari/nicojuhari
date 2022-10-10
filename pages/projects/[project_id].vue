@@ -33,8 +33,9 @@ useHead({
             </div>
             <div>
                 <a 
+                v-if="story.content.link.url"
                 class="btn btn-outline mx-auto my-10"
-                :href="story.content.link.url" title="Visit Website" target="blank">Visit Website</a>
+                :href="story.content.link.url" title="Visit Website" target="blank" rel="nofollow">Visit Website</a>
             </div>
         </div>
     </section>
