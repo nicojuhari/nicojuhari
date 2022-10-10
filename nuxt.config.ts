@@ -14,7 +14,7 @@ export default defineNuxtConfig({
             htmlAttrs: {
                     lang: 'en'
             },
-            title: 'Restaurant Website Developer & Freelancer | Vienna Austria',
+            title: 'Web Developer & Freelancer | Vienna Austria',
             link: [
                 { rel: 'icon', type:'image/x-icon', href: '/favicon.ico' },
                 { rel: 'shortcut icon', type:'image/png', sizes:"32x32", href:"/favicon-32x32.png" },
@@ -22,8 +22,8 @@ export default defineNuxtConfig({
                 { rel: 'apple-touch-icon', sizes:"180x180", href:"/apple-touch-icon.png" }
             ],
             meta: [
-                { name: 'description', content: 'Restaurant Website Developer & Freelancer in Vienna Austria - I create websites for restaurants, bars and cafes' },
-                { name: 'keywords', content: 'Web developer, Freelancer Vienna Austria, restaurant websites, website developer' },
+                { name: 'description', content: 'Web Developer & Freelancer in Vienna Austria - I create websites for restaurants, bars and cafes' },
+                { name: 'keywords', content: 'Web developer, Freelancer, Vienna Austria, restaurant websites, website developer' },
                 { name: 'google-site-verification', content: "oOiepCGY8_h_x8LguPX3bbyO0MKDXRKE6dSSKlSUiKI"}
             ],
         },
