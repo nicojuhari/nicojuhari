@@ -3,10 +3,10 @@
 </script>
 <template>
     <section>
-        <div class="container">
-            <p>Hi, I am Nick</p>
-            <h1 class="title my-4">Web Developer & Freelancer</h1>
-            <div>I create pixel-perfect, optimized, and effective websites for restaurants, bars, and cafes.</div>
+        <div class="container mb-20 mt-10 md:mb-40 md:mt-20">
+            <p class="md:text-xl">Hi, I am Nick,</p>
+            <h1 class="title my-4 text-center">Web Developer <span class="text-xl md:text-4xl">&</span> Freelancer</h1>
+            <p class="text-center md:text-xl">I create pixel-perfect, optimized, and efficient web apps.</p>
         </div>
     </section>
 </template>

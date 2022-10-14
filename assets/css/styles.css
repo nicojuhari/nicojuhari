@@ -10,7 +10,7 @@
 }
 
 .title {
-    @apply font-bold text-3xl md:text-4xl;
+    @apply font-bold text-3xl md:text-6xl;
 }
 
 .subtitle {
