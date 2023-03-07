@@ -7,8 +7,8 @@ const story = await useStoryblok('web-projects/' + route.params?.project_id);
 useHead({
     title: story?.value.content.title + ' | Web Developer & Freelancer',
     meta: [
-        { name: 'keywords', content: story?.value.content.title + ' web developer, freelancer, business websites, website development' },
-        { name: 'description', content: `Project - ${story?.value.content.title} | Web Developer & Freelancer` },
+        { name: 'keywords', content: story?.value.content.title + ' web developer, JavaScript, business websites, website development' },
+        { name: 'description', content: `Project - ${story?.value.content.title} | Web & JavaScript Developer` },
     ],
 })
 

@@ -1,5 +1,11 @@
 <script setup>
-
+    useHead({
+        title: 'Web & JavaScript Developer',
+        meta: [
+            { name: 'keywords', content: 'web developer, javasrcipt developer, business websites, website development' },
+            { name: 'description', content: `I am Nick, Web & JavaScript Developer. I create pixel-perfect, optimized, and efficient web apps, using JavaScript, Vue.js, Nuxt.js, TailwindCSS and Firebase` },
+        ],
+    })
 </script>
 <template>
     <div>

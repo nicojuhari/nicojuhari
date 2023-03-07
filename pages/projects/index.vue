@@ -1,10 +1,10 @@
 <script setup>
 
     useHead({
-        title: 'My Web Projects | Web Developer & Freelancer',
+        title: 'My Web Projects | Web & JavaScript Developer',
         meta: [
-            { name: 'keywords', content: 'my web projects, web developer, freelancer, business websites, website development' },
-            { name: 'description', content: `My Web Projects | Web Developer & Freelancer` },
+            { name: 'keywords', content: 'my web projects, web developer, javasrcipt developer, business websites, website development' },
+            { name: 'description', content: `My Portfolio | Web & JavaScript Developer` },
         ],
     })
 </script>
