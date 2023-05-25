@@ -1,13 +1,21 @@
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
     modules: [ '@nuxtjs/tailwindcss', [ "@storyblok/nuxt", { accessToken: 'EzikCGO5TZGapwffPYn4rAtt' }]],
+    extends: [
+        'nuxt-seo-kit'
+    ],
     css: ['@/assets/css/styles.css'],
     runtimeConfig: {
         public : {
             gtag: {
                 id: 'G-YC2EDZRT9H'
-            }
-        }
+            },
+            siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'https://nicojuhari.com',
+            siteName: 'Web Developer & Freelancer | Vienna Austria',
+            siteDescription: 'Web Developer & Freelancer in Vienna Austria - I create websites for restaurants, bars and cafes',
+            language: 'en', // prefer more explicit language codes like `en-AU` over `en`
+        },
+        siteUrl: 'https://nicojuhari.com',
     },
     app: {
         head: { 
@@ -28,5 +36,4 @@ export default defineNuxtConfig({
             ],
         },
     },
-    
 })
