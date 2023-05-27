@@ -1,8 +1,5 @@
 Hi, I am Nick
 
-### Full Stack JavaScript Developer
+## Freelance Web Developer
 
-
-I create pixel-perfect, optimized, and effective web apps for restaurants, bars, and cafes.
-
-
+I create pixel-perfect, fast, and SEO-friendly business websites and landing pages. I specialize in websites for restaurants, bars, and cafes.
