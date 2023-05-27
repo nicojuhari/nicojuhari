@@ -11,8 +11,8 @@ export default defineNuxtConfig({
                 id: 'G-YC2EDZRT9H'
             },
             siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'https://nicojuhari.com',
-            siteName: 'Web Developer & Freelancer | Vienna Austria',
-            siteDescription: 'Web Developer & Freelancer in Vienna Austria - I create websites for restaurants, bars and cafes',
+            // siteName: 'Freelance Web Developer in Vienna, Austria',
+            siteDescription: 'I create pixel-perfect, fast, and SEO-friendly business websites and landing pages. I specialize in websites for restaurants, bars, and cafes.',
             language: 'en', // prefer more explicit language codes like `en-AU` over `en`
         },
         siteUrl: 'https://nicojuhari.com',
@@ -22,7 +22,7 @@ export default defineNuxtConfig({
             htmlAttrs: {
                     lang: 'en'
             },
-            title: 'Web Developer & Freelancer | Vienna Austria',
+            title: 'Freelance Web Developer in Vienna, Austria',
             link: [
                 { rel: 'icon', type:'image/x-icon', href: '/favicon.ico' },
                 { rel: 'shortcut icon', type:'image/png', sizes:"32x32", href:"/favicon-32x32.png" },
@@ -30,7 +30,7 @@ export default defineNuxtConfig({
                 { rel: 'apple-touch-icon', sizes:"180x180", href:"/apple-touch-icon.png" }
             ],
             meta: [
-                { name: 'description', content: 'Web Developer & Freelancer in Vienna Austria - I create websites for restaurants, bars and cafes' },
+                { name: 'description', content: 'I create pixel-perfect, fast, and SEO-friendly business websites and landing pages. I specialize in websites for restaurants, bars, and cafes.' },
                 { name: 'keywords', content: 'Web developer, Freelancer, Vienna Austria, restaurant websites, website developer' },
                 { name: 'google-site-verification', content: "oOiepCGY8_h_x8LguPX3bbyO0MKDXRKE6dSSKlSUiKI"}
             ],

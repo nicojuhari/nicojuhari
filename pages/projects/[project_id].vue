@@ -5,10 +5,10 @@ const route = useRoute();
 const story = await useStoryblok('web-projects/' + route.params?.project_id);
 
 useHead({
-    title: story?.value.content.title + ' | Web Developer & Freelancer',
+    title: story?.value.content.title + ' | Freelance Web Developer',
     meta: [
         { name: 'keywords', content: story?.value.content.title + ' web developer, JavaScript, business websites, website development' },
-        { name: 'description', content: `Project - ${story?.value.content.title} | Web & JavaScript Developer` },
+        { name: 'description', content: `One of my web project - ${story?.value.content.title} | Freelance Web Developer in Vienna Austria` },
     ],
 })
 

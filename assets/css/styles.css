@@ -6,11 +6,11 @@
 }
 
 .hero-title {
-    @apply font-bold text-4xl md:text-5xl;
+    @apply font-bold text-4xl md:text-6xl;
 }
 
 .title {
-    @apply font-bold text-3xl md:text-6xl;
+    @apply font-bold text-3xl md:text-5xl;
 }
 
 .subtitle {
