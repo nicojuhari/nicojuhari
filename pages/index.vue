@@ -1,6 +1,7 @@
 <template>
     <div>
         <HomeHero/>
+        <HomeMyServices/>
         <!-- <HomeCurrentProject/> -->
         <HomeMyStack/>
         <section>

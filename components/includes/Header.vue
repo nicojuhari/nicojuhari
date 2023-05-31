@@ -8,7 +8,7 @@
                 <NuxtLink to="/" title="Ideal Credit">
                     <IconsLogo class="w-10" />
                 </NuxtLink>
-                <a href="https://forms.gle/UX2VPKUwyyFdSXbw9" class="btn btn-outline" target="blank" title="Hire me">Hire me</a>
+                <a href="https://forms.gle/UX2VPKUwyyFdSXbw9" class="btn btn-primary" target="blank" title="Hire me">Hire me</a>
             </div>
         </div>
     </header>
