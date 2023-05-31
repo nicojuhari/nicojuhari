@@ -1,6 +1,6 @@
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
-    modules: [ '@nuxtjs/tailwindcss', [ "@storyblok/nuxt", { accessToken: 'EzikCGO5TZGapwffPYn4rAtt' }]],
+    modules: [ '@nuxtjs/tailwindcss', 'nuxt-icon', [ "@storyblok/nuxt", { accessToken: 'EzikCGO5TZGapwffPYn4rAtt' }]],
     extends: [
         'nuxt-seo-kit'
     ],
@@ -30,7 +30,7 @@ export default defineNuxtConfig({
                 { rel: 'apple-touch-icon', sizes:"180x180", href:"/apple-touch-icon.png" }
             ],
             meta: [
-                { name: 'description', content: 'I create pixel-perfect, fast, and SEO-friendly business websites and landing pages. I specialize in websites for restaurants, bars, and cafes.' },
+                { name: 'description', content: 'I create pixel-perfect, fast, and SEO-friendly websites and landing pages. I specialize in websites for restaurants, bars, and cafes.' },
                 { name: 'keywords', content: 'Web developer, Freelancer, Vienna Austria, restaurant websites, website developer' },
                 { name: 'google-site-verification', content: "oOiepCGY8_h_x8LguPX3bbyO0MKDXRKE6dSSKlSUiKI"}
             ],

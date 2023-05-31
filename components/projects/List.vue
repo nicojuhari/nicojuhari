@@ -23,8 +23,7 @@ stories.value = data.stories;
 
 </script>
 <template>
-    <div class="container my-20">
-        <h2 class="subtitle mb-5">My Projects</h2>
+    <div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
             <NuxtLink :to="`/projects/${story.slug}`" v-for="story in stories" class="border-opacity-50">
                 <div class="rounded-lg overflow-hiddden border-gray-100">
@@ -36,6 +35,6 @@ stories.value = data.stories;
                 </div>
             </NuxtLink>
         </div>
-        <NuxtLink v-if="view_all_projects" to="/projects" title="View All My Projects" class="btn btn-outline mx-auto mt-10">View All My Projects</NuxtLink>
+        <NuxtLink v-if="view_all_projects" to="/projects" title="View All My Projects" class="btn btn-outline mx-auto mt-10">View All Projects</NuxtLink>
     </div>
 </template>
