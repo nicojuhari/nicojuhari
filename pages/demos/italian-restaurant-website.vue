@@ -1,4 +1,6 @@
 <script setup>
+import { ref } from "vue";
+// import { createMenu } from "https://cdn.jsdelivr.net/npm/1food-menu/dist/1food-menu.mjs"
 definePageMeta({ layout: 'demos' })
 
 useHead({
@@ -9,10 +11,38 @@ useHead({
     ],
 })
 
+const foodMenu = ref(null)
+
+if (process.client) {
+    import("https://cdn.jsdelivr.net/npm/1food-menu/dist/1food-menu.mjs").then(({ createMenu }) => {
+        fetch('https://api.1food.menu/v1/menus/l9zwcpvlanynrmthvmb')
+            .then(res => res.json())
+            .then(menuData => {
+                foodMenu.value = menuData
+                createMenu({
+                    menu: menuData,
+                    version: 2,
+                    priceSymbol: '$',
+                })
+
+            })
+            .catch(e => {
+                console.log(e)
+                // loading.value = false
+            })
+
+    })
+}
+
 </script>
 <template>
     <DemosItalianHeader/>
-    <DemosItalianMenu/>
+    <!-- <DemosItalianMenu/> -->
+    <div class="container">
+        <h2 class="text-4xl md:text-6xl text-[#e07c0c] font-bold text-center">Our Menu</h2>
+        <div id="OneFoodMenu"></div>
+    </div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/1food-menu/dist/style.css"/>
     <section class="overflow-hidden h-auto">
         <div class="container my-10 md:my-20 relative">
                 <h2 class="text-4xl md:text-6xl text-[#e07c0c] font-bold text-center">About us</h2>
@@ -35,7 +65,7 @@ useHead({
                     </div>
 
             </div>
-            <!-- <img src="https://1FoodMenu.b-cdn.net/mint.png" class="h-[300px] rotate-45  absolute md:-right-40 top-[80%] md:top-[70%]  -z-1" /> -->
+            <img src="https://cdn.webshopapp.com/shops/92230/files/417462778/mint-a-bundle.jpg" class="h-[300px] rotate-45  absolute md:-right-20 top-[80%] md:top-[70%]  -z-1" />
         </div>
     </section>
 </template>

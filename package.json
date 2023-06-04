@@ -14,6 +14,7 @@
     "nuxt-seo-kit": "^1.3.8"
   },
   "dependencies": {
-    "@storyblok/nuxt": "^5.4.7"
+    "@storyblok/nuxt": "^5.4.7",
+    "gsap": "^3.11.5"
   }
 }

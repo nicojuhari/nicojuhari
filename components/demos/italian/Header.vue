@@ -1,6 +1,47 @@
 <script setup>
 
+import { gsap } from "gsap";
 const bgImgURL = 'https://images.unsplash.com/photo-1600628421060-939639517883?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340';
+
+// const heroTitle = ref(null)
+//     gsap.from(heroTitle.value, {
+//         opacity: 0,
+//         y: 100,
+//         duration: 1,
+//         delay: 0.5,
+//         ease: "power3.out",
+//     });
+// });
+
+const heroTitle = ref(null)
+const heroSubtitle = ref(null)
+const heroCTA = ref(null)
+
+onMounted(() => {
+    gsap.to(heroTitle.value, {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        delay: 0.5,
+        ease: "power3.out",
+    });
+
+    gsap.to(heroSubtitle.value, {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        delay: 1,
+        ease: "power3.out",
+    });
+
+    gsap.to(heroCTA.value, {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        delay: 1.5,
+        ease: "power3.out",
+    });
+});
 
 </script>
 
@@ -38,10 +79,10 @@ const bgImgURL = 'https://images.unsplash.com/photo-1600628421060-939639517883?i
                 </div>
             </div>
             <div class="container flex items-center justify-center flex-col h-[70vh] relative text-white">
-                <h1 class="text-6xl md:text-8xl font-bold text-center tracking-wider text-[#e07c0c]">Mama Mia</h1>
-                <div class="uppercase text-sm text-center font-medium tracking-[10px]">Italian Restaurant</div>
-                <a class="bg-white text-black tracking-wider py-2 px-4 mt-10 inline-flex items-center justify-center rounded-full uppercase text-sm font-semibold"
-                    href="#">Book Your Table</a>
+                <h1 class="text-6xl md:text-8xl font-bold text-center tracking-wider text-[#e07c0c] opacity-0 translate-y-24" ref="heroTitle">Mama Mia</h1>
+                <div class="uppercase text-sm text-center font-medium tracking-[10px] opacity-0" ref="heroSubtitle">Italian Restaurant</div>
+                <a class="bg-white text-black tracking-wider py-2 px-4 mt-10 inline-flex items-center justify-center rounded-full uppercase text-sm font-semibold opacity-0 translate-y-10"
+                    href="#" ref="heroCTA">Book Your Table</a>
             </div>
         </section>
         <div class="-translate-y-10 md:-translate-y-12">
