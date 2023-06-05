@@ -11,38 +11,12 @@ useHead({
     ],
 })
 
-const foodMenu = ref(null)
 
-if (process.client) {
-    import("https://cdn.jsdelivr.net/npm/1food-menu/dist/1food-menu.mjs").then(({ createMenu }) => {
-        fetch('https://api.1food.menu/v1/menus/l9zwcpvlanynrmthvmb')
-            .then(res => res.json())
-            .then(menuData => {
-                foodMenu.value = menuData
-                createMenu({
-                    menu: menuData,
-                    version: 2,
-                    priceSymbol: '$',
-                })
-
-            })
-            .catch(e => {
-                console.log(e)
-                // loading.value = false
-            })
-
-    })
-}
 
 </script>
 <template>
     <DemosItalianHeader/>
-    <!-- <DemosItalianMenu/> -->
-    <div class="container">
-        <h2 class="text-4xl md:text-6xl text-[#e07c0c] font-bold text-center">Our Menu</h2>
-        <div id="OneFoodMenu"></div>
-    </div>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/1food-menu/dist/style.css"/>
+    <DemosItalianMenu/>
     <section class="overflow-hidden h-auto">
         <div class="container my-10 md:my-20 relative">
                 <h2 class="text-4xl md:text-6xl text-[#e07c0c] font-bold text-center">About us</h2>

@@ -16,6 +16,7 @@ const bgImgURL = 'https://images.unsplash.com/photo-1600628421060-939639517883?i
 const heroTitle = ref(null)
 const heroSubtitle = ref(null)
 const heroCTA = ref(null)
+const viewMenu = ref(null)
 
 onMounted(() => {
     gsap.to(heroTitle.value, {
@@ -39,6 +40,16 @@ onMounted(() => {
         y: 0,
         duration: 1,
         delay: 1.5,
+        scale: 1,
+        ease: "power3.out",
+    });
+
+    gsap.to(viewMenu.value, {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        delay: 1.3,
+        scale: 1,
         ease: "power3.out",
     });
 });
@@ -48,8 +59,8 @@ onMounted(() => {
 <template>
     <div>
         <Body class="bg-gray-100" />
-        <section class="relative bg-center bg-no-repeat bg-cover" :style="`background-image:url(${bgImgURL})`">
-            <div class="absolute top-0 left-0 h-full w-full bg-black opacity-50"></div>
+        <div class="relative bg-center bg-no-repeat bg-cover" :style="`background-image:url(${bgImgURL})`">
+            <div class="absolute top-0 left-0 h-full w-full bg-black opacity-70"></div>
             <div class="container relative text-white py-4 flex items-center justify-between h-16">
                 <div class="shrink-0">
                     <svg width="32" height="32" viewBox="0 0 512 512">
@@ -62,8 +73,7 @@ onMounted(() => {
                     </svg>
                 </div>
 
-                <nav class="hidden md:flex items-center gap-4 justify-end">
-                    <a href="#">Home</a>
+                <nav class="hidden md:flex items-center gap-6 justify-end">
                     <a href="#">Menu</a>
                     <a href="#">About</a>
                 </nav>
@@ -78,53 +88,50 @@ onMounted(() => {
                     </svg>
                 </div>
             </div>
-            <div class="container flex items-center justify-center flex-col h-[70vh] relative text-white">
-                <h1 class="text-6xl md:text-8xl font-bold text-center tracking-wider text-[#e07c0c] opacity-0 translate-y-24" ref="heroTitle">Mama Mia</h1>
-                <div class="uppercase text-sm text-center font-medium tracking-[10px] opacity-0" ref="heroSubtitle">Italian Restaurant</div>
-                <a class="bg-white text-black tracking-wider py-2 px-4 mt-10 inline-flex items-center justify-center rounded-full uppercase text-sm font-semibold opacity-0 translate-y-10"
-                    href="#" ref="heroCTA">Book Your Table</a>
+            <div class="container flex items-center justify-center flex-col h-[70vh] relative">
+                <h1 class="text-6xl md:text-8xl font-bold text-center tracking-wider text-white opacity-0 translate-y-24" ref="heroTitle">Mama Mia</h1>
+                <div class="uppercase text-sm text-center font-semibold tracking-[10px] text-[#e07c0c] opacity-0" ref="heroSubtitle">Italian Restaurant</div>
+                <div class="flex gap-4 items-center">
+                    <a class="bg-[#6D2E46] text-white tracking-wider py-2 px-4 mt-10 inline-flex items-center justify-center rounded-full uppercase text-base font-semibold opacity-0 translate-y-10"
+                        href="#" ref="viewMenu">View Menu</a>
+                        <button class="bg-[#0C7C59] text-white tracking-wider py-2 px-4 mt-10 inline-flex items-center justify-center rounded-full uppercase text-base font-semibold opacity-0 translate-y-10"
+                        ref="heroCTA">Book a Table</button>
+                </div>
+                
             </div>
-        </section>
-        <div class="-translate-y-10 md:-translate-y-12">
-            <div class="md:h-24 container p-4 rounded bg-white shadow-md flex flex-col md:flex-row gap-6">
-                <div class="flex flex-1 gap-4 items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.2"
-                        stroke="currentColor" class="w-10 h-10 text-gray-400">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                    <div>
-                        <div class="text-gray-400">Working hours:</div>
-                        <div class="text-gray-600 font-bold">
-                            10:00 - 23:00
+            <div class="text-white relative">
+                <div class="md:h-24 container p-4 rounded shadow-md flex flex-col md:flex-row gap-6">
+                    <div class="flex flex-1 gap-4 items-center">
+                        <Icon name="ph:clock-light" class="w-10 h-10 text-[#0C7C59]"/>
+                        
+                        <div>
+                            <div class="">Working hours</div>
+                            <div class="text-gray-300 font-bold">
+                                10:00 - 23:00
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="flex flex-1 gap-4 items-center">
-                    <svg viewBox="0 0 20 20" class="w-10 h-10 text-gray-400">
-                        <path fill="currentColor"
-                            d="M13.5 13a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2ZM2 6.75A2.75 2.75 0 0 1 4.75 4h10.5A2.75 2.75 0 0 1 18 6.75v6.5A2.75 2.75 0 0 1 15.25 16H4.75A2.75 2.75 0 0 1 2 13.25v-6.5ZM4.75 5A1.75 1.75 0 0 0 3 6.75V8h14V6.75A1.75 1.75 0 0 0 15.25 5H4.75ZM17 9H3v4.25c0 .966.784 1.75 1.75 1.75h10.5A1.75 1.75 0 0 0 17 13.25V9Z" />
-                    </svg>
-                    <div>
-                        <div class="text-gray-400">We accept:</div>
-                        <div class="text-gray-600 font-bold">
-                            Cash and Cards
+                    <div class="flex flex-1 gap-4 items-center">
+                        <Icon name="ph:credit-card-light" class="w-10 h-10 text-[#0C7C59]"/>
+                        
+                        <div>
+                            <div class="">We accept:</div>
+                            <div class="text-gray-300 font-bold">
+                                Cash and Cards
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="flex flex-1 gap-4 items-center">
-                    <svg class="w-10 h-10 text-gray-400" viewBox="0 0 256 256">
-                        <path fill="currentColor"
-                            d="M128.1 66a38 38 0 1 0 38 38a38 38 0 0 0-38-38Zm0 64a26 26 0 1 1 26-26a26.1 26.1 0 0 1-26 26Zm0-112a86.1 86.1 0 0 0-86 86c0 30.9 14.4 63.7 41.5 94.9a247.8 247.8 0 0 0 41.1 38a6 6 0 0 0 3.4 1.1a6.6 6.6 0 0 0 3.5-1.1a254.2 254.2 0 0 0 41-38c27.2-31.2 41.5-64 41.5-94.9a86.1 86.1 0 0 0-86-86Zm0 206.5c-15-11.6-74-60.9-74-120.5a74 74 0 0 1 148 0c0 59.6-59 108.9-74 120.5Z" />
-                    </svg>
-                    <div>
-                        <div class="text-gray-400">Our address:</div>
-                        <div class="text-gray-600 font-bold">
-                            City, Street, 123
+                    <div class="flex flex-1 gap-4 items-center">
+                        <Icon name="ph:map-pin-light" class="w-10 h-10 text-[#0C7C59]"/>
+                        <div>
+                            <div class="">Our address:</div>
+                            <div class="text-gray-300 font-bold">
+                                City, Street, 123
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        
-</div></template>
+    </div>
+</template>
