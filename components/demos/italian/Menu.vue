@@ -1,5 +1,9 @@
 <script setup>
+    import { ref, watch } from 'vue'
     import { groupProductsByCategory } from '@/utils';
+
+    const selectedCategory = ref('')
+    const filteredCategories = ref([])
 
     const menuURL = 'https://api.1food.menu/v1/menus/l9zwcpvlanynrmthvmb'
 
@@ -9,11 +13,35 @@
         return groupProductsByCategory(menuData?.value)
     })
 
+    const filterCategories = (category_id) => {
+
+        if (!category_id) {
+            selectedCategory.value = ''
+            filteredCategories.value = [...productsByCategory.value.categories]
+            return
+        }
+        selectedCategory.value = category_id
+        filteredCategories.value = [...productsByCategory.value.categories].filter(category => category.uid == category_id)
+    }
+
+    onMounted(() => {
+        filteredCategories.value = [...productsByCategory.value.categories]
+    })
+
 </script>
 <template>
     <section class="container">
         <h2 class="text-4xl md:text-6xl text-[#e07c0c] font-bold text-center">Our Menu</h2>
-        <div class="my-6 overflow-hidden relative" v-for="category in productsByCategory?.categories">
+        <div class="overflow-x-auto pt-6 p-1 text-sm">
+            <div class="inline-flex gap-4 mx-auto">
+                <div v-for="category in [{ uid: '', name: 'View All' }, ...productsByCategory?.categories]"
+                    :key="category.uid" @click="filterCategories(category.uid)"
+                    :class="{ '!bg-[#0C7C59] bg-opacity-70 text-white': selectedCategory == category.uid }"
+                    class="bg-white shadow py-2 px-4 rounded-full cursor-pointer flex-shrink-0 duration-500"> {{
+                        category.name }}</div>
+            </div>
+        </div>
+        <div class="my-6 overflow-hidden relative" v-for="category in filteredCategories || productsByCategory?.categories">
             <h2 class="text-2xl font-bold">{{category.name}}</h2>
             <div class="flex gap-4 overflow-x-auto snap-x snap-mandatory py-6 px-1">
                 <div v-for="product in productsByCategory.products[category.uid]" :key="product.uid" class="snap-center flex flex-col cursor-pointer rounded-xl bg-white flex-shrink-0 shadow w-72"> 

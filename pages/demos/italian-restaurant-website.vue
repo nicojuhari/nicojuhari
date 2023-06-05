@@ -17,7 +17,7 @@ useHead({
 <template>
     <DemosItalianHeader/>
     <DemosItalianMenu/>
-    <section class="overflow-hidden h-auto">
+    <div class="overflow-hidden h-auto">
         <div class="container my-10 md:my-20 relative">
                 <h2 class="text-4xl md:text-6xl text-[#e07c0c] font-bold text-center">About us</h2>
                 <div class="flex flex-col md:flex-row bg-white mt-20 rounded-md overflow-hidden relative z-10">
@@ -41,5 +41,5 @@ useHead({
             </div>
             <img src="https://cdn.webshopapp.com/shops/92230/files/417462778/mint-a-bundle.jpg" class="h-[300px] rotate-45  absolute md:-right-20 top-[80%] md:top-[70%]  -z-1" />
         </div>
-    </section>
+    </div>
 </template>
