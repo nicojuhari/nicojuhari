@@ -30,7 +30,7 @@
 
 </script>
 <template>
-    <section class="container">
+    <section class="container" id="our-menu">
         <h2 class="text-4xl md:text-6xl text-[#e07c0c] font-bold text-center">Our Menu</h2>
         <div class="overflow-x-auto pt-6 p-1 text-sm">
             <div class="inline-flex gap-4 mx-auto">
@@ -51,7 +51,7 @@
                     <div class="p-4 flex flex-col flex-grow">
                         <div class="font-bold pb-2 inline-flex flex-wrap gap-2 items-center">
                             <span class="flex-shrink-0">{{ product.name }}</span>
-                            <span  v-for="item in product.allergens" class="cursor-pointer flex-shrink-0 text-xs p-1 bg-slate-100 rounded-full border w-4 h-4 grid place-content-center">
+                            <span  v-for="item in product.allergens" class="cursor-pointer font-medium flex-shrink-0 text-gray-500 text-xs p-1 bg-slate-50 rounded-full border w-4 h-4 grid place-content-center">
                                 {{ menuData.allergens.find((al) => al.uid == item).name }}
                             </span>
                         </div>

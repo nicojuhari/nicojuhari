@@ -74,8 +74,9 @@ onMounted(() => {
                 </div>
 
                 <nav class="hidden md:flex items-center gap-6 justify-end">
-                    <a href="#">Menu</a>
-                    <a href="#">About</a>
+                    <a href="#our-menu">Menu</a>
+                    <a href="#gallery">Gallery</a>
+                    <a href="#about">About</a>
                 </nav>
                 <div class="md:hidden">
                     <svg width="32" height="32" viewBox="0 0 24 24">
@@ -88,19 +89,19 @@ onMounted(() => {
                     </svg>
                 </div>
             </div>
-            <div class="container flex items-center justify-center flex-col h-[70vh] relative">
+            <div class="container flex items-center justify-center flex-col h-[calc(100vh-4rem)] md:h-[70vh] relative">
                 <h1 class="text-6xl md:text-8xl font-bold text-center tracking-wider text-white opacity-0 translate-y-24" ref="heroTitle">Mama Mia</h1>
                 <div class="uppercase text-sm text-center font-semibold tracking-[8px] md:tracking-[10px] text-[#e07c0c] opacity-0" ref="heroSubtitle">Italian Restaurant</div>
                 <div class="flex gap-4 items-center">
                     <a class="bg-[#0C7C59] text-white tracking-wider py-2 px-4 mt-10 inline-flex items-center justify-center rounded-full uppercase text-base font-semibold opacity-0 translate-y-10"
-                        href="#" ref="viewMenu">View Menu</a>
+                        href="#our-menu" ref="viewMenu">View Menu</a>
                         <button class="bg-[#6D2E46] text-white tracking-wider py-2 px-4 mt-10 inline-flex items-center justify-center rounded-full uppercase text-base font-semibold opacity-0 translate-y-10"
                         ref="heroCTA">Book a Table</button>
                 </div>
                 
             </div>
             <div class="text-white relative">
-                <div class="md:h-24 container py-4 rounded shadow-md flex flex-col md:flex-row gap-6">
+                <div class="md:h-24 container py-4 flex flex-col md:flex-row gap-6">
                     <div class="flex flex-1 gap-4 items-center justify-center md:justify-normal flex-col md:flex-row">
                         <Icon name="ph:clock-light" class="w-10 h-10 text-[#0C7C59]"/>
                         <div class="text-center md:text-left">
