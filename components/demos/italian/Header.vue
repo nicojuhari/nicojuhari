@@ -3,62 +3,20 @@
 import { gsap } from "gsap";
 const bgImgURL = 'https://images.unsplash.com/photo-1600628421060-939639517883?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340';
 
-// const heroTitle = ref(null)
-//     gsap.from(heroTitle.value, {
-//         opacity: 0,
-//         y: 100,
-//         duration: 1,
-//         delay: 0.5,
-//         ease: "power3.out",
-//     });
-// });
-
-const heroTitle = ref(null)
-const heroSubtitle = ref(null)
-const heroCTA = ref(null)
-const viewMenu = ref(null)
-
 onMounted(() => {
-    gsap.to(heroTitle.value, {
-        opacity: 1,
-        y: 0,
-        duration: 1,
-        delay: 0.5,
-        ease: "power3.out",
-    });
-
-    gsap.to(heroSubtitle.value, {
-        opacity: 1,
-        y: 0,
-        duration: 1,
-        delay: 1,
-        ease: "power3.out",
-    });
-
-    gsap.to(heroCTA.value, {
-        opacity: 1,
-        y: 0,
-        duration: 1,
-        delay: 1.5,
-        scale: 1,
-        ease: "power3.out",
-    });
-
-    gsap.to(viewMenu.value, {
-        opacity: 1,
-        y: 0,
-        duration: 1,
-        delay: 1.3,
-        scale: 1,
-        ease: "power3.out",
-    });
+    const tl = gsap.timeline({ defaults: { ease: "power3.out", duration: .7 } });
+    const toOptions = { opacity: 1, y: 0}
+    
+    tl.to('[data-gsap-title]', { ...toOptions })
+        .to('[data-gsap-subtitle]', { ...toOptions }, '-=0.3')
+        .to('[data-gsap-btn]', { ...toOptions ,stagger: .2 }, '-=0.3')
 });
 
 </script>
 
 <template>
     <div>
-        <Body class="bg-gray-100" />
+        <Body class="bg-gray-50" />
         <div class="relative bg-center bg-no-repeat bg-cover" :style="`background-image:url(${bgImgURL})`">
             <div class="absolute top-0 left-0 h-full w-full bg-black opacity-70"></div>
             <div class="container relative text-white py-4 flex items-center justify-between h-16">
@@ -90,15 +48,18 @@ onMounted(() => {
                 </div>
             </div>
             <div class="container flex items-center justify-center flex-col h-[calc(100vh-4rem)] md:h-[70vh] relative">
-                <h1 class="text-6xl md:text-8xl font-bold text-center tracking-wider text-white opacity-0 translate-y-24" ref="heroTitle">Mama Mia</h1>
-                <div class="uppercase text-sm text-center font-semibold tracking-[8px] md:tracking-[10px] text-[#e07c0c] opacity-0" ref="heroSubtitle">Italian Restaurant</div>
-                <div class="flex gap-4 items-center">
-                    <a class="bg-[#0C7C59] text-white tracking-wider py-2 px-4 mt-10 inline-flex items-center justify-center rounded-full uppercase text-base font-semibold opacity-0 translate-y-10"
-                        href="#our-menu" ref="viewMenu">View Menu</a>
-                        <button class="bg-[#6D2E46] text-white tracking-wider py-2 px-4 mt-10 inline-flex items-center justify-center rounded-full uppercase text-base font-semibold opacity-0 translate-y-10"
-                        ref="heroCTA">Book a Table</button>
+                <div class="mask">
+                    <h1 data-gsap-title class="text-6xl md:text-8xl font-bold text-center tracking-wider text-white opacity-0 translate-y-24">Mama Mia</h1>
                 </div>
-                
+                <div class="mask">
+                    <h2 data-gsap-subtitle class="uppercase text-sm text-center font-semibold tracking-[8px] md:tracking-[10px] text-[#e07c0c] opacity-0 -translate-y-24">Italian Restaurant</h2>
+                </div>
+                <div class="flex gap-4 items-center">
+                    <a data-gsap-btn class="bg-[#0C7C59] text-white tracking-wider py-2 px-4 mt-10 inline-flex items-center justify-center rounded-full uppercase text-base font-semibold opacity-0 translate-y-10"
+                        href="#our-menu">View Menu</a>
+                        <button data-gsap-btn class="bg-[#6D2E46] text-white tracking-wider py-2 px-4 mt-10 inline-flex items-center justify-center rounded-full uppercase text-base font-semibold opacity-0 translate-y-10">Book a Table</button>
+                </div>
+
             </div>
             <div class="text-white relative">
                 <div class="md:h-24 container py-4 flex flex-col md:flex-row gap-6">

@@ -23,17 +23,25 @@ useHead({
     <div id="gallery" class="container relative pt-10">
         <h2 class="text-4xl md:text-6xl text-[#e07c0c] font-bold text-center my-8 md:my-12">Gallery</h2>
         <div class="grid md:grid-cols-4 md:grid-rows-[repeat(2,218px)] gap-4 grid-cols-2 grid-rows-[repeat(4,180px)]">
-            <div class="w-full h-full bg-cover bg-no-repeat row-span-2 hover:-translate-y-2 duration-700" style="background-image:url('https://images.pexels.com/photos/1741285/pexels-photo-1741285.jpeg');"></div>
-            <div class="w-full h-full bg-cover bg-no-repeat row-span-2 hover:-translate-y-2 duration-700" style="background-image:url('https://images.pexels.com/photos/784633/pexels-photo-784633.jpeg');"></div>
-            <div class="w-full h-full bg-cover bg-no-repeat row-span-1 md:col-start-3 md:col-span-1 md:row-start-1 row-start-3 hover:-translate-y-2 duration-700" style="background-image:url('https://images.pexels.com/photos/4431588/pexels-photo-4431588.jpeg');"></div>
-            <div class="w-full h-full bg-cover bg-no-repeat row-span-1 md:col-start-4 col-span-1 md:row-start-1 row-start-3 hover:-translate-y-2 duration-700" style="background-image:url('https://images.pexels.com/photos/2899737/pexels-photo-2899737.jpeg');"></div>
-            <div class="w-full h-full bg-cover bg-no-repeat row-span-1 md:col-start-3 col-span-2 md:row-start-2 row-start-4 hover:-translate-y-2 duration-700" style="background-image:url('https://images.pexels.com/photos/2788792/pexels-photo-2788792.jpeg');"></div>
-
+            <div class="row-span-2 hover:-translate-y-2 duration-700">
+                <img src="https://images.pexels.com/photos/1741285/pexels-photo-1741285.jpeg" alt="Italian Restaurant Gallery" class="w-full h-full object-cover" loading="lazy">
+            </div>
+            <div class="row-span-2 hover:-translate-y-2 duration-700">
+                <img src="https://images.pexels.com/photos/784633/pexels-photo-784633.jpeg" alt="Italian Restaurant Gallery" class="w-full h-full object-cover" loading="lazy">
+            </div>
+            <div class="row-span-1 md:col-start-3 md:col-span-1 md:row-start-1 row-start-3 hover:-translate-y-2 duration-700">
+                <img src="https://images.pexels.com/photos/4431588/pexels-photo-4431588.jpeg" alt="Italian Restaurant Gallery" class="w-full h-full object-cover" loading="lazy">
+            </div>
+            <div class="row-span-1 md:col-start-4 col-span-1 md:row-start-1 row-start-3 hover:-translate-y-2 duration-700">
+                <img src="https://images.pexels.com/photos/2899737/pexels-photo-2899737.jpeg" alt="Italian Restaurant Gallery" class="w-full h-full object-cover" loading="lazy">
+            </div>
+            <div class="row-span-1 md:col-start-3 col-span-2 md:row-start-2 row-start-4 hover:-translate-y-2 duration-700">
+                <img src="https://images.pexels.com/photos/2788792/pexels-photo-2788792.jpeg" alt="Italian Restaurant Gallery" class="w-full h-full object-cover" loading="lazy">
+            </div>
         </div>
-
     </div>
     
-    <div id="about" class="container relative pt-10 pb-36 md:pb-40">
+    <div id="about" class="container relative pt-10">
             <h2 class="text-4xl md:text-6xl text-[#e07c0c] font-bold text-center my-8 md:my-12">About us</h2>
             <div class="flex flex-col md:flex-row bg-white rounded-md overflow-hidden relative z-10">
                 <div class="h-[300px] md:h-auto md:w-1/2 shrink-0 bg-no-repeat bg-cover bg-center"
@@ -54,7 +62,7 @@ useHead({
                             href="#">Read More</a>
                 </div>
         </div>
-        <img src="https://cdn.webshopapp.com/shops/92230/files/417462778/mint-a-bundle.jpg" class="h-[300px] rotate-45  absolute md:-right-20 bottom-0 -z-1" />
+        <!-- <img src="https://cdn.webshopapp.com/shops/92230/files/417462778/mint-a-bundle.jpg" class="h-[300px] rotate-45  absolute md:-right-20 bottom-0 -z-1" /> -->
     </div>
     <DemosItalianFooter/>
 </template>
