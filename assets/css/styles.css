@@ -1,3 +1,6 @@
+body.modal-open {
+    overflow: hidden;
+}
 
 section {
     @apply py-16;

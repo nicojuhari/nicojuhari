@@ -43,7 +43,7 @@ useHead({
     
     <div id="about" class="container relative pt-10">
             <h2 class="text-4xl md:text-6xl text-[#e07c0c] font-bold text-center my-8 md:my-12">About us</h2>
-            <div class="flex flex-col md:flex-row bg-white rounded-md overflow-hidden relative z-10">
+            <div class="flex flex-col md:flex-row bg-white rounded-md overflow-hidden relative z-10 shadow">
                 <div class="h-[300px] md:h-auto md:w-1/2 shrink-0 bg-no-repeat bg-cover bg-center"
                     style="background-image:url('https://images.pexels.com/photos/4819658/pexels-photo-4819658.jpeg')">
 

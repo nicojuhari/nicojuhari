@@ -3,6 +3,22 @@
 import { gsap } from "gsap";
 const bgImgURL = 'https://images.unsplash.com/photo-1600628421060-939639517883?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340';
 
+
+const list = [
+    {
+        value: 'Tue - Sun, 10:00 - 23:00',
+        icon: 'ph:clock-light'
+    },
+    {
+        value: 'Cash, Cards, Food Vouchers',
+        icon: 'ph:credit-card-light'
+    },
+    { 
+        value: '1234 Street Name, City Name',
+        icon: 'ph:map-pin-light'
+    }
+]
+
 onMounted(() => {
     const tl = gsap.timeline({ defaults: { ease: "power3.out", duration: .7 } });
     const toOptions = { opacity: 1, y: 0}
@@ -47,7 +63,7 @@ onMounted(() => {
                     </svg>
                 </div>
             </div>
-            <div class="container flex items-center justify-center flex-col h-[calc(100vh-4rem)] md:h-[70vh] relative">
+            <div class="container flex items-center justify-center flex-col h-[calc(80svh-4rem)] md:h-[70vh] relative">
                 <div class="mask">
                     <h1 data-gsap-title class="text-6xl md:text-8xl font-bold text-center tracking-wider text-white opacity-0 translate-y-24">Mama Mia</h1>
                 </div>
@@ -61,34 +77,13 @@ onMounted(() => {
                 </div>
 
             </div>
-            <div class="text-white relative">
-                <div class="md:h-24 container py-4 flex flex-col md:flex-row gap-6">
-                    <div class="flex flex-1 gap-4 items-center justify-center md:justify-normal flex-col md:flex-row">
-                        <Icon name="ph:clock-light" class="w-10 h-10 text-[#0C7C59]"/>
-                        <div class="text-center md:text-left">
-                            <div class="">Working hours</div>
-                            <div class="text-gray-300 font-bold">
-                                10:00 - 23:00
+            <div class="text-slate-200 relative">
+                <div class="md:h-24 container py-4 flex flex-col md:flex-row gap-4">
+                    <div v-for="item in list" :key="item.name" class="flex flex-1 gap-4 items-center bg-black rounded-md p-4 bg-opacity-30 hover:bg-opacity-50 duration-500 cursor-pointer hover:text-white">
+                        <Icon :name="item.icon" class="w-10 h-10 text-[#0C7C59]"/>
+                            <div class="font-semibold">
+                                {{ item.value }}
                             </div>
-                        </div>
-                    </div>
-                    <div class="flex flex-1 gap-4 items-center justify-center md:justify-normal flex-col md:flex-row">
-                        <Icon name="ph:credit-card-light" class="w-10 h-10 text-[#0C7C59]"/>
-                        <div class="text-center md:text-left">
-                            <div class="">We accept:</div>
-                            <div class="text-gray-300 font-bold">
-                                Cash and Cards
-                            </div>
-                        </div>
-                    </div>
-                    <div class="flex flex-1 gap-4 items-center justify-center md:justify-normal flex-col md:flex-row">
-                        <Icon name="ph:map-pin-light" class="w-10 h-10 text-[#0C7C59]"/>
-                        <div class="text-center md:text-left">
-                            <div class="">Our address:</div>
-                            <div class="text-gray-300 font-bold">
-                                City, Street, 123
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>

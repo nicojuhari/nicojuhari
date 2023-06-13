@@ -1,9 +1,11 @@
 <script setup>
     import { ref, watch } from 'vue'
     import { groupProductsByCategory } from '@/utils';
+    import Modal from '@/components/demos/italian/Modal.vue'
 
     const selectedCategory = ref('')
     const filteredCategories = ref([])
+    const viewProduct = ref(null)
 
     const menuURL = 'https://api.1food.menu/v1/menus/l9zwcpvlanynrmthvmb'
 
@@ -44,7 +46,7 @@
         <div class="my-6 overflow-hidden relative" v-for="category in filteredCategories || productsByCategory?.categories">
             <h2 class="text-2xl font-bold">{{category.name}}</h2>
             <div class="flex gap-4 overflow-x-auto snap-x snap-mandatory py-6 px-1">
-                <div v-for="product in productsByCategory.products[category.uid]" :key="product.uid" class="snap-center flex flex-col cursor-pointer rounded-xl bg-white flex-shrink-0 shadow w-72"> 
+                <div v-for="product in productsByCategory.products[category.uid]" :key="product.uid" @click.prevent="viewProduct=product" class="snap-center flex flex-col cursor-pointer rounded-xl bg-white flex-shrink-0 shadow w-72"> 
                     <div class="h-52 w-full image-bg image-bg-2 shrink-0 rounded-t-xl">
                         <div class="image-bg h-full w-full rounded-t-xl" :style="`background-image: url(${product.imageUrl})`"></div>
                     </div>
@@ -85,10 +87,41 @@
                     <div class="min-h-[48px] grid place-content-center">{{ allergen.description }}</div>
                 </div>
             </div>
-            
         </div>
-        
     </section>
+    <Modal v-if="viewProduct" @close="viewProduct = null">
+                <div class="flex flex-col cursor-pointer flex-shrink-0"> 
+                        <div class="h-72 w-full image-bg image-bg-2 shrink-0 rounded-t-xl">
+                            <div class="image-bg h-full w-full rounded-t-xl" :style="`background-image: url(${viewProduct.imageUrl})`"></div>
+                        </div>
+                        <div class="p-4 flex flex-col flex-grow">
+                            <div class="font-bold pb-2 inline-flex flex-wrap gap-2 items-center">
+                                <span class="flex-shrink-0">{{ viewProduct.name }}</span>
+                                <span  v-for="item in viewProduct.allergens" class="cursor-pointer font-medium flex-shrink-0 text-gray-500 text-xs p-1 bg-slate-50 rounded-full border w-4 h-4 grid place-content-center">
+                                    {{ menuData.allergens.find((al) => al.uid == item).name }}
+                                </span>
+                            </div>
+                            <div class="opacity-60 leading-tight w-full mt-auto">{{ viewProduct.description }}</div>
+                            <div class="pt-0">
+                                <div v-for="option in viewProduct.options" class="flex justify-between items-center border-t first:border-t-0 border-dashed border-gray-300 pt-4">
+                                    <div class="text-gray-500 text-sm">{{ option?.size }}</div>
+                                    <div class="flex gap-2 items-center">
+                                        <div v-if="option.salePrice" class="text-gray-700 font-medium text-lg">
+                                            $ {{ option.salePrice }}
+                                        </div>
+                                        <div v-if="option.salePrice" class="text-red-400 line-through opacity-70 text-sm">
+                                             ${{ option.price }}
+                                        </div>
+                                        <div v-else class="text-gray-700 font-medium text-lg">
+                                            ${{ option.price }}
+                                        </div>
+                                        <!-- <span v-if="viewProduct.options?.[1]" class="arrow-down rounded bg-slate-200"></span> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    </Modal>
 </template>
 <style>
 .image-bg, .image-bg-2 {

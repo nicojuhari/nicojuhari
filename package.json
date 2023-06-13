@@ -8,13 +8,13 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
-    "@nuxtjs/tailwindcss": "^6.7.0",
-    "nuxt": "^3.5.1",
+    "@nuxtjs/tailwindcss": "^6.7.2",
+    "nuxt": "^3.5.3",
     "nuxt-icon": "^0.4.1",
     "nuxt-seo-kit": "^1.3.8"
   },
   "dependencies": {
-    "@storyblok/nuxt": "^5.4.7",
-    "gsap": "^3.11.5"
+    "@storyblok/nuxt": "^5.4.9",
+    "gsap": "^3.12.1"
   }
 }
