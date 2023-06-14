@@ -1,3 +1,14 @@
+<script setup>
+    // useHead({
+    //     title: 'Freelance Web Developer',
+    //     meta: [
+    //         {
+    //             name: 'description',
+    //             content: 'Home page description'
+    //         }
+    //     ]
+    // })
+</script>
 <template>
     <div>
         <HomeHero/>

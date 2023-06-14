@@ -11,7 +11,7 @@ export default defineNuxtConfig({
                 id: 'G-YC2EDZRT9H'
             },
             siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'https://nicojuhari.com',
-            // siteName: 'Freelance Web Developer in Vienna, Austria',
+            siteName: 'Freelance Web Developer',
             siteDescription: 'I create pixel-perfect, fast, and SEO-friendly business websites and landing pages. I specialize in websites for restaurants, bars, and cafes.',
             language: 'en', // prefer more explicit language codes like `en-AU` over `en`
         },
