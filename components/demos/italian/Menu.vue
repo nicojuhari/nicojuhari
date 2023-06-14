@@ -42,8 +42,8 @@
 
     const closeSearchBar = (vl = true) => {
         showSearchBar.value = vl
-        filteredCategories.value = [...menuData.value.categories]
         productsByCategory.value = groupProductsByCategory(menuData?.value)
+        filteredCategories.value = [...productsByCategory.value.categories]
         selectedCategory.value = ''
     }
 
@@ -126,7 +126,7 @@
             </div>
             <div class="my-6">
                 <h3 class="text-2xl font-bold">Allergens</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 pt-6 gap-2">
+                <div class="grid grid-cols-1 md:grid-cols-2 pt-6 gap-3 p-6 bg-white rounded shadow-md my-6">
                     <div v-for="allergen in menuData.allergens" class="flex gap-4">
                         <div class="grid place-content-center w-12 bg-gray-200 rounded text-2xl">{{ allergen.name }}</div>
                         <div class="min-h-[48px] grid place-content-center">{{ allergen.description }}</div>
