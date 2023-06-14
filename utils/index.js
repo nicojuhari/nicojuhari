@@ -18,3 +18,22 @@ export function groupProductsByCategory(menu) {
 
     return { products, categories };
 }
+
+export function searchInProducts(term, data) {
+    let filteredData = [];
+
+    if (!term) {
+        return data;
+    }
+
+    term = term.toLocaleLowerCase().trim();
+
+    filteredData = [...data].filter((obj) => {
+        return Object.values(obj)
+            .join(" ")
+            .toLocaleLowerCase()
+            .includes(term);
+    });
+
+    return filteredData;
+};
