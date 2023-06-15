@@ -44,13 +44,13 @@ useHead({
     <div id="about" class="container relative pt-10">
             <h2 class="text-4xl md:text-6xl text-[#e07c0c] font-bold text-center my-8 md:my-12">About us</h2>
             <div class="flex flex-col md:flex-row bg-white rounded-md overflow-hidden relative z-10 shadow">
-                <div class="h-[300px] md:h-auto md:w-1/2 shrink-0 bg-no-repeat bg-cover bg-center"
-                    style="background-image:url('https://images.pexels.com/photos/4819658/pexels-photo-4819658.jpeg')">
+                <div class="h-[300px] md:h-[450px] md:w-1/2 shrink-0 bg-no-repeat bg-cover bg-center"
+                    style="background-image:url('https://images.unsplash.com/photo-1514933651103-005eec06c04b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')">
 
                 </div>
-                <div class="p-10">
+                <div class="p-10 flex flex-col justify-center gap-6">
                     <div class="leading-relaxed text-gray-600 flex flex-col gap-2">
-                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. </p>
+                        <p class="font-bold">Lorem ipsum dolor sit amet consectetur, adipisicing elit. </p>
                         <p>Culpa vel ratione ex quisquam tempora,
                         vitae
                         exercitationem ducimus ullam esse nulla fugiat, quis nisi sequi deserunt molestias provident!</p>
@@ -58,7 +58,7 @@ useHead({
                         architecto.</p>
                         Lorem ipsum dolor sit amet consectetur...
                     </div>
-                    <a class="bg-[#0C7C59] text-white tracking-wider py-2 px-4 mt-10 inline-flex items-center justify-center rounded-full uppercase text-base font-semibold"
+                    <a class="bg-[#0C7C59] text-white tracking-wider py-2 px-4 mt-6 inline-flex items-center justify-center rounded-full uppercase text-base font-semibold"
                             href="#">Read More</a>
                 </div>
         </div>
@@ -67,30 +67,31 @@ useHead({
     <section>
         <div class="container">
             <h2 class="text-4xl md:text-6xl text-[#e07c0c] font-bold text-center my-8 md:my-12">Contacts</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 bg-white shadow-md rounded-md overflow-hidden">
-                <div class="p-6 grid place-content-center">
+            <div class="grid grid-cols-1 md:grid-cols-2 bg-white shadow-md rounded-md overflow-hidden">
+                <div class="p-10 flex flex-col justify-center gap-6">
                     <a class="flex gap-4 items-center" href="tel:+43123456789">
                         <div class="bg-[#0C7C59] bg-opacity-10 rounded-full p-2">
                             <Icon name="ph:phone-light" class="text-[#0C7C59] w-8 h-8 inline-block" />
                         </div>
                         <span class="text-gray-600 text-xl font-medium ">+ 43 123 456 789</span>
                     </a>
-                    <a class="flex gap-4 items-center mt-6" href="mailto:contact@nicojuhari.com">
+                    <a class="flex gap-4 items-center" href="mailto:contact@example.com">
                         <div class="bg-[#0C7C59] bg-opacity-10 rounded-full p-2">
                             <Icon name="ph:envelope-light" class="text-[#0C7C59] w-8 h-8 inline-block" />
                         </div>
-                        <span class="text-gray-600 text-xl font-medium ">contact at nicojuhari.com</span>
+                        <span class="text-gray-600 text-xl font-medium ">contact@example.com</span>
                     </a>
-                    <div class="flex gap-4 items-center mt-6">
+                    <div class="flex gap-4 items-center">
                             <div class="bg-[#0C7C59] bg-opacity-10 rounded-full p-2">
                                 <Icon name="ph:map-pin-light" class="text-[#0C7C59] w-8 h-8 inline-block" />
                             </div>
                             <span class="text-gray-600 text-xl font-medium ">1234 Street Name, City Name</span>
                         </div>
+                    <button class="bg-[#6D2E46] text-white tracking-wider py-2 px-4 mt-6 inline-flex items-center justify-center rounded-full uppercase text-base font-semibold">Book a Table</button>
                 </div>
                 <div>
                     <IncludesGmaps
-                        class="h-[400px]"
+                        class="h-[450px]"
                         src="https://www.google.com/maps/embed/v1/place?q=Freelance+Web+Developer+in+Vienna,+Dieselgasse,+Vienna,+Austria&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"
                     />
                 </div>
