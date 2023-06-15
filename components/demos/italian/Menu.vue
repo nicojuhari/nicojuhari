@@ -40,21 +40,20 @@
         filteredCategories.value = [...productsByCategory.value.categories]
     }
 
-    const closeSearchBar = (vl = true) => {
-        showSearchBar.value = vl
+    const toggleSearchBar = (open = true) => {
+        showSearchBar.value = open
         productsByCategory.value = groupProductsByCategory(menuData?.value)
         filteredCategories.value = [...productsByCategory.value.categories]
         selectedCategory.value = ''
     }
-
 </script>
 <template>
     <section class="pt-0" id="our-menu">
         <div class="sticky top-0 z-50 bg-white shadow">
-            <div class="container">
-                <div class="overflow-x-auto text-sm overflow-y-hidden relative">
+            <div class="container overflow-y-hidden relative">
+                <div class="overflow-x-auto text-sm">
                     <div class="inline-flex gap-4 mx-auto py-4">
-                        <div @click.prevent="showSearchBar = !showSearchBar"
+                        <div @click.prevent="toggleSearchBar"
                                         class="h-10 w-10 flex flex-shrink-0 items-center justify-center bg-gray-600 bg-opacity-10 text-black rounded-full cursor-pointer">
                                         <svg class="w-6 h-6" viewBox="0 0 20 20">
                                             <path fill="currentColor" fill-rule="evenodd"
@@ -68,22 +67,22 @@
                             class="bg-white shadow py-2 px-4 h-10 inline-flex items-center rounded-full cursor-pointer flex-shrink-0 duration-500"> {{
                                 category.name }}</div>
                     </div>
-                    <Transition name="fade">
-                        <div class="flex items-center gap-4 absolute w-full py-4 top-0 bg-white" v-if="showSearchBar">
-                            <div @click.prevent="closeSearchBar(false)"
-                                class="h-10 w-10 flex flex-shrink-0 items-center justify-center bg-gray-600 bg-opacity-10 text-black rounded-full cursor-pointer">
-                                <svg class="w-6 h-6" viewBox="0 0 24 24">
-                                    <path fill="currentColor"
-                                        d="M6.225 4.811a1 1 0 0 0-1.414 1.414L10.586 12L4.81 17.775a1 1 0 1 0 1.414 1.414L12 13.414l5.775 5.775a1 1 0 0 0 1.414-1.414L13.414 12l5.775-5.775a1 1 0 0 0-1.414-1.414L12 10.586L6.225 4.81Z" />
-                                </svg>
-                            </div>
-                            <div class="w-full max-w-sm relative">
-                                <input type="text" @input="filterProducts" placeholder="Search ..."
-                                    class="h-10 border rounded-full px-4 w-full" ref="searchBar" />
-                            </div>
-                        </div>
-                    </Transition>
                 </div>
+                <Transition name="fade">
+                            <div class="flex items-center gap-4 absolute left-0 w-full py-4 top-0 bg-white" v-if="showSearchBar">
+                                <div @click.prevent="toggleSearchBar(false)"
+                                    class="h-10 w-10 flex flex-shrink-0 items-center justify-center bg-gray-600 bg-opacity-10 text-black rounded-full cursor-pointer">
+                                    <svg class="w-6 h-6" viewBox="0 0 24 24">
+                                        <path fill="currentColor"
+                                            d="M6.225 4.811a1 1 0 0 0-1.414 1.414L10.586 12L4.81 17.775a1 1 0 1 0 1.414 1.414L12 13.414l5.775 5.775a1 1 0 0 0 1.414-1.414L13.414 12l5.775-5.775a1 1 0 0 0-1.414-1.414L12 10.586L6.225 4.81Z" />
+                                    </svg>
+                                </div>
+                                <div class="w-full max-w-sm relative">
+                                    <input type="text" @input="filterProducts" placeholder="Search ..."
+                                        class="h-10 border rounded-full px-4 w-full" ref="searchBar" />
+                                </div>
+                            </div>
+                        </Transition>
             </div>
         </div>
         <div class="container"> 
@@ -123,6 +122,9 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            <div v-if="!productsByCategory?.categories?.length" class="grid place-content-center bg-gray-100 text-2xl h-72 my-4 rounded">
+                No products found
             </div>
             <div class="my-6">
                 <h3 class="text-2xl font-bold">Allergens</h3>

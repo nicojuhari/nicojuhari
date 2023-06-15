@@ -20,7 +20,7 @@ useHead({
 <template>
     <DemosItalianHeader/>
     <DemosItalianMenu/>
-    <div id="gallery" class="container relative pt-10">
+    <div id="gallery" class="container relative">
         <h2 class="text-4xl md:text-6xl text-[#e07c0c] font-bold text-center my-8 md:my-12">Gallery</h2>
         <div class="grid md:grid-cols-4 md:grid-rows-[repeat(2,218px)] gap-4 grid-cols-2 grid-rows-[repeat(4,180px)]">
             <div class="row-span-2 hover:-translate-y-2 duration-700">
@@ -64,5 +64,38 @@ useHead({
         </div>
         <!-- <img src="https://cdn.webshopapp.com/shops/92230/files/417462778/mint-a-bundle.jpg" class="h-[300px] rotate-45  absolute md:-right-20 bottom-0 -z-1" /> -->
     </div>
+    <section>
+        <div class="container">
+            <h2 class="text-4xl md:text-6xl text-[#e07c0c] font-bold text-center my-8 md:my-12">Contacts</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 bg-white shadow-md rounded-md overflow-hidden">
+                <div class="p-6 grid place-content-center">
+                    <a class="flex gap-4 items-center" href="tel:+43123456789">
+                        <div class="bg-[#0C7C59] bg-opacity-10 rounded-full p-2">
+                            <Icon name="ph:phone-light" class="text-[#0C7C59] w-8 h-8 inline-block" />
+                        </div>
+                        <span class="text-gray-600 text-xl font-medium ">+ 43 123 456 789</span>
+                    </a>
+                    <a class="flex gap-4 items-center mt-6" href="mailto:contact@nicojuhari.com">
+                        <div class="bg-[#0C7C59] bg-opacity-10 rounded-full p-2">
+                            <Icon name="ph:envelope-light" class="text-[#0C7C59] w-8 h-8 inline-block" />
+                        </div>
+                        <span class="text-gray-600 text-xl font-medium ">contact at nicojuhari.com</span>
+                    </a>
+                    <div class="flex gap-4 items-center mt-6">
+                            <div class="bg-[#0C7C59] bg-opacity-10 rounded-full p-2">
+                                <Icon name="ph:map-pin-light" class="text-[#0C7C59] w-8 h-8 inline-block" />
+                            </div>
+                            <span class="text-gray-600 text-xl font-medium ">1234 Street Name, City Name</span>
+                        </div>
+                </div>
+                <div>
+                    <IncludesGmaps
+                        class="h-[400px]"
+                        src="https://www.google.com/maps/embed/v1/place?q=Freelance+Web+Developer+in+Vienna,+Dieselgasse,+Vienna,+Austria&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"
+                    />
+                </div>
+            </div>
+        </div>
+    </section>
     <DemosItalianFooter/>
 </template>
