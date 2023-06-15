@@ -5,18 +5,21 @@
                 :class="{ 'to-close': toClose == true }">
                 <div class="modal-backdrop fixed z-[95] min-h-screen w-full top-0 left-0 bg-black bg-opacity-30" @click="closeModal"></div>
                 <div class="modal-container bg-white rounded-xl z-[100] m-auto w-full flex flex-col flex-1 max-h-full relative overflow-hidden max-w-[375px] shadow-lg">
-                    <div class="modal-close cursor-pointer bg-black text-white absolute bg-opacity-50 transition-all p-1 rounded-full right-2 top-2"
-                        @click="closeModal">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                        </svg>
-                    </div>
+                    <slot name="modalHeader" :closeModal="closeModal">
+                        <div class="modal-close cursor-pointer bg-black text-white absolute bg-opacity-50 transition-all p-1 rounded-full right-2 top-2"
+                            @click="closeModal">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </div>
+                    </slot>
                     <div class="modal-content overflow-y-auto h-full flex-1">
                         <div class="overflow-y-hidden">
-                            <slot></slot>
+                            <slot :closeModal="closeModal"></slot>
                         </div>
                     </div>
+                    <slot name="modalFooter" :closeModal="closeModal" ></slot>
                 </div>
             </div>
         </Teleport>

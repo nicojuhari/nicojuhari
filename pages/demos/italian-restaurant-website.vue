@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from "vue";
+import Modal from '@/components/demos/italian/Modal.vue'
 // import { createMenu } from "https://cdn.jsdelivr.net/npm/1food-menu/dist/1food-menu.mjs"
 definePageMeta({ layout: 'demos' })
 
@@ -14,11 +15,12 @@ useHead({
     },
 })
 
+const showBookTableModal = ref(false)
 
 
 </script>
 <template>
-    <DemosItalianHeader/>
+    <DemosItalianHeader @showBookTableModal="showBookTableModal = true"/>
     <DemosItalianMenu/>
     <div id="gallery" class="container relative">
         <h2 class="text-4xl md:text-6xl text-[#e07c0c] font-bold text-center my-8 md:my-12">Gallery</h2>
@@ -87,7 +89,7 @@ useHead({
                             </div>
                             <span class="text-gray-600 text-xl font-medium ">1234 Street Name, City Name</span>
                         </div>
-                    <button class="bg-[#6D2E46] text-white tracking-wider py-2 px-4 mt-6 inline-flex items-center justify-center rounded-full uppercase text-base font-semibold">Book a Table</button>
+                    <button @click.prevent="showBookTableModal = true" class="bg-[#6D2E46] text-white tracking-wider py-2 px-4 mt-6 inline-flex items-center justify-center rounded-full uppercase text-base font-semibold">Book a Table</button>
                 </div>
                 <div>
                     <IncludesGmaps
@@ -99,4 +101,13 @@ useHead({
         </div>
     </section>
     <DemosItalianFooter/>
+    <Modal modalTitle="Book a Table" v-if="showBookTableModal" @close="showBookTableModal = false">
+        <template #modalHeader="{ closeModal }">
+            <div class="px-6 pt-4 pb-0 flex justify-between">
+                <h3 class="text-2xl">Book a Table</h3>
+                <Icon name="ph:x-light" class="w-8 h-8 cursor-pointer" @click="closeModal"/>
+            </div>
+        </template>
+        <DemosItalianModalsTableBook/>
+    </Modal>
 </template>

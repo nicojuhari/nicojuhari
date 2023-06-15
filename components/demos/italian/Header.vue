@@ -1,24 +1,9 @@
 <script setup>
-
+// import { SubHeader } from './SubHeader.vue'
 import { gsap } from "gsap";
 const bgImgURL = 'https://images.unsplash.com/photo-1600628421060-939639517883?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340';
 
-
-const list = [
-    {
-        value: 'Tue - Sun, 10:00 - 23:00',
-        icon: 'ph:clock-light'
-    },
-    {
-        value: 'Cash, Cards, Food Vouchers',
-        icon: 'ph:credit-card-light'
-    },
-    { 
-        value: '1234 Street Name, City Name',
-        icon: 'ph:map-pin-light'
-    }
-]
-
+defineEmits(['showBookTableModal']);
 onMounted(() => {
     const tl = gsap.timeline({ defaults: { ease: "power3.out", duration: .7 } });
     const toOptions = { opacity: 1, y: 0}
@@ -73,20 +58,11 @@ onMounted(() => {
                 <div class="flex gap-4 items-center">
                     <a data-gsap-btn class="bg-[#0C7C59] text-white tracking-wider py-2 px-4 mt-10 inline-flex items-center justify-center rounded-full uppercase text-base font-semibold opacity-0 translate-y-10"
                         href="#our-menu">View Menu</a>
-                        <button data-gsap-btn class="bg-[#6D2E46] text-white tracking-wider py-2 px-4 mt-10 inline-flex items-center justify-center rounded-full uppercase text-base font-semibold opacity-0 translate-y-10">Book a Table</button>
+                        <button data-gsap-btn @click="$emit('showBookTableModal')" class="bg-[#6D2E46] text-white tracking-wider py-2 px-4 mt-10 inline-flex items-center justify-center rounded-full uppercase text-base font-semibold opacity-0 translate-y-10">Book a Table</button>
                 </div>
 
             </div>
-            <div class="text-slate-200 relative">
-                <div class="md:h-24 container py-4 flex flex-col md:flex-row gap-4">
-                    <div v-for="item in list" :key="item.name" class="flex flex-1 gap-4 items-center bg-black rounded-md p-4 bg-opacity-30 hover:bg-opacity-50 duration-500 cursor-pointer hover:text-white border border-white border-opacity-10">
-                        <Icon :name="item.icon" class="w-10 h-10 text-[#0C7C59]"/>
-                            <div class="font-semibold">
-                                {{ item.value }}
-                            </div>
-                    </div>
-                </div>
-            </div>
+            <DemosItalianSubHeader/>
         </div>
     </div>
 </template>
