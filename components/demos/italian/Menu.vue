@@ -49,7 +49,7 @@
 
 </script>
 <template>
-    <section class="pt-0">
+    <section class="pt-0" id="our-menu">
         <div class="sticky top-0 z-50 bg-white shadow">
             <div class="container">
                 <div class="overflow-x-auto text-sm overflow-y-hidden relative">
