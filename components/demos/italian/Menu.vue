@@ -1,10 +1,9 @@
 <script setup>
-    import { ref, watchEffect, watch } from 'vue'
+    import { ref, watch } from 'vue'
     import { groupProductsByCategory, searchInProducts } from '@/utils';
     import Modal from '@/components/demos/italian/Modal.vue'
 
     const selectedCategory = ref('')
-    const filteredCategories = ref([])
     const viewProduct = ref(null)
     const showSearchBar = ref(false)
 
@@ -20,30 +19,21 @@
 
     watch(menuData, () => {
         productsByCategory.value = groupProductsByCategory(menuData?.value)
-        filteredCategories.value = [...productsByCategory.value.categories]
     }, { immediate: true })
 
-    const filterCategories = (category_id) => {
-
-        if (!category_id) {
-            selectedCategory.value = ''
-            filteredCategories.value = [...productsByCategory.value.categories]
-            return
-        }
-        selectedCategory.value = category_id
-        filteredCategories.value = [...productsByCategory.value.categories].filter(category => category.uid == category_id)
+    const scrollTo = (category_id) => {
+        let targetBlock = document.getElementById(category_id);
+        targetBlock.scrollIntoView({ behavior: 'smooth' });
     }
 
     const filterProducts = (ev) => {
         let products = searchInProducts(ev.target.value, [...menuData.value.products])
         productsByCategory.value = groupProductsByCategory({ categories: [...menuData.value.categories], products})
-        filteredCategories.value = [...productsByCategory.value.categories]
     }
 
     const toggleSearchBar = (open = true) => {
         showSearchBar.value = open
         productsByCategory.value = groupProductsByCategory(menuData?.value)
-        filteredCategories.value = [...productsByCategory.value.categories]
         selectedCategory.value = ''
     }
 </script>
@@ -61,8 +51,8 @@
                                                 clip-rule="evenodd" />
                                         </svg>
                                     </div>
-                        <div v-for="category in [{ uid: '', name: 'View All' }, ...productsByCategory?.categories]"
-                            :key="category.uid" @click="filterCategories(category.uid)"
+                        <div v-for="category in productsByCategory?.categories"
+                            :key="category.uid" @click="scrollTo(category.uid)"
                             :class="{ '!bg-[#0C7C59] bg-opacity-70 text-white': selectedCategory == category.uid }"
                             class="bg-white shadow py-2 px-4 h-10 inline-flex items-center rounded-full cursor-pointer flex-shrink-0 duration-500"> {{
                                 category.name }}</div>
@@ -86,7 +76,8 @@
             </div>
         </div>
         <div class="container"> 
-            <div class="my-6 overflow-hidden relative" v-for="category in filteredCategories || productsByCategory?.categories">
+            <div class="my-6 overflow-hidden relative" v-for="category in productsByCategory?.categories">
+                <div :id="category.uid" class="h-0 w-0 opacity-0 -z-10 -translate-y-[90px]"></div>
                 <h2 class="text-2xl font-bold">{{ category.name }}</h2>
                 <div v-if="category.description" class="my-2">{{ category.description }}</div>
                 <div class="flex gap-4 overflow-x-auto snap-x snap-mandatory py-6 px-1">
