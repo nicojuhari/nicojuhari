@@ -39,8 +39,9 @@
 </script>
 <template>
     <section class="pt-0" id="our-menu">
-        <div class="sticky top-0 z-50 bg-white shadow">
-            <div class="container overflow-y-hidden relative">
+        <h2 class="text-4xl md:text-6xl text-[#e07c0c] font-bold text-center my-8 md:my-12">Menu</h2>
+        <div class="sticky top-0 z-50 bg-gray-50">
+            <div class="container overflow-y-hidden relative border-b">
                 <div class="overflow-x-auto text-sm">
                     <div class="inline-flex gap-4 mx-auto py-4">
                         <div @click.prevent="toggleSearchBar"
@@ -140,8 +141,8 @@
                         </span>
                     </div>
                     <div class="opacity-60 leading-tight w-full mt-auto">{{ viewProduct.description }}</div>
-                    <div class="pt-0">
-                        <div v-for="option in viewProduct.options" class="flex justify-between items-center border-t first:border-t-0 border-dashed border-gray-300 pt-4">
+                    <div class="pt-2">
+                        <div v-for="option in viewProduct.options" class="flex justify-between items-center border-t first:border-t-0 border-dashed border-gray-300 py-2">
                             <div class="text-gray-500 text-sm">{{ option?.size }}</div>
                             <div class="flex gap-2 items-center">
                                 <div v-if="option.salePrice" class="text-gray-700 font-medium text-lg">

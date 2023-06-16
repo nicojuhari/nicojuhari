@@ -48,8 +48,8 @@ onMounted(() => {
                     </svg>
                 </div>
             </div>
-            <div class="container flex items-center justify-center flex-col h-[calc(80svh-4rem)] md:h-[70vh] relative">
-                <div class="mask">
+            <div class="container flex items-center justify-center flex-col h-[calc(100svh-4rem)] md:h-[85vh] relative">
+                <div class="mask mt-[150px] md:mt-[260px]">
                     <h1 data-gsap-title class="text-6xl md:text-8xl font-bold text-center tracking-wider text-white opacity-0 translate-y-24">Mama Mia</h1>
                 </div>
                 <div class="mask">
@@ -60,8 +60,12 @@ onMounted(() => {
                         href="#our-menu">View Menu</a>
                         <button data-gsap-btn @click="$emit('showBookTableModal')" class="bg-[#6D2E46] text-white tracking-wider py-2 px-4 mt-10 inline-flex items-center justify-center rounded-full uppercase text-base font-semibold opacity-0 translate-y-10">Book a Table</button>
                 </div>
-
+                <div class="mt-auto p-6 max-w-sm">
+                    <DemosItalianReviews />
+                </div>
             </div>
+        </div>
+        <div class="bg-white">
             <DemosItalianSubHeader/>
         </div>
     </div>
