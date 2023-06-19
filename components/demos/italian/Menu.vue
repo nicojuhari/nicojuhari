@@ -1,11 +1,27 @@
 <script setup>
-    import { ref, watch } from 'vue'
+    import { ref, watch, onMounted } from 'vue'
+    // import { useScroll } from '@vueuse/core'
+
     import { groupProductsByCategory, searchInProducts } from '@/utils';
     import Modal from '@/components/demos/italian/Modal.vue'
 
     const selectedCategory = ref('')
     const viewProduct = ref(null)
     const showSearchBar = ref(false)
+
+    const menuNav = ref(null)
+    const menuNavYPosition = ref(0)
+
+    onMounted(() => {
+
+        //add scroll event listener
+        window.addEventListener('scroll', () => {
+            // get element positio on page
+            menuNavYPosition.value = menuNav.value.getBoundingClientRect().top
+        })
+    })
+
+
 
     const menuURL = 'https://api.1food.menu/v1/menus/l9zwcpvlanynrmthvmb'
 
@@ -39,11 +55,11 @@
 </script>
 <template>
     <section class="pt-0" id="our-menu">
-        <h2 class="text-4xl md:text-6xl text-[#e07c0c] font-bold text-center my-8 md:my-12">Menu</h2>
-        <div class="sticky top-0 z-50 bg-gray-50">
-            <div class="container overflow-y-hidden relative border-b">
+        <!-- <h2 class="text-3xl md:text-5xl text-[#221919] font-semibold text-center my-8 md:my-12">Menu</h2> -->
+        <div class="sticky top-0 z-50 bg-white"  ref="menuNav" :class="menuNavYPosition <= 0 && 'shadow'">
+            <div class="container overflow-y-hidden relative">
                 <div class="overflow-x-auto text-sm">
-                    <div class="inline-flex gap-4 mx-auto py-4">
+                    <div class="inline-flex gap-4 mx-auto py-6">
                         <div @click.prevent="toggleSearchBar"
                                         class="h-10 w-10 flex flex-shrink-0 items-center justify-center bg-gray-600 bg-opacity-10 text-black rounded-full cursor-pointer">
                                         <svg class="w-6 h-6" viewBox="0 0 20 20">
@@ -60,7 +76,7 @@
                     </div>
                 </div>
                 <Transition name="fade">
-                            <div class="flex items-center gap-4 absolute left-0 w-full py-4 top-0 bg-white" v-if="showSearchBar">
+                            <div class="flex items-center gap-4 absolute left-0 w-full py-6 top-0 bg-white" v-if="showSearchBar">
                                 <div @click.prevent="toggleSearchBar(false)"
                                     class="h-10 w-10 flex flex-shrink-0 items-center justify-center bg-gray-600 bg-opacity-10 text-black rounded-full cursor-pointer">
                                     <svg class="w-6 h-6" viewBox="0 0 24 24">

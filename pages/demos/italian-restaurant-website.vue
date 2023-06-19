@@ -21,9 +21,16 @@ const showBookTableModal = ref(false)
 </script>
 <template>
     <DemosItalianHeader @showBookTableModal="showBookTableModal = true"/>
+    
     <DemosItalianMenu/>
+    <section class="bg-white">
+        <div class="container">
+            <h2 class="text-3xl md:text-5xl text-[#221919] font-semibold text-center mb-8 md:mb-12">Reviews</h2>
+            <DemosItalianReviews />
+        </div>
+    </section>
     <div id="gallery" class="container relative">
-        <h2 class="text-4xl md:text-6xl text-[#e07c0c] font-bold text-center my-8 md:my-12">Gallery</h2>
+        <h2 class="text-3xl md:text-5xl text-[#221919] font-semibold text-center my-8 md:my-12">Gallery</h2>
         <div class="grid md:grid-cols-4 md:grid-rows-[repeat(2,218px)] gap-4 grid-cols-2 grid-rows-[repeat(4,180px)]">
             <div class="row-span-2 hover:-translate-y-2 duration-700">
                 <img src="https://images.pexels.com/photos/1741285/pexels-photo-1741285.jpeg" alt="Italian Restaurant Gallery" class="w-full h-full object-cover">
@@ -44,7 +51,7 @@ const showBookTableModal = ref(false)
     </div>
     
     <div id="about" class="container relative pt-10">
-            <h2 class="text-4xl md:text-6xl text-[#e07c0c] font-bold text-center my-8 md:my-12">About us</h2>
+        <h2 class="text-3xl md:text-5xl text-[#221919] font-semibold text-center my-8 md:my-12">About us</h2>
             <div class="flex flex-col md:flex-row bg-white rounded-md overflow-hidden relative z-10 shadow">
                 <div class="h-[300px] md:h-[450px] md:w-1/2 shrink-0 bg-no-repeat bg-cover bg-center"
                     style="background-image:url('https://images.unsplash.com/photo-1514933651103-005eec06c04b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')">
@@ -68,7 +75,7 @@ const showBookTableModal = ref(false)
     </div>
     <section>
         <div class="container">
-            <h2 class="text-4xl md:text-6xl text-[#e07c0c] font-bold text-center my-8 md:my-12">Contacts</h2>
+            <h2 class="text-3xl md:text-5xl text-[#221919] font-semibold text-center my-8 md:my-12">Contacts</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 bg-white shadow-md rounded-md overflow-hidden">
                 <div class="p-10 flex flex-col justify-center gap-6">
                     <a class="flex gap-4 items-center" href="tel:+43123456789">

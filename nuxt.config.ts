@@ -1,6 +1,6 @@
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
-    modules: [ '@nuxtjs/tailwindcss', 'nuxt-icon', 'nuxt-swiper', [ "@storyblok/nuxt", { accessToken: 'EzikCGO5TZGapwffPYn4rAtt' }]],
+    modules: [ '@nuxtjs/tailwindcss', '@vueuse/nuxt', 'nuxt-icon', 'nuxt-swiper', [ "@storyblok/nuxt", { accessToken: 'EzikCGO5TZGapwffPYn4rAtt' }]],
     extends: [
         'nuxt-seo-kit'
     ],

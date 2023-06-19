@@ -32,8 +32,8 @@ const list = [
 </script>
 <template>
     <div class="relative">
-        <div class="md:h-24 container py-4 flex flex-col md:flex-row gap-4">
-            <div v-for="item in list" :key="item.name" @click.prevent="openModal(item.id)" class="flex flex-1 gap-4 items-center border-black rounded-md p-4 cursor-pointer border border-opacity-10">
+        <div class="md:h-24 py-4 flex flex-col md:flex-row gap-4 text-white">
+            <div v-for="item in list" :key="item.name" @click.prevent="openModal(item.id)" class="flex flex-1 gap-4 items-center border-white rounded-md p-4 cursor-pointer border border-opacity-40">
                 <Icon :name="item.icon" class="w-10 h-10 text-[#0C7C59]"/>
                     <div class="font-semibold">
                         {{ item.value }}
