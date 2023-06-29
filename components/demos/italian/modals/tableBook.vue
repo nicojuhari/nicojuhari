@@ -40,7 +40,8 @@ const labelClasses = 'block mb-1 text-sm font-medium text-gray-900 dark:text-whi
             <textarea type="number" :class="inputClasses" class="min-h-[100px] max-h-44"></textarea>
         </div>
         <div>
-            <button class="bg-[#6D2E46] text-white w-full tracking-wider py-2 px-4 mt-6 inline-flex items-center justify-center rounded-full uppercase text-base font-semibold">Send</button>
-        </div>
+             <a class="border-[#0C7C59] text-[#0C7C59] border w-full tracking-wider py-2 px-4 mt-6 inline-flex items-center justify-center rounded-full uppercase"
+                                    href="#">Send</a>
+            </div>
     </div>
 </template>

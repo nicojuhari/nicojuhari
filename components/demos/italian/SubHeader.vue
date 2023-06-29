@@ -50,4 +50,30 @@ const list = [
         </template>
         <DemosItalianModalsWorkingHours />
     </Modal>
+    <Modal v-if="showModal && showModalId == 2" @close="closeModal">
+        <template #modalHeader="{ closeModal }">
+            <div class="px-6 pt-4 pb-0 flex justify-between">
+                <h3 class="text-2xl">Payment Methods </h3>
+                <Icon name="ph:x-light" class="w-8 h-8 cursor-pointer" @click="closeModal"/>
+            </div>
+        </template>
+        <div class="p-6">
+            We accept <strong>CASH</strong> and all major <strong>credit cards</strong> (Visa, MasterCard, American Express).
+        </div>
+    </Modal>
+    <Modal v-if="showModal && showModalId == 3" @close="closeModal">
+            <template #modalHeader="{ closeModal }">
+                <div class="px-6 pt-4 pb-0 flex justify-between">
+                    <h3 class="text-2xl">Our Address</h3>
+                    <Icon name="ph:x-light" class="w-8 h-8 cursor-pointer" @click="closeModal"/>
+                </div>
+            </template>
+            <div class="p-6">
+                <div class="mb-6">1234 Street Name, City Name</div>
+                 <IncludesGmaps
+                        class="h-[300px]"
+                        src="https://www.google.com/maps/embed/v1/place?q=Freelance+Web+Developer+in+Vienna,+Dieselgasse,+Vienna,+Austria&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"
+                        />
+            </div>
+        </Modal>
 </template>

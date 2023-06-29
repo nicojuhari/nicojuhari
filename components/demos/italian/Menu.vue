@@ -54,12 +54,12 @@
     }
 </script>
 <template>
-    <section class="pt-0" id="our-menu">
+    <section class="!pt-0" id="our-menu">
         <!-- <h2 class="text-3xl md:text-5xl text-[#221919] font-semibold text-center my-8 md:my-12">Menu</h2> -->
         <div class="sticky top-0 z-50 bg-white"  ref="menuNav" :class="menuNavYPosition <= 0 && 'shadow'">
             <div class="container overflow-y-hidden relative">
                 <div class="overflow-x-auto text-sm">
-                    <div class="inline-flex gap-4 mx-auto py-6">
+                    <div class="inline-flex gap-4 mx-auto py-4">
                         <div @click.prevent="toggleSearchBar"
                                         class="h-10 w-10 flex flex-shrink-0 items-center justify-center bg-gray-600 bg-opacity-10 text-black rounded-full cursor-pointer">
                                         <svg class="w-6 h-6" viewBox="0 0 20 20">
@@ -76,7 +76,7 @@
                     </div>
                 </div>
                 <Transition name="fade">
-                            <div class="flex items-center gap-4 absolute left-0 w-full py-6 top-0 bg-white" v-if="showSearchBar">
+                            <div class="flex items-center gap-4 absolute left-0 w-full py-4 top-0 bg-white" v-if="showSearchBar">
                                 <div @click.prevent="toggleSearchBar(false)"
                                     class="h-10 w-10 flex flex-shrink-0 items-center justify-center bg-gray-600 bg-opacity-10 text-black rounded-full cursor-pointer">
                                     <svg class="w-6 h-6" viewBox="0 0 24 24">
@@ -178,7 +178,6 @@
             </div>
         </Modal>
     </section>
-   
 </template>
 <style>
 .image-bg, .image-bg-2 {
