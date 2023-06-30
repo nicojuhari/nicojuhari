@@ -13,7 +13,7 @@ onMounted(() => {
         .to('[data-gsap-subtitle]', { ...toOptions }, '-=0.3')
         .to('[data-gsap-btn]', { ...toOptions ,stagger: .2 }, '-=0.3')
         .to('[data-gsap-ingredients]', { ...imageOptions, stagger: .2 })
-        .to('[data-gsap-pizza]', { rotate: -360, duration: 1.4, x: 0 }, '-=2.5')
+        .to('[data-gsap-pizza]', { rotate: -180, duration: 1.4, x: 0 }, '-=2.5')
 });
 
 </script>
@@ -52,15 +52,15 @@ onMounted(() => {
         <div class="container flex items-center justify-center flex-col min-h-[calc(100svh-4rem)] md:h-[85vh]">
             <div class="relative mt-[120px] md:mt-[200px]">
                 <div class="mask relative z-10">
-                    <h1 data-gsap-title class="text-6xl md:text-8xl font-bold text-center tracking-wider text-white opacity-0 translate-y-24">Mama Mia</h1>
+                    <h1 data-gsap-title class="text-6xl md:text-9xl font-bold text-center tracking-wider text-white opacity-0 translate-y-24">Mama Mia</h1>
                 </div>
                 <div class="mask">
-                    <h2 data-gsap-subtitle class="uppercase text-sm text-center font-semibold tracking-[8px] md:tracking-[10px] text-[#e07c0c] opacity-0 -translate-y-24">Italian Restaurant</h2>
+                    <h2 data-gsap-subtitle class="uppercase text-sm text-center font-semibold tracking-[8px] md:tracking-[12px] text-[#e07c0c] opacity-0 -translate-y-24">Italian Restaurant</h2>
                 </div>
                 <div class="flex gap-4 items-center justify-center mt-6">
-                    <a data-gsap-btn class="bg-[#0C7C59] text-white tracking-wider py-2 px-4 inline-flex items-center justify-center rounded-full uppercase text-base font-semibold opacity-0 translate-y-10"
+                    <a data-gsap-btn class="bg-[#0C7C59] text-white min-w-[156px] tracking-wider py-2 px-4 inline-flex items-center justify-center rounded-full uppercase opacity-0 translate-y-10"
                         href="#our-menu">View Menu</a>
-                        <button data-gsap-btn @click="$emit('showBookTableModal')" class="bg-[#6D2E46] text-white tracking-wider py-2 px-4 inline-flex items-center justify-center rounded-full uppercase text-base font-semibold opacity-0 translate-y-10">Book a Table</button>
+                        <button data-gsap-btn @click="$emit('showBookTableModal')" class="bg-[#6D2E46] text-white min-w-[156px] tracking-wider py-2 px-4 inline-flex items-center justify-center rounded-full uppercase opacity-0 translate-y-10">Book a Table</button>
                 </div>
                 <div class="mask w-full max-w-sm mx-auto relative flex justify-center mt-10 h-20">
                     <img data-gsap-ingredients src="https://nicojuhari.b-cdn.net/1/home-hero-flour.webp" class="h-20 -translate-x-96 absolute"/>
