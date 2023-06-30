@@ -2,24 +2,25 @@
 // import { SubHeader } from './SubHeader.vue'
 import { gsap } from "gsap";
 const bgImgURL = 'https://1FoodMenu.b-cdn.net/demos/italian-restaurant/home-hero-bg.jpg'
-const tomato = 'https://1FoodMenu.b-cdn.net/demos/italian-restaurant/home-hero-tomato.png'
 
 defineEmits(['showBookTableModal']);
 onMounted(() => {
     const tl = gsap.timeline({ defaults: { ease: "power3.out", duration: .7 } });
     const toOptions = { opacity: 1, y: 0}
+    const imageOptions = { opacity: 1, y: 0, x: "35rem", duration: 3, ease: "power3.out"}
     
     tl.to('[data-gsap-title]', { ...toOptions })
         .to('[data-gsap-subtitle]', { ...toOptions }, '-=0.3')
         .to('[data-gsap-btn]', { ...toOptions ,stagger: .2 }, '-=0.3')
-        .to('[data-gsap-img]', { ...toOptions, stagger: .2 }, '-=0.3')
+        .to('[data-gsap-ingredients]', { ...imageOptions, stagger: .2 })
+        .to('[data-gsap-pizza]', { rotate: -360, duration: 1.4, x: 0 }, '-=2.5')
 });
 
 </script>
 
 <template>
     <div class="relative bg-center bg-no-repeat bg-cover" :style="`background-image:url(${bgImgURL})`">
-        <div class="absolute top-0 left-0 h-full w-full bg-black opacity-50"></div>
+        <div class="absolute top-0 left-0 h-full w-full bg-black opacity-40"></div>
         <div class="container relative text-white py-4 flex items-center justify-between h-16">
             <div class="shrink-0">
                 <svg width="32" height="32" viewBox="0 0 512 512">
@@ -49,18 +50,24 @@ onMounted(() => {
             </div>
         </div>
         <div class="container flex items-center justify-center flex-col min-h-[calc(100svh-4rem)] md:h-[85vh]">
-            <div class="relative mt-[150px] md:mt-[260px]">
+            <div class="relative mt-[120px] md:mt-[200px]">
                 <div class="mask relative z-10">
                     <h1 data-gsap-title class="text-6xl md:text-8xl font-bold text-center tracking-wider text-white opacity-0 translate-y-24">Mama Mia</h1>
                 </div>
-                <img data-gsap-img class="opacity-0 -translate-y-10 w-24 md:w-36 absolute -top-8 -right-6" :src="tomato" alt="tomato">
                 <div class="mask">
                     <h2 data-gsap-subtitle class="uppercase text-sm text-center font-semibold tracking-[8px] md:tracking-[10px] text-[#e07c0c] opacity-0 -translate-y-24">Italian Restaurant</h2>
                 </div>
-                <div class="flex gap-4 items-center justify-center">
-                    <a data-gsap-btn class="bg-[#0C7C59] text-white tracking-wider py-2 px-4 mt-10 inline-flex items-center justify-center rounded-full uppercase text-base font-semibold opacity-0 translate-y-10"
+                <div class="flex gap-4 items-center justify-center mt-6">
+                    <a data-gsap-btn class="bg-[#0C7C59] text-white tracking-wider py-2 px-4 inline-flex items-center justify-center rounded-full uppercase text-base font-semibold opacity-0 translate-y-10"
                         href="#our-menu">View Menu</a>
-                        <button data-gsap-btn @click="$emit('showBookTableModal')" class="bg-[#6D2E46] text-white tracking-wider py-2 px-4 mt-10 inline-flex items-center justify-center rounded-full uppercase text-base font-semibold opacity-0 translate-y-10">Book a Table</button>
+                        <button data-gsap-btn @click="$emit('showBookTableModal')" class="bg-[#6D2E46] text-white tracking-wider py-2 px-4 inline-flex items-center justify-center rounded-full uppercase text-base font-semibold opacity-0 translate-y-10">Book a Table</button>
+                </div>
+                <div class="mask w-full max-w-sm mx-auto relative flex justify-center mt-10 h-20">
+                    <img data-gsap-ingredients src="https://nicojuhari.b-cdn.net/1/home-hero-flour.webp" class="h-20 -translate-x-96 absolute"/>
+                    <img data-gsap-ingredients src="https://nicojuhari.b-cdn.net/1/home-hero-tomato.png" class="h-20 -translate-x-96 absolute"/>
+                    <img data-gsap-ingredients src="https://nicojuhari.b-cdn.net/1/home-hero-cheese.png" class="h-20 -translate-x-96 absolute"/>
+                    <img data-gsap-ingredients src="https://nicojuhari.b-cdn.net/1/home-hero-pepperoni.png" class="h-20 -translate-x-96 absolute"/>
+                    <img data-gsap-pizza src="https://nicojuhari.b-cdn.net/1/home-hero-pizza.png" class="h-20 translate-x-96 absolute"/>
                 </div>
             </div>
             
