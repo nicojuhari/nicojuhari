@@ -55,7 +55,6 @@
 </script>
 <template>
     <section class="!pt-0" id="our-menu">
-        <!-- <h2 class="text-3xl md:text-5xl text-[#221919] font-semibold text-center my-8 md:my-12">Menu</h2> -->
         <div class="sticky top-0 z-50 bg-white"  ref="menuNav" :class="menuNavYPosition <= 0 && 'shadow'">
             <div class="container overflow-y-hidden relative">
                 <div class="overflow-x-auto text-sm">
