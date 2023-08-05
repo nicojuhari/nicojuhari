@@ -2,6 +2,7 @@ export const useDemos = () => {
     return [
         {
             title: "Ristorante Francesco",
+            imgUrl: "https://nicojuhari.b-cdn.net/demos/demo-ristorante-francesco.png",
             url: "ristorante-francesco",
         },
         {
