@@ -17,7 +17,6 @@
   },
   "dependencies": {
     "@storyblok/nuxt": "^5.5.2",
-    "gsap": "^3.12.2",
-    "nuxt-swiper": "^1.2.0"
+    "gsap": "^3.12.2"
   }
 }
