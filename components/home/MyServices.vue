@@ -1,36 +1,34 @@
 <script setup>
 
     let myServices = [
-        { 
-            title: 'Restaurant website',
-            description: 'Excellent website for increasing sales and attracting new customers for your restaurant.',
-            icon: 'restaurant-website.png'
+        {
+            title: 'Business Website',
+            description: 'I can create a great website for your company to demonstrate its strength and generate leads.',
+            icon: 'ph:code-thin'
         },
         {
-            title: 'Business website',
-            description: 'Great website for your company to demonstrate its strength and generate leads.',
-            icon: 'business-website.png'
-        },
-        {
-        title: 'Maintenance & Support',
-        description: 'I will fix any JavaScript, CSS, or HTML error, website updates, and other minor tasks.',
-        icon: 'maintenance-support.png'
-    }
+            title: 'Maintenance & Support',
+            description: 'I can resolve any JavaScript, CSS, or HTML issues, perform website updates, and tackle other small tasks.',
+            icon: 'ph:gear-six-thin'
+        }
     ]
 </script>
 <template>
-    <section>
+    <section class="bg-white text-black">
         <div class="container">
-            <div class="subtitle my-10 text-center">Services</div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-20 md:gap-6 pt-20">
-                <div v-for="item in myServices" class=" p-6 rounded-xl card-box-shadow hover:-translate-y-3 duration-700">
-                    <div class="flex flex-col gap-6 -mt-20">
-                        <img :src="'/' + item.icon" :alt="item.title" :title="item.title" class="h-40 m-auto"/>
-                        <h3 class="font-medium text-center text-2xl text-brand-color">{{ item.title }}</h3>
-                        <p class="text-lg font-light text-center">{{ item.description }}</p>
+            <div class="subtitle mb-10 text-center">My Services</div>
+            <div class="flex flex-col md:flex-row justify-center gap-10">
+                <div v-for="item in myServices" class="p-6 rounded bg-brand-gray bg-opacity-20 border border-brand-gray max-w-sm">
+                    <div class="grid place-content-center py-11">
+                        <Icon :name="item.icon" class="w-16 flex-shrink-0 h-16 text-brand-color"/>
                     </div>
+                    <h3 class="font-medium text-center text-xl mb-6">{{ item.title }}</h3>
+                    <p class="text-lg font-light">{{ item.description }}</p>
                 </div>
+            </div>
+            <div class="mt-16 flex justify-center">
+                <a href="https://forms.gle/UX2VPKUwyyFdSXbw9" class="btn btn-outline btn-light" target="blank" title="Let's work together">Let's work together</a>
             </div>
         </div>
     </section>
-</template>
+</template>  

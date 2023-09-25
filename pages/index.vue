@@ -13,11 +13,11 @@
     <div>
         <HomeHero/>
         <HomeMyServices/>
-        <!-- <HomeCurrentProject/> -->
         <HomeMyStack/>
-        <section>
+        <!-- <HomeCurrentProject/> -->
+        <section class="bg-white text-black">
             <div class="container">
-                <div class="subtitle my-10 text-center">Projects</div>
+                <div class="subtitle mb-10 text-center">My Projects</div>
                 <ProjectsList :projects_limit=3 :view_all_projects=true />
             </div>
         </section>

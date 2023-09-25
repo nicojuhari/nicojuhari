@@ -9,14 +9,14 @@
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^6.8.0",
-    "@vueuse/core": "^10.3.0",
-    "@vueuse/nuxt": "^10.3.0",
-    "nuxt": "^3.6.5",
-    "nuxt-icon": "^0.4.2",
-    "nuxt-seo-kit": "^1.3.9"
+    "@vueuse/core": "^10.4.1",
+    "@vueuse/nuxt": "^10.4.1",
+    "nuxt": "^3.7.3",
+    "nuxt-icon": "^0.5.0",
+    "nuxt-seo-kit": "^1.3.13"
   },
   "dependencies": {
-    "@storyblok/nuxt": "^5.5.2",
+    "@storyblok/nuxt": "^5.6.13",
     "gsap": "^3.12.2"
   }
 }

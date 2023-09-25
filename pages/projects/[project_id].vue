@@ -19,9 +19,9 @@ useHead({
         <div class="mx-auto max-w-xl" v-if="story">
             
             <div>
-                <img :src="story.content.image.filename" :alt="story.content.title" :title="story.content.title" class="w-full bg-slate-100 object-center object-fill" />
+                <img :src="story.content.image.filename" :alt="story.content.title" :title="story.content.title" class="w-full bg-slate-100 object-center object-fill rounded-lg" />
             </div>
-            <h1 class="text-3xl mb-10 font-bold text-center">{{ story.content.title }}</h1>
+            <h1 class="text-3xl my-10 font-bold text-center">{{ story.content.title }}</h1>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-center">
                 <div>Created in: <strong>{{ story.content.year }}</strong></div>
                 <div class="md:text-right font-semibold">{{ story.content.stack }}</div>
