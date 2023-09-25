@@ -7,8 +7,8 @@
             icon: 'ph:code-thin'
         },
         {
-            title: 'Website Optimization',
-            description: 'I will improve and redesign your website until the conversion rate at least doubles.',
+            title: 'CRO',
+            description: 'I will improve and optimize your website until the conversion rate at least doubles.',
             icon: 'ph:trend-up-thin'
         },
         {

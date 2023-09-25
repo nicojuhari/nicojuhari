@@ -31,7 +31,7 @@ stories.value = data.stories;
                 </div>
                 <div class="py-4 px-2">
                     <h2 class="text-lg font-medium">{{ story.content.title}}</h2>
-                    <p class="mt-4 line-clamp-2 text-gray-500 text-sm"><strong>{{ story.content.year }}</strong> - {{ story.content.stack }}</p>
+                    <p class="mt-4 line-clamp-2 text-gray-500 text-sm">{{ story.content.stack }}</p>
                 </div>
             </NuxtLink>
         </div>

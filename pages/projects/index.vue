@@ -9,7 +9,7 @@
     })
 </script>
 <template>
-    <div class="container">
+    <div class="container my-10">
         <div class="subtitle my-10 text-center">Projects</div>
         <ProjectsList/>
     </div>
