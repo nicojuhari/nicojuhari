@@ -27,7 +27,7 @@ stories.value = data.stories;
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
             <NuxtLink :to="`/projects/${story.slug}`" v-for="story in stories" class="border-opacity-50">
                 <div class="rounded-lg overflow-hiddden border-gray-100">
-                    <img :src="story.content.image?.filename" :alt="story.content.title" :title="story.content.title" class="rounded-lg" />
+                    <img :src="story.content.image?.filename" :alt="story.content.title" :title="story.content.title" class="rounded-lg" loading="lazy" />
                 </div>
                 <div class="py-4 px-2">
                     <h2 class="text-lg font-medium">{{ story.content.title}}</h2>
