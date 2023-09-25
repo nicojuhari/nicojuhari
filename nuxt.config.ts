@@ -12,7 +12,7 @@ export default defineNuxtConfig({
             },
             siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'https://nicojuhari.com',
             siteName: 'Freelance Web Developer',
-            siteDescription: 'I create pixel-perfect, fast, and SEO-friendly business websites and landing pages. I specialize in websites for restaurants, bars, and cafes.',
+            siteDescription: 'I create pixel-perfect, fast, and SEO-friendly business websites and landing pages. Also, I optimize websites in order to increase the conversion rate.',
             language: 'en', // prefer more explicit language codes like `en-AU` over `en`
         },
         siteUrl: 'https://nicojuhari.com',

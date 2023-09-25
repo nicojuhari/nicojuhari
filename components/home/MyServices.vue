@@ -2,13 +2,18 @@
 
     let myServices = [
         {
-            title: 'Business Website',
-            description: 'I can create a great website for your company to demonstrate its strength and generate leads.',
+            title: 'Website Development',
+            description: 'I will create a great website for your business to demonstrate its strength and generate leads.',
             icon: 'ph:code-thin'
         },
         {
+            title: 'Website Optimization',
+            description: 'I will improve and redesign your website until the conversion rate at least doubles.',
+            icon: 'ph:trend-up-thin'
+        },
+        {
             title: 'Maintenance & Support',
-            description: 'I can resolve any JavaScript, CSS, or HTML issues, perform website updates, and tackle other small tasks.',
+            description: 'I will resolve any JavaScript, CSS, or HTML issues, and tackle other small tasks.',
             icon: 'ph:gear-six-thin'
         }
     ]
@@ -17,7 +22,7 @@
     <section class="bg-white text-black">
         <div class="container">
             <div class="subtitle mb-10 text-center">My Services</div>
-            <div class="flex flex-col md:flex-row justify-center gap-10">
+            <div class="grid grid-cols-1 md:grid-cols-3 justify-center gap-10">
                 <div v-for="item in myServices" class="p-6 rounded bg-brand-gray bg-opacity-20 border border-brand-gray max-w-sm">
                     <div class="grid place-content-center py-11">
                         <Icon :name="item.icon" class="w-16 flex-shrink-0 h-16 text-brand-color"/>

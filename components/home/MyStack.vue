@@ -50,7 +50,7 @@ let myStack = [
     {
         name: 'WordPress',
         icon: 'wordpress-icon',
-        bgColor: '#C9C3B9'
+        bgColor: '#f4f4f4'
     }
 ]
 </script>
