@@ -25,10 +25,10 @@
             <div class="grid grid-cols-1 md:grid-cols-3 justify-center gap-10">
                 <div v-for="item in myServices" class="p-6 rounded border-opacity-20 border border-brand-gray max-w-sm">
                     <div class="grid place-content-center py-11">
-                        <Icon :name="item.icon" class="w-16 flex-shrink-0 h-16 text-brand-gray"/>
+                        <Icon :name="item.icon" class="w-16 flex-shrink-0 h-16 text-brand-gray opacity-20"/>
                     </div>
-                    <h3 class="font-medium text-center text-xl mb-6">{{ item.title }}</h3>
-                    <p class="text-lg font-light">{{ item.description }}</p>
+                    <h3 class="text-center text-xl mb-6">{{ item.title }}</h3>
+                    <p class="font-light text-brand-gray">{{ item.description }}</p>
                 </div>
             </div>
             <div class="mt-16 flex justify-center">

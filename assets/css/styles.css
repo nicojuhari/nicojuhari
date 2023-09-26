@@ -27,23 +27,26 @@ section {
 }
 
 .btn {
-    @apply h-9 px-6 rounded inline-flex gap-3 items-center max-w-max text-white bg-brand-blue text-sm;
-}
-.btn-light {
-    @apply bg-brand-blue-light;
+    @apply h-9 px-6 rounded inline-flex gap-3 items-center max-w-max text-white bg-brand-blue-light text-sm;
 }
 
 .btn-outline {
-    @apply bg-opacity-0 text-brand-blue border border-brand-blue
-}
-
-.btn-light.btn-outline {
-    @apply text-brand-blue-light border-brand-blue-light
+    @apply bg-opacity-0 text-brand-blue-light border border-brand-blue-light
 }
 
 .btn-link {
-    @apply border-0 underline bg-transparent text-brand-blue
+    @apply border-0 underline bg-transparent text-brand-blue-light
 }
+
+.btn-dark {
+    @apply bg-brand-blue;
+}
+
+.btn-dark.btn-outline {
+    @apply text-brand-blue border-brand-blue
+}
+
+
 
 
 .line-clamp-2 {

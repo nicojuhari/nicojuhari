@@ -30,7 +30,7 @@ stories.value = data.stories;
                     <img :src="story.content.image?.filename" :alt="story.content.title" :title="story.content.title" class="rounded-lg" loading="lazy" />
                 </div>
                 <div class="py-4 px-2">
-                    <h2 class="text-lg font-medium">{{ story.content.title}}</h2>
+                    <h2 class="text-lg">{{ story.content.title}}</h2>
                     <p class="mt-4 line-clamp-2 text-gray-500 text-sm">{{ story.content.stack }}</p>
                 </div>
             </NuxtLink>
