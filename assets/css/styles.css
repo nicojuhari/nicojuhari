@@ -27,7 +27,7 @@ section {
 }
 
 .btn {
-    @apply h-10 px-6 rounded flex gap-3 items-center max-w-max text-white bg-brand-blue;
+    @apply h-9 px-6 rounded inline-flex gap-3 items-center max-w-max text-white bg-brand-blue text-sm;
 }
 .btn-light {
     @apply bg-brand-blue-light;
@@ -39,6 +39,10 @@ section {
 
 .btn-light.btn-outline {
     @apply text-brand-blue-light border-brand-blue-light
+}
+
+.btn-link {
+    @apply border-0 underline bg-transparent text-brand-blue
 }
 
 

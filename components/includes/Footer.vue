@@ -1,9 +1,9 @@
 <template>
-    <footer class="py-6 text-center bg-brand-color text-white">
+    <footer class="py-6 text-center border-t border-brand-gray border-opacity-5">
         <div>&copy; {{ new Date().getFullYear() }} - <span>Freelance Web Developer</span></div>
-        <div class="mt-6">
+        <div class="mt-6 flex gap-6 items-center justify-center">
             <a target="_blank" href="https://github.com/nicojuhari" title="GitHub Profile" alt="GitHub Profile"><Icon name="bxl:github" class="w-8 h-8" /></a>
+            <a target="_blank" href="https://twitter.com/nicojuhari" title="Twitter Profile" alt="Twitter Profile"><Icon name="ri:twitter-x-line" class="w-8 h-8" /></a>
         </div>
-       
     </footer>
 </template>

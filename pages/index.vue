@@ -15,7 +15,7 @@
         <HomeMyServices/>
         <HomeMyStack/>
         <!-- <HomeCurrentProject/> -->
-        <section class="bg-white text-black">
+        <section>
             <div class="container">
                 <div class="subtitle mb-10 text-center">My Projects</div>
                 <ProjectsList :projects_limit=3 :view_all_projects=true />
