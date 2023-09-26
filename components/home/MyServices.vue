@@ -28,7 +28,7 @@
                         <Icon :name="item.icon" class="w-16 flex-shrink-0 h-16 text-brand-gray opacity-20"/>
                     </div>
                     <h3 class="text-center text-xl mb-6">{{ item.title }}</h3>
-                    <p class="font-light text-brand-gray">{{ item.description }}</p>
+                    <p class="font-light">{{ item.description }}</p>
                 </div>
             </div>
             <div class="mt-16 flex justify-center">

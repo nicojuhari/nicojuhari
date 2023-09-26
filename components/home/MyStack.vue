@@ -65,7 +65,7 @@ let myStack = [
                         <div class="icon-glow" :style="`background: ${item.bgColor};`"></div>
                     </div>
 
-                    <span class="text-center">{{ item.name }}</span>
+                    <span class="text-center font-light">{{ item.name }}</span>
                 </div>
             </div>
         </div>
