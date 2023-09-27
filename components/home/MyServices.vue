@@ -32,7 +32,7 @@
                 </div>
             </div>
             <div class="mt-16 flex justify-center">
-                <a href="https://forms.gle/UX2VPKUwyyFdSXbw9" class="btn btn-outline btn-light" target="blank" title="Let's work together">Let's work together</a>
+                <a href="https://forms.gle/UX2VPKUwyyFdSXbw9" class="btn btn-outline btn-light" target="blank" title="Let's work together">Hire me</a>
             </div>
         </div>
     </section>
