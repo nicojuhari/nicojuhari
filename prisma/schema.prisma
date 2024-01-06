@@ -1,0 +1,56 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider     = "mysql"
+  url      = env("DATABASE_URL")
+  relationMode = "prisma"
+}
+
+model Menu {
+  id Int @id @default(autoincrement())
+	menu_uid String @unique
+	categories Json @default("[]")
+	products Json @default("[]")
+	configs Json
+	promos Json @default("[]")
+	allergens Json @default("[]")
+	bundles Json @default("[]")
+	updated_at DateTime @updatedAt
+	created_at DateTime @default(now())
+
+  userMenu UserMenu[]
+
+  @@map("menus")
+}
+
+model MenuSubs {
+  id Int @id @default(autoincrement())
+  menu_uid String @unique
+	subs_uid String @unique
+	price_uid String
+	prod_name String @db.VarChar(255)
+	subs_interval String @db.VarChar(255)
+	valid_before DateTime @db.Date
+	is_active Boolean @default(true)
+	updated_at DateTime @updatedAt
+	created_at DateTime @default(now())
+
+  @@map("menus_subs")
+}
+
+model UserMenu {
+  id Int @id @default(autoincrement())
+  menu_id Int @unique
+  user_uid String @db.VarChar(191)
+	updated_at DateTime @updatedAt
+	created_at DateTime @default(now())
+
+  menu Menu @relation(fields: [menu_id], references: [id])
+
+  @@map("user_menus")
+}
