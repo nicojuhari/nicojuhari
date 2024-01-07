@@ -1,30 +1,50 @@
 // import { serverSupabaseUser } from '#supabase/server';
+import { getAuth } from "firebase-admin/auth";
+import { initializeApp, cert, getApp } from "firebase-admin/app";
+
+/**
+ * Make sure that we initialize the firebase app only once
+ */
+
+
 
 export default defineEventHandler(async (event) => {
+    const { path, headers } = event
 
-//     const user = await getUserFromSession(event);
-    
-    
-//     const regex = /^\/(login|api\/auth\/me|api\/auth\/login)/;
+    if(path.includes('/api/')) {
+        try {
+        console.time('timeA')
+        createFirebaseApp()
 
-//   // Test if the route matches the regex
-//     regex.test(event.path);
-//     // const user = await getUserFromSession(event);
-//         // console.log(user)
-//     console.log(11111);
-//     if (user) event.context.user = user;
+        const token: string = headers.get('authorization') || ''
 
-//     // console.log(event.path, " : ", regex.test(event.path))
+        if(!token) {
+            throw 'Please sign in'
+        }
 
-//     if(!regex.test(event.path)) {
+        await getAuth().verifyIdToken(token)
+
+        console.timeEnd('timeA')
         
-//         if (!user) {
-//             // throw createError({
-//             //     statusCode: 401,
-//             //     message: 'API auth: Unauthorized',
-//             // });
-//         }
-
-//     }
-        
+        } catch (err: any) {
+            throw createError({
+                statusCode: 401,
+                message: 'Unauthorized',
+            }); 
+        }
+    }        
 });
+
+const createFirebaseApp = () => {
+    const config: any = useRuntimeConfig();
+    
+    try {
+        return getApp();
+    } catch {
+        const firebaseConfig = {
+            credential: cert({ ...config.firebaseAdmin }),
+        };
+        console.log('start firebase app')
+        return initializeApp(firebaseConfig);
+    }
+};

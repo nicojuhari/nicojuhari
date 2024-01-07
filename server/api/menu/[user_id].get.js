@@ -3,8 +3,7 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 export default defineEventHandler(async (event) => {
-
-    const user = event.context?.user
+    const userId = getRouterParam(event, 'user_id')
 
     return await prisma.menu.findMany({
         where: {
@@ -12,7 +11,7 @@ export default defineEventHandler(async (event) => {
                 in: await prisma.userMenu
                     .findMany({
                         where: {
-                            user_uid: user.uid,
+                            user_uid: userId,
                         },
                         select: {
                             menu_id: true,

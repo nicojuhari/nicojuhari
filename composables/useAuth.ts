@@ -4,6 +4,7 @@ import {
   inMemoryPersistence,
   setPersistence,
   signInWithPopup,
+  getAuth
 } from "firebase/auth";
 
 export const useAuth = () => {
@@ -18,6 +19,10 @@ export const useAuth = () => {
   const setCookie = (cookie: any) => {
     cookie.value = cookie;
   };
+
+  const getUserToken = async () => {
+    return await $auth.currentUser?.getIdToken(true);
+  }
 
   const me = async () => {
     if (!authUser.value) {
@@ -39,17 +44,17 @@ export const useAuth = () => {
   const loginWithGoogle = async () => {
     try {
       const provider = new GoogleAuthProvider();
-      await setPersistence($auth, inMemoryPersistence);
+      // await setPersistence($auth, inMemoryPersistence);
       const result = await signInWithPopup($auth, provider);
       const firebaseIdToken = await getIdToken(result.user);
 
       // send firebaseIdToken to server
-      const data: any = await $fetch("/api/auth/login", {
-        method: "POST",
-        body: JSON.stringify({ firebaseIdToken }),
-      });
+      // const data: any = await $fetch("/api/auth/login", {
+      //   method: "POST",
+      //   body: JSON.stringify({ firebaseIdToken }),
+      // });
 
-      setUser(data.user);
+      setUser(result.user);
 
       //redirect
       const router = useRouter();
@@ -77,6 +82,7 @@ export const useAuth = () => {
   return {
     logout,
     loginWithGoogle,
+    getUserToken,
     me,
   };
 };

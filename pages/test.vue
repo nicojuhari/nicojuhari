@@ -1,5 +1,8 @@
 <script setup>
-    const { data } = useFetch('/api/hello')
+    const { getUserToken } = useAuth()
+    const { data } = useFetch('/api/hello', {
+        headers: { 'Authorization': await getUserToken() }
+    })
 </script>
 <template>
     <div>

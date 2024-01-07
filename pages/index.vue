@@ -1,7 +1,12 @@
-<script setup>
-    const user = useUser()
 
-    const { data } = useFetch('/api/menu/get-one-menu')
+<script setup>
+    
+    const user = useUser()
+    const { getUserToken } = useAuth()
+
+    const { data } = useFetch(`/api/menu/${user.value.uid}`, {
+        headers: { 'Authorization': await getUserToken() }
+    })
 </script>
 <template>
 
@@ -12,4 +17,6 @@
     <pre>
         {{ data  }}
     </pre>
+
+    hello
 </template>

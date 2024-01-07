@@ -1,5 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  ssr: false,
   devtools: { enabled: true },
   modules: ['@nuxt/ui', '@formkit/nuxt'],
   css: ['~/assets/css/main.css'],
@@ -24,7 +25,7 @@ export default defineNuxtConfig({
         storageBucket: "app1foodmenu.appspot.com",
         messagingSenderId: "805781398319",
         appId: "1:805781398319:web:444b670b478571cbb577da",
-        measurementId: "G-KTK8CV812G",
+        measurementId: process.env.MEASUREMENT_ID,
       }
     }
   }
