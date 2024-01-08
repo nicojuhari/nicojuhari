@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    @apply relative block w-full disabled:cursor-not-allowed disabled:opacity-75 focus:outline-none border-0 form-input rounded-md placeholder-gray-400 dark:placeholder-gray-500 text-sm px-2.5 py-1.5 shadow-sm bg-white dark:bg-gray-900 text-gray-900 dark:text-white ring-1 ring-inset ring-gray-300 dark:ring-gray-700 focus:ring-2 focus:ring-primary-500 dark:focus:ring-primary-400;
+}
+
+.formkit-form>.formkit-outer:not(:first-child) {
+    @apply mt-6;
+}
+
+[data-message-type=validation],
+[data-message-type=ui] {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-size: .875rem;
+    line-height: 1.25rem;
+    --tw-text-opacity: 1;
+    color: rgb(214 64 69 / var(--tw-text-opacity));
+}
+
+[data-invalid] .formkit-input {
+    border: 1px solid;
+    --tw-border-opacity: 1;
+    border-color: rgb(214 64 69 / var(--tw-border-opacity));
+}
+
+[data-invalid] .formkit-input, .formkit-input:focus {
+    box-shadow: none;
+}
