@@ -48,9 +48,11 @@ watch(error, () => {
                             <div class="mt-4 font-bold text-lg">{{ item.products.length }}</div>
                         </div>
                     </div>
-                    <div class="mt-auto" title="Your Plan">
-                        <UBadge v-if="item.isFromLocal" size="xs">Free</UBadge>
-                        <UBadge v-else size="xs" color="orange">Pro</UBadge>
+                    <div class="mt-auto">
+                        <UTooltip text="Your Plan">
+                            <UBadge v-if="item.isFromLocal" size="xs">Free</UBadge>
+                            <UBadge v-else size="xs" color="orange">Pro</UBadge>
+                        </UTooltip>
                     </div>
                 </UCard>
             </NuxtLink>

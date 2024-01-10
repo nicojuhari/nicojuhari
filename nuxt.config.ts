@@ -2,15 +2,10 @@
 export default defineNuxtConfig({
   ssr: false,
   devtools: { enabled: true },
-  modules: ['@nuxt/ui', '@formkit/nuxt'],
+  modules: ['@nuxt/ui', '@formkit/nuxt', '@vueuse/nuxt'],
   css: ['~/assets/css/main.css'],
   ui: {
-    icons: ["ph"],
-    card: {
-      body: {
-        base: 'flex'
-      }
-    }
+    icons: ["ph"]
   },
   runtimeConfig: {
     firebaseAdmin: {

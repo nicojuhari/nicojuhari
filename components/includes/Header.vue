@@ -15,8 +15,8 @@ const menuItems = [
 
 </script>
 <template>
-    <header class="border-b bg-white sticky top-0 z-20 h-14">
-        <div class="container flex items-center justify-between gap-6 py-2">
+    <header class="border-b bg-white sticky top-0 z-30 h-14 flex items-center">
+        <div class="container flex items-center justify-between gap-6 h-full">
             <div class="flex flex-shrink-0 items-center gap-6">
                 <NuxtLink to="/" class="flex-shrink-0 flex gap-2 items-center">
                     <img src="/logo.svg" class="w-14" />

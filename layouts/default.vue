@@ -2,9 +2,11 @@
 
 </script>
 <template>
-    <IncludesHeader />
-    <main class="min-h-[calc(100vh-56px)]">
-        <slot></slot>
-    </main>
-    <IncludesFooter />
+    <div class="min-h-screen flex flex-col">
+        <IncludesHeader />
+        <main>
+            <slot></slot>
+        </main>
+        <IncludesFooter class="mt-auto" />
+    </div>
 </template>
