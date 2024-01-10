@@ -4,6 +4,14 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ['@nuxt/ui', '@formkit/nuxt'],
   css: ['~/assets/css/main.css'],
+  ui: {
+    icons: ["ph"],
+    card: {
+      body: {
+        base: 'flex'
+      }
+    }
+  },
   runtimeConfig: {
     firebaseAdmin: {
       "type": "service_account",

@@ -14,8 +14,6 @@ export default defineNuxtPlugin(async () => {
 
     const auth = getAuth(firebaseApp);
 
-    console.log('plugin', auth)
-
     return {
         provide: {
             auth

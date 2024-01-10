@@ -77,7 +77,7 @@
                 </div>
             </FormKit>
             <div class="text-center w-full mt-10">
-                <a @click.prevent="signUp = !signUp; reset('loginForm')" class="cursor-pointer">
+                <a @click.prevent="signUp = !signUp" class="cursor-pointer">
                     <span v-if="signUp">Already have an account? <b class="text-brand-primary ml-1">Sign In</b></span>
                     <span v-else>No account yet? <b class="text-brand-primary ml-1">Create a Free Account</b></span>
                 </a>
