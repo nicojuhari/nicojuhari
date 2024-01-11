@@ -1,5 +1,13 @@
 <script setup lang="ts">
-const blocksArray = [
+
+type MenuItem = {
+    id: string,
+    label: string,
+    iconName: string,
+    badge?: string
+}
+
+const blocksArray: Array<MenuItem> = [
     {
         id: '',
         label: 'Main',
@@ -55,7 +63,7 @@ const blocksArray = [
                     :class="{ 'bg-white': $route.params.sub_page == item.id }">
                     <UIcon :name="item.iconName" class="flex-shrink-0 w-5 h-5" />
                     {{ item.label }}
-                    <UBadge v-if="item.badge" class="ml-auto">{{ item.badge }}</UBadge>
+                    <UBadge v-if="item?.badge" class="ml-auto">{{ item?.badge }}</UBadge>
                 </NuxtLink>
             </div>
         </div>
