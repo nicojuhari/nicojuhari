@@ -5,7 +5,7 @@
     <footer>
         <div class="border-t bg-white mt-6 py-4">
             <div class="onefm-container flex items-center justify-center gap-4 lg:gap-6 pt-2">
-                <UButton  to="https://1food.menu/contact" target="_blank">
+                <UButton color="brand-blue"  to="https://1food.menu/contact" target="_blank">
                     <UIcon name="i-ph-chat-circle-dots-light" class="w-5 h-5" />
                     Help & Support
                 </UButton>

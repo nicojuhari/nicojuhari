@@ -7,6 +7,7 @@
     const toggleNav = () => {
         return showNav.value = !showNav.value;
     }
+    
 </script>
 <template>
     <div class="menu-layout bg-gray-50">

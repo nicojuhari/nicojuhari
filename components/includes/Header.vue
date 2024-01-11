@@ -1,4 +1,5 @@
-<script setup lang="ts">
+<script setup>
+
 const { logout } = useAuth();   
 const router = useRouter();
 const menuItems = [

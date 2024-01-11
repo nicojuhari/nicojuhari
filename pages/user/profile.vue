@@ -1,20 +1,31 @@
-<script setup>
-const user = useUser()
+<script setup lang="ts">
+const user : any = useUser();
 // import { ref } from 'vue'
 
-const portalKey = import.meta.env.VITE_STRIPE_PORTAL_KEY
-// const { resetPassword } = useAuth();
+// const portalKey = import.meta.env.VITE_STRIPE_PORTAL_KEY
+const { resetPassword } = useAuth();
 
 
-const resetPasswordMessage = ref('')
+const resetPasswordMessage = reactive({
+    success: false,
+    message: ''
+})
 // const user = auth.currentUser
 
 const resetUserPassword = async () => {
     try {
-        // await resetPassword(auth.currentUser.email)
-        resetPasswordMessage.value = 'Check your email, for reset password link'
+        const result = await resetPassword(user?.value?.email)
+
+        resetPasswordMessage.success = result.success
+        resetPasswordMessage.message = result.message
+        
     } catch (e) {
         console.log(e)
+    } finally {
+        setTimeout(()=> {
+            resetPasswordMessage.success = false
+            resetPasswordMessage.message = ''
+        }, 4000)
     }
 
 }
@@ -37,7 +48,11 @@ const resetUserPassword = async () => {
                     <div>Password:</div>
                     <a href="#" class="font-medium underline text-brand-color" @click.prevent="resetUserPassword"> Reset
                         password</a>
-                    <div v-if="resetPasswordMessage" class="text-brand-red">{{ resetPasswordMessage }}</div>
+                    <div v-if="resetPasswordMessage.message" class="text-sm mb-4 duration-300"
+                        :class="resetPasswordMessage.success ? 'text-brand-success' : 'text-brand-error'"
+                        >
+                        {{ resetPasswordMessage.message }}
+                    </div>
                 </div>
                 <div class="flex gap-4">
                     <div>Account created:</div>

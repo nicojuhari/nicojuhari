@@ -71,19 +71,19 @@ export const useAuth = () => {
   }
 
   const resetPassword = async (email: string) => {
-        try {
-            await sendPasswordResetEmail($auth, email);
-            return {
-                success: true,
-                message: "If your email exist in our database, soon you should receive an email",
-            };
-        } catch (err) {
-            console.log(err);
-            return {
-                success: false,
-                message: "Unforunately, an error occured",
-            };;
-        }
+    try {
+        await sendPasswordResetEmail($auth, email);
+        return {
+            success: true,
+            message: "If your email exist in our database, soon you should receive an email",
+        };
+    } catch (err) {
+        console.log(err);
+        return {
+            success: false,
+            message: "Unforunately, an error occured",
+        };;
+    }
     };
 
   const logout = () => {
@@ -96,6 +96,7 @@ export const useAuth = () => {
     logout,
     getUserToken,
     loginUser,
-    redirectTo
+    redirectTo,
+    resetPassword
   };
 };

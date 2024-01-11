@@ -12,12 +12,12 @@
                     <img src="/logo.svg" class="w-14" />
                 </NuxtLink>
             </div>
-            <UDropdown :items="menuItems" mode="hover" :popper="{ placement: 'bottom-start' }">
+            <!-- <UDropdown :items="menuItems" mode="hover" :popper="{ placement: 'bottom-start' }">
                 <UIcon name="i-ph-user-circle-light" class="w-8 h-8"></UIcon>
                 <template #logout>
                     <div class="text-brand-error" @click="logout">Logout</div>
                 </template>
-            </UDropdown>
+            </UDropdown> -->
         </div>
     </header>
 </template>
