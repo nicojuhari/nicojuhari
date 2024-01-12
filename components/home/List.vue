@@ -8,7 +8,7 @@ const { getUserToken } = useAuth()
 const allMenus = ref(JSON.parse(localStorage.getItem('oneFoodMenu') || '[]'));
 
 //from Database
-const { data, error, pending } = useFetch(`/api/menu/${user.value?.uid }`, {
+const { data, error, pending } = useFetch(`/api/menu/${user?.value?.uid }`, {
     headers: { 'Authorization': await getUserToken() } as {}
 })
 

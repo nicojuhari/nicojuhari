@@ -13,7 +13,7 @@ export default defineEventHandler(async (event) => {
 
     if(path.includes('/api/')) {
         try {
-        console.time('timeA')
+        // console.time('timeA')
         createFirebaseApp()
 
         const token: string = headers.get('authorization') || ''
@@ -24,7 +24,7 @@ export default defineEventHandler(async (event) => {
 
         await getAuth().verifyIdToken(token)
 
-        console.timeEnd('timeA')
+        // console.timeEnd('timeA')
         
         } catch (err: any) {
             throw createError({

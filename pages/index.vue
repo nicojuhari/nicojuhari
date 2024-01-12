@@ -1,10 +1,13 @@
 
 <script setup>
-    
-</script>
+    const user = useUser()
+</script>   
 <template>
-    <Body class="bg-gray-50"></Body>
-    <div class="container">
-        <HomeList/>
+    <div>
+        <Body class="bg-gray-50"></Body>
+        <div class="container">
+            {{  user }}
+            <HomeList/>
+        </div>
     </div>
 </template>

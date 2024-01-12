@@ -11,6 +11,7 @@
 
 </script>
 <template>
+    <div>
     <UCard class="my-4">
         <div class="flex items-center justify-between flex-col lg:flex-row gap-4 mb-6">
           <h3 class="text-xl">Categories</h3>
@@ -61,4 +62,5 @@
     <UModal v-model="isModalOpen">
         <MenuCategoryForm @close="isModalOpen = false"/>
     </UModal>
+    </div>
 </template>
