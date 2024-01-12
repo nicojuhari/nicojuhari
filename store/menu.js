@@ -3,6 +3,14 @@ import { defineStore } from "pinia";
 
 export const useMenuStore = defineStore("menu", () => {
     //state
+
+
+    // type Menu = {
+    //     uid: string,
+    //     categories: Array<unknown>,
+    //     products: Array<unknown>,
+    // };
+
     const menu = ref(null);
 
     const fetchMenu = async (menu_id) => {

@@ -28,7 +28,27 @@ export const search = (q: string, array: Array<string>) => {
     });
 };
 
-export const searchInTable = (q: string, array: Array<string>) => {
+export function searchArray<T>(array: T[], condition: (item: T) => boolean): { item: T; index: number } | null {
+
+    console.log(array, condition);
+    for (let i = 0; i < array.length; i++) {
+        if (condition(array[i])) {
+            return { item: array[i], index: i };
+        }
+    }
+    return null;
+}
+
+export function updateItemInArray<T>(array: T[], index: number, newItem: T): T[] {
+    if (index >= 0 && index < array.length) {
+        // Create a new array with the updated item
+        return [...array.slice(0, index), newItem, ...array.slice(index + 1)];
+    }
+    // If the index is out of bounds, return the original array
+    return array;
+}
+
+export function searchInTable (q: string, array: Array<string>) {
   if (!q) {
     return array
   }

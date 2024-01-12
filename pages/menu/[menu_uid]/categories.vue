@@ -1,19 +1,25 @@
 <script setup>
+    import { storeToRefs } from "pinia"
     import { useMenuStore } from '~/store/menu';
-    // import { storeToRefs } from 'pinia';
-   
+    import { viewCategoryId } from '~/composables/useAppStatus';
+
+
 
     const isModalOpen = ref(false)
-    const { menuCategories } = useMenuStore()
-    // const { menuCategories } = storeToRefs(useMenuStore())
+    // const { menuCategories } = useMenuStore()
+    const { menuCategories } = storeToRefs(useMenuStore())
     const q = ref('')
-    const filteredCategories = computed(() => searchInTable(q.value, menuCategories))
+    const filteredCategories = computed(() => searchInTable(q.value, menuCategories.value))
+
+    const viewCategory = (id) => {
+        viewCategoryId.value =  id
+        isModalOpen.value = true
+    }
 
 </script>
 <template>
     <div>
-    <UCard class="my-4">
-        <div class="flex items-center justify-between flex-col lg:flex-row gap-4 mb-6">
+        <div class="flex items-center justify-between gap-4 mb-4">
           <h3 class="text-xl">Categories</h3>
           <UButton color="brand-blue" @click="isModalOpen = true" icon="i-ph-plus" label="New Category"/>
         </div>
@@ -21,8 +27,6 @@
             <UInput v-model="q" placeholder="Filter categories ..." />
         </div>
         <div v-if="filteredCategories.length">
-            
-            
             <div class="overflow-auto w-full max-h-[600px] rounded-md border" >
                  <table class="table-auto min-w-[800px] divside-y divide-gray-300 w-full">
                     <thead>
@@ -45,7 +49,7 @@
                                 <UButton outlined icon="pi pi-angle-down" @click.prevent="moveCategory(idx, idx + 1)">
         
                                 </UButton> -->
-                                <UButton outlined icon="pi pi-pencil" @click="$emit('viewCategory', item.uid)">
+                                <UButton variant="outline" color="gray"  icon="i-ph-eye" @click.prevent="() => viewCategory(item.uid)">
                             
                                 </UButton>
                             </td>
@@ -58,7 +62,6 @@
         <UiEmptyBlock v-else>
             No Categories
         </UiEmptyBlock>
-    </UCard>
     <UModal v-model="isModalOpen">
         <MenuCategoryForm @close="isModalOpen = false"/>
     </UModal>

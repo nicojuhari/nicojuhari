@@ -1,6 +1,6 @@
-<script setup>
+<script setup lang="ts">
 import { useRouter, useRoute } from 'vue-router';
-// import { postAPI } from '@/utils/API';
+import { type Menu } from '~/types';
 
 const props = defineProps({
     upgrade: {
@@ -29,7 +29,7 @@ const router = useRouter();
 const route = useRoute();
 const isLoading = ref(false)
 
-const newMenuSchema = ref({
+const newMenuSchema = ref<Menu>({
     menu_uid: '',
     products: [],
     categories: [],
@@ -45,7 +45,7 @@ const createMenuLocal = async () => {
 
     isLoading.value = true
     const menuIdLocal = 'oneFoodMenu'
-    const oneFoodMenu = JSON.parse(localStorage.getItem(menuIdLocal)) || [];
+    const oneFoodMenu = JSON.parse(localStorage.getItem(menuIdLocal) || '[]');
     const newMenuId = uid()
 
     newMenuSchema.value.menu_uid = newMenuId;
