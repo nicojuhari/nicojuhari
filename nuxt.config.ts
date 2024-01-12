@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
   ssr: false,
   devtools: { enabled: true },
-  modules: ['@nuxt/ui', '@formkit/nuxt', '@vueuse/nuxt'],
+  modules: ['@nuxt/ui', '@formkit/nuxt', '@vueuse/nuxt', '@pinia/nuxt'],
   css: ['~/assets/css/main.css'],
   ui: {
     icons: ["ph"]
@@ -20,6 +20,8 @@ export default defineNuxtConfig({
       "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
       "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-93d4n%40app1foodmenu.iam.gserviceaccount.com"
     },
+    stripe_key: process.env.STRIPE_SECRET_KEY,
+    stripe_signing: process.env.STRIPE_SECRET_SIGNING,
     public: {
       firebase: {
         apiKey: "AIzaSyCzLLF-ZMuQe_qeUCS0xHHLgSppmtSj3bw",
@@ -28,7 +30,7 @@ export default defineNuxtConfig({
         storageBucket: "app1foodmenu.appspot.com",
         messagingSenderId: "805781398319",
         appId: "1:805781398319:web:444b670b478571cbb577da",
-        measurementId: process.env.MEASUREMENT_ID,
+        measurementId: '',
       }
     }
   }

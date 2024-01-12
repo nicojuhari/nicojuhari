@@ -7,6 +7,8 @@
     const toggleNav = () => {
         return showNav.value = !showNav.value;
     }
+
+    // watch(() => route.params, () => fetchMenu(route.params.menu_uid), { deep: true })
     
 </script>
 <template>

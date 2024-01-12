@@ -5,21 +5,19 @@ const user = useUser()
 const { getUserToken } = useAuth()
 
 //from Local Storage
-const allMenus = ref(JSON.parse(localStorage.getItem('oneFoodMenu')) || []);
+const allMenus = ref(JSON.parse(localStorage.getItem('oneFoodMenu') || '[]'));
 
 //from Database
-const { data, error, pending } = useFetch(`/api/menu/${user.value.uid}`, {
-    headers: { 'Authorization': await getUserToken() }
+const { data, error, pending } = useFetch(`/api/menu/${user.value?.uid }`, {
+    headers: { 'Authorization': await getUserToken() } as {}
 })
 
-//from Database
-// const { data, error } = useFetch(`/menus/user/${auth.currentUser.uid}`);
-
-watch(data, () => { allMenus.value = [...allMenus?.value, ...data?.value] })
+watch(data, () => { allMenus.value = [...allMenus?.value, ...data?.value as [] ]})
 
 watch(error, () => {
     console.log(error.value)
 })
+
 </script>
 <template>
     <div class="mt-16 w-full mx-auto max-w-4xl">
