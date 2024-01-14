@@ -37,16 +37,16 @@
             if(menu.value) {
                 menu.value.categories = updateItemInArray(menuCategories.value, categoryIdx.value, newCategory.value)
             }
+        } else {
+            //create category
+            menuCategories.value.push({ ...newCategory.value, uid: uid() })
         }
-
-        //create category
-        menuCategories.value.push({ ...newCategory.value, uid: uid() })
-
+        
         //update category
 
         setTimeout(() => {
             emit('close')
-        }, 600)
+        }, 400)
         
     }
 

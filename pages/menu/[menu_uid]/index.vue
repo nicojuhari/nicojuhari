@@ -12,6 +12,6 @@
 // })
 </script>
 <template>
-    Home Main
+    <div>Home Main</div>
     <!-- <MenuCategoriesView/> -->
 </template>
