@@ -29,8 +29,6 @@ export const search = (q: string, array: Array<string>) => {
 };
 
 export function searchArray<T>(array: T[], condition: (item: T) => boolean): { item: T; index: number } | null {
-
-    console.log(array, condition);
     for (let i = 0; i < array.length; i++) {
         if (condition(array[i])) {
             return { item: array[i], index: i };
@@ -46,6 +44,19 @@ export function updateItemInArray<T>(array: T[], index: number, newItem: T): T[]
     }
     // If the index is out of bounds, return the original array
     return array;
+}
+
+export function moveItemInArray(array: MenuItem[], fromIndex: number, toIndex: number): MenuItem[] {
+    // Ensure fromIndex and toIndex are within the bounds of the array
+    if (fromIndex < 0 || fromIndex >= array.length || toIndex < 0 || toIndex >= array.length) {
+        return array; // Return the original array if indices are out of bounds
+    }
+
+    const newArray = [...array]; // Create a shallow copy of the original array
+    const [itemToMove] = newArray.splice(fromIndex, 1); // Remove the item at fromIndex
+    newArray.splice(toIndex, 0, itemToMove); // Insert the item at toIndex
+
+    return newArray;
 }
 
 export function searchInTable (q: string, array: Array<string>) {

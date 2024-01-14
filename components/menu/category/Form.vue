@@ -1,24 +1,18 @@
-<script setup lang="ts">
+<script setup>
     import { storeToRefs } from 'pinia';
     import { useMenuStore } from '~/store/menu'
     import { viewCategoryId } from '~/composables/useAppStatus';
-    
+
+
+    const emit = defineEmits(['close'])
     const { menuCategories, menu } = storeToRefs(useMenuStore())
-
-    type Category = {
-        uid: string,
-        name: string,
-        description: string
-    }
-    // console.log(menuCategories)
-    const newCategory = ref<Category>({ uid: '', name: '', description: ''});
+    const newCategory = ref({ uid: '', name: '', description: ''});
     const categoryIdx = ref(0)
-
-    console.log(menuCategories)
+    const loading = ref(false)
 
     if(viewCategoryId.value) {
 
-        let result = searchArray<Category>(menuCategories.value, (item) => item.uid === viewCategoryId.value )
+        let result = searchArray(menuCategories.value, (item) => item.uid === viewCategoryId.value )
 
         if(result?.item) {
             newCategory.value = { ...result.item }
@@ -26,11 +20,8 @@
         }
     }
     
-
-    const emit = defineEmits(['close'])
-
     const handleForm = () => {
-
+        loading.value = true
         //update category
         if(viewCategoryId.value) {
             // let result = searchArray<Category>(menuCategories.value, (item) => item.uid === viewCategoryId.value)
@@ -41,14 +32,29 @@
             //create category
             menuCategories.value.push({ ...newCategory.value, uid: uid() })
         }
-        
+
         //update category
 
         setTimeout(() => {
+            loading.value = false
             emit('close')
         }, 400)
         
     }
+
+    const handleDelete = () => {
+        let filtered = menu.value.categories.filter(cat => cat.uid !== viewCategoryId.value);
+        
+        setTimeout(() => {
+            menu.value.categories = filtered
+            emit('close')
+        }, 400)
+    }
+
+    onBeforeUnmount(() => {
+        viewCategoryId.value = null
+        newCategory.value = {}
+    })
 
     
 </script>
@@ -67,8 +73,11 @@
             </FormKit>
         </div>
         <template #footer>
-            <div class="flex justify-end">
-                <UButton @click="$formkit.submit('categoryFormKit')" color="brand-blue" variant="outline">
+            <div class="flex justify-end gap-4">
+                <UButton v-if="viewCategoryId" @click.prevent="handleDelete" color="brand-red" variant="soft">
+                    Delete
+                </UButton>
+                <UButton @click="$formkit.submit('categoryFormKit')" color="brand-blue" variant="outline" :loading="loading">
                 {{  viewCategoryId ? 'Update' : 'Create' }}
                 </UButton>
             </div>

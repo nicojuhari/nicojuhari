@@ -1,5 +1,6 @@
 import { defineStore } from "pinia";
 // import { getAPI, updateAPI } from "../utils/API";
+import { type Menu } from '~/types'
 
 export const useMenuStore = defineStore("menu", () => {
     //state
@@ -11,9 +12,9 @@ export const useMenuStore = defineStore("menu", () => {
     //     products: Array<unknown>,
     // };
 
-    const menu = ref(null);
+    const menu = ref<Menu | null>(null);
 
-    const fetchMenu = async (menu_id) => {
+    const fetchMenu = async (menu_id: string) => {
 
         //get menu from local storage
         let localMenu = getMenuFromLocalStorage(menu_id);

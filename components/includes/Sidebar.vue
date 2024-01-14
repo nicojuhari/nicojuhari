@@ -49,7 +49,7 @@ const blocksArray: Array<MenuItem> = [
 </script>
 <template>
     <aside
-        class="bg-[#132335] text-white transition-all duration-500 w-64 -translate-x-64 lg:translate-x-0">
+        class="bg-[#132335] text-white transition-all duration-500 w-64 -translate-x-64 lg:translate-x-0 z-10">
         <div class="w-full sticky top-14 h-[calc(100vh-3.5rem)] overflow-y-auto pb-14">
             <!-- <div class="h-14 px-4 flex items-center justify-center p-4 border-b border-opacity-10 border-white">
                 <NuxtLink to="/" class="flex-shrink-0 flex gap-2 items-center">

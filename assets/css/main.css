@@ -8,3 +8,7 @@
     width: calc(100% - 2rem);
 }
 
+.active-sortable-tr {
+    @apply bg-slate-200;
+}
+

@@ -1,6 +1,6 @@
-<script setup lang="ts">
+<script setup>
 import { useRouter, useRoute } from 'vue-router';
-import { type Menu } from '~/types';
+// import { type Menu } from '~/types';
 
 const props = defineProps({
     upgrade: {
@@ -29,7 +29,7 @@ const router = useRouter();
 const route = useRoute();
 const isLoading = ref(false)
 
-const newMenuSchema = ref<Menu>({
+const newMenuSchema = ref({
     menu_uid: '',
     products: [],
     categories: [],
@@ -39,7 +39,7 @@ const newMenuSchema = ref<Menu>({
     configs: {
         title: 'Default Menu Title',
     }
-});
+}).value
 
 const createMenuLocal = async () => {
 
