@@ -39,7 +39,7 @@ const newMenuSchema = ref({
     configs: {
         title: 'Default Menu Title',
     }
-}).value
+})
 
 const createMenuLocal = async () => {
 

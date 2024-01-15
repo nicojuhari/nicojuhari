@@ -20,17 +20,36 @@
 
     //sortable
     const tableBody = ref(null)
-    const { option } = useSortable(tableBody, menu.value.categories, {
+    const sortableOptions = ref(null)
+    const options = {
         handle: '[data-sort-handle]',
         animation: 300,
         disabled: false,
-        ghostClass: 'active-sortable-tr'
-    })
+        ghostClass: 'active-sortable-tr',
+    }
+    sortableOptions.value = useSortable(tableBody, menu.value.categories, options)
 
     watchEffect(() => {
-        //disable on filtering
-        option('disabled', query.value === '' ? false : true)
+        sortableOptions.value.option('disabled', query.value === '' ? false : true)
     })
+
+
+    //delete category
+    const isModalDeleteOpen = ref(false)
+    const categoryIdToDelete = ref(null)
+    const preDeleteCategory = (id) => {
+        categoryIdToDelete.value = id
+        isModalDeleteOpen.value = true
+    }
+
+    const deleteCategory = () => {
+        let filtered = menu.value.categories.filter(cat => cat.uid !== categoryIdToDelete.value);
+
+        setTimeout(() => {
+            menu.value.categories  = filtered
+            isModalDeleteOpen.value = false
+        }, 200)
+    }
 
 </script>
 <template>
@@ -62,8 +81,11 @@
                             <td class="px-4 py-2 truncate">{{ item.name }}</td>
                             <td class="px-4 py-2 truncate">{{ item.description }}</td>
                             <td class="px-4 py-2 flex items-center justify-end gap-3">
+                                <UTooltip text="Delete">
+                                    <UButton square variant="soft" color="brand-red"  icon="i-ph-trash-light" @click.prevent="preDeleteCategory(item.uid)" />
+                                </UTooltip>
                                 <UTooltip text="View and edit">
-                                    <UButton square variant="outline" color="gray"  icon="i-ph-eye" @click.prevent="() => viewCategory(item.uid)" />
+                                    <UButton square variant="soft" color="gray"  icon="i-ph-eye" @click.prevent="() => viewCategory(item.uid)" />
                                 </UTooltip>
                             </td>
                         </tr>
@@ -75,8 +97,17 @@
         <UiEmptyBlock v-else>
             No Categories
         </UiEmptyBlock>
-    <UModal v-model="isModalOpen">
-        <MenuCategoryForm @close="isModalOpen = false"/>
-    </UModal>
+        <UModal v-model="isModalOpen">
+            <MenuCategoryForm @close="isModalOpen = false"/>
+        </UModal>
+        <UModal v-model="isModalDeleteOpen">
+            <div class="p-8 flex flex-col gap-6">
+                <div>Would you like to delete this category?</div>
+                <div class="flex gap-4 items-center justify-end">
+                    <UButton color="brand-blue" class="px-10" @click.prevent="() => isModalDeleteOpen = false">No</UButton>
+                    <UButton color="brand-red" class="px-10" @click.prevent="deleteCategory">Yes</UButton>
+                </div>
+            </div>
+        </UModal>
     </div>
 </template>

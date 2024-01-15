@@ -24,16 +24,13 @@
         loading.value = true
         //update category
         if(viewCategoryId.value) {
-            // let result = searchArray<Category>(menuCategories.value, (item) => item.uid === viewCategoryId.value)
             if(menu.value) {
                 menu.value.categories = updateItemInArray(menuCategories.value, categoryIdx.value, newCategory.value)
             }
         } else {
-            //create category
+        //create category
             menuCategories.value.push({ ...newCategory.value, uid: uid() })
         }
-
-        //update category
 
         setTimeout(() => {
             loading.value = false
@@ -42,21 +39,10 @@
         
     }
 
-    const handleDelete = () => {
-        let filtered = menu.value.categories.filter(cat => cat.uid !== viewCategoryId.value);
-        
-        setTimeout(() => {
-            menu.value.categories = filtered
-            emit('close')
-        }, 400)
-    }
-
     onBeforeUnmount(() => {
         viewCategoryId.value = null
         newCategory.value = {}
     })
-
-    
 </script>
 <template>
     <UCard>
@@ -74,9 +60,6 @@
         </div>
         <template #footer>
             <div class="flex justify-end gap-4">
-                <UButton v-if="viewCategoryId" @click.prevent="handleDelete" color="brand-red" variant="soft">
-                    Delete
-                </UButton>
                 <UButton @click="$formkit.submit('categoryFormKit')" color="brand-blue" variant="outline" :loading="loading">
                 {{  viewCategoryId ? 'Update' : 'Create' }}
                 </UButton>
