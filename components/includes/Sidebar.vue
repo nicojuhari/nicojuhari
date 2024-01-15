@@ -9,8 +9,8 @@ type MenuItem = {
 
 const blocksArray: Array<MenuItem> = [
     {
-        id: '',
-        label: 'Main',
+        id: 'dashboard',
+        label: 'Dashboard',
         iconName: 'i-ph-house-light'
     },
     {
@@ -39,30 +39,30 @@ const blocksArray: Array<MenuItem> = [
     //     label: 'Free Designs',
     //     iconName: 'i-ph-layout-light'
     // },
-    // {
-    //     id: 'settings',
-    //     label: 'Settings',
-    //     iconName: 'i-ph-gear-light'
-    // }
+    {
+        id: 'settings',
+        label: 'Settings',
+        iconName: 'i-ph-gear-light'
+    }
 ]
 
 </script>
 <template>
     <aside
-        class="bg-[#132335] text-white transition-all duration-500 w-64 -translate-x-64 lg:translate-x-0 z-10">
-        <div class="w-full sticky top-14 h-[calc(100vh-3.5rem)] overflow-y-auto pb-14">
-            <!-- <div class="h-14 px-4 flex items-center justify-center p-4 border-b border-opacity-10 border-white">
+        class="bg-[#132335] h-[100dvh] fixed md:relative text-white transition-all duration-500 w-64 -translate-x-64 md:translate-x-0 z-40">
+        <div class="w-full h-full overflow-y-auto">
+            <div class="h-14 px-4 flex items-center justify-between">
                 <NuxtLink to="/" class="flex-shrink-0 flex gap-2 items-center">
                     <img src="/logo-white.svg" class="w-14" />
                 </NuxtLink>
-            </div> -->
+                <UButton @click.prevent="$emit('close')" class="md:hidden text-white" color="white" variant="soft" icon="i-ph-x"/>
+            </div>
             <div class="flex flex-col gap-4 px-2 pt-4">
-                <NuxtLink :to="`/menu/${$route.params.menu_uid}/${item.id}`" @click="$emit('close')"
-                    class="cursor-pointer text-sm font-medium px-4 py-2.5 transition-all duration-200 hover:bg-white hover:bg-opacity-20 bg-opacity-10 rounded-lg flex gap-2 items-center justify-between"
-                    v-for="item in blocksArray" :key="item.id"
-                    :class="{ 'bg-white': $route.params.sub_page == item.id }">
-                    <span>{{ item.label }}</span>
+                <NuxtLink activeClass="bg-brand-primary" :to="`/menu/${$route.params.menu_uid}/${item.id}`" @click.prevent="$emit('close')"
+                    class="cursor-pointer text-sm font-medium px-4 py-2.5 transition-all duration-200 hover:bg-white hover:bg-opacity-20 bg-opacity-40 rounded-lg flex gap-4 items-center"
+                    v-for="item in blocksArray" :key="item.id">
                     <UIcon :name="item.iconName" class="flex-shrink-0 w-5 h-5" />
+                    <span>{{ item.label }}</span>
                 </NuxtLink>
             </div>
         </div>

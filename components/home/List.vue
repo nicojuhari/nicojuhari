@@ -32,7 +32,7 @@ watch(error, () => {
                     Add menu
                 </div>
             </UCard>
-            <NuxtLink :to="`/menu/${item.menu_uid}`" v-for="item in allMenus" :key="item.menu_uid">
+            <NuxtLink :to="`/menu/${item.menu_uid}/dashboard`" v-for="item in allMenus" :key="item.menu_uid">
                 <UCard :ui="{ 'body': { 'base': 'flex flex-col h-full' } }" class="h-60 relative hover:bg-gray-100 duration-300">
                     <h2 class="title text-xl flex-shrink-0 truncate text-ellipsis justify-center text-center mt-4 capitalize">{{
                         item.configs.title }}</h2>

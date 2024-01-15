@@ -53,7 +53,7 @@ onBeforeUnmount(() => {
             </div>
         </template>
         <FormKit type="form" :actions="false" v-model="newCategory" @submit="handleForm" id="categoryFormKit">
-            <FormKit name="name" type="text" label="Name" validation="required|length:1,1"></FormKit>
+            <FormKit name="name" type="text" label="Name" validation="required|length:1,2"></FormKit>
             <FormKit name="description" type="textarea" label="Description" validation="required|length:3,100"></FormKit>
         </FormKit>
         <template #footer>

@@ -1,31 +1,15 @@
 <script setup>
-  // import { getAuth, onAuthStateChanged } from "firebase/auth";
+  const loading = ref(true)
 
-  // if(process.client) {
-  //    const currentUser = useUser()
-  // console.log('app.vue')
-
-  // const auth = getAuth();
-
-  // onAuthStateChanged(auth, (user) => {
-  //   if (user) {
-  //     // User is signed in, see docs for a list of available properties
-  //     // https://firebase.google.com/docs/reference/js/auth.user
-
-  //     currentUser.value = user
-
-  //     console.log(currentUser.value);
-  //     // ...
-  //   } else {
-  //     currentUser.value = null
-  //     // User is signed out
-  //     // ...
-  //   }
-  // });
-  // }
+  onMounted(() => {
+   setTimeout(() => loading.value = false, 1400)
+  })
  
 </script>
 <template>
+  <div v-if="loading" class="fixed z-50 top-0 left-0 w-full h-full bg-white grid content-center">
+    <Loading class="m-auto !border-t-gray-500"/>
+  </div>
   <NuxtLayout>
     <NuxtPage />
   </NuxtLayout>

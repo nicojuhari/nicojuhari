@@ -13,9 +13,9 @@
 </script>
 <template>
     <div class="menu-layout bg-gray-50">
-        <IncludesHeaderMenuPage @open-nav="toggleNav" :isOpen="showNav"/>
         <IncludesSidebar ref="templRef" :class="showNav && '!translate-x-0'" @close="toggleNav"/>
         <main>
+            <IncludesHeaderMenuPage @open-nav="toggleNav" :isOpen="showNav"/>
             <div class="container">
                 <slot />
             </div>
@@ -30,22 +30,22 @@
         margin: 0 auto;
         min-height: 100vh;
     }
-    .menu-layout header {
+    /* .menu-layout header {
         grid-column: 1/3;
         grid-row: 1/2;
-    }
+    } */
     .menu-layout aside {
         grid-column: 1/2;
-        grid-row: 2/3;
+        grid-row: 1/3;
     }
     .menu-layout main {
-        grid-column: 1/3;
-        grid-row: 2/3;
+        grid-column: 2/3;
+        grid-row: 1/3;
     }
 
-    @media (min-width: 1024px) {
+    /* @media (min-width: 1024px) {
         .menu-layout main {
             grid-column: 2/3;
         }
-    }
+    } */
 </style>
