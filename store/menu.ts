@@ -20,8 +20,10 @@ export const useMenuStore = defineStore("menu", () => {
         let localMenu = getMenuFromLocalStorage(menu_id);
 
         if (localMenu && Object.keys(localMenu).length) {
-            menu.value = localMenu;
+            if (localMenu != null) {
+                menu.value = localMenu;
             return;
+            }
         }
 
         //get from DB
@@ -60,7 +62,7 @@ export const useMenuStore = defineStore("menu", () => {
         }
     };
 
-    const deleteMenu = async (id) => {
+    const deleteMenu = async (id: string) => {
         //from localStorage
         if (menu?.value?.isFromLocal) {
             removeMenuFromLocalStorage(id);

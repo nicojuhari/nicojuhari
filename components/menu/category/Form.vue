@@ -48,7 +48,7 @@
     <UCard>
         <template #header>
             <div class="flex justify-between items-center">
-                <span> {{ viewCategoryId ? 'View Category' : 'New Category' }} </span>
+                <span>  {{ viewCategoryId ? 'View Category' : 'New Category' }} </span>
                 <UButton @click.prevent="$emit('close')" color="gray" square variant="soft" icon="i-ph-x"/>
             </div>
         </template>
@@ -57,12 +57,16 @@
                 <FormKit name="name" type="text" label="Name" validation="required|length:1,100"></FormKit>
                 <FormKit name="description" type="textarea" label="Description" validation="length:3,300"></FormKit>
             </FormKit>
+            
         </div>
         <template #footer>
-            <div class="flex justify-end gap-4">
-                <UButton @click="$formkit.submit('categoryFormKit')" color="brand-blue" variant="outline" :loading="loading">
-                {{  viewCategoryId ? 'Update' : 'Create' }}
-                </UButton>
+            <div class="flex justify-between items-center">
+                <div v-if="viewCategoryId" class="text-sm opacity-30">ID: {{ viewCategoryId }}</div>
+                <div class="flex justify-end gap-4">
+                    <UButton @click="$formkit.submit('categoryFormKit')" color="brand-blue" variant="outline" :loading="loading">
+                    {{  viewCategoryId ? 'Update' : 'Create' }}
+                    </UButton>
+                </div>
             </div>
         </template> 
     </UCard>

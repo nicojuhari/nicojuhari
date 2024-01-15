@@ -51,16 +51,26 @@
         }, 200)
     }
 
+    const items = [
+       [{
+            slot: 'view',
+        }],
+        [{
+            slot: 'delete',
+        }]
+    ]
+
 </script>
 <template>
     <div>
-        <div class="flex items-center justify-between gap-4 mb-4">
+        <div class="flex sm:items-center justify-between gap-4 mb-4 flex-col md:flex-row">
           <h3 class="text-xl">Categories</h3>
-          <UButton color="brand-blue" @click="isModalOpen = true" icon="i-ph-plus" label="New Category"/>
+          <div class="flex gap-4 w-full sm:w-auto">
+                <UInput v-model="query" placeholder="Filter categories ..." class="w-1/2 sm:w-auto"/>
+                <UButton color="brand-blue" @click="isModalOpen = true" icon="i-ph-plus" label="New Category" class="w-1/2 sm:w-auto justify-center"/>
+          </div>
         </div>
-        <div class="flex py-3.5 border-gray-200 dark:border-gray-700">
-            <UInput v-model="query" placeholder="Filter categories ..." />
-        </div>
+        
         <div v-if="filteredCategories.length">
             <div class="overflow-auto w-full max-h-[600px] rounded-md border" >
                  <table class="table-fixed divside-y divide-gray-300 w-full">
@@ -81,12 +91,21 @@
                             <td class="px-4 py-2 truncate">{{ item.name }}</td>
                             <td class="px-4 py-2 truncate">{{ item.description }}</td>
                             <td class="px-4 py-2 flex items-center justify-end gap-3">
-                                <UTooltip text="Delete">
-                                    <UButton square variant="soft" color="brand-red"  icon="i-ph-trash-light" @click.prevent="preDeleteCategory(item.uid)" />
-                                </UTooltip>
-                                <UTooltip text="View and edit">
-                                    <UButton square variant="soft" color="gray"  icon="i-ph-eye" @click.prevent="() => viewCategory(item.uid)" />
-                                </UTooltip>
+                                <UDropdown :items="items" mode="hover" :popper="{ placement: 'bottom-start' }">
+                                    <UButton square icon="i-ph-dots-three-vertical" color="gray" variant="soft"></UButton>
+                                    <template #view>
+                                        <div class="flex justify-between items-center w-full" @click="() => viewCategory(item.uid)">
+                                            <span class="">View & Edit</span>
+                                            <UIcon name="i-ph-eye" class="flex-shrink-0 h-4 w-4 text-gray-400 dark:text-gray-500 ms-auto" />
+                                        </div>
+                                    </template>
+                                    <template #delete>
+                                        <div class="flex justify-between items-center w-full text-brand-red-400 dark:text-brand-400" @click="() => preDeleteCategory(item.uid)">
+                                            <span class="">Delete</span>
+                                            <UIcon name="i-ph-trash-light" class="flex-shrink-0 h-4 w-4 ms-auto" />
+                                        </div>
+                                    </template>
+                                </UDropdown>
                             </td>
                         </tr>
                     </tbody>

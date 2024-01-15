@@ -1,6 +1,23 @@
 <script setup lang="ts">
+    import { storeToRefs } from 'pinia';
+    import { useMenuStore } from '~/store/menu'
+
     defineEmits(['open-nav'])
     defineProps(['isOpen'])
+
+    const { menu } = storeToRefs(useMenuStore())
+    const handleUpdateTitle = (ev: { target: { value: string; }; }) => {
+        if(menu.value) menu.value.configs.title = ev.target.value
+    }
+
+    const items = [
+        [
+            { label: 'Import' },
+            { label: 'Export' }
+        ]
+    ]
+
+
 </script>
 <template>
     <header class="border-b bg-white sticky top-0 z-30 h-14 flex items-center">
@@ -12,12 +29,19 @@
                     <img src="/logo.svg" class="w-14" />
                 </NuxtLink>
             </div>
-            <!-- <UDropdown :items="menuItems" mode="hover" :popper="{ placement: 'bottom-start' }">
-                <UIcon name="i-ph-user-circle-light" class="w-8 h-8"></UIcon>
-                <template #logout>
+            <div class="flex gap-2 items-center">
+                <UInput 
+                :value="menu?.configs?.title"
+                @input="handleUpdateTitle" ></UInput>
+                <UDropdown :items="items" mode="hover" :popper="{ placement: 'bottom-start' }">
+                    <UIcon name="i-ph-gear-six-light" class="w-6 h-6"></UIcon>
+                    <!-- <template #logout>
                     <div class="text-brand-error" @click="logout">Logout</div>
-                </template>
-            </UDropdown> -->
+                </template> -->
+                </UDropdown>
+
+            </div>
+            
         </div>
     </header>
 </template>

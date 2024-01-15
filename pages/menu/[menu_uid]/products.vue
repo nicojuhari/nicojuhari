@@ -1,7 +1,7 @@
 <script setup>
-definePageMeta({
-    layout: 'menu'
-})
+    definePageMeta({
+        layout: 'menu'
+    })
 </script>
 <template>
     <div>Products</div>
