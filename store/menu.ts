@@ -77,6 +77,8 @@ export const useMenuStore = defineStore("menu", () => {
         saveMenuInDatabase,
         deleteMenu,
         menu,
-        menuCategories: computed(() => menu?.value?.categories || [])
+        menuCategories: computed(() => menu?.value?.categories || []),
+        menuProducts: computed(() => menu?.value?.products || []),
+        menuAllergens: computed(() => menu?.value?.allergens || []),
     };
 });

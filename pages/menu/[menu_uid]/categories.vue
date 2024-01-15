@@ -1,7 +1,7 @@
 <script setup>
     import { storeToRefs } from "pinia"
     import { useMenuStore } from '~/store/menu';
-    import { viewCategoryId } from '~/composables/useAppStatus';
+    import { viewObjectId } from '~/composables/useAppStatus';
     import { useSortable } from '@vueuse/integrations/useSortable'
 
     //state
@@ -14,7 +14,7 @@
     //modal
     const isModalOpen = ref(false)
     const viewCategory = (id) => {
-        viewCategoryId.value =  id
+        viewObjectId.value =  id
         isModalOpen.value = true
     }
 
@@ -62,7 +62,7 @@
 
 </script>
 <template>
-    <div>
+    <UCard>
         <div class="flex sm:items-center justify-between gap-4 mb-4 flex-col md:flex-row">
           <h3 class="text-xl">Categories</h3>
           <div class="flex gap-4 w-full sm:w-auto">
@@ -91,7 +91,7 @@
                             <td class="px-4 py-2 truncate">{{ item.name }}</td>
                             <td class="px-4 py-2 truncate">{{ item.description }}</td>
                             <td class="px-4 py-2 flex items-center justify-end gap-3">
-                                <UDropdown :items="items" mode="hover" :popper="{ placement: 'bottom-start' }">
+                                <UDropdown :items="items" :popper="{ placement: 'bottom-start' }">
                                     <UButton square icon="i-ph-dots-three-vertical" color="gray" variant="soft"></UButton>
                                     <template #view>
                                         <div class="flex justify-between items-center w-full" @click="() => viewCategory(item.uid)">
@@ -128,5 +128,5 @@
                 </div>
             </div>
         </UModal>
-    </div>
+    </UCard>
 </template>

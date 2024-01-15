@@ -9,11 +9,11 @@ const { menu } = storeToRefs(useMenuStore())
 
 //filter
 const query = ref('')
-const filteredProducts = computed(() => searchInTable(query.value, menu.value.products))
+const filteredAllergens = computed(() => searchInTable(query.value, menu.value.allergens))
 
 //modal
 const isModalOpen = ref(false)
-const viewCategory = (id) => {
+const viewAllergen = (id) => {
     viewObjectId.value = id
     isModalOpen.value = true
 }
@@ -27,26 +27,26 @@ const options = {
     disabled: false,
     ghostClass: 'active-sortable-tr',
 }
-sortableOptions.value = useSortable(tableBody, menu.value.categories, options)
+sortableOptions.value = useSortable(tableBody, menu.value.allergens, options)
 
 watchEffect(() => {
     sortableOptions.value.option('disabled', query.value === '' ? false : true)
 })
 
 
-//delete category
+//delete allergen
 const isModalDeleteOpen = ref(false)
-const categoryIdToDelete = ref(null)
-const preDeleteCategory = (id) => {
-    categoryIdToDelete.value = id
+const allergenIdToDelete = ref(null)
+const preDeleteAllergen = (id) => {
+    allergenIdToDelete.value = id
     isModalDeleteOpen.value = true
 }
 
-const deleteProduct = () => {
-    let filtered = menu.value.categories.filter(cat => cat.uid !== categoryIdToDelete.value);
+const deleteAllergen = () => {
+    let filtered = menu.value.allergens.filter(cat => cat.uid !== allergenIdToDelete.value);
 
     setTimeout(() => {
-        menu.value.categories = filtered
+        menu.value.allergens = filtered
         isModalDeleteOpen.value = false
     }, 200)
 }
@@ -64,15 +64,15 @@ const items = [
 <template>
     <UCard>
         <div class="flex sm:items-center justify-between gap-4 mb-4 flex-col md:flex-row">
-            <h3 class="text-xl">Products</h3>
+            <h3 class="text-xl">Allergens</h3>
             <div class="flex gap-4 w-full sm:w-auto">
-                <UInput v-model="query" placeholder="Filter products ..." class="w-1/2 sm:w-auto" />
-                <UButton color="brand-blue" @click="isModalOpen = true" icon="i-ph-plus" label="New Product"
+                <UInput v-model="query" placeholder="Filter allergens ..." class="w-1/2 sm:w-auto" />
+                <UButton color="brand-blue" @click="isModalOpen = true" icon="i-ph-plus" label="New Allergen"
                     class="w-1/2 sm:w-auto justify-center" />
             </div>
         </div>
 
-        <div v-if="filteredProducts.length">
+        <div v-if="filteredAllergens.length">
             <div class="overflow-auto w-full max-h-[600px] rounded-md border">
                 <table class="table-fixed divside-y divide-gray-300 w-full">
                     <thead>
@@ -84,7 +84,7 @@ const items = [
                         </tr>
                     </thead>
                     <tbody data-sortable class="divide-y divide-gray-100" ref="tableBody">
-                        <tr v-for="(item, idx ) in filteredProducts" :key="item.uid"
+                        <tr v-for="(item, idx ) in filteredAllergens" :key="item.uid"
                             class="hover:cursor-pointer bg-white">
                             <td class="px-2 py-2 flex items-center gap-1">
                                 <UIcon data-sort-handle name="i-ph-dots-six-vertical-light" class="shrink-0 w-4 h-4"
@@ -94,11 +94,11 @@ const items = [
                             <td class="px-4 py-2 truncate">{{ item.name }}</td>
                             <td class="px-4 py-2 truncate">{{ item.description }}</td>
                             <td class="px-4 py-2 flex items-center justify-end gap-3">
-                                <UDropdown :items="items" mode="hover" :popper="{ placement: 'bottom-start' }">
+                                <UDropdown :items="items" :popper="{ placement: 'bottom-start' }">
                                     <UButton square icon="i-ph-dots-three-vertical" color="gray" variant="soft"></UButton>
                                     <template #view>
                                         <div class="flex justify-between items-center w-full"
-                                            @click="() => viewCategory(item.uid)">
+                                            @click="() => viewAllergen(item.uid)">
                                             <span class="">View & Edit</span>
                                             <UIcon name="i-ph-eye"
                                                 class="flex-shrink-0 h-4 w-4 text-gray-400 dark:text-gray-500 ms-auto" />
@@ -106,7 +106,7 @@ const items = [
                                     </template>
                                     <template #delete>
                                         <div class="flex justify-between items-center w-full text-brand-red-400 dark:text-brand-400"
-                                            @click="() => preDeleteCategory(item.uid)">
+                                            @click="() => preDeleteAllergen(item.uid)">
                                             <span class="">Delete</span>
                                             <UIcon name="i-ph-trash-light" class="flex-shrink-0 h-4 w-4 ms-auto" />
                                         </div>
@@ -117,22 +117,21 @@ const items = [
                     </tbody>
                 </table>
             </div>
-            <div class="py-3.5 font-bold">Total: {{ filteredProducts?.length }}</div>
+            <div class="py-3.5 font-bold">Total: {{ filteredAllergens?.length }}</div>
         </div>
         <UiEmptyBlock v-else>
-            No Products
+            No Allergens
         </UiEmptyBlock>
         <UModal v-model="isModalOpen">
-            <MenuProductForm @close="isModalOpen = false" />
+            <MenuAllergenForm @close="isModalOpen = false" />
         </UModal>
         <UModal v-model="isModalDeleteOpen">
             <div class="p-8 flex flex-col gap-6">
-                <div>Would you like to delete this product?</div>
+                <div>Would you like to delete this allergen?</div>
                 <div class="flex gap-4 items-center justify-end">
                     <UButton color="brand-blue" class="px-10" @click.prevent="() => isModalDeleteOpen = false">No</UButton>
-                    <UButton color="brand-red" class="px-10" @click.prevent="deleteProduct">Yes</UButton>
-                </div>
+                    <UButton color="brand-red" class="px-10" @click.prevent="deleteAllergen">Yes</UButton>
             </div>
-        </UModal>
-    </UCard>
-</template>
+        </div>
+    </UModal>
+</UCard></template>

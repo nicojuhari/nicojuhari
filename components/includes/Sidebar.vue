@@ -23,17 +23,17 @@ const blocksArray: Array<MenuItem> = [
         label: 'Products',
         iconName: 'i-ph-list-bullets-light'
     },
-    // {
-    //     id: 'allergens',
-    //     label: 'Allergens',
-    //     iconName: 'i-ph-grains-slash-light'
-    // },
-    // {
-    //     id: 'bundles',
-    //     label: 'Bundles',
-    //     iconName: 'i-ph-bounding-box-light',
-    //     badge: 'Beta'
-    // },
+    {
+        id: 'bundles',
+        label: 'Bundles',
+        iconName: 'i-ph-bounding-box-light',
+    },
+    {
+        id: 'allergens',
+        label: 'Allergens',
+        iconName: 'i-ph-grains-slash-light'
+    },
+   
     // {
     //     id: 'free-designs',
     //     label: 'Free Designs',
@@ -56,14 +56,13 @@ const blocksArray: Array<MenuItem> = [
                     <img src="/logo-white.svg" class="w-14" />
                 </NuxtLink>
             </div> -->
-            <div class="flex flex-col gap-4 px-4 pt-4">
+            <div class="flex flex-col gap-4 px-2 pt-4">
                 <NuxtLink :to="`/menu/${$route.params.menu_uid}/${item.id}`" @click="$emit('close')"
-                    class="cursor-pointer text-sm font-medium py-2.5 px-4 transition-all duration-200 hover:bg-white hover:bg-opacity-20 bg-opacity-10 rounded-lg flex gap-2 items-center"
+                    class="cursor-pointer text-sm font-medium px-4 py-2.5 transition-all duration-200 hover:bg-white hover:bg-opacity-20 bg-opacity-10 rounded-lg flex gap-2 items-center justify-between"
                     v-for="item in blocksArray" :key="item.id"
                     :class="{ 'bg-white': $route.params.sub_page == item.id }">
+                    <span>{{ item.label }}</span>
                     <UIcon :name="item.iconName" class="flex-shrink-0 w-5 h-5" />
-                    {{ item.label }}
-                    <UBadge v-if="item?.badge" class="ml-auto">{{ item?.badge }}</UBadge>
                 </NuxtLink>
             </div>
         </div>

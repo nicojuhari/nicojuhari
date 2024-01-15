@@ -1,4 +1,4 @@
-export const viewCategoryId = ref('')
+export const viewObjectId = ref('')
 
 
 export const useAppStatus = () => {

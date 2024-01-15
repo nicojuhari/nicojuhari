@@ -1,7 +1,7 @@
 <script setup>
     import { storeToRefs } from 'pinia';
     import { useMenuStore } from '~/store/menu'
-    import { viewCategoryId } from '~/composables/useAppStatus';
+    import { viewObjectId } from '~/composables/useAppStatus';
 
 
     const emit = defineEmits(['close'])
@@ -10,9 +10,9 @@
     const categoryIdx = ref(0)
     const loading = ref(false)
 
-    if(viewCategoryId.value) {
+    if(viewObjectId.value) {
 
-        let result = searchArray(menuCategories.value, (item) => item.uid === viewCategoryId.value )
+        let result = searchArray(menuCategories.value, (item) => item.uid === viewObjectId.value )
 
         if(result?.item) {
             newCategory.value = { ...result.item }
@@ -23,7 +23,7 @@
     const handleForm = () => {
         loading.value = true
         //update category
-        if(viewCategoryId.value) {
+        if(viewObjectId.value) {
             if(menu.value) {
                 menu.value.categories = updateItemInArray(menuCategories.value, categoryIdx.value, newCategory.value)
             }
@@ -40,7 +40,7 @@
     }
 
     onBeforeUnmount(() => {
-        viewCategoryId.value = null
+        viewObjectId.value = null
         newCategory.value = {}
     })
 </script>
@@ -48,7 +48,7 @@
     <UCard>
         <template #header>
             <div class="flex justify-between items-center">
-                <span>  {{ viewCategoryId ? 'View Category' : 'New Category' }} </span>
+                <span>  {{ viewObjectId ? 'View Category' : 'New Category' }} </span>
                 <UButton @click.prevent="$emit('close')" color="gray" square variant="soft" icon="i-ph-x"/>
             </div>
         </template>
@@ -61,10 +61,10 @@
         </div>
         <template #footer>
             <div class="flex justify-between items-center">
-                <div v-if="viewCategoryId" class="text-sm opacity-30">ID: {{ viewCategoryId }}</div>
-                <div class="flex justify-end gap-4">
+                <div v-if="viewObjectId" class="text-sm opacity-30">ID: {{ viewObjectId }}</div>
+                <div class="flex justify-end gap-4 ml-auto">
                     <UButton @click="$formkit.submit('categoryFormKit')" color="brand-blue" variant="outline" :loading="loading">
-                    {{  viewCategoryId ? 'Update' : 'Create' }}
+                    {{  viewObjectId ? 'Update' : 'Create' }}
                     </UButton>
                 </div>
             </div>

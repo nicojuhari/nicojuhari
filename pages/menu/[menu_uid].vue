@@ -15,7 +15,7 @@
     onBeforeUnmount(() => resetMenu())
 </script>
 <template>
-    <UCard class="my-4">
-        <NuxtPage></NuxtPage>
-    </UCard>
+    <div class="my-4">
+        <NuxtPage :menu_uid="menu_uid"></NuxtPage>
+    </div>
 </template>
