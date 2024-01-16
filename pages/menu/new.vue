@@ -1,6 +1,6 @@
-<script setup>
+<script setup lang="ts">
 import { useRouter, useRoute } from 'vue-router';
-// import { type Menu } from '~/types';
+import { type Menu } from '~/types';
 
 const props = defineProps({
     upgrade: {
@@ -29,7 +29,7 @@ const router = useRouter();
 const route = useRoute();
 const isLoading = ref(false)
 
-const newMenuSchema = ref({
+const newMenuSchema = ref<Menu>({
     menu_uid: '',
     products: [],
     categories: [],
@@ -42,22 +42,21 @@ const newMenuSchema = ref({
 })
 
 const createMenuLocal = async () => {
-
-    isLoading.value = true
-    const menuIdLocal = 'oneFoodMenu'
-    const oneFoodMenu = JSON.parse(localStorage.getItem(menuIdLocal) || '[]');
-    const newMenuId = uid()
+    isLoading.value = true;
+    const menuIdLocal = "oneFoodMenu";
+    const oneFoodMenu = JSON.parse(localStorage.getItem(menuIdLocal) || "[]");
+    const newMenuId = uid();
 
     newMenuSchema.value.menu_uid = newMenuId;
     newMenuSchema.value.isFromLocal = true;
 
-    oneFoodMenu.push(newMenuSchema.value)
+    oneFoodMenu.push(newMenuSchema.value);
     localStorage.setItem(menuIdLocal, JSON.stringify(oneFoodMenu));
 
     setTimeout(() => {
-        isLoading.value = false
+        isLoading.value = false;
         router.push(`/menu/${newMenuId}`);
-    }, 600)
+    }, 600);
 }
 
 

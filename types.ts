@@ -1,11 +1,10 @@
 export type Menu = {
-value: any
     menu_uid: string,
     products: Array<unknown>,
-    categories: Array<Category>,
+    categories: Category[],
     promos: Array<unknown>,
     bundles: Array<unknown>,
-    allergens: Array<Allergen>,
+    allergens: Allergen[],
     configs: Configs,
     isFromLocal?: boolean
 }

@@ -1,3 +1,5 @@
+import type { Menu } from "~/types";
+
 export const uid = () => {
     const head = Date.now().toString(36);
     const tail = Math.random().toString(36).substring(2);
@@ -46,18 +48,18 @@ export function updateItemInArray<T>(array: T[], index: number, newItem: T): T[]
     return array;
 }
 
-export function moveItemInArray(array: MenuItem[], fromIndex: number, toIndex: number): MenuItem[] {
-    // Ensure fromIndex and toIndex are within the bounds of the array
-    if (fromIndex < 0 || fromIndex >= array.length || toIndex < 0 || toIndex >= array.length) {
-        return array; // Return the original array if indices are out of bounds
-    }
+// export function moveItemInArray(array: MenuItem[], fromIndex: number, toIndex: number): MenuItem[] {
+//     // Ensure fromIndex and toIndex are within the bounds of the array
+//     if (fromIndex < 0 || fromIndex >= array.length || toIndex < 0 || toIndex >= array.length) {
+//         return array; // Return the original array if indices are out of bounds
+//     }
 
-    const newArray = [...array]; // Create a shallow copy of the original array
-    const [itemToMove] = newArray.splice(fromIndex, 1); // Remove the item at fromIndex
-    newArray.splice(toIndex, 0, itemToMove); // Insert the item at toIndex
+//     const newArray = [...array]; // Create a shallow copy of the original array
+//     const [itemToMove] = newArray.splice(fromIndex, 1); // Remove the item at fromIndex
+//     newArray.splice(toIndex, 0, itemToMove); // Insert the item at toIndex
 
-    return newArray;
-}
+//     return newArray;
+// }
 
 export function searchInTable (q: string, array: Array<string>) {
   if (!q) {
@@ -87,12 +89,17 @@ export function searchInTable (q: string, array: Array<string>) {
 //     }
 // };
 
-export const getMenuFromLocalStorage = (id: string) => {
-    const oneFoodMenu = JSON.parse(localStorage.getItem("oneFoodMenu") || '[]') as { menu_uid: string }[];
-    return oneFoodMenu.find((f) => f.menu_uid === id) || null;
+export const getMenuFromLocalStorage = (id: string): Menu | null => {
+    const oneFoodMenu = JSON.parse(localStorage.getItem("oneFoodMenu") || "[]") as Menu[];
+    const menu = oneFoodMenu.find((f) => f.menu_uid === id);
+    if (!menu) {
+        return null;
+    }
+    return menu;
 };
 
-export const removeMenuFromLocalStorage = (id: string) => {
+
+export const removeMenuFromLocalStorage = (id: string): void => {
     const oneFoodMenu = JSON.parse(localStorage.getItem("oneFoodMenu") || '[]') as { menu_uid: string }[];
     const menuIndex = oneFoodMenu.findIndex((f) => f.menu_uid === id);
 
@@ -102,7 +109,7 @@ export const removeMenuFromLocalStorage = (id: string) => {
     }
 };
 
-export const addMenuToLocalStorage = (menu: any) => {
+export const addMenuToLocalStorage = (menu: Menu):void => {
     //add or update the menu
     if (menu?.isFromLocal) {
         const oneFoodMenu = JSON.parse(localStorage.getItem("oneFoodMenu") || '[]') as { menu_uid: string }[];

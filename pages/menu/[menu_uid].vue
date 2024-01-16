@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
     import { useMenuStore } from '~/store/menu';
 
     definePageMeta({
@@ -9,7 +9,9 @@
     const { fetchMenu, resetMenu } = useMenuStore()
 
     const { menu_uid } = useRoute().params
-    fetchMenu(menu_uid);
+    const menuUid = Array.isArray(menu_uid) ? menu_uid[0] : menu_uid;
+
+    fetchMenu(menuUid);
 
     //reset on leave
     onBeforeUnmount(() => resetMenu())
