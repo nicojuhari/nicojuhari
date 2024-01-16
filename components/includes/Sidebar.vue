@@ -40,7 +40,7 @@ const blocksArray: Array<MenuItem> = [
     //     iconName: 'i-ph-layout-light'
     // },
     {
-        id: 'settings',
+        id: 'settings/general',
         label: 'Settings',
         iconName: 'i-ph-gear-light'
     }
