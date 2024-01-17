@@ -13,6 +13,10 @@ select {
     @apply text-sm text-brand-gray-500
 }
 
+.formkit-label, label {
+    @apply text-sm text-gray-700 font-medium;
+}
+
 [data-message-type=validation],
 [data-message-type=ui] {
     margin-top: 0.5rem;

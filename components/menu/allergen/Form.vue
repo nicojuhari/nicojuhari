@@ -6,8 +6,8 @@ import { viewObjectId } from '~/composables/useAppStatus';
 
 const emit = defineEmits(['close'])
 const { menuAllergens, menu } = storeToRefs(useMenuStore())
-const newCategory = ref({ uid: '', name: '', description: '' });
-const categoryIdx = ref(0)
+const newAllergen = ref({ uid: '', name: '', description: '' });
+const allergenIdx = ref(0)
 const loading = ref(false)
 
 if (viewObjectId.value) {
@@ -15,8 +15,8 @@ if (viewObjectId.value) {
     let result = searchArray(menuAllergens.value, (item) => item.uid === viewObjectId.value)
 
     if (result?.item) {
-        newCategory.value = { ...result.item }
-        categoryIdx.value = result.index
+        newAllergen.value = { ...result.item }
+        allergenIdx.value = result.index
     }
 }
 
@@ -25,11 +25,11 @@ const handleForm = () => {
     //update category
     if (viewObjectId.value) {
         if (menu.value) {
-            menu.value.allergens = updateItemInArray(menuAllergens.value, categoryIdx.value, newCategory.value)
+            menu.value.allergens = updateItemInArray(menuAllergens.value, allergenIdx.value, newAllergen.value)
         }
     } else {
         //create category
-        menuAllergens.value.push({ ...newCategory.value, uid: uid() })
+        menuAllergens.value.push({ ...newAllergen.value, uid: uid() })
     }
 
     setTimeout(() => {
@@ -41,18 +41,18 @@ const handleForm = () => {
 
 onBeforeUnmount(() => {
     viewObjectId.value = null
-    newCategory.value = {}
+    newAllergen.value = {}
 })
 </script>
 <template>
     <UCard>
         <template #header>
             <div class="flex justify-between items-center">
-                <span> {{ viewObjectId ? 'View Category' : 'New Category' }} </span>
+                <span> {{ viewObjectId ? 'View Allergen' : 'New Allergen' }} </span>
                 <UButton @click.prevent="$emit('close')" color="gray" square variant="soft" icon="i-ph-x" />
             </div>
         </template>
-        <FormKit type="form" :actions="false" v-model="newCategory" @submit="handleForm" id="categoryFormKit">
+        <FormKit type="form" :actions="false" v-model="newAllergen" @submit="handleForm" id="categoryFormKit">
             <FormKit name="name" type="text" label="Name" validation="required|length:1,2"></FormKit>
             <FormKit name="description" type="textarea" label="Description" validation="required|length:3,100"></FormKit>
         </FormKit>

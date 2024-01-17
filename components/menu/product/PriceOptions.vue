@@ -30,7 +30,7 @@ if (props.modelValue.length == 0) addFields()
 </script>
 <template>
     <div>
-        <label>Options</label>
+        <label>Price options</label>
         <div class="p-4 rounded bg-slate-50 max-h-96 overflow-y-auto">
             <div v-for="(field, idx) of modelValue" class="grid grid-flow-col gap-6 items-end mt-6 first:mt-0">
                 <div>
