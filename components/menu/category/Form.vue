@@ -52,13 +52,10 @@
                 <UButton @click.prevent="$emit('close')" color="gray" square variant="soft" icon="i-ph-x"/>
             </div>
         </template>
-        <div>
-            <FormKit type="form" :actions="false" v-model="newCategory" @submit="handleForm" id="categoryFormKit">
-                <FormKit name="name" type="text" label="Name" validation="required|length:1,100"></FormKit>
-                <FormKit name="description" type="textarea" label="Description" validation="length:3,300"></FormKit>
-            </FormKit>
-            
-        </div>
+        <FormKit type="form" :actions="false" v-model="newCategory" @submit="handleForm" id="categoryFormKit">
+            <FormKit name="name" type="text" label="Name" validation="required|length:1,100"></FormKit>
+            <FormKit name="description" type="textarea" label="Description" validation="length:3,300"></FormKit>
+        </FormKit>
         <template #footer>
             <div class="flex justify-between items-center">
                 <div v-if="viewObjectId" class="text-sm opacity-30">ID: {{ viewObjectId }}</div>

@@ -1,12 +1,24 @@
 export type Menu = {
     menu_uid: string,
-    products: Array<unknown>,
+    products: Product[],
     categories: Category[],
     promos: Array<unknown>,
     bundles: Array<unknown>,
     allergens: Allergen[],
     configs: Configs,
     isFromLocal?: boolean
+}
+
+export type Product = {
+    uid: string,
+    name: string,
+    options: unknown[],
+    categoryId: string,
+    description?: string,
+    imageUrl?: string,
+    tags?: string[],
+    allergens?: Allergen[],
+    inStock?: boolean | null
 }
 
 export type Category = {

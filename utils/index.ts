@@ -1,4 +1,4 @@
-import type { Menu } from "~/types";
+import type { Menu, Category } from "~/types";
 
 export const uid = () => {
     const head = Date.now().toString(36);
@@ -124,3 +124,11 @@ export const addMenuToLocalStorage = (menu: Menu):void => {
         localStorage.setItem("oneFoodMenu", JSON.stringify(oneFoodMenu));
     }
 };
+
+export const getCategoryName = (categoryId: string, categories: Category[]): string => {
+  const cat = categories.find((c) => c.uid === categoryId);
+  if (cat?.name) {
+    return cat.name;
+  }
+  return 'No category name';
+}

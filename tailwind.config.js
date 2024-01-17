@@ -1,3 +1,5 @@
+//generate colors app: https://uicolors.app/create
+
 module.exports = {
     theme: {
         extend: {
@@ -43,6 +45,19 @@ module.exports = {
                     800: "#174e3a",
                     900: "#144030",
                     950: "#0a241c",
+                },
+                "brand-gray": {
+                    50: "#ededed",
+                    100: "#e3e3e3",
+                    200: "#d4d4d4",
+                    300: "#bdbdbd",
+                    400: "#a3a3a3",
+                    500: "#9e9e9e",
+                    600: "#949494",
+                    700: "#878787",
+                    800: "#737373",
+                    900: "#616161",
+                    950: "#424242",
                 },
             },
             container: {

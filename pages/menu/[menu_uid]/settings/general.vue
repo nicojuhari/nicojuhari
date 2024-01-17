@@ -9,44 +9,48 @@ const router = useRouter();
 
 //delete menu from local
 const isModalDeleteOpen = ref(false)
-const deleteMenu = () => {
+const deleteMenu = async () => {
     let menu_uid = menu.value.menu_uid
     removeMenuFromLocalStorage(menu_uid)
 
-    setTimeout(() => {
-        router.push('/')
-    }, 600)
-   
+     // Redirect
+    await new Promise((resolve) => setTimeout(resolve, 600));
+    router.push('/')
 }
 
 //import menu
 const importLoading = ref(false)
-const importMenu = () => {
-    
-    const input = document.createElement('input');
-    input.type = 'file';
-    input.accept = 'application/json';
-    input.click();
+const importMenu = async () => {
+    try {
+        const input = document.createElement("input");
+        input.type = "file";
+        input.accept = "application/json";
+        input.click();
 
-    input.onchange = () => {
-        importLoading.value = true;
-        const file = input.files[0];
-        const reader = new FileReader();
-        reader.readAsText(file, 'UTF-8');
-        reader.onload = readerEvent => {
-            const content = readerEvent.target.result;
-            const importMenu = JSON.parse(content);
+        input.onchange = async () => {
+            importLoading.value = true;
+            const file = input.files[0];
 
+            // Read file content
+            const text = await file.text();
+            const importMenu = JSON.parse(text);
+
+            // Validate JSON schema
+            // ...
+
+            // Update menu state
             updateMenu(importMenu);
 
-            setTimeout(() => {
-                importLoading.value = false;
-            }, 1400);
-        }
+            // Hide loading state
+            await new Promise((resolve) => setTimeout(resolve, 1400));
+            importLoading.value = false;
+        };
+    } catch (error) {
+        console.error(error);
+        // Show error notification
     }
+};
 
-    
-}
 
 const updateMenu = (importMenu) => {
     menu.value.products = importMenu.products;
@@ -62,15 +66,30 @@ const downloadLoading = ref(false);
 const downloadMenu = () => {
     downloadLoading.value = true;
 
-    const a = document.createElement('a');
-    a.href = URL.createObjectURL(new Blob([JSON.stringify(menu.value)], { type: `text/json` }));
-    a.download = '1FoodMenu_' + menu.value.menu_uid + '.json';
+    // Create blob with menu data
+    const menuBlob = new Blob([JSON.stringify(menu.value)], { type: "application/json" });
+
+    // Generate filename with menu ID
+    const filename = "menu_" + menu.value.menu_uid + ".json";
+
+    // Create object URL from blob
+    const url = URL.createObjectURL(menuBlob);
+
+    // Create anchor element
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = filename;
+
+    // Click to trigger download
     a.click();
 
+    // Revoke object URL
     setTimeout(() => {
+        URL.revokeObjectURL(url);
         downloadLoading.value = false;
     }, 1400);
 }
+
 
 
 </script>
