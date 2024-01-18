@@ -125,10 +125,10 @@
         <UModal v-model="isModalOpen">
             <MenuCategoryForm @close="isModalOpen = false"/>
         </UModal>
-        <UModal v-model="isModalDeleteOpen">
+        <UModal v-model="isModalDeleteOpen" >
             <div class="p-8 flex flex-col gap-6">
-                <div>Would you like to delete this category?</div>
-                <div class="flex gap-4 items-center justify-end">
+                <div class="text-center">Would you like to delete this category?</div>
+                <div class="flex gap-4 items-center justify-center">
                     <UButton color="brand-blue" class="px-10" @click.prevent="() => isModalDeleteOpen = false">No</UButton>
                     <UButton color="brand-red" class="px-10" @click.prevent="deleteCategory">Yes</UButton>
                 </div>

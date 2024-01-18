@@ -43,50 +43,6 @@
         return newArr
     })
 
-
-    // const handleChange = () => {
-
-    // //remove old fields
-    // let { isAvailable, salePrice, sizePrice, plu, extra, ...restProduct } = newProduct.value
-
-    // //concat options
-    // restProduct.options = [...productOptions.value]
-
-    // //remove emtpy Options
-    // restProduct.options = restProduct.options.filter((option, idx) => {
-
-    //     if (Object.keys(option).length == 0) {
-    //         return false;
-    //     }
-
-    //     if (idx > 0 && option.size == '') {
-    //         return false;
-    //     }
-
-    //     return true;
-    // });
-
-    // newProduct.value = restProduct
-
-    // console.log(newProduct.value)
-
-    // //update
-    // if (viewObjectId.value) {
-    //     if (menu.value) {
-    //         menu.value.products = updateItemInArray(menuProducts.value, productIdx.value, newProduct.value)
-    //     }
-    // } else {
-    //     //create
-    //     menuCategories.value.push({ ...newCategory.value, uid: uid() })
-    //     createProduct({ ...newProduct.value, uid: uid() })
-    // }
-
-    // //reset
-    // productOptions.value = []
-    // newProduct.value = { ...emptyProduct };
-    //     closeFormModal()
-    // }
-
     const handleForm = () => {
         loading.value = true
 
@@ -111,8 +67,6 @@
         });
 
         newProduct.value = restProduct
-
-        console.log(newProduct.value)
 
         //update product
         if (viewObjectId.value) {

@@ -5,4 +5,5 @@
     <UCard>
         Bundles
     </UCard>
+    <MenuBundlesForm/>
 </template>

@@ -135,13 +135,13 @@ const items = [
         <UiEmptyBlock v-else>
             No Products
         </UiEmptyBlock>
-        <UModal v-model="isModalOpen">
+        <UModal v-model="isModalOpen" >
             <MenuProductForm @close="isModalOpen = false" />
         </UModal>
         <UModal v-model="isModalDeleteOpen">
             <div class="p-8 flex flex-col gap-6">
-                <div>Would you like to delete this product?</div>
-                <div class="flex gap-4 items-center justify-end">
+                <div class="text-center">Would you like to delete this product?</div>
+                <div class="flex gap-4 items-center justify-center">
                     <UButton color="brand-blue" class="px-10" @click.prevent="() => isModalDeleteOpen = false">No</UButton>
                     <UButton color="brand-red" class="px-10" @click.prevent="deleteProduct">Yes</UButton>
                 </div>
