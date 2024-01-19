@@ -11,7 +11,7 @@
     const { menu_uid } = useRoute().params
     const menuUid = Array.isArray(menu_uid) ? menu_uid[0] : menu_uid;
 
-    fetchMenu(menuUid);
+    await fetchMenu(menuUid);
 
     //reset on leave
     onBeforeUnmount(() => resetMenu())

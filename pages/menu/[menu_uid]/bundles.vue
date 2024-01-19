@@ -2,8 +2,11 @@
 
 </script>
 <template>
-    <UCard>
-        Bundles
-    </UCard>
-    <MenuBundlesForm/>
+    <div>
+        <UCard>
+            Bundles - Coming soon ...
+        </UCard>
+        <!-- <MenuBundlesFormTwo/> -->
+    </div>
+    
 </template>

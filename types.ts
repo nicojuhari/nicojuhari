@@ -3,7 +3,7 @@ export type Menu = {
     products: Product[],
     categories: Category[],
     promos: Array<unknown>,
-    bundles: Array<unknown>,
+    bundles: Bundle[],
     allergens: Allergen[],
     configs: Configs,
     isFromLocal?: boolean
@@ -40,4 +40,16 @@ type AllergenWithName = {
 type AllergenWithIcon = {
     icon: string
     description: string,
+}
+export type Bundle = {
+    uid: string;
+    name: string;
+    description: string;
+    items: {
+        qty: number;
+        uid: string;
+        option: string;
+        itemPrice: number | null;
+    }[];
+    bundlePrice: number | null;
 }

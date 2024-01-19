@@ -11,7 +11,4 @@
 .active-sortable-tr {
     @apply bg-slate-200;
 }
-.flex button {
-    @apply w-fit;
-}
 

@@ -3,7 +3,7 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 export default defineEventHandler(async (event) => {
-    const userId = getRouterParam(event, 'user_id')
+    const userId = getRouterParam(event, "user_id");
 
     return await prisma.menu.findMany({
         where: {
@@ -21,5 +21,4 @@ export default defineEventHandler(async (event) => {
             },
         },
     });
-    
 });

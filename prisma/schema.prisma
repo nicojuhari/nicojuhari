@@ -12,7 +12,7 @@ datasource db {
 }
 
 model Menu {
-  id Int @id @default(autoincrement())
+  	id Int @id @default(autoincrement())
 	menu_uid String @unique
 	categories Json @default("[]")
 	products Json @default("[]")

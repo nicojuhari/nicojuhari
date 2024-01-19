@@ -1,4 +1,4 @@
-import type { Menu, Category } from "~/types";
+import type { Menu, Category, Product } from "~/types";
 
 export const uid = () => {
     const head = Date.now().toString(36);
@@ -131,4 +131,17 @@ export const getCategoryName = (categoryId: string, categories: Category[]): str
     return cat.name;
   }
   return 'No category name';
+}
+
+export const getProductName = (productId: string, products: Product[]): string => {
+  const prod = products.find((c) => c.uid === productId);
+  if (prod?.name) {
+    return prod.name;
+  }
+  return 'No product name';
+}
+
+export const getProductOptions = (productId: string, products: Product[]): any[] => {
+  const prod = products.find((c) => c.uid === productId);
+  return [...(prod?.options || [])];
 }

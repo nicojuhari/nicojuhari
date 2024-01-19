@@ -3,20 +3,15 @@
     import { useMenuStore } from '~/store/menu'
 
     defineEmits(['open-nav'])
-    defineProps(['isOpen'])
+    // defineProps(['isOpen'])
 
-    const { menu } = storeToRefs(useMenuStore())
-    const handleUpdateTitle = (ev: { target: { value: string; }; }) => {
-        if(menu.value) menu.value.configs.title = ev.target.value
+    const { menu, menuChanged, isLoading } = storeToRefs(useMenuStore())
+    const { saveMenu } = useMenuStore()
+
+
+    const handleSave = async () => {
+        await saveMenu()
     }
-
-    const items = [
-        [
-            { label: 'Import' },
-            { label: 'Export' }
-        ]
-    ]
-
 
 </script>
 <template>
@@ -27,23 +22,15 @@
                 <div class="flex items-center gap-2">
                     <div class="text-lg font-medium w-40 truncate">{{  menu?.configs.title }}</div>
                     <UButton :to="`/menu/${$route.params.menu_uid}/settings/general`" square icon="i-ph-pencil-simple-light" variant="link" color="brand-gray" />
-                    <UTooltip text="Your Plan">
+                    <UTooltip text="Your Plan" class="hidden sm:block">
                         <UBadge v-if="menu?.isFromLocal" size="xs">Free</UBadge>
                         <UBadge v-else size="xs" color="orange">Pro</UBadge>
                     </UTooltip>
                 </div>
             </div>
             <div class="flex gap-2 items-center">
-                
-                <UDropdown :items="items" :popper="{ placement: 'bottom-start' }">
-                    <UIcon name="i-ph-gear-light" class="w-6 h-6"></UIcon>
-                    <!-- <template #logout>
-                    <div class="text-brand-error" @click="logout">Logout</div>
-                </template> -->
-                </UDropdown>
-
+                <UButton v-if="!menu?.isFromLocal" @click="handleSave" :loading="isLoading" :disabled="!menuChanged">Save</UButton>
             </div>
-            
         </div>
     </header>
 </template>
