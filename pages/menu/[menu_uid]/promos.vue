@@ -128,6 +128,7 @@ const items = [
         <UiEmptyBlock v-else>
             No Promos
         </UiEmptyBlock>
+        <MenuPromoCard/>
         <UModal v-model="isModalOpen">
             <MenuPromoForm @close="isModalOpen = false" />
         </UModal>

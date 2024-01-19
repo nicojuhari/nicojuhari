@@ -57,8 +57,7 @@ export type Promo = {
     uid: string;
     name?: string;
     description?: string;
-    startDate?: Date;
-    endDate?: Date;
+    extraInfo?: string;
     bgColor?: string;
     textColor?: string; 
     bgImage?: string;
