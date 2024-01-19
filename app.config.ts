@@ -8,6 +8,6 @@ export default defineAppConfig({
         body: {
             base: 'flex flex-col h-full'
         }
-    },
+    }
   }
 })

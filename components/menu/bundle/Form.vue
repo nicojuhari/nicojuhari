@@ -1,5 +1,4 @@
 
-import type { UFormGroup } from '#build/components';
 <script setup>
 import { storeToRefs } from 'pinia';
 import { useMenuStore } from '~/store/menu'
@@ -24,8 +23,16 @@ if (viewObjectId.value) {
         newBundle.value = { ...result.item }
         bundleIdx.value = result.index
 
-        if(result.item.items) bundleItems.value = [...result.item.items]
+        //filter bundles items
+        if(result.item.items) {
+            bundleItems.value = [...result.item.items]
+            availableProducts.value = menuProducts.value.filter(p => {
+                return !result.item.items.some(item => item.uid === p.uid)
+            })
+        }
     }
+
+   
 }
 
 const bundleItemsToDisplay = computed(() => {
@@ -84,8 +91,10 @@ const selectProduct = (product_id) => {
 const removeItemFromBundle = (product_id) => {
     const productIndex = bundleItems.value.findIndex(p => p.uid === product_id)
 
-    if (productIndex > -1) {
-        bundleItems.value.splice(productIndex, 1);
+    if(productIndex > -1) {
+        if (!bundleItems.value.find(p => p.uid === product_id)) {
+            bundleItems.value.splice(productIndex, 1);
+        }
 
         //check if doesn't exist in array
         if (!availableProducts.value.find(p => p.uid === product_id)) {
@@ -112,10 +121,10 @@ onBeforeUnmount(() => {
             <FormKit name="name" type="text" label="Name" validation="required|length:1,100"></FormKit>
             <FormKit name="description" type="textarea" label="Description" validation="length:3,300" input-class="h-16"></FormKit>
             <FormKit name="price" type="number" label="Price" validation="required"></FormKit>
-            <UFormGroup label="Available Products" class="mt-6">
-                <USelectMenu :options="availableProducts" searchable :search-attributes="['name']" searchable-placeholder="Search a product...">
+            <UFormGroup label="Available Products" class="mt-6" v-if="availableProducts.length">
+                <USelectMenu :uiMenu="{'option' : { 'container' : 'flex-1'}}" :options="availableProducts" searchable :search-attributes="['name']" searchable-placeholder="Search a product...">
                     <template #option="{ option: item }">
-                        <div @click="() => selectProduct(item.uid)" class="p-2 gap-6 flex items-center">
+                        <div @click="() => selectProduct(item.uid)" class="p-2 gap-6 flex items-center cursor-pointer w-full">
                             <div class="shrink-0">
                                 <img v-if="item.imageUrl" class="m-auto w-16 h-16 object-cover rounded border" :src="item.imageUrl" alt="">
                                 <div v-else class="m-auto w-16 h-16 grid place-content-center bg-gray-50 border rounded text-xs">No image</div>
@@ -125,6 +134,7 @@ onBeforeUnmount(() => {
                     </template>
                 </USelectMenu>
             </UFormGroup>
+            <UiEmptyBlock v-else class="mt-6">No available products</UiEmptyBlock>
             <div class="mt-6">
                  <label>Selected ({{ bundleItems.length }})</label>
                     <div class="border h-60 rounded overflow-y-auto">

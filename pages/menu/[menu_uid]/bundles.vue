@@ -27,7 +27,7 @@ const options = {
     disabled: false,
     ghostClass: 'active-sortable-tr',
 }
-sortableOptions.value = useSortable(tableBody, menuBundles, options)
+sortableOptions.value = useSortable(tableBody, menu.value.bundles, options)
 
 watchEffect(() => {
     sortableOptions.value.option('disabled', query.value === '' ? false : true)
