@@ -109,6 +109,7 @@ export const useMenuStore = defineStore("menu", () => {
         menuProducts: computed(() => menu?.value?.products || []),
         menuAllergens: computed(() => menu?.value?.allergens || []),
         menuBundles: computed(() => menu?.value?.bundles || []),
+        menuPromos: computed(() => menu?.value?.promos || []),
         isLoading
     };
 });

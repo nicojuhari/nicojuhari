@@ -2,7 +2,7 @@ export type Menu = {
     menu_uid: string,
     products: Product[],
     categories: Category[],
-    promos: Array<unknown>,
+    promos: Promo[],
     bundles: Bundle[],
     allergens: Allergen[],
     configs: Configs,
@@ -51,4 +51,15 @@ export type Bundle = {
         size: number;
     }[];
     price: number | null;
+}
+
+export type Promo = {
+    uid: string;
+    name?: string;
+    description?: string;
+    startDate?: Date;
+    endDate?: Date;
+    bgColor?: string;
+    textColor?: string; 
+    bgImage?: string;
 }

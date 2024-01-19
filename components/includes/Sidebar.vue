@@ -29,6 +29,11 @@ const blocksArray: Array<MenuItem> = [
         iconName: 'i-ph-bounding-box-light',
     },
     {
+        id: 'promos',
+        label: 'Promos',
+        iconName: 'i-ph-percent-light'
+    },
+    {
         id: 'allergens',
         label: 'Allergens',
         iconName: 'i-ph-grains-slash-light'
