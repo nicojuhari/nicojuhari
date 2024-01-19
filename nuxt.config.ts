@@ -7,6 +7,9 @@ export default defineNuxtConfig({
   ui: {
     icons: ["ph"]
   },
+  colorMode: {
+    preference: 'light'
+  },
   runtimeConfig: {
     firebaseAdmin: {
       "type": "service_account",
