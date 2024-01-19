@@ -48,8 +48,7 @@ export type Bundle = {
     items: {
         qty: number;
         uid: string;
-        option: string;
-        itemPrice: number | null;
+        size: number;
     }[];
-    bundlePrice: number | null;
+    price: number | null;
 }
