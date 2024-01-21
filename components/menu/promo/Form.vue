@@ -58,7 +58,7 @@ onBeforeUnmount(() => {
         <FormKit type="form" :actions="false" v-model="newPromo" @submit="handleForm" id="promoFormKit">
             <FormKit name="name" type="text" label="Name" validation="length:1,100"></FormKit>
             <FormKit name="description" type="textarea" label="Description" validation="length:3,300"></FormKit>
-            <FormKit name="extraInfo" type="text" label="Extra Info" validation="length:1,100"></FormKit>
+            <!-- <FormKit name="extraInfo" type="text" label="Extra Info" validation="length:1,100"></FormKit> -->
             <!-- <div class="grid grid-cols-2 gap-6 mt-6">
                 <UFormGroup label="Start date">
                     <UInput type="date" v-model="newPromo.startDate"/>

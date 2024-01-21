@@ -5,7 +5,7 @@ import { viewObjectId } from '~/composables/useAppStatus';
 import { useSortable } from '@vueuse/integrations/useSortable'
 
 //state
-const { menu } = storeToRefs(useMenuStore())
+const { menu, menuPromos } = storeToRefs(useMenuStore())
 
 //filter
 const query = ref('')
@@ -72,8 +72,11 @@ const items = [
             </div>
         </div>
 
-        <div v-if="filteredPromos.length">
-            <div class="overflow-auto w-full max-h-[600px] rounded-md border">
+        <div v-if="menuPromos.length">
+            <div class="flex gap-4 overflow-x-auto snap-x snap-mandatory  ">
+                <MenuPromoCard v-for="promo in menuPromos" :cardData="promo" :key="promo.uid" :class="{'w-[calc(100%-2rem)]': menuPromos.length > 1}" @click="() => viewPromo(promo.uid)"/>
+            </div>
+            <!-- <div class="overflow-auto w-full max-h-[600px] rounded-md border">
                 <table class="table-fixed divside-y divide-gray-300 w-full min-w-[600px]">
                     <thead>
                         <tr class="border-b">
@@ -92,10 +95,10 @@ const items = [
                                     <span>{{ idx + 1 }}</span>
                                 </div>
                             </td>
-                            <!-- <td class="px-2 py-2 flex items-center gap-1">
+                            <td class="px-2 py-2 flex items-center gap-1">
                                 <UIcon data-sort-handle name="i-ph-dots-six-vertical-light" class="shrink-0 w-4 h-4" :class="query && 'opacity-15 '" />
                                 <span>{{ idx + 1 }}</span>
-                            </td> -->
+                            </td>
                             <td class="px-4 py-2 truncate">{{ item.name }}</td>
                             <td class="px-4 py-2 truncate">{{ item.description }}</td>
                             <td class="px-4 py-2 flex items-center justify-end gap-3">
@@ -122,13 +125,12 @@ const items = [
                         </tr>
                     </tbody>
                 </table>
-            </div>
+            </div> -->
             <div class="py-3.5 font-bold">Total: {{ filteredPromos?.length }}</div>
         </div>
         <UiEmptyBlock v-else>
             No Promos
         </UiEmptyBlock>
-        <MenuPromoCard/>
         <UModal v-model="isModalOpen">
             <MenuPromoForm @close="isModalOpen = false" />
         </UModal>
