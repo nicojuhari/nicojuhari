@@ -22,6 +22,11 @@ if (viewObjectId.value) {
 
 const handleForm = () => {
     loading.value = true
+
+    //sanitize
+    newPromo.value.name = validateHTMLTags(newPromo.value.name)
+    newPromo.value.description = validateHTMLTags(newPromo.value.description)
+
     //update promo
     if (viewObjectId.value) {
         if (menu.value) {
@@ -56,8 +61,8 @@ onBeforeUnmount(() => {
             </div>
         </template>
         <FormKit type="form" :actions="false" v-model="newPromo" @submit="handleForm" id="promoFormKit">
-            <FormKit name="name" type="text" label="Name" validation="length:1,100"></FormKit>
-            <FormKit name="description" type="textarea" label="Description" validation="length:3,300"></FormKit>
+            <FormKit name="name" type="text" label="Name" validation="length:1,100" help="Allowed tags: <b>,<br>,<i>"></FormKit>
+            <FormKit name="description" type="textarea" label="Description" validation="length:3,300" help="Allowed tags: <b>,<br>,<i>"></FormKit>
             <!-- <FormKit name="extraInfo" type="text" label="Extra Info" validation="length:1,100"></FormKit> -->
             <!-- <div class="grid grid-cols-2 gap-6 mt-6">
                 <UFormGroup label="Start date">

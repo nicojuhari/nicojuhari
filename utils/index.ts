@@ -17,6 +17,16 @@ export const validatePassword = (password:string) => {
     return password.length > 5;
 };
 
+export function validateHTMLTags(str:string) {
+  const allowedTags = ['b', 'br', 'i'];
+  
+  // Create a regular expression to match allowed tags
+  const regex = new RegExp(`<\/?(${allowedTags.join('|')})(>| .*?>)`, 'gi');
+  
+  // Remove any tags that don't match the allowed tags regex
+  return str.replace(/<\/?(?!\/?(${allowedTags.join('|')})(>| .*?>))\/?>/gi, ''); 
+}
+
 export const search = (q: string, array: Array<string>) => {
     
     q = q.toLocaleLowerCase()

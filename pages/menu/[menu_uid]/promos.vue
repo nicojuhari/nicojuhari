@@ -74,7 +74,7 @@ const items = [
 
         <div v-if="menuPromos.length">
             <div class="flex gap-4 overflow-x-auto snap-x snap-mandatory  ">
-                <MenuPromoCard v-for="promo in menuPromos" :cardData="promo" :key="promo.uid" :class="{'w-[calc(100%-2rem)]': menuPromos.length > 1}" @click="() => viewPromo(promo.uid)"/>
+                <MenuPromoCard v-for="promo in menuPromos" :cardData="promo" :key="promo.uid" @click="() => viewPromo(promo.uid)"/>
             </div>
             <!-- <div class="overflow-auto w-full max-h-[600px] rounded-md border">
                 <table class="table-fixed divside-y divide-gray-300 w-full min-w-[600px]">

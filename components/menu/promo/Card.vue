@@ -16,8 +16,8 @@
     // }
 </script>
 <template>
-    <div class="w-80 h-40 bg-cover bg-center rounded-2xl bg-white p-4 shadow-lg flex flex-col gap-4 snap-start" :style="{'background-color': cardData?.bgColor, 'color': cardData?.textColor, 'background-image': `url(${cardData?.bgImage})`}">
-        <div class="text-3xl font-bold line-clamp-2" v-if="cardData.name">{{ cardData?.name }}</div>
-        <div class="line-clamp-2 mt-auto" v-if="cardData.description">{{ cardData.description }}</div>
+    <div class="w-80 h-40 max-w-80 shrink-0 bg-cover bg-center rounded-2xl bg-white p-4 flex flex-col gap-4 snap-start cursor-pointer" :style="{'background-color': cardData?.bgColor, 'color': cardData?.textColor, 'background-image': `url(${cardData?.bgImage})`}">
+        <div class="text-3xl font-bold line-clamp-2" v-if="cardData.name" v-html="cardData?.name"></div>
+        <div class="line-clamp-2 mt-auto" v-if="cardData.description" v-html="cardData?.description"></div>
     </div>
 </template>
