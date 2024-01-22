@@ -22,7 +22,6 @@ const viewPromo = (id) => {
 const tableBody = ref(null)
 const sortableOptions = ref(null)
 const options = {
-    handle: '[data-sort-handle]',
     animation: 300,
     disabled: false,
     ghostClass: 'active-sortable-tr',
@@ -73,7 +72,7 @@ const items = [
         </div>
 
         <div v-if="menuPromos.length">
-            <div class="flex gap-4 overflow-x-auto snap-x snap-mandatory  ">
+            <div class="flex gap-4 overflow-x-auto snap-x snap-mandatory" ref="tableBody">
                 <MenuPromoCard v-for="promo in menuPromos" :cardData="promo" :key="promo.uid" @click="() => viewPromo(promo.uid)"/>
             </div>
             <!-- <div class="overflow-auto w-full max-h-[600px] rounded-md border">
