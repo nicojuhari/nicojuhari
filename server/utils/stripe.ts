@@ -8,14 +8,58 @@ export const handleSubscriptionPayments = async (data:any) => {
     try {
         //create new subscription + new menu
         const stripe = new Stripe(process.env?.STRIPE_SECRET_KEY);
+
+        //get subscription
+        const subsData = await stripe.subscriptions.retrieve(data.subscription);
+        let subsObject = formatSubsData(subsData);
+
+        if(data.billing_reason == 'subscription_create') {
+            // create new subscription in database
+            await prisma.menuSubs.create({
+                data: subsObject
+            })
+
+            let response = await prisma.menu.create({
+                data: {
+                    menu_uid: subsData.metadata.menu_uid,
+                    products: [],
+                    categories: [],
+                    promos: [],
+                    bundles: [],
+                    allergens: [],
+                    configs: {
+                        title: "Default Menu Title",
+                    },
+                }
+            })
+            //connect menu to user
+            await prisma.userMenu.create({
+              data: {
+                user_uid: subsData.metadata.user_uid,
+                menu_id: response.id
+              }
+            })
+            
+        }
+        else if(data.billing_reason == 'subscription_cycle') {
+            // update existing subscription in database
+            await prisma.subscription.update({
+                where: {
+                    id: ''
+                },
+                data: {
+                    // updated fields
+                }
+            });
+        }
         //get subscription data
-        const subscription = await stripe.subscriptions.retrieve(data.object.id);
+        // const subscription = await stripe.subscriptions.retrieve(data.object.id);
         //update subscription in database
-        console.log(subscription);
+        // console.log(subscription);
         //update subscription on repeat payment
 
         //create new subs
-        let newMenusSubs = formatSubsData(data);
+        // let newMenusSubs = formatSubsData(data);
 
         //insert new subs
         // await insertIntoTable(newMenusSubs, "menus_subs");
@@ -59,14 +103,15 @@ export const handleSubscriptionPayments = async (data:any) => {
 //     });
 // }
 
-// const formatSubsData = (data) => {
-//     return {
-//         menu_uid: data.subscription_details.menu_uid,
-//         subs_uid: data.id,
-//         price_uid: data.plan.id,
-//         is_active: data.status == 'active' ? true : false,
-//         valid_before: new Date(data.current_period_end * 1000),
-//         prod_name: data.plan.metadata.prod_name || 'pro-or-premium',
-//         subs_interval: data.plan.interval,
-//     }
-// }
+const formatSubsData = (data:any) => {
+    //from subs Object
+    return {
+        menu_uid: data.metadata.menu_uid,
+        subs_uid: data.id,
+        price_uid: data.plan.id,
+        is_active: data.status == 'active' ? true : false,
+        valid_before: new Date(data.current_period_end * 1000),
+        prod_name: data.plan.metadata.prod_name || 'pro-or-premium',
+        subs_interval: data.plan.interval,
+    }
+}

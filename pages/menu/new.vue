@@ -34,9 +34,8 @@ const groupedPrices = computed(() => {
     return dd;
 });
 
-const priceCards = ref(null)
+
 const router = useRouter();
-const route = useRoute();
 const isLoading = ref(false)
 
 const newMenuSchema = ref<Menu>({
