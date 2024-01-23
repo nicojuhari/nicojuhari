@@ -1,29 +1,41 @@
-// export const createSubscription = async (data) => {
+import Stripe from "stripe";
+import { PrismaClient } from "@prisma/client";
 
-//     try {
+const prisma = new PrismaClient();
 
-//         //create new subs
-//         let newMenusSubs = formatSubsData(data);
+export const handleSubscriptionPayments = async (data:any) => {
 
-//         //insert new subs
-//         await insertIntoTable(newMenusSubs, "menus_subs");
+    try {
+        //create new subscription + new menu
+        const stripe = new Stripe(process.env?.STRIPE_SECRET_KEY);
+        //get subscription data
+        const subscription = await stripe.subscriptions.retrieve(data.object.id);
+        //update subscription in database
+        console.log(subscription);
+        //update subscription on repeat payment
 
-//         // insert new menu
-//         let insertRes = await insertNewMenu(data.metadata.menu_uid);
+        //create new subs
+        let newMenusSubs = formatSubsData(data);
 
-//         //connect menu with the user
-//         await insertIntoTable(
-//             {
-//                 user_uid: data.metadata.user_uid,
-//                 menu_id: insertRes.insertId,
-//             },
-//             "user_menus"
-//         );
+        //insert new subs
+        // await insertIntoTable(newMenusSubs, "menus_subs");
+
+        // insert new menu
+        // let insertRes = await insertNewMenu(data.metadata.menu_uid);
+
+        //connect menu with the user
+        // await insertIntoTable(
+        //     {
+        //         user_uid: data.metadata.user_uid,
+        //         menu_id: insertRes.insertId,
+        //     },
+        //     "user_menus"
+        // );
     
-//     } catch (err) {
-//         console.error(err);
-//     }
-// };
+    } catch (err) {
+        console.error(err);
+    }
+};
 
 // exports.updateSubscription = async (data) => {
 //     try {
@@ -45,4 +57,16 @@
 //     return await stripe.subscriptions.retrieve(id, {
 //         expand: ["plan.product"],
 //     });
+// }
+
+// const formatSubsData = (data) => {
+//     return {
+//         menu_uid: data.subscription_details.menu_uid,
+//         subs_uid: data.id,
+//         price_uid: data.plan.id,
+//         is_active: data.status == 'active' ? true : false,
+//         valid_before: new Date(data.current_period_end * 1000),
+//         prod_name: data.plan.metadata.prod_name || 'pro-or-premium',
+//         subs_interval: data.plan.interval,
+//     }
 // }

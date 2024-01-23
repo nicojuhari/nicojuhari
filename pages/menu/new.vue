@@ -17,12 +17,22 @@ const props = defineProps({
     }
 })
 
-// const { data: stripePrices, pending } = useFetch('/stripe/prices')
-const showYearlyPrices = ref(false)
+const { data } = await useFetch('/api/stripe/get-prices')
+const showYearlyPrices = ref(true)
 
 const intervalPrice = computed(() => {
     return showYearlyPrices.value ? 'year' : 'month'
 })
+
+const groupedPrices = computed(() => {
+    let dd: any[] = [];
+    let interval = showYearlyPrices.value ? 'year' : 'month'
+    let ff = data.value?.filter((item) => item.recurring === interval || item.amount === 0);
+    if (ff) {
+        dd = ff.sort((a, b) => a?.amount - b?.amount);
+    }
+    return dd;
+});
 
 const priceCards = ref(null)
 const router = useRouter();
@@ -55,8 +65,33 @@ const createMenuLocal = async () => {
 
     setTimeout(() => {
         isLoading.value = false;
-        router.push(`/menu/${newMenuId}`);
+        router.push(`/menu/${newMenuId}/dashboard`);
     }, 600);
+}
+
+const createCheckoutSession = async (priceId: string) => {
+    try {
+        const { getUserToken } = useAuth()
+        const user = useUser()
+
+        const newMenuId = uid()
+        // Create Checkout Session
+        const session = await $fetch(`/api/stripe/create-session`, {
+            method: 'POST',
+            headers: { 'Authorization': await getUserToken() } as {},
+            body: {
+                priceId,
+                menuId: newMenuId,
+                userEmail: user.value?.email,
+                userId: user.value?.uid
+            }
+        });
+
+        if(session.url) window.location.replace(session.url)
+    } catch (err) {
+        console.error(err)
+    }
+
 }
 
 
@@ -64,11 +99,8 @@ const createMenuLocal = async () => {
 
 </script>
 <template>
-    <UButton  @click.prevent="createMenuLocal"
-                        class="mt-auto justify-center">
-                        Create for Free
-                    </UButton>
-    <!-- <div class="pb-12" v-if="stripePrices?.length">
+     <div class="container" v-if="data?.length">
+        <div class="text-2xl text-center lg:mt-10 my-10">Create a new menu</div>
         <div class="flex gap-6 items-center justify-center my-5">
             <div class="font-semibold">Save 20%, with yearly plans</div>
             <label for="small-toggle" class="inline-flex relative items-center cursor-pointer">
@@ -78,37 +110,39 @@ const createMenuLocal = async () => {
                 </div>
             </label>
         </div>
-        <div class="flex flex-col md:flex-row gap-6 justify-center">
-            <div ref="priceCards" v-for="price of filteredPrices"
+        <div class="flex flex-col md:flex-row gap-6 justify-center items-center md:items-stretch">
+            <div v-for="price of groupedPrices"
                 class="price-cards relative rounded-lg p-6 w-full max-w-sm flex flex-col overflow-hidden shadow-md border border-gray-500 border-opacity-20">
                 <div class="py-4">
-                    <div class="text-4xl font-bold capitalize">{{ price.name }}</div>
+                    <div class="text-4xl font-bold capitalize">{{ price.product.name }}</div>
                     <div class="mt-4 h-[60px] overflow-hidden">
-                        {{ price.description }}
+                        {{ price.product.description }}
                     </div>
                     <div class="mt-4 text-2xl font-medium sm:text-4xl"> $ {{
-                        price['price_' + intervalPrice].unit_amount / 100 || 0 }}
-                        <span v-if="price['price_' + intervalPrice].unit_amount" class="text-base font-medium"> / {{
-                            price['price_' + intervalPrice].recurring.interval }}</span>
+                        price.amount / 100 }}
+                        <span v-if="price.amount" class="text-base font-medium"> / {{
+                            price.recurring }}</span>
                     </div>
                 </div>
 
-                <div class="my-4" v-if="price.metadata?.features">
-                    <p class="flex items-center mb-4 gap-4" v-for="item in JSON.parse(price.metadata?.features)"
+                <div class="my-4" v-if="price.product.features">
+                    <p class="flex items-center mb-4 gap-4" v-for="item in price.product.features"
                         :key="item">
-                        <UIcon class="flex-shrink-0 text-brand-green" />
+                        <UIcon name="i-ph-check" class="text-brand-success"/>
                         <span>
-                            {{ item }}
+                            {{ item.name }}
                         </span>
                     </p>
                 </div>
-
-                <UButton v-if="price.name != 'Free' && !currentPrice"
-                    @click.prevent="createCheckoutSession(price['price_' + intervalPrice].id)"
-                    class="mt-auto justify-center" severity="success">
-                    Subscribe
-                </UButton>
-                <UButton v-else-if="price.name != 'Free' && price['price_' + intervalPrice].id != currentPrice"
+                <div class="mt-auto flex w-full">
+                    <UButton v-if="price.amount != 0" @click.prevent="createCheckoutSession(price.id)" class="text-center justify-center" block>
+                        Subscribe
+                    </UButton>
+                    <UButton v-if="price.amount == 0" @click.prevent="createMenuLocal" class="text-center justify-center" block>
+                        Cerate for free
+                    </UButton>
+                </div>
+                <!-- <UButton v-else-if="price.name != 'Free' && price['price_' + intervalPrice].id != currentPrice"
                     @click.prevent="changeSubsPlan(subsId, price['price_' + intervalPrice].id)"
                     class="mt-auto justify-center" severity="success">
                     Change Plan
@@ -120,38 +154,8 @@ const createMenuLocal = async () => {
                 <UButton v-else-if="price.name == 'Free'" @click.prevent="createMenuLocal" outlined severity="secondary"
                     class="mt-auto justify-center">
                     Create for Free
-                </UButton>
+                </UButton> -->
             </div>
         </div>
     </div>
-    <Loading bgOpacity v-if="pending" /> -->
 </template>
-<style>
-.price-cards {
-    --y: 0;
-    --x: 0;
-    transition: all 1.5s ease;
-}
-
-.price-cards:hover::after {
-    opacity: 1;
-}
-
-.price-cards:after {
-    content: '';
-    position: absolute;
-    z-index: 2;
-    top: var(--y);
-    left: var(--x);
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    background: #2c6abc;
-    filter: blur(6rem);
-    display: block;
-    opacity: 0;
-}
-
-.price-cards.pro-plan:after {
-    background: rgb(255, 255, 255);
-}</style>

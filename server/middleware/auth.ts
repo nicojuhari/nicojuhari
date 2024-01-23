@@ -11,7 +11,7 @@ import { initializeApp, cert, getApp } from "firebase-admin/app";
 export default defineEventHandler(async (event) => {
     const { path, headers } = event
 
-    if(path.includes('/api/')) {
+    if(path.includes('/api/') && !path.includes('/api/stripe')) {
         try {
         // console.time('timeA')
         createFirebaseApp()

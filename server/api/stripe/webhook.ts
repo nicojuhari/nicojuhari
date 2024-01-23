@@ -1,6 +1,7 @@
 // connect to server on local terminal
 // stripe listen --forward-to localhost:3000/api/stripe/webhook
 import Stripe from "stripe";
+import { handleSubscriptionPayments } from "~/server/utils/stripe";
 
 export default defineEventHandler(async (event) => {
 
@@ -17,9 +18,13 @@ export default defineEventHandler(async (event) => {
         throw createError({ statusCode: 400, message: (err as Error).message });
     }
 
+    // console.log(hookEvent.type);
+
     switch (hookEvent.type) {
-        case "customer.subscription.created":
+        case "invoice.payment_succeeded":
             // await createSubscription(hookEvent.data.object);
+            console.log("invoice.payment_succeeded", hookEvent.data.object)
+            await handleSubscriptionPayments(hookEvent.data.object)
             break;
         case "customer.subscription.updated":
             // await updateSubscription(hookEvent.data.object);
