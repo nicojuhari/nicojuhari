@@ -17,19 +17,18 @@ const props = defineProps({
     }
 })
 
-const { data } = await useFetch('/api/stripe/get-prices')
-const showYearlyPrices = ref(true)
-
-const intervalPrice = computed(() => {
-    return showYearlyPrices.value ? 'year' : 'month'
+const { getUserToken } = useAuth()
+const { data } = await useFetch('/api/stripe/get-prices', {
+    headers: { 'Authorization': await getUserToken() } as {}
 })
+const showYearlyPrices = ref(false)
 
 const groupedPrices = computed(() => {
     let dd: any[] = [];
     let interval = showYearlyPrices.value ? 'year' : 'month'
     let ff = data.value?.filter((item) => item.recurring === interval || item.amount === 0);
     if (ff) {
-        dd = ff.sort((a, b) => a?.amount - b?.amount);
+        dd = ff.sort((a: any, b:any) => a?.amount - b?.amount);
     }
     return dd;
 });
@@ -70,7 +69,6 @@ const createMenuLocal = async () => {
 
 const createCheckoutSession = async (priceId: string) => {
     try {
-        const { getUserToken } = useAuth()
         const user = useUser()
 
         const newMenuId = uid()
