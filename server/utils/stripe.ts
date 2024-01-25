@@ -5,6 +5,7 @@ const prisma = new PrismaClient();
 
 export const handleSubscriptionPayments = async (data:any) => {
 
+    console.log("data", data)
     try {
         //create new subscription + new menu
         const stripe = new Stripe(process.env?.STRIPE_SECRET_KEY);

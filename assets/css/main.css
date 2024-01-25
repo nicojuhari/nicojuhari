@@ -12,3 +12,6 @@
     @apply bg-slate-200;
 }
 
+pre {
+    @apply overflow-x-auto p-2 text-sm; 
+}

@@ -38,12 +38,11 @@ const blocksArray: Array<MenuItem> = [
         label: 'Allergens',
         iconName: 'i-ph-grains-slash-light'
     },
-   
-    // {
-    //     id: 'free-designs',
-    //     label: 'Free Designs',
-    //     iconName: 'i-ph-layout-light'
-    // },
+    {
+        id: 'designs',
+        label: 'Free Designs',
+        iconName: 'i-ph-layout-light'
+    },
     {
         id: 'settings/general',
         label: 'Settings',

@@ -23,7 +23,6 @@ export default defineEventHandler(async (event) => {
     switch (hookEvent.type) {
         case "invoice.payment_succeeded":
             // await createSubscription(hookEvent.data.object);
-            console.log("invoice.payment_succeeded", hookEvent.data.object)
             await handleSubscriptionPayments(hookEvent.data.object)
             break;
         case "customer.subscription.updated":
