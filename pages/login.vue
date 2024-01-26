@@ -4,6 +4,10 @@
     const isLoading = ref(false);
     const signUp = ref(false);
 
+    definePageMeta({
+        layout: 'empty'
+    })
+
     const formData = reactive({
         email: '',
         password: '',

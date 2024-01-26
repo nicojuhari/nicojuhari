@@ -7,8 +7,6 @@
     const toggleNav = () => {
         return showNav.value = !showNav.value;
     }
-
-    // watch(() => route.params, () => fetchMenu(route.params.menu_uid), { deep: true })
     
 </script>
 <template>
@@ -30,10 +28,7 @@
         margin: 0 auto;
         min-height: 100vh;
     }
-    /* .menu-layout header {
-        grid-column: 1/3;
-        grid-row: 1/2;
-    } */
+    
     .menu-layout aside {
         grid-column: 1/2;
         grid-row: 1/3;
@@ -43,9 +38,9 @@
         grid-row: 1/3;
     }
 
-    /* @media (min-width: 1024px) {
-        .menu-layout main {
-            grid-column: 2/3;
+    @media (min-width: 768px) {
+        .menu-layout {
+            grid-template-columns: 16rem minmax(0, 3fr);
         }
-    } */
+    }
 </style>

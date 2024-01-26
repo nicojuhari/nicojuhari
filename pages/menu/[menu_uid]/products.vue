@@ -13,7 +13,7 @@ const filteredProducts = computed(() => searchInTable(query.value, menu.value.pr
 
 //modal
 const isModalOpen = ref(false)
-const viewCategory = (id) => {
+const viewProduct = (id) => {
     viewObjectId.value = id
     isModalOpen.value = true
 }
@@ -34,10 +34,10 @@ watchEffect(() => {
 })
 
 
-//delete category
+//delete product
 const isModalDeleteOpen = ref(false)
 const productIdToDelete = ref(null)
-const preDeleteCategory = (id) => {
+const preDeleteProduct = (id) => {
     productIdToDelete.value = id
     isModalDeleteOpen.value = true
 }
@@ -80,9 +80,9 @@ const items = [
                             <th class="p-4 font-medium text-left w-14">Nr</th>
                             <th class="p-4 font-medium text-left w-36">Image</th>
                             <th class="p-4 font-medium text-left">Name</th>
-                            <th class="p-4 font-medium text-left">Category</th>
+                            <th class="p-4 font-medium text-left">Product</th>
                             <th class="p-4 font-medium text-left w-28">Price</th>
-                            <th class="p-4 font-medium text-left w-20"></th>
+                            <th class="p-4 font-medium text-left w-32"></th>
                         </tr>
                     </thead>
                     <tbody data-sortable class="divide-y divide-gray-100" ref="tableBody">
@@ -95,23 +95,29 @@ const items = [
                                 </div>
                             </td>
                             <td class="px-4 py-2">
-                                <div class="cursor-pointer" @click="() => viewCategory(item.uid)">
+                                <div class="cursor-pointer" @click="() => viewProduct(item.uid)">
                                     <img v-if="item.imageUrl" class="m-auto w-24 h-24 object-cover rounded border" :src="item.imageUrl" alt="">
                                     <div v-else class="m-auto w-24 h-24 grid place-content-center bg-gray-50 border rounded">No image</div>
                                 </div>
                             </td>
                             <td class="px-4 py-2 truncate">{{ item.name }}</td>
-                            <td class="px-4 py-2 truncate">{{ getCategoryName(item.categoryId , menuCategories ) }}</td>
+                            <td class="px-4 py-2 truncate">{{ getCategoryName(item.productId , menuCategories ) }}</td>
                             <td class="px-4 py-2">
                                 <span>{{ item.options[0]?.salePrice && item.options[0]?.salePrice || item.options[0]?.price }}</span>
                             </td>
-                            
-                            <td class="px-4 py-2 text-right">
+                             <td class="px-4 py-2">
+                                <div class="h-full w-full flex items-center justify-end gap-4">
+                                    <UButton @click="() => viewProduct(item.uid)" square variant="ghost" icon="i-ph-eye"></UButton>
+                                            <UButton @click="() => preDeleteProduct(item.uid)" square color="brand-red" variant="ghost" icon="i-ph-trash-light"></UButton>
+                                </div>
+                                     
+                                        </td>
+                            <!-- <td class="px-4 py-2 text-right">
                                 <UDropdown :items="items" :popper="{ placement: 'bottom-start' }">
                                     <UButton square icon="i-ph-dots-three-vertical" color="brand-gray" variant="soft"></UButton>
                                     <template #view>
                                         <div class="flex justify-between items-center w-full"
-                                            @click="() => viewCategory(item.uid)">
+                                            @click="() => viewProduct(item.uid)">
                                             <span class="">View & Edit</span>
                                             <UIcon name="i-ph-eye"
                                                 class="flex-shrink-0 h-4 w-4 text-gray-400 dark:text-gray-500 ms-auto" />
@@ -119,13 +125,13 @@ const items = [
                                     </template>
                                     <template #delete>
                                         <div class="flex justify-between items-center w-full text-brand-red-400 dark:text-brand-400"
-                                            @click="() => preDeleteCategory(item.uid)">
+                                            @click="() => preDeleteProduct(item.uid)">
                                             <span class="">Delete</span>
                                             <UIcon name="i-ph-trash-light" class="flex-shrink-0 h-4 w-4 ms-auto" />
                                         </div>
                                     </template>
                                 </UDropdown>
-                            </td>
+                            </td> -->
                         </tr>
                     </tbody>
                 </table>

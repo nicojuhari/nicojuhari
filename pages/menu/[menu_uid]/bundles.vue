@@ -100,8 +100,10 @@ const items = [
                             <td class="px-4 py-2 truncate">{{ item.name }}</td>
                             <td class="px-4 py-2 truncate">{{ item.description }}</td>
                             <td class="px-4 py-2 truncate">{{ item.price }}</td>
-                            <td class="px-4 py-2 flex items-center justify-end gap-3">
-                                <UDropdown :items="items" :popper="{ placement: 'bottom-start' }">
+                            <td class="px-4 py-2 flex items-center justify-end gap-4">
+                                 <UButton @click="() => viewBundle(item.uid)" square variant="ghost" icon="i-ph-eye"></UButton>
+                                    <UButton @click="() => preDeleteBundle(item.uid)" square color="brand-red" variant="ghost" icon="i-ph-trash-light"></UButton>
+                                <!-- <UDropdown :items="items" :popper="{ placement: 'bottom-start' }">
                                     <UButton square icon="i-ph-dots-three-vertical" color="brand-gray" variant="soft">
                                     </UButton>
                                     <template #view>
@@ -119,7 +121,7 @@ const items = [
                                             <UIcon name="i-ph-trash-light" class="flex-shrink-0 h-4 w-4 ms-auto" />
                                         </div>
                                     </template>
-                                </UDropdown>
+                                </UDropdown> -->
                             </td>
                         </tr>
                     </tbody>
