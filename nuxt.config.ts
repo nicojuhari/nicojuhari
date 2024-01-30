@@ -1,9 +1,6 @@
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
-    modules: [ '@nuxtjs/tailwindcss', '@vueuse/nuxt', 'nuxt-icon', [ "@storyblok/nuxt", { accessToken: 'EzikCGO5TZGapwffPYn4rAtt' }]],
-    extends: [
-        'nuxt-seo-kit'
-    ],
+    modules: [ '@nuxtjs/tailwindcss', '@vueuse/nuxt', 'nuxt-icon', '@nuxtjs/seo', [ "@storyblok/nuxt", { accessToken: 'EzikCGO5TZGapwffPYn4rAtt' }]],
     css: ['@/assets/css/styles.css'],
     runtimeConfig: {
         public : {
