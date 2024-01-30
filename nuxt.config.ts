@@ -17,6 +17,9 @@ export default defineNuxtConfig({
     ui: {
         icons: ["ph"]
     },
+    site: {
+        url: process.env.NUXT_PUBLIC_SITE_URL || 'https://nicojuhari.com',
+    },
     app: {
         head: { 
             htmlAttrs: {
