@@ -9,13 +9,13 @@
   },
   "devDependencies": {
     "@nuxtjs/seo": "^2.0.0-rc.5",
-    "@nuxtjs/tailwindcss": "^6.11.2",
     "@vueuse/core": "^10.7.2",
     "@vueuse/nuxt": "^10.7.2",
-    "nuxt": "^3.9.3",
-    "nuxt-icon": "^0.6.8"
+    "nuxt": "^3.9.3"
   },
   "dependencies": {
+    "@iconify-json/ph": "^1.1.10",
+    "@nuxt/ui": "^2.13.0",
     "@storyblok/nuxt": "^6.0.4"
   }
 }

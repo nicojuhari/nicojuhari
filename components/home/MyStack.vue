@@ -61,7 +61,7 @@ let myStack = [
             <div class="grid grid-cols-2 md:grid-cols-5 gap-12 items-center justify-center">
                 <div v-for="item in myStack" class=" flex flex-col gap-2 justify-center items-center">
                     <div class="relative  min-h-[100px]">
-                        <Icon :name="`logos:${item.icon}`" class="h-16 w-16 m-auto" :alt="item.name"/>
+                        <UIcon :name="`i-logos-${item.icon}`" dynamic class="h-16 w-16 m-auto" :alt="item.name"/>
                         <div class="icon-glow" :style="`background: ${item.bgColor};`"></div>
                     </div>
 

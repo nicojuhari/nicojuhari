@@ -1,6 +1,6 @@
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
-    modules: [ '@nuxtjs/tailwindcss', '@vueuse/nuxt', 'nuxt-icon', '@nuxtjs/seo', [ "@storyblok/nuxt", { accessToken: 'EzikCGO5TZGapwffPYn4rAtt' }]],
+    modules: [ '@nuxt/ui', '@vueuse/nuxt', 'nuxt-icon', '@nuxtjs/seo', [ "@storyblok/nuxt", { accessToken: 'EzikCGO5TZGapwffPYn4rAtt' }]],
     css: ['@/assets/css/styles.css'],
     runtimeConfig: {
         public : {
@@ -13,6 +13,9 @@ export default defineNuxtConfig({
             language: 'en', // prefer more explicit language codes like `en-AU` over `en`
         },
         siteUrl: 'https://nicojuhari.com',
+    },
+    ui: {
+        icons: ["ph"]
     },
     app: {
         head: { 
