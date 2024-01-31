@@ -36,5 +36,8 @@ export default defineNuxtConfig({
         measurementId: '',
       }
     }
+  },
+  routeRules: {
+    '/menu/**': { ssr: false },
   }
 })

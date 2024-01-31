@@ -16,18 +16,18 @@ const getCurrentUser = () => {
 
 export default defineNuxtRouteMiddleware(async (to, from) => {
     
-    const user = useUser();
+    // const user = useUser();
     
-    if(!user.value)  {
-        user.value = await getCurrentUser();
-    }
+    // if(!user.value)  {
+    //     user.value = await getCurrentUser();
+    // }
 
-    if (!user?.value && to.path !== "/login" && to.path !== "/password-recovery") {
-        return navigateTo({
-            path: "/login",
-            query: {
-                redirect: to.fullPath,
-            },
-        });
-    }
+    // if (!user?.value && to.path !== "/login" && to.path !== "/password-recovery") {
+    //     return navigateTo({
+    //         path: "/login",
+    //         query: {
+    //             redirect: to.fullPath,
+    //         },
+    //     });
+    // }
 });
