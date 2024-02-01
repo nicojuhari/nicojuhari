@@ -44,7 +44,7 @@ const blocksArray: Array<MenuItem> = [
         iconName: 'i-ph-layout-light'
     },
     {
-        id: 'settings/general',
+        id: 'settings',
         label: 'Settings',
         iconName: 'i-ph-gear-light'
     }
@@ -62,7 +62,7 @@ const blocksArray: Array<MenuItem> = [
                 <UButton @click.prevent="$emit('close')" class="md:hidden text-white" color="white" variant="soft" icon="i-ph-x"/>
             </div>
             <div class="flex flex-col gap-4 px-2 pt-4">
-                <NuxtLink activeClass="bg-brand-primary" :to="`/menu/${$route.params.menu_uid}/${item.id}`" @click.prevent="$emit('close')"  
+                <NuxtLink activeClass="bg-brand-primary" :to="`/free-menu-maker/${$route.params.menu_uid}/${item.id}`" @click.prevent="$emit('close')"  
                 class="cursor-pointer text-sm font-medium px-4 py-2.5 transition-all duration-200 hover:bg-white hover:bg-opacity-20 bg-opacity-40 rounded-lg flex gap-4 items-center"
                     v-for="item in blocksArray" :key="item.id">
                     <UIcon :name="item.iconName" class="flex-shrink-0 w-5 h-5" />

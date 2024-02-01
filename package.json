@@ -20,20 +20,13 @@
     "vue-router": "^4.2.5"
   },
   "dependencies": {
-    "@firebase/auth-types": "^0.12.0",
     "@formkit/nuxt": "^1.4.0",
     "@iconify-json/ph": "^1.1.10",
     "@nuxt/ui": "^2.11.1",
     "@pinia/nuxt": "^0.5.1",
-    "@prisma/client": "^5.7.1",
     "@vueuse/integrations": "^10.7.2",
     "@vueuse/nuxt": "^10.7.1",
-    "axios": "^1.6.3",
-    "firebase": "^10.7.1",
-    "firebase-admin": "^12.0.0",
     "pinia": "^2.1.7",
-    "prisma": "^5.7.1",
-    "sortablejs": "^1.15.2",
-    "stripe": "^14.11.0"
+    "sortablejs": "^1.15.2"
   }
 }

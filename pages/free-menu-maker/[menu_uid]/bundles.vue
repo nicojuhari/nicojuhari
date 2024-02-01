@@ -1,19 +1,18 @@
 <script setup>
 import { storeToRefs } from "pinia"
 import { useMenuStore } from '~/store/menu';
-import { viewObjectId } from '~/composables/useAppStatus';
 import { useSortable } from '@vueuse/integrations/useSortable'
 
 //state
-const { menu, menuPromos } = storeToRefs(useMenuStore())
+const { menu, menuBundles, viewObjectId } = storeToRefs(useMenuStore())
 
 //filter
 const query = ref('')
-const filteredPromos = computed(() => searchInTable(query.value, menu.value.promos))
+const filteredBundles = computed(() => searchInTable(query.value, menuBundles.value))
 
 //modal
 const isModalOpen = ref(false)
-const viewPromo = (id) => {
+const viewBundle = (id) => {
     viewObjectId.value = id
     isModalOpen.value = true
 }
@@ -22,30 +21,31 @@ const viewPromo = (id) => {
 const tableBody = ref(null)
 const sortableOptions = ref(null)
 const options = {
+    handle: '[data-sort-handle]',
     animation: 300,
     disabled: false,
     ghostClass: 'active-sortable-tr',
 }
-sortableOptions.value = useSortable(tableBody, menu.value.promos, options)
+sortableOptions.value = useSortable(tableBody, menu.value.bundles, options)
 
 watchEffect(() => {
     sortableOptions.value.option('disabled', query.value === '' ? false : true)
 })
 
 
-//delete promo
+//delete Bundle
 const isModalDeleteOpen = ref(false)
-const promoIdToDelete = ref(null)
-const preDeletePromo = (id) => {
-    promoIdToDelete.value = id
+const bundleIdToDelete = ref(null)
+const preDeleteBundle = (id) => {
+    bundleIdToDelete.value = id
     isModalDeleteOpen.value = true
 }
 
-const deletePromo = () => {
-    let filtered = menu.value.promos.filter(cat => cat.uid !== promoIdToDelete.value);
+const deleteBundle = () => {
+    let filtered = menu.value.bundles.filter(cat => cat.uid !== bundleIdToDelete.value);
 
     setTimeout(() => {
-        menu.value.promos = filtered
+        menu.value.bundles = filtered
         isModalDeleteOpen.value = false
     }, 200)
 }
@@ -63,30 +63,28 @@ const items = [
 <template>
     <UCard>
         <div class="flex sm:items-center justify-between gap-4 mb-4 flex-col md:flex-row">
-            <h3 class="text-xl">Promos</h3>
+            <h3 class="text-xl">Bundles</h3>
             <div class="flex gap-4 w-full sm:w-auto">
-                <UInput v-model="query" placeholder="Filter promos ..." class="w-1/2 sm:w-auto" />
-                <UButton color="brand-blue" @click="isModalOpen = true" icon="i-ph-plus" label="New Promo"
+                <UInput v-model="query" placeholder="Filter Bundles ..." class="w-1/2 sm:w-auto" />
+                <UButton color="brand-blue" @click="isModalOpen = true" icon="i-ph-plus" label="New Bundle"
                     class="w-1/2 sm:w-auto justify-center" />
             </div>
         </div>
 
-        <div v-if="menuPromos.length">
-            <div class="flex gap-4 overflow-x-auto snap-x snap-mandatory" ref="tableBody">
-                <MenuPromoCard v-for="promo in menuPromos" :cardData="promo" :key="promo.uid" @click="() => viewPromo(promo.uid)"/>
-            </div>
-            <!-- <div class="overflow-auto w-full max-h-[600px] rounded-md border">
+        <div v-if="filteredBundles.length">
+            <div class="overflow-auto w-full max-h-[600px] rounded-md border">
                 <table class="table-fixed divside-y divide-gray-300 w-full min-w-[600px]">
                     <thead>
                         <tr class="border-b">
                             <th class="p-4 font-medium text-left w-14">Nr</th>
                             <th class="p-4 font-medium text-left">Name</th>
                             <th class="p-4 font-medium text-left">Description</th>
+                            <th class="p-4 font-medium text-left">Price</th>
                             <th class="p-4 font-medium text-left w-20"></th>
                         </tr>
                     </thead>
                     <tbody data-sortable class="divide-y divide-gray-100" ref="tableBody">
-                        <tr v-for="(item, idx ) in filteredPromos" :key="item.uid" class="bg-white">
+                        <tr v-for="(item, idx ) in filteredBundles" :key="item.uid" class="bg-white">
                             <td class="px-2 py-2">
                                 <div class="flex items-center gap-1 cursor-pointer" data-sort-handle>
                                     <UIcon name="i-ph-dots-six-vertical-light" class="shrink-0 w-4 h-4"
@@ -94,19 +92,22 @@ const items = [
                                     <span>{{ idx + 1 }}</span>
                                 </div>
                             </td>
-                            <td class="px-2 py-2 flex items-center gap-1">
+                            <!-- <td class="px-2 py-2 flex items-center gap-1">
                                 <UIcon data-sort-handle name="i-ph-dots-six-vertical-light" class="shrink-0 w-4 h-4" :class="query && 'opacity-15 '" />
                                 <span>{{ idx + 1 }}</span>
-                            </td>
+                            </td> -->
                             <td class="px-4 py-2 truncate">{{ item.name }}</td>
                             <td class="px-4 py-2 truncate">{{ item.description }}</td>
-                            <td class="px-4 py-2 flex items-center justify-end gap-3">
-                                <UDropdown :items="items" :popper="{ placement: 'bottom-start' }">
+                            <td class="px-4 py-2 truncate">{{ item.price }}</td>
+                            <td class="px-4 py-2 flex items-center justify-end gap-4">
+                                 <UButton @click="() => viewBundle(item.uid)" square variant="ghost" icon="i-ph-eye"></UButton>
+                                    <UButton @click="() => preDeleteBundle(item.uid)" square color="brand-red" variant="ghost" icon="i-ph-trash-light"></UButton>
+                                <!-- <UDropdown :items="items" :popper="{ placement: 'bottom-start' }">
                                     <UButton square icon="i-ph-dots-three-vertical" color="brand-gray" variant="soft">
                                     </UButton>
                                     <template #view>
                                         <div class="flex justify-between items-center w-full"
-                                            @click="() => viewPromo(item.uid)">
+                                            @click="() => viewBundle(item.uid)">
                                             <span class="">View & Edit</span>
                                             <UIcon name="i-ph-eye"
                                                 class="flex-shrink-0 h-4 w-4 text-gray-400 dark:text-gray-500 ms-auto" />
@@ -114,32 +115,33 @@ const items = [
                                     </template>
                                     <template #delete>
                                         <div class="flex justify-between items-center w-full text-brand-red-400 dark:text-brand-400"
-                                            @click="() => preDeletePromo(item.uid)">
+                                            @click="() => preDeleteBundle(item.uid)">
                                             <span class="">Delete</span>
                                             <UIcon name="i-ph-trash-light" class="flex-shrink-0 h-4 w-4 ms-auto" />
                                         </div>
                                     </template>
-                                </UDropdown>
+                                </UDropdown> -->
                             </td>
                         </tr>
                     </tbody>
                 </table>
-            </div> -->
-            <div class="py-3.5 font-bold">Total: {{ filteredPromos?.length }}</div>
+            </div>
+            <div class="py-3.5 font-bold">Total: {{ filteredBundles?.length }}</div>
         </div>
         <UiEmptyBlock v-else>
-            No Promos
+            No Bundles
         </UiEmptyBlock>
         <UModal v-model="isModalOpen">
-            <MenuPromoForm @close="isModalOpen = false" />
+            <MenuBundleForm @close="isModalOpen = false" />
         </UModal>
         <UModal v-model="isModalDeleteOpen">
             <div class="p-8 flex flex-col gap-6">
-                <div class="text-center">Would you like to delete this promo?</div>
+                <div class="text-center">Would you like to delete this Bundle?</div>
                 <div class="flex gap-4 items-center justify-center">
                     <UButton color="brand-blue" class="px-10" @click.prevent="() => isModalDeleteOpen = false">No</UButton>
-                    <UButton color="brand-red" class="px-10" @click.prevent="deletePromo">Yes</UButton>
+                    <UButton color="brand-red" class="px-10" @click.prevent="deleteBundle">Yes</UButton>
             </div>
         </div>
     </UModal>
-</UCard></template>
+</UCard>
+</template>

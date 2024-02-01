@@ -16,9 +16,9 @@ const deleteMenu = async () => {
     let menu_uid = menu.value.menu_uid
     removeMenuFromLocalStorage(menu_uid)
 
-     // Redirect
+    // Redirect
     await new Promise((resolve) => setTimeout(resolve, 600));
-    router.push('/')
+    router.push('/free-menu-maker')
 }
 
 //import menu
@@ -108,11 +108,12 @@ const downloadMenu = () => {
             <div>
                 <div class="font-bold text-lg mb-2">Export menu</div>
                 <div class="text-sm mb-8">
-                   Export the menu so it can be imported into our app later or as a backup.
+                    Export the menu so it can be imported into our app later or as a backup.
                 </div>
             </div>
-            <div class="border bg-slate-100 p-10 rounded flex cursor-pointer relative mt-auto" @click.prevent="downloadMenu">
-                <Loading v-if="downloadLoading" class="m-auto !border-t-gray-500"/>
+            <div class="border bg-slate-100 p-10 rounded flex cursor-pointer relative mt-auto"
+                @click.prevent="downloadMenu">
+                <Loading v-if="downloadLoading" class="m-auto !border-t-gray-500" />
                 <UIcon v-else name="i-ph-download-simple-light" class="m-auto w-14 h-14 text-brand-primary"></UIcon>
             </div>
         </div>
@@ -120,31 +121,33 @@ const downloadMenu = () => {
             <div>
                 <div class="font-bold text-lg mb-2">Import menu</div>
                 <div class="text-sm mb-2"> Import a menu that you exported as a.json file from our app.</div>
-                <div class="text-brand-error text-sm mb-8">You cannot import other types of files (such as PDF) or menus.</div>
+                <div class="text-brand-error text-sm mb-8">You cannot import other types of files (such as PDF) or menus.
+                </div>
             </div>
             <div class="border bg-slate-100 p-10 rounded flex cursor-pointer relative mt-auto" @click.prevent="importMenu">
-                <Loading v-if="importLoading" class="m-auto !border-t-gray-500"/>
+                <Loading v-if="importLoading" class="m-auto !border-t-gray-500" />
                 <UIcon v-else name="i-ph-upload-simple-light" class="m-auto w-14 h-14 text-brand-primary"></UIcon>
             </div>
         </div>
         <div class="grid gap-6 grid-cols-1 md:grid-cols-2 pt-6">
             <div>
                 <div class="font-bold text-lg text-brand-error mb-2">Danger zone </div>
-                <div class="text-sm mb-2">You can delete your <strong>FREE</strong> menu, which has been saved in this browser.</div>
+                <div class="text-sm mb-2">You can delete your <strong>FREE</strong> menu, which has been saved in this
+                    browser.</div>
                 <div class="text-sm mb-8">Before you delete it, please make a backup (export your menu). </div>
             </div>
             <div class="grid place-content-center">
                 <UButton @click="() => isModalDeleteOpen = true" color="brand-red">Delete</UButton>
             </div>
-               <UModal v-model="isModalDeleteOpen">
-                    <div class="p-8 flex flex-col gap-6">
-                        <div class="text-center">Would you like to delete the menu?</div>
-                        <div class="flex gap-4 items-center justify-center">
-                            <UButton color="brand-blue" class="px-10" @click.prevent="() => isModalDeleteOpen = false">No</UButton>
-                            <UButton color="brand-red" class="px-10" @click.prevent="deleteMenu">Yes</UButton>
-                        </div>
+            <UModal v-model="isModalDeleteOpen">
+                <div class="p-8 flex flex-col gap-6">
+                    <div class="text-center">Would you like to delete the menu?</div>
+                    <div class="flex gap-4 items-center justify-center">
+                        <UButton color="brand-blue" class="px-10" @click.prevent="() => isModalDeleteOpen = false">No
+                        </UButton>
+                        <UButton color="brand-red" class="px-10" @click.prevent="deleteMenu">Yes</UButton>
                     </div>
-                </UModal>
-            </div>
+                </div>
+            </UModal>
     </div>
-</template>
+</div></template>

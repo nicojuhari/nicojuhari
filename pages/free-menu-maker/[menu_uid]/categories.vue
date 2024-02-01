@@ -1,11 +1,10 @@
 <script setup>
     import { storeToRefs } from "pinia"
     import { useMenuStore } from '~/store/menu';
-    import { viewObjectId } from '~/composables/useAppStatus';
     import { useSortable } from '@vueuse/integrations/useSortable'
 
     //state
-    const { menu } = storeToRefs(useMenuStore())
+    const { menu, viewObjectId } = storeToRefs(useMenuStore())
     
     //filter
     const query = ref('')

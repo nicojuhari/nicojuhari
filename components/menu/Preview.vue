@@ -3,21 +3,19 @@ import { storeToRefs } from "pinia"
 import { useMenuStore } from '~/store/menu';
 import { createMenu } from "https://cdn.jsdelivr.net/npm/1food-menu/dist/1food-menu.mjs"
 
+const { menu, designConfig } = storeToRefs(useMenuStore())
 
-const { menu } = storeToRefs(useMenuStore())
-const { configs } = useFreeDesigns()
-
-watch(() => configs, () => {
+watch(() => designConfig, () => {
     createMenu({
         menu: menu.value,
-        ...configs
+        ...designConfig.value
     });
 }, { deep: true })
 
 onMounted(() => {
     createMenu({
         menu: menu.value,
-        ...configs
+        ...designConfig.value
     });
 })
 

@@ -1,23 +1,39 @@
 <script setup lang="ts">
-import { ref, watch } from 'vue';
-
-const user = useUser()
-const { getUserToken } = useAuth()
-
+import { type Menu } from '~/types'
 //from Local Storage
+const isLoading = ref(false);
+const router = useRouter();
+
 const allMenus = ref(JSON.parse(localStorage.getItem('oneFoodMenu') || '[]'));
-
-//from Database
-const { data, error, pending } = useFetch(`/api/user/${user?.value?.uid}/menus`, {
-    headers: { 'Authorization': await getUserToken() } as {}
+const newMenuSchema = ref < Menu > ({
+    menu_uid: '',
+    products: [],
+    categories: [],
+    promos: [],
+    bundles: [],
+    allergens: [],
+    configs: {
+        title: 'Default Menu Title',
+    }
 })
 
-watch(data, () => { allMenus.value = [...allMenus?.value, ...data?.value as [] ]})
+const createMenu = async () => {
+    isLoading.value = true;
+    const menuIdLocal = "oneFoodMenu";
+    const oneFoodMenu = JSON.parse(localStorage.getItem(menuIdLocal) || "[]");
+    const newMenuId = uid();
 
-watch(error, () => {
-    console.log(error.value)
-})
+    newMenuSchema.value.menu_uid = newMenuId;
+    newMenuSchema.value.isFromLocal = true;
 
+    oneFoodMenu.push(newMenuSchema.value);
+    localStorage.setItem(menuIdLocal, JSON.stringify(oneFoodMenu));
+
+    setTimeout(() => {
+        isLoading.value = false;
+        router.push(`/free-menu-maker/${newMenuId}/dashboard`);
+    }, 600);
+}
 </script>
 <template>
     <div class="mt-16 w-full mx-auto max-w-4xl">
@@ -25,14 +41,18 @@ watch(error, () => {
             <h1>Your Menus</h1>
         </div>
         <div class="w-full grid grid-cols-1 lg:grid-cols-3 gap-4">
-            <UCard class="grid place-items-center cursor-pointer hover:bg-gray-100 duration-300 h-60"
-                @click="$router.push('/menu/new')">
-                <div class="h-full flex gap-2 flex-row lg:flex-col items-center text-brand-primary justify-center">
-                    <UIcon name="i-ph-plus" class="w-12 h-12" />
-                    Add menu
+            <UCard class="cursor-pointer hover:bg-gray-100 duration-300 h-60">
+                <div class="grid place-items-center h-full">
+                    <div v-if="!isLoading" class="h-full w-full flex gap-2 flex-row lg:flex-col items-center text-brand-primary justify-center" @click="createMenu">
+                        <UIcon name="i-ph-plus" class="w-12 h-12" />
+                        Add menu
+                    </div>
+                    <div v-else class="grid place-items-center cursor-pointer bg-gray-100 bg-opacity-10 duration-300 rounded relative">
+                        <Loading class="!border-t-gray-300" />
+                    </div>
                 </div>
             </UCard>
-            <NuxtLink :to="`/menu/${item.menu_uid}/dashboard`" v-for="item in allMenus" :key="item.menu_uid">
+            <NuxtLink :to="`/free-menu-maker/${item.menu_uid}/dashboard`" v-for="item in allMenus" :key="item.menu_uid">
                 <UCard class="h-60 relative hover:bg-gray-100 duration-300">
                     <h2 class="title text-xl flex-shrink-0 truncate text-ellipsis justify-center text-center mt-4 capitalize">{{
                         item.configs.title }}</h2>
@@ -46,18 +66,9 @@ watch(error, () => {
                             <div class="mt-4 font-bold text-lg">{{ item.products.length }}</div>
                         </div>
                     </div>
-                    <div class="mt-auto">
-                        <UTooltip text="Your Plan">
-                            <UBadge v-if="item.isFromLocal" size="xs">Free</UBadge>
-                            <UBadge v-else size="xs" color="orange">Pro</UBadge>
-                        </UTooltip>
-                    </div>
                 </UCard>
             </NuxtLink>
-            <div v-if="pending"
-                class="grid place-items-center cursor-pointer bg-gray-100 duration-300 h-60 rounded relative">
-                <Loading class="!border-t-gray-300" />
-            </div>
+            
         </div>
     </div>
 </template>

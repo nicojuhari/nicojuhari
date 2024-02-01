@@ -1,11 +1,9 @@
 <script setup>
     import { storeToRefs } from 'pinia';
     import { useMenuStore } from '~/store/menu'
-    import { viewObjectId } from '~/composables/useAppStatus';
-
 
     const emit = defineEmits(['close'])
-    const { menuProducts, menuCategories, menuAllergens, menu } = storeToRefs(useMenuStore())
+    const { menuProducts, menuCategories, menuAllergens, menu, viewObjectId } = storeToRefs(useMenuStore())
     const emptyProduct = {
         uid: '',
         name: '',
