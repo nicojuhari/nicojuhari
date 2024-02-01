@@ -9,8 +9,6 @@ export default defineNuxtConfig({
   colorMode: {
     preference: 'light'
   },
-  runtimeConfig: {
-  },
   routeRules: {
     '/free-menu-maker/**': { ssr: false },
   },
