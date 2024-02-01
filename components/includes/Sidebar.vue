@@ -56,8 +56,8 @@ const blocksArray: Array<MenuItem> = [
         class="bg-[#132335] h-[100dvh] fixed text-white transition-all duration-500 w-64 -translate-x-64 md:translate-x-0 z-40">
         <div class="w-full h-full overflow-y-auto">
             <div class="h-14 px-4 flex items-center justify-between">
-                <NuxtLink to="/" class="flex-shrink-0 flex gap-2 items-center">
-                    <img src="/logo-white.svg" class="w-14" />
+                <NuxtLink to="/free-menu-maker" class="flex-shrink-0 flex gap-2 items-center">
+                    <img src="/menuLogoWhite.svg" class="w-14" />
                 </NuxtLink>
                 <UButton @click.prevent="$emit('close')" class="md:hidden text-white" color="white" variant="soft" icon="i-ph-x"/>
             </div>

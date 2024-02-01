@@ -1,11 +1,26 @@
 
 <script setup>
+    definePageMeta({
+        layout: 'empty'
+    })
 </script>   
 <template>
-    <div class="container">
+    <div>
         <Body class="bg-gray-50"></Body>
-        <ClientOnly>
-            <HomeList />
-        </ClientOnly>
+        <header class="border-b bg-white sticky top-0 z-30 h-14 flex items-center">
+            <div class="container flex items-center justify-between gap-6 h-full">
+                <div class="flex flex-shrink-0 items-center gap-6">
+                    <img src="/menuLogo.svg" class="w-14"/>
+                </div>
+            </div>
+        </header>
+        <div class="container">
+            <ClientOnly>
+                <MenuList/>
+            </ClientOnly>
+            <div class="max-w-4xl m-auto py-10">
+                Create a digital food menu for your restaurant - FREE
+            </div>
+        </div>
     </div>
 </template>

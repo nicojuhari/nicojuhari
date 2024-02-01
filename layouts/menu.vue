@@ -13,8 +13,8 @@
     <div class="menu-layout bg-gray-50">
         <IncludesSidebar ref="templRef" :class="showNav && '!translate-x-0'" @close="toggleNav"/>
         <main>
-            <IncludesHeaderMenuPage @open-nav="toggleNav" :isOpen="showNav"/>
-            <div class="container">
+            <MenuHeader @open-nav="toggleNav" :isOpen="showNav"/>
+            <div class="menu-container">
                 <slot />
             </div>
         </main>
