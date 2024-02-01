@@ -5,6 +5,11 @@ body.modal-open {
     overflow: hidden;
 }
 
+body ::selection {
+    color: black;
+    background: gainsboro;
+}
+
 section {
     @apply pt-16 pb-[4.5rem];
 }
