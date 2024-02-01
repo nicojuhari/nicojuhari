@@ -13,5 +13,12 @@ export default defineNuxtConfig({
   },
   routeRules: {
     '/free-menu-maker/**': { ssr: false },
-  }
+  },
+   runtimeConfig: {
+        public : {
+            gtag: {
+                id: 'G-YC2EDZRT9H'
+            },
+        },
+    },
 })
