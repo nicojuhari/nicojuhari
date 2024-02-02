@@ -48,7 +48,7 @@ import { useMenuStore } from '~/store/menu';
                         </div>
                 </div>
                 <div class="col-span-2">
-                    <IncludesCodeEditor/>
+                    <MenuCodeEditor/>
                 </div>
             </div>
         </UCard>

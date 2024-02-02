@@ -18,7 +18,7 @@
 </script>
 <template>
     <div class="menu-layout bg-gray-50">
-        <IncludesSidebar ref="templRef" :class="showNav && '!translate-x-0'" @close="toggleNav"/>
+        <MenuSidebar ref="templRef" :class="showNav && '!translate-x-0'" @close="toggleNav"/>
         <main>
             <MenuHeader @open-nav="toggleNav" :isOpen="showNav"/>
             <div class="menu-container">

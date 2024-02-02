@@ -2,8 +2,6 @@
 definePageMeta({
     layout: 'bunny'
 })
-import { ref } from "vue"
-// import { storageZones } from "../use/useStorageZones";
 
 const showModal = ref(false);
 

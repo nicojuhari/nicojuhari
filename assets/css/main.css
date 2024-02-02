@@ -1,7 +1,3 @@
-
-@import './tailwind.css';
-@import './forms.css';
-
 .container {
     margin: 0 auto;
     max-width: 1280px;
@@ -19,4 +15,91 @@
 
 pre {
     @apply overflow-x-auto p-2 text-sm; 
+}
+
+/* body {
+    @apply text-brand-color;
+} */
+body.modal-open {
+    overflow: hidden;
+}
+
+body ::selection {
+    color: black;
+    background: gainsboro;
+}
+
+section {
+    @apply pt-20 pb-24;
+}
+
+section + section {
+    @apply pt-0;
+}
+
+.hero {
+    @apply bg-cover bg-center bg-no-repeat;
+}
+
+.hero-overlay {
+    @apply bg-black bg-opacity-50;
+}
+
+.hero-text {
+    @apply text-white text-center text-2xl md:text-4xl;
+}
+
+.container {
+    @apply mx-auto max-w-5xl;
+    width: calc(100% - 2rem)
+}
+
+.hero-title {
+    @apply font-bold text-2xl md:text-4xl;
+}
+
+.title {
+    @apply font-bold text-2xl md:text-4xl;
+}
+
+.subtitle {
+    @apply font-medium text-xl md:text-2xl;
+}
+
+.btn {
+    @apply h-8 px-4 rounded inline-flex gap-3 items-center max-w-max text-white bg-brand-blue-light text-sm;
+}
+
+.btn-outline {
+    @apply bg-opacity-0 text-brand-blue-light border border-brand-blue-light
+}
+
+.btn-link {
+    @apply border-0 underline bg-transparent text-brand-blue-light
+}
+
+.btn-dark {
+    @apply bg-brand-blue-700;
+}
+
+.btn-dark.btn-outline {
+    @apply text-brand-blue-700 border-brand-blue-700
+}
+
+
+
+
+.line-clamp-2 {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.card-box-shadow {
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.mask {
+    overflow: hidden;
 }

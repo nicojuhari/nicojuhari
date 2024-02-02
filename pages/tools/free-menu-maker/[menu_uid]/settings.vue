@@ -18,7 +18,7 @@ const deleteMenu = async () => {
 
     // Redirect
     await new Promise((resolve) => setTimeout(resolve, 600));
-    router.push('/free-menu-maker')
+    router.push('/tools/free-menu-maker')
 }
 
 //import menu

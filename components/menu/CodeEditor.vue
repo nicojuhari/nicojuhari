@@ -68,7 +68,7 @@
               <span v-else>Copied!</span>
             </UButton>
             <div class="italic">and paste the code into your project. Also, we recommend that you create a 
-                backup/export the menu from the <NuxtLink :to="`/free-menu-maker/${$route.params.menu_uid}/settings`" class="font-semibold">setting page</NuxtLink> 
+                backup/export the menu from the <NuxtLink :to="`/tools/free-menu-maker/${$route.params.menu_uid}/settings`" class="font-semibold">setting page</NuxtLink> 
                 for future use.
             </div>
         </div>

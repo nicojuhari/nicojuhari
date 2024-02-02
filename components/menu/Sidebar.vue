@@ -56,13 +56,13 @@ const blocksArray: Array<MenuItem> = [
         class="bg-[#132335] h-[100dvh] fixed text-white transition-all duration-500 w-64 -translate-x-64 md:translate-x-0 z-40">
         <div class="w-full h-full overflow-y-auto">
             <div class="h-14 px-4 flex items-center justify-between">
-                <NuxtLink to="/free-menu-maker" class="flex-shrink-0 flex gap-2 items-center">
+                <NuxtLink to="/tools/free-menu-maker" class="flex-shrink-0 flex gap-2 items-center">
                     <img src="/menuLogoWhite.svg" class="w-14" />
                 </NuxtLink>
                 <UButton @click.prevent="$emit('close')" class="md:hidden text-white" color="white" variant="soft" icon="i-ph-x"/>
             </div>
             <div class="flex flex-col gap-4 px-2 pt-4">
-                <NuxtLink activeClass="bg-brand-primary" :to="`/free-menu-maker/${$route.params.menu_uid}/${item.id}`" @click.prevent="$emit('close')"  
+                <NuxtLink activeClass="bg-brand-primary" :to="`/tools/free-menu-maker/${$route.params.menu_uid}/${item.id}`" @click.prevent="$emit('close')"  
                 class="cursor-pointer text-sm font-medium px-4 py-2.5 transition-all duration-200 hover:bg-white hover:bg-opacity-20 bg-opacity-40 rounded-lg flex gap-4 items-center"
                     v-for="item in blocksArray" :key="item.id">
                     <UIcon :name="item.iconName" class="flex-shrink-0 w-5 h-5" />

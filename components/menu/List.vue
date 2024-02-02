@@ -31,7 +31,7 @@ const createMenu = async () => {
 
     setTimeout(() => {
         isLoading.value = false;
-        router.push(`/free-menu-maker/${newMenuId}/dashboard`);
+        router.push(`/tools/free-menu-maker/${newMenuId}/dashboard`);
     }, 600);
 }
 </script>
@@ -52,17 +52,17 @@ const createMenu = async () => {
                     </div>
                 </div>
             </UCard>
-            <NuxtLink :to="`/free-menu-maker/${item.menu_uid}/dashboard`" v-for="item in allMenus" :key="item.menu_uid">
+            <NuxtLink :to="`/tools/free-menu-maker/${item.menu_uid}/dashboard`" v-for="item in allMenus" :key="item.menu_uid">
                 <UCard class="h-60 relative hover:bg-gray-100 duration-300">
-                    <h2 class="title text-xl flex-shrink-0 truncate text-ellipsis justify-center text-center mt-4 capitalize">{{
+                    <h2 class="text-2xl flex-shrink-0 truncate text-ellipsis justify-center text-center mt-4 capitalize">{{
                         item.configs.title }}</h2>
                     <div class="grid grid-cols-2 gap-2 text-center m-auto w-full">
                         <div class="my-4">
-                            <div class="text-gray-500">Categories</div>
+                            <div class="text-gray-600">Categories</div>
                             <div class="mt-4 font-bold text-lg">{{ item.categories.length }}</div>
                         </div>
                         <div class="my-4">
-                            <div class="text-gray-500">Products</div>
+                            <div class="text-gray-600">Products</div>
                             <div class="mt-4 font-bold text-lg">{{ item.products.length }}</div>
                         </div>
                     </div>

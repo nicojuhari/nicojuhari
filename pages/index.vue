@@ -1,51 +1,18 @@
-
-
 <script setup>
 
-    const apps = [
-        {
-            title: "Free Menu Maker",
-            url: '/free-menu-maker',
-            logo: 'menuLogo.svg',
-            description: 'Create a digital food menu for your restaurant, bar or cafe'
-        },
-        {
-            title: "UI for Bunny CDN",
-            url: '/bunny-cdn',
-            logo: 'bunnyLogo.svg',
-            description: 'Manage your bunny.net assets with ease from a single UI'
-        },
-        {
-            title: "My Promo Cards Online",
-            url: 'https://my-promo-cards.web.app/',
-            logo: 'promoLogo.svg',
-            description: 'Add your promo cards online and enjoy constant savings'
-        },
-        {
-            title: "QR Code Generator",
-            url: '/free-qr-code-generator',
-            icon: 'i-ph-qr-code-light',
-            description: 'Create a QR Code for any url. Easy and Simple'
-        },
-
-    ]
-</script>   
+</script>
 <template>
-    <div class="container py-10">
+    <div>
         <Body class="bg-gray-100"></Body>
-        <h1 class="text-center text-xl my-10">Free Apps</h1>
-        <div class="max-w-[720px] m-auto grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="bg-white hover:bg-gray-300 duration-300 rounded-xl shadow" v-for="app in apps" :key="app.title">
-                <NuxtLink :to="app.url" target="_blank" 
-                    class="p-4 flex flex-col">
-                    <div class="flex gap-4 items-center">
-                        <img v-if="app.logo" :src="'/'+ app.logo" class="w-8 h-8 inline-block">
-                        <UIcon v-if="app.icon" :name="app.icon" class="text-[32px]"></UIcon>
-                        <span class="font-bold text-lg">{{ app.title }}</span>
-                    </div>
-                    <div class="mt-4 text-sm text-gray-500"> {{ app.description }}</div>
-                </NuxtLink>
+        <MainHomeHero />
+        <MainAppsList/>
+        <MainHomeMyServices />
+        <MainHomeMyStack />
+        <section>
+            <div class="container">
+                <div class="subtitle mb-10 text-center">My Projects</div>
+                <MainProjectsList :projects_limit=3 :view_all_projects=true />
             </div>
-        </div>
+        </section>
     </div>
 </template>

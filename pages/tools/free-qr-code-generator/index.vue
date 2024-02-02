@@ -7,8 +7,8 @@
     })
 </script>
 <template>
-    <div class="container my-10 md:my-20">
-        <h1 class="text-5xl font-semibold text-center mb-10 md:mb-20">Free QR Code Generator</h1>
+    <div class="container py-10 md:pt-20">
+        <h1 class="text-2xl md:text-4xl font-semibold text-center mb-10 md:mb-20">Free QR Code Generator</h1>
         <ClientOnly>
             <QrCodeGenerator />
         </ClientOnly>

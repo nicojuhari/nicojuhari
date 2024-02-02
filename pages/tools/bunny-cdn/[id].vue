@@ -1,7 +1,9 @@
 <script setup >
-import { ref, computed, watch, watchEffect, onBeforeUnmount } from "vue"
+// import { ref, computed, watch, watchEffect, onBeforeUnmount } from "vue"
 import useStorageZones, { storageFiles, pullZones, activePullZoneURL } from "../../composables/useStorageZones";
-
+definePageMeta({
+    layout: 'bunny'
+})
 // import usePath from '../../use/usePath';
 // import useFiles from "../../use/useFiles";
 
@@ -74,7 +76,7 @@ const deleteFolder = async () => {
             <!-- <img src="/bunny.net-connect-pull-zone.png" class="my-4 rounded-lg border"> -->
         </div>
         <Loading v-if="isLoading" />
-        <section v-else class="my-4">
+        <div v-else class="my-8">
             <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4"
                 v-if="storageFiles?.length && activePullZoneURL">
                 <div v-for="item in storageFiles" class="rounded-sm overflow-hidden cursor-pointer" :key="item.Guid">
@@ -94,7 +96,7 @@ const deleteFolder = async () => {
                 </div>
             </div>
             <div v-else class="text-center my-16">No Files in This Directory!</div>
-        </section>
+        </div>
         <div class="mt-6 border-t py-4">
             <div v-if="currentPath == ''">You are currently in the root folder</div>
             <div v-else class="flex items-center">

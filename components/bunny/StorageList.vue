@@ -52,7 +52,7 @@ const refreshStorageFiles = async () => {
                     <div class="flex justify-between items-center w-full shrink-0">
                         <UButton color="red" square variant="soft" @click="deleteStorage(storage.Id)" icon="i-ph-trash-light">
                         </UButton>
-                        <UButton size="md" color="teal" variant="outline" class="shrink-0" :to="`/bunny-cdn/${storage.Id}`">
+                        <UButton size="md" color="teal" variant="outline" class="shrink-0" :to="`/tools/bunny-cdn/${storage.Id}`">
                             View</UButton>
                     </div>
                 </div>
