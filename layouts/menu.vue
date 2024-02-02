@@ -7,6 +7,13 @@
     const toggleNav = () => {
         return showNav.value = !showNav.value;
     }
+
+    useHead({
+        title: 'Free Menu Maker - Create a digital food menu',
+        meta: [
+            { name: 'description', content: 'Free Menu Maker - Create a digital food menu for your restaurant, bar and cafe' }
+        ],
+    })
     
 </script>
 <template>
