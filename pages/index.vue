@@ -4,16 +4,22 @@
 
     const apps = [
         {
-            title: "1Food Menu",
+            title: "Free Menu Maker",
             url: 'free-menu-maker',
             logo: 'menuLogo.svg',
-            description: 'Create a digital food menu for your restaurant, FREE'
+            description: 'Create a digital food menu for your restaurant, bar or cafe'
         },
         {
             title: "UI for Bunny CDN",
             url: 'bunny-cdn',
             logo: 'bunnyLogo.svg',
-            description: 'Manage your bunny.net assets with ease'
+            description: 'Manage your bunny.net assets with ease from a single UI'
+        },
+        {
+            title: "My Promo Cards Online",
+            url: 'https://my-promo-cards.web.app/',
+            logo: 'promoLogo.svg',
+            description: 'Add your promo cards online and enjoy constant savings'
         },
 
     ]
@@ -27,11 +33,10 @@
                 <NuxtLink :to="app.url" target="_blank" 
                     class="p-4 flex flex-col">
                     <div class="flex gap-4">
-                        <img v-if="app.logo" :src="'/'+ app.logo" class="w-8 h-8 inline-block mr-4">
+                        <img v-if="app.logo" :src="'/'+ app.logo" class="w-8 h-8 inline-block">
                         <span class="font-bold text-lg">{{ app.title }}</span>
                     </div>
                     <div class="mt-4 text-sm text-gray-600"> {{ app.description }}</div>
-        
                 </NuxtLink>
             </div>
         </div>
