@@ -14,10 +14,10 @@ export default defineNuxtConfig({
         url: process.env.NUXT_PUBLIC_SITE_URL || 'https://nicojuhari.com',
   },
   routeRules: {
-    '/': { prerender: true },
+    '/': { static: true },
     '/tools/free-menu-maker/**': { ssr: false },
-    '/tools/free-qr-code-generator/**': { prerender: true },
-    '/projects/**': { prerender: true },
+    '/tools/free-qr-code-generator/**': { static: true },
+    '/projects/**': { static: true },
   },
   runtimeConfig: {
         public : {
