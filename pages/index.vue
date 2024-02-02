@@ -5,13 +5,13 @@
     const apps = [
         {
             title: "Free Menu Maker",
-            url: 'free-menu-maker',
+            url: '/free-menu-maker',
             logo: 'menuLogo.svg',
             description: 'Create a digital food menu for your restaurant, bar or cafe'
         },
         {
             title: "UI for Bunny CDN",
-            url: 'bunny-cdn',
+            url: '/bunny-cdn',
             logo: 'bunnyLogo.svg',
             description: 'Manage your bunny.net assets with ease from a single UI'
         },
@@ -20,6 +20,12 @@
             url: 'https://my-promo-cards.web.app/',
             logo: 'promoLogo.svg',
             description: 'Add your promo cards online and enjoy constant savings'
+        },
+        {
+            title: "QR Code Generator",
+            url: '/free-qr-code-generator',
+            icon: 'i-ph-qr-code-light',
+            description: 'Create a QR Code for any url. Easy and Simple'
         },
 
     ]
@@ -34,6 +40,7 @@
                     class="p-4 flex flex-col">
                     <div class="flex gap-4 items-center">
                         <img v-if="app.logo" :src="'/'+ app.logo" class="w-8 h-8 inline-block">
+                        <UIcon v-if="app.icon" :name="app.icon" class="text-[32px]"></UIcon>
                         <span class="font-bold text-lg">{{ app.title }}</span>
                     </div>
                     <div class="mt-4 text-sm text-gray-500"> {{ app.description }}</div>

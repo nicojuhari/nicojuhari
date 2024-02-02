@@ -28,6 +28,7 @@
     "@vueuse/nuxt": "^10.7.2",
     "axios": "^1.6.7",
     "pinia": "^2.1.7",
+    "qr-code-styling": "^1.6.0-rc.1",
     "sortablejs": "^1.15.2"
   }
 }
