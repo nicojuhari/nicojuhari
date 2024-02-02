@@ -1,4 +1,11 @@
 <script setup>
+useHead({
+    title: 'Freelance Web Developer from Vienna, Austria',
+    meta: [
+        { name: 'description', content: 'I create pixel-perfect, fast, and SEO-friendly web apps. I specialize in business and restaurant websites and landing pages.' },
+        { name: 'keywords', content: 'Web developer, Freelancer, Vienna Austria, restaurant websites, website developer' },
+    ],
+})
 </script>
 <template>
     <div>

@@ -1,24 +1,7 @@
-.container {
-    margin: 0 auto;
-    max-width: 1280px;
-    width: calc(100% - 2rem);
-}
-.menu-container {
-    margin: 0 auto;
-    max-width: 1920px;
-    width: calc(100% - 2rem);
-}
 
-.active-sortable-tr {
-    @apply bg-slate-200;
-}
 
-pre {
-    @apply overflow-x-auto p-2 text-sm; 
-}
-
-body {
-    @apply text-black dark:text-white;
+html.dark {
+    color-scheme: light;
 }
 body.modal-open {
     overflow: hidden;
@@ -49,9 +32,28 @@ section + section {
     @apply text-white text-center text-2xl md:text-4xl;
 }
 
-.container {
+/* .container {
     @apply mx-auto max-w-5xl;
     width: calc(100% - 2rem)
+} */
+
+.container {
+    margin: 0 auto;
+    max-width: 1280px;
+    width: calc(100% - 2rem);
+}
+.menu-container {
+    margin: 0 auto;
+    max-width: 1920px;
+    width: calc(100% - 2rem);
+}
+
+.active-sortable-tr {
+    @apply bg-slate-200;
+}
+
+pre {
+    @apply overflow-x-auto p-2 text-sm; 
 }
 
 .hero-title {
