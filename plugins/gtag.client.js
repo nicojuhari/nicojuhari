@@ -9,7 +9,7 @@ export default defineNuxtPlugin(() => {
         "src",
         `https://www.googletagmanager.com/gtag/js?id=${config.public.gtag.id}`
     );
-    document.head.appendChild(script);
+    window.document.head.appendChild(script);
 
     let script2 = document.createElement("script");
     script2.setAttribute("defer", "");
@@ -19,5 +19,5 @@ export default defineNuxtPlugin(() => {
         gtag('js', new Date());
         gtag('config', '${config.public.gtag.id}');`;
 
-    document.head.appendChild(script2);
+    window.document.head.appendChild(script2);
 });

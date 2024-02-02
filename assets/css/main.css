@@ -17,9 +17,9 @@ pre {
     @apply overflow-x-auto p-2 text-sm; 
 }
 
-/* body {
-    @apply text-brand-color;
-} */
+body {
+    @apply text-black dark:text-white;
+}
 body.modal-open {
     overflow: hidden;
 }
