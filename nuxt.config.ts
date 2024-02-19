@@ -15,7 +15,7 @@ export default defineNuxtConfig({
   },
   routeRules: {
     '/': { static: true },
-    '/tools/free-menu-maker/**': { ssr: false },
+    '/tools/free-menu-maker/**': { static: true },
     '/tools/free-qr-code-generator/**': { static: true },
     '/projects/**': { static: true },
   },
