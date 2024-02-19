@@ -16,11 +16,11 @@
             <template v-else>
                 <div class="mb-6">
                     <h1 class="text-2xl">Free Menu Maker</h1>
-                    <p class="mt-2">Create a digital food menu for your restaurant, and easily publish it on your website or app.
-                    <br>No coding knowledge is required.</p>
+                    <h2 class="mt-2">Create a digital food menu for your restaurant, and easily publish it on your website or app.</h2>
+                    <p>No coding knowledge is required.</p>
                 </div>
                 <MenuList></MenuList>
-                <!-- <MenuToolDescription></MenuToolDescription> -->
+                <MenuToolDescription></MenuToolDescription>
             </template>
         </div>
     </div>
