@@ -1,33 +1,27 @@
 
 <script setup>
-    definePageMeta({
-        layout: 'empty'
-    })
 
     useHead({
-        title: 'Free Menu Maker - Create a digital food menu',
+        title: 'Free Menu Maker - Create a digital food menu online',
         meta: [
-            { name: 'description', content: 'Free Menu Maker - Create a digital food menu for your restaurant, bar and cafe' }
+            { name: 'description', content: 'Free Menu Maker - Create a digital food menu for your restaurant, bar or cafe and publish it on your website or app. No coding knowledge is required.' }
         ],
     })
+
 </script>   
 <template>
-    <div>
-        <Body class="bg-gray-50"></Body>
-        <header class="border-b bg-white sticky top-0 z-30 h-14 flex items-center">
-            <div class="container flex items-center justify-between gap-6 h-full">
-                <div class="flex flex-shrink-0 items-center gap-6">
-                    <img src="/menuLogo.svg" class="w-14"/>
+    <div class="my-10">
+         <div class="container">
+            <MenuDashboard v-if="$route.query.menu_uid"></MenuDashboard>
+            <template v-else>
+                <div class="mb-6">
+                    <h1 class="text-2xl">Free Menu Maker</h1>
+                    <p class="mt-2">Create a digital food menu for your restaurant, and easily publish it on your website or app.
+                    <br>No coding knowledge is required.</p>
                 </div>
-            </div>
-        </header>
-        <div class="container">
-            <ClientOnly>
-                <MenuList/>
-            </ClientOnly>
-            <div class="max-w-4xl m-auto py-10">
-                Create a digital food menu for your restaurant - FREE
-            </div>
+                <MenuList></MenuList>
+                <!-- <MenuToolDescription></MenuToolDescription> -->
+            </template>
         </div>
     </div>
 </template>

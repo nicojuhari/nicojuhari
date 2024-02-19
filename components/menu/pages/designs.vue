@@ -24,13 +24,14 @@ import { useMenuStore } from '~/store/menu';
             <Loading class="m-auto !border-t-gray-500"/>
         </div>
         <UCard>
-            <div class="flex sm:items-center justify-between gap-4 mb-4 flex-col md:flex-row">
-              <h3 class="text-xl">Free Designs</h3>
+            <div class="mb-6">
+              <h3 class="text-xl flex items-center flex-wrap">Free Designs</h3>
+              <div class="text-sm"> copy and paste the code into your project(website, app, TV screen). The designs are fast, responsive and FREE.</div>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div>
-                    <div class="text-center my-5">Configurator</div>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- <div class="text-center my-5">Configurator</div> -->
+                    <div class="grid grid-cols-1 gap-6">
                         <UFormGroup label="Design Version">
                             <USelectMenu v-model="designConfig.version" :options="[1,2,3,4]" />
                         </UFormGroup>
@@ -38,7 +39,7 @@ import { useMenuStore } from '~/store/menu';
                             <UInput v-model="designConfig.priceSymbol" />
                         </UFormGroup>
                     </div>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                    <div class="grid grid-cols-1 gap-6 mt-6">
                             <UFormGroup label="Allergens title">
                                 <UInput v-model="designConfig.allergens.title" />
                             </UFormGroup>
@@ -50,6 +51,10 @@ import { useMenuStore } from '~/store/menu';
                 <div class="col-span-2">
                     <MenuCodeEditor/>
                 </div>
+            </div>
+            <div class="mt-6">* We recommend that you create a 
+                backup/export the menu from the <NuxtLink :to="`/tools/free-menu-maker/?menu_uid=${$route.params.menu_uid}&view=settings`" class="font-semibold underline">setting page</NuxtLink> 
+                for future use.
             </div>
         </UCard>
        <MenuPreview/>

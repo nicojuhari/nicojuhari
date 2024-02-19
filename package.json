@@ -1,5 +1,5 @@
 {
-  "name": "",
+  "name": "sdd",
   "private": true,
   "type": "module",
   "engines": {
@@ -14,16 +14,16 @@
     "start": "node .output/server/index.mjs"
   },
   "devDependencies": {
-    "nuxt": "^3.10.0",
+    "nuxt": "^3.10.2",
     "shikiji": "^0.10.2",
-    "vue": "^3.4.15",
+    "vue": "^3.4.19",
     "vue-router": "^4.2.5"
   },
   "dependencies": {
-    "@formkit/nuxt": "^1.5.3",
-    "@iconify-json/ph": "^1.1.10",
+    "@formkit/nuxt": "^1.5.9",
+    "@iconify-json/ph": "^1.1.11",
     "@nuxt/ui": "^2.13.0",
-    "@nuxtjs/seo": "^2.0.0-rc.7",
+    "@nuxtjs/seo": "^2.0.0-rc.8",
     "@pinia/nuxt": "^0.5.1",
     "@storyblok/nuxt": "^6.0.4",
     "@vueuse/integrations": "^10.7.2",

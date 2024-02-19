@@ -61,16 +61,12 @@
 <template>
     <div>
         <div v-html='hCode' class="rounded overflow-hidden"></div>
-        <div class="mt-6">
+        <div class="mt-6 flex justify-end">
             <UButton @click="copy(freeCode)" :loading="copied" color="brand-blue">
               <!-- by default, `copied` will be reset in 1.5s -->
               <span v-if="!copied">Copy to clipboard</span>
               <span v-else>Copied!</span>
             </UButton>
-            <div class="italic">and paste the code into your project. Also, we recommend that you create a 
-                backup/export the menu from the <NuxtLink :to="`/tools/free-menu-maker/${$route.params.menu_uid}/settings`" class="font-semibold">setting page</NuxtLink> 
-                for future use.
-            </div>
         </div>
     </div>
 </template>

@@ -2,8 +2,6 @@ export type Menu = {
     menu_uid: string,
     products: Product[],
     categories: Category[],
-    promos: Promo[],
-    bundles: Bundle[],
     allergens: Allergen[],
     configs: Configs,
     isFromLocal?: boolean
@@ -41,24 +39,24 @@ type AllergenWithIcon = {
     icon: string
     description: string,
 }
-export type Bundle = {
-    uid: string;
-    name: string;
-    description: string;
-    items: {
-        qty: number;
-        uid: string;
-        size: number;
-    }[];
-    price: number | null;
-}
+// export type Bundle = {
+//     uid: string;
+//     name: string;
+//     description: string;
+//     items: {
+//         qty: number;
+//         uid: string;
+//         size: number;
+//     }[];
+//     price: number | null;
+// }
 
-export type Promo = {
-    uid: string;
-    name?: string;
-    description?: string;
-    extraInfo?: string;
-    bgColor?: string;
-    textColor?: string; 
-    bgImage?: string;
-}
+// export type Promo = {
+//     uid: string;
+//     name?: string;
+//     description?: string;
+//     extraInfo?: string;
+//     bgColor?: string;
+//     textColor?: string; 
+//     bgImage?: string;
+// }

@@ -9,7 +9,7 @@ useHead({
 </script>
 <template>
     <div>
-        <Body class="bg-gray-100"></Body>
+        <!-- <Body class="bg-gray-100"></Body> -->
         <MainHomeHero />
         <MainAppsList/>
         <MainHomeMyServices />

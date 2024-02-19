@@ -1,7 +1,8 @@
 import { defineStore } from "pinia";
 // import { getAPI, updateAPI } from "../utils/API";
 import { type Menu } from '~/types'
-
+// import { useLocalStorage } from '@vueuse/core';
+// import { useStorage } from '@vueuse/core'
 
 export const useMenuStore = defineStore("menu", () => {
     //state
@@ -20,39 +21,33 @@ export const useMenuStore = defineStore("menu", () => {
         bundles: true,
     })
 
-    const fetchMenu = async (menu_id: string) => {
+    const fetchMenu = async (menu_uid: string) => {
         //get menu from local storage
-        let localMenu = getMenuFromLocalStorage(menu_id);
+        let localMenu = getMenuFromLocalStorage(menu_uid);
+        // console.log(localMenu);
 
         if (localMenu && Object.keys(localMenu).length) {
             menu.value = localMenu;
-            return;
-        }
-
-        if(menu.value === null) {
-            //redirect to home page
-            
-            const router = useRouter()
-            router.push('/')
+        } else {
+            const router = useRouter();
+            router.push({ path: '/tools/free-menu-maker', replace: true })
         }
     };
 
-    const resetMenu = () => (menu.value = null);
-
     //save on local automatically
-    watch(
-        menu,
-        (newVal, oldVal) => {
-            if (menu.value?.isFromLocal) {
+    watch( menu,
+        () => {
+            if (menu.value) {
                 addMenuToLocalStorage(menu.value);
             }
         },
         { deep: true }
     );
 
+    const resetMenu = () => (menu.value = null);
     const deleteMenu = async (id: string) => {
         //from localStorage
-        if (menu?.value?.isFromLocal) {
+        if (menu.value) {
             removeMenuFromLocalStorage(id);
         }
     };
@@ -67,8 +62,6 @@ export const useMenuStore = defineStore("menu", () => {
         menuCategories: computed(() => menu?.value?.categories || []),
         menuProducts: computed(() => menu?.value?.products || []),
         menuAllergens: computed(() => menu?.value?.allergens || []),
-        menuBundles: computed(() => menu?.value?.bundles || []),
-        menuPromos: computed(() => menu?.value?.promos || []),
         isLoading
     };
 });

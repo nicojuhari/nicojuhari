@@ -21,10 +21,13 @@ onMounted(() => {
 
 </script>
 <template>
-    <div class="my-6 bg-gray-100 rounded py-10 shadow-inner shadow-gray-200">
+    <div v-if="menu?.products?.length" class="my-6 bg-gray-100 rounded py-10 shadow-inner shadow-gray-200">
         <div class="w-full">
             <div id="OneFoodMenu"></div>
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/1food-menu/dist/style.css" />
         </div>
     </div>
+    <UiEmptyBlock v-else class="my-6">
+              Please, add some products and categories to preview your menu.
+    </UiEmptyBlock>
 </template>

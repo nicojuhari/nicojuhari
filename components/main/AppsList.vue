@@ -34,7 +34,7 @@ const apps = [
 <template>
     <div class="container">
         <div class="m-auto grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="bg-white hover:bg-gray-200 text-black duration-300 rounded-xl shadow" v-for="app in apps" :key="app.title">
+            <div class="bg-gray-50 border border-gray-200 hover:bg-gray-100 text-black duration-300 rounded-xl" v-for="app in apps" :key="app.title">
                 <NuxtLink :to="app.url" :target="app.external ? '_blank': ''" class="p-4 flex flex-col" :title="app.title">
                     <div class="flex gap-4 items-center">
                         <img v-if="app.logo" :src="'/' + app.logo" class="w-8 h-8 inline-block" :alt="app.title">

@@ -90,37 +90,38 @@
 
 </script>
 <template>
-    <UCard>
+    <UCard v-if="selectMenuCategories.length">
         <template #header>
             <div class="flex justify-between items-center">
                 <span>  {{ viewObjectId ? 'View Product' : 'New Product' }} </span>
                 <UButton @click.prevent="$emit('close')" color="gray" square variant="soft" icon="i-ph-x"/>
             </div>
         </template>
-             <FormKit type="form" :actions="false" @submit="handleForm" id="productFormKit" v-model="newProduct" v-if="selectMenuCategories.length">
-                <FormKit type="text" outer-class="!mt-0" label="Product name" name="name" validation="required|length:3,100"></FormKit>
-                    <FormKit type="select" label="Category" name="categoryId" validation="required" placeholder=" " :options="selectMenuCategories"></FormKit>
-                    <FormKit type="textarea" label="Description" name="description"></FormKit>
-                    <FormKit type="text" label="Image URL" help="An image is not required, but it is highly recommended" name="imageUrl" validation="url"></FormKit>
-                    <div v-if="newProduct.imageUrl">
-                        <img :src="newProduct.imageUrl" class="w-32 h-32 object-cover rounded-md mt-4"> 
-                    </div>
-                    
-                    <MenuProductPriceOptions v-model="productOptions" class="mt-6"/>
-                    <UFormGroup label="Is in stock ?" class="mt-6">
-                        <UToggle color="teal" v-model="newProduct.inStock"/>
-                    </UFormGroup>
-                    <UFormGroup label="Allergens" class="mt-6">
-                        <USelectMenu v-model="newProduct.allergens" :options="menuAllergens" option-attribute="name" value-attribute="uid" multiple placeholder="Select allergens" />
-                    </UFormGroup>
-                    <UFormGroup label="Tags" class="mt-6">
-                        <MenuProductTags v-model="newProduct.tags"/>
-                    </UFormGroup>
-                    <!-- <Options v-model="productOptions"/>
-                    <Allergens v-model="newProduct.allergens" />
-                    <ProductTags v-model="newProduct.tags"/> -->
-                    <!-- <MagicTags v-model="magicTags"/> -->  
-            </FormKit>
+            <FormKit type="form" :actions="false" @submit="handleForm" id="productFormKit" v-model="newProduct">
+            <FormKit type="text" outer-class="!mt-0" label="Product name" name="name" validation="required|length:3,100"></FormKit>
+                <FormKit type="select" label="Category" name="categoryId" validation="required" placeholder=" " :options="selectMenuCategories"></FormKit>
+                <FormKit type="textarea" label="Description" name="description"></FormKit>
+                <FormKit type="text" label="Image URL" help="An image is not required, but it is highly recommended" name="imageUrl" validation="url"></FormKit>
+                <div v-if="newProduct.imageUrl">
+                    <img :src="newProduct.imageUrl" class="w-32 h-32 object-cover rounded-md mt-4"> 
+                </div>
+                
+                <MenuProductPriceOptions v-model="productOptions" class="mt-6"/>
+                <UFormGroup label="Is in stock ?" class="mt-6">
+                    <UToggle color="teal" v-model="newProduct.inStock"/>
+                </UFormGroup>
+                <UFormGroup label="Allergens" class="mt-6">
+                    <USelectMenu v-model="newProduct.allergens" :options="menuAllergens" option-attribute="name" value-attribute="uid" multiple placeholder="Select allergens" />
+                </UFormGroup>
+                <UFormGroup label="Tags" class="mt-6">
+                    <MenuProductTags v-model="newProduct.tags"/>
+                </UFormGroup>
+                <!-- <Options v-model="productOptions"/>
+                <Allergens v-model="newProduct.allergens" />
+                <ProductTags v-model="newProduct.tags"/> -->
+                <!-- <MagicTags v-model="magicTags"/> -->  
+        </FormKit>
+           
         <template #footer>
             <div class="flex justify-between items-center">
                 <div v-if="viewObjectId" class="text-sm opacity-30">ID: {{ viewObjectId }}</div>
@@ -132,5 +133,11 @@
             </div>
         </template> 
     </UCard>
-
+    <UCard v-else>
+        <div>
+            <div class="mb-6">Please create some categories first!</div>
+            <UButton :to="`/tools/free-menu-maker?menu_uid=${menu.menu_uid}&view=categories`">Category Page</UButton>
+        </div>
+    </UCard>
+     
 </template>
