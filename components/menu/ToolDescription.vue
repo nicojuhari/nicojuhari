@@ -19,13 +19,14 @@
             </div>
         </div>
     </div>
+    <MainMyMenuServices/>
     <div class="my-10">
         <h3 class="text-xl font-bold mb-6">What is a digital food menu ?</h3>
-        <div>A digital food menu is an electronic version of a restaurant's menu displayed on a screen or accessed through a website or mobile app. Unlike a static PDF, it's dynamic and interactive, offering several advantages over traditional paper menus. </div>
+        <div>A digital food menu is an electronic version of a restaurant's menu displayed on a screen or accessed through a website or mobile app. <br>Unlike a static PDF, it's dynamic and interactive, offering several advantages over traditional paper menus. </div>
     </div>
     <div class="my-10">
             <h3 class="text-xl font-bold mb-6">Digital menu advantages:</h3>
-        <ul>
+        <ul class="space-y-3">
             <li>
                 1. Convenient browsing: Customers can quickly explore menus on their devices, bypassing physical menus and wait times. Ordering is simple with a few taps.
             </li>

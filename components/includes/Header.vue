@@ -7,7 +7,7 @@
             <NuxtLink to="/" title="nicojuhari logo">
                 <img src="/Logo.svg" class="h-8 sm:h-10" alt="logo"/>
             </NuxtLink>
-            <UButton to="https://forms.gle/UX2VPKUwyyFdSXbw9" variant="outline" color="brand-blue" target="blank" title="Hire me">Hire me</UButton>
+            <UButton to="/contact" variant="outline" color="brand-blue" title="Hire me">Hire me</UButton>
         </div>
     </header>
 </template>
