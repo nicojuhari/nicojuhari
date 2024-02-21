@@ -70,7 +70,7 @@ const deleteFolder = async () => {
         </ClientOnly>
         <BunnyStorageMenu v-model="showImages" />
         <div v-if="!activePullZoneURL && !isLoading" class="my-6">
-            <div class="alert alert-error text-white">
+            <div class="alert alert-red text-white">
                 Please connect your Bunny.net storage to a Pull Zone.
             </div>
             <!-- <img src="/bunny.net-connect-pull-zone.png" class="my-4 rounded-lg border"> -->

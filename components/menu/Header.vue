@@ -16,7 +16,7 @@ const { menu } = storeToRefs(useMenuStore())
                 <div class="flex items-center gap-2">
                     <div class="text-lg font-medium w-40 truncate">{{ menu?.configs.title }}</div>
                     <UButton :to="`/tools/free-menu-maker/${$route.params.menu_uid}/settings`" square
-                        icon="i-ph-pencil-simple-light" variant="link" color="brand-gray" />
+                        icon="i-ph-pencil-simple-light" variant="link" color="gray" />
                 </div>
             </div>
         </div>

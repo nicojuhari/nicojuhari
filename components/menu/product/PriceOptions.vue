@@ -48,8 +48,8 @@ if (props.modelValue.length == 0) addFields()
                     <input type="text" name="salePrice" class="input-text" :value="field.salePrice"
                         @input="handleChange('salePrice', $event.target.value, idx)" />
                 </div>
-                <UButton icon="i-ph-plus" square color="brand-green" v-if="idx == 0" variant="soft" class="flex-shrink-0" @click="addFields"/>
-                <UButton v-else icon="i-ph-trash" square color="brand-red" variant="soft" severity="danger" outlined bgOpacity @click="removeFields(idx)"/>
+                <UButton icon="i-ph-plus" square color="green" v-if="idx == 0" variant="soft" class="flex-shrink-0" @click="addFields"/>
+                <UButton v-else icon="i-ph-trash" square color="red" variant="soft" severity="danger" outlined bgOpacity @click="removeFields(idx)"/>
             </div>
         </div>
     </div>

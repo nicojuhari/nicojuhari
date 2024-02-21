@@ -248,10 +248,10 @@ watch(qrConfigs, () => {
                                     <UIcon name="i-ph-x-light" class="text-red-600 text-2xl" />
                                 </div>
                                 <label v-else
-                                    class="h-12 w-12 border shrink-0 border-blue-700 rounded cursor-pointer bg-white flex items-center justify-center">
+                                    class="h-12 w-12 border shrink-0 border-info-700 rounded cursor-pointer bg-white flex items-center justify-center">
                                     <input type="file" @change="uploadLogo" class="opacity-0 w-0 h-0" />
-                                    <UIcon name="i-ph-plus-light" class="text-blue-700 text-2xl" />
-                                    <!-- <IconsPlus class="text-blue-700" /> -->
+                                    <UIcon name="i-ph-plus-light" class="text-info-700 text-2xl" />
+                                    <!-- <IconsPlus class="text-info-700" /> -->
                                 </label>
                                 <div v-if="fileLogoName" class="truncate">{{ fileLogoName }}</div>
                             </div>

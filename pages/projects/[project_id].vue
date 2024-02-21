@@ -34,7 +34,7 @@ useHead({
             </div>
             <div>
                 <a v-if="story.content.link.url"
-                    class="flex mx-auto mt-16 text-brand-blue-light border border-brand-blue-light h-10 w-10 items-center justify-center rounded-full"
+                    class="flex mx-auto mt-16 text-blue-400 border border-blue-400 h-10 w-10 items-center justify-center rounded-full"
                     :href="story.content.link.url" title="Visit Project" target="blank" rel="nofollow">
                     <UIcon name="i-ph-arrow-up-right-thin" class="w-8 h-8 flex-shrink-0" />
                 </a>

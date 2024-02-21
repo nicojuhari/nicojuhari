@@ -39,6 +39,6 @@ const { currentPath } = usePath();
             <label>Folder Name</label>
             <UInput type="text" v-model="folderName" class="input w-full"/>
         </div>
-        <UButton @click.prevent="sendToServer" class="mt-6 btn btn-primary ml-auto">Create</UButton>
+        <UButton @click.prevent="sendToServer" class="mt-6 btn btn-brand-600 ml-auto">Create</UButton>
     </div>
 </template>

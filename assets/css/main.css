@@ -57,7 +57,7 @@ pre {
 }
 
 .hero-title {
-    @apply font-bold text-3xl md:text-5xl;
+    @apply font-extrabold text-3xl md:text-5xl;
 }
 
 .title {
@@ -69,23 +69,23 @@ pre {
 }
 
 .btn {
-    @apply h-8 px-4 rounded inline-flex gap-3 items-center max-w-max text-white bg-brand-blue-light text-sm;
+    @apply h-8 px-4 rounded inline-flex gap-3 items-center max-w-max text-white bg-blue-600 text-sm;
 }
 
 .btn-outline {
-    @apply bg-opacity-0 text-brand-blue-light border border-brand-blue-light
+    @apply bg-opacity-0 text-blue-600 border border-blue-600
 }
 
 .btn-link {
-    @apply border-0 underline bg-transparent text-brand-blue-light
+    @apply border-0 underline bg-transparent text-blue-600
 }
 
 .btn-dark {
-    @apply bg-brand-blue-700;
+    @apply bg-blue-700;
 }
 
 .btn-dark.btn-outline {
-    @apply text-brand-blue-700 border-brand-blue-700
+    @apply text-blue-700 border-blue-700
 }
 
 

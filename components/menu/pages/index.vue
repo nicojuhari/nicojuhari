@@ -28,7 +28,7 @@ const updateQuery = (newView: string) => {
         <UCard class="bg-gray-100">
               <div @click.prevent="updateQuery('settings')" class="flex h-full w-full justify-center items-center">
                 {{ menu?.configs.title }}
-                <UButton square icon="i-ph-pencil-simple-light" variant="link" color="brand-gray" />
+                <UButton square icon="i-ph-pencil-simple-light" variant="link" color="gray" />
             </div>
         </UCard>
         <UCard 

@@ -62,7 +62,7 @@
     <div>
         <div v-html='hCode' class="rounded overflow-hidden"></div>
         <div class="mt-6 flex justify-end">
-            <UButton @click="copy(freeCode)" :loading="copied" color="brand-blue">
+            <UButton @click="copy(freeCode)" :loading="copied" color="blue">
               <!-- by default, `copied` will be reset in 1.5s -->
               <span v-if="!copied">Copy to clipboard</span>
               <span v-else>Copied!</span>

@@ -118,7 +118,7 @@ const sendToServer = async () => {
                 <div class="mt-6 flex justify-between items-center">
                     <div class="truncate">
                         File Name: <span class="text-gray-400"
-                            :class="{ 'line-through !text-brand-error ': newFileName.length > 2 }">{{ oldFileName }}.{{
+                            :class="{ 'line-through !text-green ': newFileName.length > 2 }">{{ oldFileName }}.{{
                                 fileExtension }}</span>
                     </div>
                     <UButton square color="red" class="ml-auto !text-white cursor-pointer shrink-0"

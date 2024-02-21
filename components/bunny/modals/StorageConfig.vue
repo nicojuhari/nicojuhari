@@ -27,7 +27,7 @@ const connectToStorage = async () => {
             <UInput label="API key" type="text" class="w-full outline-none" v-model="storageApiKey" />
             <div class="text-sm text-gray-500 my-2">Bunny.net Dashboard => Account => Settings</div>
         </div>
-        <div class="alert alert-error text-sm" v-if="!fetchSuccess">Couldn't fetch, please check your API key and try again
+        <div class="alert alert-red text-sm" v-if="!fetchSuccess">Couldn't fetch, please check your API key and try again
         </div>
         <a class="flex items-center gap-2 my-4 text-blue-500" href="https://dash.bunny.net/account/settings?ref=kw3bknywrh"
             target="_blank">Get your API key from bunny.net dashboard

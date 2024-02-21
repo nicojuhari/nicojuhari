@@ -70,7 +70,7 @@ const submitForm = async () => {
                         />
                     </div>
                     <FormKit type="textarea" name="message" label="Message" validation="required|length:5,200"/>
-                    <UButton type="submit" class="mt-8" :loading="loading" color="brand-blue">Send</UButton>
+                    <UButton type="submit" class="mt-8" :loading="loading" color="blue">Send</UButton>
                 </FormKit>
                 <div v-if="isFormSent" class="mt-6">Thank you for your message! I will contact you shortly.</div>    
             </div>

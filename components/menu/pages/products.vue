@@ -66,7 +66,7 @@ const items = [
             <h3 class="text-xl">Products</h3>
             <div class="flex gap-4 w-full sm:w-auto">
                 <UInput v-model="query" placeholder="Filter products ..." class="w-1/2 sm:w-auto" />
-                <UButton color="brand-blue" @click="isModalOpen = true" icon="i-ph-plus" label="New Product"
+                <UButton color="blue" @click="isModalOpen = true" icon="i-ph-plus" label="New Product"
                     class="w-1/2 sm:w-auto justify-center" />
             </div>
         </div>
@@ -107,13 +107,13 @@ const items = [
                              <td class="px-4 py-2">
                                 <div class="h-full w-full flex items-center justify-end gap-4">
                                     <UButton @click="() => viewProduct(item.uid)" square variant="ghost" icon="i-ph-eye"></UButton>
-                                            <UButton @click="() => preDeleteProduct(item.uid)" square color="brand-red" variant="ghost" icon="i-ph-trash-light"></UButton>
+                                            <UButton @click="() => preDeleteProduct(item.uid)" square color="red" variant="ghost" icon="i-ph-trash-light"></UButton>
                                 </div>
                                      
                                         </td>
                             <!-- <td class="px-4 py-2 text-right">
                                 <UDropdown :items="items" :popper="{ placement: 'bottom-start' }">
-                                    <UButton square icon="i-ph-dots-three-vertical" color="brand-gray" variant="soft"></UButton>
+                                    <UButton square icon="i-ph-dots-three-vertical" color="gray" variant="soft"></UButton>
                                     <template #view>
                                         <div class="flex justify-between items-center w-full"
                                             @click="() => viewProduct(item.uid)">
@@ -123,7 +123,7 @@ const items = [
                                         </div>
                                     </template>
                                     <template #delete>
-                                        <div class="flex justify-between items-center w-full text-brand-red-400 dark:text-brand-400"
+                                        <div class="flex justify-between items-center w-full text-red-400 dark:text-brand-400"
                                             @click="() => preDeleteProduct(item.uid)">
                                             <span class="">Delete</span>
                                             <UIcon name="i-ph-trash-light" class="flex-shrink-0 h-4 w-4 ms-auto" />
@@ -147,8 +147,8 @@ const items = [
             <div class="p-8 flex flex-col gap-6">
                 <div class="text-center">Would you like to delete this product?</div>
                 <div class="flex gap-4 items-center justify-center">
-                    <UButton color="brand-blue" class="px-10" @click.prevent="() => isModalDeleteOpen = false">No</UButton>
-                    <UButton color="brand-red" class="px-10" @click.prevent="deleteProduct">Yes</UButton>
+                    <UButton color="blue" class="px-10" @click.prevent="() => isModalDeleteOpen = false">No</UButton>
+                    <UButton color="red" class="px-10" @click.prevent="deleteProduct">Yes</UButton>
                 </div>
             </div>
         </UModal>

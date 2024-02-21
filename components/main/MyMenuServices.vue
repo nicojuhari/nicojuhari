@@ -2,32 +2,42 @@
 
     const list = [
         { 
-            title: 'Menu design',
-            description: ' I will design your menu to match your website identity.'
+            title: 'Restaurant menu design',
+            description: 'I will customize your menu to reflect your brand.'
         },
         {
             title: 'App integration',
-            description: ' I will integrate this menu maker app into your project, with custom fields and design.'
+            description: 'I\'ll integrate this menu maker app into your project, including custom fields and design.'
         },
         {
-            title: 'Website design and development',
-            description: ' I will create fully functional restaurant website, app integration and custom design.'
+            title: 'Restaurant website design',
+            description: 'I will create a fully functional restaurant website that includes menu maker integration and custom menu design.'
         }
     ]
 
 </script>
 <template>
-    <div>
-        <h3 class="text-xl font-medium mb-6 text-center">I could help you, with:</h3>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
-            <div v-for="item in list" :key="item.title" class="bg-brand-color text-white p-6 duration-300 rounded-xl">
-                <div class="text-lg font-bold">{{item.title }}</div>
-                <div class="mt-6">{{ item.description }}</div>  
+    <div class="bg-brand-950 p-10 md:p-12 text-white">
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="grid grid-cols-1 gap-6">
+                <div v-for="item in list" :key="item.title" class="flex items-center gap-4 text-gray-100">
+                    <Icon name="i-ph-check-bold" class="w-4 h-4 text-green-600 shrink-0"/>
+                    <div>
+                        <div class="text-xl">{{ item.title }}</div>
+                        <div class="text-sm mt-2 text-white text-opacity-60">{{ item.description }}</div>  
+                    </div>
+                </div>
+            </div>
+            <div class="grid place-content-center">
+                <h3 class="text-3xl font-bold mb-6">Do you need more?</h3>
+                <div class="text-center mt-4">
+                    <UButton to="/contact" size="lg" color="brand" class="m-sauto" title="Contact me">Contact me</UButton>
+                </div>
             </div>
         </div>
-        <div class="my-6 text-center">
-            <UButton to="/contact" variant="outline" color="brand-blue" class="m-auto" title="Contact me">Contact me</UButton>
-        </div>
+        
+        
         
     </div>
 </template>

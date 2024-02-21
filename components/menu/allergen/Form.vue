@@ -59,7 +59,7 @@ onBeforeUnmount(() => {
             <div class="flex justify-between items-center">
                 <div v-if="viewObjectId" class="text-sm opacity-30">ID: {{ viewObjectId }}</div>
                 <div class="flex justify-end gap-4 ml-auto">
-                    <UButton @click="$formkit.submit('categoryFormKit')" color="brand-blue" variant="outline"
+                    <UButton @click="$formkit.submit('categoryFormKit')" color="blue" variant="outline"
                         :loading="loading">
                         {{ viewObjectId ? 'Update' : 'Create' }}
                     </UButton>
