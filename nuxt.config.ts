@@ -25,8 +25,8 @@ export default defineNuxtConfig({
             id: 'G-YC2EDZRT9H'
           },
             siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'https://nicojuhari.com',
-            siteName: 'Freelance Web Developer from Vienna, Austria',
-            siteDescription: 'I create pixel-perfect, fast, and SEO-friendly web apps. I specialize in business and restaurant websites and landing pages.',
+            siteName: 'Freelance Web Developer: Creating restaurant websites',
+            siteDescription: 'I create pixel-perfect, fast, and SEO-friendly web apps. I specialise in business and restaurant websites',
             language: 'en', 
         },
         siteUrl: 'https://nicojuhari.com',
@@ -36,7 +36,7 @@ export default defineNuxtConfig({
             htmlAttrs: {
               lang: 'en'
             },
-            title: 'Freelance Web Developer from Vienna, Austria',
+            title: 'Freelance Web Developer: Creating restaurant websites',
             titleTemplate: '%s',
             link: [
                 { rel: 'icon', type:'image/x-icon', href: '/favicon.ico' },
@@ -45,8 +45,8 @@ export default defineNuxtConfig({
                 { rel: 'apple-touch-icon', sizes:"180x180", href:"/apple-touch-icon.png" }
             ],
             meta: [
-                { name: 'description', content: 'I create pixel-perfect, fast, and SEO-friendly web apps. I specialize in business and restaurant websites and landing pages.' },
-                { name: 'keywords', content: 'Web developer, Freelancer, Vienna Austria, restaurant websites, website developer' },
+                { name: 'description', content: 'I create pixel-perfect, fast, and SEO-friendly web apps. I specialise in business and restaurant websites' },
+                { name: 'keywords', content: 'Web developer, freelancer, restaurant website design, business website design' },
                 { name: 'google-site-verification', content: "oOiepCGY8_h_x8LguPX3bbyO0MKDXRKE6dSSKlSUiKI"}
             ],
         },

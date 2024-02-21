@@ -1,9 +1,9 @@
 <script setup>
 useHead({
-    title: 'Freelance Web Developer from Vienna, Austria',
+    title: 'Freelance Web Developer: Creating restaurant websites',
     meta: [
-        { name: 'description', content: 'I create pixel-perfect, fast, and SEO-friendly web apps. I specialize in business and restaurant websites and landing pages.' },
-        { name: 'keywords', content: 'Web developer, Freelancer, Vienna Austria, restaurant websites, website developer' },
+        { name: 'description', content: 'I create pixel-perfect, fast, and SEO-friendly web apps. I specialise in business and restaurant websites' },
+        { name: 'keywords', content: 'Web developer, freelancer, restaurant website design, business website design' },
     ],
 })
 </script>
