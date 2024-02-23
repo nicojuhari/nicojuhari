@@ -4,7 +4,7 @@ import { reset } from '@formkit/core'
     title: 'Contact me - Freelance Web Developer',
     titleTemplate: '%pageTitle',
     meta: [
-        { name: 'description', content: 'I craft custom websites that convert & impress. Contact me for a free quote & see how I can help you succeed online.' },
+        { name: 'description', content: 'Get in touch for custom websites that convert & impress. Contact for a free quote & see how I can help you succeed online with expert design solutions.' },
         { name: 'keywords', content: 'freelancer, web developer, javascript developer, website design' }
     ],
 })

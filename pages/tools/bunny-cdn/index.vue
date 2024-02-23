@@ -1,7 +1,7 @@
 <script setup>
-definePageMeta({
-    layout: 'bunny'
-})
+// definePageMeta({
+//     layout: 'bunny'
+// })
 
 const showModal = ref(false);
 
@@ -17,14 +17,14 @@ const showModal = ref(false);
             <div class="text-center py-6">
                 <div class="mb-4">To get started, enter your <a href="https://bunny.net?ref=kw3bknywrh" target="_blank" rel="nofollow"
                         class="font-medium">Bunny.net</a> API key and fetch your storages.</div>
-                <UButton class="btn btn-success" @click="showModal = true">
+                <UButton color="brand" size="md" variant="outline" @click="showModal = true">
                     <Icon name="ph:key-light" class="w-6 h-6" />
                     Configure your Storage
                 </UButton>
             </div>
         </div>
         <div class="container py-6">
-            <div class="font-medium text-2xl text-center">Terms and Conditions</div>
+            <div class="subtitle text-center">How it works</div>
             <div class="text-lg mt-8">
                 <ol class="flex flex-col gap-2 text-md list-decimal list-inside">
                     <li>This app is <strong>FREE</strong> to use, but check <a

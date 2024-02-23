@@ -2,20 +2,20 @@
 
     let myServices = [
         {
-            title: 'Development',
-            description: 'I will create a great website for your business to demonstrate its strength and generate leads.',
-            icon: 'i-ph-code-thin'
+            title: 'Business Website design',
+            description: 'I will create a top-notch website for your business to effectively generate leads.',
+            icon: 'i-ph-code-light'
         },
         {
-            title: 'CRO',
-            description: 'I will improve and optimize your website until the conversion rate at least doubles.',
-            icon: 'i-ph-trend-up-thin'
+            title: 'Restaurant Website Design',
+            description: 'I will create a great restaurant website that converts food lovers into clients.',
+            icon: 'i-ph-bowl-food-light'
         },
         {
-            title: 'Maintenance',
-            description: 'I will resolve any JavaScript, CSS, or HTML issues, and tackle other small tasks.',
-            icon: 'i-ph-gear-six-thin'
-        }
+            title: 'Conversion Rate Opimisation',
+            description: 'I will improve and optimize your website until the conversion rate doubles.',
+            icon: 'i-ph-trend-up-light'
+        },
     ]
 </script>
 <template>
@@ -25,10 +25,10 @@
             <div class="grid grid-cols-1 md:grid-cols-3 justify-center gap-10">
                 <div v-for="item in myServices" class="p-6 rounded-lg bg-white border border-brand-cssolor border-opacity-50 max-w-sm">
                     <div class="grid place-content-center py-11">
-                        <UIcon :name="item.icon" class="w-16 flex-shrink-0 h-16 text-gray-600"/>
+                        <UIcon :name="item.icon" class="w-12 flex-shrink-0 h-12 text-brand-700"/>
                     </div>
                     <h3 class="text-center text-xl mb-6">{{ item.title }}</h3>
-                    <p class="font-light">{{ item.description }}</p>
+                    <p class="font-light text-center">{{ item.description }}</p>
                 </div>
             </div>
             <!-- <div class="mt-16 flex justify-center">

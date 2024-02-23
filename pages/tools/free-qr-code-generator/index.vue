@@ -1,8 +1,8 @@
 <script setup>
     useHead({
-        title: 'Free QR Code Generator',
+        title: 'Free QR Code Generator for you application or website',
         meta: [
-            { name: 'description', content: 'Free QR Code Generator for you application or website url' }
+            { name: 'description', content: 'Generate free QR codes for your applications or website URLs effortlessly with our user-friendly QR Code Generator tool. Try it now!' }
         ],
     })
 </script>
