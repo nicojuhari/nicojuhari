@@ -3,6 +3,13 @@
 //     layout: 'bunny'
 // })
 
+useHead({
+    title: 'A better UI for Bunny CDN',
+    meta: [
+        { name: 'description', content: 'Enhance your Bunny CDN experience with our user-friendly UI. Effortlessly manage all your bunny.net assets from one convenient page.' }
+    ],
+})
+
 const showModal = ref(false);
 
 </script>
