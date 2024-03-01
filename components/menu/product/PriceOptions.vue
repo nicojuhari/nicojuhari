@@ -15,12 +15,43 @@ const addFields = () => {
         salePrice: ''
     })
 }
+
+const errorMessage = ref('')
+
 const removeFields = (idx) => {
+    errorMessage.value = ''
     props.modelValue.splice(idx, 1)
 }
 
 const handleChange = (type, value, idx) => {
-    //if(value == '') return
+    errorMessage.value = ''
+
+    //validate SALE PRICE
+    if(type == 'salePrice' && value) {
+        let isPriceEmpty = !props.modelValue[idx]['price']
+        
+
+        if(isPriceEmpty) {
+            errorMessage.value = "You cannot have only the SALE PRICE; please include the standard price as well."
+            props.modelValue[idx][type] = ''
+            emit('update:modelValue', props.modelValue)
+            return
+        }
+    }
+
+    // if the regular price is removed
+    if (type == 'price' && !value) {
+        let isSalePriceEmpty = !props.modelValue[idx]['salePrice']
+
+
+        if (!isSalePriceEmpty) {
+            errorMessage.value = "You cannot have only the SALE PRICE; please include the standard price as well."
+            props.modelValue[idx][type] = ''
+            emit('update:modelValue', props.modelValue)
+            return
+        }
+    }
+
     props.modelValue[idx][type] = value
     emit('update:modelValue', props.modelValue)
 }
@@ -32,6 +63,7 @@ if (props.modelValue.length == 0) addFields()
     <div>
         <label>Price options</label>
         <div class="p-4 rounded bg-slate-50 max-h-96 overflow-y-auto">
+            <div v-if="errorMessage" class="text-sm text-red-600">{{ errorMessage }}</div>
             <div v-for="(field, idx) of modelValue" class="grid grid-flow-col gap-6 items-end mt-6 first:mt-0">
                 <div>
                     <label>Size</label>
@@ -40,12 +72,12 @@ if (props.modelValue.length == 0) addFields()
                 </div>
                 <div>
                     <label>Price</label>
-                    <input type="text" required name="price" class="input-text" :value="field.price"
+                    <input type="number" required name="price" class="input-text" :value="field.price"
                         @input="handleChange('price', $event.target.value, idx)" />
                 </div>
                 <div>
                     <label>Sale Price</label>
-                    <input type="text" name="salePrice" class="input-text" :value="field.salePrice"
+                    <input type="number" name="salePrice" class="input-text" :value="field.salePrice"
                         @input="handleChange('salePrice', $event.target.value, idx)" />
                 </div>
                 <UButton icon="i-ph-plus" square color="green" v-if="idx == 0" variant="soft" class="flex-shrink-0" @click="addFields"/>

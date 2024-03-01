@@ -93,26 +93,8 @@ const items = [
                             <td class="px-4 py-2 truncate">{{ item.name }}</td>
                             <td class="px-4 py-2 truncate">{{ item.description }}</td>
                             <td class="px-4 py-2 flex items-center justify-end gap-4">
-                                <UButton @click="() => viewAllergen(item.uid)" square variant="ghost" icon="i-ph-eye"></UButton>
-                                <UButton @click="() => preDeleteAllergen(item.uid)" square color="red" variant="ghost" icon="i-ph-trash-light"></UButton>
-                                <!-- <UDropdown :items="items" :popper="{ placement: 'bottom-start' }">
-                                    <UButton square icon="i-ph-dots-three-vertical" color="gray" variant="soft"></UButton>
-                                    <template #view>
-                                        <div class="flex justify-between items-center w-full"
-                                            @click="() => viewAllergen(item.uid)">
-                                            <span class="">View & Edit</span>
-                                            <UIcon name="i-ph-eye"
-                                                class="flex-shrink-0 h-4 w-4 text-gray-400 dark:text-gray-500 ms-auto" />
-                                        </div>
-                                    </template>
-                                    <template #delete>
-                                        <div class="flex justify-between items-center w-full text-red-400 dark:text-brand-400"
-                                            @click="() => preDeleteAllergen(item.uid)">
-                                            <span class="">Delete</span>
-                                            <UIcon name="i-ph-trash-light" class="flex-shrink-0 h-4 w-4 ms-auto" />
-                                        </div>
-                                    </template>
-                                </UDropdown> -->
+                                <UButton @click="() => viewAllergen(item.uid)" square variant="soft" icon="i-ph-pencil-simple-light" color="gray"></UButton>
+                                <UButton @click="() => preDeleteAllergen(item.uid)" square color="red" variant="soft" icon="i-ph-trash-light"></UButton>
                             </td>
                         </tr>
                     </tbody>

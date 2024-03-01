@@ -100,14 +100,14 @@ const items = [
                                 </div>
                             </td>
                             <td class="px-4 py-2 truncate">{{ item.name }}</td>
-                            <td class="px-4 py-2 truncate">{{ getCategoryName(item.productId , menuCategories ) }}</td>
+                            <td class="px-4 py-2 truncate">{{ getCategoryName(item.categoryId , menuCategories ) }}</td>
                             <td class="px-4 py-2">
                                 <span>{{ item.options[0]?.salePrice && item.options[0]?.salePrice || item.options[0]?.price }}</span>
                             </td>
                              <td class="px-4 py-2">
                                 <div class="h-full w-full flex items-center justify-end gap-4">
-                                    <UButton @click="() => viewProduct(item.uid)" square variant="ghost" icon="i-ph-eye"></UButton>
-                                            <UButton @click="() => preDeleteProduct(item.uid)" square color="red" variant="ghost" icon="i-ph-trash-light"></UButton>
+                                    <UButton @click="() => viewProduct(item.uid)" square variant="soft" icon="i-ph-pencil-simple-light" color="gray"></UButton>
+                                            <UButton @click="() => preDeleteProduct(item.uid)" square color="red" variant="soft" icon="i-ph-trash-light"></UButton>
                                 </div>
                                      
                                         </td>
@@ -118,7 +118,7 @@ const items = [
                                         <div class="flex justify-between items-center w-full"
                                             @click="() => viewProduct(item.uid)">
                                             <span class="">View & Edit</span>
-                                            <UIcon name="i-ph-eye"
+                                            <UIcon name="i-ph-pencil-simple-light"
                                                 class="flex-shrink-0 h-4 w-4 text-gray-400 dark:text-gray-500 ms-auto" />
                                         </div>
                                     </template>
