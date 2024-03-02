@@ -46,7 +46,7 @@ if (process.client) {
         <Body class="bg-slate-100" />
         <div class="container">
             <h1 class="title text-center mb-2">Free Food Menu Designs</h1>
-            <div class="text-center mb-6">Any of these four digital menus can be created in minutes.</div>
+            <div class="text-center mb-6">Any of these digital menus can be created in minutes.</div>
             <div class="text-center">
                 <UButton to="/tools/free-menu-maker" color="brand" size="lg" title="Free Menu Maker">Free Menu Maker</UButton>
             </div>

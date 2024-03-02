@@ -10,21 +10,19 @@
 
 </script>   
 <template>
-    <div class="my-10">
-         <div class="container">
-            <ClientOnly v-if="$route.query.menu_uid">
-                <MenuDashboard></MenuDashboard>
+    <div class="container py-10">
+        <ClientOnly v-if="$route.query.menu_uid">
+            <MenuDashboard></MenuDashboard>
+        </ClientOnly>
+        <template v-else>
+            <div class="mb-10 md:mb-14 text-center">
+                <h1 class="font-bold text-3xl mb-2">Free Menu Maker</h1>
+                <div class="mb-8">Create a digital food menu for your restaurant, bar or cafe.</div>
+            </div>
+            <ClientOnly>
+                <MenuList></MenuList>
             </ClientOnly>
-            <template v-else>
-                <div class="mb-8 text-center">
-                    <h1 class="font-bold text-3xl">Free Menu Maker</h1>
-                    <h2 class="mt-2">Create a digital food menu for your restaurant and easily publish it on your website or app, with no coding required.</h2>
-                </div>
-                <ClientOnly>
-                    <MenuList></MenuList>
-                </ClientOnly>
-                <MenuToolDescription></MenuToolDescription>
-            </template>
-        </div>
+            <MenuToolDescription></MenuToolDescription>
+        </template>
     </div>
 </template>
