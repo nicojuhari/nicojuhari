@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
-@tailwind base;
+/* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap'); */
+/* @tailwind base;
 @tailwind components;
-@tailwind utilities;
+@tailwind utilities; */
 
 html {
     font-family: Inter, Arial, sans-serif;
@@ -48,8 +48,8 @@ section + section {
 
 .container {
     margin: 0 auto;
-    max-width: 1280px;
-    width: calc(100% - 2rem);
+    max-width: 1280px !important;
+    width: calc(100% - 2rem) !important;
 }
 .menu-container {
     margin: 0 auto;

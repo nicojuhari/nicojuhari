@@ -33,7 +33,7 @@ const apps = [
 </script>   
 <template>
     <div class="container">
-        <div class="m-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="m-auto grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
             <div class="bg-gray-50 border border-gray-200 hover:bg-gray-100 text-black duration-300 rounded-xl" v-for="app in apps" :key="app.title">
                 <NuxtLink :to="app.url" :target="app.external ? '_blank': ''" class="p-4 flex flex-col" :title="app.title">
                     <div class="flex gap-4 items-center">

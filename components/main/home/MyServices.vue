@@ -2,7 +2,7 @@
 
     let myServices = [
         {
-            title: 'Business Website design',
+            title: 'Business Website Design',
             description: 'I will create a top-notch website for your business to effectively generate leads.',
             icon: 'i-ph-code-light'
         },
@@ -22,18 +22,15 @@
     <section>
         <div class="container">
             <div class="subtitle mb-10 text-center">My Services</div>
-            <div class="grid grid-cols-1 md:grid-cols-3 justify-center gap-10">
-                <div v-for="item in myServices" class="p-6 rounded-lg bg-white border border-brand-cssolor border-opacity-50 max-w-sm">
-                    <div class="grid place-content-center py-11">
+            <div class="grid grid-cols-1 md:grid-cols-3 justify-center gap-6 md:gap-8">
+                <div v-for="item in myServices" class="p-8 md:p-10 rounded-lg bg-white border border-brand-cssolor border-opacity-50">
+                    <div class="grid place-content-center pb-6">
                         <UIcon :name="item.icon" class="w-12 flex-shrink-0 h-12 text-brand-700"/>
                     </div>
-                    <h3 class="text-center text-xl mb-6">{{ item.title }}</h3>
+                    <h3 class="text-center text-xl mb-4">{{ item.title }}</h3>
                     <p class="font-light text-center">{{ item.description }}</p>
                 </div>
             </div>
-            <!-- <div class="mt-16 flex justify-center">
-                <a href="https://forms.gle/UX2VPKUwyyFdSXbw9" class="btn btn-outline btn-light" target="blank" title="Let's work together">Hire me</a>
-            </div> -->
         </div>
     </section>
 </template>  
