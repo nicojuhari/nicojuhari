@@ -50,9 +50,9 @@ const submitForm = async () => {
 
 </script>
 <template>
-    <div class="my-10">
+    <section>
         <div class="container">
-            <h1 class="text-2xl md:text-4xl text-center my-10 md:my-20">Contact me</h1>
+            <h1 class="text-center mb-10">Contact me</h1>
             <div class="m-auto max-w-[800px]">
                 <FormKit type="form" method="POST" id="myContactForm" :actions="false" @submit="submitForm" v-model="formData">   
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
@@ -70,10 +70,10 @@ const submitForm = async () => {
                         />
                     </div>
                     <FormKit type="textarea" name="message" label="Message" validation="required|length:5,200"/>
-                    <UButton type="submit" class="mt-8" :loading="loading" color="blue">Send</UButton>
+                    <UButton type="submit" class="mt-8" :loading="loading" color="brand" variant="outline" size="lg">Send</UButton>
                 </FormKit>
                 <div v-if="isFormSent" class="mt-6">Thank you for your message! I will contact you shortly.</div>    
             </div>
         </div>
-    </div>
+    </section>
 </template>

@@ -81,7 +81,7 @@ if (props.modelValue.length == 0) addFields()
                         @input="handleChange('salePrice', $event.target.value, idx)" />
                 </div>
                 <UButton icon="i-ph-plus" square color="green" v-if="idx == 0" variant="soft" class="flex-shrink-0" @click="addFields"/>
-                <UButton v-else icon="i-ph-trash" square color="red" variant="soft" severity="danger" outlined bgOpacity @click="removeFields(idx)"/>
+                <UButton v-else icon="i-ph-trash" square color="red" variant="soft" class="flex-shrink-0" @click="removeFields(idx)"/>
             </div>
         </div>
     </div>

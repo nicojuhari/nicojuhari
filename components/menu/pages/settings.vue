@@ -114,7 +114,7 @@ const downloadMenu = () => {
             <div class="border bg-slate-100 p-10 rounded flex cursor-pointer relative mt-auto"
                 @click.prevent="downloadMenu">
                 <Loading v-if="downloadLoading" class="m-auto !border-t-gray-500" />
-                <UIcon v-else name="i-ph-download-simple-light" class="m-auto w-14 h-14 text-brand-600"></UIcon>
+                <UIcon v-else name="i-ph-download-simple-light" class="m-auto w-14 h-14 text-blue-600"></UIcon>
             </div>
         </div>
         <div class="grid gap-6 grid-cols-1 md:grid-cols-2 pt-6">
@@ -126,7 +126,7 @@ const downloadMenu = () => {
             </div>
             <div class="border bg-slate-100 p-10 rounded flex cursor-pointer relative mt-auto" @click.prevent="importMenu">
                 <Loading v-if="importLoading" class="m-auto !border-t-gray-500" />
-                <UIcon v-else name="i-ph-upload-simple-light" class="m-auto w-14 h-14 text-brand-600"></UIcon>
+                <UIcon v-else name="i-ph-upload-simple-light" class="m-auto w-14 h-14 text-blue-600"></UIcon>
             </div>
         </div>
         <div class="grid gap-6 grid-cols-1 md:grid-cols-2 pt-6">

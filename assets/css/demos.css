@@ -1,5 +1,5 @@
 .demos {
-    section {
+    /* section {
         @apply py-10;
 
         &.md-section {
@@ -8,13 +8,13 @@
         &.lg-section {
             @apply py-36;
         }
-    }
-    h1, h2, h3, h4, h5, h6 {
+    } */
+    /* h1, h2, h3, h4, h5, h6 {
         font-weight: 700;
         line-height: 1.25;
-    }
+    } */
 
-    h1 {
+    /* h1 {
         @apply text-[3rem] md:text-[5.6rem];
     }
     h2 {
@@ -25,5 +25,5 @@
     }
     h4 {
         @apply text-[1.3rem] md:text-[2.4rem];
-    }
+    } */
 }

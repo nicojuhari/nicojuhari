@@ -115,8 +115,8 @@ watch(qrConfigs, () => {
 
 </script>
 <template>
-    <div class="flex flex-col md:flex-row justify-between gap-4 md:gap-6 p-4 md:p-6 rounded-2xl"
-        style="box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;">
+    <div class="flex flex-col md:flex-row border border-gray-200 justify-between gap-4 md:gap-6 p-6 md:p-8"
+        style="">
         <div class="w-full">
             <div class="flex-col gap-1 max-w-sm m-auto flex md:hidden mt-2 mb-6">
                 <label class="font-medium text-lg shrink-0">Your URL</label>

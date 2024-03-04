@@ -19,16 +19,16 @@
     ]
 </script>
 <template>
-    <section>
+    <section class="md-section">
         <div class="container">
             <div class="subtitle mb-10 text-center">My Services</div>
             <div class="grid grid-cols-1 md:grid-cols-3 justify-center gap-6 md:gap-8">
-                <div v-for="item in myServices" class="p-8 md:p-10 rounded-lg bg-white border border-brand-cssolor border-opacity-50">
-                    <div class="grid place-content-center pb-6">
-                        <UIcon :name="item.icon" class="w-12 flex-shrink-0 h-12 text-brand-700"/>
+                <div v-for="item in myServices" class="p-8 md:p-10 rounded-lg bg-white border border-gray-400 text-center">
+                    <div class="grid place-content-center mb-8">
+                        <UIcon :name="item.icon" class="w-12 flex-shrink-0 h-12 text-brand-400"/>
                     </div>
-                    <h3 class="text-center text-xl mb-4">{{ item.title }}</h3>
-                    <p class="font-light text-center">{{ item.description }}</p>
+                    <h2 class="mb-4 text-xl">{{ item.title }}</h2>
+                    <div class="text-gray-600">{{ item.description }}</div>
                 </div>
             </div>
         </div>

@@ -6,7 +6,8 @@ const apps = [
     {
         title: "Free Menu Maker",
         url: '/tools/free-menu-maker',
-        logo: 'menuLogo.svg',
+        icon: 'i-ph-fork-knife-light',
+        // logo: 'menuLogo.svg',
         description: 'Create a digital food menu for your restaurant, bar or cafe'
     },
     {
@@ -32,18 +33,21 @@ const apps = [
 ]
 </script>   
 <template>
-    <div class="container">
-        <div class="m-auto grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-            <div class="bg-gray-50 border border-gray-200 hover:bg-gray-100 text-black duration-300 rounded-xl" v-for="app in apps" :key="app.title">
-                <NuxtLink :to="app.url" :target="app.external ? '_blank': ''" class="p-4 flex flex-col" :title="app.title">
-                    <div class="flex gap-4 items-center">
-                        <img v-if="app.logo" :src="'/' + app.logo" class="w-8 h-8 inline-block" :alt="app.title">
-                        <UIcon v-if="app.icon" :name="app.icon" class="text-[32px]"></UIcon>
-                        <span class="font-bold text-lg">{{ app.title }}</span>
-                    </div>
-                    <div class="mt-4 text-sm text-gray-600"> {{ app.description }}</div>
-                </NuxtLink>
+    <section class="md-section">
+        <div class="container">
+            <div class="subtitle mb-10 text-center">Free Apps for you </div>
+            <div class="m-auto grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+                <div class="bg-white border border-gray-400 hover:bg-gray-100 hover:border-gray-200 duration-300 rounded-xl" v-for="app in apps" :key="app.title">
+                    <NuxtLink :to="app.url" :target="app.external ? '_blank': ''" class="p-6 md:p-8 flex flex-col" :title="app.title">
+                        <div class="flex gap-6 items-center">
+                            <img v-if="app.logo" :src="'/' + app.logo" class="w-8 h-8 inline-block" :alt="app.title">
+                            <UIcon v-if="app.icon" :name="app.icon" class="text-[32px] text-brand-400"></UIcon>
+                            <span class="font-bold text-xl">{{ app.title }}</span>
+                        </div>
+                        <div class="mt-4 text-gray-600"> {{ app.description }}</div>
+                    </NuxtLink>
+                </div>
             </div>
         </div>
-    </div>
+    </section>
 </template>

@@ -11,8 +11,8 @@ useHead({
     <div>
         <!-- <Body class="bg-gray-100"></Body> -->
         <MainHomeHero />
-        <MainAppsList/>
         <MainHomeMyServices />
+        <MainAppsList/>
         <MainHomeMyStack />
         <section>
             <div class="container">

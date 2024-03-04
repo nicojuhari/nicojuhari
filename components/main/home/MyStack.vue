@@ -55,17 +55,17 @@ let myStack = [
 ]
 </script>
 <template>
-    <section>
+    <section class="md-section">
         <div class="container">
             <div class="subtitle mb-10 text-center">My Tech Stack</div>
-            <div class="grid grid-cols-2 md:grid-cols-5 gap-12 items-center justify-center">
-                <div v-for="item in myStack" class=" flex flex-col gap-2 justify-center items-center">
-                    <div class="relative  min-h-[100px]">
-                        <UIcon :name="`i-logos-${item.icon}`" dynamic class="h-16 w-16 m-auto" :alt="item.name"/>
-                        <div class="icon-glow" :style="`background: ${item.bgColor};`"></div>
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8 gap-y-12">
+                <div v-for="item in myStack" class=" flex flex-col gap-6 justify-center items-center">
+                    <div class="relative">
+                        <UIcon :name="`i-logos-${item.icon}`" dynamic class="h-12 w-12 m-auto" :alt="item.name"/>
+                        <!-- <div class="icon-glow" :style="`background: ${item.bgColor};`"></div> -->
                     </div>
 
-                    <span class="text-center font-light">{{ item.name }}</span>
+                    <span class="text-center">{{ item.name }}</span>
                 </div>
             </div>
         </div> 

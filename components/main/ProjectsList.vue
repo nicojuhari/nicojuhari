@@ -37,8 +37,8 @@ stories.value = data.stories;
             </NuxtLink>
         </div>
         <div v-if="view_all_projects" class="text-center">
-            <NuxtLink to="/projects" title="View All Projects" class="btn btn-link btn-light mx-auto mt-10">View All
-                Projects</NuxtLink>
+            <UButton to="/projects" title="View All Projects" color="brand" variant="outline" size="lg" class="mx-auto mt-10">View All
+                Projects</UButton>
         </div>
     </div>
 </template>

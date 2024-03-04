@@ -37,7 +37,7 @@ const createMenu = async () => {
     <div class="w-full grid grid-cols-1 lg:grid-cols-4 gap-4">
         <UCard class="cursor-pointer hover:bg-gray-100 duration-300 h-60">
             <div class="grid place-items-center h-full">
-                <div v-if="!isLoading" class="h-full w-full flex gap-2 flex-row lg:flex-col items-center text-brand-600 justify-center" @click="createMenu">
+                <div v-if="!isLoading" class="h-full w-full flex gap-2 flex-row lg:flex-col items-center text-blue-600 justify-center" @click="createMenu">
                     <UIcon name="i-ph-plus" class="w-12 h-12" />
                     Add menu
                 </div>
