@@ -15,7 +15,7 @@ stories.value = data.stories;
 <template>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
         <div v-for="story in stories" :key="story.content.title" class="flex flex-col shadow-lg rounded-lg">
-            <img src="https://nicojuhari.b-cdn.net/ideal-credit-website-home-page.jpg" class="rounded-t-lg" :alt="story.content.title" :title="story.content.title" loading="lazy" />
+            <img :src="story.content.image?.filename" class="rounded-t-lg" :alt="story.content.title" :title="story.content.title" loading="lazy" />
             <div class="p-6 flex flex-col flex-grow">
                 <h2 class="text-xl mb-6">{{ story.content.title }}</h2>
                 <div><strong>Built in: </strong> {{ story.content.year }} </div>
