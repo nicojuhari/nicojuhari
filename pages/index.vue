@@ -14,11 +14,5 @@ useHead({
         <MainHomeMyServices />
         <MainAppsList/>
         <MainHomeMyStack />
-        <section>
-            <div class="container">
-                <div class="subtitle mb-10 text-center">My Projects</div>
-                <MainProjectsList :projects_limit=3 :view_all_projects=true />
-            </div>
-        </section>
     </div>
 </template>
