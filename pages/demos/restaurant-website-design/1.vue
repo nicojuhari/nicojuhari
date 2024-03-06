@@ -4,7 +4,7 @@
 <template>
     <div class="demos-restaurant-1">
         <section>
-            <DemosRestaurant1Hero/>
+            coming soon
         </section>
     </div>
 </template>
