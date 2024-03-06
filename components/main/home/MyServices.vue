@@ -27,7 +27,7 @@
                     <div class="grid place-content-center mb-8">
                         <UIcon :name="item.icon" class="w-12 flex-shrink-0 h-12 text-brand-400"/>
                     </div>
-                    <h2 class="mb-4 text-xl">{{ item.title }}</h2>
+                    <h2 class="mb-4 text-xl font-bold">{{ item.title }}</h2>
                     <div class="text-gray-600">{{ item.description }}</div>
                 </div>
             </div>

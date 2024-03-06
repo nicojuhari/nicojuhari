@@ -52,7 +52,7 @@ const submitForm = async () => {
 <template>
     <section>
         <div class="container">
-            <h1 class="text-center mb-10">Contact me</h1>
+            <h1 class="text-center mb-10 page-title">Contact me</h1>
             <div class="m-auto max-w-[800px]">
                 <FormKit type="form" method="POST" id="myContactForm" :actions="false" @submit="submitForm" v-model="formData">   
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">

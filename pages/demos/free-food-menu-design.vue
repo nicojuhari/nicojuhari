@@ -43,15 +43,15 @@ if (process.client) {
 </script>
 <template>
     <section>
-        <Body class="bg-slate-100" />
+        <Body class="bg-gray-100" />
         <div class="container">
-            <h1 class="title text-center mb-2">Free Food Menu Designs</h1>
-            <div class="text-center mb-6">Any of these digital menus can be created in minutes.</div>
-            <div class="text-center">
-                <UButton to="/tools/free-menu-maker" color="brand" size="lg" title="Free Menu Maker">Free Menu Maker</UButton>
+            <h1 class="page-title text-center mb-2">Free Food Menu Designs</h1>
+            <div class="text-center mb-6">
+                Any of these digital menus can be created in minutes,
+                <NuxtLink to="/tools/free-menu-maker" class="text-brand-400 underline font-bold">try it.</NuxtLink>
             </div>
-            <div class="mt-8 mb-4 max-w-80 mx-auto">
-                 <UFormGroup label="Choose another design">
+            <div class="mt-8 mb-4 max-w-64 mx-auto">
+                 <UFormGroup label="Select a design version">
                     <USelectMenu v-model="designNumber" :options="[1, 2, 3, 4]" />
                 </UFormGroup>
             </div>

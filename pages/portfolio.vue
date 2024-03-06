@@ -11,7 +11,7 @@ useHead({
 <template>
     <section>
         <div class="container">
-            <h1 class="mb-10 text-center">My Portfolio</h1>
+            <h1 class="mb-10 text-center page-title">My Portfolio</h1>
             <MainProjectsList />
         </div>
     </section>

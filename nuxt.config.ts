@@ -4,7 +4,8 @@ export default defineNuxtConfig({
   modules: ['@nuxt/ui', '@formkit/nuxt', '@vueuse/nuxt', '@pinia/nuxt', '@nuxtjs/seo', [ "@storyblok/nuxt", { accessToken: 'EzikCGO5TZGapwffPYn4rAtt' }]],
   css: ['~/assets/css/main.css'],
   ui: {
-    icons: ["ph"]
+    icons: ["ph"],
+    disableGlobalStyles: true,
   },
   colorMode: {
     preference: 'light',
