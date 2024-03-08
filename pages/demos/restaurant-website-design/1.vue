@@ -54,9 +54,9 @@ const list = [
             </header>
         </div>
         <section class="lg-section">
-            <div class="container text-center pt-8">
+            <div class="container text-center md:py-8">
                 <div>
-                    <h1 class="text-5xl md:text-7xl leading-tight">Trattoria<br class="md:hidden"> Bella Italia</h1>
+                    <h1 class="text-5xl md:text-7xl leading-tight font-bold">Trattoria<br class="md:hidden"> Bella Italia</h1>
                     <div class="text-lg text-gray-600 mt-4">A Taste of Italy in Every Bite. The Best Restaurant in Your City.</div>
                 </div>
                 <div class="flex gap-6 items-center justify-center mt-8 md:mt-8 text-lg">
@@ -67,12 +67,11 @@ const list = [
         </section>
         <section>
             <div class="container grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div v-for="item in list" :key="item.name" @click.prevent="openModal(item.id)" class="md:p-4 cursor-pointer flex md:flex-col items-center gap-6 md:text-center">
-                    <Icon :name="item.icon" class="w-12 h-12 text-[#59C9A5] p-2 bg-[#59C9A5] rounded-full bg-opacity-10"/>
+                <div v-for="item in list" :key="item.name" class="cursor-pointer flex items-center gap-6">
+                    <Icon :name="item.icon" class="w-14 h-14 text-[#59C9A5] p-2 bg-[#59C9A5] rounded-lg bg-opacity-10"/>
                     <div>
-                        <div class="font-semibold md:mb-2"> {{  item.title }}</div>
+                        <div class="font-semibold mb-1"> {{  item.title }}</div>
                         <div class="text-gray-600">{{ item.value }}</div>
-
                     </div>
                     
                 </div>
@@ -80,13 +79,13 @@ const list = [
         </section>
         <section class="md-section" id="our-menu"> 
             <div class="container">
-                <h2 class="text-center mb-8">Our Menu</h2>
+                <h2 class="text-center mb-8 title">Our Menu</h2>
             </div>
             <DemosRestaurant1Menu/>
         </section>
         <section>
             <div id="gallery" class="container relative">
-                <h2 class="text-center mb-8">Gallery</h2>
+                <h2 class="text-center mb-8 title">Gallery</h2>
                 <div class="grid md:grid-cols-4 md:grid-rows-[repeat(2,218px)] gap-4 grid-cols-2 grid-rows-[repeat(4,180px)]">
                     <div class="row-span-2 hover:-translate-y-2 duration-700">
                         <img src="https://images.pexels.com/photos/1741285/pexels-photo-1741285.jpeg" alt="Italian Restaurant Gallery" class="w-full h-full object-cover rounded">
