@@ -4,10 +4,16 @@
 
     const selectedCategory = ref('')
     const viewProduct = ref(null)
+    const showModal = ref(false)
     const showSearchBar = ref(false)
 
     const menuNav = ref(null)
     const menuNavYPosition = ref(0)
+
+    const showViewProductModal = (product_id) => {
+        viewProduct.value = menuData.products.find(product => product.uid === product_id)
+        showModal.value = true;
+    }
     
         
     const getMenuPosition = () => {
@@ -52,6 +58,18 @@
         productsByCategory.value = groupProductsByCategory(menuData)
         selectedCategory.value = ''
     }
+
+    onMounted(() => {
+    window.addEventListener('scroll', function() {
+        const sections = document.querySelectorAll('[data-category-section]');
+        sections.forEach(section => {
+            const rect = section.getBoundingClientRect();
+            if (rect.top >= 90 && rect.bottom <= window.innerHeight ) {
+                selectedCategory.value = section.getAttribute('data-category-section')
+            }
+    });
+  });
+})
 </script>
 <template>
     <div class="sticky top-0 z-50 bg-white"  ref="menuNav" :class="menuNavYPosition <= 0 && 'shadow'">
@@ -69,8 +87,9 @@
                     <div v-for="category in productsByCategory?.categories"
                         :key="category.uid" @click="scrollTo(category.uid)"
                         :class="{ '!bg-[#175676] bg-opacity-70 !text-white': selectedCategory == category.uid }"
-                        class="bg-opacity-5 bg-[#175676] text-[#175676] py-2 px-4 h-10 inline-flex items-center rounded-full cursor-pointer flex-shrink-0 duration-500"> {{
-                            category.name }}</div>
+                        class="bg-opacity-5 bg-[#175676] text-[#175676] py-2 px-4 h-10 inline-flex items-center rounded-full cursor-pointer flex-shrink-0 duration-500"
+                        :data-category-tab="category.uid"> {{ category.name }}
+                    </div>
                 </div>
             </div>
             <Transition name="fade">
@@ -91,12 +110,12 @@
         </div>
     </div>
     <div class="container"> 
-        <div class="my-6 overflow-hidden relative" v-for="category in productsByCategory?.categories">
+        <div class="my-6 overflow-hidden relative" v-for="category in productsByCategory?.categories" :data-category-section="category.uid" :key="category.uid">
             <div :id="category.uid" class="h-0 w-0 opacity-0 -z-10 -translate-y-[90px]"></div>
             <h2 class="text-2xl font-bold">{{ category.name }}</h2>
             <div v-if="category.description" class="mt-2 text-gray-600">{{ category.description }}</div>
             <div class="flex gap-4 overflow-x-auto snap-x snap-mandatory py-6 px-1">
-                <div v-for="product in productsByCategory.products[category.uid]" :key="product.uid" @click.prevent="viewProduct = product" class="snap-center flex flex-col cursor-pointer rounded-xl bg-white flex-shrink-0 shadow w-72"> 
+                <div v-for="product in productsByCategory.products[category.uid]" :key="product.uid" @click.prevent="() => showViewProductModal(product.uid)" class="snap-center flex flex-col cursor-pointer rounded-xl bg-white flex-shrink-0 shadow w-72"> 
                     <div class="h-52 w-full image-bg image-bg-2 shrink-0 rounded-t-xl">
                         <div class="image-bg h-full w-full rounded-t-xl" :style="`background-image: url(${product.imageUrl})`"></div>
                     </div>
@@ -142,30 +161,31 @@
             </div>
         </div>
     </div>
-        <!-- <Modal v-if="viewProduct" @close="viewProduct = null">
-        <div class="flex flex-col cursor-pointer flex-shrink-0"> 
-            <div class="h-72 w-full image-bg image-bg-2 shrink-0 rounded-t-xl">
-                <div class="image-bg h-full w-full rounded-t-xl" :style="`background-image: url(${viewProduct.imageUrl})`"></div>
+    <UModal v-model="showModal" :ui="{ width: 'sm:max-w-[375px]'}">
+         <div class="flex flex-col cursor-pointer flex-shrink-0 relative">
+            <UButton square color="gray" variant="soft" icon="i-ph-x-bold" class="absolute rounded-full bg-opacity-60 right-3 top-3 font-bold text-gray-950" @click="showModal = false" /> 
+            <div class="h-72 w-full image-bg image-bg-2 shrink-0">
+                <div class="image-bg h-full w-full" :style="`background-image: url(${viewProduct.imageUrl})`"></div>
             </div>
             <div class="p-4 flex flex-col flex-grow">
                 <div class="font-bold pb-2 inline-flex flex-wrap gap-2 items-center">
                     <span class="flex-shrink-0">{{ viewProduct.name }}</span>
-                    <span  v-for="item in viewProduct.allergens" class="cursor-pointer font-medium flex-shrink-0 text-gray-500 text-xs p-1 bg-slate-50 rounded-full border w-4 h-4 grid place-content-center">
+                    <span  v-for="item in viewProduct.allergens" class="cursor-pointer font-medium flex-shrink-0 text-gray-600 text-xs p-1 bg-slate-50 rounded-full border w-4 h-4 grid place-content-center">
                         {{ menuData.allergens.find((al) => al.uid == item).name }}
                     </span>
                 </div>
                 <div class="opacity-60 leading-tight w-full mt-auto">{{ viewProduct.description }}</div>
                 <div class="pt-2">
-                    <div v-for="option in viewProduct.options" class="flex justify-between items-center border-t first:border-t-0 border-dashed border-gray-300 py-2">
+                    <div v-for="option in viewProduct.options" class="flex justify-between items-center border-t first:border-t-0 border-dashed border-gray-200 py-2">
                         <div class="text-gray-500 text-sm">{{ option?.size }}</div>
                         <div class="flex gap-2 items-center">
-                            <div v-if="option.salePrice" class="text-gray-700 font-medium text-lg">
+                            <div v-if="option.salePrice" class="text-gray-600 font-medium text-lg">
                                 $ {{ option.salePrice }}
                             </div>
-                            <div v-if="option.salePrice" class="text-red-400 line-through opacity-70 text-sm">
+                            <div v-if="option.salePrice" class="text-red-600 line-through opacity-70 text-sm">
                                     ${{ option.price }}
                             </div>
-                            <div v-else class="text-gray-700 font-medium text-lg">
+                            <div v-else class="text-gray-600 font-medium text-lg">
                                 ${{ option.price }}
                             </div>
                 
@@ -174,7 +194,7 @@
                 </div>
             </div>
         </div>
-    </Modal> -->
+    </UModal>
 </template>
 <style>
 
@@ -186,5 +206,9 @@
 .fade-enter-from,
 .fade-leave-to {
     transform: translateY(-100%);
+}
+
+[data-category-tab].active {
+    @apply !bg-[#175676] bg-opacity-70 !text-white;
 }
 </style>
