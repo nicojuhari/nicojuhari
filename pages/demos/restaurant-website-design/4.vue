@@ -76,12 +76,14 @@ const closeModal = () => {
     showModal.value = false
     productForModal.value = null
 }
-
 useHead({
-    title: 'Menu Design 1',
+    title: 'Restaurant Website Design Example - Tony\'s Restaurant',
+    bodyAttrs: {
+        class: 'bg-slate-50'
+    },
     meta: [
-        { name: 'keywords', content: 'italian restaurant menu design, menu templates, restaurant website design, food menu' },
-        { name: 'description', content: 'Menu Design 1, Responsive Template' }
+        { name: 'keywords', content: 'demo website, restaurant website design, digital food menu' },
+        { name: 'description', content: `Demo website of Tony\'s Restaurant, modern and clean design. Created with LOVE using Nuxt.js, TailwindCSS and Free Menu Maker` },
     ],
 })
 
@@ -121,7 +123,7 @@ onMounted(() => {
                                     d="M237.6 78.9a13.9 13.9 0 0 0-3.7-18.9a181.9 181.9 0 0 0-211.8 0a13.9 13.9 0 0 0-3.7 18.9l97.8 153.7a14 14 0 0 0 23.6 0l58.4-91.8h.1ZM29.1 69.7a170.1 170.1 0 0 1 197.8 0a2.1 2.1 0 0 1 .6 2.8l-9.8 15.3a149.9 149.9 0 0 0-179.4 0l-9.8-15.3a2.1 2.1 0 0 1 .6-2.8Zm35.6 59.7a22 22 0 1 1 20.7 32.5Zm65 96.8a2.1 2.1 0 0 1-3.4 0l-33.9-53.3a34 34 0 1 0-34.7-54.5L44.7 98a137.9 137.9 0 0 1 166.6 0l-19.4 30.4a34 34 0 1 0-36.5 57.3Zm32.2-50.7A22 22 0 0 1 172 134a21.5 21.5 0 0 1 13.4 4.6Z" />
                             </svg>
                         </div>
-                        <h1 class="subtitle font-bold text-white">Demo Restaurant</h1>
+                        <h1 class="subtitle font-bold text-white">Tony's Restaurant</h1>
                     </div>
                     <div class="flex gap-4 justify-center items-center mt-20 cursor-pointer text-white">
                         <div class="flex item-center rounded-full border-2 border-red-600">
