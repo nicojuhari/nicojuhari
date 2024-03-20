@@ -48,9 +48,7 @@ onMounted(() => {
     </div>
      <div class="relative h-screen !p-0">
         <div class="flex relative w-full h-full">
-            <img src="https://1foodmenu-demos.b-cdn.net/tmp/gud-2.jpg" alt=" " class="w-full md:w-1/2 h-full ml-auto object-cover"/>
-            <!-- <img src="https://1foodmenu-demos.b-cdn.net/tmp/gud-2.jpg" alt=" " class="w-full md:w-1/2 h-full ml-auto object-cover hidden md:block"/> -->
-            <!-- <img src="https://1foodmenu-demos.b-cdn.net/tmp/gud-1.jpg" alt=" " class="w-full"/> -->
+            <img src="https://nicojuhari.b-cdn.net/demos/2/gut-restaurant-hero-bg.jpg" alt="gud-restaurant-hero-bg" class="w-full md:w-1/2 h-full ml-auto object-cover"/>
             <div class="absolute top-0 left-0 gud-hero-gradient h-full w-full hiddesn md:block"></div>
         </div>
         <div class="absolute top-0 left-0 w-full h-full">
