@@ -14,7 +14,7 @@
     "start": "node .output/server/index.mjs"
   },
   "devDependencies": {
-    "nuxt": "^3.10.3",
+    "nuxt": "^3.11.1",
     "shikiji": "^0.10.2",
     "vue": "^3.4.21",
     "vue-router": "^4.3.0"
@@ -22,7 +22,7 @@
   "dependencies": {
     "@formkit/nuxt": "^1.5.9",
     "@iconify-json/ph": "^1.1.11",
-    "@nuxt/ui": "^2.14.1",
+    "@nuxt/ui": "^2.14.2",
     "@nuxtjs/seo": "^2.0.0-rc.8",
     "@pinia/nuxt": "^0.5.1",
     "@storyblok/nuxt": "^6.0.4",
