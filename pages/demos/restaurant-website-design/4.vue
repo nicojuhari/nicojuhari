@@ -1,81 +1,9 @@
 <script setup>
-import { computed, ref, onMounted } from 'vue';
+import { ref, onMounted } from 'vue';
 import gsap from "gsap";
-
 // get other plugins:
 import ScrollTrigger from "gsap/ScrollTrigger";
-
-import menuData from '@/assets/json/demo-menu.json'
-
-
-const onefmCategory = ref(null)
-const showModal = ref(false)
-const showSearchBar = ref(false)
-const productForModal = ref(null)
-const searchBar = ref(null);
-const selectedCategory = ref('')
-const filteredCategories = ref(menuData?.categories || [])
-const filteredProducts = ref(menuData?.products || [])
-
-const productsByCategory = computed(() => {
-    let groupedProducts = {};
-
-    filteredProducts.value.forEach(product => {
-        if (!groupedProducts[product.categoryId]) {
-            groupedProducts[product.categoryId] = [];
-        }
-        groupedProducts[product.categoryId].push(product);
-    });
-
-    return groupedProducts;
-})
-
-const filterCategories = (category_id) => {
-
-    if (!category_id) {
-        selectedCategory.value = ''
-        filteredCategories.value = [...menuData.categories]
-        return
-    }
-
-    selectedCategory.value = category_id
-    filteredCategories.value = [...menuData.categories].filter(category => category.uid == category_id)
-}
-
-const filterProducts = (ev) => {
-
-    let searchKey = ev.target.value.toLocaleLowerCase().trim()
-
-    if (searchKey?.length < 3) {
-
-        return filteredProducts.value = [...menuData.value.products]
-    }
-
-    filteredProducts.value = [...menuData.value.products].filter(obj => {
-        return Object.values(obj)
-            .join(' ')
-            .slice(1)
-            .toLocaleLowerCase()
-            .includes(searchKey)
-    })
-}
-
-const closeSearchBar = (vl = true) => {
-    showSearchBar.value = vl
-    filteredCategories.value = [...menuData.value.categories]
-    selectedCategory.value = ''
-    filteredProducts.value = [...menuData.value.products]
-}
-
-const openModal = (product) => {
-    showModal.value = true
-    productForModal.value = product
-}
-
-const closeModal = () => {
-    showModal.value = false
-    productForModal.value = null
-}
+import staticMenu from '@/assets/json/demo-menu.json'
 
 const pageTitle = 'Tony\'s Restaurant'
 useHead({
@@ -88,6 +16,31 @@ useHead({
         { name: 'description', content: `Restaurant Website Example - ${pageTitle}, modern and clean design. Created with LOVE using Nuxt.js, Vue.js, TailwindCSS and our Free Menu Maker` },
     ],
 })
+
+const { menuData, groupedMenu, searchKey, selectedCategoryID, singleProduct, selectedProductID } = useMenu(staticMenu)
+
+
+const onefmCategory = ref(null)
+const showModal = ref(false)
+const showSearchBar = ref(false)
+
+const closeSearch = () => {
+    searchKey.value = ''
+    showSearchBar.value = false
+    selectedCategoryID.value = ''
+}
+
+const openSearch = () => {
+    searchKey.value = ''
+    showSearchBar.value = true
+    selectedCategoryID.value = ''
+}
+
+const openModal = (product_id) => {
+    selectedProductID.value = product_id
+    showModal.value = true
+    // singleProduct.value = product
+}
 
 onMounted(() => {
     gsap.registerPlugin(ScrollTrigger)
@@ -111,21 +64,14 @@ onMounted(() => {
 </script>
 <template>
     <div>
-
-        <Body class="bg-slate-50" />
-        <div style="background-image:url('https://images.pexels.com/photos/2165919/pexels-photo-2165919.jpeg?auto=compress&cs=tinysrgb&w=800&lazy=load')"
+        <div style="background-image:url('https://images.unsplash.com/photo-1579027989536-b7b1f875659b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')"
             class="image-bg relative">
-            <div class="bg-black absolute top-0 right-0 h-full w-full bg-opacity-80"></div>
-            <div class="container relative z-10">
-                <div class="py-44  grid place-content-center grid-cols-1">
+            <div class="bg-black absolute inset-0 bg-opacity-70"></div>
+            <div class="relative z-10 h-screen flex flex-col items-center justify-center">
+                <div class="container flex-grow grid place-content-center grid-cols-1">
                     <div class="flex gap-4 items-center justify-center flex-col md:flex-row">
-                        <div class="flex-shrink-0">
-                            <svg class="w-20 text-white" viewBox="0 0 256 256">
-                                <path fill="currentColor"
-                                    d="M237.6 78.9a13.9 13.9 0 0 0-3.7-18.9a181.9 181.9 0 0 0-211.8 0a13.9 13.9 0 0 0-3.7 18.9l97.8 153.7a14 14 0 0 0 23.6 0l58.4-91.8h.1ZM29.1 69.7a170.1 170.1 0 0 1 197.8 0a2.1 2.1 0 0 1 .6 2.8l-9.8 15.3a149.9 149.9 0 0 0-179.4 0l-9.8-15.3a2.1 2.1 0 0 1 .6-2.8Zm35.6 59.7a22 22 0 1 1 20.7 32.5Zm65 96.8a2.1 2.1 0 0 1-3.4 0l-33.9-53.3a34 34 0 1 0-34.7-54.5L44.7 98a137.9 137.9 0 0 1 166.6 0l-19.4 30.4a34 34 0 1 0-36.5 57.3Zm32.2-50.7A22 22 0 0 1 172 134a21.5 21.5 0 0 1 13.4 4.6Z" />
-                            </svg>
-                        </div>
-                        <h1 class="subtitle font-bold text-white">Tony's Restaurant</h1>
+                        <UIcon name="i-ph-pizza" class="shrink-0 w-20 h-20 text-white"></UIcon>
+                        <h1 class="text-4xl md:text-5xl font-bold text-white">Tony's Restaurant</h1>
                     </div>
                     <div class="flex gap-4 justify-center items-center mt-20 cursor-pointer text-white">
                         <div class="flex item-center rounded-full border-2 border-red-600">
@@ -142,22 +88,22 @@ onMounted(() => {
                         </div>
                     </div>
                 </div>
-            </div>
-            <div
-                class="flex flex-col md:flex-row items-center gap-4 text-center justify-center text-white relative p-4 px-6 bg-black bg-opacity-30 md:bg-opacity-70">
-                <div class="flex justify-between w-full md:w-auto gap-3">
-                    <div class="text-green-500">Open</div>
-                    <div>Closes at 23:00</div>
-                    <span class="hidden md:block">&#183;</span>
-                </div>
-                <div class="flex justify-between w-full md:w-auto gap-3">
-                    <div class="text-green-500">We accept</div>
-                    <div>Cash & Card</div>
-                    <span class="hidden md:block">&#183;</span>
-                </div>
-                <div class="flex justify-between w-full md:w-auto gap-3">
-                    <div class="text-green-500">Our address</div>
-                    <div>City, 1st Street, nr. 34, 856479</div>
+                <div
+                    class="mt-auto container flex flex-col md:flex-row items-center gap-6 text-center justify-center text-white relative py-6">
+                    <div class="flex justify-between w-full md:w-auto gap-3">
+                        <div class="text-green-500">Open</div>
+                        <div>Closes at 23:00</div>
+                        <span class="hidden md:block ml-3">&#183;</span>
+                    </div>
+                    <div class="flex justify-between w-full md:w-auto gap-3">
+                        <div class="text-green-500">We accept</div>
+                        <div>Cash & Card</div>
+                        <span class="hidden md:block ml-3">&#183;</span>
+                    </div>
+                    <div class="flex justify-between w-full md:w-auto gap-3">
+                        <div class="text-green-500">Our address</div>
+                        <div>City, 1st Street, nr. 34, 856479</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -165,7 +111,7 @@ onMounted(() => {
             <div class="container relative overflow-hidden">
                 <div class="overflow-x-auto py-4 px-1 text-sm">
                     <div class="flex gap-4 mx-auto">
-                        <div @click.prevent="showSearchBar = !showSearchBar"
+                        <div @click.prevent="openSearch"
                             class="h-10 w-10 flex flex-shrink-0 items-center justify-center bg-gray-600 bg-opacity-10 text-black rounded-full cursor-pointer">
                             <svg v-if="!showSearchBar" class="w-6 h-6" viewBox="0 0 20 20">
                                 <path fill="currentColor" fill-rule="evenodd"
@@ -174,8 +120,8 @@ onMounted(() => {
                             </svg>
                         </div>
                         <div v-for="category in [{ uid: '', name: 'View All' }, ...menuData.categories]"
-                            :key="category.uid" @click="filterCategories(category.uid)"
-                            :class="{ '!bg-blue-700 bg-opacity-70 text-white border-transparent': selectedCategory == category.uid }"
+                            :key="category.uid" @click="() => selectedCategoryID = category.uid"
+                            :class="{ '!bg-gray-900 bg-opacity-70 text-white border-transparent': selectedCategoryID == category.uid }"
                             class="bg-white border border-gray-300 py-2 px-4 h-10 overflow-hidden rounded-full cursor-pointer flex-shrink-0 duration-500">
                             {{
                             category.name }}</div>
@@ -183,7 +129,7 @@ onMounted(() => {
                 </div>
                 <Transition name="fade">
                     <div class="flex items-center gap-4 absolute w-full top-0 py-4 px-1 bg-white" v-if="showSearchBar">
-                        <div @click.prevent="closeSearchBar(false)"
+                        <div @click.prevent="closeSearch"
                             class="h-10 w-10 flex flex-shrink-0 items-center justify-center bg-gray-600 bg-opacity-10 text-black rounded-full cursor-pointer">
                             <svg class="w-6 h-6" viewBox="0 0 24 24">
                                 <path fill="currentColor"
@@ -191,51 +137,49 @@ onMounted(() => {
                             </svg>
                         </div>
                         <div class="w-full max-w-sm relative">
-                            <input type="text" @input="filterProducts" placeholder="Search ..."
-                                class="h-10 border rounded-full px-4 w-full" ref="searchBar" />
+                            <input type="text" v-model="searchKey" placeholder="Search ..."
+                                class="h-10 border rounded-full px-4 w-full" />
                         </div>
                     </div>
                 </Transition>
             </div>
         </div>
         <div class="container">
-            <div class="menu-products min-h-96">
-                <template v-for="category in filteredCategories">
-                    <template v-if="productsByCategory[category.uid]">
-                        <div class="text-2xl mt-6 font-semibold mb-2">
-                            {{ category.name }}
-                        </div>
-                        <div ref="onefmCategory"
-                            class="onefm-category flex gap-6 overflow-y-auto snap-x snap-mandatory pb-6 pt-10">
-                            <div v-for="product in productsByCategory[category.uid]" @click="openModal(product)"
-                                class="onefm-product flex cursor-pointer flex-col rounded-xl  bg-white w-72 flex-shrink-0 snap-start shadow">
-                                <div class="h-52 w-full image-bg image-bg-2 shrink-0 border-b border-opacity-50">
-                                    <div class="image-bg h-full w-full rounded-t-xl"
-                                        :style="`background-image: url(${product.imageUrl})`">
-                                    </div>
+            <div class="min-h-96">
+                <div v-for="category in groupedMenu.categories">
+                    <div class="text-2xl mt-6 font-semibold mb-2">
+                        {{ category.name }}
+                    </div>
+                    <div ref="onefmCategory"
+                        class="onefm-category flex gap-6 overflow-y-auto snap-x snap-mandatory pb-6 pt-10">
+                        <div v-for="product in groupedMenu.products[category.uid]" @click="openModal(product.uid)"
+                            class="onefm-product flex cursor-pointer flex-col rounded-xl  bg-white w-72 flex-shrink-0 snap-start shadow">
+                            <div class="h-52 w-full image-bg image-bg-2 shrink-0 border-b border-opacity-50">
+                                <div class="image-bg h-full w-full rounded-t-xl"
+                                    :style="`background-image: url(${product.imageUrl})`">
                                 </div>
-                                <div class="p-4 flex flex-col flex-grow">
-                                    <div class="font-bold my-2">{{ product.name }}</div>
-                                    <div class="text-gray-600 my-2 line-clamp-2">{{ product.description
-                                        }} </div>
-                                    <div class="flex justify-between mt-auto pt-2">
-                                        <div class="text-sm text-gray-400">
-                                            {{ product.options?.[0]?.size }}</div>
-                                        <div class="font-bold flex gap-2 items-center">
-                                            <div v-if="product.options?.[0]?.salePrice" class="text-gray-700">$ {{
-                                                product.options?.[0]?.salePrice }}</div>
-                                            <div class="text-gray-700"
-                                                :class="{ '!text-red-600 line-through': product.options?.[0]?.salePrice }">
-                                                $
-                                                {{ product.options?.[0]?.price }}</div>
-                                        </div>
+                            </div>
+                            <div class="p-4 flex flex-col flex-grow">
+                                <div class="font-bold my-2">{{ product.name }}</div>
+                                <div class="text-gray-600 my-2 line-clamp-2">{{ product.description
+                                    }} </div>
+                                <div class="flex justify-between mt-auto pt-2">
+                                    <div class="text-sm text-gray-400">
+                                        {{ product.options?.[0]?.size }}</div>
+                                    <div class="font-bold flex gap-2 items-center">
+                                        <div v-if="product.options?.[0]?.salePrice" class="text-gray-700">$ {{
+                                            product.options?.[0]?.salePrice }}</div>
+                                        <div class="text-gray-700"
+                                            :class="{ '!text-red-600 line-through': product.options?.[0]?.salePrice }">
+                                            $
+                                            {{ product.options?.[0]?.price }}</div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </template>
-                </template>
-                <div v-if="!Object.keys(productsByCategory).length" class="py-10 text-center text-2xl">
+                    </div>
+                </div>
+                <div v-if="!Object.keys(groupedMenu.products).length" class="py-10 text-center text-2xl">
                     Sorry, no products found!
                 </div>
 
@@ -247,20 +191,21 @@ onMounted(() => {
                         @click="showModal = false" />
                     <div class="h-80 w-full image-bg image-bg-2 shrink-0 border-b border-opacity-50">
                         <div class="image-bg h-full w-full rounded-t-xl"
-                            :style="`background-image: url(${productForModal.imageUrl})`">
+                            :style="`background-image: url(${singleProduct.imageUrl})`">
                         </div>
                     </div>
                     <div class="p-4 flex flex-col flex-grow">
-                        <div class="font-bold my-2">{{ productForModal.name }}</div>
-                        <div v-if="productForModal.tags" class="flex gap-2 overflow-x-auto">
-                            <div v-for="tag in productForModal.tags"
-                                class="text-xs px-2 py-1 rounded-full bg-green-600 bg-opacity-10 text-green-600 flex-shrink-0">{{ tag
+                        <div class="font-bold my-2">{{ singleProduct.name }}</div>
+                        <div v-if="singleProduct.tags" class="flex gap-2 overflow-x-auto">
+                            <div v-for="tag in singleProduct.tags"
+                                class="text-xs px-2 py-1 rounded-full bg-green-600 bg-opacity-10 text-green-600 flex-shrink-0">
+                                {{ tag
                                 }}</div>
                         </div>
-                        <div class="text-gray-600 my-2">{{ productForModal.description }}</div>
+                        <div class="text-gray-600 my-2">{{ singleProduct.description }}</div>
 
-                        <div v-if="productForModal.options">
-                            <div v-for="item in productForModal.options" class="flex justify-between mt-auto pt-2">
+                        <div v-if="singleProduct.options">
+                            <div v-for="item in singleProduct.options" class="flex justify-between mt-auto pt-2">
                                 <div class="text-sm text-gray-400">
                                     {{ item.size }}</div>
                                 <div class="flex gap-2 items-center">
