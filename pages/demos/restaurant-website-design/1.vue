@@ -38,7 +38,7 @@ const list = [
 onMounted(() => {
     const tl = gsap.timeline();
 
-    tl.from('[data-gsap-icons] svg', { x: 0, y: 0, stagger: 0.15, duration: 1.4, rotate: -360, autoAlpha: 0 } )
+    tl.from('[data-gsap-icons] svg', { x: 0, y: 0, stagger: 0.15, duration: 1.2, rotate: -360, autoAlpha: 0 } )
 })
 </script>
 <template>

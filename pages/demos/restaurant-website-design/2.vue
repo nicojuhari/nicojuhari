@@ -111,9 +111,6 @@ onMounted(() => {
         </div>
     </div>
     <DemosRestaurant2Menu />
-    <!-- <DemosGudHero/>
-    <DemosGudGrid/>
-    <DemosGudMenu/> -->
     <footer class="border-t border-r-gray-100">
         <div class="container py-6 flex gap-6 items-center flex-col md:flex-row md:justify-between">
             <div>Created with &lt;3 by <NuxtLink to="/" class="font-bold">me</NuxtLink></div>
@@ -121,13 +118,13 @@ onMounted(() => {
     </footer>
 </template>
 <style>
-.gud-hero-gradient {
+    .gud-hero-gradient {
         background: rgb(14,12,6);
         background: linear-gradient(0deg, rgba(14,12,6,1) 0%, rgba(14,12,6,1) 25%, rgba(14,12,6,0) 65%);
     }
 
     @media (min-width: 768px) {
-       .gud-hero-gradient {
+        .gud-hero-gradient {
             background: rgb(14,12,6);
             background: linear-gradient(90deg, rgba(14,12,6,1) 0%, rgba(14,12,6,1) 50%, rgba(14,12,6,0) 75%);
         }
