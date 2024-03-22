@@ -1,9 +1,10 @@
 <script setup>
+const pageTitle = 'GUD Restaurant'
 useHead({
-    title: 'Restaurant Website Design Example - GUD Restaurant',
+    title: `${pageTitle} - Restaurant Website Example`,
     meta: [
         { name: 'keywords', content: 'demo website, restaurant website design, digital food menu' },
-        { name: 'description', content: `Demo website for GUD Restaurant, modern and clean design. Created with LOVE using Nuxt.js, TailwindCSS and Free Menu Maker` },
+        { name: 'description', content: `Restaurant Website Example - ${pageTitle}, modern and clean design. Created with LOVE using Nuxt.js, Vue.js, TailwindCSS and our Free Menu Maker` },
     ],
     htmlAttrs: {
         class: 'scroll-smooth'

@@ -17,15 +17,20 @@ const productsByCategory = computed(() => {
 
     return groupedProducts;
 })
+
+const pageTitle = 'Restaurant Near Me'
 useHead({
-    title: 'Restaurant Website Design Example - Restaurant Near You',
+    title: `${pageTitle} - Restaurant Website Example`,
     bodyAttrs: {
         class: 'bg-slate-50'
     },
     meta: [
         { name: 'keywords', content: 'demo website, restaurant website design, digital food menu' },
-        { name: 'description', content: `Demo website of Restaurant Near You, modern and clean design. Created with LOVE using Nuxt.js, TailwindCSS and Free Menu Maker` },
+        { name: 'description', content: `Restaurant Website Example - ${pageTitle}, modern and clean design. Created with LOVE using Nuxt.js, Vue.js, TailwindCSS and our Free Menu Maker` },
     ],
+    htmlAttrs: {
+        class: 'scroll-smooth'
+    },
 })
 
 </script>
@@ -36,7 +41,7 @@ useHead({
                 <path
                     d="m229.4 114.8l-63.8-23.2a1.8 1.8 0 0 1-1.2-1.2l-23.2-63.8a14.1 14.1 0 0 0-26.4 0L91.6 90.4a1.8 1.8 0 0 1-1.2 1.2l-63.8 23.2a14.1 14.1 0 0 0 0 26.4l63.8 23.2a1.8 1.8 0 0 1 1.2 1.2l23.2 63.8a14.1 14.1 0 0 0 26.4 0l23.2-63.8a1.8 1.8 0 0 1 1.2-1.2l63.8-23.2a14.1 14.1 0 0 0 0-26.4Zm-4.1 15.1l-63.8 23.2a14 14 0 0 0-8.4 8.4l-23.2 63.8a2 2 0 0 1-3.8 0l-23.2-63.8a14 14 0 0 0-8.4-8.4l-63.8-23.2a2 2 0 0 1 0-3.8l63.8-23.2a14 14 0 0 0 8.4-8.4l23.2-63.8a2 2 0 0 1 3.8 0l23.2 63.8a14 14 0 0 0 8.4 8.4l63.8 23.2a2 2 0 0 1 0 3.8Z" />
             </svg>
-            <h1 class="title font-bold text-center py-12">Restaurant Near You</h1>
+            <h1 class="title font-bold text-center py-12">Restaurant Near Me</h1>
             <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" viewBox="0 0 256 256" fill="currentColor">
                 <path
                     d="m229.4 114.8l-63.8-23.2a1.8 1.8 0 0 1-1.2-1.2l-23.2-63.8a14.1 14.1 0 0 0-26.4 0L91.6 90.4a1.8 1.8 0 0 1-1.2 1.2l-63.8 23.2a14.1 14.1 0 0 0 0 26.4l63.8 23.2a1.8 1.8 0 0 1 1.2 1.2l23.2 63.8a14.1 14.1 0 0 0 26.4 0l23.2-63.8a1.8 1.8 0 0 1 1.2-1.2l63.8-23.2a14.1 14.1 0 0 0 0-26.4Zm-4.1 15.1l-63.8 23.2a14 14 0 0 0-8.4 8.4l-23.2 63.8a2 2 0 0 1-3.8 0l-23.2-63.8a14 14 0 0 0-8.4-8.4l-63.8-23.2a2 2 0 0 1 0-3.8l63.8-23.2a14 14 0 0 0 8.4-8.4l23.2-63.8a2 2 0 0 1 3.8 0l23.2 63.8a14 14 0 0 0 8.4 8.4l63.8 23.2a2 2 0 0 1 0 3.8Z" />
