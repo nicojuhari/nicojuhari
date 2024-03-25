@@ -20,7 +20,6 @@ useHead({
 const { menuData, groupedMenu, searchKey, selectedCategoryID, singleProduct, selectedProductID } = useMenu(staticMenu)
 
 
-const onefmCategory = ref(null)
 const showModal = ref(false)
 const showSearchBar = ref(false)
 
@@ -42,6 +41,8 @@ const openModal = (product_id) => {
     // singleProduct.value = product
 }
 
+
+const onefmCategory = ref(null)
 onMounted(() => {
     gsap.registerPlugin(ScrollTrigger)
     onefmCategory.value.forEach(category => {
