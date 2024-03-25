@@ -5,6 +5,9 @@ definePageMeta({
 
 useHead({
     title: `Restaurant Website Examples`,
+    bodyAttrs: {
+        class: 'bg-gray-100'
+    },
     meta: [
         { name: 'keywords', content: 'demo website, restaurant website design, digital food menu' },
         { name: 'description', content: `Restaurant Website Examples - from simple to complex designs. Created with LOVE using Nuxt.js, Vue.js, TailwindCSS and our Free Menu Maker` },
@@ -15,26 +18,32 @@ const list = [
     {
         url: 1,
         title: 'Trattoria Bella Italia',
+        imgUrl: 'https://nicojuhari.b-cdn.net/demos/thumbnails/trattoria-bella-italia.webp'
     },
     {
         url: 2,
         title: 'GUD Restaurant',
+        imgUrl: 'https://nicojuhari.b-cdn.net/demos/thumbnails/gud-restaurant.webp'
     },
     {
         url: 3,
         title: 'La Famiglia Ristorante',
+        imgUrl: 'https://nicojuhari.b-cdn.net/demos/thumbnails/la-famiglia-ristorante.webp'
     },
     {
         url: 4,
         title: 'Tony\'s Restaurant',
+        imgUrl: 'https://nicojuhari.b-cdn.net/demos/thumbnails/tony-s-restaurant.webp'
     },
     {
         url: 5,
         title: 'Bella Cucina Restaurant',
+        imgUrl: 'https://nicojuhari.b-cdn.net/demos/thumbnails/bella-cucina-restaurant.webp'
     },
     {
         url: 6,
         title: 'Mama Mia',
+        imgUrl: 'https://nicojuhari.b-cdn.net/demos/thumbnails/mama-mia-restaurant.webp'
     }
 ]
 </script>
@@ -45,8 +54,14 @@ const list = [
                 <h1 class="page-title">Restaurant Website Examples</h1>
                 <div class="text-xl text-gray-600 mt-2">From simple to complex designs</div>
             </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 mt-10 md:mt-16 gap-8">
-                <NuxtLink :to="'/demos/restaurant-website-design/'+ item.url" target="_blank" class="p-6 border bg-slate-50 rounded-md text-xl font-medium" v-for="item in list">{{ item.title }}</NuxtLink>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 mt-10 md:mt-16 gap-8">
+                <NuxtLink :to="'/demos/restaurant-website-design/'+ item.url" target="_blank"
+                    class="bg-white border shadosw border-gray-200 rounded-lg overflow-hidden" v-for="item in list">
+                    <div>
+                        <img :src="item.imgUrl" class="blosck" :alt="item.title + ' Website Design' " />
+                    </div>
+                    <div class="text-lg p-6 font-bold">{{ item.title }}</div>
+                </NuxtLink>
             </div>
         </div>
     </section>
