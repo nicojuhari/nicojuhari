@@ -1,7 +1,9 @@
 <script setup>
 import { ref } from "vue";
 import { gsap } from "gsap";
-import menuData from '@/assets/json/demo-menu.json'
+import staticMenu from '@/assets/json/demo-menu.json'
+
+const { menuData, groupedMenu, selectedProductID, singleProduct } = useMenu(staticMenu);
 
 const bgImgURL = 'https://1FoodMenu.b-cdn.net/demos/italian-restaurant/home-hero-bg.jpg'
 
@@ -30,59 +32,12 @@ onMounted(() => {
         .to('[data-gsap-btn]', { ...toOptions, stagger: .2 }, '-=0.3')
 });
 
-
-const selectedCategory = ref('')
-const viewProduct = ref(null)
-const showSearchBar = ref(false)
-
-const menuNav = ref(null)
-const menuNavYPosition = ref(0)
-
-const getMenuPosition = () => {
-    // get element positio on page
-    menuNavYPosition.value = menuNav.value.getBoundingClientRect().top
-}
-
-onMounted(() => {
-    //add scroll event listener
-    window.addEventListener('scroll', getMenuPosition)
-})
-
-onBeforeUnmount(() => {
-    //remove scroll event listener
-    window.removeEventListener('scroll', getMenuPosition)
-})
-
-
-const productsByCategory = ref({
-    categories: [],
-    products: []
-})
-
-productsByCategory.value = groupProductsByCategory(menuData)
-
-const scrollTo = (category_id) => {
-    let targetBlock = document.getElementById(category_id);
-    targetBlock.scrollIntoView({ behavior: 'smooth' });
-}
-
-const filterProducts = (ev) => {
-    let products = searchInProducts(ev.target.value, [...menuData.products])
-    productsByCategory.value = groupProductsByCategory({ categories: [...menuData.categories], products })
-}
-
-const toggleSearchBar = (open = true) => {
-    showSearchBar.value = open
-    productsByCategory.value = groupProductsByCategory(menuData)
-    selectedCategory.value = ''
-}
-
+//modal
 const showModal = ref(false)
-const showViewProductModal = (product_id) => {
-    viewProduct.value = menuData.products.find(product => product.uid === product_id)
-    showModal.value = true;
+const openModal = (product_id) => {
+    selectedProductID.value = product_id
+    showModal.value = true
 }
-
 
 const showBookTableModal = ref(false)
 
@@ -132,17 +87,17 @@ const showBookTableModal = ref(false)
     </div>
     <!-- Menu Start -->
     <section class="!pt-0" id="our-menu">
-        <DemosCategoryTabs :categories="menuData.categories" />
+        <DemosCategoryTabs :categories="menuData.categories"/>
         <!-- Products START -->
         <div class="container">
-            <div class="my-6 overflow-hidden relative" v-for="category in productsByCategory?.categories">
+            <div class="my-6 overflow-hidden relative" v-for="category in groupedMenu?.categories">
                 <!-- for scrolling -->
                 <div :id="category.uid" class="h-0 w-0 opacity-0 -z-10 -translate-y-[90px]"></div>
                 <h2 class="text-2xl font-bold">{{ category.name }}</h2>
                 <div v-if="category.description" class="my-2">{{ category.description }}</div>
                 <div class="flex gap-4 overflow-x-auto snap-x snap-mandatory py-6 px-1">
-                    <div v-for="product in productsByCategory.products[category.uid]" :key="product.uid"
-                        @click.prevent="() => showViewProductModal(product.uid)"
+                    <div v-for="product in groupedMenu.products[category.uid]" :key="product.uid"
+                        @click.prevent="() => openModal(product.uid)"
                         class="snap-center flex flex-col cursor-pointer rounded-xl bg-white flex-shrink-0 shadow w-72">
                         <div class="h-52 w-full image-bg image-bg-2 shrink-0 rounded-t-xl">
                             <div class="image-bg h-full w-full rounded-t-xl"
@@ -183,7 +138,7 @@ const showBookTableModal = ref(false)
                     </div>
                 </div>
             </div>
-            <div v-if="!productsByCategory?.categories?.length"
+            <div v-if="!groupedMenu?.categories?.length"
                 class="grid place-content-center bg-gray-100 text-2xl h-72 my-4 rounded">
                 No products found
             </div>
@@ -206,19 +161,19 @@ const showBookTableModal = ref(false)
 
                 <div class="h-72 w-full image-bg image-bg-2 shrink-0 rounded-t-xl">
                     <div class="image-bg h-full w-full rounded-t-xl"
-                        :style="`background-image: url(${viewProduct.imageUrl})`"></div>
+                        :style="`background-image: url(${singleProduct.imageUrl})`"></div>
                 </div>
                 <div class="p-4 flex flex-col flex-grow">
                     <div class="font-bold pb-2 inline-flex flex-wrap gap-2 items-center">
-                        <span class="flex-shrink-0">{{ viewProduct.name }}</span>
-                        <span v-for="item in viewProduct.allergens"
+                        <span class="flex-shrink-0">{{ singleProduct.name }}</span>
+                        <span v-for="item in singleProduct.allergens"
                             class="cursor-pointer font-medium flex-shrink-0 text-gray-500 text-xs p-1 bg-slate-50 rounded-full border w-4 h-4 grid place-content-center">
                             {{ menuData.allergens.find((al) => al.uid == item).name }}
                         </span>
                     </div>
-                    <div class="opacity-60 leading-tight w-full mt-auto">{{ viewProduct.description }}</div>
+                    <div class="opacity-60 leading-tight w-full mt-auto">{{ singleProduct.description }}</div>
                     <div class="pt-2">
-                        <div v-for="option in viewProduct.options"
+                        <div v-for="option in singleProduct.options"
                             class="flex justify-between items-center border-t first:border-t-0 border-dashed border-gray-300 py-2">
                             <div class="text-gray-500 text-sm">{{ option?.size }}</div>
                             <div class="flex gap-2 items-center">
@@ -231,7 +186,7 @@ const showBookTableModal = ref(false)
                                 <div v-else class="text-gray-700 font-medium text-lg">
                                     ${{ option.price }}
                                 </div>
-                                <!-- <span v-if="viewProduct.options?.[1]" class="arrow-down rounded bg-slate-200"></span> -->
+                                <!-- <span v-if="singleProduct.options?.[1]" class="arrow-down rounded bg-slate-200"></span> -->
                             </div>
                         </div>
                     </div>

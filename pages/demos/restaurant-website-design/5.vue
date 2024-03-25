@@ -1,56 +1,19 @@
 <script setup>
 import { computed, ref, onMounted } from 'vue';
-
 import gsap from "gsap";
 
 // get other plugins:
 import ScrollTrigger from "gsap/ScrollTrigger";
 
+import staticMenu from '@/assets/json/demo-menu.json'
 
-// const menuURL = 'https://api.1food.menu/v1/menus/l9zwcpvlanynrmthvmb'
+const { menuData, groupedMenu, selectedProductID, singleProduct } = useMenu(staticMenu);
 
-// const { data: menuData } = await useFetch(menuURL)
-import menuData from '@/assets/json/demo-menu.json'
-
-const onefmCategory = ref(null)
+//modal
 const showModal = ref(false)
-const productForModal = ref(null)
-const selectedCategory = ref('')
-const filteredCategories = ref(menuData?.categories || [])
-const filteredProducts = ref(menuData?.products || [])
-
-const productsByCategory = computed(() => {
-    let groupedProducts = {};
-
-    filteredProducts.value.forEach(product => {
-        if (!groupedProducts[product.categoryId]) {
-            groupedProducts[product.categoryId] = [];
-        }
-        groupedProducts[product.categoryId].push(product);
-    });
-
-    return groupedProducts;
-})
-
-const filterCategories = (category_id) => {
-
-    if (!category_id) {
-        selectedCategory.value = ''
-        filteredCategories.value = [...menuData.categories]
-        return
-    }
-    selectedCategory.value = category_id
-    filteredCategories.value = [...menuData.categories].filter(category => category.uid == category_id)
-}
-
-const openModal = (product) => {
+const openModal = (product_id) => {
+    selectedProductID.value = product_id
     showModal.value = true
-    productForModal.value = product
-}
-
-const closeModal = () => {
-    showModal.value = false
-    productForModal.value = null
 }
 
 const pageTitle = 'Bella Cucina Restaurant'
@@ -65,6 +28,8 @@ useHead({
     ],
 })
 
+//gsap animation
+const onefmCategory = ref(null)
 onMounted(() => {
     gsap.registerPlugin(ScrollTrigger)
     onefmCategory.value.forEach(category => {
@@ -117,58 +82,43 @@ onMounted(() => {
                 </div>
             </div>
         </div>
-        <div class="bg-white border-t border-b border-gray-600 border-opacity-10 sticky top-0 z-10">
-            <div class="container py-2">
-                <div class="overflow-x-auto py-2 px-1 text-sm">
-                    <div class="flex gap-4 mx-auto">
-
-                        <div v-for="category in [{ uid: '', name: 'View All' }, ...menuData.categories]"
-                            :key="category.uid" @click="filterCategories(category.uid)"
-                            :class="{ '!bg-gray-700 bg-opacity-70 text-white': selectedCategory == category.uid }"
-                            class="bg-white border py-2 px-4 rounded-full cursor-pointer flex-shrink-0 duration-500"> {{
-                            category.name }}</div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <DemosCategoryTabs :categories="menuData.categories" />
         <div class="container">
             <div class="menu-products min-h-96">
-                <template v-for="category in filteredCategories">
-                    <template v-if="productsByCategory[category.uid]">
-                        <div class="text-2xl mt-6 font-semibold mb-2">
-                            {{ category.name }}
-                        </div>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pb-6 pt-2" ref="onefmCategory">
-                            <div v-for="product in productsByCategory[category.uid]" @click="openModal(product)"
-                                class="flex cursor-pointer rounded-xl  bg-white flex-shrink-0 snap-start shadow-lg h-40">
-
-                                <div
-                                    class="h-full w-40 image-bg image-bg-2 shrink-0 border-b border-opacity-50 rounded-l-xl">
-                                    <div class="image-bg h-full w-full rounded-l-xl"
-                                        :style="`background-image: url(${product.imageUrl})`">
-                                    </div>
+                <template v-for="category in groupedMenu.categories">
+                    <div class="text-2xl mt-6 font-semibold mb-2">
+                        {{ category.name }}
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pb-6 pt-2" ref="onefmCategory">
+                        <div v-for="product in groupedMenu.products[category.uid]" @click="openModal(product.uid)"
+                            :key="product.uid"
+                            class="flex cursor-pointer rounded-xl  bg-white flex-shrink-0 snap-start shadow-lg h-40">
+                            <div
+                                class="h-full w-40 image-bg image-bg-2 shrink-0 border-b border-opacity-50 rounded-l-xl">
+                                <div class="image-bg h-full w-full rounded-l-xl"
+                                    :style="`background-image: url(${product.imageUrl})`">
                                 </div>
-                                <div class="p-4 flex flex-col flex-grow">
-                                    <div class="font-bold mb-2">{{ product.name }}</div>
-                                    <div class="opacity-60 leading-none my-2 line-clamp-2 w-full">{{ product.description
-                                        }}</div>
-                                    <div class="flex justify-between mt-auto pt-2">
-                                        <div class="text-sm text-gray-400"> {{ product.options?.[0]?.size }} </div>
-                                        <div class="font-bold flex gap-2 items-center">
-                                            <div v-if="product.options?.[0]?.salePrice" class="text-green-700">$ {{
-                                                product.options?.[0]?.salePrice }}</div>
-                                            <div class="text-green-700"
-                                                :class="{ '!text-red-600 line-through': product.options?.[0]?.salePrice }">
-                                                $
-                                                {{ product.options?.[0]?.price }}</div>
-                                        </div>
+                            </div>
+                            <div class="p-4 flex flex-col flex-grow">
+                                <div class="font-bold mb-2">{{ product.name }}</div>
+                                <div class="opacity-60 leading-none my-2 line-clamp-2 w-full">{{ product.description
+                                    }}</div>
+                                <div class="flex justify-between mt-auto pt-2">
+                                    <div class="text-sm text-gray-400"> {{ product.options?.[0]?.size }} </div>
+                                    <div class="font-bold flex gap-2 items-center">
+                                        <div v-if="product.options?.[0]?.salePrice" class="text-green-700">$ {{
+                                            product.options?.[0]?.salePrice }}</div>
+                                        <div class="text-green-700"
+                                            :class="{ '!text-red-600 line-through': product.options?.[0]?.salePrice }">
+                                            $
+                                            {{ product.options?.[0]?.price }}</div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </template>
+                    </div>
                 </template>
-                <div v-if="!Object.keys(productsByCategory).length" class="py-10 text-center text-2xl">
+                <div v-if="!Object.keys(groupedMenu).length" class="py-10 text-center text-2xl">
                     Sorry, no products found!
                 </div>
 
@@ -180,21 +130,21 @@ onMounted(() => {
                         @click="showModal = false" />
                     <div class="h-80 w-full image-bg image-bg-2 shrink-0 border-b border-opacity-50">
                         <div class="image-bg h-full w-full rounded-t-xl"
-                            :style="`background-image: url(${productForModal.imageUrl})`">
+                            :style="`background-image: url(${singleProduct.imageUrl})`">
                         </div>
                     </div>
                     <div class="p-4 flex flex-col flex-grow">
-                        <div class="font-bold my-2">{{ productForModal.name }}</div>
-                        <div v-if="productForModal.tags" class="flex gap-2 overflow-x-auto">
-                            <div v-for="tag in productForModal.tags"
+                        <div class="font-bold my-2">{{ singleProduct.name }}</div>
+                        <div v-if="singleProduct.tags" class="flex gap-2 overflow-x-auto">
+                            <div v-for="tag in singleProduct.tags"
                                 class="text-xs px-2 py-1 rounded-full bg-green-600 bg-opacity-10 text-green-600 flex-shrink-0">
                                 {{ tag
                                 }}</div>
                         </div>
-                        <div class="text-gray-600 my-2">{{ productForModal.description }}</div>
+                        <div class="text-gray-600 my-2">{{ singleProduct.description }}</div>
 
-                        <div v-if="productForModal.options">
-                            <div v-for="item in productForModal.options" class="flex justify-between mt-auto pt-2">
+                        <div v-if="singleProduct.options">
+                            <div v-for="item in singleProduct.options" class="flex justify-between mt-auto pt-2">
                                 <div class="text-sm text-gray-400">
                                     {{ item.size }}</div>
                                 <div class="flex gap-2 items-center">

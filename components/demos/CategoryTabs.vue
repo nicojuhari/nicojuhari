@@ -1,5 +1,5 @@
 <script setup>
-import { searchKey } from '~/composables/useMenu';
+import { searchKey, selectedCategoryID } from '~/composables/useMenu';
 
 const props = defineProps({
     categories: {
@@ -9,54 +9,70 @@ const props = defineProps({
     alignCenter: {
         type: Boolean,
         default: false
+    },
+    scrollToCategory: {
+        type: Boolean,
+        default: false
     }
 })
+
+
+const menuCategories = ref(props.categories || [])
+if (!props.scrollToCategory) menuCategories.value = [{ uid: '', name: 'View All' }, ...props.categories]
+
 const selectedCategory = ref('')
 const showSearchBar = ref(false)
 
 const menuNav = ref(null)
 const menuNavYPosition = ref(0)
 
-const scrollTo = (category_id) => {
-    let targetBlock = document.getElementById(category_id);
-    targetBlock.scrollIntoView({ behavior: 'smooth' });
-    selectedCategory.value = category_id
+const handleClick = (category_id) => {
+
+    if(props.scrollToCategory) {
+        let targetBlock = document.getElementById(category_id);
+        targetBlock.scrollIntoView({ behavior: 'smooth' });
+        selectedCategory.value = category_id
+    } else {
+        selectedCategoryID.value = category_id
+        selectedCategory.value = category_id
+    }
+    
 }
 
 const toggleSearchBar = (open = true) => {
     showSearchBar.value = open
-    // productsByCategory.value = groupProductsByCategory(menuData)
     selectedCategory.value = ''
+    searchKey.value = ''
 }
 
 const getMenuPosition = () => {
-    // get element positio on page
     menuNavYPosition.value = menuNav.value.getBoundingClientRect().top
 }
 
 
-let event1, event2 = null
+let event1 = null
 onMounted(() => {
     getMenuPosition()
     //add scroll event listener
     document.addEventListener('scroll', getMenuPosition)
 
-
-    event2 = document.addEventListener('scroll', function () {
-        const sections = document.querySelectorAll('[data-category-section]');
-        sections.forEach(section => {
-            const rect = section.getBoundingClientRect();
-            if (rect.top >= 90 && rect.bottom <= window.innerHeight) {
-                selectedCategory.value = section.getAttribute('data-category-section')
-            }
+    if (props.scrollToCategory) {
+        event1 = document.addEventListener('scroll', function () {
+            const sections = document.querySelectorAll('[data-category-section]');
+            sections.forEach(section => {
+                const rect = section.getBoundingClientRect();
+                if (rect.top >= 90 && rect.bottom <= window.innerHeight) {
+                    selectedCategory.value = section.getAttribute('data-category-section')
+                }
+            });
         });
-    });
+    }
 
 })
 
 onBeforeUnmount(() => {
     //remove scroll event listener
-    document.removeEventListener('scroll', event2)
+    document.removeEventListener('scroll', event1)
     document.removeEventListener('scroll', getMenuPosition)
 })
 
@@ -74,7 +90,7 @@ onBeforeUnmount(() => {
                                 clip-rule="evenodd" />
                         </svg>
                     </div>
-                    <div v-for="category in categories" :key="category.uid" @click="scrollTo(category.uid)"
+                    <div v-for="category in menuCategories" :key="category.uid" @click="handleClick(category.uid)"
                         :class="{ '!bg-[#3b3b3b] bg-opacity-70 !text-white': selectedCategory == category.uid }"
                         class="bg-opacity-5 bg-[#3b3b3b] text-[#3b3b3b] py-2 px-4 h-10 inline-flex items-center rounded-full cursor-pointer flex-shrink-0 duration-500"
                         :data-category-tab="category.uid"> {{ category.name }}
@@ -82,8 +98,8 @@ onBeforeUnmount(() => {
                 </div>
             </div>
             <Transition name="fade">
-                <div class="flex items-center md:justify-center gap-4 absolute left-0 w-full py-4 top-0 bg-white"
-                    v-if="showSearchBar">
+                <div class="flex items-center gap-4 absolute left-0 w-full py-4 top-0 bg-white"
+                    :class="alignCenter && 'md:justify-center'" v-if="showSearchBar">
                     <div @click.prevent="toggleSearchBar(false)"
                         class="h-10 w-10 flex flex-shrink-0 items-center justify-center bg-[#3b3b3b] bg-opacity-10 text-[#3b3b3b] rounded-full cursor-pointer">
                         <svg class="w-6 h-6" viewBox="0 0 24 24">

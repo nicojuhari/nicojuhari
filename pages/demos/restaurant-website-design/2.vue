@@ -1,7 +1,7 @@
 <script setup>
 import staticMenu from '@/assets/json/demo-gud-menu.json'
 
-const { menuData, groupedMenu, searchKey, selectedCategoryID, singleProduct, selectedProductID } = useMenu(staticMenu)
+const { menuData, groupedMenu, singleProduct, selectedProductID } = useMenu(staticMenu)
 
 const pageTitle = 'GUD Restaurant'
 useHead({
@@ -132,7 +132,7 @@ const openModal = (product_id) => {
         <div class="container">
             <h2 class="text-center mb-8 title">Meniu</h2>
         </div>
-        <DemosCategoryTabs :categories="menuData.categories" />
+        <DemosCategoryTabs :categories="menuData.categories" :scroll-to-category="true" />
         <div class="container">
             <div class="my-6 overflow-hidden relative" v-for="category in groupedMenu?.categories"
                 :data-category-section="category.uid">

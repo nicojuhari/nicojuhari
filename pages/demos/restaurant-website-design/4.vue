@@ -17,24 +17,10 @@ useHead({
     ],
 })
 
-const { menuData, groupedMenu, searchKey, selectedCategoryID, singleProduct, selectedProductID } = useMenu(staticMenu)
+const { menuData, groupedMenu, singleProduct, selectedProductID } = useMenu(staticMenu)
 
-
+//modal
 const showModal = ref(false)
-const showSearchBar = ref(false)
-
-const closeSearch = () => {
-    searchKey.value = ''
-    showSearchBar.value = false
-    selectedCategoryID.value = ''
-}
-
-const openSearch = () => {
-    searchKey.value = ''
-    showSearchBar.value = true
-    selectedCategoryID.value = ''
-}
-
 const openModal = (product_id) => {
     selectedProductID.value = product_id
     showModal.value = true
