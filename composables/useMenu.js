@@ -1,5 +1,6 @@
-import { ref, watch } from "vue";
+import { ref, watch, onBeforeUnmount } from "vue";
 import { groupProductsByCategory, searchInProducts } from "@/utils/menu";
+export const searchKey = ref("");
 
 export default function useMenu(staticMenu = {}) {
     const menuData = ref({ ...staticMenu } || null);
@@ -7,7 +8,7 @@ export default function useMenu(staticMenu = {}) {
     const singleProduct = ref(null);
 
     //events data
-    const searchKey = ref("");
+    
     const selectedCategoryID = ref(null);
     const selectedProductID = ref(null);
 
@@ -50,6 +51,12 @@ export default function useMenu(staticMenu = {}) {
             ...menuData.value,
             categories: filteredCategories,
         });
+    });
+
+    onBeforeUnmount(() => {
+        searchKey.value = "";
+        selectedCategoryID.value = "";
+        selectedProductID.value = "";
     });
 
     return {

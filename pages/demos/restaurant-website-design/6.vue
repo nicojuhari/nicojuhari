@@ -132,45 +132,7 @@ const showBookTableModal = ref(false)
     </div>
     <!-- Menu Start -->
     <section class="!pt-0" id="our-menu">
-        <div class="sticky top-0 z-50 bg-white" ref="menuNav" :class="menuNavYPosition <= 0 && 'shadow'">
-            <!-- Categories -->
-            <div class="container overflow-y-hidden relative">
-                <div class="overflow-x-auto text-sm">
-                    <div class="inline-flex gap-4 mx-auto py-4">
-                        <div @click.prevent="toggleSearchBar"
-                            class="h-10 w-10 flex flex-shrink-0 items-center justify-center bg-gray-600 bg-opacity-10 text-black rounded-full cursor-pointer">
-                            <svg class="w-6 h-6" viewBox="0 0 20 20">
-                                <path fill="currentColor" fill-rule="evenodd"
-                                    d="M8 4a4 4 0 1 0 0 8a4 4 0 0 0 0-8ZM2 8a6 6 0 1 1 10.89 3.476l4.817 4.817a1 1 0 0 1-1.414 1.414l-4.816-4.816A6 6 0 0 1 2 8Z"
-                                    clip-rule="evenodd" />
-                            </svg>
-                        </div>
-                        <div v-for="category in productsByCategory?.categories" :key="category.uid"
-                            @click="scrollTo(category.uid)"
-                            :class="{ '!bg-[#0C7C59] bg-opacity-70 text-white': selectedCategory == category.uid }"
-                            class="bg-white shadow py-2 px-4 h-10 inline-flex items-center rounded-full cursor-pointer flex-shrink-0 duration-500">
-                            {{
-                            category.name }}</div>
-                    </div>
-                </div>
-                <Transition name="fade">
-                    <div class="flex items-center gap-4 absolute left-0 w-full py-4 top-0 bg-white"
-                        v-if="showSearchBar">
-                        <div @click.prevent="toggleSearchBar(false)"
-                            class="h-10 w-10 flex flex-shrink-0 items-center justify-center bg-gray-600 bg-opacity-10 text-black rounded-full cursor-pointer">
-                            <svg class="w-6 h-6" viewBox="0 0 24 24">
-                                <path fill="currentColor"
-                                    d="M6.225 4.811a1 1 0 0 0-1.414 1.414L10.586 12L4.81 17.775a1 1 0 1 0 1.414 1.414L12 13.414l5.775 5.775a1 1 0 0 0 1.414-1.414L13.414 12l5.775-5.775a1 1 0 0 0-1.414-1.414L12 10.586L6.225 4.81Z" />
-                            </svg>
-                        </div>
-                        <div class="w-full max-w-sm relative">
-                            <input type="text" @input="filterProducts" placeholder="Search ..."
-                                class="h-10 border rounded-full px-4 w-full" ref="searchBar" />
-                        </div>
-                    </div>
-                </Transition>
-            </div>
-        </div>
+        <DemosCategoryTabs :categories="menuData.categories" />
         <!-- Products START -->
         <div class="container">
             <div class="my-6 overflow-hidden relative" v-for="category in productsByCategory?.categories">
