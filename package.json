@@ -30,6 +30,7 @@
     "@vueuse/nuxt": "^10.9.0",
     "axios": "^1.6.8",
     "gsap": "^3.12.5",
+    "lightgallery": "^2.7.2",
     "pinia": "^2.1.7",
     "qr-code-styling": "^1.6.0-rc.1",
     "sortablejs": "^1.15.2"

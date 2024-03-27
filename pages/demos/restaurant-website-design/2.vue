@@ -6,6 +6,9 @@ const { menuData, groupedMenu, singleProduct, selectedProductID } = useMenu(stat
 const pageTitle = 'GUD Restaurant'
 useHead({
     title: `${pageTitle} - Restaurant Website Example`,
+    bodyAttrs: {
+        class: 'bg-slate-50'
+    },
     meta: [
         { name: 'keywords', content: 'demo website, restaurant website design, digital food menu' },
         { name: 'description', content: `Restaurant Website Example - ${pageTitle}, modern and clean design. Created with LOVE using Nuxt.js, Vue.js, TailwindCSS and our Free Menu Maker` },
@@ -87,7 +90,7 @@ const openModal = (product_id) => {
             </div>
         </div>
     </div>
-    <div class="grid grid-cols-1 md:grid-cols-3">
+    <div class="grid grid-cols-1 md:grid-cols-3 bg-white">
         <div>
             <img src="https://1foodmenu-demos.b-cdn.net/gud/gud-grid-3.png" alt=" " class="w-full object-cover" />
         </div>
@@ -109,7 +112,7 @@ const openModal = (product_id) => {
             <img src="https://1foodmenu-demos.b-cdn.net/gud/gud-grid-2.png" alt=" " class="w-full object-cover" />
         </div>
     </div>
-    <div class="grid grid-cols-1 md:grid-cols-3">
+    <div class="grid grid-cols-1 md:grid-cols-3 bg-white">
         <div class="flex px-6 min-h-[320px]">
             <div class="m-auto flex items-center justify-center flex-col gap-4 text-2xl">
                 <Icon name="ic:sharp-access-time" class="w-14 h-14 text-[#c08133]" />
@@ -128,8 +131,8 @@ const openModal = (product_id) => {
             </div>
         </div>
     </div>
-    <section class="md-section" id="our-menu">
-        <div class="container">
+    <section class="!p-0" id="our-menu">
+        <div class="container hidden">
             <h2 class="text-center mb-8 title">Meniu</h2>
         </div>
         <DemosCategoryTabs :categories="menuData.categories" :scroll-to-category="true" />
@@ -139,24 +142,24 @@ const openModal = (product_id) => {
                 <div :id="category.uid" class="h-0 w-0 opacity-0 -z-10 -translate-y-[90px]"></div>
                 <h2 class="text-2xl font-bold">{{ category.name }}</h2>
                 <div v-if="category.description" class="my-2">{{ category.description }}</div>
-                <div class="grid md:grid-cols-2 lg:grid-cols-2 gap-8 py-6 px-1">
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 py-6 px-1">
                     <div v-for="product in groupedMenu.products[category.uid]" :key="product.uid"
                         @click.prevent="() => openModal(product.uid)"
-                        class="flex cursor-pointer rounded-xl overflow-hidden bg-white flex-shrink-0 shadow w-full">
-                        <div class="w-44 h-full image-bg image-bg-2 shrink-0">
+                        class="flex flex-col items-center gap-8 cursor-pointer rounded-lg hover:bg-gray-50 hover:bg-opacity-75 hover:-translate-y-2.5 duration-500 hover:shadow-lg overflow-hidden bg-white shrink-0 border p-6 border-gray-200">
+                        <div class="w-44 h-44 image-bg image-bg-2 shrink-0 rounded-full overflow-hidden">
                             <div class="image-bg h-full w-full" :style="`background-image: url(${product.imageUrl})`">
                             </div>
                         </div>
-                        <div class="p-4 flex flex-col flex-grow h-[185px]">
-                            <div class="font-medium pb-2 inline-flex flex-wrap gap-2 items-center">
+                        <div class="w-full">
+                            <div class="font-semibold pb-4 text-center w-9/12 m-auto">
                                 <span class="line-clamp-2">{{ product.name }}</span>
                             </div>
-                            <div class="opacity-60 leading-tight line-clamp-2 w-full mt-auto">{{ product.description }}
+                            <div class="text-gray-600 line-clamp-2 w-full mt-auto">{{ product.description }}
                             </div>
                             <div class="pt-4">
                                 <div v-if="product.options?.[0]"
-                                    class="flex justify-between items-center border-t first:border-t-0 border-dashed border-gray-300 py-0">
-                                    <div class="text-gray-500 text-sm">{{ product.options?.[0]?.size }}</div>
+                                    class="flex justify-between items-center">
+                                    <div class="text-gray-400 text-sm">{{ product.options?.[0]?.size }}</div>
                                     <div class="flex gap-2 items-center">
                                         <div v-if="product.options?.[0].salePrice"
                                             class="text-gray-700 font-medium text-lg">
@@ -193,13 +196,13 @@ const openModal = (product_id) => {
                 </div> -->
 
         </div>
-        <UModal v-model="showModal" :ui="{ width: 'sm:max-w-[375px]' }">
-            <div class="flex flex-col cursor-pointer flex-shrink-0 relative">
+        <UModal v-model="showModal" :ui="{ width: 'sm:max-w-[375px]', overlay: { background: 'bg-gray-600 bg-opacity-70'} }">
+            <div class="flex flex-col cursor-pointer flex-shrink-0 relative rounded-lg overflow-hidden">
                 <UButton square color="gray" variant="soft" icon="i-ph-x-bold"
-                    class="absolute rounded-full bg-opacity-60 right-3 top-3 font-bold text-gray-950"
+                    class="absolute rounded-full bg-opacity-60 right-3 top-3 font-bold text-gray-950 outline-none select-none"
                     @click="showModal = false" />
-                <div class="h-72 w-full image-bg image-bg-2 shrink-0 rounded-t-xl">
-                    <div class="image-bg h-full w-full rounded-t-xl"
+                <div class="h-80 w-full image-bg image-bg-2 shrink-0">
+                    <div class="image-bg h-full w-full"
                         :style="`background-image: url(${singleProduct.imageUrl})`"></div>
                 </div>
                 <div class="p-4 flex flex-col flex-grow">
@@ -234,6 +237,9 @@ const openModal = (product_id) => {
     </section>
     <footer class="border-t border-r-gray-100">
         <div class="container py-6 flex gap-6 items-center flex-col md:flex-row md:justify-between">
+            <div>
+                <span class="font-bold">GUD</span> Restaurant
+            </div>
             <div>Created with &lt;3 by <NuxtLink to="/" class="font-bold">me</NuxtLink>
             </div>
         </div>
