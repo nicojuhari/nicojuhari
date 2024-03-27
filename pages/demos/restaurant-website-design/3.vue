@@ -18,30 +18,32 @@ useHead({
 </script>
 <template>
     <div class="bg-white border-b">
-        <div class="border-b bg-gray-900 text-white">
-            <div class="container grid grid-cols-1 md:grid-cols-3 gap-6 py-6 md:text-center">
-                <div>
-                    <span class="font-medium text-green-600">Open Now</span> : Closes at 10 pm
-                </div>
-                <div><span class="font-medium text-green-600">We accept</span> : Cash & Card</div>
-                <div><span class="font-medium text-green-600">Address</span> : City, Street, nr. 34/1</div>
+        <div class="container pt-20 md:pt-48 pb-20">
+            <div class="flex items-center gap-6 justify-center text-center">
+                <!-- <UIcon name="i-solar-chef-hat-outline" class="shrink-0 h-10 w-10 text-red-600 text-opacity-20 -rotate-45" dynamic></UIcon> -->
+                <h1 class="text-3xl md:text-5xl font-bold text-center text-gray-900">La Famiglia Ristorante</h1>
+                <!-- <UIcon name="i-fluent-bowl-chopsticks-28-regular"  class="shrink-0 h-10 w-10 text-red-600 text-opacity-20 rotate-45" dynamic></UIcon> -->
             </div>
+            <div class="mt-4 text-center text-lg text-gray-600">Where Every Meal Feels Like Family</div>
         </div>
-        <div class="container">
-            <div class="grid place-content-center pt-48 pb-40">
-                <div class="flex flex-row items-center gap-6 justify-center text-center">
-                    <UIcon name="i-solar-chef-hat-outline"
-                        class="shrink-0 h-10 w-10 text-red-600 text-opacity-50 -rotate-45" dynamic>
-                    </UIcon>
-                    <h1 class="text-3xl md:text-5xl font-bold text-center text-gray-900">La Famiglia Ristorante</h1>
-                    <UIcon name="i-fluent-bowl-chopsticks-28-regular"
-                        class="shrink-0 h-10 w-10 text-red-600 text-opacity-50 rotate-45" dynamic></UIcon>
-                </div>
-                <div class="mt-4 text-center text-lg text-gray-600">Where Every Meal Feels Like Family</div>
-                <div
-                    class="group cursor-pointer inline-flex items-center gap-2 m-auto mt-16 text-red-600 px-4 py-2 rounded-full border-red-600 border">
-                    <UIcon name="i-ph-phone-light group-hover:rotate-45 duration-500" class="w-6 h-6"></UIcon>
-                    <div class="text-xl font-light">0123 456 7890</div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-y-12 max-w-3xl mx-auto py-10 px-4">
+            <div class="grid place-content-center gap-2 text-center ">
+                <div>Working hours</div>
+                <div class="font-semibold text-lg"><span class="text-green-600">Open Now</span>: Closes at 10 pm</div>
+            </div>
+            <div class="grid place-content-center gap-2 text-center ">
+                <div>We accept</div>
+                <div class="font-semibold text-lg">Cash only</div>
+            </div>
+            <div class="grid place-content-center gap-2 text-center ">
+                <div>Our address</div>
+                <div class="font-semibold text-lg">Street 34/1, City</div>
+            </div>
+            <div class="grid place-content-center gap-2 text-center ">
+                <div>Reserve a table</div>
+                <div class="group font-semibold text-lg inline-flex items-center gap-2">
+                    <UIcon name="i-ph-phone-bold group-hover:rotate-45 duration-500" class="w-6 h-6"></UIcon>
+                    <span class="text-xl font-semibold">0123 456 7890</span>
                 </div>
             </div>
         </div>

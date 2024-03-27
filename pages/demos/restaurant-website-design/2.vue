@@ -142,34 +142,34 @@ const openModal = (product_id) => {
                 <div :id="category.uid" class="h-0 w-0 opacity-0 -z-10 -translate-y-[90px]"></div>
                 <h2 class="text-2xl font-bold">{{ category.name }}</h2>
                 <div v-if="category.description" class="my-2">{{ category.description }}</div>
-                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 py-6 px-1">
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 py-6 px-2">
                     <div v-for="product in groupedMenu.products[category.uid]" :key="product.uid"
                         @click.prevent="() => openModal(product.uid)"
-                        class="flex flex-col items-center gap-8 cursor-pointer rounded-lg hover:bg-gray-50 hover:bg-opacity-75 hover:-translate-y-2.5 duration-500 hover:shadow-lg overflow-hidden bg-white shrink-0 border p-6 border-gray-200">
+                        class="flex flex-col items-center gap-8 cursor-pointer rounded-lg hover:-translate-y-2 duration-500 hover:shadow-lg overflow-hidden bg-white shrink-0 border p-6 border-gray-200 hover:border-transparent">
                         <div class="w-44 h-44 image-bg image-bg-2 shrink-0 rounded-full overflow-hidden">
                             <div class="image-bg h-full w-full" :style="`background-image: url(${product.imageUrl})`">
                             </div>
                         </div>
-                        <div class="w-full">
+                        <div class="flex flex-col flex-grow w-full">
                             <div class="font-semibold pb-4 text-center w-9/12 m-auto">
                                 <span class="line-clamp-2">{{ product.name }}</span>
                             </div>
                             <div class="text-gray-600 line-clamp-2 w-full mt-auto">{{ product.description }}
                             </div>
-                            <div class="pt-4">
+                            <div class="mt-auto pt-4">
                                 <div v-if="product.options?.[0]"
                                     class="flex justify-between items-center">
                                     <div class="text-gray-400 text-sm">{{ product.options?.[0]?.size }}</div>
                                     <div class="flex gap-2 items-center">
                                         <div v-if="product.options?.[0].salePrice"
-                                            class="text-gray-700 font-medium text-lg">
+                                            class="text-[#c08133] font-medium">
                                             $ {{ product.options?.[0].salePrice }}
                                         </div>
                                         <div v-if="product.options?.[0].salePrice"
                                             class="text-red-400 line-through opacity-70 text-sm">
                                             ${{ product.options?.[0].price }}
                                         </div>
-                                        <div v-else class="text-gray-700 font-medium text-lg">
+                                        <div v-else class="text-[#c08133] font-medium">
                                             {{ product.options?.[0].price }} lei
                                         </div>
                                         <span v-if="product.options?.[1]"
