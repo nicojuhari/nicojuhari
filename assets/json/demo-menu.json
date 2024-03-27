@@ -495,6 +495,14 @@
         {
             "uid": "l9xcn2irx1hsp4pa66m",
             "name": "Drinks"
+        },
+        {
+            "uid": "lf6wlreywqfccwjpjq",
+            "name": "Juices"
+        },
+        {
+            "uid": "lfr1cnia2r05m597klg",
+            "name": "Empty Category"
         }
     ],
     "promos": [],
@@ -594,36 +602,41 @@
         {
             "uid": "lfo7t0hf3qwvdnjq563",
             "name": "🍯",
-            "description": "Nice description of an allergen"
+            "description": "Allergen Description"
         },
         {
             "uid": "lfo7y9sl91ns8fupah9",
             "name": "B",
-            "description": "Nice description of an allergen"
+            "description": "Allergen Description"
         },
         {
             "uid": "lfo7z4exgc9m597sxe",
             "name": "C",
-            "description": "Nice description of an allergen"
+            "description": "Allergen Description"
         },
         {
             "uid": "lfo7zowy2u0aou52hnb",
             "name": "D",
-            "description": "Nice description of an allergen"
+            "description": "Allergen Description"
         },
         {
             "uid": "lfo7zx4250wvq55fjyy",
             "name": "E",
-            "description": "Nice description of an allergen"
+            "description": "Allergen Description"
         },
         {
             "uid": "lfu15ehn5ecnmddb9",
             "name": "F",
-            "description": "Nice description of an allergen"
+            "description": "Allergen Description"
         },
         {
             "uid": "lofqkbvcvvoifkqax2e",
             "name": "🥜",
+            "description": "Allergen Description"
+        },
+        {
+            "uid": "lu9to3vjol4lq8r2n48",
+            "name": "I",
             "description": "Allergen Description"
         }
     ],

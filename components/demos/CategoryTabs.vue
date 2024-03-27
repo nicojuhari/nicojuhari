@@ -116,3 +116,14 @@ onBeforeUnmount(() => {
         </div>
     </div>
 </template>
+<style>
+.fade-enter-active,
+.fade-leave-active {
+    transition: transform 0.6s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+    transform: translateY(-100%);
+}
+</style>

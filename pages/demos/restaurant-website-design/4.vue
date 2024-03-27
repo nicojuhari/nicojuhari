@@ -174,26 +174,3 @@ onMounted(() => {
         </div>
     </div>
 </template>
-<style>
-.image-bg,
-.image-bg-2 {
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-.image-bg-2 {
-    background-image: url('https://socialistmodernism.com/wp-content/uploads/2017/07/placeholder-image-300x225.png');
-    background-color: rgba(231, 231, 231, 0.217);
-}
-
-.fade-enter-active,
-.fade-leave-active {
-    transition: transform 0.6s ease;
-}
-
-.fade-enter-from,
-.fade-leave-to {
-    transform: translateY(-100%);
-}
-</style>

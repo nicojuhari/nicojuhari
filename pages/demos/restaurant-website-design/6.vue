@@ -5,7 +5,7 @@ import staticMenu from '@/assets/json/demo-menu.json'
 
 const { menuData, groupedMenu, selectedProductID, singleProduct } = useMenu(staticMenu);
 
-const bgImgURL = 'https://1FoodMenu.b-cdn.net/demos/italian-restaurant/home-hero-bg.jpg'
+const bgImgURL = 'https://images.pexels.com/photos/1566837/pexels-photo-1566837.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
 
 const pageTitle = 'Mama Mia'
 useHead({
