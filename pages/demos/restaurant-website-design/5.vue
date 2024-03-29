@@ -53,7 +53,7 @@ onMounted(() => {
 <template>
     <div>
         <div class="bg-white">
-            <div class="container grid grid-cols-1 md:grid-cols-2 !w-full py-4 md:gap-6">
+            <div class="container grid grid-cols-1 md:grid-cols-2 py-4 md:gap-6">
                 <img src="https://images.pexels.com/photos/696218/pexels-photo-696218.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
                     class="h-72 object-cover w-full rounded-md" />
                 <div class="py-4 flex flex-col">
@@ -78,7 +78,7 @@ onMounted(() => {
                     </div>
                     <div>
                         <UButton color="blue"> Order Now </UButton>
-                        <sapn class="ml-4">Deliver in 30 - 50 mins</sapn>
+                        <span class="ml-4">Deliver in 30 - 50 mins</span>
                     </div>
                 </div>
 
