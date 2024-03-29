@@ -194,7 +194,7 @@ const openModal = (product_id) => {
                 </div> -->
 
         </div>
-        <UModal v-model="showModal"
+        <!-- <UModal v-model="showModal"
             :ui="{ width: 'sm:max-w-[375px]', overlay: { background: 'bg-gray-600 bg-opacity-70' } }">
             <div class="flex flex-col bg-white flex-shrink-0 rounded-lg overflow-hidden relative">
                 <UButton square color="gray" variant="soft" icon="i-ph-x-bold"
@@ -233,6 +233,15 @@ const openModal = (product_id) => {
                     </div>
                 </div>
             </div>
+        </UModal> -->
+        <UModal v-model="showModal"
+            :ui="{ width: 'sm:max-w-[375px]', overlay: { background: 'bg-gray-600 bg-opacity-70' } }">
+            <DemosViewProductModal 
+                :product="singleProduct" 
+                :allergens="menuData.allergens"
+                :money-symbol="'lei'"
+                :moneySymbolAfter="true"
+                @close="showModal = false" />
         </UModal>
     </section>
     <footer class="border-t border-r-gray-100">

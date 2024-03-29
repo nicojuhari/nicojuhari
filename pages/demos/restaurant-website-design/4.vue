@@ -104,7 +104,6 @@ onMounted(() => {
                     </div>
                     <div ref="onefmCategory" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-3 gap-6">
                         <div v-for="product in groupedMenu.products[category.uid]" @click="openModal(product.uid)"
-                            style="opacity: 0;"
                             class="flex cursor-pointer p-4 rounded-lg  bg-white border border-gray-300 gap-6 h-40 group">
                             <div
                                 class="h-28 w-28 image-bg overflow-hidden rounded-full shrink-0 self-center group-hover:scale-110 duration-500">
@@ -120,7 +119,8 @@ onMounted(() => {
                                     <div class="flex gap-2 items-center">
                                         <div v-if="product.options?.[0]?.salePrice">$ {{
                                             product.options?.[0]?.salePrice }}</div>
-                                        <div :class="{ 'text-red-600 line-through text-sm opacity-70': product.options?.[0]?.salePrice }">
+                                        <div
+                                            :class="{ 'text-red-600 line-through text-sm opacity-70': product.options?.[0]?.salePrice }">
                                             $ {{ product.options?.[0]?.price }}</div>
                                         <span v-if="product.options?.[1]"
                                             class="arrow-down rounded bg-slate-200"></span>
@@ -137,44 +137,18 @@ onMounted(() => {
             </div>
             <UModal v-model="showModal"
                 :ui="{ width: 'sm:max-w-[375px]', overlay: { background: 'bg-gray-600 bg-opacity-70' } }">
-                <div class="flex flex-col bg-white flex-shrink-0 rounded-lg overflow-hidden relative">
-                    <UButton square color="gray" variant="soft" icon="i-ph-x-bold"
-                        class="absolute rounded-full bg-opacity-60 right-3 top-3 font-bold text-gray-950"
-                        @click="showModal = false" />
-                    <div class="h-72 w-full image-bg image-bg-2 shrink-0">
-                        <div class="image-bg h-full w-full" :style="`background-image: url(${singleProduct.imageUrl})`">
-                        </div>
-                    </div>
-                    <div class="p-4 flex flex-col flex-grow">
-                        <div class="font-semibold pb-2 inline-flex flex-wrap gap-2 items-center">
-                            <span>{{ singleProduct.name }}</span>
-                            <span v-for="item in singleProduct.allergens"
-                                class="cursor-pointer font-medium flex-shrink-0 text-gray-600 text-xs p-1 bg-slate-50 rounded-full border w-4 h-4 grid place-content-center">
-                                {{ menuData.allergens.find((al) => al.uid == item).name }}
-                            </span>
-                        </div>
-                        <div class="text-gray-600 w-full">{{ singleProduct.description }}</div>
-                        <div class="pt-3">
-                            <div v-for="option in singleProduct.options"
-                                class="flex justify-between items-center border-t first:border-t-0 border-dashed border-gray-200 py-2">
-                                <div class="text-gray-400 text-sm">{{ option?.size }}</div>
-                                <div class="flex gap-2 items-center">
-                                    <div v-if="option.salePrice" class="text-lg">
-                                        $ {{ option.salePrice }}
-                                    </div>
-                                    <div v-if="option.salePrice" class="text-red-600 line-through opacity-70 text-sm">
-                                        ${{ option.price }}
-                                    </div>
-                                    <div v-else class="text-lg">
-                                        ${{ option.price }}
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <DemosViewProductModal :product="singleProduct" :allergens="menuData.allergens"
+                    @close="showModal = false" />
             </UModal>
         </div>
+        <footer class="border-t border-r-gray-100">
+            <div class="container py-6 flex gap-6 items-center flex-col md:flex-row md:justify-between">
+                <div class="font-semibold">
+                    Tony's Restaurant
+                </div>
+                <div>Created with &lt;3 by <NuxtLink to="/" class="font-bold">me</NuxtLink>
+                </div>
+            </div>
+        </footer>
     </div>
 </template>
