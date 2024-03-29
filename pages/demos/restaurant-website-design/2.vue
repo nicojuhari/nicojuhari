@@ -157,19 +157,17 @@ const openModal = (product_id) => {
                             <div class="text-gray-600 line-clamp-2 w-full mt-auto">{{ product.description }}
                             </div>
                             <div class="mt-auto pt-4">
-                                <div v-if="product.options?.[0]"
-                                    class="flex justify-between items-center">
+                                <div v-if="product.options?.[0]" class="flex justify-between items-center">
                                     <div class="text-gray-400 text-sm">{{ product.options?.[0]?.size }}</div>
                                     <div class="flex gap-2 items-center">
-                                        <div v-if="product.options?.[0].salePrice"
-                                            class="text-[#c08133] font-medium">
+                                        <div v-if="product.options?.[0].salePrice" class="text-[#c08133]">
                                             $ {{ product.options?.[0].salePrice }}
                                         </div>
                                         <div v-if="product.options?.[0].salePrice"
                                             class="text-red-400 line-through opacity-70 text-sm">
                                             ${{ product.options?.[0].price }}
                                         </div>
-                                        <div v-else class="text-[#c08133] font-medium">
+                                        <div v-else class="text-[#c08133]">
                                             {{ product.options?.[0].price }} lei
                                         </div>
                                         <span v-if="product.options?.[1]"
@@ -196,38 +194,40 @@ const openModal = (product_id) => {
                 </div> -->
 
         </div>
-        <UModal v-model="showModal" :ui="{ width: 'sm:max-w-[375px]', overlay: { background: 'bg-gray-600 bg-opacity-70'} }">
-            <div class="flex flex-col cursor-pointer flex-shrink-0 relative rounded-lg overflow-hidden">
+        <UModal v-model="showModal"
+            :ui="{ width: 'sm:max-w-[375px]', overlay: { background: 'bg-gray-600 bg-opacity-70' } }">
+            <div class="flex flex-col bg-white flex-shrink-0 rounded-lg overflow-hidden relative">
                 <UButton square color="gray" variant="soft" icon="i-ph-x-bold"
-                    class="absolute rounded-full bg-opacity-60 right-3 top-3 font-bold text-gray-950 outline-none select-none"
+                    class="absolute rounded-full bg-opacity-60 right-3 top-3 font-bold text-gray-950"
                     @click="showModal = false" />
-                <div class="h-80 w-full image-bg image-bg-2 shrink-0">
-                    <div class="image-bg h-full w-full"
-                        :style="`background-image: url(${singleProduct.imageUrl})`"></div>
+                <div class="h-72 w-full image-bg image-bg-2 shrink-0">
+                    <div class="image-bg h-full w-full" :style="`background-image: url(${singleProduct.imageUrl})`">
+                    </div>
                 </div>
                 <div class="p-4 flex flex-col flex-grow">
-                    <div class="font-bold pb-2 gap-2 items-center">
-                        <div class="flex-shrink-0 line-clamp-2">{{ singleProduct.name }}</div>
+                    <div class="font-semibold pb-2 inline-flex flex-wrap gap-2 items-center">
+                        <span>{{ singleProduct.name }}</span>
                         <span v-for="item in singleProduct.allergens"
-                            class="cursor-pointer font-medium flex-shrink-0 text-gray-500 text-xs p-1 bg-slate-50 rounded-full border w-4 h-4 grid place-content-center">
+                            class="cursor-pointer font-medium flex-shrink-0 text-gray-600 text-xs p-1 bg-slate-50 rounded-full border w-4 h-4 grid place-content-center">
                             {{ menuData.allergens.find((al) => al.uid == item).name }}
                         </span>
                     </div>
-                    <div class="opacity-60 leading-tight w-full mt-auto">{{ singleProduct.description }}</div>
-                    <div class="pt-2">
+                    <div class="text-gray-600 w-full">{{ singleProduct.description }}</div>
+                    <div class="pt-3">
                         <div v-for="option in singleProduct.options"
-                            class="flex justify-between items-center border-t first:border-t-0 border-dashed border-gray-300 py-2">
-                            <div class="text-gray-500 text-sm">{{ option?.size }}</div>
+                            class="flex justify-between items-center border-t first:border-t-0 border-dashed border-gray-200 py-2">
+                            <div class="text-gray-400 text-sm">{{ option?.size }}</div>
                             <div class="flex gap-2 items-center">
-                                <div v-if="option.salePrice" class="text-gray-700 font-medium text-lg">
-                                    {{ option.salePrice }} lei
+                                <div v-if="option.salePrice" class="text-lg text-[#c08133]">
+                                    $ {{ option.salePrice }}
                                 </div>
-                                <div v-if="option.salePrice" class="text-red-400 line-through opacity-70 text-sm">
-                                    {{ option.price }} lei
+                                <div v-if="option.salePrice" class="text-red-600 line-through opacity-70 text-sm">
+                                    ${{ option.price }}
                                 </div>
-                                <div v-else class="text-gray-700 font-medium text-lg">
-                                    {{ option.price }} lei
+                                <div v-else class="text-lg text-[#c08133]">
+                                    ${{ option.price }}
                                 </div>
+
                             </div>
                         </div>
                     </div>

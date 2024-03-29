@@ -22,6 +22,7 @@
             ],
             "imageUrl": "https://1FoodMenu.b-cdn.net/1FoodMenu/italianMenu/pizza-with-arugula-and-prosciutto.jpg",
             "allergens": [
+                "lfo7t0hf3qwvdnjq563",
                 "lfo7y9sl91ns8fupah9",
                 "lfo7z4exgc9m597sxe"
             ],
@@ -495,109 +496,10 @@
         {
             "uid": "l9xcn2irx1hsp4pa66m",
             "name": "Drinks"
-        },
-        {
-            "uid": "lf6wlreywqfccwjpjq",
-            "name": "Juices"
-        },
-        {
-            "uid": "lfr1cnia2r05m597klg",
-            "name": "Empty Category"
         }
     ],
     "promos": [],
-    "bundles": [
-        {
-            "uid": "leq5qh09x9y37z9ol0i",
-            "name": "Monday",
-            "bundleItems": [
-                {
-                    "qty": 2,
-                    "uid": "l6yr36g51pfc5f9njwb",
-                    "option": "0",
-                    "customPrice": 10
-                },
-                {
-                    "qty": 1,
-                    "uid": "l9xcnxseffnmv2z126u",
-                    "option": "0",
-                    "customPrice": 4
-                },
-                {
-                    "qty": 1,
-                    "uid": "l6yr1xnvovwptpk4hhf",
-                    "option": "1",
-                    "customPrice": null
-                }
-            ],
-            "description": "happy Monday",
-            "customBundlePrice": "38.56"
-        },
-        {
-            "uid": "levw55nh8jyae9b9f2o",
-            "name": "Tuesday",
-            "bundleItems": [
-                {
-                    "qty": 1,
-                    "uid": "l6yr4547b2eyyp7tm9m",
-                    "option": "0",
-                    "customPrice": null
-                },
-                {
-                    "qty": 1,
-                    "uid": "l6yr9ven24rwwwwzgkk",
-                    "option": "0",
-                    "customPrice": null
-                },
-                {
-                    "qty": 1,
-                    "uid": "l6yrgnnfs0n71zzramh",
-                    "option": "0",
-                    "customPrice": 12
-                },
-                {
-                    "qty": 1,
-                    "uid": "l6yr1xnvovwptpk4hhf",
-                    "option": "0",
-                    "customPrice": null
-                },
-                {
-                    "qty": 1,
-                    "uid": "l6yr36g51pfc5f9njwb",
-                    "option": "0",
-                    "customPrice": null
-                }
-            ],
-            "description": "between 11:30 am - 2:00 pm",
-            "customBundlePrice": "39"
-        },
-        {
-            "uid": "lfaah5fld708r5a1kyb",
-            "name": "Family pack",
-            "bundleItems": [
-                {
-                    "qty": 1,
-                    "uid": "l6yr4547b2eyyp7tm9m",
-                    "option": "1",
-                    "customPrice": 11.91
-                },
-                {
-                    "qty": 1,
-                    "uid": "lf6wn0vufcsvo7g651",
-                    "option": "0",
-                    "customPrice": null
-                },
-                {
-                    "qty": 3,
-                    "uid": "l7klxp3vb9t6ll8o744",
-                    "option": "0",
-                    "customPrice": 18
-                }
-            ],
-            "description": "up to 3 persons",
-            "customBundlePrice": "60"
-        }
-    ],
+    "bundles": [],
     "allergens": [
         {
             "uid": "lfo7t0hf3qwvdnjq563",

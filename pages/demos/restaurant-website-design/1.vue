@@ -116,11 +116,13 @@ const openModal = (product_id) => {
                             class="py-1.5 w-[165px] text-center rounded-full border-2 text-[#175676] border-[#175676]">View
                             Menu</a>
                         <a href="#contacts"
-                            class="py-1.5 w-[165px] text-center rounded-full border-2 border-[#8B0000] text-white bg-[#8B0000]">Book a table</a>
+                            class="py-1.5 w-[165px] text-center rounded-full border-2 border-[#8B0000] text-white bg-[#8B0000]">Book
+                            a table</a>
                     </div>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-auto pts-8s">
-                    <div v-for="item in list" :key="item.name" class="cursor-pointer items-center gap-6 border-gray-200 rounded-md flex">
+                    <div v-for="item in list" :key="item.name"
+                        class="cursor-pointer items-center gap-6 border-gray-200 rounded-md flex">
                         <Icon :name="item.icon"
                             class="w-12 h-12 text-[#175676] p-2 bg-[#175676] rounded-full bg-opacity-10" />
                         <div>
@@ -152,29 +154,27 @@ const openModal = (product_id) => {
                                     :style="`background-image: url(${product.imageUrl})`"></div>
                             </div>
                             <div class="p-4 flex flex-col flex-grow">
-                                <div class="font-bold pb-2 inline-flex flex-wrap gap-2 items-center">
-                                    <span class="flex-shrink-0">{{ product.name }}</span>
+                                <div class="font-bold pb-4 inline-flex flex-wrap gap-2 items-center">
+                                    <span class="line-clamp-2">{{ product.name }}</span>
                                     <span v-for="item in product.allergens"
                                         class="cursor-pointer font-medium flex-shrink-0 text-gray-600 text-xs p-1 bg-slate-50 rounded-full border w-4 h-4 grid place-content-center">
                                         {{ menuData.allergens.find((al) => al.uid == item).name }}
                                     </span>
                                 </div>
-                                <div class="opacity-60 leading-tight line-clamp-2 w-full mt-auto">{{ product.description
-                                    }}</div>
-                                <div class="pt-4">
+                                <div class="text-gray-600 line-clamp-2 w-full">{{ product.description}}</div>
+                                <div class="pt-4 mt-auto">
                                     <div v-if="product.options?.[0]"
                                         class="flex justify-between items-center border-t first:border-t-0 border-dashed border-gray-200 py-0">
-                                        <div class="text-gray-600 text-sm">{{ product.options?.[0]?.size }}</div>
+                                        <div class="text-gray-400 text-sm">{{ product.options?.[0]?.size }}</div>
                                         <div class="flex gap-2 items-center">
-                                            <div v-if="product.options?.[0].salePrice"
-                                                class="text-gray-700 font-medium text-lg">
+                                            <div v-if="product.options?.[0].salePrice" class="text-lg">
                                                 $ {{ product.options?.[0].salePrice }}
                                             </div>
                                             <div v-if="product.options?.[0].salePrice"
                                                 class="text-red-400 line-through opacity-70 text-sm">
                                                 ${{ product.options?.[0].price }}
                                             </div>
-                                            <div v-else class="text-gray-700 font-medium text-lg">
+                                            <div v-else class="text-lg">
                                                 ${{ product.options?.[0].price }}
                                             </div>
                                             <span v-if="product.options?.[1]"
@@ -197,13 +197,15 @@ const openModal = (product_id) => {
                             <div
                                 class="grid place-content-center w-12 h-12 shrink-0 bg-[#175676] bg-opacity-5 text-[#175676] rounded-full text-xl">
                                 {{ allergen.name }}</div>
-                            <div class="min-h-[48px] grid place-content-center text-gray-600">{{ allergen.description }}</div>
+                            <div class="min-h-[48px] grid place-content-center text-gray-600">{{ allergen.description }}
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <UModal v-model="showModal" :ui="{ width: 'sm:max-w-[375px]' }">
-                <div class="flex flex-col bg-white flex-shrink-0 rounded-xl overflow-hidden relative">
+            <UModal v-model="showModal"
+                :ui="{ width: 'sm:max-w-[375px]', overlay: { background: 'bg-gray-600 bg-opacity-70' } }">
+                <div class="flex flex-col bg-white flex-shrink-0 rounded-lg overflow-hidden relative">
                     <UButton square color="gray" variant="soft" icon="i-ph-x-bold"
                         class="absolute rounded-full bg-opacity-60 right-3 top-3 font-bold text-gray-950"
                         @click="showModal = false" />
@@ -212,26 +214,26 @@ const openModal = (product_id) => {
                         </div>
                     </div>
                     <div class="p-4 flex flex-col flex-grow">
-                        <div class="font-bold pb-2 inline-flex flex-wrap gap-2 items-center">
-                            <span class="flex-shrink-0">{{ singleProduct.name }}</span>
+                        <div class="font-semibold pb-2 inline-flex flex-wrap gap-2 items-center">
+                            <span>{{ singleProduct.name }}</span>
                             <span v-for="item in singleProduct.allergens"
                                 class="cursor-pointer font-medium flex-shrink-0 text-gray-600 text-xs p-1 bg-slate-50 rounded-full border w-4 h-4 grid place-content-center">
                                 {{ menuData.allergens.find((al) => al.uid == item).name }}
                             </span>
                         </div>
-                        <div class="opacity-60 leading-tight w-full mt-auto">{{ singleProduct.description }}</div>
-                        <div class="pt-2">
+                        <div class="text-gray-600 w-full">{{ singleProduct.description }}</div>
+                        <div class="pt-3">
                             <div v-for="option in singleProduct.options"
                                 class="flex justify-between items-center border-t first:border-t-0 border-dashed border-gray-200 py-2">
-                                <div class="text-gray-500 text-sm">{{ option?.size }}</div>
+                                <div class="text-gray-400 text-sm">{{ option?.size }}</div>
                                 <div class="flex gap-2 items-center">
-                                    <div v-if="option.salePrice" class="text-gray-600 font-medium text-lg">
+                                    <div v-if="option.salePrice" class="text-lg">
                                         $ {{ option.salePrice }}
                                     </div>
                                     <div v-if="option.salePrice" class="text-red-600 line-through opacity-70 text-sm">
                                         ${{ option.price }}
                                     </div>
-                                    <div v-else class="text-gray-600 font-medium text-lg">
+                                    <div v-else class="text-lg">
                                         ${{ option.price }}
                                     </div>
 
@@ -243,19 +245,25 @@ const openModal = (product_id) => {
             </UModal>
         </section>
         <section>
-            <div id="about" class="container relative grid grid-cols-1 md:grid-cols-2 shadow overflow-hidden rounded bg-[#1e1f23] text-white">
+            <div id="about"
+                class="container relative grid grid-cols-1 md:grid-cols-2 shadow overflow-hidden rounded bg-[#1e1f23] text-white">
                 <div class="px-6 md:px-20 py-14  grid place-content-center">
                     <h2 class="text-center mb-8 title">About</h2>
                     <div class="text-lg font-light">
-                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
-                        <p class="mt-4">The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed.</p>
-                        <p class="mt-4">There are many variations of passages of Lorem Ipsum available, but the majority.</p>
+                        <p>It is a long established fact that a reader will be distracted by the readable content of a
+                            page when looking at its layout.</p>
+                        <p class="mt-4">The point of using Lorem Ipsum is that it has a more-or-less normal distribution
+                            of letters, as opposed.</p>
+                        <p class="mt-4">There are many variations of passages of Lorem Ipsum available, but the
+                            majority.</p>
                     </div>
-                     <a href="#"
-                            class="mx-auto mt-16 py-1.5 w-[165px] text-center rounded-full border-2 border-white text-white">Read more</a>
+                    <a href="#"
+                        class="mx-auto mt-16 py-1.5 w-[165px] text-center rounded-full border-2 border-white text-white">Read
+                        more</a>
                 </div>
                 <div class="md:h-[640px]">
-                    <img src="https://images.pexels.com/photos/6192571/pexels-photo-6192571.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="about us" class="w-full h-full object-cover" />
+                    <img src="https://images.pexels.com/photos/6192571/pexels-photo-6192571.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                        alt="about us" class="w-full h-full object-cover" />
                 </div>
             </div>
         </section>
@@ -295,14 +303,15 @@ const openModal = (product_id) => {
                 <h2 class="text-center mb-8 title">Contacts</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 rounded overflow-hidden shadow bg-[#1e1f23] text-white">
                     <div class="md:h-ss[800px] order-2 md:-order-1">
-                        <img src="https://images.pexels.com/photos/6605646/pexels-photo-6605646.jpeg" alt="about us" class="w-full h-full object-cover" />
+                        <img src="https://images.pexels.com/photos/6605646/pexels-photo-6605646.jpeg" alt="about us"
+                            class="w-full h-full object-cover" />
                     </div>
                     <div class="p-6 py-12 md:px-12 grid place-content-center grid-cols-1">
                         <div class="text-center">
                             <div class="mb-4 text-lg text-gray-200">Call us</div>
                             <a href="tel:0 123 456 789" class="font-bold text-3xl"> 0 123 456 789</a>
                         </div>
-                        <UDivider label="OR" class="my-16"/>
+                        <UDivider label="OR" class="my-16" />
                         <div class="text-center mb-4 text-lg text-gray-200">Reserve a table</div>
                         <div class="flex flex-col gap-8 text-white flex-grow w-full">
                             <UFormGroup label="Name">
@@ -310,21 +319,21 @@ const openModal = (product_id) => {
                             </UFormGroup>
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                                 <UFormGroup label="Email">
-                                    <UInput type="email"/>
+                                    <UInput type="email" />
                                 </UFormGroup>
                                 <UFormGroup label="Phone">
-                                    <UInput type="phone"/>
+                                    <UInput type="phone" />
                                 </UFormGroup>
                             </div>
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                                 <UFormGroup label="Date & Time">
-                                    <UInput type="datetime-local"/>
+                                    <UInput type="datetime-local" />
                                 </UFormGroup>
                                 <UFormGroup label="Number of guests">
-                                    <UInput type="number"/>
+                                    <UInput type="number" />
                                 </UFormGroup>
                             </div>
-                             <UFormGroup label="Message">
+                            <UFormGroup label="Message">
                                 <UTextarea />
                             </UFormGroup>
                             <UButton class="justify-center bg-[#8B0000] hover:bg-opacity-90" size="md">Reserve</UButton>
@@ -346,7 +355,8 @@ const openModal = (product_id) => {
                     <path
                         d="M69.0687 35.2113H62.7546V7.8816H54.5085V1.66174H77.3147V7.8816H69.0687V35.2113ZM84.6183 35.2113H78.6812V13.6303H84.6183V15.3737C86.3147 13.6774 88.8591 13.1119 90.5555 13.1119H91.9691L90.5555 19.002H89.6602C86.8801 19.002 84.6183 21.1695 84.6183 23.7611V35.2113ZM104.739 35.6354C101.77 35.6354 98.9429 34.5045 96.7753 32.3841C94.6549 30.2166 93.4769 27.3893 93.4769 24.4208C93.4769 21.4522 94.6549 18.625 96.7753 16.4575C98.8957 14.3371 101.723 13.2062 104.739 13.2062C106.718 13.2062 108.508 13.913 110.063 15.3266L110.299 15.5151V13.6303H116V35.2113H110.299V33.515L110.063 33.7506C108.367 35.3998 106.435 35.6354 104.739 35.6354ZM104.739 18.7192C101.723 18.7192 99.1785 21.358 99.1785 24.4208C99.1785 27.5307 101.723 30.1223 104.739 30.1223C107.754 30.1223 110.299 27.5307 110.299 24.4208C110.299 21.358 107.754 18.7192 104.739 18.7192ZM136.639 35.2113H130.985C128.911 35.2113 126.979 34.4103 125.566 32.9966C124.105 31.5359 123.351 29.6511 123.351 27.5778V18.625H120.335V13.7716H123.351V5.29H128.958V13.7716H135.225V18.625H128.958V27.4836C128.958 28.6616 129.995 29.7454 131.032 29.7454H135.131L136.639 35.2113ZM154.874 35.2113H149.22C147.147 35.2113 145.215 34.4103 143.801 32.9966C142.341 31.5359 141.587 29.6511 141.587 27.5778V18.625H138.571V13.7716H141.587V5.29H147.194V13.7716H153.461V18.625H147.194V27.4836C147.194 28.6616 148.231 29.7454 149.267 29.7454H153.367L154.874 35.2113ZM167.927 35.7296C165.005 35.7296 162.131 34.5516 159.916 32.4312C157.796 30.2166 156.618 27.3422 156.618 24.4208C156.618 21.4522 157.796 18.5779 159.916 16.4104C162.084 14.3371 164.911 13.1591 167.927 13.1591C171.037 13.1591 173.864 14.3371 175.89 16.4104C178.058 18.5779 179.236 21.4051 179.236 24.4208C179.236 27.4365 178.058 30.2637 175.89 32.4312C173.77 34.5516 170.942 35.7296 167.927 35.7296ZM167.927 18.5308C164.77 18.5308 162.178 21.1695 162.178 24.4208C162.178 27.6721 164.77 30.3108 167.927 30.3108C171.131 30.3108 173.723 27.6721 173.723 24.4208C173.723 21.1695 171.131 18.5308 167.927 18.5308ZM189.461 35.2113H183.524V13.6303H189.461V15.3737C191.157 13.6774 193.702 13.1119 195.398 13.1119H196.811L195.398 19.002H194.503C191.722 19.002 189.461 21.1695 189.461 23.7611V35.2113ZM207.508 35.2113H201.382V13.6303H207.508V35.2113ZM204.445 11.0387C202.419 11.0387 200.77 9.38945 200.77 7.4104C200.77 6.42088 201.147 5.5256 201.853 4.86591C202.56 4.15911 203.455 3.78215 204.445 3.78215C206.424 3.78215 208.073 5.43135 208.073 7.4104C208.073 9.38945 206.424 11.0387 204.445 11.0387ZM223.953 35.6354C220.984 35.6354 218.157 34.5045 215.989 32.3841C213.869 30.2166 212.691 27.3893 212.691 24.4208C212.691 21.4522 213.869 18.625 215.989 16.4575C218.11 14.3371 220.937 13.2062 223.953 13.2062C225.932 13.2062 227.722 13.913 229.277 15.3266L229.513 15.5151V13.6303H235.214V35.2113H229.513V33.515L229.277 33.7506C227.581 35.3998 225.649 35.6354 223.953 35.6354ZM223.953 18.7192C220.937 18.7192 218.392 21.358 218.392 24.4208C218.392 27.5307 220.937 30.1223 223.953 30.1223C226.968 30.1223 229.513 27.5307 229.513 24.4208C229.513 21.358 226.968 18.7192 223.953 18.7192Z" />
                 </svg>
-                <div>Created with &lt;3 by <NuxtLink to="/" class="font-bold">me</NuxtLink></div>
+                <div>Created with &lt;3 by <NuxtLink to="/" class="font-bold">me</NuxtLink>
+                </div>
             </div>
         </footer>
     </div>

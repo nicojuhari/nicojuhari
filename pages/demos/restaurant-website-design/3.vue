@@ -63,8 +63,8 @@ const galleryList = [
         </div>
     </div>
     <div class="md:max-w-[1280px] mx-auto grid grid-cols-2 md:grid-cols-4">
-        <div v-for="item in galleryList" class="aspect-square">
-            <img :src="item" alt="La Famiglia Restaurant photos" class="object-cover w-full h-full grayscale hover:grayscale-0 duration-700"/>
+        <div v-for="item in galleryList" class="aspect-square overflow-hidden cursor-pointer">
+            <img :src="item" alt="La Famiglia Restaurant photos" class="object-cover w-full h-full grayscale hover:grayscale-0 duration-700 hover:scale-105"/>
         </div>
     </div>
     <div class="container">
