@@ -15,37 +15,56 @@ useHead({
     ]
 })
 
+const galleryList = [
+    'https://images.pexels.com/photos/541216/pexels-photo-541216.jpeg',
+    'https://images.pexels.com/photos/1267360/pexels-photo-1267360.jpeg',
+    'https://images.pexels.com/photos/995743/pexels-photo-995743.jpeg',
+    'https://images.pexels.com/photos/1546039/pexels-photo-1546039.jpeg',
+]
+
 </script>
 <template>
-    <div class="bg-white border-b">
-        <div class="container pt-20 md:pt-48 pb-20">
-            <div class="flex items-center gap-6 justify-center text-center">
-                <!-- <UIcon name="i-solar-chef-hat-outline" class="shrink-0 h-10 w-10 text-red-600 text-opacity-20 -rotate-45" dynamic></UIcon> -->
-                <h1 class="text-3xl md:text-5xl font-bold text-center text-gray-900">La Famiglia Ristorante</h1>
-                <!-- <UIcon name="i-fluent-bowl-chopsticks-28-regular"  class="shrink-0 h-10 w-10 text-red-600 text-opacity-20 rotate-45" dynamic></UIcon> -->
+    <div class="bg-white">
+        <div class="container text-center">
+            <div class="py-12">
+                <div class="flex items-center gap-4 justify-center">
+                    <UIcon name="i-ph-star-four" class="shrink-0 h-8 w-8 text-gray-400">
+                    </UIcon>
+                    <h1 class="text-3xl md:text-5xl font-bold">La Famiglia Ristorante</h1>
+                    <UIcon name="i-ph-star-four" class="shrink-0 h-8 w-8 text-gray-400">
+                    </UIcon>
+                </div>
+                <div class="mt-6 text-lg text-gray-600">Where Every Meal Feels Like Family</div>
             </div>
-            <div class="mt-4 text-center text-lg text-gray-600">Where Every Meal Feels Like Family</div>
-        </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-y-12 max-w-3xl mx-auto py-10 px-4">
-            <div class="grid place-content-center gap-2 text-center ">
-                <div>Working hours</div>
-                <div class="font-semibold text-lg"><span class="text-green-600">Open Now</span>: Closes at 10 pm</div>
-            </div>
-            <div class="grid place-content-center gap-2 text-center ">
-                <div>We accept</div>
-                <div class="font-semibold text-lg">Cash only</div>
-            </div>
-            <div class="grid place-content-center gap-2 text-center ">
-                <div>Our address</div>
-                <div class="font-semibold text-lg">Street 34/1, City</div>
-            </div>
-            <div class="grid place-content-center gap-2 text-center ">
-                <div>Reserve a table</div>
-                <div class="group font-semibold text-lg inline-flex items-center gap-2">
-                    <UIcon name="i-ph-phone-bold group-hover:rotate-45 duration-500" class="w-6 h-6"></UIcon>
-                    <span class="text-xl font-semibold">0123 456 7890</span>
+            <div
+                class="grid grid-cols-1 md:grid-cols-4 border-t-2 border-gray-900 md:py-4 divide-y divide-gray-300 divide-dashed md:divide-y-0">
+                <div class="p-6">
+                    <div>Working hours</div>
+                    <div class="font-semibold md:text-lg mt-2"><span class="text-green-600">Open Now</span>: Closes at
+                        10 pm
+                    </div>
+                </div>
+                <div class="p-6">
+                    <div>We accept</div>
+                    <div class="font-semibold md:text-lg mt-2">Only Cash</div>
+                </div>
+                <div class="p-6">
+                    <div>Our address</div>
+                    <div class="font-semibold md:text-lg mt-2">Street 34/1, City, 83838</div>
+                </div>
+                <div class="p-6">
+                    <div>Reserve a table</div>
+                    <div class="group font-semibold md:text-lg mt-2 inline-flex items-center gap-2 text-green-600">
+                        <UIcon name="i-ph-phone-bold group-hover:rotate-45 duration-500" class="w-6 h-6"></UIcon>
+                        <span class="text-xl font-semibold">0123 456 7890</span>
+                    </div>
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="md:max-w-[1280px] mx-auto grid grid-cols-2 md:grid-cols-4">
+        <div v-for="item in galleryList" class="aspect-square">
+            <img :src="item" alt="La Famiglia Restaurant photos" class="object-cover w-full h-full grayscale hover:grayscale-0 duration-700"/>
         </div>
     </div>
     <div class="container">
@@ -85,4 +104,13 @@ useHead({
             Sorry, no products found!
         </div>
     </div>
+    <footer class="border-t border-r-gray-100">
+        <div class="container py-6 flex gap-6 items-center flex-col md:flex-row md:justify-between">
+            <div class="">
+                La Famiglia Ristorante
+            </div>
+            <div>Created with &lt;3 by <NuxtLink to="/" class="font-bold">me</NuxtLink>
+            </div>
+        </div>
+    </footer>
 </template>
