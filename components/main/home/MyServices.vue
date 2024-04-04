@@ -3,13 +3,22 @@
     let myServices = [
         {
             title: 'Business Website Design',
-            description: 'I will create a top-notch website for your business to effectively generate leads.',
+            description: 'I create business websites that are tailored to your industry and target market and turn visitors into paying clients.',
             icon: 'i-ph-code-light'
         },
         {
             title: 'Restaurant Website Design',
-            description: 'I will create a great restaurant website that converts food lovers into clients.',
-            icon: 'i-ph-bowl-food-light'
+            description: 'I create simple restaurant websites that improve online presence, highlight culinary imagination, attract new customers and keep regulars coming back.',
+            benefits: [
+                'Pixel perfect and fast pages',
+                'Eye-catching and clean design',
+                'Easy navigation',
+                'SEO-friendly',
+                'Interactive and tourist-friendly menu',
+                'Clear and simple CTAs',
+            ],
+            icon: 'i-ph-bowl-food-light',
+            link: '/demos'
         },
     ]
 </script>
@@ -25,7 +34,15 @@
                         <span class="font-bold text-xl">{{ item.title }}</span>
                     </div>
                     <div class="mt-4 text-gray-600"> {{ item.description }}</div>
+                    <!-- <div class="mt-6 font-medium text-lg">What you can get:</div>
+                    <div class="flex flex-col gap-2 mt-2">
+                        <div v-for="benefit in item.benefits" class="flex items-center gap-1.5">
+                            <UIcon name="i-ph-check-light" class="w-3 h-3 text-green-600" /> {{ benefit }}
+                        </div>
+                    </div> -->
+
                 </div>
+
             </div>
             <div class="mt-10 text-center">
                 <UButton to="/demos" color="brand" variant="outline" size="lg" title="Website Demos"
