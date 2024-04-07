@@ -29,19 +29,25 @@ const apps = [
         icon: 'i-ph-qr-code-light',
         description: 'Create a QR Code for any url. Easy and Simple.'
     },
+    {
+        title: "Word Counter",
+        url: '/tools/free-word-counter',
+        icon: 'i-mdi-counter',
+        description: 'Count characters and words in any text.'
+    },
 
 ]
 </script>   
 <template>
     <section class="md-section">
         <div class="container">
-            <div class="subtitle mb-10 text-center">Free Apps for you </div>
+            <div class="subtitle mb-10 text-center">Free Apps & Tools</div>
             <div class="m-auto grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-8">
                 <div class="bg-white border border-gray-400 hover:bg-gray-100 hover:border-gray-200 duration-300 rounded-xl" v-for="app in apps" :key="app.title">
                     <NuxtLink :to="app.url" :target="app.external ? '_blank': ''" class="p-6 md:p-8 block text-center" :title="app.title">
                         <div class="flex flex-col gap-6 items-center">
                             <img v-if="app.logo" :src="'/' + app.logo" class="w-8 h-8 inline-block shrink-0" :alt="app.title">
-                            <UIcon v-if="app.icon" :name="app.icon" class="text-[32px] text-brand-400 shrink-0"></UIcon>
+                            <UIcon v-if="app.icon" :name="app.icon" class="text-[32px] text-brand-400 shrink-0" dynamic></UIcon>
                             <span class="font-bold text-xl">{{ app.title }}</span>
                         </div>
                         <div class="mt-4 text-gray-600"> {{ app.description }}</div>
