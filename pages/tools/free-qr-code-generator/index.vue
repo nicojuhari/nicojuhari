@@ -9,7 +9,7 @@
 <template>
     <section>
         <div class="container">
-            <h1 class="text-center mb-10">Free QR Code Generator</h1>
+            <h1 class="text-center mb-10 page-title">Free QR Code Generator</h1>
             <ClientOnly>
                 <QrCodeGenerator />
             </ClientOnly>

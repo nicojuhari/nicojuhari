@@ -21,15 +21,24 @@ const totalSpaces = computed(() => {
     return count > 0 ? count : 0
 })
 
+//count sentences in a text
+// const totalSentences = computed(() => {
+//     let text = textRaw.value.trim()
+//     if (text.length)
+//         return textRaw.value.split(/[.!?]+\s+/).length - 1
+//     else return 0
+// })
+
 </script>
 <template>
     <section>
         <div class="container">
-            <h1 class="text-center mb-10">Free Word Counter</h1>
+            <h1 class="text-center mb-10 page-title">Free Word Counter</h1>
             <div class="grid grid-cols-2 md:grid-cols-3 my-6">
                 <div> Characters: <span class="font-bold">{{ totalChars }}</span></div>
                 <div> Words: <span class="font-bold">{{ totalWords }}</span></div>
                 <div> Spaces: <span class="font-bold">{{ totalSpaces }}</span></div>
+                <!-- <div> Sentences: <span class="font-bold">{{ totalSentences }}</span></div> -->
             </div>
             <div>
                 <UTextarea v-model="textRaw" :rows="19" placeholder="Add your text here ..."></UTextarea>
