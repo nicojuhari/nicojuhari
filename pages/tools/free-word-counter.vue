@@ -1,8 +1,8 @@
 <script setup>
 useHead({
-    title: 'Free Word and Characters Counter',
+    title: 'Instantly Count Words & Characters Online (Free!)',
     meta: [
-        { name: 'description', content: 'Count characters and words for free! Our online tool is quick, easy, and accurate. No downloads needed - simply paste your text and get your results instantly.' }
+        { name: 'description', content: 'Our free online tool helps you track word count and character count for perfect content creation. Ideal for writers, bloggers, and social media users. Try it Now!' }
     ],
 })
 
