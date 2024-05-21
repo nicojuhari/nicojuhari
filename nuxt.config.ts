@@ -37,7 +37,7 @@ export default defineNuxtConfig({
             htmlAttrs: {
               lang: 'en'
             },
-            title: 'Web and Shopify Developer | Freelancer',
+            title: 'Shopify Developer and Freelancer',
             titleTemplate: '%s',
             link: [
                 { rel: 'icon', type:'image/x-icon', href: '/favicon.ico' },

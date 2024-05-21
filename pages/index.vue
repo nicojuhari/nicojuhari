@@ -1,6 +1,6 @@
 <script setup>
 useHead({
-    title: 'Web and Shopify Developer | Freelancer',
+    title: 'Shopify Developer and Freelancer',
     meta: [
         { name: 'description', content: 'Pixel-perfect, fast, and SEO-friendly business and ecommerce(Shopify) websites. Improve your online presence with expert design and development.' },
         { name: 'keywords', content: 'Web developer, freelancer, shopify website design, business website design' },
