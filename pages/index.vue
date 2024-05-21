@@ -1,9 +1,9 @@
 <script setup>
 useHead({
-    title: 'Freelance Web Developer: Restaurant Website Design',
+    title: 'Web and Shopify Developer | Freelancer',
     meta: [
-        { name: 'description', content: 'Pixel-perfect, fast, and SEO-friendly web apps designed specially for businesses and restaurants. Improve your online presence with expert design and development.' },
-        { name: 'keywords', content: 'Web developer, freelancer, restaurant website design, business website design' },
+        { name: 'description', content: 'Pixel-perfect, fast, and SEO-friendly business and ecommerce(Shopify) websites. Improve your online presence with expert design and development.' },
+        { name: 'keywords', content: 'Web developer, freelancer, shopify website design, business website design' },
     ],
 })
 </script>

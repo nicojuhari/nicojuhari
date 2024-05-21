@@ -9,7 +9,7 @@
             </div>
             <div class="flex flex-col gap-3">
                 <div class="text-gray-600">Hi, I am Nick</div>
-                <h1 class="hero-title">Freelance <br class="md:hidden">Web Developer</h1>
+                <h1 class="hero-title">Web & Shopify Developer</h1>
                 <div class="text-gray-600">I create pixel-perfect, fast, and SEO-friendly web apps.</div>
                 <div class="flex gap-6 items-center mt-2">
                     <UButton to="/portfolio" class="w-auto flex-grow sm:max-w-28 justify-center" variant="outline" color="brand" size="lg" title="My Portfolio">Portfolio</UButton>

@@ -37,7 +37,7 @@ export default defineNuxtConfig({
             htmlAttrs: {
               lang: 'en'
             },
-            title: 'Freelance Web Developer: Restaurant Website Design',
+            title: 'Web and Shopify Developer | Freelancer',
             titleTemplate: '%s',
             link: [
                 { rel: 'icon', type:'image/x-icon', href: '/favicon.ico' },
@@ -46,8 +46,8 @@ export default defineNuxtConfig({
                 { rel: 'apple-touch-icon', sizes:"180x180", href:"/apple-touch-icon.png" }
             ],
             meta: [
-                { name: 'description', content: 'Pixel-perfect, fast, and SEO-friendly web apps designed specially for businesses and restaurants. Improve your online presence with expert design and development.' },
-                { name: 'keywords', content: 'Web developer, freelancer, restaurant website design, business website design' },
+                { name: 'description', content: 'Pixel-perfect, fast, and SEO-friendly web apps: Business and Ecommerce (Shopify) websites. Improve your online presence with expert design and development.' },
+                { name: 'keywords', content: 'Web developer, freelancer, shopify developer, business website design' },
                 { name: 'google-site-verification', content: "oOiepCGY8_h_x8LguPX3bbyO0MKDXRKE6dSSKlSUiKI"}
             ],
         },

@@ -1,7 +1,7 @@
 <script setup>
 import { reset } from '@formkit/core'
     useHead({
-    title: 'Contact me - Freelance Web Developer',
+    title: 'Contact me - Web and Shopify Developer',
     titleTemplate: '%pageTitle',
     meta: [
         { name: 'description', content: 'Get in touch for custom websites that convert & impress. Contact for a free quote & see how I can help you succeed online with expert design solutions.' },
