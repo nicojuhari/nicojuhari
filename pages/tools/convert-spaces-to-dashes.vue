@@ -1,6 +1,6 @@
 <script setup>
 useHead({
-    title: 'Convert Spaces to Dashes or Underscores',
+    title: 'Convert Spaces to Dashes or Underscores in Text: Online & Free!',
     meta: [
         { name: 'description', content: 'Easily Convert Spaces to Dashes (-) or Underscores (_) Online! Our free tool lets you instantly transform text with a single click. Perfect for filenames, URLs, and social media handles. Try it now!' }
     ],
@@ -13,20 +13,25 @@ const replaceOptions = ['dashes', 'underscores']
 
 const transformText = ref('lowercase')
 const transformOptions = ['none', 'lowercase', 'uppercase', 'capitalize']
-// remove spaces and replace with dashes
-const textDashes = computed(() => textRaw.value.replace(/\s+/g, '-'))
-const textUnderscores = computed(() => textRaw.value.replace(/\s+/g, '_'))
 
 const convertedText = computed(() => {
     let text = '';
-    if (replaceWithSymbol.value === 'dashes') text = textDashes.value
-    else text = textUnderscores.value
+    if (!textRaw.value) return text
+
+    //remove around spaces
+    let textBefore = textRaw.value.trim()
+    
+    let replaceWith = replaceWithSymbol.value === 'dashes' ? '-' : '_'
+    text = textBefore.replace(/\s+/g, replaceWith)
 
     // transform text
     if (transformText.value === 'none') return text
     else if (transformText.value === 'lowercase') return text.toLowerCase()
     else if (transformText.value === 'uppercase') return text.toUpperCase()
-    else return text.replace(/\b\w/g, (char) => char.toUpperCase())
+    else if (transformText.value === 'capitalize') {
+        text = text.toLowerCase()
+        return text.replace(/\b\w/g, (char) => char.toUpperCase())
+    }
 })
 
 //copy to clipboard
@@ -65,6 +70,13 @@ const copyToClipboard = () => {
                     with inconsistent filenames, URLs, or social media handles.</p>
                 <p>Just copy and paste your text, choose dashes
                     or underscores, and let us do the work!</p>
+                <p>Also, you can transform your text to:    
+                    <ul class="list-disc list-inside">
+                        <li>Lowercase</li>
+                        <li>Uppercase</li>
+                        <li>Capitalize</li>
+                    </ul>
+                </p>
 
                 <p>This handy tool keeps things clean and organized. Consistent filenames make your computer easier to
                     navigate. Dashes or underscores in URLs can even improve search engine visibility. And for social
