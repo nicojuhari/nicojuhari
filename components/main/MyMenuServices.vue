@@ -19,7 +19,7 @@
 <template>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 bg-blue-950 p-8 md:p-10 text-white rounded-lg">
         <div>
-            <h3 class="text-3xl font-bold mb-6 md:mb-8">I could help you, with:</h3>
+            <div class="text-3xl font-bold mb-6 md:mb-8">I could help you, with:</div>
             <div class="grid grid-cols-1 gap-4">
                 <div v-for="item in list" :key="item.title" class="flex items-center gap-4 text-gray-100">
                     <Icon name="i-ph-check-bold" class="w-4 h-4 text-green-600 shrink-0"/>
