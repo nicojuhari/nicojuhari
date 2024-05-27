@@ -27,7 +27,7 @@ const refreshStorageFiles = async () => {
 }
 </script>
 <template>
-    <div class="container my-20">
+    <div class="container py-24">
         <h2 class="text-center my-6 text-xl font-medium">Your Storages</h2>
         <div class="flex flex-col md:flex-row gap-6">
             <UButton variant="outline" @click="refreshStorageFiles">
