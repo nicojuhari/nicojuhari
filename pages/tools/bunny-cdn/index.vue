@@ -1,8 +1,4 @@
 <script setup>
-// definePageMeta({
-//     layout: 'bunny'
-// })
-
 useHead({
     title: 'Streamline Your Bunny.net CDN: Free Asset Management Tool',
     meta: [
@@ -17,7 +13,7 @@ const showModal = ref(false);
     <div>
         <BunnyHero />
         <BunnyStorageList v-if="storageZones?.length" />
-        <div class="container py-24 bg-gray-100 rounded border" v-else>
+        <div class="container py-24" v-else>
             <div class="text-center py-6">
                 <div class="mb-4">To get started, enter your <a href="https://bunny.net?ref=kw3bknywrh" target="_blank"
                         rel="nofollow" class="font-medium">Bunny.net</a> API key and fetch your storages.</div>
@@ -101,7 +97,6 @@ const showModal = ref(false);
 
             <p><strong>Start Managing Your Assets Now!</strong></p>
         </div>
-
         <UModal v-model="showModal" class="custom-class">
             <BunnyModalsStorageConfig @close="showModal = false" />
         </UModal>
