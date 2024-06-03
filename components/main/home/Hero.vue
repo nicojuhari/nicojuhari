@@ -6,6 +6,7 @@
         <div class="container py-16 md:py-32 md:text-xl flex flex-col md:flex-row gap-14 items-center">
             <div>
                 <img src="/assets/nick-profile-photo.webp"
+                alt="Nick's profile photo" title="Nick's profile photo"
                     class="w-48 h-48 rounded-full shadow-md hover:scale-105 duration-700 grayscale hover:grayscale-0" />
             </div>
             <div class="flex flex-col gap-3">
