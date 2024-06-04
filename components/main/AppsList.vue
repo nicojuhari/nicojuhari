@@ -13,14 +13,14 @@ const apps = [
     {
         title: "UI for Bunny CDN",
         url: '/tools/bunny-cdn',
-        logo: 'bunnyLogo.svg',
+        icon: 'i-logos-bunny-net-icon',
         description: 'Manage your bunny.net assets from a single UI.'
     },
     {
         title: "My Promo Cards Online",
         url: 'https://my-promo-cards.web.app/',
         external: true,
-        logo: 'promoLogo.svg',
+        icon: 'i-iconamoon-discount-thin',
         description: 'Add your promo cards online and enjoy constant savings.'
     },
     {
@@ -56,7 +56,7 @@ const apps = [
                         <div class="flex flex-col gap-6 items-center">
                             <img v-if="app.logo" :src="'/' + app.logo" class="w-8 h-8 inline-block shrink-0"
                                 :alt="app.title">
-                            <UIcon v-if="app.icon" :name="app.icon" class="text-[32px] text-brand-400 shrink-0" dynamic>
+                            <UIcon v-if="app.icon" :name="app.icon" class="text-[32px] text-red-500 shrink-0" dynamic>
                             </UIcon>
                             <span class="font-bold text-xl">{{ app.title }}</span>
                         </div>

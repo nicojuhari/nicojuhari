@@ -45,9 +45,11 @@
                             <UIcon name="i-ph-check-light" class="w-3 h-3 text-green-600" /> {{ benefit }}
                         </div>
                     </div>
-
                 </div>
-
+            </div>
+            <div class="my-8 text-center">
+                <UButton to="/contact" class="w-36 flex-grow justify-center" color="brand" size="lg"
+                    title="Hire me">Hire me</UButton>
             </div>
         </div>
     </section>

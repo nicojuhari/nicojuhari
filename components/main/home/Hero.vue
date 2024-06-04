@@ -14,10 +14,10 @@
                 <h1 class="hero-title">Freelance Web Developer</h1>
                 <div class="text-gray-600">I create pixel-perfect, fast, and SEO-friendly web apps.</div>
                 <div class="flex gap-6 items-center mt-2">
-                    <UButton to="/portfolio" class="w-auto flex-grow sm:max-w-28 justify-center" variant="outline"
+                    <UButton to="/portfolio" class="w-auto flex-grow sm:max-w-28 justify-center"
                         color="brand" size="lg" title="My Portfolio">Portfolio</UButton>
-                    <UButton to="/contact" class="w-auto flex-grow sm:max-w-28 justify-center" color="brand" size="lg"
-                        title="Hire me">Hire me</UButton>
+                    <UButton to="/demos" class="w-auto flex-grow sm:max-w-28 justify-center" variant="soft"
+                        color="brand" size="lg" title="Demo projects">Demos</UButton>
                 </div>
             </div>
         </div>
