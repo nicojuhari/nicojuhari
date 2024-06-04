@@ -56,14 +56,14 @@ const totalLines = computed(() => {
             <div class="mb-8 text-lg font-normal text-center">Analyze your text instantly and get detailed insights
                 beyond just word count - characters, sentences, lines & more!</div>
         </div>
-        <div class="container flex flex-col md:flex-row gap-8">
-            <div class="word-counter-left">
+        <div class="container grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="md:col-span-2">
                 <UTextarea v-model="textRaw" :rows="19" placeholder="Add your text here ..."></UTextarea>
                 <div class="mt-6" v-if="textRaw">
                     <UButton color="brand" @click="() => textRaw = ''">Clear</UButton>
                 </div>
             </div>
-            <div class="word-counter-right card">
+            <div>
                 <UCard>
                     <div class="grid grid-cols-2 gap-6">
                         <div class="grid place-content-center text-center gap-4">
@@ -140,17 +140,3 @@ const totalLines = computed(() => {
         </div>
     </section>
 </template>
-<style scoped>
-    .word-counter-left, .word-counter-right {
-        flex: 1;
-    }
-    @media (min-width: 768px) {
-        .word-counter-left {
-            flex: 2;
-        }
-        .word-counter-right {
-            flex: 1;
-        }
-    }
-
-</style>
