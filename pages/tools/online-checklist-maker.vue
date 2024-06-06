@@ -93,8 +93,9 @@ onMounted(() => {
     const tasksFromLocalStorage = localStorage.getItem('nc_checklist_tasks');
     if (tasksFromLocalStorage) {
         tasks.value = JSON.parse(tasksFromLocalStorage);
-        isLoading.value = false;
     }
+
+    isLoading.value = false;
 });
 
 //sortable
