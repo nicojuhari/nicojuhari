@@ -35,7 +35,7 @@ body ::selection {
 }
 
 h1, h2, h3, h4, h5, h6 {
-        font-weight: 700;
+        font-weight: 600;
         line-height: 1.25;
     }
 
@@ -128,9 +128,6 @@ pre {
     @apply text-blue-700 border-blue-700
 }
 
-
-
-
 .line-clamp-2 {
     display: -webkit-box;
     overflow: hidden;
@@ -144,4 +141,10 @@ pre {
 
 .mask {
     overflow: hidden;
+}
+
+legend {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: .5rem;
 }

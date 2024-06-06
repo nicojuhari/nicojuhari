@@ -41,6 +41,12 @@ const apps = [
         icon: 'i-ph-text-indent',
         description: 'Convert spaces to dashes or underscores in any text.'
     },
+    {
+        title: "Online Checklist Maker",
+        url: '/tools/online-checklist-maker',
+        icon: 'i-ph-list-checks-light',
+        description: 'Create a checklist online and keep track of your tasks.'
+    },
 
 ]
 </script>   
