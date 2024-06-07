@@ -2,40 +2,37 @@
 
 </script>
 <template>
-    <section class="md-section">
-        <div class="text-3xl font-bold mb-6 text-center">How it works</div>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
-            <div class="p-6 flex flex-col justify-center items-center text-center gap-4">
-                <Icon name="i-ph-pencil-light" class="w-10 h-10 text-blue-600 text-center" />
-                <div class="font-medium text-center text-xl">Create</div>
-                <div>Categories, products and allergens, include appetizing food images to attract customers and boost
-                    orders.</div>
-            </div>
-            <div class="p-6 flex flex-col justify-center items-center text-center gap-4">
-                <Icon name="i-ph-copy-light" class="w-10 h-10 text-blue-600 text-center" />
-                <div class="font-medium text-center text-xl">Copy</div>
-                <div>Choose from our collection of pre-designed menu templates, which are fast, modern, and responsive.
+    <div class="grid grid-cols-1 md:grid-cols-2 my-10">
+        <div class="px-6 py-8 md:p-10">
+            <div class="text-3xl font-bold mb-6 md:mb-8 text-center">How it works</div>
+            <div class="space-y-10">
+                <div class="flex items-center gap-4">
+                    <Icon name="i-ph-pencil-light"
+                        class="w-12 h-12 text-blue-600 text-center shrink-0 bg-blue-600 rounded bg-opacity-10 p-2" />
+                    <div><strong>Create</strong> categories and products.</div>
+                </div>
+                <div class="flex items-center gap-4">
+                    <Icon name="i-ph-copy-light"
+                        class="w-12 h-12 text-blue-600 text-center shrink-0 bg-blue-600 rounded bg-opacity-10 p-2" />
+                    <div><strong>Copy</strong> a pre-designed menu template.</div>
+                </div>
+                <div class="flex items-center gap-4">
+                    <Icon name="i-ph-arrow-square-down-light"
+                        class="w-12 h-12 text-blue-600 text-center shrink-0 bg-blue-600 rounded bg-opacity-10 p-2" />
+                    <div><strong>Paste</strong> the digital menu into your website.</div>
                 </div>
             </div>
-            <div class="p-6 flex flex-col justify-center items-center text-center gap-4">
-                <Icon name="i-ph-arrow-square-down-light" class="w-10 h-10 text-blue-600 text-center" />
-                <div class="font-medium text-center text-xl">Paste</div>
-                <div>Iclude it into your website or app. Your beautiful, digital menu is ready to impress customers and
-                    drive sales.</div>
+            <div class="mt-10 text-center">
+                <UButton to="/demos/free-food-menu-design" title="Free Food Menu Design" color="red" variant="outline"
+                    size="lg">View the Menu Designs</UButton>
             </div>
         </div>
-        <div class="mt-8 text-center">
-            <UButton to="/demos/free-food-menu-design" title="Free Food Menu Design" color="red" variant="outline"
-                size="lg">View the Menu Designs</UButton>
-        </div>
-    </section>
-    <MainMyMenuServices />
+        <MainMyMenuServices />
+    </div>
     <div class="my-10 space-y-4">
-
-
-
         <p>In today's fast-paced world, customers expect a seamless dining experience - and that includes a
-            user-friendly menu. Gone are the days of bulky, static PDF menus. A <strong>digital menu</strong> offers a
+            user-friendly menu.</p>
+        <p>Gone are the days of bulky, static PDF menus.<br> A <strong>digital menu</strong> offers a
             modern,
             interactive way to showcase your culinary creations and enhance the customer experience.</p>
 
