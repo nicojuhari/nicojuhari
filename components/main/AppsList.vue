@@ -1,62 +1,73 @@
 
 
 <script setup>
+    const route = useRoute();
+    const filteredApps = ref([]);
 
-const apps = [
-    {
-        title: "Free Menu Maker",
-        url: '/tools/free-menu-maker',
-        icon: 'i-ph-fork-knife-light',
-        // logo: 'menuLogo.svg',
-        description: 'Create a digital food menu for your restaurant, bar or cafe.'
-    },
-    {
-        title: "UI for Bunny CDN",
-        url: '/tools/bunny-cdn',
-        icon: 'i-logos-bunny-net-icon',
-        description: 'Manage your bunny.net assets from a single UI.'
-    },
-    {
-        title: "My Promo Cards Online",
-        url: 'https://my-promo-cards.web.app/',
-        external: true,
-        icon: 'i-iconamoon-discount-thin',
-        description: 'Add your promo cards online and enjoy constant savings.'
-    },
-    {
-        title: "QR Code Generator",
-        url: '/tools/free-qr-code-generator',
-        icon: 'i-ph-qr-code-light',
-        description: 'Create a QR Code for any url. Easy and Simple.'
-    },
-    {
-        title: "Word Counter",
-        url: '/tools/free-word-counter',
-        icon: 'i-mdi-counter',
-        description: 'Count characters and words in any text.'
-    },
-    {
-        title: "Space Converter",
-        url: '/tools/convert-spaces-to-dashes',
-        icon: 'i-ph-text-indent',
-        description: 'Convert spaces to dashes or underscores in any text.'
-    },
-    {
-        title: "Online Checklist Maker",
-        url: '/tools/online-checklist-maker',
-        icon: 'i-ph-list-checks-light',
-        description: 'Create a checklist online and keep track of your tasks.'
-    },
+    let apps = [
+        {
+            title: "Free Menu Maker",
+            url: '/tools/free-menu-maker',
+            icon: 'i-ph-fork-knife-light',
+            description: 'Create a digital food menu for your restaurant, bar or cafe.'
+        },
+        {
+            title: "UI for Bunny CDN",
+            url: '/tools/bunny-cdn',
+            icon: 'i-logos-bunny-net-icon',
+            description: 'Manage your bunny.net assets from a single UI.'
+        },
+        {
+            title: "My Promo Cards Online",
+            url: 'https://my-promo-cards.web.app/',
+            external: true,
+            icon: 'i-iconamoon-discount-thin',
+            description: 'Add your promo cards online and enjoy constant savings.'
+        },
+        {
+            title: "QR Code Generator",
+            url: '/tools/free-qr-code-generator',
+            icon: 'i-ph-qr-code-light',
+            description: 'Create a QR Code for any url. Easy and Simple.'
+        },
+        {
+            title: "Word Counter",
+            url: '/tools/free-word-counter',
+            icon: 'i-mdi-counter',
+            description: 'Count characters and words in any text.'
+        },
+        {
+            title: "Space Converter",
+            url: '/tools/convert-spaces-to-dashes',
+            icon: 'i-ph-text-indent',
+            description: 'Convert spaces to dashes or underscores in any text.'
+        },
+        {
+            title: "Online Checklist Maker",
+            url: '/tools/online-checklist-maker',
+            icon: 'i-ph-list-checks-light',
+            description: 'Create a checklist online and keep track of your tasks.'
+        },
 
-]
+    ];
+
+    //filter out the current app
+    // f.value = apps.value.filter(app => app.url !== route.path);
+
+    watchEffect(() => {
+        filteredApps.value = apps.filter(app => app.url !== route.path);
+    })
+
 </script>   
 <template>
     <section class="md-section">
         <div class="container">
-            <div class="subtitle mb-10 text-center">Free Apps & Tools</div>
+            <slot name="sectionTitle">
+                <div class="subtitle mb-10 text-center">Free Apps & Tools</div>
+            </slot>
             <div class="m-auto grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-8">
                 <div class="bg-white border border-gray-400 hover:bg-gray-100 hover:border-gray-200 duration-300 rounded-xl"
-                    v-for="app in apps" :key="app.title">
+                    v-for="app in filteredApps" :key="app.title">
                     <NuxtLink :to="app.url" :target="app.external ? '_blank': ''" class="p-6 md:p-8 block text-center"
                         :title="app.title">
                         <div class="flex flex-col gap-6 items-center">
