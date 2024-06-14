@@ -121,7 +121,7 @@ sortableOptions.value = useSortable(checkListRef, tasks.value, options)
     </section>
     <section class="bg-slate-50 min-h-">
         <div class="container">
-            <div class="max-w-[600px] m-auto space-y-8">
+            <div class="max-w-[600px] m-auto">
                 <UCard :ui="{ body: { padding: '!px-8 !py-10' } }">
                     <div class="space-y-6">
                         <UFormGroup label="Task" class="flex-1">
