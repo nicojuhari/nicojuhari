@@ -1,18 +1,15 @@
 <script setup >
-// import { ref, computed, watch, watchEffect, onBeforeUnmount } from "vue"
-import useStorageZones, { storageFiles, pullZones, activePullZoneURL } from "../../composables/useStorageZones";
-definePageMeta({
-    layout: 'bunny'
-})
-// import usePath from '../../use/usePath';
-// import useFiles from "../../use/useFiles";
+    import useStorageZones, { storageFiles, pullZones, activePullZoneURL } from "../../composables/useStorageZones";
+    definePageMeta({
+        layout: 'bunny'
+    })
 
-const { currentPath, changePath } = usePath();
-const { deleteFileFromServer } = useFiles();
+    const { currentPath, changePath } = usePath();
+    const { deleteFileFromServer } = useFiles();
 
-const objectGuid = ref('');
-const showImageModal = ref(false)
-const showImages = ref(false)
+    const objectGuid = ref('');
+    const showImageModal = ref(false)
+    const showImages = ref(false)
 
 
 const { getStorageInfo, storageInfo, getStorageFiles, isLoading } = useStorageZones();
@@ -25,7 +22,11 @@ watch(currentPath, () => {
 
 watchEffect(() => {
     storageInfo?.value?.PullZones.forEach((element) => {
-        if (element?.Hostnames) pullZones.value.push(element?.Hostnames?.[0].Value);
+        if (element?.Hostnames) {
+            element.Hostnames.forEach(origin => {
+                pullZones.value.push(origin.Value);
+            });
+        }
 
         activePullZoneURL.value = storageInfo?.value?.PullZones?.[0]?.Hostnames?.[0].Value;
     });

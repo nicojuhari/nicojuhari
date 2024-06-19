@@ -1,5 +1,4 @@
 <script setup>
-import { ref } from "vue"
 import useStorageZones, { pullZones, activePullZoneURL } from "../../../composables/useStorageZones";
 
 const props = defineProps(['modelValue'])
