@@ -1,5 +1,5 @@
 Hi, I am Nick
 
-## Freelance Web Developer
+## Full-Stack JavaScript Developer
 
-I create pixel-perfect, fast, and SEO-friendly business websites and landing pages.
+Creating pixel-perfect, fast, and SEO-friendly web apps with Nuxt, Vue.js, and Appwrite.
