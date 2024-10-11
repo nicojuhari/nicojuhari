@@ -1,7 +1,7 @@
 <script setup>
     import { storeToRefs } from "pinia"
     import { useMenuStore } from '~/store/menu';
-    import { getHighlighter } from 'shikiji'
+    import { getHighlighter } from 'shiki'
     import { useClipboard } from '@vueuse/core'
 
     const { menu, designConfig } = storeToRefs(useMenuStore())

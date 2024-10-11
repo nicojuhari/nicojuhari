@@ -3,21 +3,21 @@
 </script>
 <template>
     <section>
-        <div class="container py-16 md:py-32 md:text-xl flex flex-col md:flex-row gap-14 items-center">
+        <div class="container py-10 md:py-20 md:text-xl flex flex-col md:flex-row gap-14 items-center">
             <div>
-                <img src="/assets/nick-profile-photo.webp"
-                alt="Nick's profile photo" title="Nick's profile photo"
-                    class="w-48 h-48 rounded-full shadow-md hover:scale-105 duration-700 grayscale hover:grayscale-0" />
+                <img src="/assets/nick-profile-photo.webp" alt="Nick's profile photo" title="Nick's profile photo"
+                    class="w-48 h-48 rounded-full shadow-md" />
             </div>
             <div class="flex flex-col gap-3">
                 <div class="text-gray-600">Hi, I am Nick</div>
-                <h1 class="hero-title">Freelance Web Developer</h1>
-                <div class="text-gray-600">I create pixel-perfect, fast, and SEO-friendly web apps.</div>
-                <div class="flex gap-6 items-center mt-2">
-                    <UButton to="/portfolio" class="w-auto flex-grow sm:max-w-28 justify-center"
-                        color="brand" size="lg" title="My Portfolio">Portfolio</UButton>
-                    <UButton to="/demos" class="w-auto flex-grow sm:max-w-28 justify-center" variant="soft"
-                        color="brand" size="lg" title="Demo projects">Demos</UButton>
+                <h1 class="hero-title">Full-Stack JavaScript Developer</h1>
+                <h2 class="text-base md:text-xl font-normal text-gray-600">Creating pixel-perfect, fast, and
+                    SEO-friendly web apps with Nuxt, Vue.js, and Appwrite.</h2>
+                <div class="flex gap-6 items-center pt-6">
+                    <UButton to="/portfolio" class="w-auto flex-grow sm:max-w-28 justify-center" color="brand"
+                        title="My Portfolio">Portfolio</UButton>
+                    <UButton to="/demos" class="w-auto flex-grow sm:max-w-28 justify-center" variant="outline"
+                        color="brand" title="Demo projects">Demos</UButton>
                 </div>
             </div>
         </div>

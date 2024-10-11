@@ -1,18 +1,20 @@
 <script setup>
 useHead({
-    title: 'Freelance Web Developer - Shopify & Business Websites',
+    title: 'Full-Stack JavaScript Developer - Nuxt | Vue.js and Appwrite',
     meta: [
-        { name: 'description', content: "Need a beautiful website to grow your business? I create pixel-perfect, fast, and SEO-friendly business websites with Nuxt.js and Shopify stores. Let\'s chat!" },
-        { name: 'keywords', content: 'Web developer, freelancer, shopify website design, business website design' },
+        { name: 'description', content: "Creating fast, pixel-perfect, and SEO-friendly web apps for modern businesses, using Nuxt | Vue.js and Appwrite. Explore my portfolio and FREE web tools." },
+        { name: 'keywords', content: 'web developer, JavaScript Developer, nuxt, vue.js developer, business website design' },
     ],
 })
 </script>
 <template>
     <div>
-        <!-- <Body class="bg-gray-100"></Body> -->
+        <Body class="bg-gray-50"></Body>
         <MainHomeHero />
-        <MainHomeMyServices />
-        <MainAppsList/>
+        <MainWebApps/>
+        <MainToolsList/>
+        <!-- <MainHomeMyServices /> -->
+        <!-- <MainAppsList/> -->
         <MainHomeMyStack />
     </div>
 </template>
