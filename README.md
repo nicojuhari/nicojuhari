@@ -1,5 +1,5 @@
 Hi, I am Nick
 
-## Full-Stack JavaScript Developer
+## Full-Stack Web Developer
 
-Creating pixel-perfect, fast, and SEO-friendly web apps with Nuxt, Vue.js, and Appwrite.
+Creating pixel-perfect, fast, and SEO-friendly web apps with Nuxt and Appwrite.
