@@ -10,9 +10,9 @@
             </div>
             <div class="flex flex-col gap-3">
                 <div class="text-gray-600">Hi, I am Nick</div>
-                <h1 class="hero-title">Full-Stack JavaScript Developer</h1>
+                <h1 class="hero-title">Full-Stack Web Developer</h1>
                 <h2 class="text-base md:text-xl font-normal text-gray-600">Creating pixel-perfect, fast, and
-                    SEO-friendly web apps with Nuxt, Vue.js, and Appwrite.</h2>
+                    SEO-friendly web apps with Nuxt and Appwrite.</h2>
                 <div class="flex gap-6 items-center pt-6">
                     <UButton to="/portfolio" class="w-auto flex-grow sm:max-w-28 justify-center" color="brand"
                         title="My Portfolio">Portfolio</UButton>

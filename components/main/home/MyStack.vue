@@ -16,7 +16,7 @@ let myStack = [
         bgColor: '#f8e41a'
     },
     {
-        name: 'Nuxt.js',
+        name: 'Nuxt',
         icon: 'nuxt-icon',
         bgColor: '#00ce71'
     },

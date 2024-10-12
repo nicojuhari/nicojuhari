@@ -1,10 +1,10 @@
 <script setup>
 
 useHead({
-    title: 'My Portfolio as a Freelance Web Developer',
+    title: 'My Portfolio as a Freelancer and Web Developer',
     meta: [
         { name: 'keywords', content: 'web projects, portfolio, web developer, javasrcipt developer, business websites, website development' },
-        { name: 'description', content: `Explore a diverse collection of my past web projects crafted with WordPress, JavaScript, SASS, CSS, PHP, Vue.js, Nuxt.js, and more.` },
+        { name: 'description', content: `Explore a diverse collection of my past web projects crafted with WordPress, JavaScript, SASS, CSS, PHP, Vue, Nuxt, and more.` },
     ],
 })
 </script>

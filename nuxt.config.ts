@@ -1,5 +1,9 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-export default defineNuxtConfig({
+
+const siteTitle = 'Full-Stack Web Developer - Nuxt and Appwrite'
+const siteDescription = 'Creating fast, pixel-perfect, and SEO-friendly web apps for modern businesses, using Nuxt and Appwrite. Explore my portfolio and FREE web tools.'
+
+export default defineNuxtConfig({ 
   devtools: { enabled: true },
   modules: ['@nuxt/ui', '@formkit/nuxt', '@vueuse/nuxt', '@pinia/nuxt', '@nuxtjs/seo', [ "@storyblok/nuxt", { accessToken: 'EzikCGO5TZGapwffPYn4rAtt' }]],
   ui: {
@@ -28,8 +32,8 @@ export default defineNuxtConfig({
             id: 'G-YC2EDZRT9H'
           },
             siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'https://nicojuhari.com',
-            siteName: 'Full-Stack JavaScript Developer - Nuxt | Vue.js and Appwrite',
-            siteDescription: 'Creating fast, pixel-perfect, and SEO-friendly web apps for modern businesses, using Nuxt | Vue.js and Appwrite. Explore my portfolio and FREE web tools.',
+            siteName: siteTitle,
+            siteDescription,
             language: 'en', 
         },
         siteUrl: 'https://nicojuhari.com',
@@ -40,7 +44,7 @@ export default defineNuxtConfig({
             htmlAttrs: {
               lang: 'en'
             },
-            title: 'Full-Stack JavaScript Developer - Nuxt | Vue.js and Appwrite',
+            title: siteTitle,
             titleTemplate: '%s',
             link: [
                 { rel: 'icon', type:'image/x-icon', href: '/favicon.ico' },
@@ -49,9 +53,9 @@ export default defineNuxtConfig({
                 { rel: 'apple-touch-icon', sizes:"180x180", href:"/apple-touch-icon.png" }
             ],
             meta: [
-                { name: 'description', content: 'Creating fast, pixel-perfect, and SEO-friendly web apps for modern businesses, using Nuxt | Vue.js and Appwrite. Explore my portfolio and FREE web tools.' },
-                { name: 'keywords', content: 'Web developer, freelancer, shopify developer, business website design' },
-                { name: 'google-site-verification', content: "oOiepCGY8_h_x8LguPX3bbyO0MKDXRKE6dSSKlSUiKI"}
+                { name: 'description', content: siteDescription },
+                { name: 'keywords', content: 'Web developer, JavaScript developer, Nuxt, Vue, web apps' },
+                { name: 'google-site-verification', content: "oOiepCGY8_h_x8LguPX3bbyO0MKDXRKE6dSSKlSUiKI"} 
             ],
         },
     },
