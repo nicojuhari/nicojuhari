@@ -57,7 +57,7 @@ watchEffect(() => {
                         class="p-4 md:p-6 flex gap-6 items-center" :title="app.title">
                         <img v-if="app?.logo" :src="app.logo" class="h-12 w-12 object-contain" />
                         <UIcon v-else-if="app?.icon" :name="app.icon" class="text-5xl shrink-0"
-                            :class="app.iconColor ? app.iconColor : 'text-red-500'" dynamic>
+                            :class="app.iconColor ? app.iconColor : 'text-gray-400'" dynamic>
                         </UIcon>
                         <div class="space-y-2">
                             <h4 class="font-semibold text-xl">{{ app.title }}</h4>

@@ -17,11 +17,11 @@ let apps = [
         description: 'Manage your bunny.net assets from a single UI.'
     },
     {
-        title: "Promo Cards Online",
-        url: 'https://my-promo-cards.web.app/',
+        title: "Saver Wallet",
+        url: 'https://saver-wallet.netlify.app/',
         external: true,
-        icon: 'i-iconamoon-discount-thin',
-        description: 'Add your promo cards online and enjoy constant savings.'
+        logo: 'https://saver-wallet.netlify.app/saver-wallet-logo.svg',
+        description: 'Add your cards online and start saving today.'
     },
     {
         title: "Rock Paper Scissors",
