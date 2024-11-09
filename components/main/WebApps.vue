@@ -4,11 +4,11 @@ const filteredApps = ref([]);
 
 let apps = [
     {
-        title: "Free Menu Maker",
-        url: '/tools/free-menu-maker',
-        icon: 'i-ph-fork-knife-light',
-        iconColor: 'text-green-600',
-        description: 'Create a digital food menu for your restaurant, bar or cafe.'
+        title: "1FoodMenu",
+        url: 'https://1food.menu/',
+        external: true,
+        logo: 'https://1food.menu/1food-menu-logo.svg',
+        description: 'Digital Food Menus for restaurants, bars or cafes.'
     },
     {
         title: "UI for Bunny CDN",
