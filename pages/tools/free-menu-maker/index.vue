@@ -8,40 +8,12 @@
         ],
     })
 
-   const showPopup = ref(true);
-
-    onMounted(() => {
-        setTimeout(() => {
-            showPopup.value = true;
-        }, 1000);
-    });
-
 </script>   
 <template>
     <div class="container py-10">
-        <ClientOnly v-if="$route.query.menu_uid">
-            <MenuDashboard></MenuDashboard>
-        </ClientOnly>
-        <template v-else>
-            <div class="mb-10 md:mb-14 text-center">
-                <h1 class="font-bold text-3xl mb-2">Design Your Free Digital Menu Online</h1>
-                <h2 class="mb-8 text-lg font-normal">Create a professional menu for your restaurant, bar, or cafe in minutes!</h2>
-            </div>
-            <ClientOnly>
-                <MenuList></MenuList>
-            </ClientOnly>
-            <MenuToolDescription></MenuToolDescription>
-        </template>
+        <div class="text-center my-20">
+            <div class="text-2xl font-bold">Sorry, the app is moved to a new place.</div>
+            <div class="text-lg mt-8">Please, use <a class="text-blue-500 underline" href="https://1food.menu?ref=free-menu-maker" target="_blank">1FoodMenu</a> instead.</div>
+        </div>
     </div>
-    <UModal v-model="showPopup">
-        <UCard>
-             <template #header>
-                <div class="flex items-center justify-between">
-                    <div class="text-xl font-bold">Depricated</div>
-                    <UIcon name="i-ph-x" class="w-6 h-6 cursor-pointer" @click="showPopup = false" />
-                </div>
-            </template>
-            <p>The Free Menu Maker app is being depricated soon.<br>Please, save your menu and use <a href="https://1food.menu" class="text-blue-500">1FoodMenu</a> instead.</p>
-        </UCard>
-    </UModal>
 </template>

@@ -7,7 +7,6 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ['@nuxt/ui', '@formkit/nuxt', '@vueuse/nuxt', '@pinia/nuxt', '@nuxtjs/seo', [ "@storyblok/nuxt", { accessToken: 'EzikCGO5TZGapwffPYn4rAtt' }]],
   ui: {
-    icons: ["ph"],
     disableGlobalStyles: true,
   },
   colorMode: {
@@ -21,7 +20,6 @@ export default defineNuxtConfig({
 
   routeRules: {
     '/': { prerender: true },
-    '/tools/free-menu-maker/**': { prerender: true },
     '/tools/free-qr-code-generator/**': { prerender: true },
     '/projects/**': { prerender: true },
   },
@@ -59,6 +57,5 @@ export default defineNuxtConfig({
             ],
         },
     },
-
   compatibilityDate: '2024-09-05',
 })

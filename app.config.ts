@@ -1,7 +1,7 @@
 export default defineAppConfig({
   ui: {
     primary: 'brand',
-    icons: ["ph"],
+    icons: "ph",
     modal: {
       container: 'items-center'
     },

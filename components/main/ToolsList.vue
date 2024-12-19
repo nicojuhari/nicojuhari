@@ -19,7 +19,7 @@ let apps = [
     {
         title: "Space Converter",
         url: '/tools/convert-spaces-to-dashes',
-        icon: 'i-ph-text-indent',
+        icon: 'i-tabler-transform',
         description: 'Convert spaces to dashes or underscores in any text.'
     },
     {
@@ -48,16 +48,16 @@ watchEffect(() => {
 <template>
     <section class="md-section">
         <div class="container">
-            <h3 class="subtitle mb-2 text-center">Productivity Tools</h3>
-            <div class="mb-10 text-center text-gray-600">Quick solutions for everyday tasks</div>
-            <div class="m-auto grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+            <h3 class="subtitle mb-2 text-center">Small Tools</h3>
+            <div class="mb-10 text-center text-gray-600">Built for me and sharing with you.</div>
+            <div class="m-auto grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
                 <div class="bg-white duration-300 rounded-xl shadow-md hover:shadow hover:translate-y-1"
                     v-for="app in filteredApps" :key="app.title">
                     <NuxtLink :to="app.url" :target="app.external ? '_blank' : ''"
                         class="p-4 md:p-6 flex gap-6 items-center" :title="app.title">
                         <img v-if="app?.logo" :src="app.logo" class="h-12 w-12 object-contain" />
                         <UIcon v-else-if="app?.icon" :name="app.icon" class="text-5xl shrink-0"
-                            :class="app.iconColor ? app.iconColor : 'text-gray-400'" dynamic>
+                            :class="app.iconColor ? app.iconColor : 'text-blue-500'" dynamic>
                         </UIcon>
                         <div class="space-y-2">
                             <h4 class="font-semibold text-xl">{{ app.title }}</h4>

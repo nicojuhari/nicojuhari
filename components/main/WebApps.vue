@@ -1,6 +1,4 @@
 <script setup>
-const route = useRoute();
-const filteredApps = ref([]);
 
 let apps = [
     {
@@ -32,21 +30,14 @@ let apps = [
     },
 ];
 
-//filter out the current app
-// f.value = apps.value.filter(app => app.url !== route.path);
-
-watchEffect(() => {
-    filteredApps.value = apps.filter(app => app.url !== route.path);
-})
-
 </script>
 <template>
     <section class="md-section">
         <div class="container">
-            <h3 class="subtitle mb-10 text-center">Web Apps</h3>
+            <h3 class="subtitle mb-10 text-center">Web apps I've built</h3>
             <div class="m-auto grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
                 <div class="bg-white duration-300 rounded-xl shadow-md hover:shadow hover:translate-y-1"
-                    v-for="app in filteredApps" :key="app.title">
+                    v-for="app in apps" :key="app.title">
                     <NuxtLink :to="app.url" :target="app.external ? '_blank' : ''"
                         class="p-4 md:p-6 flex gap-6 items-center" :title="app.title">
                         <img v-if="app?.logo" :src="app.logo" class="h-12 w-12 object-contain" />

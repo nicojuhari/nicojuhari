@@ -20,18 +20,18 @@
     "vue-router": "^4.4.5"
   },
   "dependencies": {
-    "@formkit/nuxt": "^1.6.7",
-    "@iconify-json/ph": "^1.2.1",
-    "@nuxt/ui": "^2.18.7",
-    "@nuxtjs/seo": "^2.0.0-rc.23",
-    "@pinia/nuxt": "^0.5.5",
-    "@storyblok/nuxt": "^6.0.13",
-    "@vueuse/integrations": "^11.1.0",
-    "@vueuse/nuxt": "^11.1.0",
-    "axios": "^1.7.7",
+    "@formkit/nuxt": "^1.6.9",
+    "@iconify-json/ph": "^1.2.2",
+    "@nuxt/ui": "^2.20.0",
+    "@nuxtjs/seo": "^2.0.2",
+    "@pinia/nuxt": "^0.9.0",
+    "@storyblok/nuxt": "^6.2.0",
+    "@vueuse/integrations": "^12.0.0",
+    "@vueuse/nuxt": "^12.0.0",
+    "axios": "^1.7.9",
     "gsap": "^3.12.5",
-    "pinia": "^2.2.4",
-    "qr-code-styling": "^1.6.0",
-    "sortablejs": "^1.15.3"
+    "pinia": "^2.3.0",
+    "qr-code-styling": "^1.8.4",
+    "sortablejs": "^1.15.6"
   }
 }

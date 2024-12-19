@@ -1,11 +1,43 @@
 {
-    "menu_uid": "lst0jhr4mtw2xzc602h",
+    "categories": [
+        {
+            "uid": "l6yq8ylexzv6v2e0bua",
+            "name": "Pizzas",
+            "description": "nice pizzas."
+        },
+        {
+            "uid": "l6yq953tnqqlkzb2ptk",
+            "name": "Pastas"
+        },
+        {
+            "uid": "l6yqd8u9jiehq8a9i6",
+            "name": "Salads"
+        },
+        {
+            "uid": "l9xcn2irx1hsp4pa66m",
+            "name": "Drinks"
+        },
+        {
+            "uid": "lf6wlreywqfccwjpjq",
+            "name": "Juices"
+        },
+        {
+            "uid": "l7klwgc81mekiakx6fb",
+            "name": "Desserts"
+        },
+        {
+            "uid": "m4k8z2dh4no0gw5vhiv",
+            "name": "Soft Drinks",
+            "description": ""
+        }
+    ],
     "products": [
         {
             "uid": "l6yr4547b2eyyp7tm9m",
             "name": "Pizza with Arugula and Prosciutto",
             "tags": [
-                "Popular"
+                "Popular",
+                "vegan"
             ],
             "inStock": true,
             "options": [
@@ -20,14 +52,34 @@
                     "salePrice": "15"
                 }
             ],
-            "imageUrl": "https://1FoodMenu.b-cdn.net/1FoodMenu/italianMenu/pizza-with-arugula-and-prosciutto.jpg",
+            "imageUrl": "https://1foodmenu-demos.b-cdn.net/1FoodMenu/italianMenu/pizza-with-arugula-and-prosciutto.jpg",
             "allergens": [
-                "lfo7t0hf3qwvdnjq563",
                 "lfo7y9sl91ns8fupah9",
                 "lfo7z4exgc9m597sxe"
             ],
             "categoryId": "l6yq8ylexzv6v2e0bua",
             "description": "tomato sauce, arugula, prosciutto"
+        },
+        {
+            "uid": "l6yr57xyex033fdqlt",
+            "name": "Vegeterian",
+            "tags": [],
+            "inStock": true,
+            "options": [
+                {
+                    "size": "13''",
+                    "price": "14.50",
+                    "salePrice": ""
+                },
+                {
+                    "size": "15",
+                    "price": "17",
+                    "salePrice": ""
+                }
+            ],
+            "imageUrl": "https://1foodmenu-demos.b-cdn.net/1FoodMenu/italianMenu/pizza-vegetarian.jpg",
+            "categoryId": "l6yq8ylexzv6v2e0bua",
+            "description": "tomato sauce, mozzarella, basil, parmesan, onion, peppers, mushroom, black olives"
         },
         {
             "uid": "l6yr1xnvovwptpk4hhf",
@@ -49,7 +101,7 @@
                     "salePrice": ""
                 }
             ],
-            "imageUrl": "https://1FoodMenu.b-cdn.net/1FoodMenu/italianMenu/pizza-margherita-new.png",
+            "imageUrl": "https://1foodmenu-demos.b-cdn.net/1FoodMenu/italianMenu/pizza-margherita-new.png",
             "allergens": [
                 "lfo7z4exgc9m597sxe",
                 "lfo7y9sl91ns8fupah9"
@@ -59,25 +111,48 @@
             "description": "tomato sauce, mozzarella, basil, parmesan"
         },
         {
-            "uid": "l6yr57xyex033fdqlt",
-            "name": "Vegeterian",
-            "tags": [],
+            "uid": "l6z175lu4tnsa3bjs6o",
+            "name": "Hawaiian Chicken Pizza Smoked",
+            "tags": [
+                "tag"
+            ],
             "inStock": true,
             "options": [
                 {
                     "size": "13''",
-                    "price": "14.50",
-                    "salePrice": ""
-                },
-                {
-                    "size": "15",
-                    "price": "17",
+                    "price": "14.5",
                     "salePrice": ""
                 }
             ],
-            "imageUrl": "https://1FoodMenu.b-cdn.net/1FoodMenu/italianMenu/pizza-vegetarian.jpg",
+            "imageUrl": "https://1foodmenu-demos.b-cdn.net/1FoodMenu/italianMenu/hawaiian-chicken-pizza-smoked.jpg",
+            "allergens": [],
             "categoryId": "l6yq8ylexzv6v2e0bua",
-            "description": "tomato sauce, mozzarella, basil, parmesan, onion, peppers, mushroom, black olives"
+            "description": "smokey bbq sauce, chicken pieces, creamy mozzarella, sweet pineapple, and flavorful red onion and cilantro."
+        },
+        {
+            "uid": "l6yr36g51pfc5f9njwb",
+            "name": "4 Cheese",
+            "tags": [
+                "Vegan",
+                "Popular"
+            ],
+            "inStock": true,
+            "options": [
+                {
+                    "size": "13''",
+                    "price": "12",
+                    "salePrice": ""
+                },
+                {
+                    "size": "add double cheese",
+                    "price": "+2",
+                    "salePrice": ""
+                }
+            ],
+            "imageUrl": "https://1foodmenu-demos.b-cdn.net/1FoodMenu/italianMenu/4-cheese-pizza.png",
+            "allergens": [],
+            "categoryId": "l6yq8ylexzv6v2e0bua",
+            "description": "tomato sauce, 4 cheese."
         },
         {
             "uid": "l6yr9ven24rwwwwzgkk",
@@ -97,7 +172,7 @@
                     "salePrice": ""
                 }
             ],
-            "imageUrl": "https://1FoodMenu.b-cdn.net/1FoodMenu/italianMenu/Lasagna-Bolognese.jpg",
+            "imageUrl": "https://1foodmenu-demos.b-cdn.net/1FoodMenu/italianMenu/Lasagna-Bolognese.jpg",
             "allergens": [
                 "lfo7t0hf3qwvdnjq563",
                 "lfo7zx4250wvq55fjyy",
@@ -122,7 +197,7 @@
                     "salePrice": ""
                 }
             ],
-            "imageUrl": "https://1FoodMenu.b-cdn.net/1FoodMenu/italianMenu/Spaghetti-Alla-carbonara.jpg",
+            "imageUrl": "https://1foodmenu-demos.b-cdn.net/1FoodMenu/italianMenu/Spaghetti-Alla-carbonara.jpg",
             "categoryId": "l6yq953tnqqlkzb2ptk",
             "description": "spaghetti, egg, pecorino, guanciale, black pepper"
         },
@@ -138,7 +213,7 @@
                     "salePrice": "11"
                 }
             ],
-            "imageUrl": "https://1FoodMenu.b-cdn.net/1FoodMenu/italianMenu/Penne-alla-puttanesca.jpg",
+            "imageUrl": "https://1foodmenu-demos.b-cdn.net/1FoodMenu/italianMenu/Penne-alla-puttanesca.jpg",
             "allergens": [],
             "categoryId": "l6yq953tnqqlkzb2ptk",
             "description": "olive oil, chili, garlic, tomato, black olives, capers & penne"
@@ -157,7 +232,7 @@
                     "salePrice": ""
                 }
             ],
-            "imageUrl": "https://1FoodMenu.b-cdn.net/1FoodMenu/italianMenu/pasta-aglio-olio.jpg",
+            "imageUrl": "https://1foodmenu-demos.b-cdn.net/1FoodMenu/italianMenu/pasta-aglio-olio.jpg",
             "allergens": [],
             "categoryId": "l6yq953tnqqlkzb2ptk",
             "description": "garlic, olive oil, chili flakes, parsley, parmesan cheese & shrimp tossed with spaghetti pasta"
@@ -174,7 +249,7 @@
                     "salePrice": ""
                 }
             ],
-            "imageUrl": "https://1FoodMenu.b-cdn.net/1FoodMenu/italianMenu/Prawn-Salad.jpg",
+            "imageUrl": "https://1foodmenu-demos.b-cdn.net/1FoodMenu/italianMenu/Prawn-Salad.jpg",
             "allergens": [
                 "lfo7t0hf3qwvdnjq563",
                 "lfo7z4exgc9m597sxe"
@@ -196,7 +271,7 @@
                     "salePrice": ""
                 }
             ],
-            "imageUrl": "https://1FoodMenu.b-cdn.net/1FoodMenu/italianMenu/Insalata-di-tonno-e-fagioli.jpg",
+            "imageUrl": "https://1foodmenu-demos.b-cdn.net/1FoodMenu/italianMenu/Insalata-di-tonno-e-fagioli.jpg",
             "allergens": [
                 "lfo7y9sl91ns8fupah9",
                 "lfo7zowy2u0aou52hnb"
@@ -205,48 +280,40 @@
             "description": "red onions, olive oil, salt, pepper, cannellini beans, and tuna"
         },
         {
-            "uid": "l6z175lu4tnsa3bjs6o",
-            "name": "Hawaiian Chicken Pizza Smoked",
-            "tags": [
-                "tag"
-            ],
+            "uid": "l835ufqa6il0qhog2ro",
+            "name": "Lorem Ipsum",
+            "tags": [],
             "inStock": true,
             "options": [
                 {
-                    "size": "13''",
-                    "price": "14.5",
+                    "size": "200g",
+                    "price": "9.50",
                     "salePrice": ""
                 }
             ],
-            "imageUrl": "https://1FoodMenu.b-cdn.net/1FoodMenu/italianMenu/hawaiian-chicken-pizza-smoked.jpg",
-            "allergens": [],
-            "categoryId": "l6yq8ylexzv6v2e0bua",
-            "description": "smokey bbq sauce, chicken pieces, creamy mozzarella, sweet pineapple, and flavorful red onion and cilantro."
+            "imageUrl": "https://1foodmenu-demos.b-cdn.net/1FoodMenu/italianMenu/italian-menu-salad.jpg",
+            "allergens": [
+                "lfo7zx4250wvq55fjyy",
+                "lfo7z4exgc9m597sxe"
+            ],
+            "categoryId": "l6yqd8u9jiehq8a9i6",
+            "description": "Lorem Ipsum is simply dummying text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,"
         },
         {
-            "uid": "l6yr36g51pfc5f9njwb",
-            "name": "4 Cheese",
-            "tags": [
-                "Vegan",
-                "Popular"
-            ],
+            "uid": "l835zcpkabukix2fh99",
+            "name": "Italian Salad Panzanella",
+            "tags": [],
             "inStock": true,
             "options": [
                 {
-                    "size": "13''",
-                    "price": "12",
+                    "size": "300g",
+                    "price": "12.50",
                     "salePrice": "11"
-                },
-                {
-                    "size": "add double cheese",
-                    "price": "+2",
-                    "salePrice": ""
                 }
             ],
-            "imageUrl": "https://1FoodMenu.b-cdn.net/1FoodMenu/italianMenu/4-cheese-pizza.png",
-            "allergens": [],
-            "categoryId": "l6yq8ylexzv6v2e0bua",
-            "description": "tomato sauce, 4 cheese."
+            "imageUrl": "https://1foodmenu-demos.b-cdn.net/1FoodMenu/italianMenu/Italian-salad-2.jpg",
+            "categoryId": "l6yqd8u9jiehq8a9i6",
+            "description": "Panzanella, Breadcrumbs, Tomatoes, Red, Heirloom tomatoes, Basil"
         },
         {
             "uid": "l7klxp3vb9t6ll8o744",
@@ -270,7 +337,7 @@
                     "salePrice": ""
                 }
             ],
-            "imageUrl": "https://1FoodMenu.b-cdn.net/1FoodMenu/italianMenu/Tiramisu.jpg",
+            "imageUrl": "https://1foodMenu2Test222.b-cdn.net/1FoodMenu/italianMenu/Tiramisu.jpg",
             "categoryId": "l7klwgc81mekiakx6fb",
             "description": "homemade coffee-flavored Italian dessert"
         },
@@ -286,7 +353,7 @@
                     "salePrice": "5"
                 }
             ],
-            "imageUrl": "https://1FoodMenu.b-cdn.net/1FoodMenu/italianMenu/panna-cotta.jpg",
+            "imageUrl": "https://1foodmenu-demos.b-cdn.net/1FoodMenu/italianMenu/panna-cotta.jpg",
             "allergens": [
                 "lfo7t0hf3qwvdnjq563",
                 "lfo7z4exgc9m597sxe"
@@ -308,45 +375,9 @@
                     "salePrice": ""
                 }
             ],
-            "imageUrl": "https://1FoodMenu.b-cdn.net/1FoodMenu/italianMenu/Ice-Cream-Sundae.jpg",
+            "imageUrl": "https://1foodmenu-demos.b-cdn.net/1FoodMenu/italianMenu/Ice-Cream-Sundae.jpg",
             "categoryId": "l7klwgc81mekiakx6fb",
             "description": "Served with fresh whipped cream & strawberries\nChoose any three flavors: Strawberry; Vanilla; Chocolate; Pistachio; Lemon Sorbet; Mango"
-        },
-        {
-            "uid": "l835ufqa6il0qhog2ro",
-            "name": "Lorem Ipsum",
-            "tags": [],
-            "inStock": true,
-            "options": [
-                {
-                    "size": "200g",
-                    "price": "9.50",
-                    "salePrice": ""
-                }
-            ],
-            "imageUrl": "https://1FoodMenu.b-cdn.net/1FoodMenu/italianMenu/italian-menu-salad.jpg",
-            "allergens": [
-                "lfo7zx4250wvq55fjyy",
-                "lfo7z4exgc9m597sxe"
-            ],
-            "categoryId": "l6yqd8u9jiehq8a9i6",
-            "description": "Lorem Ipsum is simply dummying text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,"
-        },
-        {
-            "uid": "l835zcpkabukix2fh99",
-            "name": "Italian Salad Panzanella",
-            "tags": [],
-            "inStock": true,
-            "options": [
-                {
-                    "size": "300g",
-                    "price": "12.50",
-                    "salePrice": "11"
-                }
-            ],
-            "imageUrl": "https://1FoodMenu.b-cdn.net/1FoodMenu/italianMenu/Italian-salad-2.jpg",
-            "categoryId": "l6yqd8u9jiehq8a9i6",
-            "description": "Panzanella, Breadcrumbs, Tomatoes, Red, Heirloom tomatoes, Basil"
         },
         {
             "uid": "l836boaznt3gttbjned",
@@ -360,7 +391,7 @@
                     "salePrice": ""
                 }
             ],
-            "imageUrl": "https://1FoodMenu.b-cdn.net/1FoodMenu/italianMenu/italian-desert.jpg",
+            "imageUrl": "https://1foodmenu-demos.b-cdn.net/1FoodMenu/italianMenu/italian-desert.jpg",
             "categoryId": "l7klwgc81mekiakx6fb",
             "description": "Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source."
         },
@@ -383,7 +414,7 @@
                     "salePrice": "6.5"
                 }
             ],
-            "imageUrl": "https://1FoodMenu.b-cdn.net/1FoodMenu/italianMenu/orange-juice.png",
+            "imageUrl": "https://1foodmenu-demos.b-cdn.net/1FoodMenu/italianMenu/orange-juice.png",
             "allergens": [],
             "categoryId": "l9xcn2irx1hsp4pa66m",
             "description": "Orange juice, no sugar"
@@ -397,12 +428,12 @@
             "inStock": null,
             "options": [
                 {
-                    "size": "",
+                    "size": "300g",
                     "price": "7.5",
                     "salePrice": ""
                 }
             ],
-            "imageUrl": "https://1FoodMenu.b-cdn.net/1FoodMenu/italianMenu/sweet-cocktail.png",
+            "imageUrl": "https://1foodmenu-demos.b-cdn.net/1FoodMenu/italianMenu/sweet-cocktail.png",
             "categoryId": "l9xcn2irx1hsp4pa66m",
             "description": "Cocktail with Sweet Alchohol"
         },
@@ -423,7 +454,7 @@
                     "salePrice": "7.25"
                 }
             ],
-            "imageUrl": "https://1FoodMenu.b-cdn.net/1FoodMenu/italianMenu/cappuccino.png",
+            "imageUrl": "https://1foodmenu-demos.b-cdn.net/1FoodMenu/italianMenu/cappuccino.png",
             "allergens": [],
             "categoryId": "l9xcn2irx1hsp4pa66m",
             "description": "espresso, steamed milk, and foam"
@@ -445,7 +476,7 @@
                     "salePrice": ""
                 }
             ],
-            "imageUrl": "https://1FoodMenu.b-cdn.net/1FoodMenu/italianMenu/best-dark-beer-in-town.jpg",
+            "imageUrl": "https://1foodmenu-demos.b-cdn.net/1FoodMenu/italianMenu/best-dark-beer-in-town.jpg",
             "allergens": [],
             "categoryId": "l9xcn2irx1hsp4pa66m",
             "description": "Best Dark Beer in Phnom Pen"
@@ -469,51 +500,31 @@
                     "salePrice": ""
                 }
             ],
-            "imageUrl": "https://1FoodMenu.b-cdn.net/1FoodMenu/italianMenu/best-beer-in-town.jpg",
+            "imageUrl": "https://1foodmenu-demos.b-cdn.net/1FoodMenu/italianMenu/best-beer-in-town.jpg",
             "allergens": [],
             "categoryId": "l9xcn2irx1hsp4pa66m",
             "description": "Best beer in your town"
         }
     ],
-    "categories": [
-        {
-            "uid": "l6yq8ylexzv6v2e0bua",
-            "name": "Pizzas",
-            "description": "baked on wood"
-        },
-        {
-            "uid": "l6yq953tnqqlkzb2ptk",
-            "name": "Pastas"
-        },
-        {
-            "uid": "l6yqd8u9jiehq8a9i6",
-            "name": "Salads"
-        },
-        {
-            "uid": "l7klwgc81mekiakx6fb",
-            "name": "Desserts"
-        },
-        {
-            "uid": "l9xcn2irx1hsp4pa66m",
-            "name": "Drinks"
-        }
-    ],
-    "promos": [],
-    "bundles": [],
     "allergens": [
         {
             "uid": "lfo7t0hf3qwvdnjq563",
             "name": "🍯",
+            "description": "Allergen Description 1234"
+        },
+        {
+            "uid": "lofqkbvcvvoifkqax2e",
+            "name": "🥜",
+            "description": "Allergen Descriptionq"
+        },
+        {
+            "uid": "lfo7z4exgc9m597sxe",
+            "name": "C",
             "description": "Allergen Description"
         },
         {
             "uid": "lfo7y9sl91ns8fupah9",
             "name": "B",
-            "description": "Allergen Description"
-        },
-        {
-            "uid": "lfo7z4exgc9m597sxe",
-            "name": "C",
             "description": "Allergen Description"
         },
         {
@@ -532,18 +543,9 @@
             "description": "Allergen Description"
         },
         {
-            "uid": "lofqkbvcvvoifkqax2e",
-            "name": "🥜",
-            "description": "Allergen Description"
-        },
-        {
             "uid": "lu9to3vjol4lq8r2n48",
             "name": "I",
             "description": "Allergen Description"
         }
-    ],
-    "configs": {
-        "title": "Demo Menu"
-    },
-    "isFromLocal": true
+    ]
 }

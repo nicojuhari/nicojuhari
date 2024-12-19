@@ -26,24 +26,24 @@ let myStack = [
         bgColor: '#3bb071'
     },
     {
-        name: 'Appwrite',
-        logo: appwriteIcon,
-        bgColor: '#FD366E'
-    },
-    {
         name: 'Node.js',
         icon: 'nodejs-icon',
         bgColor: '#6cac5f'
     },
     {
+        name: 'Appwrite',
+        logo: appwriteIcon,
+        bgColor: '#FD366E'
+    },
+    {
+        name: 'Firebase',
+        icon: 'firebase',
+        bgColor: '#FFA000'
+    },
+    {
         name: 'Tailwind CSS',
         icon: 'tailwindcss-icon',
         bgColor: '#269ec3'
-    },
-    {
-        name: 'SASS',
-        icon: 'sass',
-        bgColor: '#d06d9d'
     },
     {
         name: 'MySQL',
@@ -56,8 +56,8 @@ let myStack = [
         bgColor: '#3fbcb9'
     },
     {
-        name: 'WordPress',
-        icon: 'wordpress-icon',
+        name: 'Shopify',
+        icon: 'shopify',
         bgColor: '#f4f4f4'
     }
 ]

@@ -5,7 +5,6 @@
 </script>
 <template>
     <NuxtPage />
-    <MainWebApps/>
     <MainToolsList/>
     <!-- <MainAppsList v-if="!route.query.menu_uid">
         <template #sectionTitle v-if="$route.path != '/tools'">

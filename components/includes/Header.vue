@@ -9,7 +9,7 @@
                 <img src="/Logo.svg" class="h-8 sm:h-10" alt="logo" />
             </NuxtLink>
             <div>
-                <UButton to="/contact" class="px-6 flex-grow justify-center" color="red" variant="outline" size="sm" title="Hire me">Hire me
+                <UButton to="/contact" class="px-6 flex-grow justify-center" color="green" variant="solid" size="sm" title="Hire me">Hire me
                 </UButton>
             </div>
         </div>
