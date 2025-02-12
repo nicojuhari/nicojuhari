@@ -5,7 +5,7 @@ const siteDescription = 'Creating fast, pixel-perfect, and SEO-friendly web apps
 
 export default defineNuxtConfig({ 
   devtools: { enabled: true },
-  modules: ['@nuxt/ui', '@formkit/nuxt', '@vueuse/nuxt', '@pinia/nuxt', '@nuxtjs/seo', [ "@storyblok/nuxt", { accessToken: 'EzikCGO5TZGapwffPYn4rAtt' }]],
+  modules: ['@nuxt/ui', '@vueuse/nuxt', '@pinia/nuxt', '@nuxtjs/seo', [ "@storyblok/nuxt", { accessToken: 'EzikCGO5TZGapwffPYn4rAtt' }]],
   css: ['~/assets/css/main.css'],
   colorMode: {
     preference: 'light',

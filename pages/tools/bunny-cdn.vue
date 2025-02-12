@@ -1,7 +1,7 @@
 <script setup>
 
     useHead({
-        title: 'Bunny CDN asset management',
+        title: 'Bunny CDN asset managment',
     })
 
 </script>   

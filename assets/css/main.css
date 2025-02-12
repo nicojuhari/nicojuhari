@@ -4,7 +4,6 @@
 @import "@nuxt/ui";
 
 @import "./global.css";
-@import './forms.css';
 @import './menu.css';
 
 .aspect-square {
