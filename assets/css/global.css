@@ -2,7 +2,7 @@ html {
     font-family: Inter, Arial, sans-serif;
     line-height: 1.5;
     font-weight: 400;
-    color: #141414;
+    color: #1d1d1d;
 }
 
 html.dark {
@@ -10,11 +10,6 @@ html.dark {
 }
 body.modal-open {
     overflow: hidden;
-}
-
-body ::selection {
-    color: black;
-    background: gainsboro;
 }
 
 /* section {
@@ -32,7 +27,7 @@ body ::selection {
     }
 }
 
-h1, h2, h3, h4, h5, h6 {
+/* h1, h2, h3, h4, h5, h6 {
         font-weight: 600;
         line-height: 1.25;
     }
@@ -48,7 +43,7 @@ h1, h2, h3, h4, h5, h6 {
     }
     h4 {
         @apply text-[1.2rem] md:text-[1.8rem];
-    }
+    } */
 
 /* section + section {
     @apply pt-0;
@@ -72,9 +67,10 @@ h1, h2, h3, h4, h5, h6 {
 } */
 
 .container {
-    margin: 0 auto;
-    max-width: 1280px !important;
-    width: calc(100% - 2rem) !important;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1280px;
+    width: calc(100% - 2rem);
 }
 .menu-container {
     margin: 0 auto;

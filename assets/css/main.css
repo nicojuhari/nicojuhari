@@ -4,7 +4,6 @@
 @import "@nuxt/ui";
 
 @import "./global.css";
-@import './menu.css';
 
 .aspect-square {
     aspect-ratio: 1 / 1;

@@ -203,7 +203,7 @@ const openModal = (product_id) => {
                     </div>
                 </div>
             </div>
-            <UModal v-model="showModal"
+            <UModal v-model:open="showModal"
                 :ui="{ width: 'sm:max-w-[375px]', overlay: { background: 'bg-gray-600 bg-opacity-70' } }">
                 <DemosViewProductModal :product="singleProduct" :allergens="menuData.allergens" @close="showModal = false" />
             </UModal>
