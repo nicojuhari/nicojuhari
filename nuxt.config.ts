@@ -7,11 +7,12 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ['@nuxt/ui', '@vueuse/nuxt', '@pinia/nuxt', '@nuxtjs/seo', [ "@storyblok/nuxt", { accessToken: 'EzikCGO5TZGapwffPYn4rAtt' }]],
   css: ['~/assets/css/main.css'],
-  colorMode: {
-    preference: 'light',
-    fallback: 'light'
+  ui: {
+    theme: {
+      colors: ['primary', 'secondary', 'neutral', 'error', 'success']
+    },
+    colorMode: false
   },
-
   site: {
         url: process.env.NUXT_PUBLIC_SITE_URL || 'https://nicojuhari.com',
   },

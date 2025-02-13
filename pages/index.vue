@@ -12,8 +12,13 @@ useHead({
     <div>
         <Body class="bg-gray-50"></Body>
         <MainHomeHero />
-        <MainWebApps/>
-        <MainToolsList/>
+        <div class="container grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div>more about me</div>
+            <div class="lg:col-span-2 space-y-8">
+                <MainWebApps/>
+                <MainToolsList/>
+            </div>
+        </div>
         <!-- <MainHomeMyServices /> -->
         <!-- <MainAppsList/> -->
         <MainHomeMyStack />

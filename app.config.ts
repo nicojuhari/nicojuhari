@@ -1,6 +1,10 @@
 export default defineAppConfig({
   ui: {
-    primary: 'brand',
+    colors: {
+        primary: "blue",
+        neutral: "gray",
+        secondary: "green",
+    },
     modal: {
       container: 'items-center'
     },

@@ -5,7 +5,9 @@
 </script>
 <template>
     <NuxtPage />
-    <MainToolsList/>
+    <div class="container my-12">
+        <MainToolsList class="lg:max-w-1/2 mx-auto"/>
+    </div>
     <!-- <MainAppsList v-if="!route.query.menu_uid">
         <template #sectionTitle v-if="$route.path != '/tools'">
             <h3 class="subtitle mb-10 text-center">Other tools you may like</h3>

@@ -16,7 +16,7 @@ body.modal-open {
     @apply pt-20 pb-24;
 } */
 
- section {
+ /* section {
     @apply py-10;
 
     &.md-section {
@@ -25,7 +25,7 @@ body.modal-open {
     &.lg-section {
         @apply py-36;
     }
-}
+} */
 
 /* h1, h2, h3, h4, h5, h6 {
         font-weight: 600;
@@ -49,7 +49,7 @@ body.modal-open {
     @apply pt-0;
 } */
 
-.hero {
+/* .hero {
     @apply bg-cover bg-center bg-no-repeat;
 }
 
@@ -59,7 +59,7 @@ body.modal-open {
 
 .hero-text {
     @apply text-white text-center text-2xl md:text-4xl;
-}
+} */
 
 /* .container {
     @apply mx-auto max-w-5xl;
@@ -72,31 +72,30 @@ body.modal-open {
     max-width: 1280px;
     width: calc(100% - 2rem);
 }
-.menu-container {
-    margin: 0 auto;
-    max-width: 1920px;
-    width: calc(100% - 2rem);
-}
 
-.active-sortable-tr {
+/* .active-sortable-tr {
     @apply bg-slate-200;
-}
+} */
 
 pre {
     @apply overflow-x-auto p-2 text-sm; 
 }
 
 .title {
-    @apply text-3xl sm:text-4xl font-bold leading-tight;
+    @apply text-2xl sm:text-3xl font-bold leading-tight;
 }
 .subtitle {
-      @apply text-2xl sm:text-3xl font-semibold leading-snug;
+      @apply text-xl sm:text-2xl font-semibold leading-snug;
 }
 .paragraph {
     @apply text-sm sm:text-base font-normal leading-relaxed;
 }
 
-.btn {
+.card-dark {
+   @apply bg-blue-950 text-white;
+}
+
+/* .btn {
     @apply h-8 px-4 rounded inline-flex gap-3 items-center max-w-max text-white bg-blue-600 text-sm;
 }
 
@@ -114,7 +113,7 @@ pre {
 
 .btn-dark.btn-outline {
     @apply text-blue-700 border-blue-700
-}
+} */
 
 .line-clamp-2 {
     display: -webkit-box;

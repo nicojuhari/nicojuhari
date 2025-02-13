@@ -63,21 +63,21 @@ let myStack = [
 ]
 </script>
 <template>
-    <section class="md-section">
-        <div class="container">
-            <div class="subtitle mb-10 text-center">My Tech Stack</div>
+    <div class="container my-8">
+        <UCard>
+            <div class="subtitle my-6 text-center">My Tech Stack</div>
             <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8 gap-y-12">
                 <div v-for="item in myStack" class=" flex flex-col gap-6 justify-center items-center">
                     <div class="relative">
                         <div v-if="item.logo" v-html="item.logo"> </div>
-                        <UIcon v-else :name="`i-logos-${item.icon}`" dynamic class="h-12 w-12 m-auto" :alt="item.name"/>
+                        <UIcon v-else :name="`i-logos-${item.icon}`" dynamic class="h-10 w-10 m-auto" :alt="item.name"/>
                         <!-- <div class="icon-glow" :style="`background: ${item.bgColor};`"></div> -->
                     </div>
                     <span class="text-center">{{ item.name }}</span>
                 </div>
             </div>
-        </div> 
-    </section>
+        </UCard>
+    </div> 
 </template>
 <style>
     .icon-glow {
