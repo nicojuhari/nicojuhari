@@ -31,12 +31,12 @@ let apps = [
 <template>
     <UCard>
         <h2 class="subtitle my-6 text-center">Web Apps</h2>
-        <div class="space-y-4">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <div class="bg-gray-100/50 rounded-md border border-gray-100"
                 v-for="app in apps" :key="app.title">
                 <NuxtLink :to="app.url" target="_blank"
                     class="p-4 md:p-6 flex gap-6 items-center" :title="app.title">
-                    <img :src="app.logo" class="h-10 w-10 object-contain" />
+                    <img :src="app.logo" class="h-8 w-8 object-contain" />
                     <div>
                         <h3 class="font-semibold text-lg">{{ app.title }}</h3>
                         <div class="text-gray-600 text-sm"> {{ app.description }}</div>

@@ -12,6 +12,13 @@ export default defineAppConfig({
         body: {
             base: 'flex flex-col h-full'
         }
-    }
+    },
+    button: {
+        defaultVariants: {
+            color: "primary",
+            variant: "solid",
+            size: "lg",
+        },
+    },
   }
 })
