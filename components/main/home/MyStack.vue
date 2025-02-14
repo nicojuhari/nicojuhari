@@ -64,8 +64,8 @@ let myStack = [
 </script>
 <template>
     <UCard class="card-dark text-center">
-        <h3 class="subtitle my-6">My Stack</h3>
-        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-10 py-8">
+        <h3 class="title mb-6 pt-2">My Stack</h3>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 gap-10 py-8">
             <div v-for="item in myStack" class="flex flex-col gap-2 justify-center items-center">
                 <div class="relative">
                     <div v-if="item.logo" v-html="item.logo"> </div>

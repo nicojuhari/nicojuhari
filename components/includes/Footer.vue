@@ -1,6 +1,6 @@
 <template>
-    <footer class="py-6 text-center border-t border-gray border-opacity-5">
-        <div>&copy; {{ new Date().getFullYear() }} - <span>Full-Stack Web Developer</span></div>
+    <footer class="py-6 text-center border-t border-gray-100 bg-white">
+        <div>&copy; {{ new Date().getFullYear() }} <span>Full-Stack Web Developer</span></div>
         <div class="mt-6 flex gap-6 items-center justify-center">
             <a target="_blank" href="https://github.com/nicojuhari" title="GitHub Profile" alt="GitHub Profile">
                 <UIcon name="bxl:github" dynamic class="w-8 h-8" />

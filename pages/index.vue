@@ -12,13 +12,16 @@ useHead({
     <div>
         <Body class="bg-gray-50"></Body>
         <MainHomeHero />
-        <MainWebApps class="container my-8"/>
-        <MainHomeMyStack class="container"/>
-        <MainToolsList class="container my-8" />
-        <div class="container grid grid-cols-1 lg:grid-cols-3 gap-8 my-8">
+        <div class="container grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-6 my-4 lg:my-6">
+            <MainWebApps />
+            <!-- <MainHomeMyServices class="lg:col-span-2"/> -->
+            <MainHomeEcommerceWebsite />
+            <MainHomeBusinessWebsite />
             <!-- <MainHomeAboutMe/> -->
         </div>
-        <div class="container grid grid-cols-1 lg:grid-cols-3 gap-8 my-8">
+        <div class="container grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6 my-4 lg:my-6">
+            <MainHomeMyStack/>
+            <MainToolsList />
         </div>
     </div>
 </template>
