@@ -29,20 +29,20 @@ let apps = [
 
 </script>
 <template>
-    <UCard>
+    <div class="pt-2">
         <h2 class="subtitle my-6 text-center">Web Apps</h2>
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <div class="bg-gray-100/50 rounded-md border border-gray-100"
+            <UCard
                 v-for="app in apps" :key="app.title">
                 <NuxtLink :to="app.url" target="_blank"
-                    class="p-4 md:p-6 flex gap-6 items-center" :title="app.title">
-                    <img :src="app.logo" class="h-8 w-8 object-contain" />
+                    class="flex gap-6 items-center" :title="app.title">
+                    <img :src="app.logo" class="h-10 w-10 lg:h-12 lg:w-12 object-contain shrink-0" />
                     <div>
-                        <h3 class="font-semibold text-lg">{{ app.title }}</h3>
+                        <h3 class="font-semibold text-xl">{{ app.title }}</h3>
                         <div class="text-gray-600 text-sm"> {{ app.description }}</div>
                     </div>
                 </NuxtLink>
-            </div>
+            </UCard>
         </div>
-    </UCard>
+    </div>
 </template>

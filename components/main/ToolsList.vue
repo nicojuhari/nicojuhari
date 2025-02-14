@@ -46,15 +46,15 @@ watchEffect(() => {
 
 </script>
 <template>
-    <UCard>
-        <h2 class="subtitle mt-6 text-center">Small Tools</h2>
+    <div class="pt-2">
+        <h2 class="subtitle mb-0 mt-6 text-center">Small Tools</h2>
         <p class="text-sm text-center mb-6">Built for me and sharing with you.</p>
-        <div class="space-y-4">
-            <div class="bg-gray-100/50 rounded-md border border-gray-100"
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <UCard
                 v-for="app in filteredApps" :key="app.title">
                 <NuxtLink :to="app.url"
-                    class="p-4 md:p-6 flex gap-6 items-center" :title="app.title">
-                    <UIcon :name="app.icon" class="text-4xl shrink-0"
+                    class="flex gap-6 items-center" :title="app.title">
+                    <UIcon :name="app.icon" class="text-5xl shrink-0"
                             :class="app.iconColor ? app.iconColor : 'text-blue-500'" dynamic>
                         </UIcon>
                     <div>
@@ -62,7 +62,7 @@ watchEffect(() => {
                         <div class="text-gray-600 text-sm"> {{ app.description }}</div>
                     </div>
                 </NuxtLink>
-            </div>
+            </UCard>
         </div>
-    </UCard>
+    </div>
 </template>

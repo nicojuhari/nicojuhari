@@ -65,11 +65,11 @@ let myStack = [
 <template>
     <UCard class="card-dark text-center">
         <h3 class="subtitle my-6">My Stack</h3>
-        <div class="grid grid-cols-2 sm:grid-cols-2 gap-6 pt-8">
-            <div v-for="item in myStack" class="flex flex-col gap-6 justify-center items-center">
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-10 py-8">
+            <div v-for="item in myStack" class="flex flex-col gap-2 justify-center items-center">
                 <div class="relative">
                     <div v-if="item.logo" v-html="item.logo"> </div>
-                    <UIcon v-else :name="`i-logos-${item.icon}`" dynamic class="h-8 w-8 m-auto" :alt="item.name"/>
+                    <UIcon v-else :name="`i-logos-${item.icon}`" dynamic class="h-10 w-10 m-auto" :alt="item.name"/>
                     <!-- <div class="icon-glow" :style="`background: ${item.bgColor};`"></div> -->
                 </div>
                 <span class="text-center">{{ item.name }}</span>
