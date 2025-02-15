@@ -9,19 +9,13 @@ useHead({
 })
 </script>
 <template>
-    <div>
-        <Body class="bg-gray-50"></Body>
-        <MainHomeHero />
-        <div class="container grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-6 my-4 lg:my-6">
-            <MainWebApps />
-            <!-- <MainHomeMyServices class="lg:col-span-2"/> -->
-            <MainHomeEcommerceWebsite />
-            <MainHomeBusinessWebsite />
-            <!-- <MainHomeAboutMe/> -->
-        </div>
-        <div class="container grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6 my-4 lg:my-6">
-            <MainHomeMyStack/>
-            <MainToolsList />
-        </div>
+    <Body class="bg-gray-50"></Body>
+    <MainHomeHero />
+    <div class="container grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-6 my-4 lg:my-6">
+        <MainWebApps />
+        <MainHomeMyStack/>
+        <MainHomeBusinessWebsite />
+        <MainToolsList class="lg:col-span-2" />
+        <MainHomeHobby />
     </div>
 </template>
