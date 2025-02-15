@@ -1,9 +1,6 @@
-<script setup>
-    const route = useRoute()
-
-    //if we have a query parameter, we will redirect to the page with the query parameter
-</script>
 <template>
-    <NuxtPage />
-    <MainToolsList class="container my-12"/>
+    <div class="container my-4 lg:my-6">
+        <NuxtPage />
+        <MainToolsList class="mt-8 lg:mt-12"/>
+    </div>
 </template>

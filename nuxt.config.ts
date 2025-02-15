@@ -1,7 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 
-const siteTitle = 'Full-Stack Web Developer - Nuxt and Appwrite'
-const siteDescription = 'Creating fast, pixel-perfect, and SEO-friendly web apps for modern businesses, using Nuxt and Appwrite. Explore my portfolio and FREE web tools.'
+const siteTitle = 'Full-Stack Web Developer | Restaurant & Business Websites'
+const siteDescription = 'Creating fast, pixel-perfect, and SEO-friendly websites for restaurants and businesses that stand out. Let\'s bring your vision to life - reach out today!'
 
 export default defineNuxtConfig({ 
   devtools: { enabled: true },

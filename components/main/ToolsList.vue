@@ -52,10 +52,10 @@ watchEffect(() => {
     <UCard>
         <h2 class="title mb-0 mt-2 text-center">Simple Tools</h2>
         <p class="text-sm text-center mb-6">Built for me and sharing with you.</p>
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6">
             <NuxtLink :to="app.url" target="_blank" v-for="(app, index) in filteredApps" :key="app.title"
                 class="flex gap-4 items-center border border-gray-100 p-4 rounded-md bg-gray-100/50" :title="app.title"
-                :class="{'col-span-2': isLastOdd(index) }">
+                :class="{'lg:col-span-2': isLastOdd(index) }">
                 <UIcon :name="app.icon" class="h-6 w-6 lg:h-8 lg:w-8 shrink-0"
                             :class="app.iconColor ? app.iconColor : 'text-blue-500'" dynamic>
                         </UIcon>
