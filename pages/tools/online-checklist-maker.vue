@@ -21,6 +21,7 @@ const newTask = reactive({
 const showDeleteModal = ref(false);
 const isLoading = ref(true);
 const editTaskActive = ref(false);
+const showFormModal = ref(false);
 
 
 const addTask = () => {
@@ -44,6 +45,7 @@ const addTask = () => {
 
 
     saveToLocalStorage();
+    showFormModal.value = false
 };
 
 const editTask = (taskId) => {
@@ -52,6 +54,7 @@ const editTask = (taskId) => {
     newTask.title = task.title;
     newTask.notes = task.notes;
     newTask.id = task.id;
+    showFormModal.value = true;
 };
 
 const updateTask = () => {
@@ -63,6 +66,7 @@ const updateTask = () => {
     newTask.id = 0;
     editTaskActive.value = false;
     saveToLocalStorage();
+    showFormModal.value = false
 };
 
 const cancelUpdateTask = () => {
@@ -70,6 +74,7 @@ const cancelUpdateTask = () => {
     newTask.notes = '';
     newTask.id = 0;
     editTaskActive.value = false;
+    showFormModal.value = false
 };
 
 const removeTask = (taskId) => {
@@ -111,40 +116,36 @@ sortableOptions.value = useSortable(checkListRef, tasks.value, options)
 </script>
 
 <template>
-    <section>
-        <div class="container">
-            <h1 class="text-center mb-2 page-title">Online Checklist Maker</h1>
-
-            <div class="mb-8 text-lg font-normal text-center">Create and manage checklists online.<br>Easily
-                organize your tasks, increase productivity, and remain on top of your goals.</div>
-        </div>
-    </section>
-    <section class="bg-slate-50 min-h-">
-        <div class="container">
-            <div class="max-w-[600px] m-auto">
-                <UCard :ui="{ body: { padding: '!px-8 !py-10' } }">
+    <h1 class="text-center title py-4 mt-12">Online Checklist Maker</h1>
+    <h2 class="mb-8 text-lg font-normal text-center">Create and manage checklists online.<br>Easily
+        organize your tasks, increase productivity, and remain on top of your goals.</h2>
+        <div class="max-w-[600px] m-auto">
+            <UModal v-model:open="showFormModal" title="New Task" description="">
+                <template #body>
                     <div class="space-y-6">
-                        <UFormGroup label="Task" class="flex-1">
-                            <UInput class="flex-1" v-model="newTask.title" @keyup.enter="addTask" size="md" />
-                        </UFormGroup>
-                        <UFormGroup label="Notes (optional)" class="flex-1">
-                            <UTextarea :rows="2" v-model="newTask.notes" @keyup.enter="addTask"
-                                :ui="{ base: 'h-14 min-h-14' }"></UTextarea>
-                        </UFormGroup>
-                        <div v-if="editTaskActive" class="space-x-6">
-                            <UButton @click="updateTask" color="green" variant="soft" icon="i-ph-check-light"
-                                class="mt-4 px-8 justify-center">Update Task</UButton>
-                            <UButton @click="cancelUpdateTask" color="red" variant="soft" icon="i-ph-x-light"
-                                class="mt-4 px-8 justify-center">Cancel</UButton>
+                        <UFormField label="Task" class="flex-1">
+                            <UInput class="flex-1 w-full" v-model="newTask.title" @keyup.enter="addTask" size="md" />
+                        </UFormField>
+                        <UFormField label="Notes (optional)" class="flex-1">
+                            <UTextarea v-model="newTask.notes" @keyup.enter="addTask"
+                                :ui="{ base: 'h-14 min-h-14 max-h-14 overflow-auto' }" class="w-full"></UTextarea>
+                        </UFormField>
+                        <div v-if="editTaskActive" class="space-x-6 text-right mt-4">
+                            <UButton @click="cancelUpdateTask" color="error" variant="soft" icon="i-ph-x-light">Cancel</UButton>
+                            <UButton @click="updateTask" icon="i-ph-check-light">Update</UButton>
                         </div>
-
-                        <UButton v-else @click="addTask" color="brand" variant="soft" icon="i-ph-plus-light"
-                            class="mt-4 px-8 justify-center">Add Task</UButton>
+                        <div v-else class="text-right">
+                            <UButton @click="addTask" class="mt-4 justify-center">Add</UButton>
+                        </div>
                     </div>
-                </UCard>
+
+                </template>
+            </UModal>
+            <div class="text-center">
+                <UButton @click="showFormModal = true"  :disabled="isLoading" icon="i-ph-plus-light" class="mt-4 justify-center">Add a New Task</UButton>
             </div>
         </div>
-        <div class="container py-16">
+        <div class="py-16">
             <div class="max-w-[600px] m-auto">
                 <div v-if="isLoading">
                     <div class="flex justify-center mt-8">
@@ -165,13 +166,13 @@ sortableOptions.value = useSortable(checkListRef, tasks.value, options)
                         </svg>
                     </div>
                 </div>
-                <div class="space-y-10" v-if="tasks.length">
-                    <UCard :ui="{ body: { padding: '!p-0'}}">
+                <div class="space-y-6" v-if="tasks.length">
+                    <UCard :ui="{body: '!p-0'}">
                         <div ref="checkListRef">
                             <div v-for="item in tasks" :key="item.id" data-sort-handle
-                                class="flex items-center justify-between border-b last:border-b-0 py-6 px-8 group">
+                                class="flex items-center justify-between border-b border-gray-200 last:border-b-0 py-6 px-8 group">
                                 <div class="flex items-center gap-6 min-h-10">
-                                    <UCheckbox color="indigo" v-model="item.completed" class="cursor-pointer"
+                                    <UCheckbox color="success" v-model="item.completed" class="cursor-pointer"
                                         :id="item.id" />
                                     <div>
                                         <div :class="{ 'line-through': item.completed }" class="text-lg"> {{ item.title
@@ -182,29 +183,34 @@ sortableOptions.value = useSortable(checkListRef, tasks.value, options)
 
                                 </div>
                                 <div class="shrink-0 space-x-4 hidden group-hover:block">
-                                    <UButton variant="soft" icon="i-ph-pencil-simple-light" color="green"
+                                    <UButton variant="soft" icon="i-ph-pencil-simple-light" color="neutral"
                                         @click="editTask(item.id)"> </UButton>
-                                    <UButton variant="soft" icon="i-ph-trash-light" color="red"
+                                    <UButton variant="soft" icon="i-ph-trash-light" color="error"
                                         @click="removeTask(item.id)"> </UButton>
                                 </div>
                             </div>
                         </div>
                     </UCard>
-                    <UButton @click.prevent="showDeleteModal = true" color="red" variant="outline" class="px-6">Clear
-                        all
-                    </UButton>
+                    <div class="flex items-center justify-between gap-6 py-6 px-8 bg-gray-200/50 rounded-lg">
+                        <span>Delete all the tasks</span>
+                        <UButton @click.prevent="showDeleteModal = true" color="error" variant="soft" icon="i-ph-x-light">
+                    
+                        </UButton>
+                    </div>
                 </div>
                 <div v-else-if="!isLoading">
                     <UCard class="text-center p-16">
-                        <div class="text-2xl text-gray-600">No tasks added yet.</div>
+                        <div class="text-2xl text-gray-600 flex flex-col gap-2.5 justify-center">
+                            <span>🎉</span>
+                        <span>Congratulations!</span>
+                        <span>You don't have any tasks to do!</span>
+                    </div>
                     </UCard>
                 </div>
 
             </div>
         </div>
-    </section>
-    <section>
-        <div class="container space-y-4">
+        <div class="space-y-4">
             <h2 class="text-2xl pt-4 font-semibold">Conquer Your To-Do List with Our Powerful Online Checklist Maker!
             </h2>
 
@@ -252,20 +258,15 @@ sortableOptions.value = useSortable(checkListRef, tasks.value, options)
             </div>
 
         </div>
-    </section>
-    <UModal v-model="showDeleteModal">
-        <UCard>
-            <template #header>
-                <div class="text-lg">Do you really want to delete all tasks?</div>
-            </template>
-            <template #footer>
-                <div class="flex justify-end gap-6">
-                    <UButton @click="showDeleteModal = false">Cancel</UButton>
-                    <UButton color="red" @click="deleteTasks">Delete</UButton>
+        <UModal v-model:open="showDeleteModal" title="Do you want to delete all the tasks?">
+            <template #body>
+                <div class="flex justify-end gap-4">
+                    <UButton @click="showDeleteModal = false">No</UButton>
+                    <UButton color="error" @click="deleteTasks">Yes</UButton>
                 </div>
+
             </template>
-        </UCard>
-    </UModal>
+        </UModal>
 </template>
 
 

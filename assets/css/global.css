@@ -99,6 +99,10 @@ pre {
     @apply flex flex-col h-full
 }
 
+button:not([disabled]) {
+    cursor: pointer;
+}
+
 /* .btn {
     @apply h-8 px-4 rounded inline-flex gap-3 items-center max-w-max text-white bg-blue-600 text-sm;
 }
