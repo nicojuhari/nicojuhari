@@ -14,9 +14,9 @@ const replaceOptionsSymbol = {
     dashes: '-',
     underscores: '_',
     slashes: '/',
-    'keep spaces': ' '
+    'keep spaces': ' ',
 }
-
+const keepNewlines = ref('No')
 const transformText = ref('lowercase')
 const transformOptions = ['none', 'lowercase', 'uppercase', 'capitalize']
 
@@ -32,7 +32,10 @@ const convertedText = computed(() => {
     
     //replace spaces
     let replaceWith = replaceOptionsSymbol[replaceWithSymbol.value]
-    text = textBefore.replace(/\s+/g, replaceWith)
+    if (keepNewlines.value === 'Yes') {
+        text = textBefore.replace(/ +/g, replaceWith)  
+    }// Only replace spaces
+    else text = textBefore.replace(/\s+/g, replaceWith) // Replace all whitespace (spaces and new lines)
 
     // transform text
     if (transformText.value === 'lowercase') text = text.toLowerCase()
@@ -45,9 +48,15 @@ const convertedText = computed(() => {
     //reverse text
     if (reverseText.value === 'reverse') text = text.split('').reverse().join('')
 
+    //trim
+    if (keepNewlines.value === 'Yes') {
+        const lst = text.split('\n').map(line => line.trim().replace(/^[_\-\/\s]+|[_\-\/\s]+$/g, '')); // Remove leading/trailing _,-, or spaces
+        // text = lines.join('<br>'); //
+        text = lst.join('\n')
+    } 
+    
     return text
 })
-
 
 
 //copy to clipboard
@@ -76,7 +85,8 @@ const copyToClipboard = () => {
                     </div>
                     <div v-if="convertedText"
                         class="flex justify-between gap-6 items-center p-1.5 my-4 rounded-md bg-gray-100/50">
-                        <span class="truncaste text-esllipsis pl-1">{{ convertedText }}</span>
+                        <div v-if="keepNewlines ==='Yes'" v-html="convertedText.split('\n').join('<br>')"></div>
+                        <div v-else class="border-0 w-full outline-0 resize-none pl-1 h-full">{{  convertedText }}</div>
                         <UButton icon="i-ph-copy-simple-light" square variant="solid"
                             :loading="loading" :disabled="loading" title="Copy to Clipboard" @click="copyToClipboard" />
                     </div>
@@ -89,6 +99,7 @@ const copyToClipboard = () => {
                             :items="replaceOptions"/>
                         <URadioGroup v-model="transformText" legend="Transform the text:" :items="transformOptions" />
                         <URadioGroup v-model="reverseText" legend="Reverse the text:" :items="reverseTextOptions" />
+                        <URadioGroup v-model="keepNewlines" legend="Keep the new lines:" :items="['Yes', 'No']" />
                     </div>
                 </UCard>
             </div>
