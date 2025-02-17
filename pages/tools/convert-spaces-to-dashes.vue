@@ -61,39 +61,39 @@ const copyToClipboard = () => {
 
 </script>
 <template>
-    <section>
-        <div class="container">
-            <h1 class="text-center mb-2 page-title">Text Space Converter</h1>
-            <div class="mb-8 text-lg font-normal text-center">Convert spaces (slashes, dashes, keep/remove), reverse the text<br>
-                change case (uppercase, lowercase, capitalize) - all in one powerful tool!</div>
-        </div>
-        <div class="container grid grid-cols-1 md:grid-cols-3 gap-8">
+    <h1 class="text-center title py-4 mt-12">Text Space Converter</h1>
+    <h2 class="mb-8 text-lg font-normal text-center max-w-xl mx-auto">Convert spaces (slashes, dashes, keep/remove), reverse the text<br>
+        change case (uppercase, lowercase, capitalize).</h2>
+      
+        
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div class="md:col-span-2">
-                <UTextarea v-model="textRaw" :rows="8" placeholder="Add your text here ..."></UTextarea>
-                <div v-if="convertedText"
-                    class="border p-4 px-6 rounded-lg my-2 bg-gray-50 flex justify-between items-center">
-                    <span class="truncaste text-esllipsis">{{ convertedText }}</span>
-                    <UButton icon="i-ph-copy-simple-light" size="sm" color="green" square variant="solid"
-                        :loading="loading" :disabled="loading" title="Copy to Clipboard" @click="copyToClipboard" />
-                </div>
-                <div class="mt-6" v-if="textRaw">
-                    <UButton color="brand" @click="() => textRaw = ''">Clear</UButton>
-                </div>
+                <UCard >
+                    <div class="relative w-full">
+                        <UTextarea v-model="textRaw" class="w-full overflow-auto" :rows="8" placeholder="Add your text here ..."></UTextarea>
+                        <UButton color="error" title="Clear the text" class="cursor-pointer absolute right-1.5 bottom-1.5" v-if="textRaw" @click="() => textRaw = ''" icon="i-ph-x-light"></UButton>
+                    </div>
+                    <div v-if="convertedText"
+                        class="flex justify-between gap-6 items-center p-1.5 my-4 rounded-md bg-gray-100/50">
+                        <span class="truncaste text-esllipsis pl-1">{{ convertedText }}</span>
+                        <UButton icon="i-ph-copy-simple-light" square variant="solid" class="cursor-pointer"
+                            :loading="loading" :disabled="loading" title="Copy to Clipboard" @click="copyToClipboard" />
+                    </div>
+                </UCard>
             </div>
             <div>
                 <UCard>
                     <div class="space-y-8">
                         <URadioGroup v-model="replaceWithSymbol" legend="Replace the spaces with:"
-                            :options="replaceOptions" />
-                        <URadioGroup v-model="transformText" legend="Transform the text:" :options="transformOptions" />
-                        <URadioGroup v-model="reverseText" legend="Reverse the text:" :options="reverseTextOptions" />
+                            :items="replaceOptions"/>
+                        <URadioGroup v-model="transformText" legend="Transform the text:" :items="transformOptions" />
+                        <URadioGroup v-model="reverseText" legend="Reverse the text:" :items="reverseTextOptions" />
                     </div>
                 </UCard>
             </div>
         </div>
-    </section>
-    <section>
-        <div class="container my-8 space-y-4">
+        <div class="my-12 space-y-4">
             <h2 class="text-2xl pt-4 font-semibold">Easily format your text with our free converter!</h2>
             <p>Tired of inconsistent dashes, underscores, and capitalization in filenames, URLs, or social media
                 handles?</p>
@@ -121,5 +121,4 @@ const copyToClipboard = () => {
             <p class="pt-4"><strong>Embrace a more organized digital life. Tame your text with our Free Space Converter
                     today!</strong></p>
         </div>
-    </section>
 </template>
