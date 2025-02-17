@@ -77,7 +77,7 @@ const copyToClipboard = () => {
                     <div v-if="convertedText"
                         class="flex justify-between gap-6 items-center p-1.5 my-4 rounded-md bg-gray-100/50">
                         <span class="truncaste text-esllipsis pl-1">{{ convertedText }}</span>
-                        <UButton icon="i-ph-copy-simple-light" square variant="solid" class="cursor-pointer"
+                        <UButton icon="i-ph-copy-simple-light" square variant="solid"
                             :loading="loading" :disabled="loading" title="Copy to Clipboard" @click="copyToClipboard" />
                     </div>
                 </UCard>
