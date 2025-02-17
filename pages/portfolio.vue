@@ -9,10 +9,9 @@ useHead({
 })
 </script>
 <template>
-    <section>
-        <div class="container">
-            <h1 class="mb-10 text-center page-title">My Portfolio</h1>
-            <MainProjectsList />
-        </div>
-    </section>
+    <div class="container my-4 lg:my-6">
+        <Body class="bg-gray-50"></Body>
+        <h1 class="py-4 mt-8 text-center title">My Portfolio</h1>
+        <MainProjectsList />
+    </div>
 </template>

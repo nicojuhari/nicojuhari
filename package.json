@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "@iconify-json/ph": "^1.2.2",
-    "@nuxt/ui": "^3.0.0-alpha.12",
+    "@nuxt/ui": "^3.0.0-alpha.13",
     "@nuxtjs/seo": "^2.1.1",
     "@pinia/nuxt": "^0.9.0",
     "@storyblok/nuxt": "^6.2.2",
@@ -31,6 +31,7 @@
     "gsap": "^3.12.7",
     "pinia": "^2.3.1",
     "qr-code-styling": "^1.9.1",
-    "sortablejs": "^1.15.6"
+    "sortablejs": "^1.15.6",
+    "zod": "^3.24.2"
   }
 }

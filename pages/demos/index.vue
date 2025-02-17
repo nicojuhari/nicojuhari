@@ -48,21 +48,19 @@ const list = [
 ]
 </script>
 <template>
-    <section>
-        <div class="container">
-            <div class="text-center py-9">
-                <h1 class="page-title">Restaurant Website Examples</h1>
-                <div class="text-xl text-gray-600 mt-2">From simple to complex designs</div>
-            </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 mt-10 md:mt-16 gap-8">
-                <NuxtLink :to="'/demos/restaurant-website-design/'+ item.url" target="_blank"
-                    class="bg-white border shadosw border-gray-200 rounded-lg overflow-hidden" v-for="item in list">
-                    <div>
-                        <img :src="item.imgUrl" class="blosck" :alt="item.title + ' Website Design' " />
-                    </div>
-                    <div class="text-lg p-6 font-bold">{{ item.title }}</div>
-                </NuxtLink>
-            </div>
+    <div class="container my-4 lg:my-6">
+        <div class="text-center py-9">
+            <h1 class="title">Restaurant Website Examples</h1>
+            <div class="text-xl text-gray-600 mt-2">From simple to complex designs</div>
         </div>
-    </section>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 mt-10 md:mt-16 gap-4 lg:gap-6">
+            <NuxtLink :to="'/demos/restaurant-website-design/'+ item.url" target="_blank"
+                class="bg-white border shadosw border-gray-200 rounded-lg overflow-hidden" v-for="item in list">
+                <div>
+                    <img :src="item.imgUrl" class="blosck" :alt="item.title + ' Website Design' " />
+                </div>
+                <div class="text-lg p-6 font-bold">{{ item.title }}</div>
+            </NuxtLink>
+        </div>
+    </div>
 </template>

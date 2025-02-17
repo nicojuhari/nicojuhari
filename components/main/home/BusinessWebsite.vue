@@ -18,7 +18,7 @@
     </ul>
     <!-- <p class="text-center my-6 font-medium">Built with Shopify!</p> -->
     <div class="text-center">
-        <UButton class="px-8 w-1/2 justify-center" to="/restaurant-website-design" title="Business Website Design">Get Started!</UButton>
+        <UButton class="px-8 w-1/2 justify-center" to="/contact" title="Business Website Design">Get Started!</UButton>
     </div>
  </UCard>
 </template>

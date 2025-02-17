@@ -151,7 +151,7 @@ const openModal = (product_id) => {
                             class="snap-center flex flex-col cursor-pointer rounded-xl bg-white flex-shrink-0 shadow w-72">
                             <div class="h-52 w-full image-bg image-bg-2 shrink-0 rounded-t-xl">
                                 <div class="image-bg h-full w-full rounded-t-xl"
-                                    :style="`background-image: url(${product.imageUrl})`"></div>
+                                    :style="`background-image: url(${product?.imageUrl})`"></div>
                             </div>
                             <div class="p-4 flex flex-col flex-grow">
                                 <div class="font-bold pb-4 inline-flex flex-wrap gap-2 items-center">
@@ -203,9 +203,11 @@ const openModal = (product_id) => {
                     </div>
                 </div>
             </div>
-            <UModal v-model:open="showModal"
-                :ui="{ width: 'sm:max-w-[375px]', overlay: { background: 'bg-gray-600 bg-opacity-70' } }">
-                <DemosViewProductModal :product="singleProduct" :allergens="menuData.allergens" @close="showModal = false" />
+            <UModal v-model:open="showModal" :title="singleProduct.name"
+                :ui="{ body: 'sm:max-w-[375px]', overlay: { background: 'bg-gray-600 bg-opacity-70' } }">
+                <template #content>
+                    <DemosViewProductModal :product="singleProduct" :allergens="menuData.allergens" @close="showModal = false" />
+                </template>
             </UModal>
         </section>
         <section>
@@ -275,31 +277,31 @@ const openModal = (product_id) => {
                             <div class="mb-4 text-lg text-gray-200">Call us</div>
                             <a href="tel:0 123 456 789" class="font-bold text-3xl"> 0 123 456 789</a>
                         </div>
-                        <UDivider label="OR" class="my-16" />
+                        <hr class="my-16" />
                         <div class="text-center mb-4 text-lg text-gray-200">Reserve a table</div>
                         <div class="flex flex-col gap-8 text-white flex-grow w-full">
-                            <UFormGroup label="Name">
+                            <UFormField label="Name">
                                 <UInput />
-                            </UFormGroup>
+                            </UFormField>
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                                <UFormGroup label="Email">
+                                <UFormField label="Email">
                                     <UInput type="email" />
-                                </UFormGroup>
-                                <UFormGroup label="Phone">
+                                </UFormField>
+                                <UFormField label="Phone">
                                     <UInput type="phone" />
-                                </UFormGroup>
+                                </UFormField>
                             </div>
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                                <UFormGroup label="Date & Time">
+                                <UFormField label="Date & Time">
                                     <UInput type="datetime-local" />
-                                </UFormGroup>
-                                <UFormGroup label="Number of guests">
+                                </UFormField>
+                                <UFormField label="Number of guests">
                                     <UInput type="number" />
-                                </UFormGroup>
+                                </UFormField>
                             </div>
-                            <UFormGroup label="Message">
+                            <UFormField label="Message">
                                 <UTextarea />
-                            </UFormGroup>
+                            </UFormField>
                             <UButton class="justify-center bg-[#8B0000] hover:bg-opacity-90" size="md">Reserve</UButton>
                         </div>
                     </div>
