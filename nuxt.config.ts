@@ -21,6 +21,8 @@ export default defineNuxtConfig({
     '/': { prerender: true },
     '/tools/free-qr-code-generator/**': { prerender: true },
     '/projects/**': { prerender: true },
+    '/tools/free-menu-maker': { redirect: 'https://1food.menu' },
+    '/tools/bunny-cdn': { redirect: 'https://bunny-cdn.netlify.app' }
   },
 
   runtimeConfig: {
