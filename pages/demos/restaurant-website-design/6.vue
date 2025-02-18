@@ -3,7 +3,7 @@ import { ref } from "vue";
 import { gsap } from "gsap";
 import staticMenu from '@/assets/json/demo-menu.json'
 
-const { menuData, groupedMenu, selectedProductID, singleProduct } = useMenu(staticMenu);
+const { menuData, groupedMenu, menuCategories, selectedProductID, singleProduct } = useMenu(staticMenu);
 
 const bgImgURL = 'https://images.pexels.com/photos/1566837/pexels-photo-1566837.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
 
@@ -96,7 +96,7 @@ const gallery = [
         </div>
         <!-- Menu Start -->
         <section class="!pt-0" id="our-menu">
-            <DemosCategoryTabs :categories="menuData.categories" />
+            <DemosCategoryTabs :categories="menuCategories" />
             <!-- Products START -->
             <div class="container">
                 <div class="my-6 overflow-hidden relative" v-for="category in groupedMenu?.categories">
@@ -163,10 +163,12 @@ const gallery = [
                     </div>
                 </div>
             </div>
-            <UModal v-model="showModal"
-                :ui="{ width: 'sm:max-w-[375px]', overlay: { background: 'bg-gray-600 bg-opacity-70' } }">
-                <DemosViewProductModal :product="singleProduct" :allergens="menuData.allergens"
-                    @close="showModal = false" />
+            <UModal v-model:open="showModal" title="title" description="desc"
+                :ui="{ content: 'sm:max-w-[375px]'}">
+                <template #content>
+                    <DemosViewProductModal :product="singleProduct" :allergens="menuData.allergens"
+                        @close="showModal = false" />
+                </template>
             </UModal>
         </section>
         <!-- Menu End -->
@@ -202,7 +204,7 @@ const gallery = [
 
                         </div>
                         <div class="text-center md:text-left mt-4">
-                            <button @click.prevent="showBookTableModal = true"
+                            <button
                                 class="text-[#0C7C59] border-[#0C7C59] border-2 tracking-wider py-2 px-4 inline-flex items-center justify-center rounded-full uppercase text-base font-semibold">
                                 Read More</button>
                         </div>
@@ -238,55 +240,46 @@ const gallery = [
                         </div>
                     </div>
 
-                    <IncludesGMaps class="border rounded h-[450px]"
+                    <LazyIncludesGMaps class="border border-gray-200 rounded h-[450px]"
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1667.5459847272448!2d16.38995774311557!3d48.14111989888702!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476da908a754311d%3A0x428d931fe45f5cc0!2sFreelance%20Web%20Developer%20in%20Vienna!5e0!3m2!1sen!2sat!4v1711108396501!5m2!1sen!2sat" />
                 </div>
             </div>
         </section>
-        <footer class="border-t border-r-gray-100">
+        <footer class="border-t border-gray-100 bg-white">
             <div class="container py-6 flex gap-6 items-center flex-col md:flex-row md:justify-between">
                 <div class="font-bold">Mama Mia</div>
-                <div>Created with &lt;3 by <NuxtLink to="/" class="font-bold">me</NuxtLink>
+                <div>Created with &lt;3 by <NuxtLink to="/" class="font-bold">Nick</NuxtLink>
                 </div>
             </div>
         </footer>
-        <UModal v-model="showBookTableModal">
-            <UCard :ui="{ ring: '', divide: 'divide-y divide-gray-100 dark:divide-gray-800' }">
-                <template #header>
-                    <div class="flex items-center justify-between">
-                        <h3 class="text-base font-semibold leading-6 text-gray-900 dark:text-white">
-                            Reserve a Table
-                        </h3>
-                        <UButton color="gray" variant="ghost" icon="i-ph-x" class="-my-1"
-                            @click="showBookTableModal = false" />
-                    </div>
-                </template>
+        <UModal v-model:open="showBookTableModal" title="Reserve a Table">
+            <template #body>
                 <div class="flex flex-col gap-8 text-white flex-grow w-full">
-                    <UFormGroup label="Name">
-                        <UInput />
-                    </UFormGroup>
+                    <UFormField label="Name">
+                        <UInput class="w-full" />
+                    </UFormField>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        <UFormGroup label="Email">
-                            <UInput type="email" />
-                        </UFormGroup>
-                        <UFormGroup label="Phone">
-                            <UInput type="phone" />
-                        </UFormGroup>
+                        <UFormField label="Email">
+                            <UInput type="email" class="w-full"  />
+                        </UFormField>
+                        <UFormField label="Phone">
+                            <UInput type="phone" class="w-full"  />
+                        </UFormField>
                     </div>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        <UFormGroup label="Date & Time">
-                            <UInput type="datetime-local" />
-                        </UFormGroup>
-                        <UFormGroup label="Number of guests">
-                            <UInput type="number" />
-                        </UFormGroup>
+                        <UFormField label="Date & Time">
+                            <UInput type="datetime-local" class="w-full"  />
+                        </UFormField>
+                        <UFormField label="Number of guests">
+                            <UInput type="number" class="w-full"  />
+                        </UFormField>
                     </div>
-                    <UFormGroup label="Message">
-                        <UTextarea />
-                    </UFormGroup>
+                    <UFormField label="Message">
+                        <UTextarea class="w-full"  />
+                    </UFormField>
                     <UButton class="justify-center bg-[#6D2E46] hover:bg-opacity-90" size="md">Reserve</UButton>
                 </div>
-            </UCard>
+            </template>
         </UModal>
     </div>
 </template>

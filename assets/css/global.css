@@ -143,3 +143,9 @@ legend {
     font-weight: 600;
     margin-bottom: .5rem;
 }
+
+.image-bg, .image-bg-2 {
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

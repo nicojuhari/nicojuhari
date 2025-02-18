@@ -17,7 +17,7 @@ useHead({
     ],
 })
 
-const { menuData, groupedMenu, singleProduct, selectedProductID } = useMenu(staticMenu)
+const { menuData, groupedMenu, menuCategories, singleProduct, selectedProductID } = useMenu(staticMenu)
 
 //modal
 const showModal = ref(false)
@@ -53,7 +53,7 @@ onMounted(() => {
     <div>
         <div style="background-image:url('https://images.unsplash.com/photo-1579027989536-b7b1f875659b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')"
             class="image-bg relative">
-            <div class="bg-black absolute inset-0 bg-opacity-70"></div>
+            <div class="bg-black/70 absolute inset-0"></div>
             <div class="relative z-10 h-screen flex flex-col items-center justify-center">
                 <div class="container flex-grow grid place-content-center grid-cols-1">
                     <div class="flex gap-4 items-center justify-center flex-col md:flex-row">
@@ -94,10 +94,10 @@ onMounted(() => {
                 </div>
             </div>
         </div>
-        <DemosCategoryTabs :categories="menuData.categories" class="border-b" />
+        <DemosCategoryTabs :categories="menuCategories" class="border-b border-gray-200" />
         <div class="container">
             <div class="min-h-96 mt-12">
-                <div v-for="category in groupedMenu.categories" :data-category-section="category.uid" class="mb-12">
+                <div v-for="category in menuCategories" :data-category-section="category.uid" class="mb-12">
                     <div :id="category.uid" class="h-0 w-0 opacity-0 -z-10 -translate-y-[90px]"></div>
                     <div class="text-2xl mb-2 font-semibold">
                         {{ category.name }}
@@ -106,7 +106,7 @@ onMounted(() => {
                         <div v-for="product in groupedMenu.products[category.uid]" @click="openModal(product.uid)"
                             class="flex cursor-pointer p-4 rounded-lg  bg-white border border-gray-300 gap-6 h-40 group">
                             <div
-                                class="h-28 w-28 image-bg overflow-hidden rounded-full shrink-0 self-center group-hover:scale-110 duration-500">
+                                class="h-28 w-28 image-bg overflow-hidden rounded shrink-0 self-center group-hover:scale-110 duration-500">
                                 <img class="image-bg h-full w-full" :src="product.imageUrl" />
                             </div>
                             <div class="flex flex-col flex-grow h-full">
@@ -135,18 +135,20 @@ onMounted(() => {
                 </div>
 
             </div>
-            <UModal v-model="showModal"
-                :ui="{ width: 'sm:max-w-[375px]', overlay: { background: 'bg-gray-600 bg-opacity-70' } }">
-                <DemosViewProductModal :product="singleProduct" :allergens="menuData.allergens"
-                    @close="showModal = false" />
+            <UModal v-model:open="showModal"
+                :ui="{ content: 'sm:max-w-[375px]', overlay: { background: 'bg-gray-600 bg-opacity-70' } }">
+                <template #content>
+                    <DemosViewProductModal :product="singleProduct" :allergens="menuData.allergens"
+                        @close="showModal = false" />
+                </template>
             </UModal>
         </div>
-        <footer class="border-t border-r-gray-100">
+        <footer class="border-t border-gray-100 bg-white">
             <div class="container py-6 flex gap-6 items-center flex-col md:flex-row md:justify-between">
                 <div class="font-semibold">
                     Tony's Restaurant
                 </div>
-                <div>Created with &lt;3 by <NuxtLink to="/" class="font-bold">me</NuxtLink>
+                <div>Created with &lt;3 by <NuxtLink to="/" class="font-bold">Nick</NuxtLink>
                 </div>
             </div>
         </footer>

@@ -34,3 +34,10 @@ export function searchInProducts(term, data) {
 
     return filteredData;
 }
+
+export function filterEmptyCategories(categories, products) {
+   return categories.filter((category) => {
+       // Check if the category has any associated products
+       return products.some((product) => product.categoryId === category.uid);
+   });
+}

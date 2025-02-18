@@ -77,11 +77,11 @@ const openModal = (product_id) => {
                         <div class="my-10 md:text-2xl text-xl text-[#c08133]">Restaurant | Bar | Terrace</div>
                         <div class="flex items-center gap-4 mb-10 w-full text-base md:text-xl">
                             <span>Rezervați o masă:</span>
-                            <a class="inline-flex items-center border border-opacity-50 border-white rounded-full gap-4 h-12 pr-6"
+                            <a class="inline-flex items-center border border-white/50 rounded-full gap-4 h-12 pr-6"
                                 href="tel:+37369454994">
                                 <div
-                                    class="bg-white bg-opacity-20 h-12 w-12 inline-flex items-center justify-center rounded-full">
-                                    <Icon name="ph:phone" class="w-6 h-6" />
+                                    class="bg-white/20 h-12 w-12 inline-flex items-center justify-center rounded-full">
+                                    <UIcon name="i-ph-phone" class="w-6 h-6 shrink-0" />
                                 </div>
                                 <span>069 454 994</span>
                             </a>
@@ -185,22 +185,24 @@ const openModal = (product_id) => {
                     Nu sa găsit nici un produs
                 </div>
             </div>
-            <UModal v-model="showModal"
-                :ui="{ width: 'sm:max-w-[375px]', overlay: { background: 'bg-gray-600 bg-opacity-70' } }">
-                <DemosViewProductModal 
-                    :product="singleProduct" 
-                    :allergens="menuData.allergens"
-                    :money-symbol="'lei'"
-                    :moneySymbolAfter="true"
-                    @close="showModal = false" />
+            <UModal v-model:open="showModal"
+                :ui="{ content: 'sm:max-w-[375px]' }">
+                <template #content>
+                    <DemosViewProductModal 
+                        :product="singleProduct" 
+                        :allergens="menuData.allergens"
+                        :money-symbol="'lei'"
+                        :moneySymbolAfter="true"
+                        @close="showModal = false" />
+                </template>
             </UModal>
         </section>
-        <footer class="border-t border-r-gray-100">
+        <footer class="border-t border-gray-100 bg-white">
             <div class="container py-6 flex gap-6 items-center flex-col md:flex-row md:justify-between">
                 <div>
                     <span class="font-bold">GUD</span> Restaurant
                 </div>
-                <div>Created with &lt;3 by <NuxtLink to="/" class="font-bold">me</NuxtLink>
+                <div>Created with &lt;3 by <NuxtLink to="/" class="font-bold">Nick</NuxtLink>
                 </div>
             </div>
         </footer>

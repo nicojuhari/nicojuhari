@@ -1,5 +1,5 @@
     import { ref, watch, onBeforeUnmount } from "vue";
-    import { groupProductsByCategory, searchInProducts } from "@/utils/menu";
+    import { groupProductsByCategory, searchInProducts, filterEmptyCategories } from "@/utils/menu";
 
     export const searchKey = ref("");
     export const selectedCategoryID = ref(null);
@@ -7,11 +7,13 @@
 
     export default function useMenu(staticMenu = {}) {
         const menuData = ref({ ...staticMenu } || null);
+        const menuCategories = ref([]);
         const groupedMenu = ref(null);
         const singleProduct = ref({});
 
         if (menuData.value) {
             groupedMenu.value = groupProductsByCategory({ ...menuData.value });
+            menuCategories.value = filterEmptyCategories([...menuData.value.categories], [...menuData.value.products]);
         }
 
         //view a product details/in modal
@@ -63,6 +65,7 @@
         return {
             menuData,
             groupedMenu,
+            menuCategories,
             singleProduct,
             selectedProductID,
         };

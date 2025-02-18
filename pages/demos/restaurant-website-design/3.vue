@@ -38,33 +38,31 @@ const galleryList = [
                     <div class="mt-6 text-lg text-gray-600">Where Every Meal Feels Like Family</div>
                 </div>
                 <div
-                    class="grid grid-cols-1 md:grid-cols-4 border-t-2 border-gray-900 md:py-4 divide-y divide-gray-300 divide-dashed md:divide-y-0">
-                    <div class="p-6">
-                        <div>Working hours</div>
-                        <div class="font-semibold md:text-lg mt-2"><span class="text-green-600">Open Now</span>: Closes at
-                            10 pm
-                        </div>
+                    class="grid grid-cols-1 md:grid-cols-2 border-y border-gray-900 py-2">
+                    <div class="py-1.5 flex gap-4 items-end">
+                        <div>Working hours: </div>
+                        <div class="font-semibold md:text-lg"><span class="text-green-600">Open Now</span>, Closes at 10 pm</div>
                     </div>
-                    <div class="p-6">
-                        <div>We accept</div>
-                        <div class="font-semibold md:text-lg mt-2">Only Cash</div>
+                    <div class="py-1.5 flex gap-4 items-end">
+                        <div>We accept:</div>
+                        <div class="font-semibold md:text-lg">Only Cash</div>
                     </div>
-                    <div class="p-6">
-                        <div>Our address</div>
-                        <div class="font-semibold md:text-lg mt-2">Street 34/1, City, 83838</div>
+                    <div class="py-1.5 flex gap-4 items-end">
+                        <div>Our address:</div>
+                        <div class="font-semibold md:text-lg">Street 34/1, City, 83838</div>
                     </div>
-                    <div class="p-6">
-                        <div>Reserve a table</div>
-                        <div class="group font-semibold md:text-lg mt-2 inline-flex items-center gap-2 text-green-600">
-                            <UIcon name="i-ph-phone-bold group-hover:rotate-45 duration-500" class="w-6 h-6"></UIcon>
+                    <div class="py-1.5 flex gap-4 items-end">
+                        <div>Reservation:</div>
+                        <div class="group font-semibold md:text-lg inline-flex items-center gap-2 text-green-600">
+                            <UIcon name="i-ph-phone-bold" class="w-6 h-6"></UIcon>
                             <span class="text-xl font-semibold">0123 456 7890</span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="md:max-w-[1280px] mx-auto grid grid-cols-2 md:grid-cols-4">
-            <div v-for="item in galleryList" class="aspect-square overflow-hidden cursor-pointer">
+        <div class="md:max-w-[1280px] mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 mt-6">
+            <div v-for="item in galleryList" class="aspect-square overflow-hidden cursor-pointer rounded">
                 <img :src="item" alt="La Famiglia Restaurant photos" class="object-cover w-full h-full grayscale hover:grayscale-0 duration-700 hover:scale-105"/>
             </div>
         </div>
@@ -80,7 +78,7 @@ const galleryList = [
                             <div class="font-bold mb-1 text-2xl shrink-0 line-clamp-1">{{ product.name }}</div>
                             <div v-if="product.tags" class="flex gap-2 overflow-x-auto">
                                 <div v-for="tag in product.tags"
-                                    class="text-xs px-2 py-1 rounded-full bg-green-600 bg-opacity-10 text-green-600 flex-shrink-0">
+                                    class="text-xs px-2 py-1 rounded-full bg-gray-600/10 text-gray-600 flex-shrink-0">
                                     {{ tag }}</div>
                             </div>
                         </div>

@@ -7,7 +7,7 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 
 import staticMenu from '@/assets/json/demo-menu.json'
 
-const { menuData, groupedMenu, selectedProductID, singleProduct } = useMenu(staticMenu);
+const { menuData, groupedMenu, menuCategories, selectedProductID, singleProduct } = useMenu(staticMenu);
 
 //modal
 const showModal = ref(false)
@@ -71,20 +71,20 @@ onMounted(() => {
                             <div>City, 1st Street, nr. 34, 856479</div>
                         </div>
                         <div class="flex gap-2">
-                            <UIcon name="i-ph-star-fill" class="w-6 h-6 text-blue-500" />
+                            <UIcon name="i-ph-star-fill" class="w-6 h-6 text-yellow-500" />
                             <span class="font-medium">4.9</span>
                             <div>Very Good</div>
                         </div>
                     </div>
                     <div>
-                        <UButton color="blue"> Order Now </UButton>
-                        <span class="ml-4">Deliver in 30 - 50 mins</span>
+                        <UButton> Order Now </UButton>
+                        <span class="ml-4">Delivery in 30 - 50 mins</span>
                     </div>
                 </div>
 
             </div>
         </div>
-        <DemosCategoryTabs :categories="menuData.categories" class="border-t" />
+        <DemosCategoryTabs :categories="menuCategories" class="border-t border-gray-200" />
         <div class="container">
             <div class="menu-products min-h-96">
                 <template v-for="category in groupedMenu.categories">
@@ -113,7 +113,7 @@ onMounted(() => {
 
                                 </div>
                             </div>
-                            <div class="h-full w-28 image-bg image-bg-2 shrink-0 border border-opacity-50 rounded-lg overflow-hidden">
+                            <div class="h-full w-28 image-bg image-bg-2 shrink-0 border border-gray-100 rounded-lg overflow-hidden">
                                 <div class="image-bg h-full w-full"
                                     :style="`background-image: url(${product.imageUrl})`">
                                 </div>
@@ -126,13 +126,15 @@ onMounted(() => {
                 </div>
 
             </div>
-            <UModal v-model="showModal"
-                :ui="{ width: 'sm:max-w-[375px]', overlay: { background: 'bg-gray-600 bg-opacity-70' } }">
-                <DemosViewProductModal :product="singleProduct" :allergens="menuData.allergens"
-                    @close="showModal = false" />
+            <UModal v-model:open="showModal"
+                :ui="{ content: 'sm:max-w-[375px]'}">
+                <template #content>
+                    <DemosViewProductModal :product="singleProduct" :allergens="menuData.allergens"
+                        @close="showModal = false" />
+                </template>
             </UModal>
         </div>
-        <footer class="border-t border-r-gray-100">
+        <footer class="border-t border-gray-100 bg-white">
             <div class="container py-6 flex gap-6 items-center flex-col md:flex-row md:justify-between">
                 <div class="font-bold">Bella Cucina</div>
                 <div>Created with &lt;3 by <NuxtLink to="/" class="font-bold">me</NuxtLink>

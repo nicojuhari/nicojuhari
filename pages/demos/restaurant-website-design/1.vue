@@ -124,7 +124,7 @@ const openModal = (product_id) => {
                     <div v-for="item in list" :key="item.name"
                         class="cursor-pointer items-center gap-6 border-gray-200 rounded-md flex">
                         <Icon :name="item.icon"
-                            class="w-12 h-12 text-[#175676] p-2 bg-[#175676] rounded-full bg-opacity-10" />
+                            class="w-12 h-12 text-[#175676] p-2 bg-[#175676]/10 rounded-full" />
                         <div>
                             <div class="font-semibold mb-1"> {{ item.title }}</div>
                             <div class="text-gray-600">{{ item.value }}</div>
@@ -195,7 +195,7 @@ const openModal = (product_id) => {
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
                         <div v-for="allergen in menuData.allergens" class="flex gap-4 items-center">
                             <div
-                                class="grid place-content-center w-12 h-12 shrink-0 bg-[#175676] bg-opacity-5 text-[#175676] rounded-full text-xl">
+                                class="grid place-content-center w-12 h-12 shrink-0 bg-[#175676]/5 text-[#175676] rounded-full text-xl">
                                 {{ allergen.name }}</div>
                             <div class="min-h-[48px] grid place-content-center text-gray-600">{{ allergen.description }}
                             </div>
@@ -204,7 +204,7 @@ const openModal = (product_id) => {
                 </div>
             </div>
             <UModal v-model:open="showModal" :title="singleProduct.name"
-                :ui="{ body: 'sm:max-w-[375px]', overlay: { background: 'bg-gray-600 bg-opacity-70' } }">
+                :ui="{ content: 'sm:max-w-[375px]', overlay: { background: 'bg-gray-600 bg-opacity-70' } }">
                 <template #content>
                     <DemosViewProductModal :product="singleProduct" :allergens="menuData.allergens" @close="showModal = false" />
                 </template>
@@ -212,7 +212,7 @@ const openModal = (product_id) => {
         </section>
         <section>
             <div id="about"
-                class="container relative grid grid-cols-1 md:grid-cols-2 shadow overflow-hidden rounded bg-[#1e1f23] text-white">
+                class="container mt-12 relative grid grid-cols-1 md:grid-cols-2 shadow overflow-hidden rounded bg-[#1e1f23] text-white">
                 <div class="px-6 md:px-20 py-14  grid place-content-center">
                     <h2 class="text-center mb-8 title">About</h2>
                     <div class="text-lg font-light">
@@ -234,8 +234,8 @@ const openModal = (product_id) => {
             </div>
         </section>
         <section class="md-section">
-            <div id="gallery" class="container relative">
-                <h2 class="text-center mb-8 title">Gallery</h2>
+            <div id="gallery" class="container mt-12 relative">
+                <h2 class="text-center my-8 title">Gallery</h2>
                 <div
                     class="grid md:grid-cols-4 md:grid-rows-[repeat(2,300px)] gap-4 grid-cols-2 grid-rows-[repeat(4,200px)]">
                     <div class="row-span-2 hover:-translate-y-2 duration-700">
@@ -265,8 +265,8 @@ const openModal = (product_id) => {
             </div>
         </section>
         <section>
-            <div id="contacts" class="container relative contacts-section">
-                <h2 class="text-center mb-8 title">Contacts</h2>
+            <div id="contacts" class="container mt-12 relative contacts-section">
+                <h2 class="text-center my-8 title">Contacts</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 rounded overflow-hidden shadow bg-[#1e1f23] text-white">
                     <div class="md:h-ss[800px] order-2 md:-order-1">
                         <img src="https://images.pexels.com/photos/6605646/pexels-photo-6605646.jpeg" alt="about us"
@@ -277,30 +277,30 @@ const openModal = (product_id) => {
                             <div class="mb-4 text-lg text-gray-200">Call us</div>
                             <a href="tel:0 123 456 789" class="font-bold text-3xl"> 0 123 456 789</a>
                         </div>
-                        <hr class="my-16" />
+                        <hr class="my-16 opacity-20" />
                         <div class="text-center mb-4 text-lg text-gray-200">Reserve a table</div>
-                        <div class="flex flex-col gap-8 text-white flex-grow w-full">
+                        <div class="flex flex-col gap-8 flex-grow w-full">
                             <UFormField label="Name">
-                                <UInput />
+                                <UInput class="w-full"/>
                             </UFormField>
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                                 <UFormField label="Email">
-                                    <UInput type="email" />
+                                    <UInput type="email" class="w-full" />
                                 </UFormField>
                                 <UFormField label="Phone">
-                                    <UInput type="phone" />
+                                    <UInput type="phone" class="w-full" />
                                 </UFormField>
                             </div>
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                                 <UFormField label="Date & Time">
-                                    <UInput type="datetime-local" />
+                                    <UInput type="datetime-local" class="w-full" />
                                 </UFormField>
                                 <UFormField label="Number of guests">
-                                    <UInput type="number" />
+                                    <UInput type="number" class="w-full" />
                                 </UFormField>
                             </div>
                             <UFormField label="Message">
-                                <UTextarea />
+                                <UTextarea class="w-full" />
                             </UFormField>
                             <UButton class="justify-center bg-[#8B0000] hover:bg-opacity-90" size="md">Reserve</UButton>
                         </div>
@@ -308,7 +308,7 @@ const openModal = (product_id) => {
                 </div>
             </div>
         </section>
-        <footer class="border-t border-r-gray-100">
+        <footer class="border-t border-gray-100 mt-6 bg-white">
             <div class="container py-6 flex gap-6 items-center flex-col md:flex-row md:justify-between">
                 <svg class="h-6 text-[#175676]" viewBox="0 0 236 38" xmlns="http://www.w3.org/2000/svg"
                     fill="currentColor">
@@ -336,5 +336,6 @@ const openModal = (product_id) => {
         --tw-bg-opacity: .1;
         color: #fff;
         box-shadow: none;
+        background: rgb(255 255 255 / 10%);
     }
 </style>

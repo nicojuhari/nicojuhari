@@ -83,7 +83,7 @@ onBeforeUnmount(() => {
             <div class="overflow-x-auto text-sm">
                 <div class="inline-flex gap-4 mx-auto md:w-full py-4" :class="alignCenter && 'md:justify-center'">
                     <div @click.prevent="toggleSearchBar"
-                        class="h-10 w-10 flex flex-shrink-0 items-center justify-center bg-[#3b3b3b] bg-opacity-10 text-[#3b3b3b] rounded-full cursor-pointer">
+                        class="h-10 w-10 flex flex-shrink-0 items-center justify-center bg-[#3b3b3b]/10 text-[#3b3b3b] rounded-full cursor-pointer">
                         <svg class="w-6 h-6" viewBox="0 0 20 20">
                             <path fill="currentColor" fill-rule="evenodd"
                                 d="M8 4a4 4 0 1 0 0 8a4 4 0 0 0 0-8ZM2 8a6 6 0 1 1 10.89 3.476l4.817 4.817a1 1 0 0 1-1.414 1.414l-4.816-4.816A6 6 0 0 1 2 8Z"
@@ -91,8 +91,8 @@ onBeforeUnmount(() => {
                         </svg>
                     </div>
                     <div v-for="category in menuCategories" :key="category.uid" @click="handleClick(category.uid)"
-                        :class="{ '!bg-[#3b3b3b] bg-opacity-70 !text-white': selectedCategory == category.uid }"
-                        class="bg-opacity-5 bg-[#3b3b3b] text-[#3b3b3b] py-2 px-4 h-10 inline-flex items-center rounded-full cursor-pointer flex-shrink-0 duration-500"
+                        :class="{ '!bg-[#3b3b3b]/70 !text-white': selectedCategory == category.uid }"
+                        class="bg-[#3b3b3b]/5 text-[#3b3b3b] py-2 px-4 h-10 inline-flex items-center rounded-full cursor-pointer flex-shrink-0 duration-500"
                         :data-category-tab="category.uid"> {{ category.name }}
                     </div>
                 </div>
@@ -101,7 +101,7 @@ onBeforeUnmount(() => {
                 <div class="flex items-center gap-4 absolute left-0 w-full py-4 top-0 bg-white"
                     :class="alignCenter && 'md:justify-center'" v-if="showSearchBar">
                     <div @click.prevent="toggleSearchBar(false)"
-                        class="h-10 w-10 flex flex-shrink-0 items-center justify-center bg-[#3b3b3b] bg-opacity-10 text-[#3b3b3b] rounded-full cursor-pointer">
+                        class="h-10 w-10 flex flex-shrink-0 items-center justify-center bg-[#3b3b3b]/10 text-[#3b3b3b] rounded-full cursor-pointer">
                         <svg class="w-6 h-6" viewBox="0 0 24 24">
                             <path fill="currentColor"
                                 d="M6.225 4.811a1 1 0 0 0-1.414 1.414L10.586 12L4.81 17.775a1 1 0 1 0 1.414 1.414L12 13.414l5.775 5.775a1 1 0 0 0 1.414-1.414L13.414 12l5.775-5.775a1 1 0 0 0-1.414-1.414L12 10.586L6.225 4.81Z" />

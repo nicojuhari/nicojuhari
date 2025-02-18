@@ -20,8 +20,8 @@
 </script>
 <template>
     <div class="flex flex-col bg-white flex-shrink-0 rounded-lg overflow-hidden relative">
-        <UButton square color="gray" variant="soft" icon="i-ph-x-bold"
-            class="absolute rounded-full bg-opacity-60 right-3 top-3 font-bold text-gray-950"
+        <UButton square icon="i-ph-x-bold"
+            class="absolute rounded-full bg-white/80 hover:bg-white right-3 top-3 font-bold text-gray-950"
             @click="() => $emit('close')" />
         <div class="h-72 w-full image-bg image-bg-2 shrink-0">
             <div class="image-bg h-full w-full" :style="`background-image: url(${product.imageUrl})`">
