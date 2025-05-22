@@ -1,0 +1,57 @@
+
+
+@import "tailwindcss" theme(static);
+@import "@nuxt/ui";
+
+@import "./global.css";
+
+/* CSS HEX */
+@theme static {
+    --color-blue-50: #f1f6fd;
+    --color-blue-100: #dee9fb;
+    --color-blue-200: #c5daf8;
+    --color-blue-300: #9ec3f2;
+    --color-blue-400: #6fa2eb;
+    --color-blue-500: #4e80e3;
+    --color-blue-600: #3964d7;
+    --color-blue-700: #3051c5;
+    --color-blue-800: #2c43a1;
+    --color-blue-900: #293c7f;
+    --color-blue-950: #192143; /* main */
+
+    --color-green-50: #f4f9f4;
+    --color-green-100: #e6f2e6;
+    --color-green-200: #cde5cd;
+    --color-green-300: #a6cfa7;
+    --color-green-400: #77b177;
+    --color-green-500: #60a561; /* main */
+    --color-green-600: #417842; 
+    --color-green-700: #356036;
+    --color-green-800: #2e4d2f;
+    --color-green-900: #274028;
+    --color-green-950: #112212;
+
+
+    --color-red-50: #ffeff0;
+    --color-red-100: #ffe0e2;
+    --color-red-200: #ffc5cd;
+    --color-red-300: #ff96a4;
+    --color-red-400: #ff5b75;
+    --color-red-500: #ff224c;
+    --color-red-600: #ff0037;
+    --color-red-700: #da002f;
+    --color-red-800: #b6002f;
+    --color-red-900: #9e0031;  /* main */
+    --color-red-950: #580014;
+
+    /* --space-cadet: #192143ff;
+    --feldgrau: #526760ff;
+    --madder: #9e0031ff;
+    --antiflash-white: #e8e9ebff;
+    --asparagus: #60a561ff; */
+}
+
+
+.aspect-square {
+    aspect-ratio: 1 / 1;
+}

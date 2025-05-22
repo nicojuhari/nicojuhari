@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+Disallow: /demos
+Disallow: /cdn-cgi/*
+
+Sitemap: https://nicojuhari.com/sitemap.xml
