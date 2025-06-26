@@ -24,9 +24,9 @@ let apps = [
     },
     {
         title: "Rock Paper Scissors",
-        url: 'https://play-rps-online.netlify.app/',
-        logo: 'https://play-rps-online.netlify.app/rock-paper-scissors-logo.svg',
-        description: 'Play with your friends and family'
+        url: 'https://rps-game.online/',
+        logo: 'https://rps-game.online/rock-paper-scissors-logo.svg',
+        description: 'Play RPS game online'
     },
 ];
 
