@@ -19,6 +19,11 @@ const list = [
         url: '/gud',
         title: 'GUD Restaurant',
         imgUrl: 'https://nicojuhari.b-cdn.net/demos/thumbnails/gud-restaurant.webp'
+    },
+    {
+        url: '/lusin',
+        title: 'Lusin Restaurant',
+        imgUrl: ''
     }
 ]
 </script>
@@ -29,7 +34,7 @@ const list = [
             <div class="text-xl text-gray-600 mt-2">Not real websites, but businesses are real.</div>
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 mt-10 md:mt-16 gap-4 lg:gap-6">
-            <NuxtLink :to="'/demos/restaurants/'+ item.url" target="_blank"
+            <NuxtLink :to="'/demos/restaurants'+ item.url"
                 class="bg-white border shadosw border-gray-200 rounded-lg overflow-hidden" v-for="item in list">
                 <div>
                     <img :src="item.imgUrl" class="blosck" :alt="item.title + ' Website Design' " />

@@ -5,7 +5,7 @@ const siteDescription = 'Creating fast, pixel-perfect, and SEO-friendly websites
 
 export default defineNuxtConfig({ 
   devtools: { enabled: true },
-  modules: ['@nuxt/ui', '@vueuse/nuxt', '@nuxtjs/sitemap', ["@storyblok/nuxt", { accessToken: 'EzikCGO5TZGapwffPYn4rAtt' }], '@nuxtjs/robots'],
+  modules: ['@nuxt/ui', '@vueuse/nuxt', '@nuxtjs/sitemap', '@vueuse/motion/nuxt', ["@storyblok/nuxt", { accessToken: 'EzikCGO5TZGapwffPYn4rAtt' }], '@nuxtjs/robots'],
   // css: ['~/assets/css/main.css'],
   ui: {
     theme: {

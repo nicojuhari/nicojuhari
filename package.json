@@ -21,7 +21,9 @@
     "@iconify-json/ph": "^1.2.2",
     "@nuxt/ui": "^3.2.0",
     "@storyblok/nuxt": "^7.0.0",
+    "@vueuse/core": "^13.5.0",
     "@vueuse/integrations": "^13.5.0",
+    "@vueuse/motion": "^3.0.3",
     "@vueuse/nuxt": "^13.5.0",
     "gsap": "^3.13.0",
     "qr-code-styling": "^1.9.2"

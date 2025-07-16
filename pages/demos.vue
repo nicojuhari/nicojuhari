@@ -12,9 +12,6 @@ useHead({
         ],
 })
 
-defineRouteRules({
-  robots: false
-})
 </script>
 <template>
     <NuxtPage/>
