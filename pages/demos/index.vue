@@ -23,7 +23,7 @@ const list = [
     {
         url: '/lusin',
         title: 'Lusin Restaurant',
-        imgUrl: ''
+        imgUrl: 'https://nicojuhari.b-cdn.net/demos/thumbnails/lusin.jpeg'
     }
 ]
 </script>
