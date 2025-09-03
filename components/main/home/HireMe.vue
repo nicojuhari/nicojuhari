@@ -1,15 +1,6 @@
 <script setup lang="ts">
 import type { FormError, FormSubmitEvent } from '@nuxt/ui'
 
-useHead({
-    title: 'Contact me | Full-Stack Web Developer',
-    titleTemplate: '%pageTitle',
-    meta: [
-        { name: 'description', content: 'Get in touch for custom websites that convert & impress. Contact for a free quote & see how I can help you succeed online with expert design solutions.' },
-        { name: 'keywords', content: 'freelancer, web developer, javascript developer, restaurant website design' }
-    ],
-})
-
 const formData = reactive({
     name: '',
     email: '',
@@ -80,9 +71,9 @@ const submitForm = async (e: FormSubmitEvent<typeof formData>) => {
 
 </script>
 <template>
-    <div class="container">
-        <h1 class="text-center title py-4 mt-12">Contact me</h1>
-        <UCard class="m-auto max-w-[800px] relative">
+    <div class="container my-16 md:my-24">
+        <h1 class="text-center title mb-6" id="contact-me">Contact me</h1>
+        <div class="relative border border-gray-200/60 rounded-lg p-4 bg-white">
             <UForm :validate="validate"  :state="formData" method="POST" class="space-y-4" @submit.prevent="submitForm">
                 <UFormField label="Your name" name="name">
                     <UInput v-model="formData.name" class="w-full" />
@@ -99,6 +90,6 @@ const submitForm = async (e: FormSubmitEvent<typeof formData>) => {
             </UForm>
             <Loading v-if="loading"  class="absolute top-1/2 left-1/2 -translate-x-[50%] -translate-y-[50%]"/>
             <div v-if="isFormSent" class="mt-6 text-green-600">Thank you for your message! I will contact you shortly.</div>    
-        </UCard>
+        </div>
     </div>
 </template>

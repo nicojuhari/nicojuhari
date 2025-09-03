@@ -20,7 +20,7 @@ let apps = [
         title: "Space Converter",
         url: '/tools/convert-spaces-to-dashes',
         icon: 'i-ph-repeat-light',
-        description: 'Convert spaces to dashes or underscores'
+        description: 'Convert spaces from a text'
     },
     {
         title: "Online Checklist Maker",
@@ -49,12 +49,12 @@ watchEffect(() => {
 
 </script>
 <template>
-    <UCard>
+    <div class="container my-16 md:my-24">
         <h2 class="title mb-0 text-center">Simple Tools</h2>
         <p class="text-sm text-center mb-6">Built for me and sharing with you.</p>
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <NuxtLink :to="app.url" v-for="(app, index) in filteredApps" :key="app.title"
-                class="flex gap-4 items-center border border-gray-200/60 p-4 rounded-md bg-gray-100/60" :title="app.title"
+                class="flex gap-4 items-center border border-gray-200/60 p-4 rounded-md bg-white" :title="app.title"
                 :class="{'lg:col-span-2': isLastOdd(index) }">
                 <UIcon :name="app.icon" class="h-6 w-6 lg:h-8 lg:w-8 shrink-0"
                             :class="app.iconColor ? app.iconColor : 'text-blue-500'" dynamic>
@@ -65,5 +65,5 @@ watchEffect(() => {
                 </div>
             </NuxtLink>
         </div>
-    </UCard>
+    </div>
 </template>
