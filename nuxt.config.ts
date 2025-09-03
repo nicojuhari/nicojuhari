@@ -1,7 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 
-const siteTitle = 'Full-Stack Web Developer | Business & Restaurant Websites'
-const siteDescription = 'Creating fast, pixel-perfect, and SEO-friendly websites for businesses and restaurants that stand out. Let\'s bring your vision to life - reach out today!'
+const siteTitle = 'Shopify & JavaScript Developer - Performance & CRO'
+const siteDescription = 'I am a Shopify expert and full-stack JavaScript developer with a passion for creating fast, pixel-perfect, and SEO-friendly eCommerce stores that stand out.'
 
 export default defineNuxtConfig({ 
   devtools: { enabled: true },
