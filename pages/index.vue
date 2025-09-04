@@ -1,10 +1,10 @@
 <script setup>
 
 useHead({
-    title: useRuntimeConfig().public.siteName,
+    title: 'Shopify & JavaScript Developer - Performance & CRO',
     meta: [
-        { name: 'description', content: useRuntimeConfig().public.siteDescription },
-        { name: 'keywords', content: 'web developer, JavaScript Developer, nuxt and vue developer, business website design' },
+        { name: 'description', content: 'Shopify Expert and full-stack JavaScript developer creating fast, pixel-perfect, SEO-friendly eCommerce stores that boost results and improve user experience.' },
+        { name: 'keywords', content: 'web developer, JavaScript Developer, Shopify developer, vue developer, nuxt developer, performance and CRO' },
     ],
 })
 

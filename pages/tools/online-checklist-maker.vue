@@ -2,10 +2,8 @@
 
 useHead({
     title: 'Free Online Checklist Maker: Create & Manage Tasks Easily',
-    meta: [{ name: 'description', content: 'Discard the paper! Create, manage, and complete your tasks using our free online checklist builder. Increase productivity and achieve your objectives.' }],
+    meta: [{ name: 'description', content: 'Create and customize your own online checklists easily with our user-friendly and FREE Checklist Maker. Stay organized and boost your productivity today!' }],
 })
-
-
 
 const tasks = ref([]);
 const newTask = reactive({
@@ -85,18 +83,23 @@ const deleteTasks = () => {
 };
 
 const saveToLocalStorage = () => {
-    localStorage.setItem('nc_checklist_tasks', JSON.stringify(tasks.value));
+    if (import.meta.client) {
+        localStorage.setItem('nc_checklist_tasks', JSON.stringify(tasks.value));
+    }
 };
-
 watch(tasks, saveToLocalStorage, { deep: true });
 
 onMounted(() => {
-    const tasksFromLocalStorage = localStorage.getItem('nc_checklist_tasks');
-    if (tasksFromLocalStorage) {
-        tasks.value = JSON.parse(tasksFromLocalStorage);
+    //run on client side
+    if (import.meta.client) {
+        // Set up the watcher after component is mounted
+        
+        const tasksFromLocalStorage = localStorage.getItem('nc_checklist_tasks');
+        if (tasksFromLocalStorage) {
+            tasks.value = JSON.parse(tasksFromLocalStorage);
+        }
+        isLoading.value = false;
     }
-
-    isLoading.value = false;
 });
 
 </script>

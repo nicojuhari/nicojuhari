@@ -16,7 +16,7 @@ const thisYear = new Date().getFullYear();
                 Shopify & JavaScript Developer
             </h1>
             <h2 class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed">
-                I build pixel-perfect, fast, SEO-friendly Shopify stores and web apps<br class="hidden sm:block"> with Vue, Nuxt, and modern JavaScript.
+                I create pixel-perfect, fast, and SEO-friendly web apps<br class="hidden sm:block"> using Shopify, Vue, Nuxt, and modern JavaScript.
             </h2>
             <div class="flex justify-center gap-4 mb-12">
                 <UButton 

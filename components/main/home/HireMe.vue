@@ -73,20 +73,22 @@ const submitForm = async (e: FormSubmitEvent<typeof formData>) => {
 <template>
     <div class="container my-16 md:my-24">
         <h1 class="text-center title mb-6" id="contact-me">Contact me</h1>
-        <div class="relative border border-gray-200/60 rounded-lg p-4 bg-white">
-            <UForm :validate="validate"  :state="formData" method="POST" class="space-y-4" @submit.prevent="submitForm">
+        <div class="relative border border-gray-200/60 rounded-lg p-4 py-8 bg-white">
+            <UForm :validate="validate"  :state="formData" method="POST" class="space-y-4 max-w-[600px] m-auto" @submit.prevent="submitForm">
                 <UFormField label="Your name" name="name">
-                    <UInput v-model="formData.name" class="w-full" />
+                    <UInput v-model="formData.name" class="w-full" size="lg"/>
                 </UFormField>
                 <UFormField label="Email" name="email">
-                    <UInput v-model="formData.email" class="w-full" />
+                    <UInput v-model="formData.email" class="w-full" size="lg"/>
                 </UFormField>
-                <UFormField label="Message" name="message">
-                    <UTextarea v-model="formData.message" class="w-full"/>
+                <UFormField label="Message" name="message" hint="Please tell me about your project">
+                    <UTextarea v-model="formData.message" class="w-full" size="lg"/>
                 </UFormField>
-                <UButton type="submit" :loading="loading" :disabled="loading || isFormSent || validate(formData).length > 0">
-                    Send
-                </UButton>
+                <div class="text-right">
+                    <UButton type="submit" :loading="loading" :disabled="loading || isFormSent || validate(formData).length > 0" size="lg" class="px-8">
+                        Send
+                    </UButton>
+                </div>
             </UForm>
             <Loading v-if="loading"  class="absolute top-1/2 left-1/2 -translate-x-[50%] -translate-y-[50%]"/>
             <div v-if="isFormSent" class="mt-6 text-green-600">Thank you for your message! I will contact you shortly.</div>    
