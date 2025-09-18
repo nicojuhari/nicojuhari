@@ -5,7 +5,7 @@ const siteDescription = 'I am a Shopify expert and full-stack JavaScript develop
 
 export default defineNuxtConfig({ 
   devtools: { enabled: true },
-  modules: ['@nuxt/ui', '@vueuse/nuxt', '@nuxtjs/sitemap', '@vueuse/motion/nuxt', ["@storyblok/nuxt", { accessToken: 'EzikCGO5TZGapwffPYn4rAtt' }], '@nuxtjs/robots'],
+  modules: ['@nuxt/ui', '@vueuse/nuxt', '@nuxtjs/sitemap', '@pinia/nuxt', '@vueuse/motion/nuxt', ["@storyblok/nuxt", { accessToken: 'EzikCGO5TZGapwffPYn4rAtt' }], '@nuxtjs/robots', 'pinia-plugin-persistedstate/nuxt',],
   // css: ['~/assets/css/main.css'],
   ui: {
     theme: {
@@ -29,16 +29,18 @@ export default defineNuxtConfig({
   },
 
   runtimeConfig: {
-        public : {
+        public: {
           gtag: {
             id: 'G-YC2EDZRT9H'
           },
-            siteUrl: 'https://nicojuhari.com',
-            siteName: siteTitle,
-            siteDescription,
-            language: 'en',
+          siteUrl: 'https://nicojuhari.com',
+          siteName: siteTitle,
+          siteDescription,
+          language: 'en',
+          STRIPE_PUBLISHABLE_KEY: process.env.STRIPE_PUBLISHABLE_KEY,
         },
-        siteUrl: 'https://nicojuhari.com',
+        STRIPE_SECRET_KEY: process.env.STRIPE_SECRET_KEY,
+        siteUrl: 'https://nicojuhari.com'
     },
   app: {
         head: { 

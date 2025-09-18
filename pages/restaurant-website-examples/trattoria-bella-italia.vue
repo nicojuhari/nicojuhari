@@ -1,8 +1,11 @@
 <script setup>
 
+import { ClientOnly, UButton } from '#components'
 import staticMenu from '@/assets/json/demo-menu.json'
+import { useCartStore } from '@/store/cart'
 
 const { menuData, groupedMenu, singleProduct, selectedProductID, menuCategories } = useMenu(staticMenu)
+const cartStore = useCartStore()
 
 useHead({
     title: `Trattoria Bella Italia | Restaurant Website Example`,
@@ -86,6 +89,23 @@ const reviews = [
         text: 'Every bite was a culinary delight—truly unforgettable!'
     }
 ]
+
+const addToCart = (productId) => {
+    const product = menuData.value.products.find(p => p.uid === productId);
+    if (product) {
+        console.log(product);
+        // Assuming you have a cart store or similar to handle cart operations
+        const cartStore = useCartStore();
+        cartStore.addItem({
+            id: product.uid,
+            name: product.name,
+            price: +product.options[0]?.salePrice ||  +product.options[0]?.price || 0, // Assuming the first option's price
+            quantity: 1
+        });
+    } else {
+        alert('Product not found.');
+    }
+};
 </script>
 <template>
     <div class="demos-restaurant-1">
@@ -151,6 +171,9 @@ const reviews = [
         </div>
         <div class="container pt-16" id="our-menu">
             <h2 class="text-center mb-8 title">Our Menu</h2>
+            <ClientOnly>
+                <Cart/>
+            </ClientOnly>
             <div class="flex gap-4 my-6 lg:justify-center overflow-auto">
                 <div v-for="category in [{ uid: '', name: 'View All' }, ...menuCategories]" :key="category.uid" @click="selectedCategory = category.uid"
                     :class="{ '!border-[#060606] !text-white !bg-[#060606]': selectedCategory == category.uid }"
@@ -165,9 +188,9 @@ const reviews = [
                 <div v-if="category.description" class="my-2 text-gray-600">{{ category.description }}</div>
                 <div class="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 mt-2 px-0.5">
                     <div v-for="product in groupedMenu.products[category.uid]" :key="product.uid"
-                        @click.prevent="() => openModal(product.uid)"
+                        
                         class="snap-center flex flex-col cursor-pointer rounded-xl bg-white flex-shrink-0 shadow w-72 p-4">
-                        <img :src="product?.imageUrl" class="w-full h-full aspect-square object-cover rounded-lg" :alt="product.title" />
+                        <img @click.prevent="() => openModal(product.uid)" :src="product?.imageUrl" class="w-full h-full aspect-square object-cover rounded-lg" :alt="product.title" />
 
                         <div class="pt-4 flex flex-col flex-grow">
                             <div class="font-semibold mb-4 hs-12">
@@ -197,6 +220,9 @@ const reviews = [
                                             class="arrow-down rounded bg-slate-200"></span>
                                     </div>
                                 </div>
+                                <UButton color="error" @click="addToCart(product.uid)" class="w-full mt-4 justify-center">
+                                    Add to Cart
+                                </UButton>
                             </div>
                         </div>
                     </div>
