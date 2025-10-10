@@ -72,7 +72,7 @@ const submitForm = async (e: FormSubmitEvent<typeof formData>) => {
 </script>
 <template>
     <div class="container container-sm my-16 md:my-24">
-        <h1 class="text-center title mb-6" id="contact-me">Contact me</h1>
+        <h2 class="text-center title mb-6" id="contact-me">Contact me</h2>
         <div class="relative border rounded-md p-6 bg-white">
             <UForm :validate="validate"  :state="formData" method="POST" class="space-y-4" @submit.prevent="submitForm">
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">

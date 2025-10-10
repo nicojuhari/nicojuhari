@@ -43,9 +43,9 @@ onMounted(() => {
             <h1 class="opacity-0 text-3xl md:text-4xl font-bold mb-6 leading-tight" data-hero-title>
                 Shopify & JavaScript Developer
             </h1>
-            <h2 class="text-lg text-gray-500 mb-8 max-w-2xl mx-auto leading-relaxed opacity-0" data-hero-subtitle>
+            <p class="text-lg text-gray-500 mb-8 max-w-2xl mx-auto leading-relaxed opacity-0" data-hero-subtitle>
                 I create pixel-perfect, fast, and SEO-friendly web apps<br class="hidden sm:block"> using Shopify, Vue, Nuxt, and modern JavaScript.
-            </h2>
+            </p>
             <div class="flex justify-center gap-4 mb-12">
                 <UButton 
                     data-cta 

@@ -61,7 +61,7 @@ let myStack = [
 </script>
 <template>
     <div class="text-center container container-sm my-16 md:my-24" >
-        <h3 class="title mb-6">My Stack</h3>
+        <h2 class="title mb-6">My Stack</h2>
         <div class="flex flex-wrap justify-center gap-8 px-4">
             <div v-for="item in myStack" v-html="item.icon" class="w-10 lg:w-12 h-10 lg:h-12 shrink-0 stack-icon" :title="item.name"> </div>
         </div>

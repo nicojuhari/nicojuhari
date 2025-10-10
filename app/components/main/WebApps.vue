@@ -33,7 +33,7 @@ let apps = [
 </script>
 <template>
     <div class="container container-sm my-16 md:my-24">
-        <h3 class="title mb-6 text-center">Web Apps</h3>
+        <h2 class="title mb-6 text-center">Web Apps</h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <NuxtLink :to="app.url" target="_blank" :rel="app.follow ? '' : 'nofollow'" v-for="app in apps" :key="app.title"
                 class="flex gap-4 items-center border p-4 rounded-md bg-white" :title="app.title">
