@@ -7,7 +7,7 @@ onMounted(() => {
     gsap.registerPlugin(SplitText);
     const tl = gsap.timeline()
 
-    const splitHeroSubtitle = new SplitText('[data-hero-subtitle]', { type: 'lines' });
+    const splitHeroSubtitle = new SplitText('[data-hero-subtitle]', { type: 'words' });
     
     // Set the wrapper back to visible after splitting
     gsap.set('[data-hero-subtitle]', { opacity: 1 });
@@ -16,13 +16,16 @@ onMounted(() => {
         { duration: 1, ease: 'power2.out', y: 20, opacity: 0 }, 
         { y: 0, opacity: 1 }
     )
-    gsap.from(splitHeroSubtitle.lines, {
+    tl.from(splitHeroSubtitle.words, {
         y: 20,
         opacity: 0,
-        stagger: 0.2,
-        delay: 0.8,
+        stagger: 0.1,
         ease: 'power2.out',
     })
+    tl.fromTo('[data-cta]', 
+        { duration: 1, ease: 'power2.out', y: 20, opacity: 0 }, 
+        { y: 0, opacity: 1 }
+    , "-=0.5")
     
     
 })
@@ -45,10 +48,10 @@ onMounted(() => {
             </h2>
             <div class="flex justify-center gap-4 mb-12">
                 <UButton 
+                    data-cta 
                     to="/#contact-me" 
-                    color="secondary" 
-                    variant="solid"
-                    class="px-8 justify-center w-full max-w-[160px]"
+                    color="secondary"
+                    class="px-8 justify-center w-full max-w-[160px] opacity-0"
                 >
                     Hire me
                 </UButton>
