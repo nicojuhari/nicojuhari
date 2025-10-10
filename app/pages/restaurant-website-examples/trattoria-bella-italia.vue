@@ -2,7 +2,7 @@
 
 import { ClientOnly, UButton } from '#components'
 import staticMenu from '@/assets/json/demo-menu.json'
-import { useCartStore } from '~/app/store/cart'
+import { useCartStore } from '@/store/cart'
 
 const { menuData, groupedMenu, singleProduct, selectedProductID, menuCategories } = useMenu(staticMenu)
 const cartStore = useCartStore()

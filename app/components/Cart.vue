@@ -1,7 +1,7 @@
 <!-- Display a table with the items in the cart -->
 <script setup>
 import { UButton } from '#components';
-import { useCartStore } from '~/app/store/cart'
+import { useCartStore } from '@/store/cart'
 const cartStore = useCartStore()
 
 console.log(cartStore.items)
