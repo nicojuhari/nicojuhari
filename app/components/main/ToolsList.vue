@@ -49,19 +49,16 @@ watchEffect(() => {
 
 </script>
 <template>
-    <div class="container my-16 md:my-24">
+    <div class="container container-sm my-16 md:my-24">
         <h2 class="title mb-0 text-center">Simple Tools</h2>
-        <p class="text-sm text-center mb-6">Built for me and sharing with you.</p>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <NuxtLink :to="app.url" v-for="(app, index) in filteredApps" :key="app.title"
-                class="flex gap-4 items-center border border-gray-200/60 p-4 rounded-md bg-white" :title="app.title"
-                :class="{'lg:col-span-2': isLastOdd(index) }">
-                <UIcon :name="app.icon" class="h-6 w-6 lg:h-8 lg:w-8 shrink-0"
-                            :class="app.iconColor ? app.iconColor : 'text-blue-500'" dynamic>
-                        </UIcon>
+        <p class="text-sm text-center mb-6 text-gray-500">Built for me and sharing with you.</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <NuxtLink :to="app.url" v-for="app in filteredApps" :key="app.title"
+                class="p-4 flex gap-4 items-center border rounded-md overflow-hidden bg-white" :title="app.title">
+                <UIcon :name="app.icon" class="h-6 w-6 lg:h-8 lg:w-8 shrink-0 text-gray-500" />
                 <div>
                     <p class="font-semibold">{{ app.title }}</p>
-                    <p class="text-gray-600 text-sm"> {{ app.description }}</p>
+                    <p class="text-gray-500 text-sm"> {{ app.description }}</p>
                 </div>
             </NuxtLink>
         </div>

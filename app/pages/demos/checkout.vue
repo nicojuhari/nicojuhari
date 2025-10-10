@@ -1,7 +1,7 @@
 <!-- checkout page using stripe and our cart store -->
 <script setup>
 import { UButton, UModal } from '#components'
-import { useCartStore } from '@/store/cart'
+import { useCartStore } from '~/app/store/cart'
 import StripeCheckoutForm from '@/components/demos/StripeCheckoutForm.vue'
 import { ref } from 'vue'
 

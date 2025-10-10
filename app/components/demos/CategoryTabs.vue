@@ -1,5 +1,5 @@
 <script setup>
-import { searchKey, selectedCategoryID } from '~/composables/useMenu';
+import { searchKey, selectedCategoryID } from '~/app/composables/useMenu';
 
 const props = defineProps({
     categories: {

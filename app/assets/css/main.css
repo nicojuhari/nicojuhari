@@ -1,9 +1,11 @@
 
 
-@import "tailwindcss" theme(static);
+@import "tailwindcss";
 @import "@nuxt/ui";
 
-@import "./global.css";
+:root {
+    --ui-border: #eaeaea;
+}
 
 /* CSS HEX */
 @theme static {
@@ -51,7 +53,10 @@
     --asparagus: #60a561ff; */
 }
 
-
-.aspect-square {
-    aspect-ratio: 1 / 1;
+@layer base {
+    * {
+        @apply border-(--ui-border)
+    }
 }
+
+@import "./global.css";

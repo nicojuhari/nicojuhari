@@ -32,15 +32,15 @@ let apps = [
 
 </script>
 <template>
-    <div class="container my-16 md:my-24">
-        <h3 class="title mb-6 text-center">Apps I Built</h3>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+    <div class="container container-sm my-16 md:my-24">
+        <h3 class="title mb-6 text-center">Web Apps</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <NuxtLink :to="app.url" target="_blank" :rel="app.follow ? '' : 'nofollow'" v-for="app in apps" :key="app.title"
-                class="flex gap-4 items-center border border-gray-200/60 p-4 rounded-md bg-white" :title="app.title">
+                class="flex gap-4 items-center border p-4 rounded-md bg-white" :title="app.title">
                 <img :src="app.logo" class="h-6 w-6 lg:h-8 lg:w-8 object-contain shrink-0" :alt="app.title" />
                 <div>
                     <h3 class="font-semibold">{{ app.title }}</h3>
-                    <div class="text-gray-600 text-sm"> {{ app.description }}</div>
+                    <div class="text-gray-500 text-sm"> {{ app.description }}</div>
                 </div>
             </NuxtLink>
         </div>

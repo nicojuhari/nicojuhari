@@ -71,18 +71,20 @@ const submitForm = async (e: FormSubmitEvent<typeof formData>) => {
 
 </script>
 <template>
-    <div class="container my-16 md:my-24">
+    <div class="container container-sm my-16 md:my-24">
         <h1 class="text-center title mb-6" id="contact-me">Contact me</h1>
-        <div class="relative border border-gray-200/60 rounded-lg p-4 py-8 bg-white">
-            <UForm :validate="validate"  :state="formData" method="POST" class="space-y-4 max-w-[600px] m-auto" @submit.prevent="submitForm">
-                <UFormField label="Your name" name="name">
-                    <UInput v-model="formData.name" class="w-full" size="lg"/>
-                </UFormField>
-                <UFormField label="Email" name="email">
-                    <UInput v-model="formData.email" class="w-full" size="lg"/>
-                </UFormField>
-                <UFormField label="Message" name="message" hint="Please tell me about your project">
-                    <UTextarea v-model="formData.message" class="w-full" size="lg"/>
+        <div class="relative border rounded-md p-6 bg-white">
+            <UForm :validate="validate"  :state="formData" method="POST" class="space-y-4" @submit.prevent="submitForm">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <UFormField label="Your name" name="name">
+                        <UInput v-model="formData.name" class="w-full" size="lg"/>
+                    </UFormField>
+                    <UFormField label="Email" name="email">
+                        <UInput v-model="formData.email" class="w-full" size="lg"/>
+                    </UFormField>
+                </div>
+                <UFormField label="Message" name="message">
+                    <UTextarea v-model="formData.message" class="w-full" size="lg" placeholder="Please tell me about your project"/>
                 </UFormField>
                 <div class="text-right">
                     <UButton type="submit" :loading="loading" :disabled="loading || isFormSent || validate(formData).length > 0" size="lg" class="px-8">

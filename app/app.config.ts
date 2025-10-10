@@ -12,11 +12,19 @@ export default defineAppConfig({
       }
     },
     button: {
+        slots: {
+            base: "cursor-pointer",
+        },
         defaultVariants: {
             color: "primary",
             variant: "solid",
             size: "lg",
         },
+    },
+    input: {
+        slots: {
+            root: "w-full",
+        }
     },
   }
 })
