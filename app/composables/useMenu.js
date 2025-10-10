@@ -1,5 +1,5 @@
     import { ref, watch, onBeforeUnmount } from "vue";
-    import { groupProductsByCategory, searchInProducts, filterEmptyCategories } from "~/app/utils/menu";
+    import { groupProductsByCategory, searchInProducts, filterEmptyCategories } from "@/utils/menu";
 
     export const searchKey = ref("");
     export const selectedCategoryID = ref(null);
