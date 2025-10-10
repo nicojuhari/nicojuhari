@@ -30,9 +30,6 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
         public: {
-          gtag: {
-            id: 'G-YC2EDZRT9H'
-          },
           siteUrl: 'https://nicojuhari.com',
           siteName: siteTitle,
           siteDescription,
@@ -60,6 +57,10 @@ export default defineNuxtConfig({
                 { name: 'keywords', content: 'Web developer, JavaScript developer, Nuxt, Vue, web apps' },
                 { name: 'google-site-verification', content: "oOiepCGY8_h_x8LguPX3bbyO0MKDXRKE6dSSKlSUiKI"} 
             ],
+            script: [
+              { src: "https://cloud.umami.is/script.js", "data-website-id" : "c772c6d0-db82-4c66-893f-546c8101130e", defer: true},
+              // { src: "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4659100624570587", crossorigin: "anonymous", async: true}
+            ]
         },
     },
   compatibilityDate: "2025-07-15",
