@@ -2,9 +2,9 @@
 import { UCard } from '#components'
 
 useHead({
-    title: 'Free Word Counter: Words, Characters, Spaces & More!',
+    title: 'Free Word Counter Tool Online - Characters & Sentences',
     meta: [
-        { name: 'description', content: 'Analyze your text with our free word counter! Get detailed counts for words, characters (with & without spaces), sentences - perfect for social media writers' }
+        { name: 'description', content: 'Free Word Counter Tool Online - quickly count words, characters, and reading time from any text. Fast, simple, and mobile-friendly.' }
     ],
 })
 
@@ -43,6 +43,11 @@ const totalLines = computed(() => {
     return text.split(/\r\n|\r|\n/).length
 })
 
+const readingtime = computed(() => {
+    const wordsPerMinute = 200 // Average reading speed
+    return Math.ceil(totalWords.value / wordsPerMinute)
+})
+
 // const limitValue = ref(0)
 // const value = computed(() => toLimit(textRaw.value, limitValue.value))
 // const toLimit = (value, limit) => {
@@ -51,85 +56,94 @@ const totalLines = computed(() => {
 
 </script>
 <template>
-    <h1 class="text-center title py-4 mt-12">Advanced Free Word Counter</h1>
-    <h2 class="mb-8 text-lg font-normal text-center max-w-xl mx-auto">Analyze your text instantly and get detailed insights
-    beyond just word count - characters, sentences, lines & more!</h2>
+    <h1 class="text-center title py-4 mt-12">Free Word Counter Tool Online</h1>
+    <p class="mb-8 text-lg font-normal text-center max-w-xl mx-auto">Free Word Counter Tool Online - quickly count words, characters, and reading-time estimates to speed up content edits on the go.</p>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <UCard class="md:col-span-2">
-            <div class="relative">
-                <UTextarea v-model="textRaw" class="w-full overflow-auto" :rows="16" :maxrows="16"  :autoresize="false" placeholder="Add your text here ..."></UTextarea>
-                <UButton color="error" title="Clear the text" class="cursor-pointer absolute right-1.5 bottom-1.5" v-if="textRaw" @click="() => textRaw = ''" icon="i-ph-x-light"></UButton>
+        <div class="md:col-span-2 card h-full flex flex-col gap-4">
+            <div class="relative flex-1">
+                <UTextarea v-model="textRaw" class="w-full flex-1" :rows="23" :maxrows="23" :autoresize="false" placeholder="Add your text here ..."></UTextarea>
+                <UButton color="error" variant="subtle" title="Clear the text" class="cursor-pointer absolute right-1.5 bottom-1.5" v-if="textRaw" @click="() => textRaw = ''" icon="i-ph-x-light"></UButton>
             </div>
-        </UCard>
+        </div>
         <UCard>
-            <div class="grid grid-cols-2 gap-6">
-                <div class="grid place-content-center text-center gap-4">
+            <div class="grid grid-cols-2 gap-4">
+                <div class="grid place-content-center text-center gap-3">
                     <span class="font-medium text-2xl">{{ totalWords }}</span>
                     <span class="text-sm">Words</span>
                 </div>
-                <div class="grid place-content-center text-center gap-4">
+                <div class="grid place-content-center text-center gap-3">
                     <span class="font-medium text-2xl">{{ totalSpaces }}</span>
                     <span class="text-sm">Spaces</span>
                 </div>
                 <hr class="col-span-2 text-gray-100" />
-                <div class="grid place-content-center text-center gap-4">
+                <div class="grid place-content-center text-center gap-3">
                     <span class="font-medium text-2xl">{{ totalChars }}</span>
                     <span class="h-12 text-sm">Characters</span>
                 </div>
-                <div class="grid place-content-center text-center gap-4">
+                <div class="grid place-content-center text-center gap-3">
                     <span class="font-medium text-2xl">{{ totalCharsNoSpaces }}</span>
                     <span class="h-12 text-sm">Characters without spacing</span>
                 </div>
                 <hr class="col-span-2 text-gray-100" />
-                <div class="grid place-content-center text-center gap-4">
+                <div class="grid place-content-center text-center gap-3">
                     <span class="font-medium text-2xl">{{ totalSentences }}</span>
                     <span class="text-sm">Sentences</span>
                 </div>
-                <div class="grid place-content-center text-center gap-4">
+                <div class="grid place-content-center text-center gap-3">
                     <span class="font-medium text-2xl">{{ totalLines }}</span>
                     <span class="text-sm">Lines</span>
+                </div>
+                <hr class="col-span-2 text-gray-100" />
+                <div class="grid place-content-center text-center gap-3 col-span-2">
+                    <span class="font-medium text-2xl">{{ readingtime }} min</span>
+                    <span class="text-sm">Reading Time</span>
                 </div>
             </div>
         </UCard>
     </div>
-    <div class="space-y-4 mt-12">
-        <h2 class="text-2xl pt-4 font-semibold">Struggling to keep track of your word count?</h2>
-        <p>Say goodbye to manual counting with our Free Advanced Word Counter!</p>
-        <p>This powerful tool goes beyond simple word counting, offering a comprehensive analysis of your text.
-            Whether you're a writer, editor, student, or anyone who needs to track their word usage, our word
-            counter is here to help.</p>
+    <div class="space-y-6 my-12">
+        <div class="prose max-w-none">
+            <h2 class="text-xl font-semibold">Free Word Counter Tool Online - fast, accurate text analysis you can use in seconds.</h2>
 
+            <h3 class="mt-4 font-medium">What it does</h3>
+            <ul class="list-disc pl-5">
+                <li>Exact word count.</li>
+                <li>Character count with and without spaces.</li>
+                <li>Sentence and line counts.</li>
+                <li>Estimated reading time.</li>
+                <li>Works for short snippets and long documents.</li>
+            </ul>
 
+            <h3 class="mt-4 font-medium">How it helps</h3>
+            <ul class="list-disc pl-5">
+                <li>Save time - no manual counting.</li>
+                <li>Fit copy to limits (menus, social, SMS).</li>
+                <li>Improve clarity by spotting long sentences and lines.</li>
+                <li>Edit on the go - mobile-friendly and instant.</li>
+            </ul>
 
-        <div>Here's what you get:</div>
-        <ul class="list-disc list-inside space-y-1.5">
-            <li><strong>Detailed Word Count:</strong> See exactly how many words are in your text.</li>
-            <li><strong>Character Count (with & without spaces):</strong> Track characters for specific needs like
-                social media posts or SMS messages.</li>
-            <li><strong>Sentence & Line Counts:</strong> Gain insights into the structure and conciseness of your
-                writing.</li>
-            <li><strong>Instant Results:</strong> Simply paste your text or type directly into the app, and get your
-                results in seconds!</li>
-            <li><strong>Free & Easy to Use:</strong> No need to sign up or download anything. Just use it straight
-                from your browser!</li>
-        </ul>
-        <p>Stop wasting time counting words manually and focus on what matters - creating great content!</p>
+            <h3 class="mt-4 font-medium">How to use</h3>
+            <ol class="list-decimal pl-5">
+                <li>Paste your text or type directly into the box.</li>
+                <li>Results update immediately.</li>
+                <li>No downloads or sign-ups required.</li>
+            </ol>
 
+            <h3 class="mt-4 font-medium">Privacy</h3>
+            <ul class="list-disc pl-5">
+                <li>Text is processed in your browser.</li>
+                <li>Nothing is stored on our servers.</li>
+            </ul>
 
-        <div class="text-2xl pt-4 font-semibold">FAQs:</div>
-        <h3 class="text-lg pt-4 font-bold">Is this word counter free?</h3>
-        <p>Absolutely! Our word counter is completely free to use, with no limitations or
-            hidden fees.</p>
-        <h3 class="text-lg pt-4 font-bold">What kind of text can I use?</h3>
-        <p>You can use our word counter for any type of text, from short snippets to long
-            documents.</p>
-        <h3 class="text-lg pt-4 font-bold">Do I need to create an account?</h3>
-        <p>No account creation is necessary. Simply paste your text or type directly
-            into the app.</p>
-        <h3 class="text-lg pt-4 font-bold">Is my text saved anywhere?</h3>
-        <p>No, your text is not saved on our servers. It's processed and analyzed locally in your browser for
-            maximum privacy.</p>
+            <h3 class="mt-4 font-medium">Quick FAQs</h3>
+            <ul class="list-disc pl-5">
+                <li><strong>Is it free?</strong> Yes. Completely free with no hidden fees.</li>
+                <li><strong>Do I need an account?</strong> No account or signup needed.</li>
+                <li><strong>Is my text saved?</strong> No. All processing happens locally in your browser. We do not store any data.</li>
+            </ul>
 
-        <p class="font-medium pt-4">Ready to take your writing to the next level? Try our Free Advanced Word Counter today!</p>
+            <p class="mt-4 font-semibold">Try our Free Word Counter now and finish your copy faster.</p>
+        </div>
+
     </div>
 </template>
