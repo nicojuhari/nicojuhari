@@ -1,9 +1,9 @@
 <script setup>
 
 useHead({
-    title: 'Shopify & JavaScript Developer - Performance & CRO',
+    title: 'Shopify & Full-Stack JavaScript Developer and Freelancer',
     meta: [
-        { name: 'description', content: 'Shopify Expert and full-stack JavaScript developer creating fast, pixel-perfect, SEO-friendly eCommerce stores that boost results and improve user experience.' },
+        { name: 'description', content: 'Shopify expert and full-stack JavaScript (Vue/Nuxt) developer creating fast, pixel-perfect and SEO-friendly Business and eCommerce websites.' },
         { name: 'keywords', content: 'web developer, JavaScript Developer, Shopify developer, vue developer, nuxt developer, performance and CRO' },
     ],
 })
@@ -14,6 +14,11 @@ useHead({
     <Body class="bg-gray-50"></Body>
     <MainHomeHero />
     <MainWebApps />
+    <div class="container container-sm my-16 md:my-24">
+        <h2 class="title text-center mb-6">Shopify Sections</h2>
+        <ShopifySectionsList />
+    </div>
+    
     <MainToolsList />
     <MainHomeMyStack />
     <MainHomeHireMe />

@@ -50,7 +50,7 @@ watchEffect(() => {
 </script>
 <template>
     <div class="container container-sm my-16 md:my-24">
-        <h2 class="title mb-0 text-center">Simple Tools</h2>
+        <h2 class="title mb-0 text-center">Small Tools</h2>
         <p class="text-sm text-center mb-6 text-gray-500">Built for me and sharing with you.</p>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <NuxtLink :to="app.url" v-for="app in filteredApps" :key="app.title"

@@ -44,7 +44,7 @@ onMounted(() => {
                 Shopify & JavaScript Developer
             </h1>
             <p class="text-lg text-gray-500 mb-8 max-w-2xl mx-auto leading-relaxed opacity-0" data-hero-subtitle>
-                I create pixel-perfect, fast, and SEO-friendly web apps<br class="hidden sm:block"> using Shopify, Vue, Nuxt, and modern JavaScript.
+                I create pixel-perfect, fast, and SEO-friendly web apps<br class="hidden sm:block"> using Shopify and modern JavaScript / Vue / Nuxt.
             </p>
             <div class="flex justify-center gap-4 mb-12">
                 <UButton 
