@@ -1,9 +1,9 @@
 <script setup>
 
 useHead({
-    title: 'Shopify & Full-Stack JavaScript Developer and Freelancer',
+    title: 'Shopify & Full-Stack JavaScript Developer',
     meta: [
-        { name: 'description', content: 'Shopify expert and full-stack JavaScript (Vue/Nuxt) developer creating fast, pixel-perfect and SEO-friendly Business and eCommerce websites.' },
+        { name: 'description', content: 'Shopify expert and full-stack JavaScript (Vue/Nuxt) developer creating fast, pixel-perfect and SEO-friendly business and eCommerce websites.' },
         { name: 'keywords', content: 'web developer, JavaScript Developer, Shopify developer, vue developer, nuxt developer, performance and CRO' },
     ],
 })
