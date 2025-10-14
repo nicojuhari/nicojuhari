@@ -18,8 +18,11 @@ useHead({
         <h2 class="title text-center mb-6">Shopify Sections</h2>
         <ShopifySectionsList />
     </div>
-    
-    <MainToolsList />
+    <section class="container container-sm">
+        <h2 class="title mb-0 text-center">Simple Tools</h2>
+        <p class="text-sm text-center mb-6 text-gray-500">Built for me and sharing with you.</p>
+        <MainToolsList />
+    </section>
     <MainHomeMyStack />
     <MainHomeHireMe />
 </template>

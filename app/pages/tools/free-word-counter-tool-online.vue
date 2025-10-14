@@ -56,7 +56,7 @@ const readingtime = computed(() => {
 
 </script>
 <template>
-    <h1 class="text-center title py-4 mt-12">Free Word Counter Tool Online</h1>
+    <h1 class="text-center title mb-4">Free Word Counter Tool Online</h1>
     <p class="mb-8 text-lg font-normal text-center max-w-xl mx-auto">Free Word Counter Tool Online - quickly count words, characters, and reading-time estimates to speed up content edits on the go.</p>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         <div class="md:col-span-2 card h-full flex flex-col gap-4">
@@ -102,10 +102,9 @@ const readingtime = computed(() => {
         </UCard>
     </div>
     <div class="space-y-6 my-12">
-        <div class="prose max-w-none">
-            <h2 class="text-xl font-semibold">Free Word Counter Tool Online - fast, accurate text analysis you can use in seconds.</h2>
+            <h2 class="text-xl font-semibold">Free Word Counter Tool Online - fast, accurate text counter you can use in seconds.</h2>
 
-            <h3 class="mt-4 font-medium">What it does</h3>
+            <h3 class="font-semibold">What it does</h3>
             <ul class="list-disc pl-5">
                 <li>Exact word count.</li>
                 <li>Character count with and without spaces.</li>
@@ -114,7 +113,7 @@ const readingtime = computed(() => {
                 <li>Works for short snippets and long documents.</li>
             </ul>
 
-            <h3 class="mt-4 font-medium">How it helps</h3>
+            <h3 class="font-semibold">How it helps</h3>
             <ul class="list-disc pl-5">
                 <li>Save time - no manual counting.</li>
                 <li>Fit copy to limits (menus, social, SMS).</li>
@@ -122,28 +121,24 @@ const readingtime = computed(() => {
                 <li>Edit on the go - mobile-friendly and instant.</li>
             </ul>
 
-            <h3 class="mt-4 font-medium">How to use</h3>
+            <h3 class="font-semibold">How to use</h3>
             <ol class="list-decimal pl-5">
                 <li>Paste your text or type directly into the box.</li>
                 <li>Results update immediately.</li>
                 <li>No downloads or sign-ups required.</li>
             </ol>
 
-            <h3 class="mt-4 font-medium">Privacy</h3>
+            <h3 class="font-semibold">Privacy</h3>
             <ul class="list-disc pl-5">
                 <li>Text is processed in your browser.</li>
                 <li>Nothing is stored on our servers.</li>
             </ul>
 
-            <h3 class="mt-4 font-medium">Quick FAQs</h3>
+            <h3 class="font-semibold">Quick FAQs</h3>
             <ul class="list-disc pl-5">
                 <li><strong>Is it free?</strong> Yes. Completely free with no hidden fees.</li>
                 <li><strong>Do I need an account?</strong> No account or signup needed.</li>
                 <li><strong>Is my text saved?</strong> No. All processing happens locally in your browser. We do not store any data.</li>
             </ul>
-
-            <p class="mt-4 font-semibold">Try our Free Word Counter now and finish your copy faster.</p>
-        </div>
-
     </div>
 </template>

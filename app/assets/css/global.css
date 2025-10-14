@@ -12,9 +12,9 @@ body.modal-open {
     overflow: hidden;
 }
 
-/* section {
-    @apply pt-20 pb-24;
-} */
+section {
+    @apply mt-12 mb-10 lg:mt-20 lg:mb-16;
+}
 
  /* section {
     @apply py-10;

@@ -12,15 +12,15 @@ let apps = [
     },
     {
         title: "Word Counter",
-        url: '/tools/free-word-counter',
+        url: '/tools/free-word-counter-tool-online',
         icon: 'i-ph-list-numbers-light',
-        description: 'Count characters and words in a text'
+        description: 'Count words and characters in a text'
     },
     {
-        title: "Space Converter",
-        url: '/tools/convert-spaces-to-dashes',
+        title: "Whitespace Remover",
+        url: '/tools/whitespace-remover',
         icon: 'i-ph-repeat-light',
-        description: 'Convert spaces from a text'
+        description: 'Replace or remove text spaces'
     },
     {
         title: "Online Checklist Maker",
@@ -37,11 +37,6 @@ let apps = [
 
 ];
 
-//filter out the current app
-// f.value = apps.value.filter(app => app.url !== route.path);
-const isLastOdd = (index) => {
-        return index === filteredApps.value.length - 1 && filteredApps.value.length % 2 !== 0;
-    }
 
 watchEffect(() => {
     filteredApps.value = apps.filter(app => app.url !== route.path);
@@ -49,18 +44,13 @@ watchEffect(() => {
 
 </script>
 <template>
-    <div class="container container-sm my-16 md:my-24">
-        <h2 class="title mb-0 text-center">Small Tools</h2>
-        <p class="text-sm text-center mb-6 text-gray-500">Built for me and sharing with you.</p>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            <NuxtLink :to="app.url" v-for="app in filteredApps" :key="app.title"
-                class="p-4 flex gap-4 items-center border rounded-md overflow-hidden bg-white" :title="app.title">
-                <UIcon :name="app.icon" class="h-6 w-6 lg:h-8 lg:w-8 shrink-0 text-gray-500" />
-                <div>
-                    <p class="font-semibold">{{ app.title }}</p>
-                    <p class="text-gray-500 text-sm"> {{ app.description }}</p>
-                </div>
-            </NuxtLink>
-        </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <NuxtLink :to="app.url" v-for="app in filteredApps" :key="app.title" class="p-4 flex gap-4 items-center border rounded-md overflow-hidden bg-white" :title="app.title">
+            <UIcon :name="app.icon" class="h-6 w-6 lg:h-8 lg:w-8 shrink-0 text-gray-500" />
+            <div>
+                <p class="font-bold">{{ app.title }}</p>
+                <p class="text-gray-500 text-sm"> {{ app.description }}</p>
+            </div>
+        </NuxtLink>
     </div>
 </template>
