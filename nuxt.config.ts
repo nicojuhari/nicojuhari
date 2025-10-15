@@ -5,7 +5,7 @@ const siteDescription = 'I am a Shopify expert and full-stack JavaScript develop
 
 export default defineNuxtConfig({ 
   devtools: { enabled: true },
-  modules: ['@nuxt/ui', '@vueuse/nuxt', '@nuxtjs/sitemap', '@pinia/nuxt', '@vueuse/motion/nuxt', ["@storyblok/nuxt", { accessToken: 'EzikCGO5TZGapwffPYn4rAtt' }], '@nuxtjs/robots', 'pinia-plugin-persistedstate/nuxt',],
+  modules: ['@nuxt/ui', '@nuxtjs/seo','@vueuse/nuxt', '@pinia/nuxt', '@vueuse/motion/nuxt', ["@storyblok/nuxt", { accessToken: 'EzikCGO5TZGapwffPYn4rAtt' }], 'pinia-plugin-persistedstate/nuxt',],
   css: ['@/assets/css/main.css'],
   ui: {
     theme: {

@@ -36,7 +36,7 @@
         </ul>
     </div>
     <div>
-        <h2 class="text-xl font-semibold mb-2">How to Install.</h2>
+        <h2 class="text-xl font-semibold mb-2">How to Install</h2>
         <p class="my-4">Go to <b>Online Store &gt; Themes &gt; Actions &gt; Edit Code</b></p>
         <ul class="list-decimal list-inside space-y-2">
             <li>
