@@ -25,11 +25,9 @@ watchEffect(() => {
 <template>
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
         <NuxtLink :to="section.url" v-for="section in filteredSections" :key="section.title"
-            class="border rounded-md overflow-hidden bg-white" :title="section.title">
+            class=" space-y-4" :title="section.title">
             <img :src="section.img" :alt="section.title" class="object-cover" />
-            <div class="p-4">
-                <h3 class="font-bold">{{ section.title }}</h3>
-            </div>
+            <h3 class="font-bold text-center">{{ section.title }}</h3>
         </NuxtLink>
     </div>
 </template>
