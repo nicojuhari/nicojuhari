@@ -1,10 +1,10 @@
 <script setup>
     useHead({
-        title: 'Shopify Section - Brand Logos Carousel',
+        title: 'Brand Logos Carousel - Shopify Section',
         meta: [
-            { name: 'description', content: 'Shopify Section - Brand Logos Carousel. Infinite logo carousel to showcase partners and clients. Fast, responsive and compatible with any Shopify theme.' },
-            { property: 'og:title', content: 'Shopify Section - Brand Logos Carousel' },
-            { property: 'og:description', content: 'Shopify Section - Brand Logos Carousel. Infinite logo carousel to showcase partners and clients. Fast, responsive and compatible with any Shopify theme.' },
+            { name: 'description', content: 'Brand Logos Carousel - Shopify Section. Infinite logo carousel to showcase partners and clients. Fast, responsive and compatible with any Shopify theme.' },
+            { property: 'og:title', content: 'Brand Logos Carousel - Shopify Section' },
+            { property: 'og:description', content: 'Brand Logos Carousel - Shopify Section. Infinite logo carousel to showcase partners and clients. Fast, responsive and compatible with any Shopify theme.' },
             { property: 'og:image', content: 'https://www.nicojuhari.com/images/shopify/shopify-section__brand-logos-carousel.webp' },
         ],
          
@@ -14,7 +14,7 @@
 
 <div class="container container-sm my-6 space-y-8 bg-white p-6 rounded shadow">
     <img src="/images/shopify/shopify-section__brand-logos-carousel.webp" alt="Brand Logos Carousel" class="w-full rounded-md"/>
-    <h1 class="text-2xl font-bold">Shopify Section - Brand Logos Carousel</h1>
+    <h1 class="text-2xl font-bold">Brand Logos Carousel - Shopify Section</h1>
     <p>A smooth, infinite carousel that displays partner, client, or certification logos to build trust quickly. Compact and visually clean.</p>
     <div class="flex items-center space-x-4 justify-between p-4 bg-gray-100 rounded">
         <p class="font-semibold"> Use the password: 1</p>

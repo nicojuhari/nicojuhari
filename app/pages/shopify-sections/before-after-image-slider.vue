@@ -1,11 +1,11 @@
 <script setup>
     useHead({
-        title: 'Shopify Section - Before and After Image Slider',
+        title: 'Before and After Image Slider - Shopify Section',
         meta: [
-            { name: 'description', content: 'Before & After Image Slider - interactive, mobile-friendly comparison tool with drag handle, keyboard accessibility, lazy loading, and full styling control.' },
-            { property: 'og:title', content: 'Shopify Section - Before and After Image Slider' },
-            { property: 'og:description', content: 'Before & After Image Slider - interactive, mobile-friendly comparison tool with drag handle, keyboard accessibility, lazy loading, and full styling control.' },
-            { property: 'og:image', content: 'https://www.nicojuhari.com/images/shopify/shopify-section__before-after-slider.webp' },
+            { name: 'description', content: 'Before & After Image Slider - interactive comparison tool with drag handle, keyboard accessibility, lazy loading, and full styling control.' },
+            { property: 'og:title', content: 'Before and After Image Slider - Shopify Section' },
+            { property: 'og:description', content: 'Before & After Image Slider - interactive comparison tool with drag handle, keyboard accessibility, lazy loading, and full styling control.' },
+            { property: 'og:image', content: 'https://www.nicojuhari.com/images/shopify/shopify-section__before-after-image-slider.webp' },
         ],
          
 })
@@ -13,8 +13,8 @@
 <template>
 
 <div class="container container-sm my-6 space-y-8 bg-white p-6 rounded shadow">
-    <img src="/images/shopify/shopify-section__before-after-slider.webp" alt="Before and After Slider" class="w-full rounded-md"/>
-    <h1 class="text-2xl font-bold">Shopify Section - Before and After Image Slider</h1>
+    <img src="/images/shopify/shopify-section__before-after-image-slider.webp" alt="Before and After Slider" class="w-full rounded-md"/>
+    <h1 class="text-2xl font-bold">Before and After Image Slider - Shopify Section</h1>
     <p>Interactive before & after image slider to showcase transformations, results, and product improvements.</p>
     <div class="flex items-center space-x-4 justify-between p-4 bg-gray-100 rounded">
         <p class="font-semibold"> Use the password: 1</p>

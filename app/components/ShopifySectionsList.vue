@@ -15,9 +15,9 @@ let sections = [
         img: '/images/shopify/shopify-section__brand-logos-carousel.webp',
     },
     {
-        title: "Before-After Slider",
-        url: '/shopify-sections/before-after-slider',
-        img: '/images/shopify/shopify-section__before-after-slider.webp',
+        title: "Before and After Image Slider",
+        url: '/shopify-sections/before-after-image-slider',
+        img: '/images/shopify/shopify-section__before-after-image-slider.webp',
     },
 ];
 

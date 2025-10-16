@@ -1,9 +1,9 @@
 <script setup>
     useHead({
-        title: 'Shopify Section - Scrolling/Marquee Banner',
+        title: 'Scrolling/Marquee Banner - Shopify Section',
         meta: [
             { name: 'description', content: 'Eye-catching Shopify scrolling banner for promos, announcements, and key messages. Compact, mobile-friendly, and fast-pure CSS, no extra scripts.' },
-            { property: 'og:title', content: 'Shopify Section - Scrolling/Marquee Banner' },
+            { property: 'og:title', content: 'Scrolling/Marquee Banner - Shopify Section' },
             { property: 'og:description', content: 'Eye-catching Shopify scrolling banner for promos, announcements, and key messages. Compact, mobile-friendly, and fast-pure CSS, no extra scripts.' },
             { property: 'og:image', content: 'https://www.nicojuhari.com/images/shopify/shopify-section__scrolling-marquee-banner.webp' },
         ],
@@ -13,7 +13,7 @@
 
 <div class="container container-sm my-6 space-y-8 bg-white p-6 rounded shadow">
     <img src="/images/shopify/shopify-section__scrolling-marquee-banner.webp" alt="Scrolling Marquee Banner" class="w-full rounded-md"/>
-    <h1 class="text-2xl font-bold">Shopify Section - Scrolling/Marquee Banner</h1>
+    <h1 class="text-2xl font-bold">Scrolling/Marquee Banner - Shopify Section</h1>
     <p>Creates a continuous marquee with text, images, emojis. Pure CSS. No external scripts. Perfect for announcements, promotions, or highlighting key messages.</p>
     <div class="flex items-center space-x-4 justify-between p-4 bg-gray-100 rounded">
         <p class="font-semibold"> Use the password: 1</p>
