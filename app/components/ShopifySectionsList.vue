@@ -14,6 +14,11 @@ let sections = [
         url: '/shopify-sections/brand-logos-carousel',
         img: '/images/shopify/shopify-section__brand-logos-carousel.webp',
     },
+    {
+        title: "Before-After Slider",
+        url: '/shopify-sections/before-after-slider',
+        img: '/images/shopify/shopify-section__before-after-slider.webp',
+    },
 ];
 
 
@@ -23,9 +28,9 @@ watchEffect(() => {
 
 </script>
 <template>
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-10">
         <NuxtLink :to="section.url" v-for="section in filteredSections" :key="section.title"
-            class=" space-y-4" :title="section.title">
+            class="space-y-4" :title="section.title">
             <img :src="section.img" :alt="section.title" class="object-cover" />
             <h3 class="font-bold text-center">{{ section.title }}</h3>
         </NuxtLink>

@@ -102,8 +102,8 @@ const readingtime = computed(() => {
         </UCard>
     </div>
     <div class="space-y-6 my-12">
-            <h2 class="text-xl font-semibold">Free Word Counter Tool Online - fast, accurate text counter you can use in seconds.</h2>
-
+        <p>Free Word Counter Tool Online - fast, accurate text counter you can use in seconds.</p>
+        <div>
             <h3 class="font-semibold">What it does</h3>
             <ul class="list-disc pl-5">
                 <li>Exact word count.</li>
@@ -112,7 +112,8 @@ const readingtime = computed(() => {
                 <li>Estimated reading time.</li>
                 <li>Works for short snippets and long documents.</li>
             </ul>
-
+        </div>
+        <div>
             <h3 class="font-semibold">How it helps</h3>
             <ul class="list-disc pl-5">
                 <li>Save time - no manual counting.</li>
@@ -120,25 +121,38 @@ const readingtime = computed(() => {
                 <li>Improve clarity by spotting long sentences and lines.</li>
                 <li>Edit on the go - mobile-friendly and instant.</li>
             </ul>
-
+        </div>
+        <div>
+            <h3 class="font-semibold">Who it's for</h3>
+            <ul class="list-disc pl-5">
+                <li>Writers and editors needing quick counts.</li>
+                <li>Marketers optimizing copy for platforms.</li>
+                <li>Students checking essay lengths.</li>
+                <li>Anyone needing fast, accurate text metrics.</li>
+            </ul>
+        </div>
+        <div>
             <h3 class="font-semibold">How to use</h3>
             <ol class="list-decimal pl-5">
                 <li>Paste your text or type directly into the box.</li>
                 <li>Results update immediately.</li>
                 <li>No downloads or sign-ups required.</li>
             </ol>
-
+        </div>
+        <div>
             <h3 class="font-semibold">Privacy</h3>
             <ul class="list-disc pl-5">
                 <li>Text is processed in your browser.</li>
                 <li>Nothing is stored on our servers.</li>
             </ul>
-
+        </div>
+        <div>
             <h3 class="font-semibold">Quick FAQs</h3>
             <ul class="list-disc pl-5">
                 <li><strong>Is it free?</strong> Yes. Completely free with no hidden fees.</li>
                 <li><strong>Do I need an account?</strong> No account or signup needed.</li>
                 <li><strong>Is my text saved?</strong> No. All processing happens locally in your browser. We do not store any data.</li>
             </ul>
+        </div>
     </div>
 </template>

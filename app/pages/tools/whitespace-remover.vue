@@ -158,7 +158,7 @@ const copyToClipboard = () => {
                     <li>Runs in your browser. Text is not stored on our servers.</li>
                     <li>No signup or download required. Free to use.</li>
                 </ul>
-                <p class="pt-4 font-bold">Try the Whitespace Remover to format text easily and quickly.</p>
+                <p class="pt-6">Try the Whitespace Remover to format text easily and quickly.</p>
             </div>
         </div>
     </div>
