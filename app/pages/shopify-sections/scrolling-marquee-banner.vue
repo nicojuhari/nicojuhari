@@ -3,6 +3,9 @@
         title: 'Shopify Section - Scrolling/Marquee Banner',
         meta: [
             { name: 'description', content: 'Eye-catching Shopify scrolling banner for promos, announcements, and key messages. Compact, mobile-friendly, and fast-pure CSS, no extra scripts.' },
+            { property: 'og:title', content: 'Shopify Section - Scrolling/Marquee Banner' },
+            { property: 'og:description', content: 'Eye-catching Shopify scrolling banner for promos, announcements, and key messages. Compact, mobile-friendly, and fast-pure CSS, no extra scripts.' },
+            { property: 'og:image', content: 'https://www.nicojuhari.com/images/shopify/shopify-section__scrolling-marquee-banner.webp' },
         ],
 })
 </script>

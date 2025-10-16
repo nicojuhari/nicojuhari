@@ -3,7 +3,11 @@
         title: 'Shopify Section - Brand Logos Carousel',
         meta: [
             { name: 'description', content: 'Shopify Section - Brand Logos Carousel. Infinite logo carousel to showcase partners and clients. Fast, responsive and compatible with any Shopify theme.' },
+            { property: 'og:title', content: 'Shopify Section - Brand Logos Carousel' },
+            { property: 'og:description', content: 'Shopify Section - Brand Logos Carousel. Infinite logo carousel to showcase partners and clients. Fast, responsive and compatible with any Shopify theme.' },
+            { property: 'og:image', content: 'https://www.nicojuhari.com/images/shopify/shopify-section__brand-logos-carousel.webp' },
         ],
+         
 })
 </script>
 <template>
