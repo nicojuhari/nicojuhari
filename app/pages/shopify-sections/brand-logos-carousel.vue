@@ -49,7 +49,7 @@
                 <ul class="list-disc list-inside ml-6 space-y-1">
                     
                     <li>In <b>Assets</b> folder, click <b>Add a new asset</b></li>
-                    <li>Create file: <code>component-brand-logos-carousel.css</code></li>
+                    <li>Create file: <code>component-nc-brand-logos-carousel.css</code></li>
                     <li>Copy &amp; paste the CSS code from the file</li>
                     <li>Save</li>
                 </ul>
