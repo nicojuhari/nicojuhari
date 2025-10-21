@@ -19,14 +19,14 @@ useHead({
         <ShopifySectionsList />
     </div>
     <section class="container container-sm">
-        <h2 class="title mb-6 text-center">Playground</h2>
-        <PlaygroundProjectsList />
-    </section>
-    <section class="container container-sm">
         <h2 class="title mb-0 text-center">Simple Tools</h2>
         <p class="text-sm text-center mb-6 text-gray-500">Built for me and sharing with you.</p>
         <MainToolsList />
     </section>
     <MainHomeMyStack />
+    <section class="container container-sm">
+        <h2 class="title mb-6 text-center">Playground</h2>
+        <PlaygroundProjectsList />
+    </section>
     <MainHomeHireMe />
 </template>

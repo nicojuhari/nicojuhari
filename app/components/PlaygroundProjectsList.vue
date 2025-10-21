@@ -8,6 +8,12 @@ let projects = [
         icon: '🎉',
         desc: 'CSS Animations and JavaScript',
     },
+    {
+        title: "Magic Wand Sparkles",
+        url: '/playground/magic-wand',
+        icon: '✨',
+        desc: 'Click to create the magic',
+    },
 ];
 
 
