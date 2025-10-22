@@ -8,11 +8,7 @@
         ],
     })
 
-    //set ssr false for this page
-    definePageMeta({
-        ssr: false
-    })
-
+    const loading = ref(true)
     type Friend = {
         id: string;
         name: string;
@@ -253,14 +249,18 @@
         showExpenseModal.value = false
     }
 
+    onMounted(() => {
+        loading.value = false
+    })
+
 
 </script>
 <template>
     
     <h1 class="text-center title mb-4">Bill Split Calculator</h1>
     <p class="mb-8 text-lg font-normal text-center max-w-xl mx-auto">Track payments, split costs equally or custom,<br class="hidden md:block"> and get minimal-transfer settlement steps.</p>
-    <div class="p-6 bg-white border rounded-md space-y-8 my-6">
-        <div class="space-y-4">
+    <div class="p-6 bg-white border rounded-md space-y-8 my-6" v-if="!loading">
+        <div class="space-y-2">
             <div class="flex gap-2 items-end">
                 <UFormField label="Friends" class="flex-1">
                    <UInput v-model="friendName" @keyup.enter="addFriend(friendName)" placeholder="Enter friend name" size="lg" class="flex-1 w-full" />
@@ -387,37 +387,6 @@
         </div>
         
         <!-- Description and Features -->
-        <div class="space-y-6">
-            <div class="space-y-4">
-                <p> Save time and stop the guesswork. Add people, log expenses, and choose equal or custom splits.</p>
-                <p>See who paid, who owes, and exact payment steps. The app finds the fewest transfers to settle debts. Works on mobile and desktop.</p>
-                
-                <div>
-                    <h3 class="text-lg font-semibold">Key features</h3>
-                    <ul class="space-y-2 list-disc list-inside">
-                        <li>
-                            Add or remove people quickly.
-                        </li>
-                        <li>
-                            Equal or custom splits with real-time checks.
-                        </li>
-                        <li>
-                            Full expense history and per-person balances.
-                        </li>
-                        <li>
-                            Smart settlement that minimizes transactions.
-                        </li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h4 class="font-semibold text-lg">Privacy note</h4>
-                    <p class="">
-                        All data is stored only in your browser. Nothing is sent to our servers. You are the only one who can access your info.
-                    </p>
-                </div>
-            </div>
-        </div>
         
         <UModal v-model:open="showExpenseModal" size="md">
             <template #header>Add Expense</template>
@@ -463,4 +432,38 @@
 
         </UModal>
     </div>
+    <div v-else class="flex justify-center my-12">
+        <Loading />
+    </div>
+    <div class="space-y-6">
+            <div class="space-y-4">
+                <p> Save time and stop the guesswork. Add people, log expenses, and choose equal or custom splits.</p>
+                <p>See who paid, who owes, and exact payment steps. The app finds the fewest transfers to settle debts. Works on mobile and desktop.</p>
+                
+                <div>
+                    <h3 class="text-lg font-semibold">Key features</h3>
+                    <ul class="space-y-2 list-disc list-inside">
+                        <li>
+                            Add or remove people quickly.
+                        </li>
+                        <li>
+                            Equal or custom splits with real-time checks.
+                        </li>
+                        <li>
+                            Full expense history and per-person balances.
+                        </li>
+                        <li>
+                            Smart settlement that minimizes transactions.
+                        </li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold text-lg">Privacy note</h4>
+                    <p class="">
+                        All data is stored only in your browser. Nothing is sent to our servers. You are the only one who can access your info.
+                    </p>
+                </div>
+            </div>
+        </div>
 </template>
