@@ -1,5 +1,13 @@
 <script setup lang="ts">
     import { useStorage } from '@vueuse/core'
+
+    useHead({
+        title: 'Bill Split Calculator - Restaurant Bill Splitter',
+        meta: [
+            { name: 'description', content: 'Bill Split Calculator - easily split expenses among friends. Track who paid what and calculate balances. Perfect for trips, dinners, and shared costs.' }
+        ],
+    })
+
     //set ssr false for this page
     definePageMeta({
         ssr: false
@@ -230,92 +238,127 @@
     const totalExpenses = computed(() => {
         return expenses.value.reduce((total, expense) => total + expense.amount, 0)
     })
-    onMounted(() => {
-        //initialize friends from state
-        // friends.value = getFromLocalStorage('billSplitterFriends') || []
-    })
+    
+    const resetAll = () => {
+        friends.value = []
+        expenses.value = []
+        expense.value = {
+            id: '',
+            title: '',
+            amount: 0,
+            paidBy: '',
+            splitBetween: []
+        }
+        toSplitEqually.value = true
+        showExpenseModal.value = false
+    }
 
 
 </script>
 <template>
-    <div class="container container-sm p-6 bg-white border rounded-md space-y-8 my-6">
-        <h1 class="text-center title mb-4">Bill Split Calculator</h1>
+    
+    <h1 class="text-center title mb-4">Bill Split Calculator</h1>
+    <p class="mb-8 text-lg font-normal text-center max-w-xl mx-auto">Track payments, split costs equally or custom,<br class="hidden md:block"> and get minimal-transfer settlement steps.</p>
+    <div class="p-6 bg-white border rounded-md space-y-8 my-6">
         <div class="space-y-4">
             <div class="flex gap-2 items-end">
                 <UFormField label="Friends" class="flex-1">
                    <UInput v-model="friendName" @keyup.enter="addFriend(friendName)" placeholder="Enter friend name" size="lg" class="flex-1 w-full" />
                 </UFormField>
                 <div class="shrink-0">
-                    <UButton @click="addFriend(friendName)">Add</UButton>
+                    <UButton @click="addFriend(friendName)" color="neutral">Add</UButton>
                 </div>
             </div>
             <div class="flex flex-wrap gap-2">
-                <div v-for="friend in friends" :key="friend.id" class="border-2 border-gray-800 px-2 py-1 rounded-md flex items-center gap-2">
-                    {{ friend.name }}
-                    <UButton @click.stop="removeFriend(friend.id)" variant="soft" color="neutral" size="md" icon="i-ph-x"/>
+                <div v-for="friend in friends" :key="friend.id" class="border-1 bg-gray-100/50 overflow-hidden rounded-md flex items-center gap-2">
+                    <span class="pl-2">{{ friend.name }}</span>
+                    <UButton @click.stop="removeFriend(friend.id)" variant="soft" color="neutral" size="sm" icon="i-ph-x"/>
                 </div>
             </div>
         </div>
-        <div class="space-y-6">
-           <div class="flex justify-between items-center gap-6">
-                <h2 class="text-xl font-semibold mb-4">Expenses</h2>
-                <UButton @click="showExpenseModal = true" title="Add Expense">Add Expense</UButton>
+        <div class="space-y-2">
+           <div class="flex justify-between items-end gap-6">
+                <h2 class="text-lg font-semibold">Expenses</h2>
+                <UButton @click="showExpenseModal = true" :disabled="friends.length < 2" title="Add Expense" icon="i-ph-plus">Expense</UButton>
            </div>
-            <div>
-                <table class="w-full table-auto border-collapse">
-                    <thead>
-                        <tr class="bg-gray-100">
-                            <th class="border px-2 py-1 text-left">Title</th>
-                            <th class="border px-2 py-1 text-left">Amount</th>
-                            <th class="border px-2 py-1 text-left">Paid By</th>
-                            <th class="border px-2 py-1 text-left">Split Between</th>
-                            <th class="border px-2 py-1 text-left">Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr v-for="exp in expenses" :key="exp.id">
-                            <td class="border px-2 py-1">{{ exp.title }}</td>
-                            <td class="border px-2 py-1">{{ exp.amount.toFixed(2) }}</td>
-                            <td class="border px-2 py-1">{{ getFriendNameById(exp.paidBy) }}</td>
-                            <td class="border px-2 py-1">
-                                <ul class="list-disc list-inside">
-                                    <li v-for="split in exp.splitBetween" :key="split.id">
-                                        {{ getFriendNameById(split.id) }} ({{ split.amount }})
-                                    </li>
-                                </ul>
-                            </td>
-                            <td class="border px-2 py-1">
-                                <UButton @click="expenses = expenses.filter(e => e.id !== exp.id)" variant="soft" color="error" size="sm" icon="i-ph-trash-light" title="Delete Expense"/>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+           <div v-if="expenses.length > 0" class="overflow-x-auto">
+               <table class="w-full table-auto border-collapse border" >
+                   <thead>
+                       <tr class="bg-gray-100/50">
+                           <th class="px-2 py-1 text-left font-semibold text-sm">Title</th>
+                           <th class="px-2 py-1 text-center font-semibold text-sm">Amount</th>
+                           <th class="px-2 py-1 text-left font-semibold text-sm">Paid By</th>
+                           <th class="px-2 py-1 text-left font-semibold text-sm">Split Between</th>
+                           <th class="px-2 py-1 text-left font-semibold text-sm"></th>
+                       </tr>
+                   </thead>
+                   <tbody>
+                       <tr v-for="exp in expenses" :key="exp.id" class="border text-sm">
+                           <td class="px-2 py-2 capitalize"><div class="truncate w-24">{{ exp.title }}</div></td>
+                           <td class="px-2 py-2 w-24 text-center">{{ exp.amount.toFixed(2) }}</td>
+                           <td class="px-2 py-2"> <div class="truncate w-24">{{ getFriendNameById(exp.paidBy) }}</div></td>
+                           <td class="px-2 py-2">
+                               <div v-for="split in exp.splitBetween" :key="split.id" class="inline-flex items-center mr-2">
+                                   {{ getFriendNameById(split.id) }} <span class="text-xs">({{ split.amount }})</span>
+                               </div>
+                           </td>
+                           <td class="pl-2 py-2">
+                               <UButton @click="expenses = expenses.filter(e => e.id !== exp.id)" variant="soft" color="error" size="sm" icon="i-ph-x-light" title="Delete Expense"/>
+                           </td>
+                       </tr>
+                   </tbody>
+                   <tfoot>
+                       <tr class="bg-gray-100/50 font-medium">
+                           <td class="px-2 py-1 text-left">Total</td>
+                           <td class="px-2 py-1 text-center">{{ totalExpenses.toFixed(2) }}</td>
+                           <td class="px-2 py-1" colspan="3"></td>
+                       </tr>
+                   </tfoot>
+               </table>
+           </div>
+            <div v-else class="p-6 text-center border rounded-md">
+                <p class="text-gray-500 italic">No expenses added yet.</p>
             </div>
         </div>
         
         <!-- Balance Summary -->
-        <div v-if="friends.length > 0 && expenses.length > 0" class="space-y-6">
-            <h2 class="text-xl font-semibold">Balance Summary</h2>
-            
-            <!-- Total Expenses -->
-            <div class="bg-blue-50 p-4 rounded-lg">
-                <h3 class="font-medium text-blue-800">Total Expenses: ${{ totalExpenses.toFixed(2) }}</h3>
+        <div v-if="friends.length > 0 && expenses.length > 0" class="space-y-8">
+            <!-- Settlement Instructions -->
+            <div v-if="settlements.length > 0" class="space-y-2">
+                <h3 class="text-lg font-semibold">Settlement Instructions</h3>
+                <div class="space-y-2">
+                    <div 
+                        v-for="settlement in settlements" 
+                        :key="`{settlement.from}-{settlement.to}`"
+                        class="flex items-center justify-between bg-gray-100/50 p-3 rounded border"
+                    >
+                        <span>
+                            <strong>{{ getFriendNameById(settlement.from) }}</strong> 
+                            pays 
+                            <strong>{{ getFriendNameById(settlement.to) }}</strong>
+                        </span>
+                        <span class="font-bold text-green-600">{{ settlement.amount.toFixed(2) }}</span>
+                    </div>
+                </div>
             </div>
             
+            <div v-else-if="friends.length > 0 && expenses.length > 0" class="bg-green-50 p-4 rounded-lg">
+                <p class="text-green-800 font-medium">🎉 All expenses are settled! Everyone is even.</p>
+            </div>
             <!-- Individual Balances -->
-            <div class="space-y-4">
-                <h3 class="text-lg font-medium">Individual Balances</h3>
+            <div class="space-y-2">
+                <h3 class="text-lg font-semibold">Individual Balances</h3>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div v-for="friend in friends" :key="friend.id" class="border rounded-lg p-4">
-                        <h4 class="font-medium text-lg">{{ friend.name }}</h4>
+                        <h4 class="font-medium text-lg mb-2">{{ friend.name }}</h4>
                         <div class="space-y-2 text-sm">
                             <div class="flex justify-between">
                                 <span>Paid:</span>
-                                <span class="font-medium text-green-600">${{ (personPaid[friend.id] || 0).toFixed(2) }}</span>
+                                <span class="font-medium text-green-600">{{ (personPaid[friend.id] || 0).toFixed(2) }}</span>
                             </div>
                             <div class="flex justify-between">
                                 <span>Owes:</span>
-                                <span class="font-medium text-red-600">${{ (personSpent[friend.id] || 0).toFixed(2) }}</span>
+                                <span class="font-medium text-red-600">{{ (personSpent[friend.id] || 0).toFixed(2) }}</span>
                             </div>
                             <div class="flex justify-between border-t pt-2">
                                 <span class="font-medium">Balance:</span>
@@ -327,9 +370,9 @@
                                     }"
                                     class="font-bold"
                                 >
-                                    <span v-if="(personBalance[friend.id] ?? 0) > 0.01">+${{ (personBalance[friend.id] ?? 0).toFixed(2) }} (gets back)</span>
-                                    <span v-else-if="(personBalance[friend.id] ?? 0) < -0.01">-${{ Math.abs((personBalance[friend.id] ?? 0)).toFixed(2) }} (owes)</span>
-                                    <span v-else>$0.00 (settled)</span>
+                                    <span v-if="(personBalance[friend.id] ?? 0) > 0.01">+{{ (personBalance[friend.id] ?? 0).toFixed(2) }} (gets back)</span>
+                                    <span v-else-if="(personBalance[friend.id] ?? 0) < -0.01">-{{ Math.abs((personBalance[friend.id] ?? 0)).toFixed(2) }} (owes)</span>
+                                    <span v-else>0.00 (settled)</span>
                                 </span>
                             </div>
                         </div>
@@ -337,37 +380,49 @@
                 </div>
             </div>
             
-            <!-- Settlement Instructions -->
-            <div v-if="settlements.length > 0" class="space-y-4">
-                <h3 class="text-lg font-medium">Settlement Instructions</h3>
-                <div class="bg-yellow-50 p-4 rounded-lg space-y-3">
-                    <p class="text-yellow-800 font-medium">To settle all debts, make these payments:</p>
-                    <div class="space-y-2">
-                        <div 
-                            v-for="settlement in settlements" 
-                            :key="`${settlement.from}-${settlement.to}`"
-                            class="flex items-center justify-between bg-white p-3 rounded border"
-                        >
-                            <span>
-                                <strong>{{ getFriendNameById(settlement.from) }}</strong> 
-                                pays 
-                                <strong>{{ getFriendNameById(settlement.to) }}</strong>
-                            </span>
-                            <span class="font-bold text-green-600">${{ settlement.amount.toFixed(2) }}</span>
-                        </div>
-                    </div>
-                </div>
+            <div class="text-right">
+                <UButton @click="resetAll" color="error" variant="soft" title="Delete all Data" icon="i-ph-trash-light">Delete All Data</UButton>
             </div>
             
-            <div v-else-if="friends.length > 0 && expenses.length > 0" class="bg-green-50 p-4 rounded-lg">
-                <p class="text-green-800 font-medium">🎉 All expenses are settled! Everyone is even.</p>
+        </div>
+        
+        <!-- Description and Features -->
+        <div class="space-y-6">
+            <div class="space-y-4">
+                <p> Save time and stop the guesswork. Add people, log expenses, and choose equal or custom splits.</p>
+                <p>See who paid, who owes, and exact payment steps. The app finds the fewest transfers to settle debts. Works on mobile and desktop.</p>
+                
+                <div>
+                    <h3 class="text-lg font-semibold">Key features</h3>
+                    <ul class="space-y-2 list-disc list-inside">
+                        <li>
+                            Add or remove people quickly.
+                        </li>
+                        <li>
+                            Equal or custom splits with real-time checks.
+                        </li>
+                        <li>
+                            Full expense history and per-person balances.
+                        </li>
+                        <li>
+                            Smart settlement that minimizes transactions.
+                        </li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold text-lg">Privacy note</h4>
+                    <p class="">
+                        All data is stored only in your browser. Nothing is sent to our servers. You are the only one who can access your info.
+                    </p>
+                </div>
             </div>
         </div>
         
         <UModal v-model:open="showExpenseModal" size="md">
             <template #header>Add Expense</template>
             <template #body>
-                <div class="space-y-4">
+                <div class="space-y-6">
                     <UFormField label="What did you spend your money on?">
                         <UInput v-model="expense.title"/>
                     </UFormField>
@@ -400,7 +455,9 @@
                         <div v-if="restFromSplit > 0" class="text-green-500">Rest from split: {{ restFromSplit.toFixed(2) }} </div>
                         <div v-if="restFromSplit < 0" class="text-red-500">Rest from split: {{ restFromSplit.toFixed(2) }} </div>
                     </div>
-                    <UButton @click="addExpense">Add Expense</UButton>
+                    <div class="text-right">
+                        <UButton @click="addExpense" :disabled="restFromSplit>0">Add</UButton>
+                    </div>
                 </div>
             </template>
 
