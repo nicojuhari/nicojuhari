@@ -1,9 +1,6 @@
-<script setup>
-defineProps(['text'])
-</script>
 <template>
-    <div class="overflow-clip flex items-center justify-center h-32 border-4 text-gray-400 rounded-md">
-        <div class="w-full m-auto px-4 text-center">
+    <div class="overflow-clip flex items-center justify-center h-32 border-2 border-dashed border-gray-200 text-gray-400/80 rounded-md">
+        <div class="w-full m-auto px-6 text-center text-lg font-medium">
             <slot></slot>
         </div>
     </div>

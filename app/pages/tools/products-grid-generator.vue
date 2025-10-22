@@ -168,116 +168,114 @@ const gridStyles = {
 
 </script>
 <template>
-    <h1 class="text-center title py-4 mt-12">Products Grid Generator for Shopify Blog</h1>
-    <h2 class="mb-8 text-lg font-normal text-center">Increase Engagement and Sales with Eye-Catching Product Grids on Your Blog.
-    </h2>
-    <div class="py-10">
-        <UCard class="max-w-[600px] m-auto">
-            <h2 class="text-xl font-semibold mb-4 text-center">Product Form</h2>
-            <div class="space-y-6">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <UFormField label="Title" >
-                        <UInput v-model="product.title" class="w-full"/>
+    <div class="container container-sm">
+        <h1 class="title mb-2">Products Grid Generator for Shopify Blog</h1>
+        <h2 class="mb-8">Increase engagement and sales with eye-catching product grids on your blog.</h2>
+        <div class="mb-10 card">
+             <h2 class="text-xl font-semibold mb-4 text-center">Product Form</h2>
+                <div class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <UFormField label="Title" >
+                            <UInput v-model="product.title" class="w-full"/>
+                        </UFormField>
+                        <UFormField label="Price">
+                            <UInput v-model="product.price" class="w-full"/>
+                        </UFormField>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <UFormField label="Image URL">
+                            <UInput v-model="product.image" class="w-full" />
+                        </UFormField>
+                        <UFormField label="Product URL">
+                            <UInput v-model="product.url" class="w-full"/>
+                        </UFormField>
+                    </div>
+                    <UFormField label="Description">
+                        <UTextarea v-model="product.description" class="w-full"
+                            :ui="{ base: 'h-24 min-h-24 max-h-24' }" />
                     </UFormField>
-                    <UFormField label="Price">
-                        <UInput v-model="product.price" class="w-full"/>
-                    </UFormField>
+                    <div class="text-right">
+                        <UButton @click.prevent="addProduct">Add Product</UButton>
+                    </div>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <UFormField label="Image URL">
-                        <UInput v-model="product.image" class="w-full" />
-                    </UFormField>
-                    <UFormField label="Product URL">
-                        <UInput v-model="product.url" class="w-full"/>
-                    </UFormField>
+        </div>
+        <div>
+            <h2 class="text-xl font-semibold mb-4 text-center">Grid Preview</h2>
+            <div v-if="grid">
+                
+                <div class="text-gray-800 text-center flex items-center gap-4 justify-between">
+                    <UButton @click.prevent="clearAll" variant="soft" icon="i-ph-x-light" color="error" title="Clear All"></UButton>
+                    <div class="space-x-2.5">
+                        <UButton variant="soft" color="neutral" square title="Sqaure Grid" @click="selectedDesign = 1" :class="{'bg-gray-900 text-white': selectedDesign === 1}">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24"><path fill="currentColor" d="M8.5 11H5.563a2.5 2.5 0 0 1-2.5-2.5V5.564a2.5 2.5 0 0 1 2.5-2.5H8.5a2.5 2.5 0 0 1 2.5 2.5V8.5A2.5 2.5 0 0 1 8.5 11M5.563 4.064a1.5 1.5 0 0 0-1.5 1.5V8.5a1.5 1.5 0 0 0 1.5 1.5H8.5A1.5 1.5 0 0 0 10 8.5V5.564a1.5 1.5 0 0 0-1.5-1.5ZM18.436 11H15.5A2.5 2.5 0 0 1 13 8.5V5.564a2.5 2.5 0 0 1 2.5-2.5h2.934a2.5 2.5 0 0 1 2.5 2.5V8.5a2.5 2.5 0 0 1-2.498 2.5M15.5 4.064a1.5 1.5 0 0 0-1.5 1.5V8.5a1.5 1.5 0 0 0 1.5 1.5h2.934a1.5 1.5 0 0 0 1.5-1.5V5.564a1.5 1.5 0 0 0-1.5-1.5Zm-7 16.872H5.564a2.5 2.5 0 0 1-2.5-2.5V15.5a2.5 2.5 0 0 1 2.5-2.5H8.5a2.5 2.5 0 0 1 2.5 2.5v2.936a2.5 2.5 0 0 1-2.5 2.5M5.564 14a1.5 1.5 0 0 0-1.5 1.5v2.936a1.5 1.5 0 0 0 1.5 1.5H8.5a1.5 1.5 0 0 0 1.5-1.5V15.5A1.5 1.5 0 0 0 8.5 14Zm12.872 6.936H15.5a2.5 2.5 0 0 1-2.5-2.5V15.5a2.5 2.5 0 0 1 2.5-2.5h2.934a2.5 2.5 0 0 1 2.5 2.5v2.936a2.5 2.5 0 0 1-2.498 2.5M15.5 14a1.5 1.5 0 0 0-1.5 1.5v2.936a1.5 1.5 0 0 0 1.5 1.5h2.934a1.5 1.5 0 0 0 1.5-1.5V15.5a1.5 1.5 0 0 0-1.5-1.5Z"/></svg>
+                        </UButton>
+                        <UButton variant="soft" color="neutral" square title="Carousel Grid" @click="selectedDesign = 2" :class="{'bg-gray-900 text-white': selectedDesign === 2}">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" square viewBox="0 0 24 24"><path fill="currentColor" d="M18.436 20.937H15.5a2.5 2.5 0 0 1-2.5-2.5V5.565a2.5 2.5 0 0 1 2.5-2.5h2.933a2.5 2.5 0 0 1 2.5 2.5v12.872a2.5 2.5 0 0 1-2.497 2.5M15.5 4.065a1.5 1.5 0 0 0-1.5 1.5v12.872a1.5 1.5 0 0 0 1.5 1.5h2.933a1.5 1.5 0 0 0 1.5-1.5V5.565a1.5 1.5 0 0 0-1.5-1.5Zm-7 16.872H5.564a2.5 2.5 0 0 1-2.5-2.5V5.565a2.5 2.5 0 0 1 2.5-2.5H8.5a2.5 2.5 0 0 1 2.5 2.5v12.872a2.5 2.5 0 0 1-2.5 2.5M5.564 4.065a1.5 1.5 0 0 0-1.5 1.5v12.872a1.5 1.5 0 0 0 1.5 1.5H8.5a1.5 1.5 0 0 0 1.5-1.5V5.565a1.5 1.5 0 0 0-1.5-1.5Z"/></svg>
+                        </UButton>
+                    </div>
                 </div>
-                <UFormField label="Description">
-                    <UTextarea v-model="product.description" class="w-full"
-                        :ui="{ base: 'h-24 min-h-24 max-h-24' }" />
-                </UFormField>
+                <div class="my-1.5" v-html="grid"></div>
                 <div class="text-right">
-                    <UButton @click.prevent="addProduct">Add Product</UButton>
+                    <UButton @click.prevent="copyToClipboard" class="overflow-auto" icon="i-ph-copy-simple-light" :loading="loadingClipboard">Copy the Code</UButton>
                 </div>
             </div>
-        </UCard>
-    </div>
+            <div v-else class="py-10 text-center bg-gray-200/50 rounded-md">
+                <div class="text-xl" >No products added yet!</div>
+            </div>
+        </div>
+        <div class="mt-6 space-y-4">
+            <h2 class="text-2xl pt-4 font-semibold">Spruce Up Your Shopify Blog with Stunning Product Grids (Free Tool!)
+            </h2>
     
-    <div class="max-w-[600px] mx-auto">
-        <h2 class="text-xl font-semibold mb-4 text-center">Grid Preview</h2>
-        <div v-if="grid">
-            
-            <div class="text-gray-800 text-center flex items-center gap-4 justify-between">
-                <UButton @click.prevent="clearAll" variant="soft" icon="i-ph-x-light" color="error" title="Clear All"></UButton>
-                <div class="space-x-2.5">
-                    <UButton variant="soft" color="neutral" square title="Sqaure Grid" @click="selectedDesign = 1" :class="{'bg-gray-900 text-white': selectedDesign === 1}">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24"><path fill="currentColor" d="M8.5 11H5.563a2.5 2.5 0 0 1-2.5-2.5V5.564a2.5 2.5 0 0 1 2.5-2.5H8.5a2.5 2.5 0 0 1 2.5 2.5V8.5A2.5 2.5 0 0 1 8.5 11M5.563 4.064a1.5 1.5 0 0 0-1.5 1.5V8.5a1.5 1.5 0 0 0 1.5 1.5H8.5A1.5 1.5 0 0 0 10 8.5V5.564a1.5 1.5 0 0 0-1.5-1.5ZM18.436 11H15.5A2.5 2.5 0 0 1 13 8.5V5.564a2.5 2.5 0 0 1 2.5-2.5h2.934a2.5 2.5 0 0 1 2.5 2.5V8.5a2.5 2.5 0 0 1-2.498 2.5M15.5 4.064a1.5 1.5 0 0 0-1.5 1.5V8.5a1.5 1.5 0 0 0 1.5 1.5h2.934a1.5 1.5 0 0 0 1.5-1.5V5.564a1.5 1.5 0 0 0-1.5-1.5Zm-7 16.872H5.564a2.5 2.5 0 0 1-2.5-2.5V15.5a2.5 2.5 0 0 1 2.5-2.5H8.5a2.5 2.5 0 0 1 2.5 2.5v2.936a2.5 2.5 0 0 1-2.5 2.5M5.564 14a1.5 1.5 0 0 0-1.5 1.5v2.936a1.5 1.5 0 0 0 1.5 1.5H8.5a1.5 1.5 0 0 0 1.5-1.5V15.5A1.5 1.5 0 0 0 8.5 14Zm12.872 6.936H15.5a2.5 2.5 0 0 1-2.5-2.5V15.5a2.5 2.5 0 0 1 2.5-2.5h2.934a2.5 2.5 0 0 1 2.5 2.5v2.936a2.5 2.5 0 0 1-2.498 2.5M15.5 14a1.5 1.5 0 0 0-1.5 1.5v2.936a1.5 1.5 0 0 0 1.5 1.5h2.934a1.5 1.5 0 0 0 1.5-1.5V15.5a1.5 1.5 0 0 0-1.5-1.5Z"/></svg>
-                    </UButton>
-                    <UButton variant="soft" color="neutral" square title="Carousel Grid" @click="selectedDesign = 2" :class="{'bg-gray-900 text-white': selectedDesign === 2}">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" square viewBox="0 0 24 24"><path fill="currentColor" d="M18.436 20.937H15.5a2.5 2.5 0 0 1-2.5-2.5V5.565a2.5 2.5 0 0 1 2.5-2.5h2.933a2.5 2.5 0 0 1 2.5 2.5v12.872a2.5 2.5 0 0 1-2.497 2.5M15.5 4.065a1.5 1.5 0 0 0-1.5 1.5v12.872a1.5 1.5 0 0 0 1.5 1.5h2.933a1.5 1.5 0 0 0 1.5-1.5V5.565a1.5 1.5 0 0 0-1.5-1.5Zm-7 16.872H5.564a2.5 2.5 0 0 1-2.5-2.5V5.565a2.5 2.5 0 0 1 2.5-2.5H8.5a2.5 2.5 0 0 1 2.5 2.5v12.872a2.5 2.5 0 0 1-2.5 2.5M5.564 4.065a1.5 1.5 0 0 0-1.5 1.5v12.872a1.5 1.5 0 0 0 1.5 1.5H8.5a1.5 1.5 0 0 0 1.5-1.5V5.565a1.5 1.5 0 0 0-1.5-1.5Z"/></svg>
-                    </UButton>
-                </div>
-            </div>
-            <div class="my-1.5" v-html="grid"></div>
-            <div class="text-right">
-                <UButton @click.prevent="copyToClipboard" class="overflow-auto" icon="i-ph-copy-simple-light" :loading="loadingClipboard">Copy the Code</UButton>
-            </div>
+            <p>
+                Struggling to make your Shopify blog visually appealing? Plain text product lists can leave readers
+                uninspired. This is where our Free Product Grid Generator comes in!
+            </p>
+    
+            <p>
+                Effortlessly create beautiful and engaging product grids to showcase your offerings in seconds. No
+                coding
+                knowledge required!</p>
+            <p>Simply enter your product titles, image URLs, product URLs, prices, and
+                descriptions.</p>
+            <p>Our tool will generate a neat and responsive product grid using HTML and CSS.
+            </p>
+    
+            <p class="pt-4"><strong>Key benefits:</strong></p>
+            <ul class="list-disc list-inside space-y-1.5">
+                <li><strong>Boost engagement:</strong> Eye-catching product grids grab attention and keep readers
+                    scrolling.</li>
+                <li><strong>Increase sales:</strong> Well-presented products are more likely to convert into sales.</li>
+                <li><strong>Easy to use:</strong> No coding skills needed! Our user-friendly interface makes creating
+                    grids a breeze.</li>
+                <li><strong>Safe & Secure:</strong> All styles are scoped, ensuring they won't affect your website's
+                    existing design.</li>
+            </ul>
+    
+            <p>Get started today and watch your blog posts transform!</p>
+    
+            <h4 class="text-2xl pt-4 pb-4 font-semibold">Frequently Asked Questions (FAQ)</h4>
+            <p class="font-semibold">Do I need to know how to code to use this tool?</p>
+            <p>
+                No! Our tool is designed for everyone. Simply enter your product information and the tool generates
+                the
+                code for you.
+            </p>
+            <p class="font-semibold">Will this mess up my website's design?</p>
+            <p>No. The generated code uses scoped styles, meaning it won't affect the styles of other content on your
+                website.</p>
+    
+            <p class="font-semibold">Can I customize the look of the product grid?</p>
+            <p>
+                Currently, the tool offers one design option. However, the generated HTML and CSS code can be further
+                customized if you have basic coding knowledge.
+            </p>
+            <p class="font-semibold">Is this tool free to use?</p>
+            <p>Absolutely! Our product grid generator is completely free to use.</p>
+    
+            <p><strong class="pt-4">
+                    Ready to create beautiful product grids for your Shopify blog? Start using our free tool today!
+                </strong></p>
         </div>
-        <div v-else class="py-10 text-center bg-gray-200/50 rounded-md">
-            <div class="text-xl" >No products added yet!</div>
-        </div>
-    </div>
-    <div class="my-8 space-y-4">
-        <h2 class="text-2xl pt-4 font-semibold">Spruce Up Your Shopify Blog with Stunning Product Grids (Free Tool!)
-        </h2>
-
-        <p>
-            Struggling to make your Shopify blog visually appealing? Plain text product lists can leave readers
-            uninspired. This is where our Free Product Grid Generator comes in!
-        </p>
-
-        <p>
-            Effortlessly create beautiful and engaging product grids to showcase your offerings in seconds. No
-            coding
-            knowledge required!</p>
-        <p>Simply enter your product titles, image URLs, product URLs, prices, and
-            descriptions.</p>
-        <p>Our tool will generate a neat and responsive product grid using HTML and CSS.
-        </p>
-
-        <p class="pt-4"><strong>Key benefits:</strong></p>
-        <ul class="list-disc list-inside space-y-1.5">
-            <li><strong>Boost engagement:</strong> Eye-catching product grids grab attention and keep readers
-                scrolling.</li>
-            <li><strong>Increase sales:</strong> Well-presented products are more likely to convert into sales.</li>
-            <li><strong>Easy to use:</strong> No coding skills needed! Our user-friendly interface makes creating
-                grids a breeze.</li>
-            <li><strong>Safe & Secure:</strong> All styles are scoped, ensuring they won't affect your website's
-                existing design.</li>
-        </ul>
-
-        <p>Get started today and watch your blog posts transform!</p>
-
-        <h4 class="text-2xl pt-4 pb-4 font-semibold">Frequently Asked Questions (FAQ)</h4>
-        <p class="font-semibold">Do I need to know how to code to use this tool?</p>
-        <p>
-            No! Our tool is designed for everyone. Simply enter your product information and the tool generates
-            the
-            code for you.
-        </p>
-        <p class="font-semibold">Will this mess up my website's design?</p>
-        <p>No. The generated code uses scoped styles, meaning it won't affect the styles of other content on your
-            website.</p>
-
-        <p class="font-semibold">Can I customize the look of the product grid?</p>
-        <p>
-            Currently, the tool offers one design option. However, the generated HTML and CSS code can be further
-            customized if you have basic coding knowledge.
-        </p>
-        <p class="font-semibold">Is this tool free to use?</p>
-        <p>Absolutely! Our product grid generator is completely free to use.</p>
-
-        <p><strong class="pt-4">
-                Ready to create beautiful product grids for your Shopify blog? Start using our free tool today!
-            </strong></p>
     </div>
 </template>

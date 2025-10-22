@@ -52,7 +52,7 @@ watchEffect(() => {
 <template>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <NuxtLink :to="app.url" v-for="app in filteredApps" :key="app.title" class="p-4 flex gap-4 items-center border rounded-md overflow-hidden bg-white" :title="app.title">
-            <UIcon :name="app.icon" class="h-6 w-6 lg:h-8 lg:w-8 shrink-0 text-gray-500" />
+            <UIcon :name="app.icon" class="h-6 w-6 lg:h-8 lg:w-8 shrink-0 text-blue-400" />
             <div>
                 <p class="font-bold">{{ app.title }}</p>
                 <p class="text-gray-500 text-sm"> {{ app.description }}</p>

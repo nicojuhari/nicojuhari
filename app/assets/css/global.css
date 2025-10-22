@@ -74,7 +74,11 @@ section {
 }
 
 .container.container-sm {
-    max-width: 700px;
+    max-width: 760px;
+}
+
+.card {
+    @apply bg-white rounded-lg p-6 border;
 }
 
 /* .active-sortable-tr {

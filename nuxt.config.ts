@@ -16,7 +16,7 @@ export default defineNuxtConfig({
   
   routeRules: {
     '/': { prerender: true },
-    '/tools/free-qr-code-generator/**': { prerender: true },
+    '/tools/**': { prerender: true },
     '/tools/free-word-counter': { redirect: { to: '/tools/free-word-counter-tool-online', statusCode: 301 } },
     '/tools/convert-spaces-to-dashes': { redirect: { to: '/tools/whitespace-remover', statusCode: 301 } },
     '/projects/**': { prerender: true },

@@ -1,7 +1,10 @@
 <template>
-    <section class="container">
         <Body class="bg-gray-100/50" />
-        <NuxtPage />
-        <MainToolsList class="mt-8" />
-    </section>
+        <div class="my-6 md:my-8">
+            <NuxtPage/>
+        </div>
+        <div class="container container-sm my-6 md:my-8">
+            <p class="subtitle text-center mb-6">Other tools you may like</p>
+            <MainToolsList />
+        </div>
 </template>
