@@ -34,6 +34,12 @@ let apps = [
         icon: 'i-ph-squares-four-light',
         description: 'For Shopify blog'
     },
+    {
+        title: "Bill Split Calculator",
+        url: '/tools/bill-split-calculator',
+        icon: 'i-ph-currency-dollar-light',
+        description: 'Split bills among friends easily'
+    },
 
 ];
 
