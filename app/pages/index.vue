@@ -14,15 +14,15 @@ useHead({
     <Body class="bg-gray-50"></Body>
     <MainHomeHero />
     <MainWebApps />
-    <div class="container container-sm my-16 md:my-24">
-        <h2 class="title text-center mb-6">Shopify Sections</h2>
-        <ShopifySectionsList />
-    </div>
     <section class="container container-sm">
         <h2 class="title mb-0 text-center">Simple Tools</h2>
         <p class="text-sm text-center mb-6 text-gray-500">Built for me and sharing with you.</p>
         <MainToolsList />
     </section>
+    <div class="container container-sm my-16 md:my-24">
+        <h2 class="title text-center mb-6">Shopify Sections</h2>
+        <ShopifySectionsList />
+    </div>
     <MainHomeMyStack />
     <section class="container container-sm">
         <h2 class="title mb-6 text-center">Playground</h2>

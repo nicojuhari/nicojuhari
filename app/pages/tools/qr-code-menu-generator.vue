@@ -19,7 +19,7 @@
         </ClientOnly>
         <div class="space-y-4 mt-6">
             <p>Quickly turn your menu into a scannable QR code so guests can view it on their phones.</p>
-            <p>Create a digital menu with this <NuxtLink to="https://1food.menu/" target="_blank" title="Online Menu Maker">Online Menu Maker</NuxtLink> and add it to your website, and make sure the page is mobile-friendly and easy to navigate.</p>
+            <p>Create a digital menu with this <NuxtLink to="https://1food.menu/" target="_blank" title="Online Menu Maker" class="underline">Online Menu Maker</NuxtLink> and add it to your website, and make sure the page is mobile-friendly and easy to navigate.</p>
             <p>Paste the menu link into the generator, choose colors and size, then download the QR image and print it on table tents, stickers, or signs (keep codes at least 2 x 2 inches).</p>
             <p>Use high contrast between the code and background, and test printed codes with several phones and browsers before you deploy.</p>
             <p>Add a short, trackable URL or UTM to measure scans and see which menus or items receive traction.</p>

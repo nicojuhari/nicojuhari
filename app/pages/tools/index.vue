@@ -8,5 +8,5 @@ useHead({
 </script>
 <template>
     <h1 class="text-center mb-2 title">Free Tools Online</h1>
-    <div class="mb-8 text-lg font-normal text-center">Boost your productivity with my collection of free simple tools!</div>
+    <div class="mb-8 text-lg font-normal text-center">Boost your productivity with my collection of simple and useful tools!</div>
 </template>
