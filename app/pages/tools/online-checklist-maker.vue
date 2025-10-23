@@ -256,10 +256,10 @@ onMounted(() => {
         </div>
         
         <div class="space-y-4 mt-6">
-            <p>Quickly build checklists by adding tasks and checking progress - perfect for packing, wedding planning, grocery lists, moving, camping, or everyday to-dos</p>
+            <p>Quickly build checklists by adding tasks and checking progress - perfect for packing, wedding planning, grocery lists, moving, camping, or everyday to-dos.</p>
             <p>Add and reorder items, check progress, and share lists with friends or staff instantly.</p>
             <p>Export as text or print your checklists.</p>
-            <p>Works on mobile and desktop with all data kept in your browser for privacy. No accounts, no setup - just build and use.</p>
+            <p>It works on mobile and desktop, and all data is kept in your browser for privacy. No accounts, no setup - just build and use.</p>
         </div>
         <UModal v-model:open="showDeleteModal" title="Do you want to delete all the tasks?">
             <template #body>

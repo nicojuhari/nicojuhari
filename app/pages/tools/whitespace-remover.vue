@@ -73,7 +73,7 @@ const copyToClipboard = () => {
 <template>
     <div class="container container-sm">
         <h1 class="title mb-2">Whitespace Remover</h1>
-        <h2 class="mb-8">Replace text spaces with dashes (hyphens), underscores, slashes or new lines. Simple and fast.</h2>
+        <h2 class="mb-8">Replace text spaces with dashes (hyphens), underscores, slashes, or new lines. Simple and fast.</h2>
         <div class="grid grid-cols-1 gap-6">
             <div>
                 <div class="relative w-full">
@@ -104,11 +104,11 @@ const copyToClipboard = () => {
             </div>
         </div>
         <div class="mt-6 space-y-4">
-            <p>Quickly reformat text for filenames(images), URLs, social handles, and any short copy - all in seconds, in your browser.</p>
+            <p>Quickly reformat text for filenames (images), URLs, social handles, and any short copy - all in seconds, in your browser.</p>
             <p>Replace or remove spaces with dashes, underscores, slashes, or new lines, and normalize extra whitespace automatically.</p>
-            <p>Change case (lower, UPPER, Capitalize), optionally reverse word order, and preserve line breaks when you need them.</p>
-            <p>Results update instantly so you can copy clean output straight into CSVs, slugs, or rename files.</p>
-            <p>No signup, no uploads - everything runs locally and nothing is stored on our servers.</p>
+            <p>Change case (lower, UPPER, or Capitalize), optionally reverse word order, and preserve line breaks when you need them.</p>
+            <p>Results update instantly so you can copy clean output straight into CSVs, or slugs or rename files.</p>
+            <p>No signup, no uploads - everything runs locally, and nothing is stored on our servers.</p>
         </div>
     </div>
 </template>

@@ -100,11 +100,11 @@ const readingtime = computed(() => {
             </div>
         </div>
         <div class="space-y-4 mt-6">
-            <p>Word Counter Tool is fast, free, and accurate text counter you can use in seconds - paste or type and get instant results.</p>
+            <p>Word Counter Tool is a fast, free, and accurate text counter you can use in seconds, paste or type and get instant results.</p>
             <p>It shows exact word and character counts (with and without spaces), sentence and line counts, and estimated reading time.</p>
             <p>Works for short snippets or long documents and updates live as you edit.</p>
             <p>Perfect for fitting social posts, messages, articles, or any platform with strict limits.</p>
-            <p>No downloads, no signup, and all processing happens in your browser - we never store your text.</p>
+            <p>No downloads, no signup, and all processing happens in your browser, we never store your text.</p>
         </div>
     </div>
 </template>

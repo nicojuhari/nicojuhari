@@ -122,7 +122,7 @@ const resetAll = () => {
 
 <div class="container container-sm">
     <h1 class="title mb-2">Square Image Cropper</h1>
-    <h2 class="mb-8">Make uniform / 1:1 food photos fast - perfect for digital food menus</h2>
+    <h2 class="mb-8">Make uniform (1:1) food photos fast - perfect for digital food menus.</h2>
     <UFileUpload v-model="fileUpload" label="Drop your image here" v-if="!imgSrc" class="w-full bg-gray-50 min-h-48 cursor-pointer" />
     <div v-else class="space-y-8 card">
         <cropper
@@ -153,9 +153,9 @@ const resetAll = () => {
     </div>
     <div class="mt-6 space-y-4">
         <p>Upload a food photo and crop it to a perfect 1:1 square for a consistent menu look.</p>
-        <p>Choose output size between 600 and 1000 px, or add your custom size, so images stay sharp across all devices.</p>
-        <p>Drag the crop box to keep the dish centered.</p>
-        <p>Download the image and use <NuxtLink to="https://tinypng.com/" title="Tinypng" target="_blank" class="underline">TinyPNG online tool</NuxtLink> to reduce file size for faster loading.</p>
+        <p>Choose an output size between 600 and 1000 px, or add your custom size, so images stay sharp across all devices.</p>
+        <p>Please drag the crop box to ensure the dish remains centered.</p>
+        <p>Download the image and use the <NuxtLink to="https://tinypng.com/" title="Tinypng" target="_blank" class="underline">TinyPNG</NuxtLink> to reduce file size for faster loading.</p>
         <p>Tip: use high-contrast backgrounds and natural light so dishes read well at small sizes.</p>
     </div>
  </div>

@@ -208,11 +208,11 @@ const showModal = ref(false)
             </UiEmptyBlock>
         </div>
         <div class="mt-6 space-y-4">
-            <p>Create simple and elegant product grids for your Shopify blog in seconds — no coding required.</p>
+            <p>Create simple and elegant product grids for your Shopify blog in seconds - no coding required.</p>
             <p>Paste product titles, image URLs, links, prices, and descriptions, and the tool outputs responsive HTML/CSS you can drop into a post.</p>
             <p>Styles are scoped so the grid won't break your theme, and layouts are mobile-friendly to boost engagement on phones.</p>
             <p>Better visuals keep readers scrolling and drive more clicks to product pages, improving conversion potential.</p>
-            <p>Free to use, instant output, and easy to customize if you want to tweak the look.</p>
+            <p>Free to use and with instant output.</p>
         </div>
         <UModal v-model:open="showModal" title="Add new product">
             <template #body>
