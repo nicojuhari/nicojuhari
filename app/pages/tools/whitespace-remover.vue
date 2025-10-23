@@ -2,7 +2,7 @@
 useHead({
     title: 'Whitespace Remover | Replace or Remove the Spaces in Text',
     meta: [
-        { name: 'description', content: 'Online Whitespace Remover - quickly replace or remove spaces with hyphens, underscores, slashes, or new lines. Fast, browser-based tool, no signup.' }
+        { name: 'description', content: 'Online Whitespace Remover - quickly replace or remove spaces with hyphens, underscores, slashes, or new lines. Fast, browser-based tool, and FREE' }
     ],
 })
 
@@ -71,18 +71,18 @@ const copyToClipboard = () => {
 
 </script>
 <template>
-    <div class="container">
+    <div class="container container-sm">
         <h1 class="title mb-2">Whitespace Remover</h1>
         <h2 class="mb-8">Replace text spaces with dashes (hyphens), underscores, slashes or new lines. Simple and fast.</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="md:col-span-2">
+        <div class="grid grid-cols-1 gap-6">
+            <div>
                 <div class="relative w-full">
                     <UTextarea v-model="textRaw" class="w-full overflow-auto" :rows="8" :maxrows="12" placeholder="Add your text here ..."></UTextarea>
                     <UButton color="error" variant="subtle" title="Clear the text" class="cursor-pointer absolute right-1.5 bottom-1.5" v-if="textRaw" @click="() => textRaw = ''" icon="i-ph-x-light"></UButton>
                 </div>
                 <div v-if="convertedText"
                     class="my-6 space-y-4">
-                    <div class="p-1.5 rounded-md bg-white border max-h-[200px] overflow-y-auto">
+                    <div class="p-1.5 py-3 rounded-md bg-white border max-h-[200px] overflow-y-auto">
                         <div v-if="keepNewlines || replaceWithSymbol === 'new line'" v-html="convertedText.split('\n').join('<br>')"></div>
                         <div v-else class="border-0 w-full outline-0 resize-none pl-1 h-full">{{  convertedText }}</div>
                     </div>
@@ -93,71 +93,22 @@ const copyToClipboard = () => {
                     </div>
                 </div>
             </div>
-            <div class="space-y-6 card">
+            <div class="card grid grid-cols-1 md:grid-cols-3 gap-6">
                 <URadioGroup v-model="replaceWithSymbol" legend="Replace with:"
                     :items="replaceOptions" variant="table" size="sm"/>
-                <URadioGroup v-model="transformText" legend="Transform the case?" :items="transformOptions" variant="table" size="sm" />
+                <URadioGroup v-model="transformText" legend="Transform:" :items="transformOptions" variant="table" size="sm" />
+                <div class="space-y-6 md:mt-6">
                     <USwitch label="Reverse the text?" v-model="reverseText"/>
                     <USwitch label="Keep the new lines?" v-model="keepNewlines" />
+                </div>
             </div>
         </div>
-        <div class="mt-6 space-y-6">
-            <div class="space-y-6">
-                <p>
-                    Quickly reformat text for filenames, URLs, social handles, menus, or any copy. Replace or remove spaces, change case, reverse word order, and keep line breaks — all in seconds, in your browser.
-                </p>
-    
-                <div>
-                    <h2 class="font-semibold text-lg mb-2">What it does</h2>
-                    <ul class="list-disc list-inside space-y-1">
-                        <li>Replace spaces with: dashes (<span class="font-mono">-</span>), underscores (<span class="font-mono">_</span>), slashes (<span class="font-mono">/</span>), new lines, or keep spaces.</li>
-                        <li>Remove extra whitespace (normalize multiple spaces to single).</li>
-                        <li>Change case: none, lowercase, uppercase, capitalize each word.</li>
-                        <li>Optionally reverse word order.</li>
-                        <li>Optionally preserve existing new lines.</li>
-                    </ul>
-                </div>
-    
-                <div>
-                    <h2 class="font-semibold text-lg mb-2">Why use it</h2>
-                    <ul class="list-disc list-inside space-y-1">
-                        <li>Save time: no manual find and replace.</li>
-                        <li>Ensure consistent filenames, slugs, and social handles.</li>
-                        <li>Prevent errors from inconsistent spacing or casing.</li>
-                    </ul>
-                </div>
-    
-                <div>
-                    <h2 class="font-semibold text-lg mb-2">How to use</h2>
-                    <ol class="list-decimal list-inside space-y-1">
-                        <li>Paste or type your text into the input box.</li>
-                        <li>Choose “Replace with”: dashes, underscores, slashes, keep spaces, or new line.</li>
-                        <li>Select “Transform the case?”: none, lowercase, uppercase, or capitalize.</li>
-                        <li>Toggle “Reverse the text?” if you want words reversed.</li>
-                        <li>Choose “Keep the new lines?” to preserve line breaks.</li>
-                        <li>Results update instantly - copy the output and use it where needed.</li>
-                    </ol>
-                </div>
-    
-                <div>
-                    <h2 class="font-semibold text-lg mb-2">Best use cases</h2>
-                    <ul class="list-disc list-inside space-y-1">
-                        <li>Create clean filenames and URLs from product names or menu items.</li>
-                        <li>Convert phrases to social handles or tags.</li>
-                        <li>Format CSV or import-ready text.</li>
-                        <li>Prepare short descriptions or SMS-friendly copy.</li>
-                    </ul>
-                </div>
-    
-                <div>
-                    <h2 class="font-semibold text-lg mb-2">Privacy &amp; convenience</h2>
-                    <ul class="list-disc list-inside space-y-1">
-                        <li>Runs in your browser. Text is not stored on our servers.</li>
-                        <li>No signup or download required. Free to use.</li>
-                    </ul>
-                    <p class="pt-6">Try the Whitespace Remover to format text easily and quickly.</p>
-                </div>
-            </div>
+        <div class="mt-6 space-y-4">
+            <p>Quickly reformat text for filenames(images), URLs, social handles, and any short copy - all in seconds, in your browser.</p>
+            <p>Replace or remove spaces with dashes, underscores, slashes, or new lines, and normalize extra whitespace automatically.</p>
+            <p>Change case (lower, UPPER, Capitalize), optionally reverse word order, and preserve line breaks when you need them.</p>
+            <p>Results update instantly so you can copy clean output straight into CSVs, slugs, or rename files.</p>
+            <p>No signup, no uploads - everything runs locally and nothing is stored on our servers.</p>
         </div>
     </div>
 </template>

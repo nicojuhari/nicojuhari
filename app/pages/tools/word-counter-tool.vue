@@ -1,10 +1,9 @@
-<script setup>
-import { UCard } from '#components'
+<script setup lang="ts">
 
 useHead({
-    title: 'Free Word Counter Tool Online - Characters & Sentences',
+    title: 'Word Counter Tool | Free and Online',
     meta: [
-        { name: 'description', content: 'Free Word Counter Tool Online - quickly count words, characters, and reading time from any text. Fast, simple, and mobile-friendly.' }
+        { name: 'description', content: 'Use Word Counter Tool Online and quickly count words, characters, and reading time from any text. Fast, simple, and FREE.' }
     ],
 })
 
@@ -57,13 +56,13 @@ const readingtime = computed(() => {
 </script>
 <template>
     <div class="container">
-        <h1 class="title mb-2">Free Word Counter Tool Online</h1>
+        <h1 class="title mb-2">Word Counter Tool</h1>
         <h2 class="mb-8">Quickly count words, characters, and reading-time estimates in your text.</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div class="md:col-span-2 h-full flex flex-col gap-4">
                 <div class="relative flex-1">
                     <UTextarea v-model="textRaw" class="w-full flex-1" :rows="21" :maxrows="21" :autoresize="false" placeholder="Add your text here ..."></UTextarea>
-                    <UButton color="error" variant="subtle" title="Clear the text" class="cursor-pointer absolute right-1.5 bottom-1.5" v-if="textRaw" @click="() => textRaw = ''" icon="i-ph-x-light"></UButton>
+                    <UButton color="error" variant="subtle" title="Clear the text" class="cursor-pointer absolute right-1.5 bottom-1.5" v-if="textRaw" @click="textRaw = ''" icon="i-ph-x-light"></UButton>
                 </div>
             </div>
             <div class="grid grid-cols-2 gap-4 card">
@@ -100,59 +99,12 @@ const readingtime = computed(() => {
                 </div>
             </div>
         </div>
-        <div class="space-y-6 mt-6">
-            <p>Free Word Counter Tool Online - fast, accurate text counter you can use in seconds.</p>
-            <div>
-                <h3 class="font-semibold">What it does</h3>
-                <ul class="list-disc pl-5">
-                    <li>Exact word count.</li>
-                    <li>Character count with and without spaces.</li>
-                    <li>Sentence and line counts.</li>
-                    <li>Estimated reading time.</li>
-                    <li>Works for short snippets and long documents.</li>
-                </ul>
-            </div>
-            <div>
-                <h3 class="font-semibold">How it helps</h3>
-                <ul class="list-disc pl-5">
-                    <li>Save time - no manual counting.</li>
-                    <li>Fit copy to limits (menus, social, SMS).</li>
-                    <li>Improve clarity by spotting long sentences and lines.</li>
-                    <li>Edit on the go - mobile-friendly and instant.</li>
-                </ul>
-            </div>
-            <div>
-                <h3 class="font-semibold">Who it's for</h3>
-                <ul class="list-disc pl-5">
-                    <li>Writers and editors needing quick counts.</li>
-                    <li>Marketers optimizing copy for platforms.</li>
-                    <li>Students checking essay lengths.</li>
-                    <li>Anyone needing fast, accurate text metrics.</li>
-                </ul>
-            </div>
-            <div>
-                <h3 class="font-semibold">How to use</h3>
-                <ol class="list-decimal pl-5">
-                    <li>Paste your text or type directly into the box.</li>
-                    <li>Results update immediately.</li>
-                    <li>No downloads or sign-ups required.</li>
-                </ol>
-            </div>
-            <div>
-                <h3 class="font-semibold">Privacy</h3>
-                <ul class="list-disc pl-5">
-                    <li>Text is processed in your browser.</li>
-                    <li>Nothing is stored on our servers.</li>
-                </ul>
-            </div>
-            <div>
-                <h3 class="font-semibold">Quick FAQs</h3>
-                <ul class="list-disc pl-5">
-                    <li><strong>Is it free?</strong> Yes. Completely free with no hidden fees.</li>
-                    <li><strong>Do I need an account?</strong> No account or signup needed.</li>
-                    <li><strong>Is my text saved?</strong> No. All processing happens locally in your browser. We do not store any data.</li>
-                </ul>
-            </div>
+        <div class="space-y-4 mt-6">
+            <p>Word Counter Tool is fast, free, and accurate text counter you can use in seconds - paste or type and get instant results.</p>
+            <p>It shows exact word and character counts (with and without spaces), sentence and line counts, and estimated reading time.</p>
+            <p>Works for short snippets or long documents and updates live as you edit.</p>
+            <p>Perfect for fitting social posts, messages, articles, or any platform with strict limits.</p>
+            <p>No downloads, no signup, and all processing happens in your browser - we never store your text.</p>
         </div>
     </div>
 </template>

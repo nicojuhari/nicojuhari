@@ -28,6 +28,7 @@
     "pinia": "^3.0.3",
     "pinia-plugin-persistedstate": "^4.5.0",
     "qr-code-styling": "^1.9.2",
-    "stripe": "^18.5.0"
+    "stripe": "^18.5.0",
+    "vue-advanced-cropper": "^2.8.9"
   }
 }

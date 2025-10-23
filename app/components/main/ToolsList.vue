@@ -5,16 +5,22 @@ const filteredApps = ref([]);
 let apps = [
     
     {
-        title: "QR Code Generator",
-        url: '/tools/free-qr-code-generator',
+        title: "QR Code Menu Generator",
+        url: '/tools/qr-code-menu-generator',
         icon: 'i-ph-qr-code-light',
-        description: 'Create a QR Code for any url'
+        description: 'Create a QR Code Menu in seconds'
     },
     {
-        title: "Word Counter",
-        url: '/tools/free-word-counter-tool-online',
+        title: "Square Image Cropper",
+        url: '/tools/square-image-cropper',
+        icon: 'i-ph-crop-light',
+        description: 'Crop images to squares for digital menus'
+    },
+    {
+        title: "Word Counter Tool",
+        url: '/tools/word-counter-tool',
         icon: 'i-ph-list-numbers-light',
-        description: 'Count words and characters in a text'
+        description: 'Count words and characters in any text'
     },
     {
         title: "Whitespace Remover",
@@ -29,16 +35,16 @@ let apps = [
         description: 'Keep track of your tasks'
     },
     {
-        title: "Products Grid Generator",
-        url: '/tools/products-grid-generator',
+        title: "Product Grid Generator",
+        url: '/tools/product-grid-generator',
         icon: 'i-ph-squares-four-light',
-        description: 'For Shopify blog'
+        description: 'For Shopify blogs'
     },
     {
         title: "Bill Split Calculator",
         url: '/tools/bill-split-calculator',
         icon: 'i-ph-currency-dollar-light',
-        description: 'Split bills among friends easily'
+        description: 'Split bills with friends easily'
     },
 
 ];

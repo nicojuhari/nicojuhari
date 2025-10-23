@@ -1,8 +1,8 @@
 <script setup>
 
 useHead({
-    title: 'Free Online Checklist Maker: Create & Manage Tasks Easily',
-    meta: [{ name: 'description', content: 'Create and customize your own online checklists easily with our user-friendly and FREE Checklist Maker. Stay organized and boost your productivity today!' }],
+    title: 'Online Checklist Maker | Create and manage Tasks Fast',
+    meta: [{ name: 'description', content: 'Create and share checklists in seconds - packing, wedding, camping, grocery, move-in, or daily tasks. Mobile-friendly, private, no signup, and FREE to use.' }],
 })
 
 const tasks = ref([]);
@@ -162,7 +162,7 @@ onMounted(() => {
 <template>
     <div class="container container-sm">
         <h1 class="title mb-2">Online Checklist Maker</h1>
-        <h2 class="mb-8">Create and manage checklists online.</h2>
+        <h2 class="mb-8">Build, share, and track checklists fast - no signup required.</h2>
             
         <div class="space-y-6">
             <!-- Inline Task Creation -->
@@ -188,7 +188,7 @@ onMounted(() => {
                             <UFormField class="flex-1">
                                 <UInput class="flex-1 w-full" v-model="newTask.title" @keyup.enter="addTask" size="lg" placeholder="What do you need to do?" />
                             </UFormField>
-                            <UButton @click="addTask" :disabled="!newTask.title.trim()" icon="i-ph-plus-light" size="lg">Add</UButton>
+                            <UButton @click="addTask" :disabled="!newTask.title.trim()" size="lg">Add</UButton>
                         </div>
                         <UFormField v-if="newTask.title.trim()" label="Notes (optional)">
                             <UTextarea v-model="newTask.notes" @keyup.enter="addTask" placeholder="Add notes or details..." :ui="{ base: 'h-16 min-h-16 max-h-16 overflow-auto' }" class="w-full"></UTextarea>
@@ -199,121 +199,77 @@ onMounted(() => {
             
             
         </div>
-            <div class="py-8">
-                <div class="">
-                    <Loading v-if="isLoading" class="mx-auto my-12"/>
-                    
-                    <div class="space-y-6" v-if="tasks.length">
-                        <div class="card">
-                            <div class="card-header">
-                                <h2 class="text-lg font-medium text-center">Your Checklist</h2>
-                            </div>
-                            <div v-for="item in tasks" :key="item.id"
-                                class="flex items-center justify-between border-b border-gray-200 last:border-b-0 py-4 px-6 group hover:bg-gray-50 transition-colors">
-                                <div class="flex items-center gap-4 min-h-10 flex-1">
-                                    <UCheckbox color="success" v-model="item.completed" class="cursor-pointer shrink-0"
-                                        :id="item.id" />
-                                    <div class="flex-1 min-w-0">
-                                        <div :class="{ 'line-through text-gray-500': item.completed }" class="text-base font-medium truncate"> 
-                                            {{ item.title }}
-                                        </div>
-                                        <div v-if="item.notes" class="text-sm text-gray-500 line-clamp-2 mt-1">{{ item.notes }}</div>
+        <div class="mt-6">
+            <div class="">
+                <Loading v-if="isLoading" class="mx-auto my-12"/>
+                
+                <div class="space-y-6" v-if="tasks.length">
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="text-lg font-medium text-center">Your Checklist</h2>
+                        </div>
+                        <div v-for="item in tasks" :key="item.id"
+                            class="flex items-center justify-between border-b border-gray-200 last:border-b-0 py-4 px-6 group hover:bg-gray-50 transition-colors">
+                            <div class="flex items-center gap-4 min-h-10 flex-1">
+                                <UCheckbox color="success" v-model="item.completed" class="cursor-pointer shrink-0"
+                                    :id="item.id" />
+                                <div class="flex-1 min-w-0">
+                                    <div :class="{ 'line-through text-gray-500': item.completed }" class="text-base font-medium truncate"> 
+                                        {{ item.title }}
                                     </div>
-                                </div>
-                                <div class="shrink-0 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                                    <UButton variant="soft" icon="i-ph-pencil-simple-light" color="gray" size="sm"
-                                        @click="editTask(item.id)" title="Edit task"> </UButton>
-                                    <UButton variant="soft" icon="i-ph-trash-light" color="red" size="sm"
-                                        @click="removeTask(item.id)" title="Delete task"> </UButton>
+                                    <div v-if="item.notes" class="text-sm text-gray-500 line-clamp-2 mt-1">{{ item.notes }}</div>
                                 </div>
                             </div>
-                        </div>
-                        
-
-                        <!-- Export/Print Actions -->
-                        <div v-if="tasks.length > 0" class="flex justify-center gap-2">
-                            <UButton @click="exportAsText" variant="outline" icon="i-ph-download-simple-light" size="sm">Export as Text</UButton>
-                            <UButton @click="printChecklist" variant="outline" icon="i-ph-printer-light" size="sm">Print Checklist</UButton>
-                        </div>
-                        
-                        <div class="flex items-center justify-between gap-6 py-4 px-6 bg-gray-50 rounded-lg border">
-                            <span class="text-sm text-gray-600">Delete all tasks</span>
-                            <UButton @click.prevent="showDeleteModal = true" color="error" variant="soft" icon="i-ph-trash-light" size="sm">
-                                Delete All
-                            </UButton>
+                            <div class="shrink-0 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                                <UButton variant="soft" icon="i-ph-pencil-simple-light" color="gray" size="sm"
+                                    @click="editTask(item.id)" title="Edit task"> </UButton>
+                                <UButton variant="soft" icon="i-ph-trash-light" color="red" size="sm"
+                                    @click="removeTask(item.id)" title="Delete task"> </UButton>
+                            </div>
                         </div>
                     </div>
                     
-                    <div v-else-if="!isLoading">
-                        <div class="text-center py-12 card">
-                            <div class="text-xl text-gray-600 flex flex-col gap-3 justify-center">
-                                <span class="text-4xl">📝</span>
-                                <span class="font-medium">No tasks yet!</span>
-                                <span class="text-sm text-gray-500">Add your first task above to get started</span>
-                            </div>
+
+                    <!-- Export/Print Actions -->
+                    <div v-if="tasks.length > 0" class="flex flex-col md:flex-row justify-end gap-6">
+                        <UButton @click.prevent="showDeleteModal = true" color="error" variant="soft" icon="i-ph-trash-light" class="md:mr-auto justify-center">
+                            Delete All Tasks
+                        </UButton>
+                        <UButton @click="exportAsText" variant="outline" icon="i-ph-download-simple-light" class="justify-center">Export as Text</UButton>
+                        <UButton @click="printChecklist" variant="outline" icon="i-ph-printer-light" class="justify-center">Print Checklist</UButton>
+                    </div>
+                    
+                    
+                </div>
+                
+                <div v-else-if="!isLoading">
+                    <div class="text-center py-12 card">
+                        <div class="text-xl text-gray-600 flex flex-col gap-3 justify-center">
+                            <span class="text-4xl">📝</span>
+                            <span class="font-medium">No tasks yet!</span>
+                            <span class="text-sm text-gray-500">Add your first task above to get started</span>
                         </div>
                     </div>
-    
                 </div>
+
             </div>
+        </div>
         
-            <div class="space-y-4">
-                <h2 class="text-2xl pt-4 font-semibold">Conquer Your To-Do List with Our Powerful Online Checklist Maker!
-                </h2>
-    
-                <div>
-                    Tired of juggling scraps of paper and struggling to stay organized? Our free online checklist maker is
-                    here
-                    to simplify your life. Create, manage, and conquer your tasks with ease, all in one convenient location.
+        <div class="space-y-4 mt-6">
+            <p>Quickly build checklists by adding tasks and checking progress - perfect for packing, wedding planning, grocery lists, moving, camping, or everyday to-dos</p>
+            <p>Add and reorder items, check progress, and share lists with friends or staff instantly.</p>
+            <p>Export as text or print your checklists.</p>
+            <p>Works on mobile and desktop with all data kept in your browser for privacy. No accounts, no setup - just build and use.</p>
+        </div>
+        <UModal v-model:open="showDeleteModal" title="Do you want to delete all the tasks?">
+            <template #body>
+                <div class="flex justify-end gap-4">
+                    <UButton @click="showDeleteModal = false">No</UButton>
+                    <UButton color="error" @click="deleteTasks">Yes</UButton>
                 </div>
-    
-                <p class="pt-4">Here's what makes our tool stand out:</p>
-                <ul class="list-disc list-inside space-y-1.5">
-                    <li><strong>Effortless Organization:</strong> Ditch the paper and sticky notes! Effortlessly build clear
-                        and concise checklists online.</li>
-                    <li><strong>Boost Productivity:</strong> Focus on what matters most. Checklists help you prioritize
-                        tasks, track progress,
-                        and
-                        avoid procrastination.</li>
-                    <li><strong>Achieve Goals:</strong> Break down large goals into manageable steps. Use our checklist
-                        maker to visualize your
-                        progress and stay motivated.</li>
-                    <li><strong>Intuitive Interface:</strong> Our user-friendly design makes creating and managing
-                        checklists
-                        a breeze. No
-                        complex
-                        software to learn, just jump right in.</li>
-                    <li><strong>Free to Use:</strong> Get started with our online checklist maker today, completely free. No
-                        sign-ups or hidden
-                        costs
-                        required.</li>
-                </ul>
-    
-    
-    
-                <!-- Create unlimited checklists: No restrictions on the number of checklists you can manage.
-                Add detailed tasks: Include clear descriptions and deadlines for each task on your list.
-                Mark tasks complete: Tick off completed tasks with satisfaction and track your progress.
-                Easy management: Drag and drop to reorder tasks and prioritize your workload efficiently.
-                Offline access (Optional): Consider adding the ability to access and manage checklists offline for added
-                convenience (requires additional development). -->
-                <div class="pt-4">
-                    <strong>Ready to take control of your to-do list?</strong> Get started with our free online checklist
-                    maker today!
-                    Increase
-                    your productivity, achieve your goals, and experience the power of organized task management.
-                </div>
-    
-            </div>
-            <UModal v-model:open="showDeleteModal" title="Do you want to delete all the tasks?">
-                <template #body>
-                    <div class="flex justify-end gap-4">
-                        <UButton @click="showDeleteModal = false">No</UButton>
-                        <UButton color="error" @click="deleteTasks">Yes</UButton>
-                    </div>
-    
-                </template>
-            </UModal>
+
+            </template>
+        </UModal>
     </div>
 </template>
 

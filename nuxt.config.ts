@@ -17,7 +17,10 @@ export default defineNuxtConfig({
   routeRules: {
     '/': { prerender: true },
     '/tools/**': { prerender: true },
-    '/tools/free-word-counter': { redirect: { to: '/tools/free-word-counter-tool-online', statusCode: 301 } },
+    '/tools/free-word-counter': { redirect: { to: '/tools/word-counter-tool', statusCode: 301 } },
+    '/tools/products-grid-generator': { redirect: { to: '/tools/product-grid-generator', statusCode: 301 } },
+    '/tools/free-word-counter-tool-online': { redirect: { to: '/tools/word-counter-tool', statusCode: 301 } },
+    '/tools/free-qr-code-generator': { redirect: { to: '/tools/qr-code-menu-generator', statusCode: 301 } },
     '/tools/convert-spaces-to-dashes': { redirect: { to: '/tools/whitespace-remover', statusCode: 301 } },
     '/projects/**': { prerender: true },
     '/tools/free-menu-maker': { redirect: 'https://1food.menu' },

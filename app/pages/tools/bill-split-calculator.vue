@@ -3,9 +3,9 @@
 import { useStorage } from '@vueuse/core'
 
     useHead({
-        title: 'Bill Split Calculator - Restaurant Bill Splitter',
+        title: 'Bill Split Calculator | Split Restaurant & Travel Costs Fast',
         meta: [
-            { name: 'description', content: 'Bill Split Calculator - easily split expenses among friends. Track who paid what and calculate balances. Perfect for trips, dinners, and shared costs.' }
+            { name: 'description', content: 'Free Bill Split Calculator - split restaurant and trip expenses, see who owes, and settle with minimal transfers. Works in-browser, no account.' }
         ],
     })
 
@@ -282,7 +282,7 @@ import { useStorage } from '@vueuse/core'
     
     <div class="container container-sm">
         <h1 class="title mb-2">Bill Split Calculator</h1>
-        <h2 class="mb-8">Perfect for splitting restaurant bills and travel expenses among friends.</h2>
+        <h2 class="mb-8">Perfect for splitting restaurant bills and travel expenses with friends.</h2>
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <div class="card">
                 <div class="space-y-2">
@@ -449,36 +449,12 @@ import { useStorage } from '@vueuse/core'
 
         </div>
         <Loading v-else class="mx-auto my-20" />
-        <div class="space-y-6 mt-6">
-                <div class="space-y-4">
-                    <p> Save time and stop the guesswork. Add people, log expenses, and choose equal or custom splits.</p>
-                    <p>See who paid, who owes, and exact payment steps. The app finds the fewest transfers to settle debts. Works on mobile and desktop.</p>
-                    
-                    <div>
-                        <h3 class="text-lg font-semibold">Key features</h3>
-                        <ul class="space-y-2 list-disc list-inside">
-                            <li>
-                                Add or remove people quickly.
-                            </li>
-                            <li>
-                                Equal or custom splits with real-time checks.
-                            </li>
-                            <li>
-                                Full expense history and per-person balances.
-                            </li>
-                            <li>
-                                Smart settlement that minimizes transactions.
-                            </li>
-                        </ul>
-                    </div>
-                    
-                    <div>
-                        <h4 class="font-semibold text-lg">Privacy note</h4>
-                        <p class="">
-                            All data is stored only in your browser. Nothing is sent to our servers. You are the only one who can access your info.
-                        </p>
-                    </div>
-                </div>
+        <div class="space-y-4 mt-6">
+            <p>Split any bill (restaurant, travel, etc.) - add people, log expenses, and choose equal or custom splits.</p>
+            <p>See who paid, who owes, and get clear step-by-step payments to settle balances.</p>
+            <p>The calculator minimizes the number of transfers so groups settle up fast and fairly.</p>
+            <p>Works on mobile and desktop with instant updates and a full expense history per person.</p>
+            <p>Everything runs in your browser - no uploads, no accounts, and no data is stored on our servers.</p>
         </div>
     </div>
 </template>
