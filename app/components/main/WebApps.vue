@@ -28,6 +28,12 @@ let apps = [
         logo: 'https://rps-game.online/rock-paper-scissors-logo.svg',
         description: 'Play RPS game online'
     },
+    {
+        title: "Bookmark Manager",
+        url: 'https://bookmarks-manager.online/',
+        logo: 'https://bookmarks-manager.online/logo.svg',
+        description: 'Manage your bookmarks easily'
+    },
 ];
 
 </script>
