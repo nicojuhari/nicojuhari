@@ -40,7 +40,7 @@ onMounted(() => {
             <div class="flex justify-center mb-6">
                 <img src="/assets/nick-profile-photo.webp" class="w-24 h-24 rounded-full object-cover border-4 shrink-0" alt="nick profile photo" />
             </div>
-            <h1 class="opacity-0 text-3xl md:text-4xl font-bold mb-6 leading-tight" data-hero-title>
+            <h1 class="opacity-0 page-title mb-6" data-hero-title>
                 Shopify & JavaScript Developer
             </h1>
             <p class="text-lg text-gray-500 mb-8 max-w-2xl mx-auto leading-relaxed opacity-0" data-hero-subtitle>
