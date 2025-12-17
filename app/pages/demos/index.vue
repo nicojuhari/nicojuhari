@@ -24,6 +24,11 @@ const list = [
         url: '/lusin',
         title: 'Lusin Restaurant',
         imgUrl: 'https://nicojuhari.b-cdn.net/demos/thumbnails/lusin.jpeg'
+    },
+    {
+        url: '/bella-cucina',
+        title: 'Bella Cucina Restaurant',
+        imgUrl: 'https://nicojuhari.b-cdn.net/demos/thumbnails/bella-cucina.jpeg'
     }
 ]
 </script>

@@ -37,17 +37,29 @@ const qrConfigs = ref({
 })
 
 const generateQrCode = (config) => {
+    // Create a clean copy of the config to avoid mutations
+    const cleanConfig = { ...config }
 
-    config.qrOptions = {
+    cleanConfig.qrOptions = {
         "typeNumber": "",
         "mode": "Byte",
         "errorCorrectionLevel": "Q"
     }
-    if (config.data == '') config.data = 'https://1food.menu'
+    if (cleanConfig.data == '') cleanConfig.data = 'https://1food.menu'
 
-    config.margin = config.margin * 9
+    cleanConfig.margin = cleanConfig.margin * 9
 
-    return new QRCodeStyling(config);
+    // Handle corner square options - remove type if empty
+    if (cleanConfig.cornersSquareOptions.type === '') {
+        delete cleanConfig.cornersSquareOptions.type
+    }
+
+    // Handle corner dot options - remove type if empty
+    if (cleanConfig.cornersDotOptions.type === '') {
+        delete cleanConfig.cornersDotOptions.type
+    }
+
+    return new QRCodeStyling(cleanConfig);
 
 }
 
@@ -196,7 +208,7 @@ watch(qrConfigs, () => {
                             <div class="bg-slate-100 p-4 rounded">
                                 <div class="flex flex-wrap gap-6">
                                     <div @click="qrConfigs.cornersSquareOptions.type = ''"
-                                        class="h-12 w-12 border border-gray-200 rounded cursor-pointer bg-white grid place-content-center" title="Default">
+                                        class="h-12 w-12 border border-gray-200 rounded cursor-pointer bg-white grid place-content-center" title="None">
                                         <UIcon name="i-ph-x-light" class="text-red-600 text-2xl" />
                                     </div>
                                     <div @click="qrConfigs.cornersSquareOptions.type = 'square'"
@@ -207,7 +219,7 @@ watch(qrConfigs, () => {
                                         class="h-12 w-12 border border-gray-200 rounded cursor-pointer bg-white p-1.5" title="Rounded">
                                         <QrCodeIconsRoundedCorners />
                                     </div>
-                                    <div @click="qrConfigs.cornersSquareOptions.type = 'dots'"
+                                    <div @click="qrConfigs.cornersSquareOptions.type = 'dot'"
                                         class="h-12 w-12 border border-gray-200 rounded cursor-pointer bg-white p-1.5" title="Dots">
                                         <QrCodeIconsDotsCorners />
                                     </div>
@@ -227,7 +239,7 @@ watch(qrConfigs, () => {
                                         <QrCodeIconsSquareCornerDots />
                                     </div>
     
-                                    <div @click="qrConfigs.cornersDotOptions.type = 'dots'"
+                                    <div @click="qrConfigs.cornersDotOptions.type = 'dot'"
                                         class="h-12 w-12 border border-gray-200 rounded cursor-pointer bg-white p-1.5" title="Dots">
                                         <QrCodeIconsDotsCornerDots />
                                     </div>
