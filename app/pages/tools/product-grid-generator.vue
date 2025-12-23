@@ -1,99 +1,104 @@
 <script setup>
 // products grid generator for shopify blog post, generates a grid of products with links to the product pages
 useHead({
-    title: 'Product Grid Generator for Shopify Blogs',
+    title: "Product Grid Generator for Shopify Blogs",
     meta: [
         {
-            name: 'description', content: 'Build beautiful product grids for your Shopify blog fast and free. Add images, titles, and descriptions to increase clicks and sales.'
-        }
+            name: "description",
+            content:
+                "Build beautiful product grids for your Shopify blog fast and free. Add images, titles, and descriptions to increase clicks and sales.",
+        },
     ],
-})
+});
 
 const emptyProduct = {
-    title: '',
-    image: '',
-    url: '',
-    price: '',
-    description: ''
-}
-const loading = ref(false)
-const loadingClipboard = ref(false)
-const product = ref(emptyProduct)
+    title: "",
+    image: "",
+    url: "",
+    price: "",
+    description: "",
+};
+const loading = ref(false);
+const loadingClipboard = ref(false);
+const product = ref({ ...emptyProduct });
 const products = ref([
     {
-        title: 'Product Title',
-        image: 'https://nicojuhari.b-cdn.net/tools/grid/product-1.webp',
-        url: '#',
-        price: '$19.99',
-        description: 'Product description, some text'
+        title: "Product Title",
+        image: "https://nicojuhari.b-cdn.net/tools/grid/product-1.webp",
+        url: "#",
+        price: "$19.99",
+        description: "Product description, some text",
     },
     {
-        title: 'Product Title',
-        image: 'https://nicojuhari.b-cdn.net/tools/grid/product-2.webp',
-        url: '#',
-        price: '$29.99',
+        title: "Product Title",
+        image: "https://nicojuhari.b-cdn.net/tools/grid/product-2.webp",
+        url: "#",
+        price: "$29.99",
     },
     {
-        title: 'Product Title',
-        image: 'https://nicojuhari.b-cdn.net/tools/grid/product-3.webp',
-        url: '#',
-        price: '$39.99',
+        title: "Product Title",
+        image: "https://nicojuhari.b-cdn.net/tools/grid/product-3.webp",
+        url: "#",
+        price: "$39.99",
     },
     {
-        title: 'Product Title',
-        image: 'https://nicojuhari.b-cdn.net/tools/grid/product-4.webp',
-        url: '#',
-        price: '$49.99',
-    }
-])
+        title: "Product Title",
+        image: "https://nicojuhari.b-cdn.net/tools/grid/product-4.webp",
+        url: "#",
+        price: "$49.99",
+    },
+]);
 
-const selectedDesign = ref(2) //1: square grid, 2: carousel grid
+const selectedDesign = ref(2); //1: square grid, 2: carousel grid
 
 const addProduct = () => {
     //validate
     if (!product.value.title || !product.value.image || !product.value.url) {
-        alert('Please fill in the Title, Image URL, and Product URL fields.')
-        return
+        alert("Please fill in the Title, Image URL, and Product URL fields.");
+        return;
     }
-    products.value.push(product.value)
-    product.value = emptyProduct
-}
+    products.value.push({ ...product.value });
+    product.value = { ...emptyProduct };
+    showModal.value = false;
+};
 
 //copy to clipboard
 const copyToClipboard = () => {
-    loadingClipboard.value = true
-    navigator.clipboard.writeText(grid.value)
+    loadingClipboard.value = true;
+    navigator.clipboard.writeText(grid.value);
     setTimeout(() => {
-        loadingClipboard.value = false
-    }, 1000)
-}
+        loadingClipboard.value = false;
+    }, 1000);
+};
 
 const clearAll = () => {
-    products.value = []
-}
+    products.value = [];
+};
 
 const grid = computed(() => {
-    if (!products.value.length) return ''
-    let productsHTML = products.value.map(product => {
-        return `
+    if (!products.value.length) return "";
+    let productsHTML = products.value
+        .map((product) => {
+            return `
             <div class="nc-row-item">
                 <a href="${product.url}" class="nc-row-item__url" title="${product.title}">
                     <img src="${product.image}" class="nc-row-item__img" alt="${product.title}" loading="lazy">
                     <div class="nc-row-item__content">
                         <div class="nc-row-item__title">${product.title}</div>
-                        ${ product.description ? `<p class="nc-row-item__desc"> ${product?.description}</p>` : '' }
-                        ${ product.price ? `<p class="nc-row-item__price"> ${product?.price}</p>` : '' }
+                        ${product.description ? `<p class="nc-row-item__desc"> ${product?.description}</p>` : ""}
+                        ${product.price ? `<p class="nc-row-item__price"> ${product?.price}</p>` : ""}
                     </div>
                 </a>
             </div>
-        `
-    }).join('')
+        `;
+        })
+        .join("");
 
     return `
         <div class="nc-row">${productsHTML}</div>
         <style>${commonStyles} ${gridStyles[selectedDesign.value]}</style>
     `;
-})
+});
 
 const commonStyles = `
     .nc-row {
@@ -140,8 +145,7 @@ const commonStyles = `
         -webkit-box-orient: vertical;
     }
 
-`
-
+`;
 
 const gridStyles = {
     1: `
@@ -168,11 +172,9 @@ const gridStyles = {
             scroll-snap-align: center;
             flex-shrink: 0;
         }
-    `
-}
-const showModal = ref(false)
-
-
+    `,
+};
+const showModal = ref(false);
 </script>
 <template>
     <div class="container container-sm">
@@ -185,31 +187,68 @@ const showModal = ref(false)
             </div>
             <p class="text-xl font-semibold mb-4 text-center">Preview</p>
             <div v-if="grid">
-                
                 <div class="text-gray-800 text-center flex items-center gap-4 justify-between">
-                    
                     <div class="space-x-2.5">
-                        <UButton variant="soft" color="neutral" square title="Sqaure Grid" @click="selectedDesign = 1" :class="{'bg-gray-900 text-white': selectedDesign === 1}">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24"><path fill="currentColor" d="M8.5 11H5.563a2.5 2.5 0 0 1-2.5-2.5V5.564a2.5 2.5 0 0 1 2.5-2.5H8.5a2.5 2.5 0 0 1 2.5 2.5V8.5A2.5 2.5 0 0 1 8.5 11M5.563 4.064a1.5 1.5 0 0 0-1.5 1.5V8.5a1.5 1.5 0 0 0 1.5 1.5H8.5A1.5 1.5 0 0 0 10 8.5V5.564a1.5 1.5 0 0 0-1.5-1.5ZM18.436 11H15.5A2.5 2.5 0 0 1 13 8.5V5.564a2.5 2.5 0 0 1 2.5-2.5h2.934a2.5 2.5 0 0 1 2.5 2.5V8.5a2.5 2.5 0 0 1-2.498 2.5M15.5 4.064a1.5 1.5 0 0 0-1.5 1.5V8.5a1.5 1.5 0 0 0 1.5 1.5h2.934a1.5 1.5 0 0 0 1.5-1.5V5.564a1.5 1.5 0 0 0-1.5-1.5Zm-7 16.872H5.564a2.5 2.5 0 0 1-2.5-2.5V15.5a2.5 2.5 0 0 1 2.5-2.5H8.5a2.5 2.5 0 0 1 2.5 2.5v2.936a2.5 2.5 0 0 1-2.5 2.5M5.564 14a1.5 1.5 0 0 0-1.5 1.5v2.936a1.5 1.5 0 0 0 1.5 1.5H8.5a1.5 1.5 0 0 0 1.5-1.5V15.5A1.5 1.5 0 0 0 8.5 14Zm12.872 6.936H15.5a2.5 2.5 0 0 1-2.5-2.5V15.5a2.5 2.5 0 0 1 2.5-2.5h2.934a2.5 2.5 0 0 1 2.5 2.5v2.936a2.5 2.5 0 0 1-2.498 2.5M15.5 14a1.5 1.5 0 0 0-1.5 1.5v2.936a1.5 1.5 0 0 0 1.5 1.5h2.934a1.5 1.5 0 0 0 1.5-1.5V15.5a1.5 1.5 0 0 0-1.5-1.5Z"/></svg>
+                        <UButton
+                            variant="soft"
+                            color="neutral"
+                            square
+                            title="Sqaure Grid"
+                            @click="selectedDesign = 1"
+                            :class="{ 'bg-gray-900 text-white': selectedDesign === 1 }"
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24">
+                                <path
+                                    fill="currentColor"
+                                    d="M8.5 11H5.563a2.5 2.5 0 0 1-2.5-2.5V5.564a2.5 2.5 0 0 1 2.5-2.5H8.5a2.5 2.5 0 0 1 2.5 2.5V8.5A2.5 2.5 0 0 1 8.5 11M5.563 4.064a1.5 1.5 0 0 0-1.5 1.5V8.5a1.5 1.5 0 0 0 1.5 1.5H8.5A1.5 1.5 0 0 0 10 8.5V5.564a1.5 1.5 0 0 0-1.5-1.5ZM18.436 11H15.5A2.5 2.5 0 0 1 13 8.5V5.564a2.5 2.5 0 0 1 2.5-2.5h2.934a2.5 2.5 0 0 1 2.5 2.5V8.5a2.5 2.5 0 0 1-2.498 2.5M15.5 4.064a1.5 1.5 0 0 0-1.5 1.5V8.5a1.5 1.5 0 0 0 1.5 1.5h2.934a1.5 1.5 0 0 0 1.5-1.5V5.564a1.5 1.5 0 0 0-1.5-1.5Zm-7 16.872H5.564a2.5 2.5 0 0 1-2.5-2.5V15.5a2.5 2.5 0 0 1 2.5-2.5H8.5a2.5 2.5 0 0 1 2.5 2.5v2.936a2.5 2.5 0 0 1-2.5 2.5M5.564 14a1.5 1.5 0 0 0-1.5 1.5v2.936a1.5 1.5 0 0 0 1.5 1.5H8.5a1.5 1.5 0 0 0 1.5-1.5V15.5A1.5 1.5 0 0 0 8.5 14Zm12.872 6.936H15.5a2.5 2.5 0 0 1-2.5-2.5V15.5a2.5 2.5 0 0 1 2.5-2.5h2.934a2.5 2.5 0 0 1 2.5 2.5v2.936a2.5 2.5 0 0 1-2.498 2.5M15.5 14a1.5 1.5 0 0 0-1.5 1.5v2.936a1.5 1.5 0 0 0 1.5 1.5h2.934a1.5 1.5 0 0 0 1.5-1.5V15.5a1.5 1.5 0 0 0-1.5-1.5Z"
+                                />
+                            </svg>
                         </UButton>
-                        <UButton variant="soft" color="neutral" square title="Carousel Grid" @click="selectedDesign = 2" :class="{'bg-gray-900 text-white': selectedDesign === 2}">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" square viewBox="0 0 24 24"><path fill="currentColor" d="M18.436 20.937H15.5a2.5 2.5 0 0 1-2.5-2.5V5.565a2.5 2.5 0 0 1 2.5-2.5h2.933a2.5 2.5 0 0 1 2.5 2.5v12.872a2.5 2.5 0 0 1-2.497 2.5M15.5 4.065a1.5 1.5 0 0 0-1.5 1.5v12.872a1.5 1.5 0 0 0 1.5 1.5h2.933a1.5 1.5 0 0 0 1.5-1.5V5.565a1.5 1.5 0 0 0-1.5-1.5Zm-7 16.872H5.564a2.5 2.5 0 0 1-2.5-2.5V5.565a2.5 2.5 0 0 1 2.5-2.5H8.5a2.5 2.5 0 0 1 2.5 2.5v12.872a2.5 2.5 0 0 1-2.5 2.5M5.564 4.065a1.5 1.5 0 0 0-1.5 1.5v12.872a1.5 1.5 0 0 0 1.5 1.5H8.5a1.5 1.5 0 0 0 1.5-1.5V5.565a1.5 1.5 0 0 0-1.5-1.5Z"/></svg>
+                        <UButton
+                            variant="soft"
+                            color="neutral"
+                            square
+                            title="Carousel Grid"
+                            @click="selectedDesign = 2"
+                            :class="{ 'bg-gray-900 text-white': selectedDesign === 2 }"
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" square viewBox="0 0 24 24">
+                                <path
+                                    fill="currentColor"
+                                    d="M18.436 20.937H15.5a2.5 2.5 0 0 1-2.5-2.5V5.565a2.5 2.5 0 0 1 2.5-2.5h2.933a2.5 2.5 0 0 1 2.5 2.5v12.872a2.5 2.5 0 0 1-2.497 2.5M15.5 4.065a1.5 1.5 0 0 0-1.5 1.5v12.872a1.5 1.5 0 0 0 1.5 1.5h2.933a1.5 1.5 0 0 0 1.5-1.5V5.565a1.5 1.5 0 0 0-1.5-1.5Zm-7 16.872H5.564a2.5 2.5 0 0 1-2.5-2.5V5.565a2.5 2.5 0 0 1 2.5-2.5H8.5a2.5 2.5 0 0 1 2.5 2.5v12.872a2.5 2.5 0 0 1-2.5 2.5M5.564 4.065a1.5 1.5 0 0 0-1.5 1.5v12.872a1.5 1.5 0 0 0 1.5 1.5H8.5a1.5 1.5 0 0 0 1.5-1.5V5.565a1.5 1.5 0 0 0-1.5-1.5Z"
+                                />
+                            </svg>
                         </UButton>
                     </div>
                 </div>
                 <div class="p-1.5" v-html="grid"></div>
                 <div class="flex justify-between mt-6">
-                    <UButton @click.prevent="clearAll" variant="soft" icon="i-ph-trash-light" color="error" title="Clear All" label="Delete"></UButton>
-                    <UButton @click.prevent="copyToClipboard" variant="soft" class="overflow-auto" icon="i-ph-copy-simple-light" :loading="loadingClipboard">Copy the Code</UButton>
+                    <UButton
+                        @click.prevent="clearAll"
+                        variant="soft"
+                        icon="i-ph-trash-light"
+                        color="error"
+                        title="Clear All"
+                        label="Delete"
+                    ></UButton>
+                    <UButton
+                        @click.prevent="copyToClipboard"
+                        variant="soft"
+                        class="overflow-auto"
+                        icon="i-ph-copy-simple-light"
+                        :loading="loadingClipboard"
+                        >Copy the Code</UButton
+                    >
                 </div>
             </div>
-            <UiEmptyBlock v-else>
-                No products added yet
-            </UiEmptyBlock>
+            <UiEmptyBlock v-else> No products added yet </UiEmptyBlock>
         </div>
         <div class="mt-6 space-y-4">
             <p>Create simple and elegant product grids for your Shopify blog in seconds - no coding required.</p>
-            <p>Paste product titles, image URLs, links, prices, and descriptions, and the tool outputs responsive HTML/CSS you can drop into a post.</p>
+            <p>
+                Paste product titles, image URLs, links, prices, and descriptions, and the tool outputs responsive HTML/CSS you can drop
+                into a post.
+            </p>
             <p>Styles are scoped so the grid won't break your theme, and layouts are mobile-friendly to boost engagement on phones.</p>
             <p>Better visuals keep readers scrolling and drive more clicks to product pages, improving conversion potential.</p>
             <p>Free to use and with instant output.</p>
@@ -219,10 +258,10 @@ const showModal = ref(false)
                 <div class="space-y-6">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <UFormField label="Title" required>
-                            <UInput v-model="product.title" class="w-full"/>
+                            <UInput v-model="product.title" class="w-full" />
                         </UFormField>
                         <UFormField label="Price">
-                            <UInput v-model="product.price" class="w-full"/>
+                            <UInput v-model="product.price" class="w-full" />
                         </UFormField>
                     </div>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -230,12 +269,11 @@ const showModal = ref(false)
                             <UInput v-model="product.image" class="w-full" />
                         </UFormField>
                         <UFormField label="Product URL" required>
-                            <UInput v-model="product.url" class="w-full"/>
+                            <UInput v-model="product.url" class="w-full" />
                         </UFormField>
                     </div>
                     <UFormField label="Description">
-                        <UTextarea v-model="product.description" class="w-full"
-                            :ui="{ base: 'h-24 min-h-24 max-h-24' }" />
+                        <UTextarea v-model="product.description" class="w-full" :ui="{ base: 'h-24 min-h-24 max-h-24' }" />
                     </UFormField>
                     <div class="text-right">
                         <UButton @click.prevent="addProduct">Add Product</UButton>
