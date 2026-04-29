@@ -1,0 +1,1105 @@
+{
+    "menu_uid": "ll0irqxk3h4d8omv53x",
+    "products": [
+        {
+            "uid": "ll0k4rxk9v4ni8h14df",
+            "name": "Anghinare la grătar cu sos de parmezan și ierburi",
+            "options": [
+                {
+                    "size": "100 g",
+                    "price": "170 ",
+                    "salePrice": ""
+                }
+            ],
+            "categoryId": "ll0jdsontmkegledl",
+            "description": "",
+            "imageUrl": "https://1food-menu-demos-2.b-cdn.net/gud/untitled-design-4-1.png",
+            "tags": [],
+            "allergens": [],
+            "inStock": null
+        },
+        {
+            "uid": "ll0k7l402lssx77455",
+            "name": "Mămăliga Bomb cu bacon și gorgonzola",
+            "options": [
+                {
+                    "size": "150 g",
+                    "price": "150 ",
+                    "salePrice": ""
+                }
+            ],
+            "categoryId": "ll0jdsontmkegledl",
+            "description": "",
+            "imageUrl": "",
+            "tags": [],
+            "allergens": [],
+            "inStock": null
+        },
+        {
+            "uid": "ll0k9dxbo44smxxxfn",
+            "name": "Bostănel la grătar cu mousse de avocado",
+            "options": [
+                {
+                    "size": "240 g",
+                    "price": "110",
+                    "salePrice": ""
+                }
+            ],
+            "categoryId": "ll0jdsontmkegledl",
+            "description": "",
+            "imageUrl": "https://1food-menu-demos-2.b-cdn.net/gud/bost-nel-la-gr-tar-cu-mousse-de-avocado.png",
+            "tags": [],
+            "allergens": [],
+            "inStock": null
+        },
+        {
+            "uid": "ll0kcgpwtma6g16o8od",
+            "name": "Tartalette cu somon  gravlax și icre tobiko",
+            "options": [
+                {
+                    "size": "120 g",
+                    "price": "180 ",
+                    "salePrice": ""
+                }
+            ],
+            "categoryId": "ll0jdsontmkegledl",
+            "description": "",
+            "imageUrl": "https://1food-menu-demos-2.b-cdn.net/gud/tartalette-cu-somon-gravlax-i-icre-tobiko.png",
+            "tags": [],
+            "allergens": [],
+            "inStock": null
+        },
+        {
+            "uid": "ll0kezz0jjook9cx9sk",
+            "name": "Vinete coapte cu teriyaki și sos de parmezan ",
+            "options": [
+                {
+                    "size": "210 g",
+                    "price": " 120 ",
+                    "salePrice": ""
+                }
+            ],
+            "categoryId": "ll0jdsontmkegledl",
+            "description": "cu teriyaki și sos de parmezan ",
+            "imageUrl": "",
+            "tags": [],
+            "allergens": [],
+            "inStock": null
+        },
+        {
+            "uid": "ll0kgylqsq48wr503ub",
+            "name": "Pate cu ficat de pui și sos de mure",
+            "options": [
+                {
+                    "size": "100 g",
+                    "price": "80 ",
+                    "salePrice": ""
+                }
+            ],
+            "categoryId": "ll0jdsontmkegledl",
+            "description": "",
+            "imageUrl": "https://nicojuhari.b-cdn.net/gud/pateul-de-ficat-de-pui-i-sos-de-mure-by-gud.png",
+            "tags": [],
+            "allergens": [],
+            "inStock": null
+        },
+        {
+            "uid": "ll0kk7zlhfxooh9xp2",
+            "name": "Tartar de vită și mousse de parmezan cu trufe",
+            "options": [
+                {
+                    "size": "150 g ",
+                    "price": "180 ",
+                    "salePrice": ""
+                }
+            ],
+            "categoryId": "ll0jdsontmkegledl",
+            "description": "",
+            "imageUrl": "https://1food-menu-demos-2.b-cdn.net/gud/tartar-de-vit-i-mousse-de-parmezan-cu-trufe.png",
+            "tags": [],
+            "allergens": [],
+            "inStock": null
+        },
+        {
+            "uid": "ll0kmsbl51yh85pnpka",
+            "name": "Tartar duo și mousse de avocado",
+            "options": [
+                {
+                    "size": "150 g",
+                    "price": "230 ",
+                    "salePrice": ""
+                }
+            ],
+            "categoryId": "ll0jdsontmkegledl",
+            "description": "",
+            "imageUrl": "",
+            "tags": [],
+            "allergens": [],
+            "inStock": null
+        },
+        {
+            "uid": "ll0konrui7xm3b093k",
+            "name": "Carpaccio de vițel cu capere și Citronette",
+            "options": [
+                {
+                    "size": "130 g",
+                    "price": "150 ",
+                    "salePrice": ""
+                }
+            ],
+            "categoryId": "ll0jdsontmkegledl",
+            "description": "",
+            "imageUrl": "",
+            "tags": [],
+            "allergens": [],
+            "inStock": null
+        },
+        {
+            "uid": "ll0kqhr0mbfgrqmzzd",
+            "name": "Tataki de ton crocant cu sos ponzu",
+            "options": [
+                {
+                    "size": "110 g",
+                    "price": "230 ",
+                    "salePrice": ""
+                }
+            ],
+            "categoryId": "ll0jdsontmkegledl",
+            "description": "",
+            "imageUrl": "https://1food-menu-demos-2.b-cdn.net/gud/tataki-de-ton-crocant-cu-sos-ponzu.png",
+            "tags": [],
+            "allergens": [],
+            "inStock": null
+        },
+        {
+            "uid": "ll0kst3vvm61o8husr",
+            "name": "Sticks de pui în crusta de Panko și maionezăde susan",
+            "options": [
+                {
+                    "size": "150 g",
+                    "price": "75 ",
+                    "salePrice": ""
+                }
+            ],
+            "categoryId": "ll0jdsontmkegledl",
+            "description": "",
+            "imageUrl": "",
+            "tags": [],
+            "allergens": [],
+            "inStock": null
+        },
+        {
+            "uid": "ll0l6zkgks0q3oq41el",
+            "name": "Salată cu vânătă crispy și sos teriyaki ",
+            "options": [
+                {
+                    "size": "270 g",
+                    "price": "220 ",
+                    "salePrice": ""
+                }
+            ],
+            "categoryId": "ll0jeh6mx7o7ev5bl5",
+            "description": "",
+            "imageUrl": "",
+            "tags": [],
+            "allergens": [],
+            "inStock": null
+        },
+        {
+            "uid": "ll0lek47j5upjfngc4",
+            "name": "Salata cu vanata crispy si vita in sos teriaki",
+            "options": [
+                {
+                    "size": "270 g",
+                    "price": "220",
+                    "salePrice": ""
+                }
+            ],
+            "categoryId": "ll0jeh6mx7o7ev5bl5",
+            "description": "",
+            "imageUrl": "",
+            "tags": [],
+            "allergens": [],
+            "inStock": null
+        },
+        {
+            "uid": "ll0lfy08lr0fkxzrvhn",
+            "name": "Salată cu creveți și avocado în dressing de susan",
+            "options": [
+                {
+                    "size": "270 g",
+                    "price": "270 ",
+                    "salePrice": ""
+                }
+            ],
+            "categoryId": "ll0jeh6mx7o7ev5bl5",
+            "description": "",
+            "imageUrl": "https://1food-menu-demos-2.b-cdn.net/gud/salat-cu-creve-i-i-avocado-n-dressing-de-susan.png",
+            "tags": [],
+            "allergens": [],
+            "inStock": null
+        },
+        {
+            "uid": "ll0lhhryz1rojl61gg",
+            "name": "Salata Panzanella cu ardei copt si brinza de oi",
+            "options": [
+                {
+                    "size": "200 g",
+                    "price": "95 ",
+                    "salePrice": ""
+                }
+            ],
+            "categoryId": "ll0jeh6mx7o7ev5bl5",
+            "description": "",
+            "imageUrl": "",
+            "tags": [],
+            "allergens": [],
+            "inStock": null
+        },
+        {
+            "uid": "ll0lkgrxelsntkb5k76",
+            "name": "Spaghetti alla chitarra cu vongole ",
+            "options": [
+                {
+                    "size": "250 g",
+                    "price": "190 ",
+                    "salePrice": ""
+                }
+            ],
+            "categoryId": "ll0jeq3zebffb0ff53c",
+            "description": "",
+            "imageUrl": "",
+            "tags": [],
+            "allergens": [],
+            "inStock": null
+        },
+        {
+            "uid": "ll0lm86t56lxizuaafb",
+            "name": "Spaghetti alla chitarra cu rosii cherry si stracciatella ",
+            "options": [
+                {
+                    "size": "250 g",
+                    "price": "150 ",
+                    "salePrice": ""
+                }
+            ],
+            "categoryId": "ll0jeq3zebffb0ff53c",
+            "description": "",
+            "imageUrl": "https://1food-menu-demos-2.b-cdn.net/gud/spaghetti-alla-chitarra-cu-rosii-cherry-si-stracciatella.png",
+            "tags": [],
+            "allergens": [],
+            "inStock": null
+        },
+        {
+            "uid": "ll0lo3ccpokhwa771mc",
+            "name": "Ravioli cu ricotta și spanac în sos de gorgonzola și alune de padure",
+            "options": [
+                {
+                    "size": "210 g",
+                    "price": "150 ",
+                    "salePrice": ""
+                }
+            ],
+            "categoryId": "ll0jeq3zebffb0ff53c",
+            "description": "",
+            "imageUrl": "https://1food-menu-demos-2.b-cdn.net/gud/ravioli-cu-ricotta-i-spanac-n-sos-de-gorgonzola-i-alune-de-padure.png",
+            "tags": [],
+            "allergens": [],
+            "inStock": null
+        },
+        {
+            "uid": "ll0lr1sphisiveygldf",
+            "name": "Zeamă moldovenească",
+            "options": [
+                {
+                    "size": "350 g",
+                    "price": "120 ",
+                    "salePrice": ""
+                }
+            ],
+            "categoryId": "ll0jfc2jlmvjtb9myo",
+            "description": "",
+            "imageUrl": "",
+            "tags": [],
+            "allergens": [],
+            "inStock": null
+        },
+        {
+            "uid": "ll0lsfkdlgofqqi5g5f",
+            "name": "Borș roșu de vită",
+            "options": [
+                {
+                    "size": "350 g",
+                    "price": "120",
+                    "salePrice": ""
+                }
+            ],
+            "categoryId": "ll0jfc2jlmvjtb9myo",
+            "description": "",
+            "imageUrl": "",
+            "tags": [],
+            "allergens": [],
+            "inStock": null
+        },
+        {
+            "uid": "ll0lu8vurbj3t35xaqr",
+            "name": "Cremă de mazăre verde cu creveți ",
+            "options": [
+                {
+                    "size": "350 g",
+                    "price": "120",
+                    "salePrice": ""
+                }
+            ],
+            "categoryId": "ll0jfc2jlmvjtb9myo",
+            "description": "",
+            "imageUrl": "",
+            "tags": [],
+            "allergens": [],
+            "inStock": null
+        },
+        {
+            "uid": "ll0ly8gd9eqc090exya",
+            "name": "File mignon cu mămăligă prajită și sos de ciuperci ",
+            "options": [
+                {
+                    "size": "180 g",
+                    "price": "280",
+                    "salePrice": ""
+                }
+            ],
+            "categoryId": "ll0jfrlhciuzy5jwqfm",
+            "description": "",
+            "imageUrl": "",
+            "tags": [
+                "Vită"
+            ],
+            "allergens": [],
+            "inStock": null
+        },
+        {
+            "uid": "ll0m0rxixp62m8f2d3m",
+            "name": "File mignon cu spanac, foiegrass și demiglace cu trufe ",
+            "options": [
+                {
+                    "size": "200 g",
+                    "price": "450",
+                    "salePrice": ""
+                }
+            ],
+            "categoryId": "ll0jfrlhciuzy5jwqfm",
+            "description": "",
+            "imageUrl": "",
+            "tags": [
+                "Vită"
+            ],
+            "allergens": [],
+            "inStock": null
+        },
+        {
+            "uid": "ll0m2n3avib3keylrvm",
+            "name": "Tagliata cu dovlecel copt, branză și sos demiglace ",
+            "options": [
+                {
+                    "size": "280 g",
+                    "price": "280",
+                    "salePrice": ""
+                }
+            ],
+            "categoryId": "ll0jfrlhciuzy5jwqfm",
+            "description": "",
+            "imageUrl": "https://1food-menu-demos-2.b-cdn.net/gud/tagliata.png",
+            "tags": [
+                "Vită"
+            ],
+            "allergens": [],
+            "inStock": null
+        },
+        {
+            "uid": "ll0m4op5bahpbjlgu8a",
+            "name": "Ceafa de vită slowcooked cu anghinare la grătar",
+            "options": [
+                {
+                    "size": "220 g",
+                    "price": "350",
+                    "salePrice": ""
+                }
+            ],
+            "categoryId": "ll0jfrlhciuzy5jwqfm",
+            "description": "",
+            "imageUrl": "",
+            "tags": [
+                "Vită"
+            ],
+            "allergens": [],
+            "inStock": null
+        },
+        {
+            "uid": "ll0m6hpd1lizjrgsuel",
+            "name": "Vrăbioară cu champignon marinat, cartofi și sos chimichurry ",
+            "options": [
+                {
+                    "size": "180 g",
+                    "price": "280",
+                    "salePrice": ""
+                }
+            ],
+            "categoryId": "ll0jfrlhciuzy5jwqfm",
+            "description": "",
+            "imageUrl": "",
+            "tags": [
+                "Vită"
+            ],
+            "allergens": [],
+            "inStock": null
+        },
+        {
+            "uid": "ll0mfuxodq34xw4ppq",
+            "name": "Ceafă maturată cu mousse de ciuperci și broccoli crispy",
+            "options": [
+                {
+                    "size": "180 g",
+                    "price": "190",
+                    "salePrice": ""
+                }
+            ],
+            "categoryId": "ll0jfrlhciuzy5jwqfm",
+            "description": "",
+            "imageUrl": "",
+            "tags": [
+                "Porc"
+            ],
+            "allergens": [],
+            "inStock": null
+        },
+        {
+            "uid": "ll0mijuu2zd2jc4wpff",
+            "name": "Mușchiuleț la grătar cu varză marinată piure de trufe și sos gorgonzola ",
+            "options": [
+                {
+                    "size": "180 g",
+                    "price": "230",
+                    "salePrice": ""
+                }
+            ],
+            "categoryId": "ll0jfrlhciuzy5jwqfm",
+            "description": "",
+            "imageUrl": "",
+            "tags": [
+                "Porc"
+            ],
+            "allergens": [],
+            "inStock": null
+        },
+        {
+            "uid": "ll0mkx9imlpd72im0un",
+            "name": "Ciolan la  cuptor cu salată de ardei copți",
+            "options": [
+                {
+                    "size": "460 g",
+                    "price": "320",
+                    "salePrice": ""
+                }
+            ],
+            "categoryId": "ll0jfrlhciuzy5jwqfm",
+            "description": "",
+            "imageUrl": "",
+            "tags": [
+                "Porc"
+            ],
+            "allergens": [],
+            "inStock": null
+        },
+        {
+            "uid": "ll0mp5n7atv9jasa30m",
+            "name": "Piept de rață cu piure de țelina, sparanghel și sos de mure",
+            "options": [
+                {
+                    "size": "250 g",
+                    "price": "310",
+                    "salePrice": ""
+                }
+            ],
+            "categoryId": "ll0jfrlhciuzy5jwqfm",
+            "description": "",
+            "imageUrl": "https://1food-menu-demos-2.b-cdn.net/gud/piept-de-ra-cu-piure-de-elina-sparanghel-i-sos-de-mure.png",
+            "tags": [],
+            "allergens": [],
+            "inStock": null
+        },
+        {
+            "uid": "ll0mr6d9jknn01saedm",
+            "name": "Pulpa de iepure cu piure de cartof dulce și sparanghel",
+            "options": [
+                {
+                    "size": "210 g",
+                    "price": "280",
+                    "salePrice": ""
+                }
+            ],
+            "categoryId": "ll0jfrlhciuzy5jwqfm",
+            "description": "",
+            "imageUrl": "",
+            "tags": [
+                "Iepure"
+            ],
+            "allergens": [],
+            "inStock": null
+        },
+        {
+            "uid": "ll0mu40bhyipjin62ve",
+            "name": "Piept de pui cu sos de porumb și cartof crocant ",
+            "options": [
+                {
+                    "size": "170 g",
+                    "price": "190",
+                    "salePrice": ""
+                }
+            ],
+            "categoryId": "ll0jfrlhciuzy5jwqfm",
+            "description": "",
+            "imageUrl": "",
+            "tags": [
+                "Pui"
+            ],
+            "allergens": [],
+            "inStock": null
+        },
+        {
+            "uid": "ll0n54v311gdukxtcsw",
+            "name": "Creveți in sos sweet chilli",
+            "options": [
+                {
+                    "size": "200 g",
+                    "price": "320",
+                    "salePrice": ""
+                }
+            ],
+            "categoryId": "ll0jfrlhciuzy5jwqfm",
+            "description": "",
+            "imageUrl": "",
+            "tags": [
+                "Pește și Fructe de mare"
+            ],
+            "allergens": [],
+            "inStock": null
+        },
+        {
+            "uid": "ll0nscv5jof7ece02fk",
+            "name": "Creveți in sos alb cu spanac și roșii cherry",
+            "options": [
+                {
+                    "size": "300 g",
+                    "price": "320",
+                    "salePrice": ""
+                }
+            ],
+            "categoryId": "ll0jfrlhciuzy5jwqfm",
+            "description": "",
+            "imageUrl": "",
+            "tags": [
+                "Pește și Fructe de mare"
+            ],
+            "allergens": [],
+            "inStock": null
+        },
+        {
+            "uid": "ll0nunlj2wa9qk7vt5r",
+            "name": "Midii în sos ",
+            "options": [
+                {
+                    "size": "520 g",
+                    "price": "180",
+                    "salePrice": ""
+                }
+            ],
+            "categoryId": "ll0jfrlhciuzy5jwqfm",
+            "description": "",
+            "imageUrl": "https://1food-menu-demos-2.b-cdn.net/gud/midii-in-sos.png",
+            "tags": [
+                "Pește și Fructe de mare"
+            ],
+            "allergens": [],
+            "inStock": null
+        },
+        {
+            "uid": "ll0ny6g1d86n388hyhg",
+            "name": "Saint Jacques cu cremă de cartof dulce și alune de pădure ",
+            "options": [
+                {
+                    "size": "110 g",
+                    "price": "320",
+                    "salePrice": ""
+                }
+            ],
+            "categoryId": "ll0jfrlhciuzy5jwqfm",
+            "description": "",
+            "imageUrl": "",
+            "tags": [
+                "Pește și Fructe de mare"
+            ],
+            "allergens": [],
+            "inStock": null
+        },
+        {
+            "uid": "ll0nzzjx9huq08n06ol",
+            "name": "Dorada la grătar cu carpaccio de sfeclă ",
+            "options": [
+                {
+                    "size": "180 g",
+                    "price": "280",
+                    "salePrice": ""
+                }
+            ],
+            "categoryId": "ll0jfrlhciuzy5jwqfm",
+            "description": "",
+            "imageUrl": "",
+            "tags": [
+                "Pește și Fructe de mare"
+            ],
+            "allergens": [],
+            "inStock": null
+        },
+        {
+            "uid": "ll0o2d2tbso380hhotu",
+            "name": "Halibut în sos de midii și vongole",
+            "options": [
+                {
+                    "size": "400 g",
+                    "price": "350",
+                    "salePrice": ""
+                }
+            ],
+            "categoryId": "ll0jfrlhciuzy5jwqfm",
+            "description": "",
+            "imageUrl": "",
+            "tags": [
+                "Pește și Fructe de mare"
+            ],
+            "allergens": [],
+            "inStock": null
+        },
+        {
+            "uid": "ll0o57rqrnr89xee70b",
+            "name": "Calcan la grătar cu piure de broccoli și sos de usturoi copt",
+            "options": [
+                {
+                    "size": "220 g",
+                    "price": "430 ",
+                    "salePrice": ""
+                }
+            ],
+            "categoryId": "ll0jfrlhciuzy5jwqfm",
+            "description": "",
+            "imageUrl": "",
+            "tags": [
+                "Pește și Fructe de mare"
+            ],
+            "allergens": [],
+            "inStock": null
+        },
+        {
+            "uid": "ll0o6z8q1d5a8efmm12",
+            "name": "Fritto de calamari baby și creveti ",
+            "options": [
+                {
+                    "size": "180 g ",
+                    "price": "350 ",
+                    "salePrice": ""
+                }
+            ],
+            "categoryId": "ll0jfrlhciuzy5jwqfm",
+            "description": "",
+            "imageUrl": "",
+            "tags": [
+                "Pește și Fructe de mare"
+            ],
+            "allergens": [],
+            "inStock": null
+        },
+        {
+            "uid": "ll0oa24pl25z56bn5k",
+            "name": "Cod în sos teriaki, cremă de cartof și popcorn de hrișcă",
+            "options": [
+                {
+                    "size": "210 g",
+                    "price": "400 ",
+                    "salePrice": ""
+                }
+            ],
+            "categoryId": "ll0jfrlhciuzy5jwqfm",
+            "description": "",
+            "imageUrl": "",
+            "tags": [
+                "Pește și Fructe de mare"
+            ],
+            "allergens": [],
+            "inStock": null
+        },
+        {
+            "uid": "ll0oc5blw1a56jy919",
+            "name": "Caracatiță la grătar cu humus și stracciatella",
+            "options": [
+                {
+                    "size": "190 g",
+                    "price": "420 ",
+                    "salePrice": ""
+                }
+            ],
+            "categoryId": "ll0jfrlhciuzy5jwqfm",
+            "description": "",
+            "imageUrl": "",
+            "tags": [
+                "Pește și Fructe de mare"
+            ],
+            "allergens": [],
+            "inStock": null
+        },
+        {
+            "uid": "ll0okj6it6em26z0w3q",
+            "name": "Gud burger ",
+            "options": [
+                {
+                    "size": "400 g",
+                    "price": "195 ",
+                    "salePrice": ""
+                }
+            ],
+            "categoryId": "ll0jjcq0hwrx69jm1y5",
+            "description": "chifla, carne de vită, sos de parmezan\ncu trufe, pancetta afumată, sos\nGud, ceapă marinată, verdeață",
+            "imageUrl": "https://1food-menu-demos-2.b-cdn.net/gud/gud-burger.png",
+            "tags": [],
+            "allergens": [],
+            "inStock": null
+        },
+        {
+            "uid": "ll0onrf0n38esuty43",
+            "name": "Devil burger ",
+            "options": [
+                {
+                    "size": "415 g",
+                    "price": "195 ",
+                    "salePrice": ""
+                }
+            ],
+            "categoryId": "ll0jjcq0hwrx69jm1y5",
+            "description": "chiflă, carne de vită ,sos gorgonzola\nsos Gud picant, salam picant,\nceapă marinată, rucola",
+            "imageUrl": "",
+            "tags": [],
+            "allergens": [],
+            "inStock": null
+        },
+        {
+            "uid": "ll0or4zirkyuv2es8g",
+            "name": "Smoked burger",
+            "options": [
+                {
+                    "size": "380 g",
+                    "price": "195 ",
+                    "salePrice": ""
+                }
+            ],
+            "categoryId": "ll0jjcq0hwrx69jm1y5",
+            "description": "chiflă, carne de vită, sos Gud, cașcaval\nafumat, pancetta\nafumată  sau speck, rucola ",
+            "imageUrl": "",
+            "tags": [],
+            "allergens": [],
+            "inStock": null
+        },
+        {
+            "uid": "ll0p5xnweb3x5lrfcdl",
+            "name": "Fоcaccia ",
+            "options": [
+                {
+                    "size": "250 g",
+                    "price": "45 ",
+                    "salePrice": ""
+                }
+            ],
+            "categoryId": "ll0jk7k092kddrnqw5u",
+            "description": "ulei de măsline, sare grosso, rozmarin",
+            "imageUrl": "",
+            "tags": [],
+            "allergens": [],
+            "inStock": null
+        },
+        {
+            "uid": "ll0p7l4jy0ch7lxmdks",
+            "name": "Margherita ",
+            "options": [
+                {
+                    "size": "420 g",
+                    "price": "120",
+                    "salePrice": ""
+                }
+            ],
+            "categoryId": "ll0jk7k092kddrnqw5u",
+            "description": "sos de roșii, mozzarella, busuioc",
+            "imageUrl": "https://1food-menu-demos-2.b-cdn.net/gud/margherita.png",
+            "tags": [],
+            "allergens": [],
+            "inStock": null
+        },
+        {
+            "uid": "ll0pblrw6tg7vi46ou",
+            "name": "Quattro Formaggi",
+            "options": [
+                {
+                    "size": "500 g",
+                    "price": "170 ",
+                    "salePrice": ""
+                }
+            ],
+            "categoryId": "ll0jk7k092kddrnqw5u",
+            "description": "frișcă, gorgonzola, brie, mozzarella, parmezan",
+            "imageUrl": "https://1food-menu-demos-2.b-cdn.net/gud/quattro-formaggi.png",
+            "tags": [],
+            "allergens": [],
+            "inStock": null
+        },
+        {
+            "uid": "ll0pe934xalsc8wgdi",
+            "name": "Norcina",
+            "options": [
+                {
+                    "size": "500 g",
+                    "price": "170 ",
+                    "salePrice": ""
+                }
+            ],
+            "categoryId": "ll0jk7k092kddrnqw5u",
+            "description": "frișcă, mozzarella, cârnăciori țărănești, pastă detrufe",
+            "imageUrl": "https://1food-menu-demos-2.b-cdn.net/gud/norcina.png",
+            "tags": [],
+            "allergens": [],
+            "inStock": null
+        },
+        {
+            "uid": "ll0pgq1b80sflkjdyq7",
+            "name": "Bologna",
+            "options": [
+                {
+                    "size": "500 g",
+                    "price": "170 ",
+                    "salePrice": ""
+                }
+            ],
+            "categoryId": "ll0jk7k092kddrnqw5u",
+            "description": "frișcă, mozzarella, stracciatella,mortadella, semințe de dovleac",
+            "imageUrl": "https://1food-menu-demos-2.b-cdn.net/gud/bologna.png",
+            "tags": [],
+            "allergens": [],
+            "inStock": null
+        },
+        {
+            "uid": "ll0piy0mzv6lb05kn8f",
+            "name": "Diavola",
+            "options": [
+                {
+                    "size": "500 g ",
+                    "price": "170 ",
+                    "salePrice": ""
+                }
+            ],
+            "categoryId": "ll0jk7k092kddrnqw5u",
+            "description": "sos de roșii, mozzarella, salam picant, gorgonzola",
+            "imageUrl": "https://1food-menu-demos-2.b-cdn.net/gud/diavola.png",
+            "tags": [],
+            "allergens": [],
+            "inStock": null
+        },
+        {
+            "uid": "ll0pl5hi38fx4ljbg0t",
+            "name": "Prosciutto e funghi",
+            "options": [
+                {
+                    "size": "500 g",
+                    "price": "170 ",
+                    "salePrice": ""
+                }
+            ],
+            "categoryId": "ll0jk7k092kddrnqw5u",
+            "description": "sos de rosil, mozzarella, prosciutto cotto, ciuperci\nschampignon",
+            "imageUrl": "",
+            "tags": [],
+            "allergens": [],
+            "inStock": null
+        },
+        {
+            "uid": "ll0pnii8evi2l558u9v",
+            "name": "Norma",
+            "options": [
+                {
+                    "size": "500 g",
+                    "price": "170 ",
+                    "salePrice": ""
+                }
+            ],
+            "categoryId": "ll0jk7k092kddrnqw5u",
+            "description": "sos de roșii, mozzarella, vânătă, brânză de oi\nprosciutto cotto, busuioc",
+            "imageUrl": "https://1food-menu-demos-2.b-cdn.net/gud/norma.png",
+            "tags": [],
+            "allergens": [],
+            "inStock": null
+        },
+        {
+            "uid": "ll0psfgq699a4zy4u3",
+            "name": "Crudo",
+            "options": [
+                {
+                    "size": "500 g",
+                    "price": "170 ",
+                    "salePrice": ""
+                }
+            ],
+            "categoryId": "ll0jk7k092kddrnqw5u",
+            "description": "sos de roșii, mozzarella, crudo, rucola, parmezan\n ",
+            "imageUrl": "https://1food-menu-demos-2.b-cdn.net/gud/crudo.png",
+            "tags": [],
+            "allergens": [],
+            "inStock": null
+        },
+        {
+            "uid": "ll0pz6w1ms57gxnntp",
+            "name": "Ganache de ciocolată neagră și fructe de sezon",
+            "options": [
+                {
+                    "size": "",
+                    "price": "120 ",
+                    "salePrice": ""
+                }
+            ],
+            "categoryId": "ll0jkfzoc8ykewkng2g",
+            "description": "",
+            "imageUrl": "https://1food-menu-demos-2.b-cdn.net/gud/ganache-de-ciocolat-neagr-i-fructe-de-sezon.png",
+            "tags": [],
+            "allergens": [],
+            "inStock": null
+        },
+        {
+            "uid": "ll0q010vha4lrliv8o",
+            "name": "Ganache de ciocolată albă și fructe de sezon",
+            "options": [
+                {
+                    "size": "",
+                    "price": "120 ",
+                    "salePrice": ""
+                }
+            ],
+            "categoryId": "ll0jkfzoc8ykewkng2g",
+            "description": "",
+            "imageUrl": "",
+            "tags": [],
+            "allergens": [],
+            "inStock": null
+        },
+        {
+            "uid": "ll0q1711es2fejxp1k7",
+            "name": "Napoleon cu cacao și cremă de vanilie",
+            "options": [
+                {
+                    "size": "",
+                    "price": "120 ",
+                    "salePrice": ""
+                }
+            ],
+            "categoryId": "ll0jkfzoc8ykewkng2g",
+            "description": "",
+            "imageUrl": "https://1food-menu-demos-2.b-cdn.net/gud/napoleon-cu-cacao-i-crem-de-vanilie.png",
+            "tags": [],
+            "allergens": [],
+            "inStock": null
+        },
+        {
+            "uid": "ll0q20er08quxtsuge9w",
+            "name": "Brie Cheesecake by Gud",
+            "options": [
+                {
+                    "size": "",
+                    "price": "120 ",
+                    "salePrice": ""
+                }
+            ],
+            "categoryId": "ll0jkfzoc8ykewkng2g",
+            "description": "",
+            "imageUrl": "https://1food-menu-demos-2.b-cdn.net/gud/brie-cheesecake-by-gud.png",
+            "tags": [],
+            "allergens": [],
+            "inStock": null
+        },
+        {
+            "uid": "ll0q33xc8kphnaa6fvx",
+            "name": "Tarte Tatin cu aromă de scorțişoară",
+            "options": [
+                {
+                    "size": "",
+                    "price": "120 ",
+                    "salePrice": ""
+                }
+            ],
+            "categoryId": "ll0jkfzoc8ykewkng2g",
+            "description": "",
+            "imageUrl": "",
+            "tags": [],
+            "allergens": [],
+            "inStock": null
+        },
+        {
+            "uid": "ll0q40ocr22kc95itf",
+            "name": "Tartă cu lime și fructe tropicale",
+            "options": [
+                {
+                    "size": "",
+                    "price": "120 ",
+                    "salePrice": ""
+                }
+            ],
+            "categoryId": "ll0jkfzoc8ykewkng2g",
+            "description": "",
+            "imageUrl": "",
+            "tags": [],
+            "allergens": [],
+            "inStock": null
+        }
+    ],
+    "categories": [
+        {
+            "uid": "ll0jdsontmkegledl",
+            "name": "Gustări mici"
+        },
+        {
+            "uid": "ll0jeh6mx7o7ev5bl5",
+            "name": "Salate"
+        },
+        {
+            "uid": "ll0jeq3zebffb0ff53c",
+            "name": "Paste"
+        },
+        {
+            "uid": "ll0jfc2jlmvjtb9myo",
+            "name": "Supe"
+        },
+        {
+            "uid": "ll0jfrlhciuzy5jwqfm",
+            "name": "Main Course"
+        },
+        {
+            "uid": "ll0jjcq0hwrx69jm1y5",
+            "name": "Burgher"
+        },
+        {
+            "uid": "ll0jk7k092kddrnqw5u",
+            "name": "Pizza"
+        },
+        {
+            "uid": "ll0jkfzoc8ykewkng2g",
+            "name": "Desert"
+        }
+    ],
+    "promos": [],
+    "bundles": [],
+    "allergens": [],
+    "configs": {
+        "title": "GUD Menu"
+    }
+}
