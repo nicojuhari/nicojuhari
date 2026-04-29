@@ -4,7 +4,14 @@ Currently the website is build with Nuxt/Vue and I want to rebuild it with Next.
 
 Also, new positioning - as a software engineer - a pro that can build arhitect and build any type of apps: Business websites, ecommerce websites, custom web apps (managment, financial, ...)
 
-On the website there some small tools that I want to keep and add more in the future.
+On the website there some small tools that I want to keep and add more in the future. The tools can be improved add more features and make it look better.
+
+Demos page - also but no index for google
+Playground - small funny projects
+
+We should replicate all the website. But a better deign and funtionality.
+
+MAIN CTA - WHATSAPP AND CONTACT FORM
 
 We should add back the projects page - a new structure with a project page for each project, with more details and screenshots.
 
