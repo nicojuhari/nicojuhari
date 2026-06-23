@@ -13,6 +13,8 @@ export const metadata: Metadata = {
 const services = [
     {
         icon: Globe,
+        iconBg: "bg-brand/10",
+        iconColor: "text-brand",
         label: "For local & service businesses",
         title: "Business Websites",
         tagline: "Show up. Get found. Turn visitors into customers.",
@@ -37,6 +39,8 @@ const services = [
     },
     {
         icon: ShoppingBag,
+        iconBg: "bg-brand-rose/10",
+        iconColor: "text-brand-rose",
         label: "For online sellers & brands",
         title: "Shopify Stores",
         tagline: "A store built to sell - set up right from day one.",
@@ -61,6 +65,8 @@ const services = [
     },
     {
         icon: Cpu,
+        iconBg: "bg-brand-green/10",
+        iconColor: "text-brand-green",
         label: "For teams & growing businesses",
         title: "Custom Web Apps",
         tagline: "Software built around your process - not the other way around.",
@@ -131,8 +137,8 @@ export default function ServicesPage() {
                     return (
                         <div key={service.title} className="border rounded-2xl p-6 sm:p-8 bg-white">
                             <div className="flex items-center gap-2.5 mb-5">
-                                <div className="w-8 h-8 rounded-lg bg-muted flex items-center justify-center shrink-0">
-                                    <Icon className="w-4 h-4 text-muted-foreground" />
+                                <div className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 ${service.iconBg}`}>
+                                    <Icon className={`w-4 h-4 ${service.iconColor}`} />
                                 </div>
                                 <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">{service.label}</p>
                             </div>
@@ -161,7 +167,7 @@ export default function ServicesPage() {
                                     <ul className="flex flex-col gap-2">
                                         {service.includes.map((item) => (
                                             <li key={item} className="flex items-center gap-2.5 text-sm">
-                                                <span className="w-1 h-1 rounded-full bg-muted-foreground/40 shrink-0" />
+                                                <span className="w-1.5 h-1.5 rounded-full bg-brand-rose shrink-0" />
                                                 {item}
                                             </li>
                                         ))}

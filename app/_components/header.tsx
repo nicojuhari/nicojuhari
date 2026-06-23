@@ -3,8 +3,9 @@ import Image from "next/image";
 import MobileNav from "./mobile-nav";
 
 const navLinks = [
-    { href: "/tools", label: "Tools" },
+    { href: "/services", label: "Services" },
     { href: "/projects", label: "Projects" },
+    { href: "/tools", label: "Tools" },
     { href: "/playground", label: "Playground" },
 ];
 

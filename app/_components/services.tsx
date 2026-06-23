@@ -2,8 +2,6 @@ import Link from "next/link";
 import { Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-const WHATSAPP_URL = "https://wa.me/+4369010196811";
-
 const services = [
     {
         label: "For teams & growing businesses",
@@ -27,6 +25,7 @@ const services = [
         ],
         href: "/services/custom-web-apps",
         cta: "Explore custom apps",
+        accent: "border-t-brand-green",
     },
     {
         label: "For local & service businesses",
@@ -48,6 +47,7 @@ const services = [
         ],
         href: "/services/business-websites",
         cta: "Explore business websites",
+        accent: "border-t-brand",
     },
     {
         label: "For online sellers & brands",
@@ -69,6 +69,7 @@ const services = [
         ],
         href: "/services/shopify-stores",
         cta: "Explore Shopify stores",
+        accent: "border-t-brand-rose",
     },
 ];
 
@@ -103,7 +104,7 @@ export default function Services() {
                                 <ul className="flex flex-col gap-2">
                                     {service.benefits.map((benefit) => (
                                         <li key={benefit} className="flex items-start gap-2 text-sm">
-                                            <span className="text-primary font-bold leading-none mt-0.5">-</span>
+                                            <span className="w-1.5 h-1.5 rounded-full bg-brand-rose shrink-0 mt-1.5" />
                                             <span>{benefit}</span>
                                         </li>
                                     ))}
