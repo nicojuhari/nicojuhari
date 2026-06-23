@@ -17,6 +17,12 @@ export function professionalServiceSchema() {
             name: "Nicolae Cojuhari",
             sameAs: ["https://github.com/nicojuhari", "https://twitter.com/nicojuhari", "https://www.linkedin.com/in/nicojuhari/"],
         },
+        address: {
+            "@type": "PostalAddress",
+            streetAddress: "Kurt-Tichy-Gasse 5",
+            addressLocality: "Vienna",
+            addressCountry: "AT",
+        },
         areaServed: "Worldwide",
         knowsAbout: ["Web Development", "Shopify", "Next.js", "React", "Custom Web Apps"],
     };
