@@ -4,7 +4,7 @@ import WordCounter from "./_components/word-counter";
 export const metadata: Metadata = {
     title: "Word Counter - Count Words, Characters & Reading Time",
     description:
-        "Count words, characters, sentences, and estimated reading time from any text — instantly in your browser. Paste or type, results update as you go. Free.",
+        "Count words, characters, sentences, and estimated reading time from any text - instantly in your browser. Paste or type, results update as you go. Free.",
 };
 
 export default function WordCounterPage() {

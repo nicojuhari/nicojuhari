@@ -5,9 +5,9 @@ import { Button } from "@/components/ui/button";
 import CtaSection from "@/app/_components/cta-section";
 
 export const metadata: Metadata = {
-    title: "Services — Web Design & Development | Nicojuhari",
+    title: "Services - Web Design & Development | Nicojuhari",
     description:
-        "Web design and development services for businesses, online sellers, and growing teams. Business websites, Shopify stores, and custom web apps — built to work.",
+        "Web design and development services for businesses, online sellers, and growing teams. Business websites, Shopify stores, and custom web apps - built to work.",
 };
 
 const services = [
@@ -17,7 +17,7 @@ const services = [
         title: "Business Websites",
         tagline: "Show up. Get found. Turn visitors into customers.",
         description:
-            "Most business websites look like a digital brochure. A good one works like a salesperson — ranking in search, loading fast on mobile, and making it easy for people to reach out, book, or buy.",
+            "Most business websites look like a digital brochure. A good one works like a salesperson - ranking in search, loading fast on mobile, and making it easy for people to reach out, book, or buy.",
         forWho: [
             "You don't have a website, or the one you have looks outdated",
             "When people search locally, they find your competitors instead",
@@ -39,9 +39,9 @@ const services = [
         icon: ShoppingBag,
         label: "For online sellers & brands",
         title: "Shopify Stores",
-        tagline: "A store built to sell — set up right from day one.",
+        tagline: "A store built to sell - set up right from day one.",
         description:
-            "Getting a Shopify store live is the easy part. Getting it to convert, retain customers, and run smoothly without eating your time — that's where most stores fall short.",
+            "Getting a Shopify store live is the easy part. Getting it to convert, retain customers, and run smoothly without eating your time - that's where most stores fall short.",
         forWho: [
             "You want to sell online but don't know where to start",
             "Your current store doesn't convert or looks outdated",
@@ -63,9 +63,9 @@ const services = [
         icon: Cpu,
         label: "For teams & growing businesses",
         title: "Custom Web Apps",
-        tagline: "Software built around your process — not the other way around.",
+        tagline: "Software built around your process - not the other way around.",
         description:
-            "When off-the-shelf tools stop fitting, custom software gives your team exactly what it needs. Dashboards, automations, approval flows, payments, GPS tracking — built from scratch, no workarounds.",
+            "When off-the-shelf tools stop fitting, custom software gives your team exactly what it needs. Dashboards, automations, approval flows, payments, GPS tracking - built from scratch, no workarounds.",
         forWho: [
             "You're managing complex data in spreadsheets that are breaking",
             "Your team switches between tools that don't talk to each other",
@@ -119,7 +119,7 @@ export default function ServicesPage() {
                     The right kind of web presence for what you&apos;re building.
                 </h1>
                 <p className="text-lg text-muted-foreground leading-relaxed max-w-xl">
-                    Whether you need customers to find you, a store that sells, or software your team can actually use — the work starts
+                    Whether you need customers to find you, a store that sells, or software your team can actually use - the work starts
                     with understanding your problem. Not a template.
                 </p>
             </section>
@@ -155,7 +155,9 @@ export default function ServicesPage() {
                                 </div>
 
                                 <div>
-                                    <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground mb-3">What&apos;s included</p>
+                                    <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground mb-3">
+                                        What&apos;s included
+                                    </p>
                                     <ul className="flex flex-col gap-2">
                                         {service.includes.map((item) => (
                                             <li key={item} className="flex items-center gap-2.5 text-sm">

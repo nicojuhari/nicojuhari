@@ -7,7 +7,7 @@ import type { Tool } from "@/app/_data/tools";
 export const metadata: Metadata = {
     title: "Free Browser Tools - QR Codes, Checklists & More",
     description:
-        "A set of free, browser-based tools for everyday tasks — split bills, generate QR codes, make checklists, crop images, and more. No sign-up needed.",
+        "A set of free, browser-based tools for everyday tasks - split bills, generate QR codes, make checklists, crop images, and more. No sign-up needed.",
 };
 
 const iconMap: Record<string, React.FC<{ className?: string }>> = {

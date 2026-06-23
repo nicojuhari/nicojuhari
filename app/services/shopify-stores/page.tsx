@@ -6,7 +6,7 @@ import CtaSection from "@/app/_components/cta-section";
 export const metadata: Metadata = {
     title: "Shopify Store Setup & Development | Nicojuhari",
     description:
-        "Shopify store setup and development — product pages, Klaviyo email flows, shipping integrations, reviews, and custom theme work. Built to launch and grow.",
+        "Shopify store setup and development - product pages, Klaviyo email flows, shipping integrations, reviews, and custom theme work. Built to launch and grow.",
 };
 
 const forYouIf = [

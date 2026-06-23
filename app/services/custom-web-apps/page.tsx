@@ -4,9 +4,9 @@ import ContactForm from "../../_components/contact-form";
 import CtaSection from "@/app/_components/cta-section";
 
 export const metadata: Metadata = {
-    title: "Custom Web Apps — Dashboards & Automations | Nicojuhari",
+    title: "Custom Web Apps - Dashboards & Automations | Nicojuhari",
     description:
-        "Web apps built around your process — dashboards, automations, approval flows, Stripe payments, and GPS tracking. Built from scratch, no off-the-shelf limits.",
+        "Web apps built around your process - dashboards, automations, approval flows, Stripe payments, and GPS tracking. Built from scratch, no off-the-shelf limits.",
 };
 
 const forYouIf = [

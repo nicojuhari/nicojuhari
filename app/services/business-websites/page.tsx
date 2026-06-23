@@ -6,7 +6,7 @@ import CtaSection from "../../_components/cta-section";
 export const metadata: Metadata = {
     title: "Business Website Design for Local Companies | Nicojuhari",
     description:
-        "Clean, fast websites for local and service businesses — built to rank in search, load fast on mobile, and turn visitors into bookings, calls, and sales.",
+        "Clean, fast websites for local and service businesses - built to rank in search, load fast on mobile, and turn visitors into bookings, calls, and sales.",
 };
 
 const forYouIf = [

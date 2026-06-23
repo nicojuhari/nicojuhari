@@ -4,7 +4,7 @@ import QrGenerator from "./_components/qr-generator";
 export const metadata: Metadata = {
     title: "Free QR Code Generator | Customize & Download Instantly",
     description:
-        "Create a custom QR code for any URL — choose colors, dot styles, and corner shapes. Download as PNG, JPEG, or SVG. No sign-up, no watermarks, free.",
+        "Create a custom QR code for any URL - choose colors, dot styles, and corner shapes. Download as PNG, JPEG, or SVG. No sign-up, no watermarks, free.",
 };
 
 export default function QrGeneratorPage() {

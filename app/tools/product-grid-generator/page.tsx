@@ -4,7 +4,7 @@ import ProductGrid from "./_components/product-grid";
 export const metadata: Metadata = {
     title: "Product Grid Generator for Shopify Blog Posts",
     description:
-        "Build responsive product grids for Shopify blog posts — add titles, images, prices, and links, then copy the ready-to-use HTML. Free, no sign-up.",
+        "Build responsive product grids for Shopify blog posts - add titles, images, prices, and links, then copy the ready-to-use HTML. Free, no sign-up.",
 };
 
 export default function ProductGridPage() {

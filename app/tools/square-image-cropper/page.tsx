@@ -4,7 +4,7 @@ import ImageCropper from "./_components/image-cropper";
 export const metadata: Metadata = {
     title: "Square Image Cropper - Crop Photos to 1:1 Square",
     description:
-        "Crop any photo to a perfect 1:1 square in your browser — ideal for digital menus, product images, and social media. No upload to a server, free.",
+        "Crop any photo to a perfect 1:1 square in your browser - ideal for digital menus, product images, and social media. No upload to a server, free.",
 };
 
 export default function ImageCropperPage() {
