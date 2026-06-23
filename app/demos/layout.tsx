@@ -5,5 +5,9 @@ export const metadata: Metadata = {
 }
 
 export default function DemosLayout({ children }: { children: React.ReactNode }) {
-  return <>{children}</>
+  return (
+    <div className="fixed inset-0 z-[60] overflow-y-auto bg-white">
+      {children}
+    </div>
+  )
 }

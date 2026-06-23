@@ -39,6 +39,8 @@
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
+  --color-brand-green: var(--brand-green);
+  --color-brand-blue: var(--brand-blue);
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);
   --radius-lg: var(--radius);
@@ -50,7 +52,7 @@
 
 :root {
   --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
+  --foreground: oklch(0.22 0.015 258);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
@@ -72,6 +74,8 @@
   --chart-3: oklch(0.439 0 0);
   --chart-4: oklch(0.371 0 0);
   --chart-5: oklch(0.269 0 0);
+  --brand-green: oklch(0.56 0.12 150);
+  --brand-blue: oklch(0.54 0.15 253);
   --radius: 0.625rem;
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
@@ -115,6 +119,8 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
+  --brand-green: oklch(0.63 0.12 150);
+  --brand-blue: oklch(0.65 0.14 253);
 }
 
 @layer base {
@@ -122,17 +128,26 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-muted/40 text-foreground;
   }
+}
+
+button {
+  @apply cursor-pointer;
+}
+
+.container {
+  width: 100%;
+  max-width: calc(1080px - 2rem);
+  margin-left: auto;
+  margin-right: auto;
 }
 
 @layer components {
   .section {
     @apply py-16 md:py-24;
   }
-  .container-page {
-    @apply max-w-6xl mx-auto px-4 sm:px-6;
-  }
+
   .container-sm {
     @apply max-w-3xl mx-auto px-4;
   }

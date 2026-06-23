@@ -6,9 +6,9 @@ export type Tool = {
 
 export const tools: Tool[] = [
   {
-    slug: "qr-code-menu-generator",
-    title: "QR Code Menu Generator",
-    description: "Create a QR Code Menu in seconds",
+    slug: "qr-code-generator",
+    title: "QR Code Generator",
+    description: "Create a custom QR code for any URL",
   },
   {
     slug: "square-image-cropper",

@@ -4,7 +4,7 @@ import { tools } from "@/app/_data/tools"
 export default function ToolsLayout({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex">
-      <aside className="hidden md:flex flex-col w-52 shrink-0 border-r sticky top-14 self-start h-[calc(100vh-56px)] overflow-y-auto">
+      <aside className="hidden md:flex flex-col w-52 shrink-0 border-r bg-background sticky top-14 self-start h-[calc(100vh-56px)] overflow-y-auto">
         <div className="p-4 pt-6">
           <Link
             href="/tools"
@@ -26,9 +26,9 @@ export default function ToolsLayout({ children }: { children: React.ReactNode })
         </div>
       </aside>
 
-      <div className="flex-1 min-w-0">
+      <div className="flex-1 min-w-0 bg-muted/40 min-h-[calc(100vh-56px)]">
         {/* Mobile tool picker */}
-        <div className="md:hidden border-b bg-white overflow-x-auto">
+        <div className="md:hidden border-b bg-background overflow-x-auto">
           <div className="flex gap-2 p-3 min-w-max">
             <Link href="/tools" className="px-3 py-1 text-xs font-medium rounded-full border hover:bg-muted shrink-0">
               All

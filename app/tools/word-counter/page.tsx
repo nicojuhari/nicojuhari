@@ -1,17 +1,28 @@
-import type { Metadata } from "next"
-import WordCounter from "./_components/word-counter"
+import type { Metadata } from "next";
+import WordCounter from "./_components/word-counter";
 
 export const metadata: Metadata = {
-  title: "Word Counter Tool | Free and Online",
-  description: "Use Word Counter Tool Online and quickly count words, characters, and reading time from any text. Fast, simple, and FREE.",
-}
+    title: "Word Counter Tool | Free and Online",
+    description:
+        "Use Word Counter Tool Online and quickly count words, characters, and reading time from any text. Fast, simple, and FREE.",
+};
 
 export default function WordCounterPage() {
-  return (
-    <div className="section px-6">
-      <h1 className="text-3xl font-bold mb-2">Word Counter Tool</h1>
-      <p className="text-muted-foreground mb-8">Quickly count words, characters, and reading-time estimates in your text.</p>
-      <WordCounter />
-    </div>
-  )
+    return (
+        <div className="section px-6 max-w-3xl">
+            <h1 className="text-3xl font-bold mb-2">Word Counter Tool</h1>
+            <h2 className="text-lg text-muted-foreground mb-8 font-normal">Paste or type any text and instantly see word count, character count, and estimated reading time.</h2>
+            <WordCounter />
+            <div className="mt-12 space-y-3 text-sm text-muted-foreground">
+                <p>Word Counter is a fast, free, and accurate text tool - paste or type and get instant results.</p>
+                <p>
+                    It shows exact word and character counts (with and without spaces), sentence and line counts, and estimated reading
+                    time.
+                </p>
+                <p>Works for short snippets or long documents, and updates live as you edit.</p>
+                <p>Perfect for fitting social posts, articles, or any platform with strict character limits.</p>
+                <p>No downloads, no sign-up, and all processing happens in your browser - your text is never stored.</p>
+            </div>
+        </div>
+    );
 }

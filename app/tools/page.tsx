@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 }
 
 const iconMap: Record<string, React.FC<{ className?: string }>> = {
-  "qr-code-menu-generator": QrCode,
+  "qr-code-generator": QrCode,
   "square-image-cropper": Crop,
   "word-counter": Type,
   "whitespace-remover": RemoveFormatting,

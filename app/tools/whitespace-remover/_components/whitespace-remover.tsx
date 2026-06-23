@@ -79,7 +79,7 @@ export default function WhitespaceRemover() {
       {result && (
         <div>
           <div
-            className="border rounded-lg p-3 bg-white text-sm min-h-[60px] max-h-[200px] overflow-y-auto break-all"
+            className="border rounded-xl p-3 bg-white text-sm min-h-[60px] max-h-[200px] overflow-y-auto break-all"
             dangerouslySetInnerHTML={{ __html: displayResult }}
           />
           <div className="flex justify-end mt-2">
