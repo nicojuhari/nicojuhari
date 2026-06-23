@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import { Check } from "lucide-react";
 import ContactForm from "../../_components/contact-form";
+import CtaSection from "../../_components/cta-section";
 
 export const metadata: Metadata = {
-    title: "Business Websites",
-    description: "Business websites for local and service businesses — designed to rank in search, load fast, and turn visitors into customers.",
+    title: "Business Website Design for Local Companies | Nicojuhari",
+    description:
+        "Clean, fast websites for local and service businesses — built to rank in search, load fast on mobile, and turn visitors into bookings, calls, and sales.",
 };
 
 const forYouIf = [
@@ -13,13 +15,13 @@ const forYouIf = [
     "Your site gets visitors, but not enough of them call, book, or reach out",
     "Your online presence doesn't reflect the quality of your actual service",
     "You're opening a new location, rebranding, or launching something new",
-    "You want a site that actually brings in leads — not just sits there",
+    "You want a site that actually brings in leads - not just sits there",
 ];
 
 const deliverables = [
     {
         title: "Business website design & redesign",
-        description: "A clean, modern design built to convert visitors — not just look good. Every layout decision has a reason.",
+        description: "A clean, modern design built to convert visitors - not just look good. Every layout decision has a reason.",
     },
     {
         title: "Google Business Profile optimization",
@@ -27,7 +29,7 @@ const deliverables = [
     },
     {
         title: "Local SEO setup",
-        description: "Target the searches that actually bring customers to you — not just generic traffic that never converts.",
+        description: "Target the searches that actually bring customers to you - not just generic traffic that never converts.",
     },
     {
         title: "Booking & scheduling integrations",
@@ -35,7 +37,8 @@ const deliverables = [
     },
     {
         title: "Analytics & conversion tracking",
-        description: "Google Analytics, Tag Manager, and event tracking set up properly — so you know where leads come from and what's working.",
+        description:
+            "Google Analytics, Tag Manager, and event tracking set up properly - so you know where leads come from and what's working.",
     },
     {
         title: "Mobile-first, fast-loading pages",
@@ -48,7 +51,7 @@ const steps = [
         number: "01",
         title: "Discovery",
         description:
-            "I learn what your business does, who your customers are, and what you want the site to actually achieve — not just look like.",
+            "I learn what your business does, who your customers are, and what you want the site to actually achieve - not just look like.",
     },
     {
         number: "02",
@@ -65,23 +68,25 @@ const steps = [
     {
         number: "04",
         title: "Launch",
-        description: "Go live with search engine submission, analytics in place, and a site that's ready to work — not just sit there.",
+        description: "Go live with search engine submission, analytics in place, and a site that's ready to work - not just sit there.",
     },
 ];
 
 export default function BusinessWebsitesPage() {
     return (
         <>
-            <section className="section container-sm">
+            <section className="container-sm my-10">
                 <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground mb-4">Service</p>
                 <h1 className="text-4xl sm:text-5xl font-bold mb-5 leading-tight">Websites that bring in customers.</h1>
                 <p className="text-lg text-muted-foreground leading-relaxed max-w-xl">
-                    A good website isn&apos;t just online presence — it&apos;s your hardest-working salesperson. It shows up in search,
+                    A good website isn&apos;t just online presence - it&apos;s your hardest-working salesperson. It shows up in search,
                     loads fast on mobile, and makes it easy for people to take the next step.
                 </p>
             </section>
-
-            <section className="section container-sm">
+            <section className="container-sm my-10 bg-muted/60 border border-dashed rounded-xl">
+                <CtaSection className="p-6 sm:justify-start" />
+            </section>
+            <section className="container-sm my-10">
                 <h2 className="text-2xl font-bold mb-2">Is this for you?</h2>
                 <p className="text-sm text-muted-foreground mb-6">You might be a good fit if any of these sound familiar:</p>
                 <ul className="flex flex-col gap-3">
@@ -93,21 +98,19 @@ export default function BusinessWebsitesPage() {
                     ))}
                 </ul>
             </section>
-
-            <section className="section container-sm">
+            <section className="container-sm my-10">
                 <h2 className="text-2xl font-bold mb-2">What I build</h2>
                 <p className="text-sm text-muted-foreground mb-6">Depending on your needs, here&apos;s what the work typically covers:</p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {deliverables.map((item) => (
-                        <div key={item.title} className="border rounded-xl p-5">
+                        <div key={item.title} className="border rounded-xl p-5 bg-white">
                             <h3 className="font-semibold mb-1.5">{item.title}</h3>
                             <p className="text-sm text-muted-foreground leading-relaxed">{item.description}</p>
                         </div>
                     ))}
                 </div>
             </section>
-
-            <section className="section container-sm">
+            <section className="container-sm my-10">
                 <h2 className="text-2xl font-bold mb-8">How it works</h2>
                 <div className="flex flex-col gap-8">
                     {steps.map((step) => (
@@ -121,8 +124,9 @@ export default function BusinessWebsitesPage() {
                     ))}
                 </div>
             </section>
-
-            <ContactForm />
+            <section className="container-sm my-10 bg-muted/60 border border-dashed rounded-xl">
+                <CtaSection className="p-6 sm:justify-start" />
+            </section>
         </>
     );
 }

@@ -11,7 +11,9 @@ export default function ChecklistPage() {
     return (
         <div className="section px-6 max-w-3xl">
             <h1 className="text-3xl font-bold mb-2">Online Checklist Maker</h1>
-            <h2 className="text-lg text-muted-foreground mb-8 font-normal">Build and track any checklist in seconds — packing, tasks, shopping, or anything else. No signup needed.</h2>
+            <h2 className="text-lg text-muted-foreground mb-8 font-normal">
+                Build and track any checklist in seconds - packing, tasks, shopping, or anything else. No signup needed.
+            </h2>
             <Checklist />
             <div className="mt-12 space-y-3 text-sm text-muted-foreground">
                 <p>

@@ -13,7 +13,7 @@ export default function Header() {
         <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b">
             <div className="container flex items-center justify-between h-14">
                 <Link href="/" title="Nicojuhari" className="shrink-0">
-                    <Image src="/Logo.svg" alt="Nicojuhari" width={36} height={36} priority />
+                    <Image src="/nicojuhari-logo.svg" alt="Nicojuhari" width={36} height={36} priority />
                 </Link>
 
                 <nav className="hidden md:flex items-center gap-1">

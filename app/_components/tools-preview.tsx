@@ -21,7 +21,7 @@ function ToolCard({ tool }: { tool: Tool }) {
             className="flex items-center gap-4 border rounded-xl p-4 bg-white hover:shadow-md hover:border-foreground/20 transition-all"
             title={tool.title}
         >
-            {Icon && <Icon className="w-6 h-6 shrink-0 text-brand-blue" />}
+            {Icon && <Icon className="w-6 h-6 shrink-0 text-brand" />}
             <div>
                 <p className="font-semibold text-sm">{tool.title}</p>
                 <p className="text-muted-foreground text-sm">{tool.description}</p>

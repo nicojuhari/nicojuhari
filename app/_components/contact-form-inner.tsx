@@ -12,7 +12,7 @@ import { Label } from "@/components/ui/label";
 const WEB3FORMS_KEY = "8e14a520-e3cc-45e3-b53b-fa21f7a8f562";
 
 const formSchema = z.object({
-    name: z.string().min(1, "Name is required"),
+    name: z.string().min(2, "Name is required"),
     email: z.string().email("Please enter a valid email"),
     message: z.string().min(10, "Message must be at least 10 characters"),
 });
@@ -59,26 +59,19 @@ export default function ContactFormInner({ onSuccess }: Props) {
 
     return (
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="space-y-1.5">
-                    <Label htmlFor="name">Your name</Label>
-                    <Input id="name" {...register("name")} />
-                    {errors.name && <p className="text-sm text-destructive">{errors.name.message}</p>}
-                </div>
-                <div className="space-y-1.5">
-                    <Label htmlFor="email">Email</Label>
-                    <Input id="email" type="email" {...register("email")} />
-                    {errors.email && <p className="text-sm text-destructive">{errors.email.message}</p>}
-                </div>
+            <div className="space-y-1.5">
+                <Label htmlFor="name">Your name</Label>
+                <Input id="name" {...register("name")} />
+                {errors.name && <p className="text-sm text-destructive">{errors.name.message}</p>}
+            </div>
+            <div className="space-y-1.5">
+                <Label htmlFor="email">Email</Label>
+                <Input id="email" type="email" {...register("email")} />
+                {errors.email && <p className="text-sm text-destructive">{errors.email.message}</p>}
             </div>
             <div className="space-y-1.5">
                 <Label htmlFor="message">Message</Label>
-                <Textarea
-                    id="message"
-                    placeholder="Tell me about your project"
-                    className="min-h-[120px] resize-none"
-                    {...register("message")}
-                />
+                <Textarea id="message" placeholder="Tell me about your project" className="min-h-30 resize-none" {...register("message")} />
                 {errors.message && <p className="text-sm text-destructive">{errors.message.message}</p>}
             </div>
             <div className="flex items-center justify-between gap-4">

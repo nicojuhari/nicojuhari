@@ -5,13 +5,7 @@ export default function Footer() {
         <footer className="py-8 border-t bg-white">
             <div className="container flex flex-col items-center gap-4">
                 <div className="flex gap-6 items-center">
-                    <a
-                        href="https://github.com/nicojuhari"
-                        target="_blank"
-                        rel="nofollow"
-                        title="GitHub Profile"
-                        className="text-muted-foreground hover:text-foreground transition-colors"
-                    >
+                    <a href="https://github.com/nicojuhari" target="_blank" rel="nofollow" title="GitHub Profile">
                         <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" viewBox="0 0 24 24">
                             <path
                                 fill="currentColor"
@@ -19,13 +13,7 @@ export default function Footer() {
                             />
                         </svg>
                     </a>
-                    <a
-                        href="https://twitter.com/nicojuhari"
-                        target="_blank"
-                        rel="nofollow"
-                        title="X (Twitter) Profile"
-                        className="text-muted-foreground hover:text-foreground transition-colors"
-                    >
+                    <a href="https://twitter.com/nicojuhari" target="_blank" rel="nofollow" title="X (Twitter) Profile">
                         <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" viewBox="0 0 48 48">
                             <path
                                 fill="none"
@@ -36,13 +24,7 @@ export default function Footer() {
                             />
                         </svg>
                     </a>
-                    <a
-                        href="https://www.linkedin.com/in/nicojuhari/"
-                        target="_blank"
-                        rel="nofollow"
-                        title="LinkedIn Profile"
-                        className="text-muted-foreground hover:text-foreground transition-colors"
-                    >
+                    <a href="https://www.linkedin.com/in/nicojuhari/" target="_blank" rel="nofollow" title="LinkedIn Profile" className="">
                         <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" viewBox="0 0 256 256">
                             <path
                                 fill="currentColor"

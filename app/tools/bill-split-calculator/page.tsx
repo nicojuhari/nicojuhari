@@ -11,7 +11,9 @@ export default function BillSplitPage() {
     return (
         <div className="section px-6 max-w-3xl">
             <h1 className="text-3xl font-bold mb-2">Bill Split Calculator</h1>
-            <h2 className="text-lg text-muted-foreground mb-8 font-normal">Add people, log expenses, and see exactly who owes what — with minimal transfers to settle up.</h2>
+            <h2 className="text-lg text-muted-foreground mb-8 font-normal">
+                Add people, log expenses, and see exactly who owes what - with minimal transfers to settle up.
+            </h2>
             <BillSplit />
             <div className="mt-12 space-y-3 text-sm text-muted-foreground">
                 <p>

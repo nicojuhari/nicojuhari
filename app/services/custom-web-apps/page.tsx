@@ -1,15 +1,17 @@
 import type { Metadata } from "next";
 import { Check } from "lucide-react";
 import ContactForm from "../../_components/contact-form";
+import CtaSection from "@/app/_components/cta-section";
 
 export const metadata: Metadata = {
-    title: "Custom Web Apps",
-    description: "Software built around your process - dashboards, automations, internal tools, and fintech calculators.",
+    title: "Custom Web Apps — Dashboards & Automations | Nicojuhari",
+    description:
+        "Web apps built around your process — dashboards, automations, approval flows, Stripe payments, and GPS tracking. Built from scratch, no off-the-shelf limits.",
 };
 
 const forYouIf = [
     "You're managing important business data in spreadsheets that are getting too complex",
-    "Your team switches between 4–5 tools that don't talk to each other",
+    "Your team switches between 4-5 tools that don't talk to each other",
     "A manual process is eating hours of your team's time every week",
     "You need a dashboard, admin panel, or reporting tool that fits how your team works",
     "You're building a fintech product, financial tool, or investment calculator",
@@ -34,8 +36,7 @@ const deliverables = [
     },
     {
         title: "Stripe payments & subscriptions",
-        description:
-            "One-time payments, recurring billing, invoicing, and subscription management — built into your app, not bolted on.",
+        description: "One-time payments, recurring billing, invoicing, and subscription management - built into your app, not bolted on.",
     },
     {
         title: "GPS tracking & location features",
@@ -49,7 +50,7 @@ const deliverables = [
     {
         title: "Notifications & messaging",
         description:
-            "SMS alerts via Twilio, transactional emails via Resend, and in-app notifications — so the right people get the right update at the right time.",
+            "SMS alerts via Twilio, transactional emails via Resend, and in-app notifications - so the right people get the right update at the right time.",
     },
     {
         title: "AI integrations",
@@ -94,7 +95,7 @@ const steps = [
 export default function CustomWebAppsPage() {
     return (
         <>
-            <section className="section container-sm">
+            <section className="container-sm my-10">
                 <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground mb-4">Service</p>
                 <h1 className="text-4xl sm:text-5xl font-bold mb-5 leading-tight">Software built around your process.</h1>
                 <p className="text-lg text-muted-foreground leading-relaxed max-w-xl">
@@ -102,8 +103,11 @@ export default function CustomWebAppsPage() {
                     less.
                 </p>
             </section>
+            <section className="container-sm my-10 bg-muted/60 border border-dashed rounded-xl">
+                <CtaSection className="p-6 sm:justify-start" />
+            </section>
 
-            <section className="section container-sm">
+            <section className="container-sm my-10">
                 <h2 className="text-2xl font-bold mb-2">Is this for you?</h2>
                 <p className="text-sm text-muted-foreground mb-6">You might be a good fit if any of these sound familiar:</p>
                 <ul className="flex flex-col gap-3">
@@ -116,14 +120,14 @@ export default function CustomWebAppsPage() {
                 </ul>
             </section>
 
-            <section className="section container-sm">
+            <section className="container-sm my-10">
                 <h2 className="text-2xl font-bold mb-2">What I build</h2>
                 <p className="text-sm text-muted-foreground mb-6">
                     Every project is different, but these are the most common types of work:
                 </p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {deliverables.map((item) => (
-                        <div key={item.title} className="border rounded-xl p-5">
+                        <div key={item.title} className="border rounded-xl p-5 bg-white">
                             <h3 className="font-semibold mb-1.5">{item.title}</h3>
                             <p className="text-sm text-muted-foreground leading-relaxed">{item.description}</p>
                         </div>
@@ -131,7 +135,7 @@ export default function CustomWebAppsPage() {
                 </div>
             </section>
 
-            <section className="section container-sm">
+            <section className="container-sm my-10">
                 <h2 className="text-2xl font-bold mb-8">How it works</h2>
                 <div className="flex flex-col gap-8">
                     {steps.map((step) => (
@@ -145,8 +149,9 @@ export default function CustomWebAppsPage() {
                     ))}
                 </div>
             </section>
-
-            <ContactForm />
+            <section className="container-sm my-10 bg-muted/60 border border-dashed rounded-xl">
+                <CtaSection className="p-6 sm:justify-start" />
+            </section>
         </>
     );
 }

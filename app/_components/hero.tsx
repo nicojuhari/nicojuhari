@@ -19,7 +19,7 @@ export default function Hero() {
                 Websites and Web Apps{" "}
                 <span className="block text-[45%] sm:text-[55%] font-medium text-muted-foreground">built to grow your business.</span>
             </h1>
-            <CtaSection className="!py-0 !mb-14" />
+            <CtaSection className="py-0! mb-14!" />
         </section>
     );
 }

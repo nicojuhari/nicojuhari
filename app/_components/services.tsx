@@ -52,7 +52,7 @@ const services = [
     {
         label: "For online sellers & brands",
         title: "Shopify Stores",
-        oneLiner: "A store built to sell — set up right, easy to manage, and ready to grow.",
+        oneLiner: "A store built to sell - set up right, easy to manage, and ready to grow.",
         features: [
             "Full Shopify store setup",
             "Product pages & collections",
@@ -80,7 +80,7 @@ export default function Services() {
                 {services.map((service) => (
                     <div key={service.title} className="flex flex-col border rounded-xl p-6 gap-8">
                         <div>
-                            <p className="text-xs font-medium text-brand-blue uppercase tracking-wide mb-6">{service.label}</p>
+                            <p className="text-xs font-medium text-brand uppercase tracking-wide mb-6">{service.label}</p>
                             <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
                             <p className="text-muted-foreground text-sm leading-relaxed">{service.oneLiner}</p>
                         </div>

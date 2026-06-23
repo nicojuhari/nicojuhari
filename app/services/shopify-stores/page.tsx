@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import { Check } from "lucide-react";
 import ContactForm from "../../_components/contact-form";
+import CtaSection from "@/app/_components/cta-section";
 
 export const metadata: Metadata = {
-    title: "Shopify Stores",
-    description: "Shopify store setup and development — product pages, email marketing, shipping, reviews, and everything you need to start selling.",
+    title: "Shopify Store Setup & Development | Nicojuhari",
+    description:
+        "Shopify store setup and development — product pages, Klaviyo email flows, shipping integrations, reviews, and custom theme work. Built to launch and grow.",
 };
 
 const forYouIf = [
@@ -19,16 +21,18 @@ const forYouIf = [
 const deliverables = [
     {
         title: "Full Shopify store setup",
-        description: "Theme selection and customization, store settings, payment and tax configuration — everything done right from the start.",
+        description:
+            "Theme selection and customization, store settings, payment and tax configuration - everything done right from the start.",
     },
     {
         title: "Product pages & collections",
-        description: "Product pages built to convert: clear descriptions, strong imagery structure, and collection pages that are easy to browse.",
+        description:
+            "Product pages built to convert: clear descriptions, strong imagery structure, and collection pages that are easy to browse.",
     },
     {
         title: "Klaviyo email marketing",
         description:
-            "Welcome sequences, abandoned cart flows, and post-purchase emails set up and running — so you earn more from every visitor.",
+            "Welcome sequences, abandoned cart flows, and post-purchase emails set up and running - so you earn more from every visitor.",
     },
     {
         title: "Shipping & fulfillment integrations",
@@ -36,11 +40,12 @@ const deliverables = [
     },
     {
         title: "Reviews & social proof",
-        description: "Judge.me or Okendo set up to collect and display reviews automatically — the single biggest trust signal you can add.",
+        description:
+            "Judge.me or Okendo set up to collect and display reviews automatically - the single biggest trust signal you can add.",
     },
     {
         title: "Custom theme & app configuration",
-        description: "Shopify apps selected and configured to fit your workflow — no bloat, no unused installs slowing your store down.",
+        description: "Shopify apps selected and configured to fit your workflow - no bloat, no unused installs slowing your store down.",
     },
 ];
 
@@ -49,7 +54,7 @@ const steps = [
         number: "01",
         title: "Discovery",
         description:
-            "I learn about your products, your customers, and what success looks like — so the store is built around your business, not a generic template.",
+            "I learn about your products, your customers, and what success looks like - so the store is built around your business, not a generic template.",
     },
     {
         number: "02",
@@ -73,7 +78,7 @@ const steps = [
 export default function ShopifyStoresPage() {
     return (
         <>
-            <section className="section container-sm">
+            <section className="container-sm my-10">
                 <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground mb-4">Service</p>
                 <h1 className="text-4xl sm:text-5xl font-bold mb-5 leading-tight">A store built to sell.</h1>
                 <p className="text-lg text-muted-foreground leading-relaxed max-w-xl">
@@ -81,8 +86,10 @@ export default function ShopifyStoresPage() {
                     the goal is a store your customers trust and keep coming back to.
                 </p>
             </section>
-
-            <section className="section container-sm">
+            <section className="container-sm my-10 bg-muted/60 border border-dashed rounded-xl">
+                <CtaSection className="p-6 sm:justify-start" />
+            </section>
+            <section className="container-sm my-10">
                 <h2 className="text-2xl font-bold mb-2">Is this for you?</h2>
                 <p className="text-sm text-muted-foreground mb-6">You might be a good fit if any of these sound familiar:</p>
                 <ul className="flex flex-col gap-3">
@@ -95,12 +102,12 @@ export default function ShopifyStoresPage() {
                 </ul>
             </section>
 
-            <section className="section container-sm">
+            <section className="container-sm my-10">
                 <h2 className="text-2xl font-bold mb-2">What I build</h2>
                 <p className="text-sm text-muted-foreground mb-6">Depending on your needs, here&apos;s what the work typically covers:</p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {deliverables.map((item) => (
-                        <div key={item.title} className="border rounded-xl p-5">
+                        <div key={item.title} className="border rounded-xl p-5 bg-white">
                             <h3 className="font-semibold mb-1.5">{item.title}</h3>
                             <p className="text-sm text-muted-foreground leading-relaxed">{item.description}</p>
                         </div>
@@ -108,7 +115,7 @@ export default function ShopifyStoresPage() {
                 </div>
             </section>
 
-            <section className="section container-sm">
+            <section className="container-sm my-10">
                 <h2 className="text-2xl font-bold mb-8">How it works</h2>
                 <div className="flex flex-col gap-8">
                     {steps.map((step) => (
@@ -122,8 +129,9 @@ export default function ShopifyStoresPage() {
                     ))}
                 </div>
             </section>
-
-            <ContactForm />
+            <section className="container-sm my-10 bg-muted/60 border border-dashed rounded-xl">
+                <CtaSection className="p-6 sm:justify-start" />
+            </section>
         </>
     );
 }

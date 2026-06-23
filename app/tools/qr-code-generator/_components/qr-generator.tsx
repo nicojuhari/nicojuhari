@@ -1,32 +1,32 @@
-"use client"
+"use client";
 
-import { useEffect, useRef, useState } from "react"
-import { ImageIcon, Minus, Plus, X } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
+import { useEffect, useRef, useState } from "react";
+import { ImageIcon, Minus, Plus, X } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 
-type DotType = "square" | "rounded" | "extra-rounded" | "dots" | "classy"
-type CornerSquareType = "square" | "extra-rounded" | "dot" | null
-type CornerDotType = "square" | "dot" | null
+type DotType = "square" | "rounded" | "extra-rounded" | "dots" | "classy";
+type CornerSquareType = "square" | "extra-rounded" | "dot" | null;
+type CornerDotType = "square" | "dot" | null;
 
 // ─── Style preview icons ──────────────────────────────────────────────────────
 
 function DotIcon({ shape }: { shape: DotType }) {
-    const items = Array.from({ length: 16 }, (_, i) => ({ r: Math.floor(i / 4), c: i % 4 }))
+    const items = Array.from({ length: 16 }, (_, i) => ({ r: Math.floor(i / 4), c: i % 4 }));
     return (
         <svg viewBox="0 0 46 46" fill="currentColor" className="w-full h-full">
             {items.map(({ r, c }) => {
-                const x = c * 12 + 1
-                const y = r * 12 + 1
-                if (shape === "dots") return <circle key={`${r}-${c}`} cx={x + 5} cy={y + 5} r={5} />
-                if (shape === "rounded") return <rect key={`${r}-${c}`} x={x} y={y} width={10} height={10} rx={3} />
-                if (shape === "extra-rounded") return <rect key={`${r}-${c}`} x={x} y={y} width={10} height={10} rx={5} />
-                if (shape === "classy") return <path key={`${r}-${c}`} d={`M${x} ${y} h10 v7 l-3 3 H${x} z`} />
-                return <rect key={`${r}-${c}`} x={x} y={y} width={10} height={10} />
+                const x = c * 12 + 1;
+                const y = r * 12 + 1;
+                if (shape === "dots") return <circle key={`${r}-${c}`} cx={x + 5} cy={y + 5} r={5} />;
+                if (shape === "rounded") return <rect key={`${r}-${c}`} x={x} y={y} width={10} height={10} rx={3} />;
+                if (shape === "extra-rounded") return <rect key={`${r}-${c}`} x={x} y={y} width={10} height={10} rx={5} />;
+                if (shape === "classy") return <path key={`${r}-${c}`} d={`M${x} ${y} h10 v7 l-3 3 H${x} z`} />;
+                return <rect key={`${r}-${c}`} x={x} y={y} width={10} height={10} />;
             })}
         </svg>
-    )
+    );
 }
 
 function CornerIcon({ shape }: { shape: "square" | "extra-rounded" | "dot" }) {
@@ -37,7 +37,7 @@ function CornerIcon({ shape }: { shape: "square" | "extra-rounded" | "dot" }) {
                 <circle cx={24} cy={24} r={15} fill="white" />
                 <circle cx={24} cy={24} r={8} />
             </svg>
-        )
+        );
     if (shape === "extra-rounded")
         return (
             <svg viewBox="0 0 48 48" fill="currentColor" className="w-full h-full">
@@ -45,14 +45,14 @@ function CornerIcon({ shape }: { shape: "square" | "extra-rounded" | "dot" }) {
                 <rect x={7} y={7} width={34} height={34} rx={8} fill="white" />
                 <rect x={15} y={15} width={18} height={18} rx={4} />
             </svg>
-        )
+        );
     return (
         <svg viewBox="0 0 48 48" fill="currentColor" className="w-full h-full">
             <rect width={48} height={48} />
             <rect x={7} y={7} width={34} height={34} fill="white" />
             <rect x={15} y={15} width={18} height={18} />
         </svg>
-    )
+    );
 }
 
 function CornerDotIcon({ shape }: { shape: "square" | "dot" }) {
@@ -60,13 +60,9 @@ function CornerDotIcon({ shape }: { shape: "square" | "dot" }) {
         <svg viewBox="0 0 48 48" fill="currentColor" className="w-full h-full">
             <rect width={48} height={48} opacity={0.12} />
             <rect x={6} y={6} width={36} height={36} fill="white" />
-            {shape === "dot" ? (
-                <circle cx={24} cy={24} r={10} />
-            ) : (
-                <rect x={14} y={14} width={20} height={20} />
-            )}
+            {shape === "dot" ? <circle cx={24} cy={24} r={10} /> : <rect x={14} y={14} width={20} height={20} />}
         </svg>
-    )
+    );
 }
 
 // ─── Sub-components ───────────────────────────────────────────────────────────
@@ -88,7 +84,7 @@ function ColorSwatch({ label, value, onChange }: { label: string; value: string;
                 <p className="text-xs text-muted-foreground font-mono">{value}</p>
             </div>
         </label>
-    )
+    );
 }
 
 function StyleBtn({
@@ -97,52 +93,48 @@ function StyleBtn({
     title,
     children,
 }: {
-    active: boolean
-    onClick: () => void
-    title?: string
-    children: React.ReactNode
+    active: boolean;
+    onClick: () => void;
+    title?: string;
+    children: React.ReactNode;
 }) {
     return (
         <button
             onClick={onClick}
             title={title}
             className={`w-12 h-12 rounded-lg border-2 transition-all flex items-center justify-center p-1.5 ${
-                active
-                    ? "border-foreground bg-foreground/5 shadow-sm"
-                    : "border-border hover:border-foreground/40"
+                active ? "border-foreground bg-foreground/5 shadow-sm" : "border-border hover:border-foreground/40"
             }`}
         >
             {children}
         </button>
-    )
+    );
 }
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
-    return (
-        <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">{children}</p>
-    )
+    return <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">{children}</p>;
 }
 
 // ─── Main component ───────────────────────────────────────────────────────────
 
 export default function QrGenerator() {
-    const containerRef = useRef<HTMLDivElement>(null)
-    const [url, setUrl] = useState("https://nicojuhari.com")
-    const [dotType, setDotType] = useState<DotType>("dots")
-    const [dotColor, setDotColor] = useState("#564b3e")
-    const [bgColor, setBgColor] = useState("#ffffff")
-    const [cornerSquareType, setCornerSquareType] = useState<CornerSquareType>("extra-rounded")
-    const [cornerSquareColor, setCornerSquareColor] = useState("#324b62")
-    const [cornerDotType, setCornerDotType] = useState<CornerDotType>("dot")
-    const [cornerDotColor, setCornerDotColor] = useState("#2c2811")
-    const [margin, setMargin] = useState(0)
-    const [downloadSize, setDownloadSize] = useState(600)
-    const [logo, setLogo] = useState("")
-    const [logoSize, setLogoSize] = useState(0.4)
-    const [logoFileName, setLogoFileName] = useState("")
+    const containerRef = useRef<HTMLDivElement>(null);
+    const [url, setUrl] = useState("https://nicojuhari.com");
+    const [dotType, setDotType] = useState<DotType>("dots");
+    const [dotColor, setDotColor] = useState("#564b3e");
+    const [bgColor, setBgColor] = useState("#ffffff");
+    const [cornerSquareType, setCornerSquareType] = useState<CornerSquareType>("extra-rounded");
+    const [cornerSquareColor, setCornerSquareColor] = useState("#324b62");
+    const [cornerDotType, setCornerDotType] = useState<CornerDotType>("dot");
+    const [cornerDotColor, setCornerDotColor] = useState("#2c2811");
+    const [margin, setMargin] = useState(0);
+    const [downloadSize, setDownloadSize] = useState(600);
+    const [logo, setLogo] = useState("");
+    const [logoSize, setLogoSize] = useState(0.4);
+    const [logoFileName, setLogoFileName] = useState("");
 
     useEffect(() => {
-        let cancelled = false
+        let cancelled = false;
         const options = {
             width: 280,
             height: 280,
@@ -151,12 +143,8 @@ export default function QrGenerator() {
             margin: margin * 9,
             qrOptions: { errorCorrectionLevel: "Q" as const },
             dotsOptions: { type: dotType, color: dotColor },
-            cornersSquareOptions: cornerSquareType
-                ? { type: cornerSquareType, color: cornerSquareColor }
-                : { color: cornerSquareColor },
-            cornersDotOptions: cornerDotType
-                ? { type: cornerDotType, color: cornerDotColor }
-                : { color: cornerDotColor },
+            cornersSquareOptions: cornerSquareType ? { type: cornerSquareType, color: cornerSquareColor } : { color: cornerSquareColor },
+            cornersDotOptions: cornerDotType ? { type: cornerDotType, color: cornerDotColor } : { color: cornerDotColor },
             backgroundOptions: { color: bgColor },
             image: logo || undefined,
             imageOptions: {
@@ -165,17 +153,17 @@ export default function QrGenerator() {
                 imageSize: logoSize,
                 margin: 0,
             },
-        }
+        };
         import("qr-code-styling").then(({ default: QRCodeStyling }) => {
-            if (cancelled || !containerRef.current) return
-            const qr = new QRCodeStyling(options)
-            containerRef.current.innerHTML = ""
-            qr.append(containerRef.current)
-        })
+            if (cancelled || !containerRef.current) return;
+            const qr = new QRCodeStyling(options);
+            containerRef.current.innerHTML = "";
+            qr.append(containerRef.current);
+        });
         return () => {
-            cancelled = true
-        }
-    }, [url, dotType, dotColor, bgColor, cornerSquareType, cornerSquareColor, cornerDotType, cornerDotColor, margin, logo, logoSize])
+            cancelled = true;
+        };
+    }, [url, dotType, dotColor, bgColor, cornerSquareType, cornerSquareColor, cornerDotType, cornerDotColor, margin, logo, logoSize]);
 
     const download = (ext: "png" | "jpeg" | "svg") => {
         import("qr-code-styling").then(({ default: QRCodeStyling }) => {
@@ -190,9 +178,7 @@ export default function QrGenerator() {
                 cornersSquareOptions: cornerSquareType
                     ? { type: cornerSquareType, color: cornerSquareColor }
                     : { color: cornerSquareColor },
-                cornersDotOptions: cornerDotType
-                    ? { type: cornerDotType, color: cornerDotColor }
-                    : { color: cornerDotColor },
+                cornersDotOptions: cornerDotType ? { type: cornerDotType, color: cornerDotColor } : { color: cornerDotColor },
                 backgroundOptions: { color: ext === "png" ? "transparent" : bgColor },
                 image: logo || undefined,
                 imageOptions: {
@@ -201,34 +187,34 @@ export default function QrGenerator() {
                     imageSize: logoSize,
                     margin: 0,
                 },
-            }
-            const qr = new QRCodeStyling(options)
-            setTimeout(() => qr.download({ name: "qr-code", extension: ext }), 300)
-        })
-    }
+            };
+            const qr = new QRCodeStyling(options);
+            setTimeout(() => qr.download({ name: "qr-code", extension: ext }), 300);
+        });
+    };
 
     const handleLogoUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const file = e.target.files?.[0]
-        if (!file) return
-        const reader = new FileReader()
-        reader.onload = (ev) => setLogo(ev.target?.result as string)
-        reader.readAsDataURL(file)
-        setLogoFileName(file.name)
-    }
+        const file = e.target.files?.[0];
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = (ev) => setLogo(ev.target?.result as string);
+        reader.readAsDataURL(file);
+        setLogoFileName(file.name);
+    };
 
     const clearLogo = () => {
-        setLogo("")
-        setLogoFileName("")
-        setLogoSize(0.4)
-    }
+        setLogo("");
+        setLogoFileName("");
+        setLogoSize(0.4);
+    };
 
     const adjustLogoSize = (dir: "up" | "down") => {
         setLogoSize((prev) => {
-            if (dir === "up" && prev < 0.5) return +((prev + 0.1).toFixed(1))
-            if (dir === "down" && prev > 0.1) return +((prev - 0.1).toFixed(1))
-            return prev
-        })
-    }
+            if (dir === "up" && prev < 0.5) return +(prev + 0.1).toFixed(1);
+            if (dir === "down" && prev > 0.1) return +(prev - 0.1).toFixed(1);
+            return prev;
+        });
+    };
 
     return (
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
@@ -236,12 +222,7 @@ export default function QrGenerator() {
             <div className="lg:col-span-2 space-y-7">
                 <div className="space-y-1.5">
                     <Label>Your URL</Label>
-                    <Input
-                        value={url}
-                        onChange={(e) => setUrl(e.target.value)}
-                        placeholder="https://"
-                        className="text-base h-11"
-                    />
+                    <Input value={url} onChange={(e) => setUrl(e.target.value)} placeholder="https://" className="text-base h-11" />
                 </div>
 
                 {/* Colors */}
@@ -268,12 +249,7 @@ export default function QrGenerator() {
                                 ["classy", "Classy"],
                             ] as [DotType, string][]
                         ).map(([type, label]) => (
-                            <StyleBtn
-                                key={type}
-                                active={dotType === type}
-                                onClick={() => setDotType(type)}
-                                title={label}
-                            >
+                            <StyleBtn key={type} active={dotType === type} onClick={() => setDotType(type)} title={label}>
                                 <DotIcon shape={type} />
                             </StyleBtn>
                         ))}
@@ -284,12 +260,8 @@ export default function QrGenerator() {
                 <div className="space-y-3">
                     <SectionLabel>Corner Shape</SectionLabel>
                     <div className="flex gap-2 flex-wrap">
-                        <StyleBtn
-                            active={cornerSquareType === null}
-                            onClick={() => setCornerSquareType(null)}
-                            title="Default"
-                        >
-                            <span className="text-muted-foreground font-medium text-base">—</span>
+                        <StyleBtn active={cornerSquareType === null} onClick={() => setCornerSquareType(null)} title="Default">
+                            <span className="text-muted-foreground font-medium text-base">-</span>
                         </StyleBtn>
                         {(
                             [
@@ -298,12 +270,7 @@ export default function QrGenerator() {
                                 ["dot", "Circle"],
                             ] as ["square" | "extra-rounded" | "dot", string][]
                         ).map(([type, label]) => (
-                            <StyleBtn
-                                key={type}
-                                active={cornerSquareType === type}
-                                onClick={() => setCornerSquareType(type)}
-                                title={label}
-                            >
+                            <StyleBtn key={type} active={cornerSquareType === type} onClick={() => setCornerSquareType(type)} title={label}>
                                 <CornerIcon shape={type} />
                             </StyleBtn>
                         ))}
@@ -314,12 +281,8 @@ export default function QrGenerator() {
                 <div className="space-y-3">
                     <SectionLabel>Corner Dot</SectionLabel>
                     <div className="flex gap-2 flex-wrap">
-                        <StyleBtn
-                            active={cornerDotType === null}
-                            onClick={() => setCornerDotType(null)}
-                            title="Default"
-                        >
-                            <span className="text-muted-foreground font-medium text-base">—</span>
+                        <StyleBtn active={cornerDotType === null} onClick={() => setCornerDotType(null)} title="Default">
+                            <span className="text-muted-foreground font-medium text-base">-</span>
                         </StyleBtn>
                         {(
                             [
@@ -327,12 +290,7 @@ export default function QrGenerator() {
                                 ["dot", "Circle"],
                             ] as ["square" | "dot", string][]
                         ).map(([type, label]) => (
-                            <StyleBtn
-                                key={type}
-                                active={cornerDotType === type}
-                                onClick={() => setCornerDotType(type)}
-                                title={label}
-                            >
+                            <StyleBtn key={type} active={cornerDotType === type} onClick={() => setCornerDotType(type)} title={label}>
                                 <CornerDotIcon shape={type} />
                             </StyleBtn>
                         ))}
@@ -372,19 +330,12 @@ export default function QrGenerator() {
                             </button>
                         ) : (
                             <label className="w-12 h-12 rounded-lg border-2 border-dashed border-border flex items-center justify-center cursor-pointer hover:border-foreground/40 transition-colors shrink-0">
-                                <input
-                                    type="file"
-                                    accept="image/*"
-                                    onChange={handleLogoUpload}
-                                    className="hidden"
-                                />
+                                <input type="file" accept="image/*" onChange={handleLogoUpload} className="hidden" />
                                 <ImageIcon className="w-5 h-5 text-muted-foreground" />
                             </label>
                         )}
                         {logoFileName ? (
-                            <span className="text-sm text-muted-foreground truncate max-w-[200px]">
-                                {logoFileName}
-                            </span>
+                            <span className="text-sm text-muted-foreground truncate max-w-[200px]">{logoFileName}</span>
                         ) : (
                             <span className="text-sm text-muted-foreground">Upload an image to embed in the center</span>
                         )}
@@ -399,9 +350,7 @@ export default function QrGenerator() {
                                 >
                                     <Minus className="w-3.5 h-3.5" />
                                 </button>
-                                <span className="w-8 text-center text-sm tabular-nums">
-                                    {Math.round(logoSize * 10)}
-                                </span>
+                                <span className="w-8 text-center text-sm tabular-nums">{Math.round(logoSize * 10)}</span>
                                 <button
                                     onClick={() => adjustLogoSize("up")}
                                     className="w-9 h-9 flex items-center justify-center hover:bg-muted transition-colors"
@@ -458,5 +407,5 @@ export default function QrGenerator() {
                 <p className="text-xs text-muted-foreground">PNG saves with transparent background.</p>
             </div>
         </div>
-    )
+    );
 }
