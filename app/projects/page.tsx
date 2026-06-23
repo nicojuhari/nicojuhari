@@ -6,6 +6,7 @@ export const metadata: Metadata = {
     title: "Projects | Web Apps, Tools & Sites by Nicojuhari",
     description:
         "A curated look at web apps, tools, and client sites built with Next.js, React, and Shopify - from local business websites to custom web applications.",
+    alternates: { canonical: "https://nicojuhari.com/projects" },
 };
 
 export default function ProjectsPage() {

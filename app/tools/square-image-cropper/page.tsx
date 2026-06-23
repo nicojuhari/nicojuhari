@@ -1,15 +1,29 @@
 import type { Metadata } from "next";
 import ImageCropper from "./_components/image-cropper";
+import { webAppSchema } from "@/app/_lib/schema";
 
 export const metadata: Metadata = {
     title: "Square Image Cropper - Crop Photos to 1:1 Square",
     description:
         "Crop any photo to a perfect 1:1 square in your browser - ideal for digital menus, product images, and social media. No upload to a server, free.",
+    alternates: { canonical: "https://nicojuhari.com/tools/square-image-cropper" },
 };
 
 export default function ImageCropperPage() {
     return (
         <div className="section px-6 max-w-3xl">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify(
+                        webAppSchema(
+                            "Square Image Cropper",
+                            "Crop any photo to a perfect 1:1 square in your browser - ideal for digital menus, product images, and social media. No upload to a server, free.",
+                            "square-image-cropper"
+                        )
+                    ),
+                }}
+            />
             <h1 className="text-3xl font-bold mb-2">Square Image Cropper</h1>
             <h2 className="text-lg text-muted-foreground mb-8 font-normal">
                 Crop any photo to a perfect square - great for social media, menus, and product images.

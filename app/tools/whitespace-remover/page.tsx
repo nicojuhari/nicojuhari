@@ -1,15 +1,29 @@
 import type { Metadata } from "next";
 import WhitespaceRemover from "./_components/whitespace-remover";
+import { webAppSchema } from "@/app/_lib/schema";
 
 export const metadata: Metadata = {
     title: "Whitespace Remover | Replace or Remove Spaces in Text",
     description:
         "Online Whitespace Remover - quickly replace or remove spaces with hyphens, underscores, slashes, or new lines. Fast, browser-based tool, and FREE.",
+    alternates: { canonical: "https://nicojuhari.com/tools/whitespace-remover" },
 };
 
 export default function WhitespaceRemoverPage() {
     return (
         <div className="section px-6 max-w-3xl">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify(
+                        webAppSchema(
+                            "Whitespace Remover",
+                            "Online Whitespace Remover - quickly replace or remove spaces with hyphens, underscores, slashes, or new lines. Fast, browser-based tool, and FREE.",
+                            "whitespace-remover"
+                        )
+                    ),
+                }}
+            />
             <h1 className="text-3xl font-bold mb-2">Whitespace Remover</h1>
             <h2 className="text-lg text-muted-foreground mb-8 font-normal">
                 Replace spaces with dashes, underscores, slashes, or remove them entirely - perfect for filenames, slugs, and URLs.

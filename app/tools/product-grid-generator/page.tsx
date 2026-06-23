@@ -1,15 +1,29 @@
 import type { Metadata } from "next";
 import ProductGrid from "./_components/product-grid";
+import { webAppSchema } from "@/app/_lib/schema";
 
 export const metadata: Metadata = {
     title: "Product Grid Generator for Shopify Blog Posts",
     description:
         "Build responsive product grids for Shopify blog posts - add titles, images, prices, and links, then copy the ready-to-use HTML. Free, no sign-up.",
+    alternates: { canonical: "https://nicojuhari.com/tools/product-grid-generator" },
 };
 
 export default function ProductGridPage() {
     return (
         <div className="section px-6 max-w-3xl">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify(
+                        webAppSchema(
+                            "Product Grid Generator",
+                            "Build responsive product grids for Shopify blog posts - add titles, images, prices, and links, then copy the ready-to-use HTML. Free, no sign-up.",
+                            "product-grid-generator"
+                        )
+                    ),
+                }}
+            />
             <h1 className="text-3xl font-bold mb-2">Product Grid Generator</h1>
             <h2 className="text-lg text-muted-foreground mb-8 font-normal">
                 Build responsive product grids for your blog - add images, links, and prices, get clean HTML instantly.

@@ -5,6 +5,7 @@ export const metadata: Metadata = {
     title: "Magic Wand Sparkles - CSS Animation Demo | Nicojuhari",
     description:
         "Move your cursor to leave a trail of sparkles that float and fade. A small interactive demo built with JavaScript and CSS animations. No libraries.",
+    alternates: { canonical: "https://nicojuhari.com/playground/magic-wand" },
 };
 
 export default function MagicWandPage() {

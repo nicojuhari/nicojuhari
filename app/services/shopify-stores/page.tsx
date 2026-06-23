@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import { Check } from "lucide-react";
 import CtaSection from "@/app/_components/cta-section";
+import { serviceSchema, breadcrumbSchema } from "@/app/_lib/schema";
 
 export const metadata: Metadata = {
     title: "Shopify Store Setup & Development | Nicojuhari",
     description:
         "Shopify store setup and development - product pages, Klaviyo email flows, shipping integrations, reviews, and custom theme work. Built to launch and grow.",
+    alternates: { canonical: "https://nicojuhari.com/services/shopify-stores" },
 };
 
 const forYouIf = [
@@ -77,6 +79,30 @@ const steps = [
 export default function ShopifyStoresPage() {
     return (
         <>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify(
+                        serviceSchema(
+                            "Shopify Store Setup & Development",
+                            "Shopify store setup and development - product pages, Klaviyo email flows, shipping integrations, reviews, and custom theme work. Built to launch and grow.",
+                            "/services/shopify-stores"
+                        )
+                    ),
+                }}
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify(
+                        breadcrumbSchema([
+                            { name: "Home", path: "/" },
+                            { name: "Services", path: "/services" },
+                            { name: "Shopify Stores", path: "/services/shopify-stores" },
+                        ])
+                    ),
+                }}
+            />
             <section className="container-sm my-10">
                 <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground mb-4">Service</p>
                 <h1 className="text-4xl sm:text-5xl font-bold mb-5 leading-tight">A store built to sell.</h1>

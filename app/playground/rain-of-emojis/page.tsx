@@ -5,6 +5,7 @@ export const metadata: Metadata = {
     title: "Rain of Emojis - Emoji Animation Playground | Nicojuhari",
     description:
         "Watch a shower of random emojis fall down the screen - a small, playful demo built with React and CSS animations. Click to change the emoji or speed.",
+    alternates: { canonical: "https://nicojuhari.com/playground/rain-of-emojis" },
 };
 
 export default function RainOfEmojisPage() {

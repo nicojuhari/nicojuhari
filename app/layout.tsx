@@ -20,7 +20,16 @@ export const metadata: Metadata = {
     description:
         "Web developer building local business websites, Shopify stores, and custom web apps - designed to get found, convert visitors, and grow revenue.",
     metadataBase: new URL("https://nicojuhari.com"),
-    openGraph: { type: "website", locale: "en_US", siteName: "Nicojuhari" },
+    openGraph: {
+        type: "website",
+        locale: "en_US",
+        siteName: "Nicojuhari",
+        images: [{ url: "/nicojuhari-og-image.jpg", width: 1200, height: 630, alt: "Nicojuhari - Web Developer for Business Growth" }],
+    },
+    twitter: {
+        card: "summary_large_image",
+        images: ["/nicojuhari-og-image.jpg"],
+    },
 };
 
 const IS_PROD = process.env.NODE_ENV === "production";
@@ -34,7 +43,7 @@ export default function RootLayout({
         <html lang="en" suppressHydrationWarning className={`${dmSans.variable} ${geistMono.variable} h-full antialiased`}>
             <head>
                 <meta name="apple-mobile-web-app-title" content="Nicojuhari" />
-                <script src="https://analytics.ahrefs.com/analytics.js" data-key="oLK5Eic+ybj6R/BmfI3gUA" async></script>
+                {IS_PROD && <script src="https://analytics.ahrefs.com/analytics.js" data-key="oLK5Eic+ybj6R/BmfI3gUA" async></script>}
             </head>
             <body className="min-h-full flex flex-col">
                 <Header />

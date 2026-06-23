@@ -7,7 +7,7 @@ export default function Hero() {
             <div className="flex justify-center mb-6">
                 <Image
                     src="/nick-profile-photo.webp"
-                    alt="Nick profile photo"
+                    alt="Nicolae Cojuhari - Web Developer"
                     width={96}
                     height={96}
                     priority

@@ -8,6 +8,7 @@ export const metadata: Metadata = {
     title: "Services - Web Design & Development | Nicojuhari",
     description:
         "Web design and development services for businesses, online sellers, and growing teams. Business websites, Shopify stores, and custom web apps - built to work.",
+    alternates: { canonical: "https://nicojuhari.com/services" },
 };
 
 const services = [

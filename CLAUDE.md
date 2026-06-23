@@ -81,3 +81,10 @@ Pages and layouts are Server Components by default. Add `'use client'` only when
 - The design should be clean, modern, and professional — an improvement over the old Nuxt version. Focus on clarity, usability, and strong visual hierarchy. Use consistent spacing, typography, and component patterns.
 - Use shadcn/ui components where possible for consistency and faster development. Customize with Tailwind CSS for unique branding and layout needs.
 - Don't use too many color overrides / classes — keep the design cohesive and avoid visual clutter. Use whitespace effectively to separate sections and guide the user's eye.
+
+- add all the pages to sitemap
+    - create reusable function to create schema.org for every page (if is needed)
+    - add canonical urls
+    - make sure all the images has alt attribute and maybe title
+    - remove the nofollow attributes from external links ( I think it's a good idea for
+      seo)

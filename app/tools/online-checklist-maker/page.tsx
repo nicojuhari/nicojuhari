@@ -1,15 +1,29 @@
 import type { Metadata } from "next";
 import Checklist from "./_components/checklist";
+import { webAppSchema } from "@/app/_lib/schema";
 
 export const metadata: Metadata = {
     title: "Online Checklist Maker | Create and Manage Tasks Fast",
     description:
         "Create and share checklists in seconds - packing, wedding, camping, grocery, move-in, or daily tasks. Mobile-friendly, private, no signup, and FREE.",
+    alternates: { canonical: "https://nicojuhari.com/tools/online-checklist-maker" },
 };
 
 export default function ChecklistPage() {
     return (
         <div className="section px-6 max-w-3xl">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify(
+                        webAppSchema(
+                            "Online Checklist Maker",
+                            "Create and share checklists in seconds - packing, wedding, camping, grocery, move-in, or daily tasks. Mobile-friendly, private, no signup, and FREE.",
+                            "online-checklist-maker"
+                        )
+                    ),
+                }}
+            />
             <h1 className="text-3xl font-bold mb-2">Online Checklist Maker</h1>
             <h2 className="text-lg text-muted-foreground mb-8 font-normal">
                 Build and track any checklist in seconds - packing, tasks, shopping, or anything else. No signup needed.

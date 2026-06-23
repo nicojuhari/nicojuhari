@@ -5,6 +5,7 @@ export const metadata: Metadata = {
     title: "Playground - Frontend Experiments & Demos | Nicojuhari",
     description:
         "A collection of small, interactive front-end experiments built with JavaScript, React, and CSS. Fun stuff to explore ideas and try new techniques.",
+    alternates: { canonical: "https://nicojuhari.com/playground" },
 };
 
 const PROJECTS = [

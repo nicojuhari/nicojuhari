@@ -2,11 +2,13 @@ import type { Metadata } from "next";
 import { Check } from "lucide-react";
 import ContactForm from "../../_components/contact-form";
 import CtaSection from "../../_components/cta-section";
+import { serviceSchema, breadcrumbSchema } from "@/app/_lib/schema";
 
 export const metadata: Metadata = {
     title: "Business Website Design for Local Companies | Nicojuhari",
     description:
         "Clean, fast websites for local and service businesses - built to rank in search, load fast on mobile, and turn visitors into bookings, calls, and sales.",
+    alternates: { canonical: "https://nicojuhari.com/services/business-websites" },
 };
 
 const forYouIf = [
@@ -75,6 +77,30 @@ const steps = [
 export default function BusinessWebsitesPage() {
     return (
         <>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify(
+                        serviceSchema(
+                            "Business Website Design",
+                            "Clean, fast websites for local and service businesses - built to rank in search, load fast on mobile, and turn visitors into bookings, calls, and sales.",
+                            "/services/business-websites"
+                        )
+                    ),
+                }}
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify(
+                        breadcrumbSchema([
+                            { name: "Home", path: "/" },
+                            { name: "Services", path: "/services" },
+                            { name: "Business Websites", path: "/services/business-websites" },
+                        ])
+                    ),
+                }}
+            />
             <section className="container-sm my-10">
                 <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground mb-4">Service</p>
                 <h1 className="text-4xl sm:text-5xl font-bold mb-5 leading-tight">Websites that bring in customers.</h1>

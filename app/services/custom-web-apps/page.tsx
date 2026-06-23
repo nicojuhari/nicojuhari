@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import { Check } from "lucide-react";
 import CtaSection from "@/app/_components/cta-section";
+import { serviceSchema, breadcrumbSchema } from "@/app/_lib/schema";
 
 export const metadata: Metadata = {
     title: "Custom Web Apps - Dashboards & Automations | Nicojuhari",
     description:
         "Web apps built around your process - dashboards, automations, approval flows, Stripe payments, and GPS tracking. Built from scratch, no off-the-shelf limits.",
+    alternates: { canonical: "https://nicojuhari.com/services/custom-web-apps" },
 };
 
 const forYouIf = [
@@ -94,6 +96,30 @@ const steps = [
 export default function CustomWebAppsPage() {
     return (
         <>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify(
+                        serviceSchema(
+                            "Custom Web Apps",
+                            "Web apps built around your process - dashboards, automations, approval flows, Stripe payments, and GPS tracking. Built from scratch, no off-the-shelf limits.",
+                            "/services/custom-web-apps"
+                        )
+                    ),
+                }}
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify(
+                        breadcrumbSchema([
+                            { name: "Home", path: "/" },
+                            { name: "Services", path: "/services" },
+                            { name: "Custom Web Apps", path: "/services/custom-web-apps" },
+                        ])
+                    ),
+                }}
+            />
             <section className="container-sm my-10">
                 <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground mb-4">Service</p>
                 <h1 className="text-4xl sm:text-5xl font-bold mb-5 leading-tight">Software built around your process.</h1>

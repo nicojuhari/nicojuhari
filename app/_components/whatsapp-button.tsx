@@ -7,7 +7,7 @@ export default function WhatsAppButton({ className, anchorText }: { className?: 
         <Button
             className={cn("bg-brand-green hover:bg-brand-green/80", className)}
             nativeButton={false}
-            render={<a href={WHATSAPP_URL} target="_blank" rel="nofollow noopener" />}
+            render={<a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" />}
         >
             {anchorText || "WhatsApp"}
         </Button>
