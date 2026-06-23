@@ -23,6 +23,8 @@ export const metadata: Metadata = {
     openGraph: { type: "website", locale: "en_US", siteName: "Nicojuhari" },
 };
 
+const IS_PROD = process.env.NODE_ENV === "production";
+
 export default function RootLayout({
     children,
 }: Readonly<{
@@ -32,6 +34,7 @@ export default function RootLayout({
         <html lang="en" suppressHydrationWarning className={`${dmSans.variable} ${geistMono.variable} h-full antialiased`}>
             <head>
                 <meta name="apple-mobile-web-app-title" content="Nicojuhari" />
+                <script src="https://analytics.ahrefs.com/analytics.js" data-key="oLK5Eic+ybj6R/BmfI3gUA" async></script>
             </head>
             <body className="min-h-full flex flex-col">
                 <Header />

@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Check } from "lucide-react";
-import ContactForm from "../../_components/contact-form";
 import CtaSection from "@/app/_components/cta-section";
 
 export const metadata: Metadata = {
