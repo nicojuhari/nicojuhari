@@ -15,7 +15,7 @@ type Props = {
 };
 
 export default function CtaSection({
-    tagline = "Let's work together, on your next project!",
+    tagline = "Let's work and win together!",
     whatsappLabel = "WhatsApp",
     contactLabel = "Send and email",
     className,
