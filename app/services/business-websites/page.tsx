@@ -9,6 +9,7 @@ export const metadata: Metadata = {
     description:
         "Clean, fast websites for local and service businesses - built to rank in search, load fast on mobile, and turn visitors into bookings, calls, and sales.",
     alternates: { canonical: "https://nicojuhari.com/services/business-websites" },
+    openGraph: { url: "https://nicojuhari.com/services/business-websites" },
 };
 
 const forYouIf = [
