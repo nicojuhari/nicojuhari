@@ -33,14 +33,16 @@ npx shadcn@latest add button input textarea label card badge separator
 ### 2.1 — Root Layout
 
 Update `app/layout.tsx`:
+
 - Keep Geist Sans font (already set up)
 - Add `<Header />` and `<Footer />` as Server Components
-- Set metadata: title template `"%s | Nico Juhari"`, base description, canonical URL
+- Set metadata: title template `"%s | Nicojuhari"`, base description, canonical URL
 - Add `lang="en"` and `suppressHydrationWarning` to `<html>`
 
 ### 2.2 — Header
 
 Port from `old-project/app/components/includes/Header.vue`:
+
 - Sticky, blurred background: `sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b`
 - Logo SVG on the left (copy `/Logo.svg` from `old-project/public/` into `public/`)
 - Add a navigation menu: Home, Tools, Projects, Demos, Playground — use `next/link`
@@ -52,6 +54,7 @@ Port from `old-project/app/components/includes/Header.vue`:
 ### 2.3 — Footer
 
 Port from `old-project/app/components/includes/Footer.vue`:
+
 - GitHub, X (Twitter), and LinkedIn icon links with `rel="nofollow"` — copy SVGs from old footer
 - Copyright line: `© {year} Nicolae Cojuhari`
 - Update tagline: "Software Engineer" (new positioning, not "Shopify & JavaScript Developer")
@@ -67,6 +70,7 @@ Build section by section. All sections are pure Server Components except the con
 ### 3.1 — Hero Section
 
 Port from `old-project/app/components/main/home/Hero.vue`:
+
 - Greeting `👋 Hello, I am Nick`
 - Profile photo (copy `old-project/public/nick-profile-photo.webp` → `public/`) — use `next/image` with `priority`
 - `<h1>`: **"Software Engineer"** (new positioning — builds any type of app: business, ecommerce, custom web apps)
@@ -79,14 +83,15 @@ Port from `old-project/app/components/main/home/Hero.vue`:
 ### 3.2 — Web Apps Section
 
 Port from `old-project/app/components/main/WebApps.vue`:
+
 - Section title: "Web Apps"
 - Grid of app cards (logo, title, short description) linking to external URLs
 - Apps list (keep existing):
-  - 1FoodMenu (`https://1food.menu/`)
-  - Bunny CDN (`https://bunny-cdn.netlify.app/`)
-  - Saver Wallet (`https://saver-wallet.netlify.app/`)
-  - Rock Paper Scissors (`https://rps-game.online/`)
-  - Bookmark Manager (`https://bookmarks-manager.online/`)
+    - 1FoodMenu (`https://1food.menu/`)
+    - Bunny CDN (`https://bunny-cdn.netlify.app/`)
+    - Saver Wallet (`https://saver-wallet.netlify.app/`)
+    - Rock Paper Scissors (`https://rps-game.online/`)
+    - Bookmark Manager (`https://bookmarks-manager.online/`)
 - `<img>` for logos, `target="_blank" rel="nofollow"` on links
 
 > **Improvement:** Add a hover state to cards (slight shadow/border change). Consider showing a "live" badge or tech stack pill on each card.
@@ -94,6 +99,7 @@ Port from `old-project/app/components/main/WebApps.vue`:
 ### 3.3 — Tools List (Home)
 
 Port from `old-project/app/components/main/ToolsList.vue`:
+
 - Section title: "Simple Tools", subtitle: "Built for me, sharing with you."
 - Grid of tool cards linking to `/tools/[slug]`
 - Use the same tools list defined in Step 7
@@ -101,6 +107,7 @@ Port from `old-project/app/components/main/ToolsList.vue`:
 ### 3.4 — Tech Stack Section
 
 Port from `old-project/app/components/main/home/MyStack.vue`:
+
 - Section title: "My Stack"
 - Inline SVG icons in a wrapping flex grid
 - Update the stack icons — remove Vue/Nuxt, add **React**, **Next.js**; keep the rest (TypeScript, Node, Tailwind, Firebase, Supabase, Shopify, etc.)
@@ -141,17 +148,18 @@ This is a new section that didn't exist in the old project.
 ### 4.1 — Projects Data File
 
 Create `app/_data/projects.ts` with a typed array of projects:
+
 ```ts
 type Project = {
-  slug: string
-  title: string
-  year: number
-  stack: string[]
-  description: string
-  longDescription: string
-  url?: string
-  images: string[]   // paths under /public/projects/[slug]/
-}
+    slug: string;
+    title: string;
+    year: number;
+    stack: string[];
+    description: string;
+    longDescription: string;
+    url?: string;
+    images: string[]; // paths under /public/projects/[slug]/
+};
 ```
 
 Populate with real projects (manually — the old site fetched from Storyblok).
@@ -215,6 +223,7 @@ Tools list:
 **File:** `app/tools/whitespace-remover/_components/whitespace-remover.tsx` (`'use client'`)
 
 Port all logic from old `whitespace-remover.vue`:
+
 - `textRaw` input textarea
 - `convertedText` computed (via `useMemo`)
 - Replace options: dashes, underscores, slashes, keep spaces, new line, remove all spaces
@@ -275,6 +284,7 @@ npm install react-advanced-cropper
 **File:** `app/tools/product-grid-generator/_components/product-grid.tsx` (`'use client'`)
 
 Port from `old-project/app/pages/tools/product-grid-generator.vue`:
+
 - Product list management (add/remove, title, image URL, product URL, price, description)
 - Design selector (square grid vs. carousel)
 - Live HTML preview
@@ -307,18 +317,19 @@ This is the most complex tool. Port from `old-project/app/pages/tools/bill-split
 ```tsx
 // app/demos/layout.tsx
 export const metadata = {
-  robots: { index: false, follow: false },
-}
+    robots: { index: false, follow: false },
+};
 ```
 
 ### 6.2 — Demos Index
 
 Port from `old-project/app/pages/demos/index.vue`:
+
 - Grid of demo cards with thumbnail, title, link
 - Demos:
-  - GUD Restaurant (`/demos/restaurants/gud`)
-  - Lusin Restaurant (`/demos/restaurants/lusin`)
-  - Bella Cucina Restaurant (`/demos/restaurants/bella-cucina`)
+    - GUD Restaurant (`/demos/restaurants/gud`)
+    - Lusin Restaurant (`/demos/restaurants/lusin`)
+    - Bella Cucina Restaurant (`/demos/restaurants/bella-cucina`)
 - Use CDN thumbnail URLs from old project
 
 ### 6.3 — Restaurant Demo Pages
@@ -368,13 +379,14 @@ These pages are largely static HTML/CSS — port them as Server Components.
 ### 8.1 — Root Metadata
 
 In `app/layout.tsx`:
+
 ```tsx
 export const metadata: Metadata = {
-  title: { template: '%s | Nico Juhari', default: 'Nico Juhari — Software Engineer' },
-  description: 'Software engineer specializing in building business websites, ecommerce, and custom web applications.',
-  metadataBase: new URL('https://nicojuhari.com'),
-  openGraph: { type: 'website', locale: 'en_US', siteName: 'Nico Juhari' },
-}
+    title: { template: "%s | Nicojuhari", default: "Nicojuhari — Software Engineer" },
+    description: "Software engineer specializing in building business websites, ecommerce, and custom web applications.",
+    metadataBase: new URL("https://nicojuhari.com"),
+    openGraph: { type: "website", locale: "en_US", siteName: "Nicojuhari" },
+};
 ```
 
 ### 8.2 — Per-page Metadata
@@ -406,19 +418,26 @@ Define custom tokens in `app/globals.css` under the `@theme` directive (Tailwind
 
 ```css
 @theme inline {
-  --font-sans: var(--font-geist-sans);
-  --color-brand: #171717;          /* near-black for professional look */
-  --radius-card: 0.75rem;
-  --shadow-card: 0 1px 3px 0 rgb(0 0 0 / 0.07), 0 1px 2px -1px rgb(0 0 0 / 0.07);
+    --font-sans: var(--font-geist-sans);
+    --color-brand: #171717; /* near-black for professional look */
+    --radius-card: 0.75rem;
+    --shadow-card: 0 1px 3px 0 rgb(0 0 0 / 0.07), 0 1px 2px -1px rgb(0 0 0 / 0.07);
 }
 ```
 
 Define utility classes for repeated patterns:
+
 ```css
 @layer components {
-  .section { @apply py-16 md:py-24; }
-  .container-sm { @apply max-w-3xl mx-auto px-4; }
-  .card { @apply rounded-xl border bg-white p-6 shadow-card; }
+    .section {
+        @apply py-16 md:py-24;
+    }
+    .container-sm {
+        @apply max-w-3xl mx-auto px-4;
+    }
+    .card {
+        @apply rounded-xl border bg-white p-6 shadow-card;
+    }
 }
 ```
 

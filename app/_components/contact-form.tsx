@@ -65,6 +65,7 @@ export default function ContactForm() {
       <div className="flex justify-center mb-8">
         <Button
           className="h-11 px-6 text-base"
+          nativeButton={false}
           render={<a href={WHATSAPP_URL} target="_blank" rel="nofollow noopener" />}
         >
           💬 Message me on WhatsApp
