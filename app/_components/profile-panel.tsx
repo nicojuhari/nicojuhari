@@ -73,7 +73,7 @@ export default function ProfilePanel() {
                     <p className="mt-4 text-[14px] leading-relaxed text-ink-muted sm:mt-5 sm:text-[15px]">
                         Software engineer with a finance background. I use AI to build{" "}
                         <span className="font-medium text-ink">financial</span> and{" "}
-                        <span className="font-medium text-ink">productivity</span> apps, that replace spreadsheets and
+                        <span className="font-medium text-ink">productivity</span> apps that replace spreadsheets and
                         manual workflows.
                     </p>
 

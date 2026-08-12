@@ -3,6 +3,7 @@ import { DM_Sans, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "./_components/header";
 import Footer from "./_components/footer";
+import { SITE_DESCRIPTION, SITE_NAME, SITE_TITLE, SITE_URL } from "./_lib/site";
 
 const dmSans = DM_Sans({
     variable: "--font-sans",
@@ -16,25 +17,28 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-    title: { template: "%s", default: "Nicolae Cojuhari - Software Engineer · Finance · AI" },
-    description:
-        "Software engineer with a finance background. I use AI to build financial and productivity apps for web and mobile - tools that replace spreadsheets and manual workflows.",
-    metadataBase: new URL("https://nicojuhari.com"),
+    title: { template: "%s", default: SITE_TITLE },
+    description: SITE_DESCRIPTION,
+    metadataBase: new URL(SITE_URL),
     openGraph: {
         type: "website",
         locale: "en_US",
-        siteName: "Nicojuhari",
+        siteName: SITE_NAME,
+        title: SITE_TITLE,
+        description: SITE_DESCRIPTION,
         images: [
             {
                 url: "/nicojuhari-og-image.jpg",
                 width: 1200,
                 height: 630,
-                alt: "Nicolae Cojuhari - Software Engineer · Finance · AI",
+                alt: SITE_TITLE,
             },
         ],
     },
     twitter: {
         card: "summary_large_image",
+        title: SITE_TITLE,
+        description: SITE_DESCRIPTION,
         images: ["/nicojuhari-og-image.jpg"],
     },
 };

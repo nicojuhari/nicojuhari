@@ -20,7 +20,7 @@
 > Software Engineer · Finance · AI | Financial & productivity apps for web & mobile
 
 **Short bio (site / profiles, ~40 words):**
-> Software engineer with a finance background. I use AI to build financial and productivity apps for web and mobile - tools that replace spreadsheets and manual workflows with software teams can actually use.
+> Software engineer with a finance background. I use AI to build financial and productivity apps that replace spreadsheets and manual workflows.
 
 **LinkedIn About opener (~60 words):**
 > I’m a software engineer with a finance degree and years inside real finance operations. I build financial and productivity apps for web and mobile - and I use AI where it makes the product faster or smarter, not as a buzzword. Available for freelance projects and full-time roles.

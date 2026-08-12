@@ -7,7 +7,7 @@ import CtaSection from "@/app/_components/cta-section";
 export const metadata: Metadata = {
     title: "Services - Web Design & Development | Nicojuhari",
     description:
-        "Web design and development services for businesses, online sellers, and growing teams. Business websites, Shopify stores, and custom web apps - built to work.",
+        "Web design and development for businesses and growing teams - business websites, Shopify stores, and custom web apps.",
     alternates: { canonical: "https://nicojuhari.com/services" },
 };
 

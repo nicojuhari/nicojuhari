@@ -1,21 +1,43 @@
-const BASE = "https://nicojuhari.com";
+import { PERSON_NAME, SITE_DESCRIPTION, SITE_NAME, SITE_URL, SOCIAL_LINKS } from "./site";
+
+const BASE = SITE_URL;
 
 const provider = {
     "@type": "ProfessionalService" as const,
-    name: "Nicolae Cojuhari",
+    name: PERSON_NAME,
     url: BASE,
 };
+
+export function personSchema() {
+    return {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        name: PERSON_NAME,
+        url: BASE,
+        image: `${BASE}/nick-profile-photo.webp`,
+        jobTitle: "Software Engineer",
+        description: SITE_DESCRIPTION,
+        knowsAbout: ["Software Engineering", "Finance", "Artificial Intelligence", "Financial Software", "Productivity Apps"],
+        address: {
+            "@type": "PostalAddress",
+            addressLocality: "Vienna",
+            addressCountry: "AT",
+        },
+        sameAs: [...SOCIAL_LINKS],
+    };
+}
 
 export function professionalServiceSchema() {
     return {
         "@context": "https://schema.org",
         "@type": "ProfessionalService",
-        name: "Nicojuhari",
+        name: SITE_NAME,
         url: BASE,
+        description: SITE_DESCRIPTION,
         founder: {
             "@type": "Person",
-            name: "Nicolae Cojuhari",
-            sameAs: ["https://github.com/nicojuhari", "https://twitter.com/nicojuhari", "https://www.linkedin.com/in/nicojuhari/"],
+            name: PERSON_NAME,
+            sameAs: [...SOCIAL_LINKS],
         },
         address: {
             "@type": "PostalAddress",
@@ -26,12 +48,11 @@ export function professionalServiceSchema() {
         areaServed: "Worldwide",
         knowsAbout: [
             "Financial Software",
-            "Management Apps",
             "Productivity Apps",
             "Custom Web Apps",
             "Next.js",
             "React",
-            "Mobile Web Apps",
+            "AI-assisted development",
         ],
     };
 }
@@ -40,8 +61,14 @@ export function webSiteSchema() {
     return {
         "@context": "https://schema.org",
         "@type": "WebSite",
-        name: "Nicojuhari",
+        name: SITE_NAME,
         url: BASE,
+        description: SITE_DESCRIPTION,
+        publisher: {
+            "@type": "Person",
+            name: PERSON_NAME,
+        },
+        inLanguage: "en",
     };
 }
 

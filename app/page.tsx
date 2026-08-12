@@ -2,23 +2,30 @@ import type { Metadata } from "next";
 import ProfilePanel from "./_components/profile-panel";
 import WorkBoard from "./_components/work-board";
 import TechStack from "./_components/tech-stack";
-import { professionalServiceSchema, webSiteSchema } from "./_lib/schema";
+import { personSchema, professionalServiceSchema, webSiteSchema } from "./_lib/schema";
+import { SITE_DESCRIPTION, SITE_TITLE, SITE_URL } from "./_lib/site";
 
 export const metadata: Metadata = {
-    title: "Nicolae Cojuhari - Software Engineer · Finance · AI",
-    description:
-        "Software engineer with a finance background. I use AI to build financial and productivity apps for web and mobile - tools that replace spreadsheets and manual workflows.",
-    alternates: { canonical: "https://nicojuhari.com" },
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    alternates: { canonical: SITE_URL },
     openGraph: {
-        title: "Nicolae Cojuhari - Software Engineer · Finance · AI",
-        description:
-            "Software engineer with a finance background. I use AI to build financial and productivity apps for web and mobile.",
+        title: SITE_TITLE,
+        description: SITE_DESCRIPTION,
+        url: SITE_URL,
+        type: "website",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: SITE_TITLE,
+        description: SITE_DESCRIPTION,
     },
 };
 
 export default function Home() {
     return (
         <>
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema()) }} />
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(professionalServiceSchema()) }}

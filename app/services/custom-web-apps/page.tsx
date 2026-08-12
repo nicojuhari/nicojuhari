@@ -6,7 +6,7 @@ import { serviceSchema, breadcrumbSchema } from "@/app/_lib/schema";
 export const metadata: Metadata = {
     title: "Custom Web Apps - Dashboards & Automations | Nicojuhari",
     description:
-        "Web apps built around your process - dashboards, automations, approval flows, Stripe payments, and GPS tracking. Built from scratch, no off-the-shelf limits.",
+        "Custom web apps around your process - dashboards, automations, approvals, Stripe payments, and GPS. Built from scratch, no off-the-shelf limits.",
     alternates: { canonical: "https://nicojuhari.com/services/custom-web-apps" },
 };
 
