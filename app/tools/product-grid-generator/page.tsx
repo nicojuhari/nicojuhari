@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import ProductGrid from "./_components/product-grid";
+import ToolPageShell from "@/app/_components/tool-page-shell";
 import { webAppSchema } from "@/app/_lib/schema";
 
 export const metadata: Metadata = {
@@ -11,34 +12,27 @@ export const metadata: Metadata = {
 
 export default function ProductGridPage() {
     return (
-        <div className="section px-6 max-w-3xl">
-            <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{
-                    __html: JSON.stringify(
-                        webAppSchema(
-                            "Product Grid Generator",
-                            "Build responsive product grids for Shopify blog posts - add titles, images, prices, and links, then copy the ready-to-use HTML. Free, no sign-up.",
-                            "product-grid-generator"
-                        )
-                    ),
-                }}
-            />
-            <h1 className="text-3xl font-bold mb-2">Product Grid Generator</h1>
-            <h2 className="text-lg text-muted-foreground mb-8 font-normal">
-                Build responsive product grids for your blog - add images, links, and prices, get clean HTML instantly.
-            </h2>
+        <ToolPageShell
+            currentSlug="product-grid-generator"
+            title="Product Grid Generator"
+            description="Build responsive product grids for your blog - add images, links, and prices, get clean HTML instantly."
+            schema={webAppSchema(
+                "Product Grid Generator",
+                "Build responsive product grids for Shopify blog posts - add titles, images, prices, and links, then copy the ready-to-use HTML. Free, no sign-up.",
+                "product-grid-generator"
+            )}
+            notes={
+                <>
+                    <p>Create simple, elegant product grids for your Shopify blog in seconds - no coding required.</p>
+                    <p>
+                        Paste product titles, image URLs, links, prices, and descriptions, and the tool outputs responsive
+                        HTML/CSS you can drop straight into a post.
+                    </p>
+                    <p>Free to use with instant output.</p>
+                </>
+            }
+        >
             <ProductGrid />
-            <div className="mt-12 space-y-3 text-sm text-muted-foreground">
-                <p>Create simple, elegant product grids for your Shopify blog in seconds - no coding required.</p>
-                <p>
-                    Paste product titles, image URLs, links, prices, and descriptions, and the tool outputs responsive HTML/CSS you can drop
-                    straight into a post.
-                </p>
-                <p>Styles are scoped so the grid won't break your theme, and layouts are mobile-friendly to boost engagement on phones.</p>
-                <p>Better visuals keep readers scrolling and drive more clicks to product pages, improving conversion rates.</p>
-                <p>Free to use with instant output.</p>
-            </div>
-        </div>
+        </ToolPageShell>
     );
 }

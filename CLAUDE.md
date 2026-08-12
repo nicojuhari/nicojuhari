@@ -15,21 +15,21 @@ npm run lint     # Run ESLint directly (next lint is deprecated in v16)
 
 ## Architecture
 
-This is a **Next.js 16 App Router** personal website being rebuilt from the Nuxt/Vue version in `old-project/`. The old project is the reference for content, structure, and features — not a codebase to port directly.
+This is a **Next.js 16 App Router** personal website being rebuilt from the Nuxt/Vue version in `old-project/`. The old project is the reference for content, structure, and features - not a codebase to port directly.
 
 **Tech stack:** Next.js 16.2, React 19.2, TypeScript 5, Tailwind CSS v4, Vercel deployment.
 
 **Route structure (planned):**
 
-- `/` — Home: hero, web apps, tools list, tech stack, playground, contact form
-- `/tools/[slug]` — Individual tools (bill splitter, QR code generator, checklist, etc.)
-- `/projects/[slug]` — Project detail pages
-- `/demos` — Demo pages (no Google indexing)
-- `/playground` — Small fun projects
+- `/` - Home: hero, web apps, tools list, tech stack, playground, contact form
+- `/tools/[slug]` - Individual tools (bill splitter, QR code generator, checklist, etc.)
+- `/projects/[slug]` - Project detail pages
+- `/demos` - Demo pages (no Google indexing)
+- `/playground` - Small fun projects
 
-## Next.js 16 — Critical Differences
+## Next.js 16 - Critical Differences
 
-**Async Request APIs are mandatory.** `params`, `searchParams`, `cookies()`, `headers()`, and `draftMode()` are all async — never access them synchronously:
+**Async Request APIs are mandatory.** `params`, `searchParams`, `cookies()`, `headers()`, and `draftMode()` are all async - never access them synchronously:
 
 ```tsx
 // ✅ Correct
@@ -64,23 +64,23 @@ This project uses **Tailwind v4**, not v3. The setup is different:
 
 ## Server vs. Client Components
 
-Pages and layouts are Server Components by default. Add `'use client'` only when you need state, event handlers, browser APIs, or lifecycle hooks. Keep interactive islands small — pass data down as props from Server Components.
+Pages and layouts are Server Components by default. Add `'use client'` only when you need state, event handlers, browser APIs, or lifecycle hooks. Keep interactive islands small - pass data down as props from Server Components.
 
 ## Old Project Reference
 
 `old-project/` contains the Nuxt/Vue source. Key files for porting content:
 
-- `old-project/app/pages/index.vue` — home page sections
-- `old-project/app/components/main/` — Hero, HireMe (contact form), MyStack, WebApps, ToolsList
-- `old-project/app/components/includes/` — Header and Footer
-- `old-project/app/pages/tools/` — all tool implementations
+- `old-project/app/pages/index.vue` - home page sections
+- `old-project/app/components/main/` - Hero, HireMe (contact form), MyStack, WebApps, ToolsList
+- `old-project/app/components/includes/` - Header and Footer
+- `old-project/app/pages/tools/` - all tool implementations
 - Contact form uses `web3forms.com` API with access key `8e14a520-e3cc-45e3-b53b-fa21f7a8f562`
 
 ## Design
 
-- The design should be clean, modern, and professional — an improvement over the old Nuxt version. Focus on clarity, usability, and strong visual hierarchy. Use consistent spacing, typography, and component patterns.
+- The design should be clean, modern, and professional - an improvement over the old Nuxt version. Focus on clarity, usability, and strong visual hierarchy. Use consistent spacing, typography, and component patterns.
 - Use shadcn/ui components where possible for consistency and faster development. Customize with Tailwind CSS for unique branding and layout needs.
-- Don't use too many color overrides / classes — keep the design cohesive and avoid visual clutter. Use whitespace effectively to separate sections and guide the user's eye.
+- Don't use too many color overrides / classes - keep the design cohesive and avoid visual clutter. Use whitespace effectively to separate sections and guide the user's eye.
 
 - add all the pages to sitemap
     - create reusable function to create schema.org for every page (if is needed)

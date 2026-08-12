@@ -217,9 +217,9 @@ export default function QrGenerator() {
     };
 
     return (
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
+        <div className="grid min-w-0 grid-cols-1 gap-8 lg:grid-cols-[minmax(0,1.4fr)_minmax(280px,0.9fr)] lg:gap-8">
             {/* ── Controls ── */}
-            <div className="lg:col-span-2 space-y-7">
+            <div className="min-w-0 space-y-6">
                 <div className="space-y-1.5">
                     <Label>Your URL</Label>
                     <Input value={url} onChange={(e) => setUrl(e.target.value)} placeholder="https://" className="text-base h-11" />
@@ -364,11 +364,10 @@ export default function QrGenerator() {
             </div>
 
             {/* ── Preview + Download ── */}
-            <div className="space-y-5">
+            <div className="min-w-0 space-y-5 lg:sticky lg:top-24 lg:self-start">
                 <div
                     ref={containerRef}
-                    className="border rounded-xl bg-white p-3 flex items-center justify-center"
-                    style={{ width: 304, height: 304 }}
+                    className="mx-auto flex aspect-square w-full max-w-[304px] items-center justify-center overflow-hidden rounded-xl border border-rule bg-white p-3"
                 />
 
                 <div className="space-y-2">

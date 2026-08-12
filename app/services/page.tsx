@@ -118,43 +118,41 @@ const howToChoose = [
 
 export default function ServicesPage() {
     return (
-        <>
-            {/* Intro */}
-            <section className="container-sm my-10">
-                <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground mb-4">Services</p>
-                <h1 className="text-4xl sm:text-5xl font-bold mb-5 leading-tight">
+        <div className="container py-6 sm:py-10">
+            <header className="mb-10 max-w-2xl">
+                <p className="eyebrow">Services</p>
+                <h1 className="mt-3 text-[clamp(1.75rem,3vw,2.5rem)] font-semibold tracking-tight text-ink">
                     The right kind of web presence for what you&apos;re building.
                 </h1>
-                <p className="text-lg text-muted-foreground leading-relaxed max-w-xl">
+                <p className="mt-4 text-[1.0625rem] leading-relaxed text-ink-muted">
                     Whether you need customers to find you, a store that sells, or software your team can actually use - the work starts
                     with understanding your problem. Not a template.
                 </p>
-            </section>
+            </header>
 
-            {/* Services list */}
-            <section className="container-sm my-10 flex flex-col gap-6">
+            <div className="flex flex-col gap-5">
                 {services.map((service) => {
                     const Icon = service.icon;
                     return (
-                        <div key={service.title} className="border rounded-2xl p-6 sm:p-8 bg-white">
-                            <div className="flex items-center gap-2.5 mb-5">
-                                <div className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 ${service.iconBg}`}>
-                                    <Icon className={`w-4 h-4 ${service.iconColor}`} />
+                        <article key={service.title} className="surface-card p-6 sm:p-8">
+                            <div className="mb-5 flex items-center gap-2.5">
+                                <div className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-lg ${service.iconBg}`}>
+                                    <Icon className={`h-4 w-4 ${service.iconColor}`} />
                                 </div>
-                                <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">{service.label}</p>
+                                <p className="text-xs font-medium uppercase tracking-wide text-ink-muted">{service.label}</p>
                             </div>
 
-                            <h2 className="text-2xl font-bold mb-1.5">{service.title}</h2>
-                            <p className="text-sm font-medium text-brand mb-3">{service.tagline}</p>
-                            <p className="text-sm text-muted-foreground leading-relaxed mb-6 max-w-xl">{service.description}</p>
+                            <h2 className="text-2xl font-semibold tracking-tight text-ink">{service.title}</h2>
+                            <p className="mt-1.5 text-sm font-medium text-brand">{service.tagline}</p>
+                            <p className="mt-3 max-w-xl text-sm leading-relaxed text-ink-muted">{service.description}</p>
 
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-7">
+                            <div className="mb-7 mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2">
                                 <div>
-                                    <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground mb-3">Good fit if…</p>
+                                    <p className="mb-3 text-xs font-semibold uppercase tracking-wide text-ink-muted">Good fit if…</p>
                                     <ul className="flex flex-col gap-2">
                                         {service.forWho.map((item) => (
-                                            <li key={item} className="flex items-start gap-2.5 text-sm">
-                                                <Check className="w-3.5 h-3.5 text-brand-green shrink-0 mt-0.5" />
+                                            <li key={item} className="flex items-start gap-2.5 text-sm text-ink">
+                                                <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-brand-green" />
                                                 <span className="leading-relaxed">{item}</span>
                                             </li>
                                         ))}
@@ -162,13 +160,11 @@ export default function ServicesPage() {
                                 </div>
 
                                 <div>
-                                    <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground mb-3">
-                                        What&apos;s included
-                                    </p>
+                                    <p className="mb-3 text-xs font-semibold uppercase tracking-wide text-ink-muted">What&apos;s included</p>
                                     <ul className="flex flex-col gap-2">
                                         {service.includes.map((item) => (
-                                            <li key={item} className="flex items-center gap-2.5 text-sm">
-                                                <span className="w-1.5 h-1.5 rounded-full bg-brand-rose shrink-0" />
+                                            <li key={item} className="flex items-center gap-2.5 text-sm text-ink">
+                                                <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-brand-rose" />
                                                 {item}
                                             </li>
                                         ))}
@@ -176,45 +172,48 @@ export default function ServicesPage() {
                                 </div>
                             </div>
 
-                            <Button nativeButton={false} render={<Link href={service.href} />} variant="outline" className="gap-2">
+                            <Button
+                                nativeButton={false}
+                                render={<Link href={service.href} />}
+                                variant="outline"
+                                className="gap-2 rounded-full"
+                            >
                                 {service.cta}
-                                <ArrowRight className="w-3.5 h-3.5" />
+                                <ArrowRight className="h-3.5 w-3.5" />
                             </Button>
-                        </div>
+                        </article>
                     );
                 })}
-            </section>
+            </div>
 
-            {/* How to choose */}
-            <section className="container-sm my-10">
-                <h2 className="text-2xl font-bold mb-2">Not sure which one fits?</h2>
-                <p className="text-sm text-muted-foreground mb-6">Answer one question and you&apos;ll know exactly where to start.</p>
-                <div className="flex flex-col divide-y border rounded-xl overflow-hidden">
+            <section className="mt-12">
+                <h2 className="text-2xl font-semibold tracking-tight text-ink">Not sure which one fits?</h2>
+                <p className="mt-2 text-sm text-ink-muted">Answer one question and you&apos;ll know exactly where to start.</p>
+                <div className="surface-card mt-6 divide-y divide-rule overflow-hidden">
                     {howToChoose.map((item) => (
                         <Link
                             key={item.question}
                             href={item.href}
                             target={item.external ? "_blank" : undefined}
                             rel={item.external ? "noopener noreferrer" : undefined}
-                            className="flex items-center justify-between px-5 py-4 bg-white hover:bg-muted/40 transition-colors group"
+                            className="group flex items-center justify-between px-5 py-4 transition-colors hover:bg-bg-soft"
                         >
-                            <span className="text-sm">{item.question}</span>
-                            <span className="text-sm font-semibold text-brand flex items-center gap-1.5 shrink-0 ml-4">
+                            <span className="text-sm text-ink">{item.question}</span>
+                            <span className="ml-4 flex shrink-0 items-center gap-1.5 text-sm font-semibold text-brand">
                                 {item.answer}
-                                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+                                <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
                             </span>
                         </Link>
                     ))}
                 </div>
             </section>
 
-            {/* CTA */}
-            <section className="container-sm my-10 bg-muted/60 border border-dashed rounded-xl">
+            <div className="mt-12">
                 <CtaSection
-                    tagline="Have a project in mind? Let's figure out the best way to approach it."
-                    className="p-6 sm:justify-start"
+                    title="Let's work together."
+                    description="Have a project in mind? Reach out and we'll figure out the best way to approach it."
                 />
-            </section>
-        </>
+            </div>
+        </div>
     );
 }

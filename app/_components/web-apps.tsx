@@ -1,38 +1,39 @@
-"use client";
-
-import { useState } from "react";
+import Link from "next/link";
 import { projects } from "@/app/_data/projects";
-import ProjectDialog from "./project-dialog";
-import type { Project } from "@/app/_data/projects";
+import ProjectCard from "./project-card";
 
-const homeApps = projects.filter((p) => p.showOnHome).sort((a, b) => a.sort - b.sort);
+const homeProjects = projects.filter((p) => p.showOnHome).sort((a, b) => a.sort - b.sort).slice(0, 4);
 
 export default function WebApps() {
-    const [selected, setSelected] = useState<Project | null>(null);
-
     return (
-        <section className="section container-sm">
-            <h2 className="text-3xl font-bold text-center mb-10">Web Apps</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {homeApps.map((app) => (
-                    <button
-                        key={app.slug}
-                        onClick={() => setSelected(app)}
-                        className="flex items-center gap-4 border rounded-xl p-4 bg-white hover:shadow-md hover:border-foreground/20 transition-all text-left"
+        <section className="section-band section-rule bg-bg-soft" id="work">
+            <div className="mx-auto max-w-7xl">
+                <header className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+                    <div className="max-w-2xl">
+                        <p className="eyebrow">Projects</p>
+                        <h2 className="mt-4 text-[clamp(1.75rem,3vw,2.25rem)] font-semibold tracking-tight text-ink">
+                            Selected work
+                        </h2>
+                    </div>
+                    <Link
+                        href="/projects"
+                        className="group inline-flex items-center gap-1 text-[14px] font-medium text-ink transition-colors hover:text-brand-green"
                     >
-                        {app.logo && (
-                            // eslint-disable-next-line @next/next/no-img-element
-                            <img src={app.logo} alt={app.title} width={32} height={32} className="w-8 h-8 object-contain shrink-0" />
-                        )}
-                        <div>
-                            <p className="font-semibold text-sm">{app.title}</p>
-                            <p className="text-muted-foreground text-sm">{app.description}</p>
-                        </div>
-                    </button>
-                ))}
-            </div>
+                        All projects
+                        <span className="transition-transform duration-200 group-hover:translate-x-0.5" aria-hidden>
+                            →
+                        </span>
+                    </Link>
+                </header>
 
-            <ProjectDialog project={selected} onClose={() => setSelected(null)} />
+                <ul className="mt-10 grid gap-3 sm:grid-cols-2">
+                    {homeProjects.map((project) => (
+                        <li key={project.slug}>
+                            <ProjectCard project={project} variant="compact" />
+                        </li>
+                    ))}
+                </ul>
+            </div>
         </section>
     );
 }

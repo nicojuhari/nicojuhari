@@ -43,6 +43,11 @@
   --color-brand-green: var(--brand-green);
   --color-brand-rose: var(--brand-rose);
   --color-brand-dusty: var(--brand-dusty);
+  --color-bg-soft: var(--bg-soft);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-ink-muted: var(--ink-muted);
+  --color-rule: var(--rule);
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);
   --radius-lg: var(--radius);
@@ -53,24 +58,24 @@
 }
 
 :root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.22 0.015 258);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: #f9f9f9;
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
+  --background: #ffffff;
+  --foreground: #0a0a0a;
+  --card: #ffffff;
+  --card-foreground: #0a0a0a;
+  --popover: #ffffff;
+  --popover-foreground: #0a0a0a;
+  --primary: #16284d;
+  --primary-foreground: #ffffff;
+  --secondary: #fafafa;
+  --secondary-foreground: #0a0a0a;
+  --muted: #fafafa;
+  --muted-foreground: #737373;
+  --accent: #f5f5f5;
+  --accent-foreground: #0a0a0a;
   --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
+  --border: #e5e5e5;
+  --input: #e5e5e5;
+  --ring: #16284d;
   --chart-1: oklch(0.87 0 0);
   --chart-2: oklch(0.556 0 0);
   --chart-3: oklch(0.439 0 0);
@@ -80,6 +85,11 @@
   --brand-green: #1b998b;
   --brand-rose: #e072a4;
   --brand-dusty: #95818d;
+  --bg-soft: #fafafa;
+  --ink: #0a0a0a;
+  --ink-soft: #404040;
+  --ink-muted: #737373;
+  --rule: #e5e5e5;
   --radius: 0.625rem;
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
@@ -133,8 +143,13 @@
   * {
     @apply border-border outline-ring/50;
   }
+  html {
+    scrollbar-gutter: stable;
+  }
   body {
-    @apply bg-muted/40 text-foreground;
+    @apply relative overflow-x-hidden bg-bg-soft text-foreground antialiased;
+    background-image: radial-gradient(circle, rgb(0 0 0 / 0.045) 0.85px, transparent 0.85px);
+    background-size: 18px 18px;
   }
 }
 
@@ -143,21 +158,72 @@ button {
 }
 
 .container {
+  position: relative;
+  box-sizing: border-box;
   width: calc(100% - 2rem);
-  max-width: 1080px;
+  max-width: 1280px;
   margin-left: auto;
   margin-right: auto;
 }
 
 @layer components {
   .section {
-    @apply py-16 md:py-24;
+    @apply py-12 md:py-16;
+  }
+
+  .section-band {
+    @apply py-16 md:py-20;
+  }
+
+  .section-rule {
+    @apply border-t border-rule;
+  }
+
+  .eyebrow {
+    @apply font-mono text-[13px] font-semibold uppercase tracking-[0.18em] text-ink-muted;
   }
 
   .container-sm {
+    position: relative;
     width: calc(100% - 2rem);
     max-width: 768px;
     margin-left: auto;
     margin-right: auto;
+  }
+
+  .dot-grid {
+    background-image: radial-gradient(circle, rgb(0 0 0 / 0.045) 0.85px, transparent 0.85px);
+    background-size: 18px 18px;
+  }
+
+  .surface-card {
+    @apply rounded-2xl border border-rule bg-white transition-colors duration-200;
+  }
+
+  .surface-card-interactive {
+    @apply rounded-2xl border border-rule bg-white transition-colors duration-200 hover:border-ink/20 active:scale-[0.99];
+  }
+
+  .btn-pill {
+    @apply inline-flex items-center justify-center gap-1.5 rounded-full px-5 py-2.5 text-[14px] font-medium transition-[transform,background-color,color] duration-200 active:scale-[0.97];
+  }
+
+  .btn-pill-primary {
+    @apply inline-flex items-center justify-center gap-1.5 rounded-full bg-brand px-5 py-2.5 text-[14px] font-medium text-white transition-[transform,background-color,color] duration-200 hover:bg-brand/90 active:scale-[0.97];
+  }
+
+  .btn-pill-secondary {
+    @apply inline-flex items-center justify-center gap-1.5 rounded-full border border-rule bg-background px-5 py-2.5 text-[14px] font-medium text-ink transition-[transform,background-color,color] duration-200 hover:border-ink/25 active:scale-[0.97];
+  }
+}
+
+@keyframes hero-rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

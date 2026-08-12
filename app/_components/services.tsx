@@ -1,122 +1,59 @@
 import Link from "next/link";
-import { Check } from "lucide-react";
-import { Button } from "@/components/ui/button";
 
 const services = [
     {
-        label: "For teams & growing businesses",
-        title: "Custom Web Apps",
-        oneLiner: "When your business needs software that works exactly your way.",
-        features: [
-            "Dashboards & internal tools",
-            "Business process automation",
-            "Stripe payments & subscriptions",
-            "GPS tracking with Google Maps or Radar",
-            "Workflow and approval systems",
-            "AI integrations (OpenAI, Claude)",
-            "Custom reporting & data views",
-            "Notifications via Twilio or Resend",
-        ],
-        benefits: [
-            "One tool instead of patched-together spreadsheets",
-            "Less time on manual, repetitive work",
-            "Your team has the data it needs, when it needs it",
-            "Software built around how your business actually runs",
-        ],
+        title: "Custom web apps",
+        oneLiner:
+            "Replace spreadsheets and manual workflows with software your whole team can use - finance ops, dashboards, automation, AI where it helps.",
         href: "/services/custom-web-apps",
         cta: "Explore custom apps",
-        accent: "border-t-brand-green",
     },
     {
-        label: "For local & service businesses",
-        title: "Business Websites",
-        oneLiner: "A website that shows up in search, loads fast, and turns visitors into customers.",
-        features: [
-            "Business website design & redesign",
-            "Google Business Profile optimization",
-            "Local SEO setup",
-            "Booking integrations (Calendly, Cal.com)",
-            "Analytics & conversion tracking",
-            "Mobile-first, fast-loading pages",
-        ],
-        benefits: [
-            "Show up when people search locally",
-            "More inquiries, calls, and bookings",
-            "A site you're proud to share",
-            "Know what's working with real data",
-        ],
+        title: "Business websites",
+        oneLiner: "Fast, clear sites that show up in search and turn visitors into inquiries - built for how local businesses actually sell.",
         href: "/services/business-websites",
-        cta: "Explore business websites",
-        accent: "border-t-brand",
+        cta: "Explore websites",
     },
     {
-        label: "For online sellers & brands",
-        title: "Shopify Stores",
-        oneLiner: "A store built to sell - set up right, easy to manage, and ready to grow.",
-        features: [
-            "Full Shopify store setup",
-            "Product pages & collections",
-            "Klaviyo email marketing",
-            "Shipping & fulfillment integrations",
-            "Reviews with Judge.me or Okendo",
-            "Custom theme & app configuration",
-        ],
-        benefits: [
-            "An online store that's easy to manage",
-            "Customers who come back through email",
-            "A checkout experience that converts",
-            "Built on a platform that scales with you",
-        ],
+        title: "Shopify stores",
+        oneLiner: "Stores set up to sell: clean theme, payments, email, and a checkout path that doesn’t fight your customers.",
         href: "/services/shopify-stores",
-        cta: "Explore Shopify stores",
-        accent: "border-t-brand-rose",
+        cta: "Explore Shopify",
     },
 ];
 
 export default function Services() {
     return (
-        <section className="container section">
-            <h2 className="text-3xl font-bold text-center mb-10">Services</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
-                {services.map((service) => (
-                    <div key={service.title} className="flex flex-col border rounded-xl p-6 gap-8">
-                        <div>
-                            <p className="text-xs font-medium text-brand uppercase tracking-wide mb-6">{service.label}</p>
-                            <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
-                            <p className="text-muted-foreground text-sm leading-relaxed">{service.oneLiner}</p>
-                        </div>
+        <section className="section-band section-rule" id="services">
+            <div className="mx-auto max-w-7xl">
+                <header className="max-w-3xl">
+                    <p className="eyebrow">How I work with businesses</p>
+                    <h2 className="mt-4 text-[clamp(1.75rem,3vw,2.25rem)] font-semibold tracking-tight text-ink">
+                        Three clear ways to work together.
+                    </h2>
+                    <p className="mt-4 max-w-2xl text-[1.0625rem] leading-[1.6] text-ink-muted">
+                        Select consulting only - fixed-scope projects after we talk through the problem. Not hourly
+                        staff-aug by default.
+                    </p>
+                </header>
 
-                        <div className="flex-1 flex flex-col gap-5">
-                            <div>
-                                <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground mb-2">What I build</p>
-                                <ul className="flex flex-col gap-2">
-                                    {service.features.map((feature) => (
-                                        <li key={feature} className="flex items-center gap-2 text-sm">
-                                            <Check className="w-4 h-4 text-brand-green shrink-0" />
-                                            {feature}
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-
-                            <div>
-                                <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground mb-2">What you get</p>
-                                <ul className="flex flex-col gap-2">
-                                    {service.benefits.map((benefit) => (
-                                        <li key={benefit} className="flex items-start gap-2 text-sm">
-                                            <span className="w-1.5 h-1.5 rounded-full bg-brand-rose shrink-0 mt-1.5" />
-                                            <span>{benefit}</span>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-                        </div>
-
-                        <Button className="w-full mt-1" nativeButton={false} render={<Link href={service.href} />}>
-                            {service.cta}
-                        </Button>
-                    </div>
-                ))}
+                <ul className="mt-12 divide-y divide-rule border-y border-rule">
+                    {services.map((service) => (
+                        <li key={service.title} className="grid gap-4 py-8 md:grid-cols-[1fr_1.4fr_auto] md:items-center md:gap-8">
+                            <h3 className="text-lg font-semibold text-ink">{service.title}</h3>
+                            <p className="text-[15px] leading-relaxed text-ink-muted">{service.oneLiner}</p>
+                            <Link
+                                href={service.href}
+                                className="group inline-flex items-center gap-1 text-[14px] font-medium text-ink transition-colors hover:text-brand-green md:justify-end"
+                            >
+                                {service.cta}
+                                <span className="transition-transform duration-200 group-hover:translate-x-0.5" aria-hidden>
+                                    →
+                                </span>
+                            </Link>
+                        </li>
+                    ))}
+                </ul>
             </div>
         </section>
     );

@@ -16,15 +16,22 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-    title: { template: "%s", default: "Web Developer for Business Growth | Nicolae Cojuhari" },
+    title: { template: "%s", default: "Nicolae Cojuhari - Software Engineer · Finance · AI" },
     description:
-        "Web developer building local business websites, Shopify stores, and custom web apps - designed to get found, convert visitors, and grow revenue.",
+        "Software engineer with a finance background. I use AI to build financial and productivity apps for web and mobile - tools that replace spreadsheets and manual workflows.",
     metadataBase: new URL("https://nicojuhari.com"),
     openGraph: {
         type: "website",
         locale: "en_US",
         siteName: "Nicojuhari",
-        images: [{ url: "/nicojuhari-og-image.jpg", width: 1200, height: 630, alt: "Nicojuhari - Web Developer for Business Growth" }],
+        images: [
+            {
+                url: "/nicojuhari-og-image.jpg",
+                width: 1200,
+                height: 630,
+                alt: "Nicolae Cojuhari - Software Engineer · Finance · AI",
+            },
+        ],
     },
     twitter: {
         card: "summary_large_image",
@@ -47,7 +54,7 @@ export default function RootLayout({
             </head>
             <body className="min-h-full flex flex-col">
                 <Header />
-                <main className="flex-1">{children}</main>
+                <main className="min-w-0 flex-1 overflow-x-hidden pt-16 sm:pt-20">{children}</main>
                 <Footer />
             </body>
         </html>

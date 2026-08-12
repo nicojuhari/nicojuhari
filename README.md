@@ -1,8 +1,8 @@
 # Hi, I'm Nick 👋
 
-**Software Engineer** — I build websites and web apps that help businesses grow.
+**Software Engineer** - I build websites and web apps that help businesses grow.
 
-8+ years of experience delivering fast, pixel-perfect, and SEO-friendly products — from custom Shopify storefronts to full-stack JavaScript applications.
+8+ years of experience delivering fast, pixel-perfect, and SEO-friendly products - from custom Shopify storefronts to full-stack JavaScript applications.
 
 ---
 

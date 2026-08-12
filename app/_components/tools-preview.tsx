@@ -13,34 +13,48 @@ const iconMap: Record<string, React.FC<{ className?: string }>> = {
     "bill-split-calculator": DollarSign,
 };
 
-function ToolCard({ tool }: { tool: Tool }) {
+function ToolRow({ tool }: { tool: Tool }) {
     const Icon = iconMap[tool.slug];
     return (
         <Link
             href={`/tools/${tool.slug}`}
-            className="flex items-center gap-4 border rounded-xl p-4 bg-white hover:shadow-md hover:border-foreground/20 transition-all"
+            className="group flex items-center gap-3 border-t border-rule py-4 transition-colors first:border-t-0 hover:text-brand-green"
             title={tool.title}
         >
-            {Icon && <Icon className="w-6 h-6 shrink-0 text-brand-green" />}
-            <div>
-                <p className="font-semibold text-sm">{tool.title}</p>
-                <p className="text-muted-foreground text-sm">{tool.description}</p>
-            </div>
+            {Icon && <Icon className="size-4 shrink-0 text-ink-muted transition-colors group-hover:text-brand-green" />}
+            <span className="text-sm font-medium text-ink group-hover:text-brand-green">{tool.title}</span>
+            <span className="hidden text-sm text-ink-muted sm:inline">- {tool.description}</span>
         </Link>
     );
 }
 
 export default function ToolsPreview() {
     return (
-        <section className="section container-sm">
-            <div className="text-center mb-10">
-                <h2 className="text-3xl font-bold mb-2">Simple Tools</h2>
-                <p className="text-muted-foreground">Built for me, sharing with you.</p>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {tools.map((tool) => (
-                    <ToolCard key={tool.slug} tool={tool} />
-                ))}
+        <section className="section-band section-rule" id="tools">
+            <div className="mx-auto max-w-7xl">
+                <header className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+                    <div className="max-w-2xl">
+                        <p className="eyebrow">Free tools</p>
+                        <h2 className="mt-4 text-[clamp(1.75rem,3vw,2.25rem)] font-semibold tracking-tight text-ink">
+                            Small utilities I built and share.
+                        </h2>
+                    </div>
+                    <Link
+                        href="/tools"
+                        className="group inline-flex items-center gap-1 text-[14px] font-medium text-ink transition-colors hover:text-brand-green"
+                    >
+                        All tools
+                        <span className="transition-transform duration-200 group-hover:translate-x-0.5" aria-hidden>
+                            →
+                        </span>
+                    </Link>
+                </header>
+
+                <div className="mt-8 max-w-3xl border-y border-rule">
+                    {tools.slice(0, 5).map((tool) => (
+                        <ToolRow key={tool.slug} tool={tool} />
+                    ))}
+                </div>
             </div>
         </section>
     );

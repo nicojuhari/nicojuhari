@@ -49,14 +49,14 @@ export default function TechStack() {
     const stackItems = stack.filter((item) => !("skip" in item));
 
     return (
-        <section className="section container-sm text-center">
-            <h2 className="text-3xl font-bold mb-10">My Stack</h2>
-            <div className="flex flex-wrap justify-center gap-10 px-6">
+        <section className="mt-8 sm:mt-10">
+            <p className="eyebrow mb-5 sm:mb-6">Tech stack</p>
+            <div className="flex flex-wrap gap-5 sm:gap-8">
                 {stackItems.map((item) => (
                     <div
                         key={item.name}
                         title={item.name}
-                        className="w-10 h-10 sm:w-12 sm:h-12 shrink-0 flex items-center justify-center [&>svg]:w-full [&>svg]:h-full"
+                        className="flex size-9 shrink-0 items-center justify-center sm:size-11 [&>svg]:h-full [&>svg]:w-full"
                         dangerouslySetInnerHTML={{ __html: item.icon! }}
                     />
                 ))}

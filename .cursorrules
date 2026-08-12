@@ -1,0 +1,88 @@
+# Front-End & Full-Stack Tech Stack Rules
+
+## Role & System Profile
+
+You are an expert, senior full-stack developer specializing in Next.js 14+ (App Router), React, TypeScript, Tailwind CSS, Shadcn UI, and modern backend-as-a-service platforms (Supabase/Firebase). You write clean, maintainable, scalable, and highly secure code. You prioritize beautiful UX/UI, security and performance.
+
+This is a simple personal website for a Software Engineer - portfolio website
+
+Everything should be intuitive and easy to find.
+Premium look, with minimum shadows, borders and not 50 shades of grey (for text, lines, ...)
+Use a design system/rules and not style the same type of element individually.
+Very optimised for mobile,
+With nice and small motions for interactivity.
+
+Use shacdn UI prebuilt components/libraries, the most popular can be found here: https://ui.shadcn.com/docs/directory and https://shadcnstudio.com/ components and blocks.
+
+Please follow these instructions when working on this project:
+
+Use zod for validation.
+All the code must be written in TypeScript.
+Use lucide-react package for icons
+
+Before you create any new function, check if doesn't exist already or can be modified a little bit to be reused, by passing the argumanets/configs.
+
+---
+
+## 1. Core Principles & Philosophy
+
+- **Scannability over Bloat**: Avoid massive, unreadable blocks of inline Tailwind classes. Leverage Shadcn UI conventions, CSS variables, and utility abstractions.
+- **Component Driven Architecture**: Build small, single-responsibility reusable components.
+- **Strict Logic Separation**: Separate UI/presentation layout from data-fetching, complex form logic, and state management.
+- **Defensive Programming**: Always assume operations can fail. Gracefully handle errors, loading states, and network timeouts.
+
+---
+
+## 2. Next.js & React Best Practices
+
+- **App Router Routing**: Use directory-based routing (`app/`). Leverage `layout.tsx`, `page.tsx`, `loading.tsx`, and `error.tsx` naturally.
+- **Server vs. Client Components**:
+    - Default to **Server Components** (`RSC`) for data fetching, static layouts, and SEO performance.
+    - Use **Client Components** (`"use client"`) _only_ when interactivity is strictly required (hooks like `useState`, `useEffect`, or Framer Motion animations).
+- **Data Fetching**: Use native `fetch` with Next.js caching configurations (`revalidate`, `tags`) or SDK specific equivalents.
+- **Server Actions**: Use Server Actions for mutations (POST, PUT, DELETE) and wrap them inside Form/Action states. Keep actions inside an `actions/` or `app/actions.ts` folder.
+
+---
+
+## 3. UI, Tailwind CSS & Shadcn UI Guidelines
+
+- **Shadcn UI First**: Never write custom complex primitives (modals, dropdowns, comboboxes) from scratch. Install and extend `@/components/ui/` from the Shadcn ecosystem.
+- **Minimize Class Bloat**:
+    - Rely on theme-defined tokens (`bg-background`, `text-foreground`, `border-border`, `rounded-lg`).
+    - Use the `cn()` utility function (`@/lib/utils`) to merge conditional classes cleanly.
+    - For heavily repetitive layouts, create lightweight UI wrapper primitives instead of duplicating 15 Tailwind classes.
+- **Dashboards & Layouts**:
+    - Design with modern, high-end "SaaS dashboard" aesthetics (subtle borders, muted text for secondary info, proper spacing, crisp grid systems).
+    - Include functional responsive states for mobile/tablet sidebars or viewports.
+
+---
+
+## 4. Animation Guidelines (Framer Motion & GSAP)
+
+- **Framer Motion**: Prefer Framer Motion for layout transitions, micro-interactions, page entries, and UI-state changes (e.g., AnimatePresence for item deletions).
+- **GSAP**: Use GSAP strictly for heavy orchestration, scroll-driven timelines, multi-step landing page sequences, or complex SVG animations.
+- **Performance**: Ensure animations do not trigger layout thrashing. Use `transform` (x, y, scale) and `opacity` properties. Always include `will-change` for complex 3D transformations.
+
+---
+
+## 5. State Management & Asynchronous Feedback
+
+- **Global vs. Local**: Use local React state or URL params (`searchParams`) for UI/filtering states. Use dedicated context or state-libraries only if global sync is mandatory.
+- **Explicit Feedback States**: Every async action or mutation must cleanly handle three distinct user feedback states:
+    - **Success**: Positive toast/banner notifying completion.
+    - **Error**: Clear, non-technical context on failure with a retry or recovery mechanism.
+    - **Warning**: Validation blocks or warnings before destructive actions (e.g., deleting data).
+- **Sonner Toast**: Prefer Shadcn UI's `sonner` or `toast` for instantaneous notifications.
+
+
+
+---
+
+## 7. Code Formatting & Constraints
+
+- **Language**: TypeScript only. Avoid `any`. Use strict interfaces or types for all component props and backend data shapes.
+- **Naming Conventions**:
+    - PascalCase for Components (`DashboardSidebar.tsx`).
+    - camelCase for hooks, utilities, and helper functions (`useAuth.ts`).
+    - Kebab-case for folders/routing (`/settings/billing-plans`).
+- **Clean Structure**: Write declarative, readable code. Include concise inline documentation for highly complex logical flows, mathematical operations, or complex animation parameters.

@@ -11,11 +11,13 @@ export const metadata: Metadata = {
 
 export default function ProjectsPage() {
     return (
-        <div className="section container">
-            <div className="mb-10">
-                <h1 className="text-4xl font-bold mb-3">Projects</h1>
-                <p className="text-muted-foreground text-lg">A selection of web apps and tools I&apos;ve built.</p>
-            </div>
+        <div className="container py-6 sm:py-10">
+            <header className="mb-10 max-w-2xl">
+                <h1 className="text-[clamp(1.75rem,3vw,2.5rem)] font-semibold tracking-tight text-ink">Projects</h1>
+                <p className="mt-4 text-[1.0625rem] leading-relaxed text-ink-muted">
+                    Apps and websites I&apos;ve built - for clients and as products of my own.
+                </p>
+            </header>
             <ProjectsFilter projects={projects} />
         </div>
     );

@@ -1,4 +1,4 @@
-# Keyword Plan — nicojuhari.com
+# Keyword Plan - nicojuhari.com
 
 ## Last Updated
 2026-06-22 by /keyword-research
@@ -7,7 +7,7 @@
 - Offer: Custom web applications that replace Excel and manual business processes (Excel Killer / business automation). Add-ons: SMB websites, Shopify, restaurant sites, CRO.
 - Audience: SME owners, operations managers, finance directors running critical processes in Excel. Also: businesses in Vienna/Austria locally.
 - Goal: Attract clients + build authority (IT and Finance/Business)
-- Positioning: The Finance-Fluent Developer — understands the business problem before writing code. Finance degree + development skills.
+- Positioning: The Finance-Fluent Developer - understands the business problem before writing code. Finance degree + development skills.
 
 ## Research Summary
 - Seeds generated: 28
@@ -24,7 +24,7 @@
 
 | Competitor | Positioning | Content Strength | Gap to Exploit |
 |-----------|-------------|-----------------|---------------|
-| i3solutions | "Transform Excel into Enterprise Web Apps" | Strong — dedicated service pages | Enterprise focus; no personal brand; no finance expertise angle |
+| i3solutions | "Transform Excel into Enterprise Web Apps" | Strong - dedicated service pages | Enterprise focus; no personal brand; no finance expertise angle |
 | Knack | No-code platform; "Build apps from your data" | Very strong blog | Platform, not custom dev; no domain expertise |
 | Laramate | "Replacing Excel with custom software for SMEs" | Moderate | Generic; no finance expertise; no case study proof |
 | Upwork/Freelancers | Price-based; no differentiation | Minimal | Compete on price only; no narrative |
@@ -32,20 +32,20 @@
 
 **White space confirmed by SERP:**
 - No personal brand developer ranks for Excel replacement content with a finance expertise angle
-- "Hire a developer to convert my Excel to a web app" returns Upwork listings — no guide from developer POV
-- Long-tail "signs your Excel is a business risk" — content exists but from enterprise/generic angle, not SMB-focused
-- Vienna/Austria local searches return agencies on Clutch — personal brand developer is invisible locally
+- "Hire a developer to convert my Excel to a web app" returns Upwork listings - no guide from developer POV
+- Long-tail "signs your Excel is a business risk" - content exists but from enterprise/generic angle, not SMB-focused
+- Vienna/Austria local searches return agencies on Clutch - personal brand developer is invisible locally
 
 ---
 
 ## Pillar Overview
 
-### Pillar 1: Excel Killer / Business Automation — Priority: CRITICAL
+### Pillar 1: Excel Killer / Business Automation - Priority: CRITICAL
 **Validation:**
-- Search volume: PASS — active SERPs, Knack/i3solutions investing heavily here
-- Market-centric: PASS — "replace Excel with web app" is exactly what prospects search
-- Competitive: PASS for long-tail — no-code platforms dominate generic terms but custom dev + finance angle is unrepresented
-- Proprietary advantage: YES — real case study (consumer finance loan app) + finance degree
+- Search volume: PASS - active SERPs, Knack/i3solutions investing heavily here
+- Market-centric: PASS - "replace Excel with web app" is exactly what prospects search
+- Competitive: PASS for long-tail - no-code platforms dominate generic terms but custom dev + finance angle is unrepresented
+- Proprietary advantage: YES - real case study (consumer finance loan app) + finance degree
 
 **Core cluster: Excel replacement**
 
@@ -69,12 +69,12 @@
 
 ---
 
-### Pillar 2: Finance + Tech Authority — Priority: HIGH
+### Pillar 2: Finance + Tech Authority - Priority: HIGH
 **Validation:**
 - Search volume: PASS for AI finance content; MIXED for developer-career angle
-- Market-centric: PASS — prospects and social audiences search for this
-- Competitive: WINNABLE for long-tail — Quora/Reddit dominate "finance degree + developer" searches, which means no definitive article exists
-- Proprietary advantage: YES — only perspective that has actually lived both sides
+- Market-centric: PASS - prospects and social audiences search for this
+- Competitive: WINNABLE for long-tail - Quora/Reddit dominate "finance degree + developer" searches, which means no definitive article exists
+- Proprietary advantage: YES - only perspective that has actually lived both sides
 
 **Core cluster: Finance × Technology thought leadership**
 
@@ -93,12 +93,12 @@
 
 ---
 
-### Pillar 3: Business Automation + AI (Trending) — Priority: HIGH
+### Pillar 3: Business Automation + AI (Trending) - Priority: HIGH
 **Validation:**
-- Search volume: PASS — extremely active topic
+- Search volume: PASS - extremely active topic
 - Market-centric: PASS
 - Competitive: HARD for generic; WINNABLE with custom/SMB angle
-- Proprietary advantage: PARTIAL — finance + dev angle differentiates
+- Proprietary advantage: PARTIAL - finance + dev angle differentiates
 
 | Cluster | Priority | Intent | Content Type | Status |
 |---------|----------|--------|--------------|--------|
@@ -108,12 +108,12 @@
 
 ---
 
-### Pillar 4: Local / Vienna / DACH — Priority: MEDIUM
+### Pillar 4: Local / Vienna / DACH - Priority: MEDIUM
 **Validation:**
-- Search volume: LOWER — local market, not high volume
+- Search volume: LOWER - local market, not high volume
 - Market-centric: PASS for local searches
-- Competitive: WINNABLE — Clutch agency listings dominate, no personal brand developer
-- Proprietary advantage: YES — actually based in Vienna
+- Competitive: WINNABLE - Clutch agency listings dominate, no personal brand developer
+- Proprietary advantage: YES - actually based in Vienna
 
 | Cluster | Priority | Intent | Content Type | Status |
 |---------|----------|--------|--------------|--------|
@@ -171,11 +171,11 @@
   → Primary keyword: *AI automation custom software SMB*
   → Brief: TBD
 
-- Week 11: **Case Study Expanded — Consumer Finance Loan App**
+- Week 11: **Case Study Expanded - Consumer Finance Loan App**
   → Primary keyword: *loan management web application small business*
   → Brief: TBD
 
-- Week 12: Local landing page — Vienna / Austria
+- Week 12: Local landing page - Vienna / Austria
 
 ---
 

@@ -24,7 +24,15 @@ export function professionalServiceSchema() {
             addressCountry: "AT",
         },
         areaServed: "Worldwide",
-        knowsAbout: ["Web Development", "Shopify", "Next.js", "React", "Custom Web Apps"],
+        knowsAbout: [
+            "Financial Software",
+            "Management Apps",
+            "Productivity Apps",
+            "Custom Web Apps",
+            "Next.js",
+            "React",
+            "Mobile Web Apps",
+        ],
     };
 }
 

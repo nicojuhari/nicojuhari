@@ -78,7 +78,7 @@ const steps = [
 
 export default function ShopifyStoresPage() {
     return (
-        <>
+        <div className="container py-6 sm:py-10">
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
@@ -103,60 +103,58 @@ export default function ShopifyStoresPage() {
                     ),
                 }}
             />
-            <section className="container-sm my-10">
-                <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground mb-4">Service</p>
-                <h1 className="text-4xl sm:text-5xl font-bold mb-5 leading-tight">A store built to sell.</h1>
-                <p className="text-lg text-muted-foreground leading-relaxed max-w-xl">
+
+            <header className="mb-10 max-w-2xl">
+                <p className="eyebrow">Service</p>
+                <h1 className="mt-3 text-[clamp(1.75rem,3vw,2.5rem)] font-semibold tracking-tight text-ink">A store built to sell.</h1>
+                <p className="mt-4 text-[1.0625rem] leading-relaxed text-ink-muted">
                     Set up right, easy to manage, and built to grow. Whether you&apos;re starting from scratch or improving what you have,
                     the goal is a store your customers trust and keep coming back to.
                 </p>
-            </section>
-            <section className="container-sm my-10 bg-muted/60 border border-dashed rounded-xl">
-                <CtaSection className="p-6 sm:justify-start" />
-            </section>
-            <section className="container-sm my-10">
-                <h2 className="text-2xl font-bold mb-2">Is this for you?</h2>
-                <p className="text-sm text-muted-foreground mb-6">You might be a good fit if any of these sound familiar:</p>
+            </header>
+
+            <section className="mb-12">
+                <h2 className="text-2xl font-semibold tracking-tight text-ink">Is this for you?</h2>
+                <p className="mt-2 mb-6 text-sm text-ink-muted">You might be a good fit if any of these sound familiar:</p>
                 <ul className="flex flex-col gap-3">
                     {forYouIf.map((item) => (
-                        <li key={item} className="flex items-start gap-3">
-                            <Check className="w-4 h-4 text-primary shrink-0 mt-0.5" />
-                            <span className="text-sm leading-relaxed">{item}</span>
+                        <li key={item} className="flex items-start gap-3 text-sm text-ink">
+                            <Check className="mt-0.5 h-4 w-4 shrink-0 text-brand-green" />
+                            <span className="leading-relaxed">{item}</span>
                         </li>
                     ))}
                 </ul>
             </section>
 
-            <section className="container-sm my-10">
-                <h2 className="text-2xl font-bold mb-2">What I build</h2>
-                <p className="text-sm text-muted-foreground mb-6">Depending on your needs, here&apos;s what the work typically covers:</p>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <section className="mb-12">
+                <h2 className="text-2xl font-semibold tracking-tight text-ink">What I build</h2>
+                <p className="mt-2 mb-6 text-sm text-ink-muted">Depending on your needs, here&apos;s what the work typically covers:</p>
+                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                     {deliverables.map((item) => (
-                        <div key={item.title} className="border rounded-xl p-5 bg-white">
-                            <h3 className="font-semibold mb-1.5">{item.title}</h3>
-                            <p className="text-sm text-muted-foreground leading-relaxed">{item.description}</p>
+                        <div key={item.title} className="surface-card p-5">
+                            <h3 className="font-semibold text-ink">{item.title}</h3>
+                            <p className="mt-1.5 text-sm leading-relaxed text-ink-muted">{item.description}</p>
                         </div>
                     ))}
                 </div>
             </section>
 
-            <section className="container-sm my-10">
-                <h2 className="text-2xl font-bold mb-8">How it works</h2>
+            <section className="mb-12">
+                <h2 className="mb-8 text-2xl font-semibold tracking-tight text-ink">How it works</h2>
                 <div className="flex flex-col gap-8">
                     {steps.map((step) => (
                         <div key={step.number} className="flex gap-5">
-                            <span className="text-3xl font-bold text-muted-foreground/25 leading-none shrink-0 w-10">{step.number}</span>
+                            <span className="w-10 shrink-0 text-3xl font-bold leading-none text-ink-muted/30">{step.number}</span>
                             <div>
-                                <h3 className="font-semibold mb-1">{step.title}</h3>
-                                <p className="text-sm text-muted-foreground leading-relaxed">{step.description}</p>
+                                <h3 className="font-semibold text-ink">{step.title}</h3>
+                                <p className="mt-1 text-sm leading-relaxed text-ink-muted">{step.description}</p>
                             </div>
                         </div>
                     ))}
                 </div>
             </section>
-            <section className="container-sm my-10 bg-muted/60 border border-dashed rounded-xl">
-                <CtaSection className="p-6 sm:justify-start" />
-            </section>
-        </>
+
+            <CtaSection description="Tell me about your products and what you want the store to do. We'll figure out the rest from there." />
+        </div>
     );
 }
