@@ -64,16 +64,16 @@ export default function ProfilePanel() {
                         <span className="block text-2xl font-semibold leading-tight tracking-tight text-ink sm:text-[2rem]">
                             Nicolae Cojuhari
                         </span>
-                        <span className="mt-2 block text-[14px] font-medium leading-snug text-ink-soft sm:text-[15px]">
+                        <span className="mt-2 block text-sm font-medium leading-snug text-ink-soft">
                             Software Engineer <span className="text-brand-green">·</span> Finance{" "}
                             <span className="text-brand-green">·</span> AI
                         </span>
                     </h1>
 
-                    <p className="mt-4 text-[14px] leading-relaxed text-ink-muted sm:mt-5 sm:text-[15px]">
+                    <p className="mt-4 leading-relaxed text-ink-muted sm:mt-5">
                         Software engineer with a finance background. I use AI to build{" "}
                         <span className="font-medium text-ink">financial</span> and{" "}
-                        <span className="font-medium text-ink">productivity</span> apps that replace spreadsheets and
+                        <span className="font-medium text-ink">business</span> apps that replace spreadsheets and
                         manual workflows.
                     </p>
 

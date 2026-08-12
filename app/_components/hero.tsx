@@ -22,7 +22,7 @@ export default function Hero() {
                         </span>
                     </h1>
 
-                    <p className="mt-6 max-w-xl text-[1.125rem] leading-[1.6] text-ink-muted">
+                    <p className="mt-6 max-w-xl leading-[1.6] text-ink-muted">
                         <span className="font-medium text-ink">15 years inside a consumer credit company.</span> A finance
                         degree. Full-stack engineering. I build software that understands the business problem - and ships
                         it securely, with AI where it earns its place.
@@ -31,7 +31,7 @@ export default function Hero() {
                     <div className="mt-9 flex flex-wrap items-center gap-x-6 gap-y-3">
                         <Link
                             href="#contact"
-                            className="group inline-flex items-center gap-1.5 rounded-full bg-brand px-6 py-3 text-[14px] font-medium text-white transition-[transform,background-color] duration-200 hover:bg-brand/90 active:scale-[0.97]"
+                            className="group inline-flex items-center gap-1.5 rounded-full bg-brand px-6 py-3 text-sm font-medium text-white transition-[transform,background-color] duration-200 hover:bg-brand/90 active:scale-[0.97]"
                         >
                             Open to full-time roles
                             <span className="transition-transform duration-200 group-hover:translate-x-0.5" aria-hidden>
@@ -40,7 +40,7 @@ export default function Hero() {
                         </Link>
                         <Link
                             href="#services"
-                            className="group inline-flex items-center gap-1.5 text-[14px] font-medium text-ink transition-colors hover:text-brand-green"
+                            className="group inline-flex items-center gap-1.5 text-sm font-medium text-ink transition-colors hover:text-brand-green"
                         >
                             Select consulting projects
                             <span className="transition-transform duration-200 group-hover:translate-x-0.5" aria-hidden>
@@ -49,7 +49,7 @@ export default function Hero() {
                         </Link>
                     </div>
 
-                    <p className="mt-10 font-mono text-[14px] text-ink-muted">Vienna · Replies within 24h · M–F</p>
+                    <p className="mt-10 font-mono text-sm text-ink-muted">Vienna · Replies within 24h · M–F</p>
                 </div>
 
                 <div className="relative mx-auto w-full max-w-md lg:max-w-none">

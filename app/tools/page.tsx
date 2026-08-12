@@ -14,7 +14,7 @@ export default function ToolsPage() {
         <div>
             <header className="mb-8">
                 <h1 className="text-[clamp(1.75rem,3vw,2.25rem)] font-semibold tracking-tight text-ink">Simple Tools</h1>
-                <p className="mt-2 text-[1.0625rem] text-ink-muted">Built for me, sharing with you.</p>
+                <p className="mt-2 text-ink-muted">Built for me, sharing with you.</p>
             </header>
 
             <ul className="grid gap-3 sm:grid-cols-2">

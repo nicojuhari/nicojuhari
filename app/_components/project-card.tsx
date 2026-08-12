@@ -11,7 +11,7 @@ type Props = {
 };
 
 function ProjectLogo({ project, size = "md" }: { project: Project; size?: "sm" | "md" }) {
-    const box = size === "sm" ? "size-8 text-[10px]" : "size-10 text-[12px]";
+    const box = size === "sm" ? "size-8 text-xs" : "size-10 text-xs";
     const img = size === "sm" ? "size-8" : "size-10";
 
     if (project.logo) {
@@ -61,7 +61,7 @@ export default function ProjectCard({ project, variant = "full", className }: Pr
                             <ExternalLinkIcon className="size-3.5" aria-hidden />
                         </a>
                     ) : (
-                        <span className="shrink-0 text-[11px] font-medium text-ink-muted">Discontinued</span>
+                        <span className="shrink-0 text-xs font-medium text-ink-muted">Discontinued</span>
                     )}
                 </div>
                 <p className="line-clamp-2 text-xs leading-relaxed text-ink-muted">{project.description}</p>
@@ -79,20 +79,20 @@ export default function ProjectCard({ project, variant = "full", className }: Pr
             </div>
 
             <div className="mt-3 flex flex-wrap items-center gap-2">
-                <span className="text-[13px] text-ink-muted">
+                <span className="text-xs text-ink-muted">
                     {typeLabel[project.type]} · {project.year}
                 </span>
                 {project.client && (
-                    <span className="rounded-full bg-brand-green/10 px-2.5 py-0.5 text-[11px] font-medium text-brand-green">
+                    <span className="rounded-full bg-brand-green/10 px-2.5 py-0.5 text-xs font-medium text-brand-green">
                         Built for a client
                     </span>
                 )}
                 {isLive ? (
-                    <span className="rounded-full bg-brand-green/10 px-2.5 py-0.5 text-[11px] font-medium text-brand-green">
+                    <span className="rounded-full bg-brand-green/10 px-2.5 py-0.5 text-xs font-medium text-brand-green">
                         Live
                     </span>
                 ) : (
-                    <span className="rounded-full bg-ink/5 px-2.5 py-0.5 text-[11px] font-medium text-ink-muted">
+                    <span className="rounded-full bg-ink/5 px-2.5 py-0.5 text-xs font-medium text-ink-muted">
                         Discontinued
                     </span>
                 )}
@@ -107,7 +107,7 @@ export default function ProjectCard({ project, variant = "full", className }: Pr
                 {project.stack.map((tech) => (
                     <span
                         key={tech}
-                        className="rounded-full bg-bg-soft px-2.5 py-0.5 text-[11px] font-medium text-ink-muted"
+                        className="rounded-full bg-bg-soft px-2.5 py-0.5 text-xs font-medium text-ink-muted"
                     >
                         {tech}
                     </span>
@@ -119,7 +119,7 @@ export default function ProjectCard({ project, variant = "full", className }: Pr
                     href={project.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-5 inline-flex w-fit items-center gap-1.5 text-[13px] font-medium text-ink transition-colors hover:text-brand-green"
+                    className="mt-5 inline-flex w-fit items-center gap-1.5 text-xs font-medium text-ink transition-colors hover:text-brand-green"
                 >
                     Visit {project.title}
                     <ExternalLinkIcon className="size-3.5" aria-hidden />

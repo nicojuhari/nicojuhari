@@ -12,11 +12,11 @@ export const SITE_TITLE = "Nicolae Cojuhari - Software Engineer · Finance · AI
  * Current: 142 chars.
  */
 export const SITE_DESCRIPTION =
-    "Software engineer with a finance background. I use AI to build financial and productivity apps that replace spreadsheets and manual workflows.";
+    "Software engineer with a finance background. I use AI to build financial and business apps that replace spreadsheets and manual workflows.";
 
 /** Short profile bio (sidebar) - matches brand/positioning.md */
 export const SITE_BIO =
-    "Software engineer with a finance background. I use AI to build financial and productivity apps that replace spreadsheets and manual workflows.";
+    "Software engineer with a finance background. I use AI to build financial and business apps that replace spreadsheets and manual workflows.";
 
 export const SOCIAL_LINKS = [
     "https://www.linkedin.com/in/nicojuhari/",

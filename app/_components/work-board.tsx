@@ -20,7 +20,7 @@ export default function WorkBoard() {
                     <SectionLabel>Projects</SectionLabel>
                     <Link
                         href="/projects"
-                        className="shrink-0 text-[13px] font-medium text-ink-muted transition-colors hover:text-ink"
+                        className="shrink-0 text-xs font-medium text-ink-muted transition-colors hover:text-ink"
                     >
                         All projects →
                     </Link>
@@ -39,7 +39,7 @@ export default function WorkBoard() {
                     <SectionLabel>Tools</SectionLabel>
                     <Link
                         href="/tools"
-                        className="shrink-0 text-[13px] font-medium text-ink-muted transition-colors hover:text-ink"
+                        className="shrink-0 text-xs font-medium text-ink-muted transition-colors hover:text-ink"
                     >
                         All tools →
                     </Link>

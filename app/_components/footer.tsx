@@ -12,10 +12,11 @@ export default function Footer() {
     return (
         <footer className="border-t border-rule bg-background py-8 sm:py-10">
             <div className="container flex flex-col items-center gap-5 text-center sm:flex-row sm:items-center sm:justify-between sm:gap-6 sm:text-left">
-                <div className="space-y-1">
-                    <p className="text-sm text-ink-muted">© {year} Nicolae Cojuhari</p>
-                    <p className="text-[13px] text-ink-muted/80">Software Engineer · Finance · AI</p>
-                </div>
+                <p className="text-sm text-ink-muted">
+                    © {year} Nicolae Cojuhari
+                    <br />
+                    <span className="text-xs text-ink-muted/80">Software Engineer · Finance · AI</span>
+                </p>
 
                 <nav className="flex items-center gap-1 text-sm">
                     {links.map(({ href, label }, i) => (

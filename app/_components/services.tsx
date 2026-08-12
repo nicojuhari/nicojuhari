@@ -31,7 +31,7 @@ export default function Services() {
                     <h2 className="mt-4 text-[clamp(1.75rem,3vw,2.25rem)] font-semibold tracking-tight text-ink">
                         Three clear ways to work together.
                     </h2>
-                    <p className="mt-4 max-w-2xl text-[1.0625rem] leading-[1.6] text-ink-muted">
+                    <p className="mt-4 max-w-2xl leading-[1.6] text-ink-muted">
                         Select consulting only - fixed-scope projects after we talk through the problem. Not hourly
                         staff-aug by default.
                     </p>
@@ -41,10 +41,10 @@ export default function Services() {
                     {services.map((service) => (
                         <li key={service.title} className="grid gap-4 py-8 md:grid-cols-[1fr_1.4fr_auto] md:items-center md:gap-8">
                             <h3 className="text-lg font-semibold text-ink">{service.title}</h3>
-                            <p className="text-[15px] leading-relaxed text-ink-muted">{service.oneLiner}</p>
+                            <p className="text-sm leading-relaxed text-ink-muted">{service.oneLiner}</p>
                             <Link
                                 href={service.href}
-                                className="group inline-flex items-center gap-1 text-[14px] font-medium text-ink transition-colors hover:text-brand-green md:justify-end"
+                                className="group inline-flex items-center gap-1 text-sm font-medium text-ink transition-colors hover:text-brand-green md:justify-end"
                             >
                                 {service.cta}
                                 <span className="transition-transform duration-200 group-hover:translate-x-0.5" aria-hidden>

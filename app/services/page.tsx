@@ -124,7 +124,7 @@ export default function ServicesPage() {
                 <h1 className="mt-3 text-[clamp(1.75rem,3vw,2.5rem)] font-semibold tracking-tight text-ink">
                     The right kind of web presence for what you&apos;re building.
                 </h1>
-                <p className="mt-4 text-[1.0625rem] leading-relaxed text-ink-muted">
+                <p className="mt-4 leading-relaxed text-ink-muted">
                     Whether you need customers to find you, a store that sells, or software your team can actually use - the work starts
                     with understanding your problem. Not a template.
                 </p>

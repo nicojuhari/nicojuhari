@@ -12,9 +12,10 @@ export default function AboutSection() {
                     because I like to build: solving real problems and automating workflows.
                 </p>
                 <p>
-                    Today I build financial and productivity apps for web and mobile. AI is the tool I use most -
-                    for shipping faster, thinking through problems, and making products smarter when it actually
-                    helps. Next.js, React, Supabase: the stack I use day to day.
+                    Today I build financial and business apps for web and mobile - plus business websites, landing
+                    pages, and ecommerce / Shopify stores. AI is the tool I use most - for shipping faster, thinking
+                    through problems, and making products smarter when it actually helps. Next.js, React, Supabase:
+                    the stack I use day to day.
                 </p>
                 <p>
                     Outside of work I ski and play basketball. If you have a project and need someone who

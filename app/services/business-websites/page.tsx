@@ -107,7 +107,7 @@ export default function BusinessWebsitesPage() {
                 <h1 className="mt-3 text-[clamp(1.75rem,3vw,2.5rem)] font-semibold tracking-tight text-ink">
                     Websites that bring in customers.
                 </h1>
-                <p className="mt-4 text-[1.0625rem] leading-relaxed text-ink-muted">
+                <p className="mt-4 leading-relaxed text-ink-muted">
                     A good website isn&apos;t just online presence - it&apos;s your hardest-working salesperson. It shows up in search,
                     loads fast on mobile, and makes it easy for people to take the next step.
                 </p>

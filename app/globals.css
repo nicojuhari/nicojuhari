@@ -180,7 +180,7 @@ button {
   }
 
   .eyebrow {
-    @apply font-mono text-[13px] font-semibold uppercase tracking-[0.18em] text-ink-muted;
+    @apply font-mono text-xs font-semibold uppercase tracking-[0.18em] text-ink-muted;
   }
 
   .container-sm {
@@ -205,15 +205,15 @@ button {
   }
 
   .btn-pill {
-    @apply inline-flex items-center justify-center gap-1.5 rounded-full px-5 py-2.5 text-[14px] font-medium transition-[transform,background-color,color] duration-200 active:scale-[0.97];
+    @apply inline-flex items-center justify-center gap-1.5 rounded-full px-5 py-2.5 text-sm font-medium transition-[transform,background-color,color] duration-200 active:scale-[0.97];
   }
 
   .btn-pill-primary {
-    @apply inline-flex items-center justify-center gap-1.5 rounded-full bg-brand px-5 py-2.5 text-[14px] font-medium text-white transition-[transform,background-color,color] duration-200 hover:bg-brand/90 active:scale-[0.97];
+    @apply inline-flex items-center justify-center gap-1.5 rounded-full bg-brand px-5 py-2.5 text-sm font-medium text-white transition-[transform,background-color,color] duration-200 hover:bg-brand/90 active:scale-[0.97];
   }
 
   .btn-pill-secondary {
-    @apply inline-flex items-center justify-center gap-1.5 rounded-full border border-rule bg-background px-5 py-2.5 text-[14px] font-medium text-ink transition-[transform,background-color,color] duration-200 hover:border-ink/25 active:scale-[0.97];
+    @apply inline-flex items-center justify-center gap-1.5 rounded-full border border-rule bg-background px-5 py-2.5 text-sm font-medium text-ink transition-[transform,background-color,color] duration-200 hover:border-ink/25 active:scale-[0.97];
   }
 }
 

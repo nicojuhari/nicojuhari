@@ -17,7 +17,7 @@ export default function WebApps() {
                     </div>
                     <Link
                         href="/projects"
-                        className="group inline-flex items-center gap-1 text-[14px] font-medium text-ink transition-colors hover:text-brand-green"
+                        className="group inline-flex items-center gap-1 text-sm font-medium text-ink transition-colors hover:text-brand-green"
                     >
                         All projects
                         <span className="transition-transform duration-200 group-hover:translate-x-0.5" aria-hidden>

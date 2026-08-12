@@ -15,7 +15,7 @@ export default function Proof() {
                     <h2 className="mt-4 text-[clamp(1.75rem,3vw,2.25rem)] font-semibold tracking-tight text-ink">
                         Replaced a lending company&apos;s Excel with real software.
                     </h2>
-                    <p className="mt-4 max-w-2xl text-[1.0625rem] leading-[1.6] text-ink-muted">
+                    <p className="mt-4 max-w-2xl leading-[1.6] text-ink-muted">
                         A consumer finance team was running loans, clients, income, and expenses in one spreadsheet - one
                         person, one machine, no visibility. I built a multi-user web app around how they actually operate.
                     </p>
@@ -23,7 +23,7 @@ export default function Proof() {
 
                 <ul className="mt-10 grid gap-4 sm:grid-cols-3">
                     {outcomes.map((item) => (
-                        <li key={item} className="border-t border-rule pt-4 text-[15px] font-medium text-ink">
+                        <li key={item} className="border-t border-rule pt-4 text-sm font-medium text-ink">
                             {item}
                         </li>
                     ))}

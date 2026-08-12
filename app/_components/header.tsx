@@ -30,12 +30,12 @@ export default function Header() {
                             <Link
                                 key={href}
                                 href={href}
-                                className="rounded-full px-3.5 py-2 text-[14px] font-medium text-ink-muted transition-colors hover:text-ink"
+                                className="rounded-full px-3.5 py-2 text-sm font-medium text-ink-muted transition-colors hover:text-ink"
                             >
                                 {label}
                             </Link>
                         ))}
-                        <ContactButton className="ml-2 inline-flex items-center gap-1.5 rounded-full bg-brand px-4 py-2 text-[13px] font-semibold text-white transition-colors hover:bg-brand/90">
+                        <ContactButton className="ml-2 inline-flex items-center gap-1.5 rounded-full bg-brand px-4 py-2 text-xs font-semibold text-white transition-colors hover:bg-brand/90">
                             Contact
                         </ContactButton>
                     </nav>

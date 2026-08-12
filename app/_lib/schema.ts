@@ -17,7 +17,7 @@ export function personSchema() {
         image: `${BASE}/nick-profile-photo.webp`,
         jobTitle: "Software Engineer",
         description: SITE_DESCRIPTION,
-        knowsAbout: ["Software Engineering", "Finance", "Artificial Intelligence", "Financial Software", "Productivity Apps"],
+        knowsAbout: ["Software Engineering", "Finance", "Artificial Intelligence", "Financial Software", "Business Apps"],
         address: {
             "@type": "PostalAddress",
             addressLocality: "Vienna",
@@ -48,7 +48,7 @@ export function professionalServiceSchema() {
         areaServed: "Worldwide",
         knowsAbout: [
             "Financial Software",
-            "Productivity Apps",
+            "Business Apps",
             "Custom Web Apps",
             "Next.js",
             "React",

@@ -29,22 +29,22 @@ export default function CtaSection({
                 <h2 className="mt-3 text-[clamp(1.5rem,2.5vw,1.875rem)] font-semibold tracking-tight text-ink">
                     {title}
                 </h2>
-                <p className="mt-3 text-[1.0625rem] leading-relaxed text-ink-muted">{description}</p>
+                <p className="mt-3 leading-relaxed text-ink-muted">{description}</p>
             </div>
 
             <div className="mt-7 flex flex-wrap items-center gap-3">
                 <Button
-                    className="h-11 rounded-full bg-brand px-6 text-[14px] font-medium text-white hover:bg-brand/90"
+                    className="h-11 rounded-full bg-brand px-6 text-sm font-medium text-white hover:bg-brand/90"
                     onClick={() => setOpen(true)}
                 >
                     Send an email
                 </Button>
-                <WhatsAppButton className="h-11 rounded-full px-6 text-[14px] font-medium" anchorText="WhatsApp" />
+                <WhatsAppButton className="h-11 rounded-full px-6 text-sm font-medium" anchorText="WhatsApp" />
                 <a
                     href="https://www.linkedin.com/in/nicojuhari/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group inline-flex items-center gap-1 px-2 text-[14px] font-medium text-ink transition-colors hover:text-brand-green"
+                    className="group inline-flex items-center gap-1 px-2 text-sm font-medium text-ink transition-colors hover:text-brand-green"
                 >
                     LinkedIn
                     <span className="transition-transform duration-200 group-hover:translate-x-0.5" aria-hidden>

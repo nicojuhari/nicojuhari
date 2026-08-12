@@ -107,7 +107,7 @@ export default function ShopifyStoresPage() {
             <header className="mb-10 max-w-2xl">
                 <p className="eyebrow">Service</p>
                 <h1 className="mt-3 text-[clamp(1.75rem,3vw,2.5rem)] font-semibold tracking-tight text-ink">A store built to sell.</h1>
-                <p className="mt-4 text-[1.0625rem] leading-relaxed text-ink-muted">
+                <p className="mt-4 leading-relaxed text-ink-muted">
                     Set up right, easy to manage, and built to grow. Whether you&apos;re starting from scratch or improving what you have,
                     the goal is a store your customers trust and keep coming back to.
                 </p>

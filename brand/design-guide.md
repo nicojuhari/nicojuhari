@@ -16,7 +16,7 @@ Combine two references without cloning either:
 | Quiet motion, hairline rules | “Who + what I build” in one glance |
 
 **Positioning (canonical - see `brand/positioning.md`):**  
-Tagline: **Software Engineer · Finance · AI**. Builds financial and productivity apps for web and mobile using AI where it earns its place. Business websites / Shopify live on Services - not in the core bio.
+Tagline: **Software Engineer · Finance · AI**. Builds financial and business apps for web and mobile using AI where it earns its place. Business websites, landing pages, and Shopify also in the offer (About + Services).
 
 ---
 
@@ -100,7 +100,7 @@ Shows professional identity at a glance:
 1. Photo  
 2. Name  
 3. Role (Software Engineer · Finance background)  
-4. What you build (financial + productivity · web & mobile)  
+4. What you build (financial + business · web & mobile · sites & Shopify)  
 5. Dual CTA: contact for hire **and** freelance  
 6. Social links  
 
@@ -108,7 +108,7 @@ Copy can stay placeholder; structure stays stable.
 
 ### Work board (right)
 
-1. **Featured** - finance / productivity anchors (taller cards: logo, title, one line, optional badge)  
+1. **Featured** - finance / business anchors (taller cards: logo, title, one line, optional badge)  
 2. **More apps** - compact cards  
 3. **Tools** - compact, secondary  
 

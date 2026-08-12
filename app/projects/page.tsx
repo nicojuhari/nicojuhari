@@ -14,7 +14,7 @@ export default function ProjectsPage() {
         <div className="container py-6 sm:py-10">
             <header className="mb-10 max-w-2xl">
                 <h1 className="text-[clamp(1.75rem,3vw,2.5rem)] font-semibold tracking-tight text-ink">Projects</h1>
-                <p className="mt-4 text-[1.0625rem] leading-relaxed text-ink-muted">
+                <p className="mt-4 leading-relaxed text-ink-muted">
                     Apps and websites I&apos;ve built - for clients and as products of my own.
                 </p>
             </header>

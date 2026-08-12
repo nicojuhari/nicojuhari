@@ -17,18 +17,18 @@
 | AI | How you ship better apps |
 
 **LinkedIn headline (recommended):**
-> Software Engineer · Finance · AI | Financial & productivity apps for web & mobile
+> Software Engineer · Finance · AI | Financial & business apps for web & mobile
 
 **Short bio (site / profiles, ~40 words):**
-> Software engineer with a finance background. I use AI to build financial and productivity apps that replace spreadsheets and manual workflows.
+> Software engineer with a finance background. I use AI to build financial and business apps that replace spreadsheets and manual workflows.
 
 **LinkedIn About opener (~60 words):**
-> I’m a software engineer with a finance degree and years inside real finance operations. I build financial and productivity apps for web and mobile - and I use AI where it makes the product faster or smarter, not as a buzzword. Available for freelance projects and full-time roles.
+> I’m a software engineer with a finance degree and years inside real finance operations. I build financial and business apps for web and mobile - and I use AI where it makes the product faster or smarter, not as a buzzword. Available for freelance projects and full-time roles.
 
 **LinkedIn / site About (full, 2026-08-12):**
 > I started in finance - a degree, then years working inside the industry. Later I switched to IT because I like to build: solving real problems and automating workflows.
 >
-> Today I build financial and productivity apps for web and mobile. AI is the tool I use most - for shipping faster, thinking through problems, and making products smarter when it actually helps. Next.js, React, Supabase: the stack I use day to day.
+> Today I build financial and business apps for web and mobile - plus business websites, landing pages, and ecommerce / Shopify stores. AI is the tool I use most - for shipping faster, thinking through problems, and making products smarter when it actually helps. Next.js, React, Supabase: the stack I use day to day.
 >
 > Outside of work I ski and play basketball. If you have a project and need someone who understands both the numbers and the code, let's work on it together.
 >
@@ -41,10 +41,9 @@
 > Available for freelance projects and full-time roles.
 
 **One-sentence pitch:**
-> Software engineer with finance knowledge who uses AI to build financial and productivity apps for web and mobile.
+> Software engineer with finance knowledge who uses AI to build financial and business apps for web and mobile.
 
-**Scope note:** Core identity = financial + productivity apps. Business websites and Shopify stay on Services pages as secondary offers - not in the tagline/bio.
-
+**Scope note:** Core identity = financial + business apps. Business websites, landing pages, and Shopify are part of the offer (About + Services) - not in the tagline.
 Use this triad on the website profile, LinkedIn, GitHub bio, and email signature. Longer marketing angles below remain useful for case studies and content; the tagline above is the public identity line.
 
 ---

@@ -126,7 +126,7 @@ export default function CustomWebAppsPage() {
                 <h1 className="mt-3 text-[clamp(1.75rem,3vw,2.5rem)] font-semibold tracking-tight text-ink">
                     Software built around your process.
                 </h1>
-                <p className="mt-4 text-[1.0625rem] leading-relaxed text-ink-muted">
+                <p className="mt-4 leading-relaxed text-ink-muted">
                     When off-the-shelf tools no longer cut it, custom software gives your team exactly what it needs - nothing more,
                     nothing less.
                 </p>
