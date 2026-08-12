@@ -25,6 +25,18 @@
 **LinkedIn About opener (~60 words):**
 > I’m a software engineer with a finance degree and years inside real finance operations. I build financial and productivity apps for web and mobile - and I use AI where it makes the product faster or smarter, not as a buzzword. Available for freelance projects and full-time roles.
 
+**LinkedIn / site About (full, 2026-08-12):**
+> I started in finance - a degree, then years working inside the industry. Later I switched to IT because I like to build: solving real problems and automating workflows.
+>
+> Today I build financial and productivity apps for web and mobile. AI is the tool I use most - for shipping faster, thinking through problems, and making products smarter when it actually helps. Next.js, React, Supabase: the stack I use day to day.
+>
+> Outside of work I ski and play basketball. If you have a project and need someone who understands both the numbers and the code, let's work on it together.
+>
+> Favorite joke about development: what one developer can do in one week, two developers can do in two weeks.
+>
+> Cheers,
+> Nick
+
 **Availability line:**
 > Available for freelance projects and full-time roles.
 

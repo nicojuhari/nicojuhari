@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import ProfilePanel from "./_components/profile-panel";
 import WorkBoard from "./_components/work-board";
 import TechStack from "./_components/tech-stack";
+import AboutSection from "./_components/about-section";
 import { personSchema, professionalServiceSchema, webSiteSchema } from "./_lib/schema";
 import { SITE_DESCRIPTION, SITE_TITLE, SITE_URL } from "./_lib/site";
 
@@ -38,6 +39,7 @@ export default function Home() {
                     <div className="min-w-0">
                         <WorkBoard />
                         <TechStack />
+                        <AboutSection />
                     </div>
                 </div>
             </div>

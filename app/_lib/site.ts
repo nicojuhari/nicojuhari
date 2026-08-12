@@ -14,7 +14,7 @@ export const SITE_TITLE = "Nicolae Cojuhari - Software Engineer · Finance · AI
 export const SITE_DESCRIPTION =
     "Software engineer with a finance background. I use AI to build financial and productivity apps that replace spreadsheets and manual workflows.";
 
-/** Visible homepage bio (matches meta, slightly richer emphasis in UI) */
+/** Short profile bio (sidebar) - matches brand/positioning.md */
 export const SITE_BIO =
     "Software engineer with a finance background. I use AI to build financial and productivity apps that replace spreadsheets and manual workflows.";
 

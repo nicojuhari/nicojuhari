@@ -56,6 +56,8 @@ export default function TechStack() {
                     <div
                         key={item.name}
                         title={item.name}
+                        role="img"
+                        aria-label={item.name}
                         className="flex size-9 shrink-0 items-center justify-center sm:size-11 [&>svg]:h-full [&>svg]:w-full"
                         dangerouslySetInnerHTML={{ __html: item.icon! }}
                     />

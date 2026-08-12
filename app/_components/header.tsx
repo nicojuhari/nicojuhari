@@ -15,7 +15,13 @@ export default function Header() {
             <div className="container">
                 <div className="flex h-12 items-center justify-between rounded-full border border-rule bg-background/85 px-4 backdrop-blur-md sm:h-14 sm:px-5">
                     <Link href="/" title="Nicojuhari" className="flex shrink-0 items-center gap-2.5">
-                        <Image src="/nicojuhari-logo.svg" alt="Nicojuhari" width={28} height={28} priority />
+                        <Image
+                            src="/nicojuhari-logo.svg"
+                            alt="Nicojuhari logo"
+                            width={28}
+                            height={28}
+                            priority
+                        />
                         <span className="hidden text-sm font-semibold tracking-tight text-ink sm:inline">Nicojuhari</span>
                     </Link>
 

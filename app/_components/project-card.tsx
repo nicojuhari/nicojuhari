@@ -19,7 +19,7 @@ function ProjectLogo({ project, size = "md" }: { project: Project; size?: "sm" |
             // eslint-disable-next-line @next/next/no-img-element
             <img
                 src={project.logo}
-                alt=""
+                alt={`${project.title} logo`}
                 width={size === "sm" ? 32 : 40}
                 height={size === "sm" ? 32 : 40}
                 className={cn(img, "shrink-0 object-contain")}
