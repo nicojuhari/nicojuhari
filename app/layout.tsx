@@ -20,6 +20,9 @@ export const metadata: Metadata = {
     title: { template: "%s", default: SITE_TITLE },
     description: SITE_DESCRIPTION,
     metadataBase: new URL(SITE_URL),
+    verification: {
+        google: "oOiepCGY8_h_x8LguPX3bbyO0MKDXRKE6dSSKlSUiKI",
+    },
     openGraph: {
         type: "website",
         locale: "en_US",
