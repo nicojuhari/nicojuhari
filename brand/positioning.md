@@ -37,6 +37,20 @@
 > Cheers,
 > Nick
 
+**LinkedIn About (combined, current — use this on the profile):**
+> Software engineer with a finance background. I use AI to build financial and business apps that replace spreadsheets and manual workflows.
+>
+> I started in finance - a degree, then years working inside the industry. Later I switched to IT because I like to build: solving real problems and automating workflows.
+>
+> Now I build for web and mobile - plus business websites, landing pages, and ecommerce / Shopify stores. AI is the tool I use most, for shipping faster and making products smarter when it actually helps. Next.js, React, Supabase: the stack I use day to day.
+>
+> Outside of work I ski and play basketball. If you have a project and need someone who understands both the numbers and the code, let's work on it together.
+>
+> Favorite joke about development: what one developer can do in one week, two developers can do in two weeks.
+>
+> Cheers,
+> Nick
+
 **Availability line:**
 > Available for freelance projects and full-time roles.
 

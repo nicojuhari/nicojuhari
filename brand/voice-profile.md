@@ -1,7 +1,16 @@
 ## Last Updated
 2026-06-22 by /brand-voice
+2026-08-12 - Excel/spreadsheet framing softened per user correction (see below, and brand memory [[feedback_no_disparage_tools]])
 
 # Nicolae Cojuhari Voice Profile
+
+## 2026-08-12 Update — No Disparaging Tools
+
+Never frame Excel or spreadsheets as broadly bad, risky, or a villain. Excel is a good tool - say so if it comes up. The point isn't "Excel is bad," it's "Excel is good for a lot of things, and this specific situation isn't one of them - here's what works better."
+
+**Pattern to use:** "Spreadsheets aren't always the wrong call - but for [specific situation: multi-user access, financial audit trails, integrations, etc.], they stop being enough. That's when it's worth replacing/upgrading to [something more flexible / built for this]."
+
+**Old pattern (superseded, do not use):** naming Excel/manual processes as "the villain," "a business risk," "a bottleneck" as a blanket framing. That reads as putting down a tool people like and use well. The vocabulary and example entries below that use this framing (the "manual = villain" note, "Name the villain," and the "Excel became the bottleneck" signature phrase) are kept for historical reference but should not be used as-is - see the softened versions inline.
 
 ## Voice Summary
 
@@ -36,7 +45,7 @@ The voice of a finance-fluent developer who has sat on both sides of the table -
 - Specific numbers always - €2,500, not "starting from a few thousand"
 - "data-driven" used sparingly - only when contrasting with the chaos that preceded it
 - "visibility" - the thing most SMB operators lack and want
-- "manual" (paired with what it cost them) - the villain of most business pain stories
+- "manual" (paired with what it cost them) - names a specific limitation in a specific situation, not a blanket knock on the tool itself (2026-08-12: no longer "the villain" - see update note above)
 - "custom" - differentiator from off-the-shelf SaaS
 - "built for" - emphasizes intentionality and fit
 
@@ -89,7 +98,7 @@ The voice of a finance-fluent developer who has sat on both sides of the table -
 ## Example Phrases
 
 **On-brand (sounds like Nicolae):**
-- "A consumer finance company was managing all loan tracking, client data, income, and expenses in Excel. One person handled everything manually. The Excel became the bottleneck."
+- "A consumer finance company was managing all loan tracking, client data, income, and expenses in Excel. One person handled everything manually. Excel works fine for a lot of things - it stopped working for this." (2026-08-12: softened, was "the Excel became the bottleneck")
 - "I replaced the entire system with a web application built for how the business actually operates."
 - "Reports went from zero to instant. Manual data entry eliminated. The whole team got access."
 - "I build web solutions that grow your business - not websites that just sit there."
@@ -109,7 +118,7 @@ The voice of a finance-fluent developer who has sat on both sides of the table -
 - Lead with the client's problem in their own operational terms
 - State outcomes with specifics (numbers, before/after contrasts, what changed)
 - Use "I" - this is a person, not a company
-- Name the villain (Excel, manual processes, siloed data, one-person bottlenecks)
+- Name the specific limitation for the specific situation (not Excel/spreadsheets broadly - they're good tools; call out exactly where they stop working and what works better instead) (2026-08-12 update)
 - Let the finance background speak through domain fluency, not credential-dropping
 - Write like you're briefing a smart business owner - skip tech theater
 - Keep pricing honest and stated plainly when relevant
@@ -184,7 +193,7 @@ The voice of a finance-fluent developer who has sat on both sides of the table -
       { "term": "visibility", "context": "The core thing most SMB operators lack - name it directly" },
       { "term": "built for", "context": "Emphasizes intentional fit vs. off-the-shelf compromise" },
       { "term": "custom", "context": "Key differentiator from SaaS solutions that force process changes" },
-      { "term": "manual", "context": "Villain word - always paired with what it cost them" }
+      { "term": "manual", "context": "Names a specific limitation in a specific situation, paired with what it cost them - not a blanket knock on the tool (2026-08-12: no longer framed as a villain word)" }
     ],
     "avoid": [
       { "term": "pixel-perfect", "reason": "Tech vanity metric clients don't value", "alternative": "works exactly as your process requires" },
@@ -208,9 +217,9 @@ The voice of a finance-fluent developer who has sat on both sides of the table -
   "examples": {
     "on_brand": [
       {
-        "text": "One person handled everything manually - entering client data by hand, updating records one by one. The Excel became the bottleneck.",
+        "text": "One person handled everything manually - entering client data by hand, updating records one by one. Excel works fine for a lot of things - it stopped working for this.",
         "source": "Case study, finance tool",
-        "why": "Problem named in operational terms. Specific. No tech language. Empathetic to the operator."
+        "why": "Problem named in operational terms. Specific to the situation, not a blanket knock on Excel. No tech language. Empathetic to the operator. (2026-08-12: softened, was 'The Excel became the bottleneck')"
       },
       {
         "text": "I replaced the entire system with a web application built for how the business actually operates.",
@@ -291,7 +300,7 @@ The voice of a finance-fluent developer who has sat on both sides of the table -
   },
   "signature_phrases": [
     { "phrase": "built for how the business actually operates", "usage": "Describing custom solutions vs. off-the-shelf compromises" },
-    { "phrase": "the Excel became the bottleneck", "usage": "Opening or framing for process automation / Excel replacement pitches" },
+    { "phrase": "Excel works fine for a lot of things - it stopped working for this", "usage": "Opening or framing for process automation / Excel replacement pitches (2026-08-12: replaces retired phrase 'the Excel became the bottleneck')" },
     { "phrase": "Finance degree. Self-taught developer. I speak both languages.", "usage": "Positioning line - bio, about page, LinkedIn headline" },
     { "phrase": "finally see exactly where they stood", "usage": "Closing outcome line - the visibility payoff" },
     { "phrase": "built for how you work, not the other way around", "usage": "Core value prop - custom fit vs. SaaS forcing process change" }

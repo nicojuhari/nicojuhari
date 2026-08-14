@@ -10,3 +10,7 @@ Last updated: 2026-06-22
 | Website Design Guide v1 | design-system | 2026-07-31 | homepage | superseded | Replaced by v2 hybrid guide. |
 | Website Design Guide v2 | design-system | 2026-08-12 | homepage | active | Aria visuals + Marc Lou profile/work grid. `brand/design-guide.md` |
 | Homepage hybrid layout | landing-page | 2026-08-12 | homepage | in-progress | Sticky profile + featured/compact work board. |
+| How to Hire a Developer to Replace Your Excel | seo-article | 2026-08-12 | content-plan | draft | ~2,870 words, live SERP research, Article+FAQ schema. `campaigns/content/hire-developer-replace-excel-web-app.md` |
+| Content Strategy — App Promotion Focus | strategy-doc | 2026-08-12 | social-app-promotion | active | Simple Trackr + 1FoodMenu priority, 60/70 mix, LinkedIn+Twitter. `brand/content-strategy.md` |
+| LinkedIn Batch 1 (5 posts) | social-content | 2026-08-12 | social-app-promotion | ready | Trackr-heavy + 1FoodMenu + roundup. `campaigns/social-app-promotion/linkedin-batch-1.md` |
+| Twitter Batch 1 (10 posts) | social-content | 2026-08-12 | social-app-promotion | ready | 6 product / 4 generic. `campaigns/social-app-promotion/twitter-batch-1.md` |
