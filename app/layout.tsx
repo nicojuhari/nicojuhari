@@ -29,20 +29,11 @@ export const metadata: Metadata = {
         siteName: SITE_NAME,
         title: SITE_TITLE,
         description: SITE_DESCRIPTION,
-        images: [
-            {
-                url: "/nicojuhari-og-image.jpg",
-                width: 1200,
-                height: 630,
-                alt: SITE_TITLE,
-            },
-        ],
     },
     twitter: {
         card: "summary_large_image",
         title: SITE_TITLE,
         description: SITE_DESCRIPTION,
-        images: ["/nicojuhari-og-image.jpg"],
     },
 };
 
@@ -61,7 +52,7 @@ export default function RootLayout({
             </head>
             <body className="min-h-full flex flex-col">
                 <Header />
-                <main className="min-w-0 flex-1 overflow-x-hidden pt-16 sm:pt-20">{children}</main>
+                <main className="min-w-0 flex-1 overflow-x-clip pt-[68px] sm:pt-20">{children}</main>
                 <Footer />
             </body>
         </html>

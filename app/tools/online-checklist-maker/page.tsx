@@ -2,35 +2,45 @@ import type { Metadata } from "next";
 import Checklist from "./_components/checklist";
 import ToolPageShell from "@/app/_components/tool-page-shell";
 import { webAppSchema } from "@/app/_lib/schema";
+import { pageMetadata } from "@/app/_lib/metadata";
 
-export const metadata: Metadata = {
+const DESCRIPTION =
+    "Make a checklist in seconds - packing, moving, groceries or daily tasks. Paste a list, reorder and track progress, then print it. Free, no sign-up.";
+
+export const metadata: Metadata = pageMetadata({
     title: "Online Checklist Maker | Create and Manage Tasks Fast",
-    description:
-        "Create and share checklists in seconds - packing, wedding, camping, grocery, move-in, or daily tasks. Mobile-friendly, private, no signup, and FREE.",
-    alternates: { canonical: "https://nicojuhari.com/tools/online-checklist-maker" },
-};
+    description: DESCRIPTION,
+    path: "/tools/online-checklist-maker",
+});
+
+const tips = [
+    {
+        label: "Add",
+        title: "Paste a whole list",
+        text: "Copy lines from notes, email or a document and paste them into the task field - each line becomes a task.",
+    },
+    {
+        label: "Organise",
+        title: "Reorder and filter",
+        text: "Drag the handle to reorder (or use the arrow keys), and switch between all, to do and done.",
+    },
+    {
+        label: "Keep",
+        title: "Saved on this device",
+        text: "Your list stays in this browser - no account needed. Copy it as text, download it or print it to take it elsewhere.",
+    },
+];
 
 export default function ChecklistPage() {
     return (
         <ToolPageShell
             currentSlug="online-checklist-maker"
             title="Online Checklist Maker"
-            description="Build and track any checklist in seconds - packing, tasks, shopping, or anything else. No signup needed."
-            schema={webAppSchema(
-                "Online Checklist Maker",
-                "Create and share checklists in seconds - packing, wedding, camping, grocery, move-in, or daily tasks. Mobile-friendly, private, no signup, and FREE.",
-                "online-checklist-maker"
-            )}
-            notes={
-                <>
-                    <p>
-                        Quickly build checklists by adding tasks and tracking progress - perfect for packing, wedding
-                        planning, grocery lists, moving, camping, or everyday to-dos.
-                    </p>
-                    <p>Add and reorder items, check progress, and share your list with friends or coworkers instantly.</p>
-                    <p>Works on mobile and desktop, and all data stays in your browser for privacy - no accounts, no setup.</p>
-                </>
-            }
+            description="Build and track any checklist in seconds - packing, tasks, shopping or anything else."
+            perks={["Free", "No sign-up", "Saved in your browser"]}
+            schema={webAppSchema("Online Checklist Maker", DESCRIPTION, "online-checklist-maker")}
+            tips={tips}
+            bare
         >
             <Checklist />
         </ToolPageShell>

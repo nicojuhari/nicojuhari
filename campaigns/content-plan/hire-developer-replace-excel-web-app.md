@@ -108,4 +108,4 @@ The developer writing this guide is the developer you'd hire. It's not a vendor-
 DO FIRST
 
 ## Status
-planning
+written — draft at campaigns/content/hire-developer-replace-excel-web-app.md (2026-08-12)

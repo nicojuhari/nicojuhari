@@ -12,7 +12,6 @@ const navLinks = [
     { href: "/services", label: "Services" },
     { href: "/projects", label: "Projects" },
     { href: "/tools", label: "Tools" },
-    { href: "/playground", label: "Playground" },
 ];
 
 export default function MobileNav() {
@@ -22,7 +21,7 @@ export default function MobileNav() {
         <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger
                 render={
-                    <Button variant="ghost" size="icon" className="rounded-full md:hidden" aria-label="Open menu" />
+                    <Button variant="ghost" size="icon" className="size-11 rounded-full" aria-label="Open menu" />
                 }
             >
                 <MenuIcon className="h-5 w-5" />

@@ -1,6 +1,8 @@
 {
-  "name": "Nick - Software Engineer",
+  "name": "Nicolae Cojuhari",
   "short_name": "Nicojuhari",
+  "description": "Websites, Shopify stores and web apps.",
+  "start_url": "/",
   "icons": [
     {
       "src": "/web-app-manifest-192x192.png",
