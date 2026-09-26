@@ -5,9 +5,9 @@ import CtaSection from "@/app/_components/cta-section";
 import { services, WHATSAPP_URL } from "@/app/_data/services";
 
 export const metadata: Metadata = {
-    title: "Services - Web Design & Development | Nicojuhari",
+    title: "Web Development Services in Vienna | Nicojuhari",
     description:
-        "Web design and development for businesses and growing teams - business websites, Shopify stores, and custom web apps.",
+        "Web development in Vienna for businesses and growing teams - business websites, Shopify stores and custom web apps, built around your problem.",
     alternates: { canonical: "https://nicojuhari.com/services" },
 };
 

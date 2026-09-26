@@ -70,7 +70,7 @@ export const tools: Tool[] = [
   {
     slug: "product-grid-generator",
     title: "Product Grid Generator",
-    description: "Generate product grids for your store",
+    description: "Add products to Shopify blog posts - no app",
     category: "business",
     accent: "#16284D",
     tint: "#EEF1F7",

@@ -4,8 +4,10 @@ import { tools } from "@/app/_data/tools";
 import { cn } from "@/lib/utils";
 import { toolIcons } from "./icons";
 import ToolTile from "./tool-tile";
+import FaqSection, { type Faq } from "./faq-section";
 
 export type ToolTip = { label: string; title: string; text: string };
+export type { Faq as ToolFaq } from "./faq-section";
 
 type Props = {
     currentSlug: string;
@@ -18,6 +20,10 @@ type Props = {
     /** Older free-form notes - used until a tool gets its `tips` */
     notes?: React.ReactNode;
     perks?: string[];
+    /** Common questions - rendered on the page and as FAQPage structured data */
+    faq?: Faq[];
+    /** Extra content between the tips and the FAQ, e.g. a how-to */
+    guide?: React.ReactNode;
     /** The tool draws its own workspace (no padding on the card) */
     bare?: boolean;
 };
@@ -31,6 +37,8 @@ export default function ToolPageShell({
     tips,
     notes,
     perks = ["Free", "No sign-up"],
+    faq,
+    guide,
     bare = false,
 }: Props) {
     const tool = tools.find((t) => t.slug === currentSlug);
@@ -107,6 +115,10 @@ export default function ToolPageShell({
             {!tips && notes && (
                 <div className="mt-10 max-w-2xl space-y-3 text-sm leading-relaxed text-ink-muted">{notes}</div>
             )}
+
+            {guide && <div className="mt-12 sm:mt-16">{guide}</div>}
+
+            {faq && <FaqSection faq={faq} className="mt-12 sm:mt-16" />}
 
             <section className="mt-12 flex flex-col gap-4 sm:mt-16">
                 <div className="flex items-end justify-between gap-4">

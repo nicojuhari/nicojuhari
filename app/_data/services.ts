@@ -27,6 +27,8 @@ export type Service = {
     build: Item[];
     steps: Item[];
     cta: string;
+    /** Common questions - only facts stated elsewhere on the page */
+    faq?: { question: string; answer: string }[];
 };
 
 export const services: Service[] = [
@@ -296,6 +298,28 @@ export const services: Service[] = [
             },
         ],
         cta: "Tell me about the problem you’re solving. We’ll figure out whether a custom app is the right move.",
+        faq: [
+            {
+                question: "When is a custom web app better than a spreadsheet or a no-code tool?",
+                answer: "When several people work on the same data and need approvals, history or permissions, or when a tool’s limits start to shape how your team works. If a spreadsheet or an off-the-shelf tool still does the job, I’ll tell you.",
+            },
+            {
+                question: "How is the price set?",
+                answer: "After a discovery call you get a clear breakdown of what gets built, the timeline and a fixed price. No hourly billing.",
+            },
+            {
+                question: "Can it connect to the tools we already use?",
+                answer: "Yes - CRMs, ERPs, payment providers like Stripe, email and SMS services, or any external service with an API.",
+            },
+            {
+                question: "Can you add AI to our workflow?",
+                answer: "Yes - OpenAI or Claude for things like document analysis, smart search or content generation, where it saves real time for your team.",
+            },
+            {
+                question: "Who owns the app when it’s finished?",
+                answer: "You do. It’s deployed, documented and yours to own. I can stay on for support or hand it off clean.",
+            },
+        ],
     },
 ];
 

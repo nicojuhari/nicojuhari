@@ -25,6 +25,17 @@ const nextConfig: NextConfig = {
                 destination: "/",
                 permanent: true,
             },
+            // Playground (removed, redirect to home)
+            {
+                source: "/playground/:slug",
+                destination: "/",
+                permanent: true,
+            },
+            {
+                source: "/playground",
+                destination: "/",
+                permanent: true,
+            },
             // Shopify sections → projects
             {
                 source: "/shopify-sections/:slug",

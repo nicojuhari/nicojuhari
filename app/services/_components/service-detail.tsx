@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowRight, Check, ChevronRight } from "lucide-react";
 import CtaSection from "@/app/_components/cta-section";
+import FaqSection from "@/app/_components/faq-section";
 import ContactButton from "@/app/_components/contact-button";
 import { serviceIcons } from "@/app/_components/icons";
 import { breadcrumbSchema, serviceSchema } from "@/app/_lib/schema";
@@ -143,6 +144,8 @@ export default function ServiceDetail({ slug, schemaName, schemaDescription }: P
                     ))}
                 </ol>
             </section>
+
+            {service.faq && <FaqSection faq={service.faq} className="mt-16 sm:mt-24" />}
 
             {/* Other services */}
             <section className="mt-12 flex flex-col gap-4 sm:mt-16">

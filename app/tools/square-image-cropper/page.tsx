@@ -4,10 +4,10 @@ import ToolPageShell from "@/app/_components/tool-page-shell";
 import { webAppSchema } from "@/app/_lib/schema";
 
 const DESCRIPTION =
-    "Crop photos to a perfect 1:1 square in your browser - one image or a whole batch. Choose size, JPEG, WebP or PNG, and download or get a ZIP. Free, no uploads.";
+    "Crop menu, food and product photos to a perfect 1:1 square in your browser - one image or a whole batch. JPEG, WebP or PNG, download or ZIP. Free, no uploads.";
 
 export const metadata: Metadata = {
-    title: "Square Image Cropper - Crop Photos to 1:1 Square",
+    title: "Square Image Cropper - Crop Menu & Product Photos to 1:1",
     description: DESCRIPTION,
     alternates: { canonical: "https://nicojuhari.com/tools/square-image-cropper" },
 };
@@ -16,7 +16,7 @@ const tips = [
     {
         label: "Batch",
         title: "Crop a whole menu at once",
-        text: "Add up to 30 photos, adjust the ones that need it - the rest are cropped from the center - and download them all as one ZIP.",
+        text: "Add up to 30 photos, adjust the ones that need it - the rest are cropped from the center - and download them all as one ZIP, ready for a digital menu like 1FoodMenu.",
     },
     {
         label: "Size",

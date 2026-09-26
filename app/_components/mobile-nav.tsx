@@ -12,7 +12,6 @@ const navLinks = [
     { href: "/services", label: "Services" },
     { href: "/projects", label: "Projects" },
     { href: "/tools", label: "Tools" },
-    { href: "/playground", label: "Playground" },
 ];
 
 export default function MobileNav() {

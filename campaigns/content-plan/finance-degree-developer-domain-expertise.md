@@ -1,3 +1,5 @@
+> **SUPERSEDED 2026-09-26** by /keyword-research. Leads with the finance degree, which breaks the no-degree-in-copy rule. Not part of the current keyword plan. Kept for reference only - do not publish as written.
+
 # Content Brief: Finance Degree + Developer - Why Domain Expertise Changes What Gets Built
 
 ## Last Updated

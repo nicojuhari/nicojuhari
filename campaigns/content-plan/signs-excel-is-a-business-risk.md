@@ -1,3 +1,5 @@
+> **SUPERSEDED 2026-09-26** by /keyword-research. Frames Excel as a business risk, which breaks the no-disparaging-tools rule. Replaced by `spreadsheet-to-web-app.md`. Kept for reference only - do not publish as written.
+
 # Content Brief: 5 Signs Your Excel Has Become a Business Risk
 
 ## Last Updated
