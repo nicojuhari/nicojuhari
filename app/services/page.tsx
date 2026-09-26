@@ -2,19 +2,21 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, Check } from "lucide-react";
 import CtaSection from "@/app/_components/cta-section";
+import ProofBlock from "@/app/_components/proof-block";
 import { services, WHATSAPP_URL } from "@/app/_data/services";
+import { pageMetadata } from "@/app/_lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
     title: "Web Development Services in Vienna | Nicojuhari",
     description:
-        "Web development in Vienna for businesses and growing teams - business websites, Shopify stores and custom web apps, built around your problem.",
-    alternates: { canonical: "https://nicojuhari.com/services" },
-};
+        "Web development in Vienna - local business websites that bring in calls, Shopify stores that sell, and custom web apps that save your team time.",
+    path: "/services",
+});
 
 const questions: Record<string, string> = {
-    "business-websites": "Need more customers to find you locally?",
+    "local-business-websites": "Want more calls and bookings from Google and Maps?",
     "shopify-stores": "Selling products online, or planning to?",
-    "custom-web-apps": "Need a tool your team will actually use?",
+    "custom-web-apps": "Need one tool your business runs on?",
 };
 
 const choose = [
@@ -29,11 +31,11 @@ export default function ServicesPage() {
                 <div className="flex flex-col gap-3.5 sm:gap-5">
                     <p className="eyebrow">Services</p>
                     <h1 className="text-[34px] leading-[1.06] font-semibold tracking-[-0.03em] text-ink sm:text-5xl xl:text-[56px] xl:leading-[1.03] xl:tracking-[-0.035em]">
-                        The right kind of web presence for what you’re building.
+                        More clients, more sales, less manual work.
                     </h1>
                     <p className="max-w-[580px] text-base leading-relaxed text-ink-muted sm:text-lg">
-                        Whether you need customers to find you, a store that sells, or software your team can actually use - the
-                        work starts with understanding your problem, not a template.
+                        I build websites that bring in calls from Google and Maps, Shopify stores that sell more, and web apps that
+                        save your team hours every week.
                     </p>
                 </div>
 
@@ -145,7 +147,12 @@ export default function ServicesPage() {
                 ))}
             </div>
 
-            <CtaSection className="mt-12 sm:mt-16" />
+            {services[0].proof && <ProofBlock proof={services[0].proof} className="mt-4 sm:mt-5" />}
+
+            <CtaSection
+                className="mt-12 sm:mt-16"
+                description="Tell me about your business and what you want more of - clients, sales or time. I’ll tell you where I’d start."
+            />
         </div>
     );
 }

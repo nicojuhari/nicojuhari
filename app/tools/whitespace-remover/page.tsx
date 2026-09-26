@@ -2,15 +2,16 @@ import type { Metadata } from "next";
 import WhitespaceRemover from "./_components/whitespace-remover";
 import ToolPageShell from "@/app/_components/tool-page-shell";
 import { webAppSchema } from "@/app/_lib/schema";
+import { pageMetadata } from "@/app/_lib/metadata";
 
 const DESCRIPTION =
     "Remove extra spaces and line breaks, or turn text into URL slugs, filenames, snake_case and camelCase. Runs in your browser - free, no sign-up.";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
     title: "Whitespace Remover | Replace or Remove Spaces in Text",
     description: DESCRIPTION,
-    alternates: { canonical: "https://nicojuhari.com/tools/whitespace-remover" },
-};
+    path: "/tools/whitespace-remover",
+});
 
 const tips = [
     {

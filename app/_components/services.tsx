@@ -9,9 +9,9 @@ const services = [
         cta: "Explore custom apps",
     },
     {
-        title: "Business websites",
+        title: "Local business websites",
         oneLiner: "Fast, clear sites that show up in search and turn visitors into inquiries - built for how local businesses actually sell.",
-        href: "/services/business-websites",
+        href: "/services/local-business-websites",
         cta: "Explore websites",
     },
     {

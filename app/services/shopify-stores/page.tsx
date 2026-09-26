@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import ServiceDetail from "../_components/service-detail";
+import { pageMetadata } from "@/app/_lib/metadata";
 
-export const metadata: Metadata = {
-    title: "Shopify Developer in Vienna | Store Setup & Development",
+export const metadata: Metadata = pageMetadata({
+    title: "Shopify Developer in Vienna | Store Setup & Redesign",
     description:
-        "Shopify developer in Vienna: store setup, product pages, Klaviyo email flows, shipping and reviews - built to launch and grow, for shops in Austria and beyond.",
-    alternates: { canonical: "https://nicojuhari.com/services/shopify-stores" },
-};
+        "Shopify developer in Vienna. Store setup or redesign, clear product pages, Klaviyo emails, reviews and shipping - so more of your visitors buy.",
+    path: "/services/shopify-stores",
+});
 
 export default function ShopifyStoresPage() {
     return (

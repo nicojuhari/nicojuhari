@@ -37,7 +37,7 @@ export const toolIcons: Record<string, LucideIcon> = {
 };
 
 export const serviceIcons: Record<ServiceSlug, LucideIcon> = {
-    "business-websites": Globe,
+    "local-business-websites": Globe,
     "shopify-stores": ShoppingBag,
     "custom-web-apps": Cpu,
 };
@@ -63,6 +63,19 @@ const projectIcons: Record<ProjectIcon, LucideIcon> = {
 /** Coloured tile with the project's initials or icon - no logos or screenshots */
 export function ProjectMark({ project, className }: { project: Project; className?: string }) {
     const Icon = project.icon ? projectIcons[project.icon] : null;
+
+    if (project.logo) {
+        return (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+                src={project.logo}
+                alt=""
+                width={48}
+                height={48}
+                className={cn("size-11 shrink-0 rounded-xl object-contain", className)}
+            />
+        );
+    }
 
     return (
         <span

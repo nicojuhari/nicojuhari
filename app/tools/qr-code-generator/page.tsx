@@ -2,15 +2,16 @@ import type { Metadata } from "next";
 import QrGenerator from "./_components/qr-generator";
 import ToolPageShell from "@/app/_components/tool-page-shell";
 import { webAppSchema } from "@/app/_lib/schema";
+import { pageMetadata } from "@/app/_lib/metadata";
 
 const DESCRIPTION =
-    "Create a custom QR code for a link, Wi-Fi, email, phone or contact - choose colors, shapes and a logo. Download PNG, JPEG or SVG. Free, no sign-up, no watermark.";
+    "Make a custom QR code for a link, Wi-Fi, email, phone or contact. Pick colors, shapes and a logo. Download PNG, JPEG or SVG. Free, no watermark.";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
     title: "Free QR Code Generator | Customize & Download Instantly",
     description: DESCRIPTION,
-    alternates: { canonical: "https://nicojuhari.com/tools/qr-code-generator" },
-};
+    path: "/tools/qr-code-generator",
+});
 
 const tips = [
     {

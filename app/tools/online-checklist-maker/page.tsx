@@ -2,15 +2,16 @@ import type { Metadata } from "next";
 import Checklist from "./_components/checklist";
 import ToolPageShell from "@/app/_components/tool-page-shell";
 import { webAppSchema } from "@/app/_lib/schema";
+import { pageMetadata } from "@/app/_lib/metadata";
 
 const DESCRIPTION =
-    "Make a checklist in seconds - packing, moving, groceries or daily tasks. Paste a list, reorder, track progress, then copy, download or print. Free, no sign-up.";
+    "Make a checklist in seconds - packing, moving, groceries or daily tasks. Paste a list, reorder and track progress, then print it. Free, no sign-up.";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
     title: "Online Checklist Maker | Create and Manage Tasks Fast",
     description: DESCRIPTION,
-    alternates: { canonical: "https://nicojuhari.com/tools/online-checklist-maker" },
-};
+    path: "/tools/online-checklist-maker",
+});
 
 const tips = [
     {

@@ -2,13 +2,14 @@ import type { Metadata } from "next";
 import { projects } from "@/app/_data/projects";
 import CtaSection from "@/app/_components/cta-section";
 import ProjectsFilter from "./_components/projects-filter";
+import { pageMetadata } from "@/app/_lib/metadata";
 
-export const metadata: Metadata = {
-    title: "Projects | Web Apps, Tools & Sites by Nicojuhari",
+export const metadata: Metadata = pageMetadata({
+    title: "Projects - Web Apps & Products I Built | Nicojuhari",
     description:
-        "A curated look at web apps, tools, and client sites built with Next.js, React, and Shopify - from local business websites to custom web applications.",
-    alternates: { canonical: "https://nicojuhari.com/projects" },
-};
+        "Web apps I built and run, like Simple Trackr for freelance finances and 1FoodMenu digital menus - what each one does, the stack and what I built.",
+    path: "/projects",
+});
 
 const years = projects.map((p) => p.year);
 const firstYear = Math.min(...years);

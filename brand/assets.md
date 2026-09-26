@@ -19,3 +19,7 @@ Last updated: 2026-09-26
 | Building Simple Trackr (build story) | content-brief | 2026-09-26 | content-plan | planning | DO FIRST - near-empty build-story SERP. `campaigns/content-plan/building-simple-trackr-invoicing-app.md` |
 | When a Spreadsheet Should Become a Web App | content-brief | 2026-09-26 | content-plan | planning | DO FIRST - neutral angle, replaces the Excel-risk brief. `campaigns/content-plan/spreadsheet-to-web-app.md` |
 | Bunny Storage File Manager | content-brief | 2026-09-26 | content-plan | planning | QUICK WIN - only docs rank. `campaigns/content-plan/bunny-storage-file-manager.md` |
+
+## 2026-09-26 — Services pages (Paid like a partner)
+- Landing page copy: app/_data/services.ts + app/services/page.tsx (notes: ./campaigns/services-pages/copy-notes.md, control)
+- Homepage audit + rewrite: ./campaigns/homepage/audit-2026-09-26.md (control, 53/70)

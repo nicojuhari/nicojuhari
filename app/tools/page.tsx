@@ -2,13 +2,14 @@ import type { Metadata } from "next";
 import { Check } from "lucide-react";
 import { tools } from "@/app/_data/tools";
 import ToolsFilter from "./_components/tools-filter";
+import { pageMetadata } from "@/app/_lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
     title: "Free Browser Tools - QR Codes, Checklists & More",
     description:
-        "A set of free, browser-based tools for everyday tasks - split bills, generate QR codes, make checklists, crop images, and more. No sign-up needed.",
-    alternates: { canonical: "https://nicojuhari.com/tools" },
-};
+        "Free browser tools for everyday tasks: split bills, make QR codes and checklists, crop images, count words and more. No sign-up needed.",
+    path: "/tools",
+});
 
 const perks = ["Free", "No sign-up", "In your browser"];
 

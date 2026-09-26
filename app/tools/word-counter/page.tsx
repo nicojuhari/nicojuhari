@@ -2,15 +2,16 @@ import type { Metadata } from "next";
 import WordCounter from "./_components/word-counter";
 import ToolPageShell from "@/app/_components/tool-page-shell";
 import { webAppSchema } from "@/app/_lib/schema";
+import { pageMetadata } from "@/app/_lib/metadata";
 
 const DESCRIPTION =
-    "Count words, characters, sentences and paragraphs, see reading time, and check your text against limits for X, SEO titles, meta descriptions and LinkedIn. Free.";
+    "Count words, characters and sentences, see reading time, and check your text against limits for X, LinkedIn, SEO titles and meta descriptions.";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
     title: "Word Counter - Count Words, Characters & Reading Time",
     description: DESCRIPTION,
-    alternates: { canonical: "https://nicojuhari.com/tools/word-counter" },
-};
+    path: "/tools/word-counter",
+});
 
 const tips = [
     {

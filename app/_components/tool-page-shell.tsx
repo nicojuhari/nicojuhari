@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowRight, Check, ChevronRight } from "lucide-react";
 import { tools } from "@/app/_data/tools";
+import { breadcrumbSchema } from "@/app/_lib/schema";
 import { cn } from "@/lib/utils";
 import { toolIcons } from "./icons";
 import ToolTile from "./tool-tile";
@@ -48,6 +49,18 @@ export default function ToolPageShell({
     return (
         <div className="sm:mt-2">
             {schema && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />}
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify(
+                        breadcrumbSchema([
+                            { name: "Home", path: "/" },
+                            { name: "Tools", path: "/tools" },
+                            { name: title, path: `/tools/${currentSlug}` },
+                        ])
+                    ),
+                }}
+            />
 
             <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-[13px] text-ink-faint">
                 <Link href="/tools" className="py-1.5 font-medium text-ink-muted transition-colors hover:text-ink">

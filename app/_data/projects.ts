@@ -29,7 +29,9 @@ export type Project = {
     /** What you built / the result */
     contribution: string;
     type: ProjectType;
-    /** Initials shown in the project mark (used when there is no icon) */
+    /** Logo image, shown instead of the mark */
+    logo?: string;
+    /** Initials shown in the project mark (used when there is no logo or icon) */
     mark?: string;
     icon?: ProjectIcon;
     /** Mark background colour */
@@ -76,6 +78,7 @@ export const categoryMetaLabel: Record<ProjectCategory, string> = {
 export const projects: Project[] = [
     {
         slug: "simple-trackr",
+        logo: "https://simple-trackr.com/simple-trackr-logo.svg",
         title: "Simple Trackr",
         year: 2026,
         stack: ["Next.js", "React", "Supabase", "Tailwind CSS", "Stripe"],
@@ -124,6 +127,7 @@ export const projects: Project[] = [
     },
     {
         slug: "1food-menu",
+        logo: "https://1food.menu/one-food-menu-logo.svg",
         title: "1FoodMenu",
         year: 2022,
         stack: ["Next.js", "React", "Supabase", "Tailwind CSS", "Stripe"],
@@ -171,6 +175,7 @@ export const projects: Project[] = [
     },
     {
         slug: "bookmark-manager",
+        logo: "https://bookmarks-manager.online/logo.svg",
         title: "Bookmark Manager",
         year: 2022,
         stack: ["Vue.js", "Tailwind CSS", "Firebase"],
@@ -189,6 +194,7 @@ export const projects: Project[] = [
     },
     {
         slug: "saver-wallet",
+        logo: "https://saver-wallet.netlify.app/saver-wallet-logo.svg",
         title: "Saver Wallet",
         year: 2022,
         stack: ["Vue.js", "Tailwind CSS"],
@@ -206,6 +212,7 @@ export const projects: Project[] = [
     },
     {
         slug: "bunny-cdn-manager",
+        logo: "https://bunny-cdn.netlify.app/bunnyLogo.svg",
         title: "Bunny CDN Manager",
         year: 2023,
         stack: ["Vue.js", "Tailwind CSS"],
@@ -223,6 +230,7 @@ export const projects: Project[] = [
     },
     {
         slug: "rock-paper-scissors",
+        logo: "https://rps-game.online/rock-paper-scissors-logo.svg",
         title: "Rock Paper Scissors",
         year: 2021,
         stack: ["Vue.js", "CSS"],

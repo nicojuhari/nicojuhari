@@ -1,5 +1,38 @@
 ## Last Updated
+2026-09-26 - core strategy changed to "Paid like a partner" (full doc: `brand/strategy.md`). Finance-Fluent Developer angle below is superseded as the lead; the tagline stays.
 2026-08-12 - tagline + short bio locked for site, LinkedIn, and profiles.
+
+---
+
+## 2026-09-26 - Current positioning: "Paid like a partner"
+
+**Strategy (internal, clunky on purpose):**
+> We build and keep improving the system a small business makes money through - its website, store, lead source or core tool - and offer to be paid from the results as a partner, the way we already are in our own businesses.
+
+**Two doors, every offer:**
+| Door | What it is |
+|---|---|
+| Build | Fixed price, clear scope, handover. The familiar option. |
+| Partner | I do the coding, SEO, marketing and automation; you run your business; I'm paid a small base fee + a % of a result we both see (sales, leads, bookings). 12-month minimum. |
+
+**Positioning statement:**
+> For owners of small businesses that already sell something people want, who need their website, store or core tool to bring in more but can't afford a technical co-founder, Nicolae is the only software engineer who builds and keeps improving that system as a partner paid from the results - because he already runs two businesses this way. Unlike freelancers and agencies, who charge for a project and leave, he stays and shares the risk.
+
+**Proof (use these, not credentials):**
+- Co-owner of handwerker-netz.at: website + SEO bring in 95%+ of its clients (with Google Maps); improved weekly.
+- Co-founder and senior engineer of a consumer credit company; built the internal system the whole company runs on (no public data - describe role and problem only).
+- Simple Trackr: the tool he runs his own freelance business on.
+
+**What changes vs. earlier angles:**
+- The finance background is no longer the headline or a credential. It shows up as understanding the money side of a partnership.
+- "Replace your Excel" / "Excel is a risk" angles are retired as leads (saturated, and conflict with the no-disparaging-tools rule).
+- Fiverr $5-$100 gigs and 1FoodMenu promotion are dropped.
+- Identity line **Software Engineer · Finance · AI** stays for profiles and the hiring audience (30% of the goal).
+
+**Elevator pitch:**
+> I build websites, stores and business apps. You can hire me for a fixed price, like any developer. Or we partner: I do the coding, SEO, marketing and automation, you do your work, and I get paid a percentage of the results. I already run two businesses this way.
+
+**Note:** the "Tagline & Bio" (2026-08-12) and "2026-07-30" sections below are kept for the identity line and hiring context. Their service descriptions (finance tools / business apps / websites) and the 80/20 fintech content mix should be read through the partner strategy above.
 2026-07-30 - repositioning update (see below). Original analysis from 2026-06-22 by /positioning-angles kept intact below; still valid, now extended.
 
 ---

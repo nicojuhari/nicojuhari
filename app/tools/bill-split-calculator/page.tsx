@@ -2,15 +2,16 @@ import type { Metadata } from "next";
 import BillSplit from "./_components/bill-split";
 import ToolPageShell from "@/app/_components/tool-page-shell";
 import { webAppSchema } from "@/app/_lib/schema";
+import { pageMetadata } from "@/app/_lib/metadata";
 
 const DESCRIPTION =
-    "Split a restaurant bill with tip in seconds, or track group expenses for trips and shared flats - see who owes whom with the fewest payments. Free, no sign-up.";
+    "Split a restaurant bill with tip in seconds, or track group costs for trips and shared flats - see who owes whom. Free, no sign-up.";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
     title: "Bill Split Calculator | Split Restaurant & Travel Costs Fast",
     description: DESCRIPTION,
-    alternates: { canonical: "https://nicojuhari.com/tools/bill-split-calculator" },
-};
+    path: "/tools/bill-split-calculator",
+});
 
 const tips = [
     {

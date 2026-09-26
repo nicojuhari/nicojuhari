@@ -4,15 +4,16 @@ import { ArrowRight } from "lucide-react";
 import ProductGrid from "./_components/product-grid";
 import ToolPageShell from "@/app/_components/tool-page-shell";
 import { webAppSchema } from "@/app/_lib/schema";
+import { pageMetadata } from "@/app/_lib/metadata";
 
 const DESCRIPTION =
-    "Add products to a Shopify blog post without an app: build a responsive product grid or carousel, preview it, and paste the HTML into your post. Free, no sign-up.";
+    "Add products to a Shopify blog post without an app. Build a product grid or carousel, preview it, and paste the HTML into your post. Free.";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
     title: "Add Products to a Shopify Blog Post Without an App",
     description: DESCRIPTION,
-    alternates: { canonical: "https://nicojuhari.com/tools/product-grid-generator" },
-};
+    path: "/tools/product-grid-generator",
+});
 
 const steps = [
     {

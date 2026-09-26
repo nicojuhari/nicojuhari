@@ -1,6 +1,9 @@
-export type ServiceSlug = "business-websites" | "shopify-stores" | "custom-web-apps";
+export type ServiceSlug = "local-business-websites" | "shopify-stores" | "custom-web-apps";
 
 type Item = { title: string; description: string };
+
+/** A real result from a business I run */
+export type Proof = { stat: string; title: string; text: string; href?: string; linkLabel?: string };
 
 export type Service = {
     slug: ServiceSlug;
@@ -11,7 +14,7 @@ export type Service = {
     tint: string;
     label: string;
     title: string;
-    /** Singular name used in the chooser, e.g. "Business Website" */
+    /** Singular name used in the chooser, e.g. "Local Business Website" */
     singular: string;
     tagline: string;
     /** Services hub card */
@@ -25,6 +28,8 @@ export type Service = {
     buildTitle: string;
     buildIntro: string;
     build: Item[];
+    /** Omit when there is nothing public to show */
+    proof?: Proof;
     steps: Item[];
     cta: string;
     /** Common questions - only facts stated elsewhere on the page */
@@ -33,88 +38,109 @@ export type Service = {
 
 export const services: Service[] = [
     {
-        slug: "business-websites",
-        href: "/services/business-websites",
-        mark: "W",
+        slug: "local-business-websites",
+        href: "/services/local-business-websites",
+        mark: "L",
         accent: "#16284D",
         tint: "#EEF1F7",
-        label: "For local & service businesses",
-        title: "Business Websites",
-        singular: "Business Website",
-        tagline: "Show up. Get found. Turn visitors into customers.",
+        label: "For trades, clinics, salons & local services",
+        title: "Local Business Websites",
+        singular: "Local Business Website",
+        tagline: "More calls and bookings from Google and Maps.",
         summary:
-            "A good business website works like a salesperson - ranking in search, loading fast on mobile, and making it easy for people to reach out, book or buy.",
+            "When people nearby search for what you do, they should find you and call you. I build your website and your Google Maps profile to make that happen.",
         goodFit: [
-            "You don’t have a website yet, or yours looks outdated",
-            "Local searches find your competitors first",
-            "Visitors come to your site but don’t reach out",
-            "You’re opening a new location or rebranding",
+            "People nearby find your competitors first",
+            "Your site gets visitors, but few of them call",
+            "Your Google Maps profile is empty or out of date",
+            "You don’t have a website yet",
         ],
         included: [
-            "Website design & development",
-            "Local SEO setup",
+            "Website design & build",
             "Google Business Profile",
-            "Booking & scheduling",
-            "Analytics & conversion tracking",
-            "Mobile-first, fast pages",
+            "A page for each service & area",
+            "Call, WhatsApp & booking buttons",
+            "Call & booking tracking",
+            "Updates after launch",
         ],
-        headline: "Websites that bring in customers.",
-        intro: "A good website works like your hardest-working salesperson. It shows up in search, loads fast on mobile, and makes it easy for people to call, book or buy.",
+        headline: "Get more calls from Google and Maps.",
+        intro: "When someone nearby searches for what you do, they should find you first. I build your website and Google Business Profile so more of those searches turn into calls and bookings.",
         forYouIf: [
-            "You don’t have a website yet, or the one you have looks outdated",
-            "When people search locally for what you offer, they find competitors first",
-            "Your site gets visitors, but not enough of them call, book or reach out",
-            "Your online presence doesn’t reflect the quality of your service",
-            "You’re opening a new location, rebranding or launching something new",
-            "You want a site that brings in leads, not one that just sits there",
+            "People search for your service nearby and find competitors first",
+            "Your site gets visitors, but not many of them call or book",
+            "Your Google Maps profile is empty, half done or out of date",
+            "You don’t have a website yet, or it hasn’t changed in years",
+            "You offer several services, but have one page for all of them",
+            "You don’t know how many clients come from your website",
         ],
-        buildTitle: "What the work typically covers",
-        buildIntro: "Depending on your needs, a project includes some or all of these.",
+        buildTitle: "What you get",
+        buildIntro: "Your website and your Google Maps profile, built to work together.",
         build: [
             {
-                title: "Website design & redesign",
-                description: "A clean, modern design built to turn visitors into enquiries. Every layout decision has a reason.",
+                title: "Found on Google Maps",
+                description: "Your Google Business Profile set up with the right services, photos and categories.",
             },
             {
-                title: "Google Business Profile",
-                description: "Show up in local search and on Google Maps when people look for what you offer nearby.",
+                title: "Found for every service",
+                description: "A page for each service and each area you cover, so you show up in more searches.",
             },
             {
-                title: "Local SEO setup",
-                description: "Target the searches that bring customers to you - not generic traffic that never converts.",
+                title: "Easy to call or book",
+                description: "Call, WhatsApp and booking buttons on every page, easy to tap on a phone.",
             },
             {
-                title: "Booking & scheduling",
-                description: "Connect Calendly, Cal.com or your booking system so visitors book straight from your site.",
+                title: "A site people trust",
+                description: "Clear pages with your services, real photos and your contact details where people look for them.",
             },
             {
-                title: "Analytics & conversion tracking",
-                description: "Google Analytics, Tag Manager and event tracking - so you know where leads come from.",
+                title: "Know where clients come from",
+                description: "See how many calls, messages and bookings the website brings in each month.",
             },
             {
-                title: "Mobile-first, fast pages",
-                description: "Most visitors are on a phone. Every page loads fast and works on any screen.",
+                title: "Better every week",
+                description: "New pages, texts and photos after launch, so the site keeps bringing in clients.",
             },
         ],
+        proof: {
+            stat: "95%+",
+            title: "of clients come from the website and Google Maps",
+            text: "That’s the result for a local services business I co-own. I built its website and still improve it every week.",
+            href: "https://handwerker-netz.at",
+            linkLabel: "See handwerker-netz.at",
+        },
         steps: [
             {
-                title: "Discovery",
-                description: "I learn what your business does, who your customers are and what the site needs to achieve.",
+                title: "First call",
+                description: "You tell me what you offer, where you work, and which jobs you want more of.",
             },
             {
                 title: "Design",
-                description: "Mockups for your feedback before any code is written. You see what you get before it’s built.",
+                description: "You see the page layout and design before I build anything.",
             },
             {
                 title: "Build",
-                description: "Responsive, fast and tested across devices - built with search visibility in mind from the start.",
+                description: "I build the website and set up your Google Maps profile. Tested on phones.",
             },
             {
-                title: "Launch",
-                description: "Go live with search engine submission and analytics in place, ready to bring in enquiries.",
+                title: "Launch & improve",
+                description: "The site goes live with call tracking. Then I keep improving it, if you want.",
             },
         ],
-        cta: "Tell me about your business and what you want the site to do. We’ll figure out the rest from there.",
+        cta: "Tell me what you offer and where you work. I’ll tell you what I’d change first.",
+        faq: [
+            {
+                question: "Do I need a website if I have a Google Maps profile?",
+                answer: "The profile helps people find you. The website is where they check your services before they call. You get more calls with both.",
+            },
+            {
+                question: "Can you keep improving the site after launch?",
+                answer: "Yes. I can add pages and update texts and photos every week. You can pay a monthly fee, or a share of the new clients the site brings in.",
+            },
+            {
+                question: "Who owns the website?",
+                answer: "You do - the domain, the website and the Google Business Profile.",
+            },
+        ],
     },
     {
         slug: "shopify-stores",
@@ -125,80 +151,94 @@ export const services: Service[] = [
         label: "For online sellers & brands",
         title: "Shopify Stores",
         singular: "Shopify Store",
-        tagline: "A store built to sell - set up right from day one.",
+        tagline: "More sales from the visitors you already have.",
         summary:
-            "Getting a Shopify store live is the easy part. Getting it to convert, keep customers and run smoothly without eating your time is where the work is.",
+            "More sales don’t always need more visitors. They need clear product pages, an easy checkout and emails that bring buyers back. I set this up and keep improving it.",
         goodFit: [
-            "You want to sell online but don’t know where to start",
-            "Your store doesn’t convert or looks outdated",
-            "You have no email flows set up yet",
-            "You’re moving from another platform",
+            "Your store gets visitors, but not enough sales",
+            "Your store looks dated or is hard to manage",
+            "You don’t send any automatic emails yet",
+            "You want to start selling online",
         ],
         included: [
-            "Full Shopify store setup",
+            "Shopify store setup",
             "Product pages & collections",
-            "Klaviyo email flows",
-            "Shipping & fulfillment",
-            "Reviews with Judge.me or Okendo",
-            "Theme & app configuration",
+            "Klaviyo emails",
+            "Shipping & tracking",
+            "Reviews",
+            "Updates after launch",
         ],
-        headline: "A store built to sell.",
-        intro: "Set up right, easy to manage and built to grow. Whether you’re starting from scratch or improving what you have, the goal is a store customers trust and come back to.",
+        headline: "A Shopify store that sells more.",
+        intro: "Clear product pages, an easy checkout, and emails that bring buyers back. I build your store or fix the one you have - and keep improving it after launch.",
         forYouIf: [
-            "You want to sell online but don’t know where to start",
-            "Your current store looks outdated or isn’t turning visitors into buyers",
-            "You’re moving from another platform and need a clean Shopify setup",
-            "You have no post-purchase email flow yet",
-            "Running your store takes too much time and you want it to run smoother",
-            "You want a store you’re proud to send customers to",
+            "Your store gets visitors, but not enough of them buy",
+            "Your store looks dated or takes too long to manage",
+            "You don’t send welcome, abandoned-cart or after-purchase emails",
+            "You’re moving to Shopify from another platform",
+            "You want to start selling online and set it up right",
+            "You want someone to keep improving the store after launch",
         ],
-        buildTitle: "What the work typically covers",
-        buildIntro: "Depending on your needs, a project includes some or all of these.",
+        buildTitle: "What you get",
+        buildIntro: "Depending on your store, some or all of these.",
         build: [
             {
-                title: "Full Shopify store setup",
-                description: "Theme, store settings, payments and tax configured right from the start.",
+                title: "Product pages that sell",
+                description: "Clear photos, text and prices that answer buyers’ questions, so more visitors buy.",
             },
             {
-                title: "Product pages & collections",
-                description: "Clear product pages and collections that are easy to browse and built to convert.",
+                title: "Emails that bring buyers back",
+                description: "Welcome, abandoned-cart and after-purchase emails with Klaviyo. They send on their own.",
             },
             {
-                title: "Klaviyo email marketing",
-                description: "Welcome, abandoned-cart and post-purchase flows set up and running.",
+                title: "Reviews on every product",
+                description: "Judge.me or Okendo collects reviews and shows them automatically.",
             },
             {
-                title: "Shipping & fulfillment",
-                description: "Connect Shippo, ShipStation or your carrier. Automate labels, tracking and notifications.",
+                title: "Shipping without the busywork",
+                description: "Labels, tracking and customer updates with Shippo, ShipStation or your carrier.",
             },
             {
-                title: "Reviews & social proof",
-                description: "Judge.me or Okendo set up to collect and show reviews automatically.",
+                title: "A fast, simple store",
+                description: "Only the apps you need, so the store loads fast and is easy to manage.",
             },
             {
-                title: "Theme & app configuration",
-                description: "Apps chosen and configured to fit your workflow - no bloat slowing the store down.",
+                title: "Better every month",
+                description: "After launch, I look at the sales numbers and fix what isn’t working.",
             },
         ],
         steps: [
             {
-                title: "Discovery",
-                description: "I learn about your products, your customers and what success looks like for the store.",
+                title: "First call",
+                description: "You tell me about your products, your customers and how the store sells today.",
             },
             {
-                title: "Design & structure",
-                description: "Theme, layout and collection structure mapped out first. You approve the direction.",
+                title: "Plan & design",
+                description: "You see the layout and the structure of the store before I build it.",
             },
             {
-                title: "Build & configure",
-                description: "Store setup, product import, apps and email flows built and tested end to end.",
+                title: "Build",
+                description: "Store setup, products, apps and emails - all tested before launch.",
             },
             {
-                title: "Launch",
-                description: "Domain connected, analytics in place, and a store ready to take orders from day one.",
+                title: "Launch & improve",
+                description: "The store goes live with sales tracking. Then I keep improving it, if you want.",
             },
         ],
-        cta: "Tell me about your products and what you want the store to do. We’ll figure out the rest from there.",
+        cta: "Tell me about your store and how it sells today. I’ll tell you where I’d start.",
+        faq: [
+            {
+                question: "Can you improve my existing store?",
+                answer: "Yes. I can redesign it, fix product pages, set up emails and reviews - without starting over.",
+            },
+            {
+                question: "Can you keep working on the store after launch?",
+                answer: "Yes, every month. You can pay a monthly fee, or a share of your online sales.",
+            },
+            {
+                question: "Who owns the store?",
+                answer: "You do - the Shopify account, the theme, the apps and the customer data.",
+            },
+        ],
     },
     {
         slug: "custom-web-apps",
@@ -209,115 +249,107 @@ export const services: Service[] = [
         label: "For teams & growing businesses",
         title: "Custom Web Apps",
         singular: "Custom Web App",
-        tagline: "Software built around your process.",
+        tagline: "Less manual work. Clear numbers.",
         summary:
-            "When off-the-shelf tools stop fitting, custom software gives your team exactly what it needs - dashboards, automations, approvals, payments and AI.",
+            "When your business runs on spreadsheets and separate tools, a custom app puts it all in one place. Your team saves time, makes fewer mistakes, and you see your numbers any time.",
         goodFit: [
-            "Business data lives in spreadsheets that have grown too complex",
-            "Your team switches between tools that don’t connect",
-            "A manual process takes hours every week",
-            "You need payments, location or AI built in",
+            "Several people edit the same spreadsheets",
+            "Your tools don’t connect to each other",
+            "The same manual task takes hours every week",
+            "You wait for reports to see your numbers",
         ],
         included: [
-            "Dashboards & internal tools",
-            "Business process automation",
-            "Workflow & approval systems",
-            "Stripe payments & subscriptions",
-            "GPS & location features",
-            "AI integrations (OpenAI, Claude)",
+            "Dashboards & reports",
+            "Automation & approvals",
+            "Stripe payments",
+            "Connections to your tools",
+            "AI features (OpenAI, Claude)",
+            "Finance tools & calculators",
         ],
-        headline: "Software built around your process.",
-        intro: "When off-the-shelf tools stop fitting, custom software gives your team exactly what it needs - dashboards, automations, approvals and payments, built around how you already work.",
+        headline: "Less manual work. Clear numbers.",
+        intro: "A custom app puts your team’s work in one place. Less copying between tools, fewer mistakes, and your numbers on one screen whenever you need them.",
         forYouIf: [
-            "Important business data lives in spreadsheets that have grown too complex",
-            "Your team switches between 4–5 tools that don’t talk to each other",
-            "A manual process takes hours of your team’s time every week",
-            "You need a dashboard, admin panel or reporting tool that fits how you work",
-            "You’re building a fintech product, financial tool or calculator",
-            "You need payments, location tracking or AI built into your product",
+            "Several people edit the same spreadsheets to run the business",
+            "Your team switches between tools that don’t connect",
+            "The same manual task takes hours every week",
+            "You wait for someone to build a report before you see your numbers",
+            "You need a finance tool, calculator or tracker built to your rules",
+            "You want someone who keeps the app up to date after launch",
         ],
-        buildTitle: "The most common types of work",
-        buildIntro: "Every project is different - these are the pieces teams ask for most.",
+        buildTitle: "What you get",
+        buildIntro: "Every business is different. These are the things teams ask for most.",
         build: [
             {
-                title: "Dashboards & internal tools",
-                description:
-                    "Real-time data views, KPI tracking and admin panels your team can actually use - built around your data.",
+                title: "Your numbers on one screen",
+                description: "Dashboards and reports that update on their own. No waiting for someone to build them.",
             },
             {
-                title: "Business process automation",
-                description: "Replace repetitive manual steps with automated workflows. Less clicking, fewer errors.",
+                title: "Less repeated work",
+                description: "Automatic steps and approvals instead of copying data by hand.",
             },
             {
-                title: "Workflow & approval systems",
-                description: "Multi-step approvals, task assignment and status tracking built for how your team operates.",
+                title: "Payments in the app",
+                description: "One-time payments, subscriptions and invoices with Stripe.",
             },
             {
-                title: "Stripe payments & subscriptions",
-                description: "One-time payments, recurring billing, invoicing and subscriptions - built in, not bolted on.",
+                title: "Your tools connected",
+                description: "Your CRM, email, SMS and payment tools share data, so nothing gets typed twice.",
             },
             {
-                title: "GPS tracking & location",
-                description: "Delivery tracking, fleet management and geofencing with Google Maps or Radar.",
+                title: "AI that saves time",
+                description: "OpenAI or Claude to read documents, search your data or draft texts.",
             },
             {
-                title: "Third-party integrations",
-                description: "Connect CRMs, ERPs, payment providers or any external service so your tools work together.",
-            },
-            {
-                title: "Notifications & messaging",
-                description: "SMS via Twilio, email via Resend and in-app alerts - the right update to the right person.",
-            },
-            {
-                title: "AI integrations",
-                description: "OpenAI or Claude in your workflow: document analysis, smart search, content generation.",
-            },
-            {
-                title: "Reporting & fintech tools",
-                description: "Custom reports, exports, loan calculators and investment trackers built to your exact logic.",
+                title: "Finance tools",
+                description: "Loan calculators, trackers and reports built to your exact rules.",
             },
         ],
+        proof: {
+            stat: "Every day",
+            title: "a lending company runs on a system I built",
+            text: "I co-founded a consumer credit company and built the internal system its daily work runs on. My own business runs on Simple Trackr, another app I built.",
+            href: "/projects",
+            linkLabel: "See my projects",
+        },
         steps: [
             {
-                title: "Discovery call",
-                description:
-                    "You explain the problem. I ask questions until I understand the process, the people and what success looks like.",
+                title: "First call",
+                description: "You explain the problem. I ask questions until I understand how the work is done today.",
             },
             {
-                title: "Scope & proposal",
-                description: "A clear breakdown of what gets built, the timeline and the price. No hourly billing.",
+                title: "Plan & price",
+                description: "You get a clear list of what I’ll build, the timeline and a fixed price.",
             },
             {
                 title: "Build",
-                description:
-                    "Regular updates so you see progress and give feedback at any stage. Nothing ships without your sign-off.",
+                description: "You see progress every week and can give feedback at any time.",
             },
             {
-                title: "Launch & handover",
-                description: "Deployed, documented and yours to own. I can stay on for support or hand it off clean.",
+                title: "Launch & improve",
+                description: "The app goes live and it’s yours. Then I keep improving it, if you want.",
             },
         ],
-        cta: "Tell me about the problem you’re solving. We’ll figure out whether a custom app is the right move.",
+        cta: "Tell me which task takes your team the most time. We’ll see if an app is the right fix.",
         faq: [
             {
-                question: "When is a custom web app better than a spreadsheet or a no-code tool?",
-                answer: "When several people work on the same data and need approvals, history or permissions, or when a tool’s limits start to shape how your team works. If a spreadsheet or an off-the-shelf tool still does the job, I’ll tell you.",
+                question: "When is a custom app better than a spreadsheet or a no-code tool?",
+                answer: "When several people work on the same data and need approvals, history or permissions. If a spreadsheet or an existing tool still does the job, I’ll tell you.",
             },
             {
                 question: "How is the price set?",
-                answer: "After a discovery call you get a clear breakdown of what gets built, the timeline and a fixed price. No hourly billing.",
+                answer: "After the first call you get a clear list of what I’ll build, the timeline and a fixed price. No hourly billing.",
             },
             {
                 question: "Can it connect to the tools we already use?",
-                answer: "Yes - CRMs, ERPs, payment providers like Stripe, email and SMS services, or any external service with an API.",
+                answer: "Yes - CRMs, payment providers like Stripe, email and SMS services, or any tool with an API.",
             },
             {
-                question: "Can you add AI to our workflow?",
-                answer: "Yes - OpenAI or Claude for things like document analysis, smart search or content generation, where it saves real time for your team.",
+                question: "Can you keep improving the app after launch?",
+                answer: "Yes, with a monthly plan. If the app earns money directly, part of the pay can be a share of that instead.",
             },
             {
-                question: "Who owns the app when it’s finished?",
-                answer: "You do. It’s deployed, documented and yours to own. I can stay on for support or hand it off clean.",
+                question: "Who owns the app?",
+                answer: "You do. The code and the data are yours.",
             },
         ],
     },

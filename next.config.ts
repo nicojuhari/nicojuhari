@@ -14,6 +14,12 @@ const nextConfig: NextConfig = {
                 destination: "/tools/word-counter",
                 permanent: true,
             },
+            // Service rename
+            {
+                source: "/services/business-websites",
+                destination: "/services/local-business-websites",
+                permanent: true,
+            },
             // Restaurant examples (section removed, redirect to home)
             {
                 source: "/restaurant-website-examples/:slug",

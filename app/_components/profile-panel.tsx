@@ -4,7 +4,7 @@ import ContactButton from "./contact-button";
 import { socialLinks } from "./icons";
 
 const facts = [
-    { label: "Focus", value: "Finance & business apps" },
+    { label: "Focus", value: "Websites, stores & apps" },
     { label: "Stack", value: "Next.js · Supabase · AI" },
     { label: "Response", value: "Within 24h, Mon–Fri" },
 ];
@@ -43,8 +43,7 @@ export default function ProfilePanel() {
                 </h1>
 
                 <p className="mt-3.5 text-[15px] leading-relaxed text-ink-muted sm:mt-4.5">
-                    Financial and business apps that replace spreadsheets and manual workflows - built with a clear view of
-                    the numbers behind them.
+                    Websites, Shopify stores and web apps that bring in clients, sell more and save your team time.
                 </p>
 
                 <div className="mt-5 flex flex-col gap-2.5 sm:mt-6">

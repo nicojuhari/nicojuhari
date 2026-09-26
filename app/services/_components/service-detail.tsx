@@ -4,6 +4,7 @@ import CtaSection from "@/app/_components/cta-section";
 import FaqSection from "@/app/_components/faq-section";
 import ContactButton from "@/app/_components/contact-button";
 import { serviceIcons } from "@/app/_components/icons";
+import ProofBlock from "@/app/_components/proof-block";
 import { breadcrumbSchema, serviceSchema } from "@/app/_lib/schema";
 import { getService, services, type ServiceSlug } from "@/app/_data/services";
 
@@ -100,7 +101,7 @@ export default function ServiceDetail({ slug, schemaName, schemaDescription }: P
             <section className="mt-16 flex flex-col gap-6 sm:mt-24 sm:gap-7">
                 <div className="flex flex-col gap-3 lg:flex-row lg:items-end lg:justify-between lg:gap-8">
                     <div className="flex flex-col gap-2.5">
-                        <p className="eyebrow">What I build</p>
+                        <p className="eyebrow">What I do</p>
                         <h2 className="text-[28px] leading-[1.1] font-semibold tracking-[-0.03em] text-ink sm:text-[38px]">
                             {service.buildTitle}
                         </h2>
@@ -119,6 +120,8 @@ export default function ServiceDetail({ slug, schemaName, schemaDescription }: P
                     ))}
                 </ul>
             </section>
+
+            {service.proof && <ProofBlock proof={service.proof} className="mt-12 sm:mt-16" />}
 
             {/* How it works */}
             <section
