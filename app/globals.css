@@ -48,6 +48,10 @@
   --color-ink-soft: var(--ink-soft);
   --color-ink-muted: var(--ink-muted);
   --color-rule: var(--rule);
+  --color-line: var(--line);
+  --color-ink-faint: var(--ink-faint);
+  --color-teal: var(--teal);
+  --color-canvas: var(--canvas);
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);
   --radius-lg: var(--radius);
@@ -85,11 +89,15 @@
   --brand-green: #1b998b;
   --brand-rose: #e072a4;
   --brand-dusty: #95818d;
-  --bg-soft: #fafafa;
-  --ink: #0a0a0a;
-  --ink-soft: #404040;
-  --ink-muted: #737373;
-  --rule: #e5e5e5;
+  --bg-soft: #f6f5f1;
+  --canvas: #f6f5f1;
+  --ink: #111418;
+  --ink-soft: #3f434a;
+  --ink-muted: #555a62;
+  --ink-faint: #6b6f76;
+  --rule: #e6e3dc;
+  --line: #eeebe5;
+  --teal: #127a6f;
   --radius: 0.625rem;
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
@@ -148,8 +156,8 @@
   }
   body {
     @apply relative overflow-x-hidden bg-bg-soft text-foreground antialiased;
-    background-image: radial-gradient(circle, rgb(0 0 0 / 0.045) 0.85px, transparent 0.85px);
-    background-size: 18px 18px;
+    background-image: radial-gradient(circle, rgb(17 20 24 / 0.05) 0.9px, transparent 0.9px);
+    background-size: 20px 20px;
   }
 }
 
@@ -180,7 +188,7 @@ button {
   }
 
   .eyebrow {
-    @apply font-mono text-xs font-semibold uppercase tracking-[0.18em] text-ink-muted;
+    @apply font-mono text-xs font-semibold uppercase tracking-[0.16em] text-ink-faint;
   }
 
   .container-sm {
@@ -192,12 +200,26 @@ button {
   }
 
   .dot-grid {
-    background-image: radial-gradient(circle, rgb(0 0 0 / 0.045) 0.85px, transparent 0.85px);
-    background-size: 18px 18px;
+    background-image: radial-gradient(circle, rgb(17 20 24 / 0.05) 0.9px, transparent 0.9px);
+    background-size: 20px 20px;
   }
 
   .surface-card {
     @apply rounded-2xl border border-rule bg-white transition-colors duration-200;
+  }
+
+  .navy-dots {
+    @apply bg-brand text-white;
+    background-image: radial-gradient(circle, rgb(255 255 255 / 0.07) 0.9px, transparent 0.9px);
+    background-size: 20px 20px;
+  }
+
+  .chip {
+    @apply rounded-full border border-rule px-2.5 py-1 text-xs font-medium text-ink-soft;
+  }
+
+  .live-dot {
+    @apply inline-flex items-center gap-1.5 text-xs font-semibold text-teal;
   }
 
   .surface-card-interactive {
@@ -209,11 +231,11 @@ button {
   }
 
   .btn-pill-primary {
-    @apply inline-flex items-center justify-center gap-1.5 rounded-full bg-brand px-5 py-2.5 text-sm font-medium text-white transition-[transform,background-color,color] duration-200 hover:bg-brand/90 active:scale-[0.97];
+    @apply inline-flex h-11 items-center justify-center gap-2 rounded-full bg-brand px-5 text-sm font-semibold text-white transition-[transform,background-color,color] duration-200 hover:bg-brand/90 active:scale-[0.97];
   }
 
   .btn-pill-secondary {
-    @apply inline-flex items-center justify-center gap-1.5 rounded-full border border-rule bg-background px-5 py-2.5 text-sm font-medium text-ink transition-[transform,background-color,color] duration-200 hover:border-ink/25 active:scale-[0.97];
+    @apply inline-flex h-11 items-center justify-center gap-2 rounded-full border border-[#e0ddd5] bg-white px-5 text-sm font-semibold text-ink transition-[transform,background-color,color] duration-200 hover:border-ink/25 active:scale-[0.97];
   }
 }
 

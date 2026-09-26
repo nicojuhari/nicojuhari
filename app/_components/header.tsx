@@ -2,44 +2,37 @@ import Link from "next/link";
 import Image from "next/image";
 import MobileNav from "./mobile-nav";
 import ContactButton from "./contact-button";
-
-const navLinks = [
-    { href: "/services", label: "Services" },
-    { href: "/projects", label: "Projects" },
-    { href: "/tools", label: "Tools" },
-];
+import NavLinks from "./nav-links";
 
 export default function Header() {
     return (
-        <header className="fixed inset-x-0 top-0 z-50 pt-3">
+        <header className="fixed inset-x-0 top-0 z-50 pt-3 sm:pt-5">
             <div className="container">
-                <div className="flex h-12 items-center justify-between rounded-full border border-rule bg-background/85 px-4 backdrop-blur-md sm:h-14 sm:px-5">
-                    <Link href="/" title="Nicojuhari" className="flex shrink-0 items-center gap-2.5">
-                        <Image
-                            src="/nicojuhari-logo.svg"
-                            alt="Nicojuhari logo"
-                            width={28}
-                            height={28}
-                            priority
-                        />
-                        <span className="hidden text-sm font-semibold tracking-tight text-ink sm:inline">Nicojuhari</span>
+                <div className="flex h-14 items-center justify-between rounded-full border border-rule bg-white/90 pl-3.5 pr-1.5 shadow-[0_1px_2px_rgba(17,20,24,0.04)] backdrop-blur-md sm:h-15 sm:pl-5 sm:pr-2.5">
+                    <Link href="/" title="Nicojuhari" className="flex shrink-0 items-center gap-2.5 text-ink">
+                        <Image src="/nicojuhari-logo.svg" alt="Nicojuhari logo" width={28} height={28} priority />
+                        <span className="text-[15px] font-semibold tracking-tight">Nicojuhari</span>
                     </Link>
 
-                    <nav className="hidden items-center gap-0.5 md:flex">
-                        {navLinks.map(({ href, label }) => (
-                            <Link
-                                key={href}
-                                href={href}
-                                className="rounded-full px-3.5 py-2 text-sm font-medium text-ink-muted transition-colors hover:text-ink"
-                            >
-                                {label}
-                            </Link>
-                        ))}
-                        <ContactButton className="ml-2 inline-flex items-center gap-1.5 rounded-full bg-brand px-4 py-2 text-xs font-semibold text-white transition-colors hover:bg-brand/90">
-                            Contact
+                    <nav className="hidden items-center gap-1 md:flex">
+                        <NavLinks />
+                        <ContactButton
+                            arrow={false}
+                            className="ml-2 inline-flex h-10 items-center rounded-full bg-brand px-4.5 text-[13px] font-semibold text-white transition-colors hover:bg-brand/90"
+                        >
+                            Get in touch
                         </ContactButton>
                     </nav>
-                    <MobileNav />
+
+                    <div className="flex items-center gap-1 md:hidden">
+                        <ContactButton
+                            arrow={false}
+                            className="inline-flex h-11 items-center rounded-full bg-brand px-4 text-[13px] font-semibold text-white"
+                        >
+                            Contact
+                        </ContactButton>
+                        <MobileNav />
+                    </div>
                 </div>
             </div>
         </header>

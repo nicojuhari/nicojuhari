@@ -1,34 +1,26 @@
 import Link from "next/link";
-
-const links = [
-    { href: "/services", label: "Services" },
-    { href: "/projects", label: "Projects" },
-    { href: "/tools", label: "Tools" },
-];
+import Image from "next/image";
+import { navLinks } from "@/app/_lib/nav";
 
 export default function Footer() {
     const year = new Date().getFullYear();
 
     return (
-        <footer className="border-t border-rule bg-background py-8 sm:py-10">
-            <div className="container flex flex-col items-center gap-5 text-center sm:flex-row sm:items-center sm:justify-between sm:gap-6 sm:text-left">
-                <p className="text-sm text-ink-muted">
-                    © {year} Nicolae Cojuhari
-                    <br />
-                    <span className="text-xs text-ink-muted/80">Software Engineer · Finance · AI</span>
+        <footer className="container mt-12 flex flex-col items-center gap-5 border-t border-rule pb-9 pt-7 text-center sm:mt-16 sm:flex-row sm:justify-between sm:text-left">
+            <div className="flex items-center gap-2.5">
+                <Image src="/nicojuhari-logo.svg" alt="" width={22} height={22} />
+                <p className="text-[13px] text-ink-muted">
+                    © {year} Nicolae Cojuhari<span className="hidden sm:inline"> · Software Engineer · Finance · AI</span>
                 </p>
-
-                <nav className="flex items-center gap-1 text-sm">
-                    {links.map(({ href, label }, i) => (
-                        <span key={href} className="flex items-center gap-1">
-                            {i > 0 && <span className="px-1.5 text-ink-muted/40" aria-hidden>·</span>}
-                            <Link href={href} className="px-1.5 py-1 text-ink-muted transition-colors hover:text-ink">
-                                {label}
-                            </Link>
-                        </span>
-                    ))}
-                </nav>
             </div>
+
+            <nav className="flex items-center gap-6 text-[13px] font-medium">
+                {navLinks.map(({ href, label }) => (
+                    <Link key={href} href={href} className="py-2 text-ink-muted transition-colors hover:text-ink">
+                        {label}
+                    </Link>
+                ))}
+            </nav>
         </footer>
     );
 }

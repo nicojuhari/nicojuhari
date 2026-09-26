@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
+import { Check } from "lucide-react";
 import { tools } from "@/app/_data/tools";
-import ToolCard from "@/app/_components/tool-card";
+import ToolsFilter from "./_components/tools-filter";
 
 export const metadata: Metadata = {
     title: "Free Browser Tools - QR Codes, Checklists & More",
@@ -9,21 +10,36 @@ export const metadata: Metadata = {
     alternates: { canonical: "https://nicojuhari.com/tools" },
 };
 
+const perks = ["Free", "No sign-up", "In your browser"];
+
 export default function ToolsPage() {
     return (
-        <div>
-            <header className="mb-8">
-                <h1 className="text-[clamp(1.75rem,3vw,2.25rem)] font-semibold tracking-tight text-ink">Simple Tools</h1>
-                <p className="mt-2 text-ink-muted">Built for me, sharing with you.</p>
-            </header>
+        <div className="flex flex-col gap-8 sm:mt-6 sm:gap-10">
+            <section className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between lg:gap-12">
+                <div className="flex max-w-[720px] flex-col gap-3.5 sm:gap-4.5">
+                    <p className="eyebrow">Free tools</p>
+                    <h1 className="text-[34px] leading-[1.06] font-semibold tracking-[-0.03em] text-ink sm:text-5xl xl:text-[56px] xl:leading-[1.03] xl:tracking-[-0.035em]">
+                        Simple tools for everyday tasks.
+                    </h1>
+                    <p className="text-base leading-relaxed text-ink-muted sm:text-lg">
+                        Built for me, sharing with you. Split bills, make QR codes and checklists, crop images and more - free,
+                        no sign-up needed.
+                    </p>
+                </div>
+                <ul className="flex shrink-0 flex-wrap gap-2">
+                    {perks.map((perk) => (
+                        <li
+                            key={perk}
+                            className="inline-flex h-9 items-center gap-2 rounded-full border border-rule bg-white px-3.5 text-[13px] font-semibold text-ink-soft sm:h-10"
+                        >
+                            <Check className="size-[15px] text-teal" strokeWidth={2.2} aria-hidden />
+                            {perk}
+                        </li>
+                    ))}
+                </ul>
+            </section>
 
-            <ul className="grid gap-3 sm:grid-cols-2">
-                {tools.map((tool) => (
-                    <li key={tool.slug}>
-                        <ToolCard tool={tool} />
-                    </li>
-                ))}
-            </ul>
+            <ToolsFilter tools={tools} />
         </div>
     );
 }

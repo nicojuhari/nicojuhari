@@ -1,146 +1,521 @@
-"use client"
+"use client";
 
-import { useState, useMemo } from "react"
-import { PlusIcon, TrashIcon, CopyIcon, CheckIcon } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { Label } from "@/components/ui/label"
+import { useEffect, useId, useMemo, useRef, useState } from "react";
+import { useLocalStorage } from "usehooks-ts";
+import { ArrowDown, ArrowUp, Check, Copy, ImageOff, Monitor, Pencil, Plus, Smartphone, Trash2, Undo2 } from "lucide-react";
+import { Chip, Eyebrow, Field, inputClass, invalidProps, PillTabs, primaryButton, secondaryButton } from "@/app/tools/_components/tool-ui";
+import { cn } from "@/lib/utils";
+import {
+    buildHtml,
+    DEFAULT_OPTIONS,
+    EXAMPLE_PRODUCTS,
+    isWebUrl,
+    LIMITS,
+    previewDocument,
+    uid,
+    validateProduct,
+    type GridOptions,
+    type Product,
+} from "./grid-html";
 
-type Product = { title: string; image: string; url: string; price: string; description: string }
+type Draft = Omit<Product, "id">;
+const EMPTY_DRAFT: Draft = { title: "", image: "", url: "", price: "", description: "" };
+const MAX_PRODUCTS = 24;
 
-const EMPTY: Product = { title: "", image: "", url: "", price: "", description: "" }
+// ─── Product form ─────────────────────────────────────────────────────────────
 
-const DEFAULT_PRODUCTS: Product[] = [
-  { title: "Product Title", image: "https://nicojuhari.b-cdn.net/tools/grid/product-1.webp", url: "#", price: "$19.99", description: "Product description, some text" },
-  { title: "Product Title", image: "https://nicojuhari.b-cdn.net/tools/grid/product-2.webp", url: "#", price: "$29.99", description: "" },
-  { title: "Product Title", image: "https://nicojuhari.b-cdn.net/tools/grid/product-3.webp", url: "#", price: "$39.99", description: "" },
-  { title: "Product Title", image: "https://nicojuhari.b-cdn.net/tools/grid/product-4.webp", url: "#", price: "$49.99", description: "" },
-]
+function ProductForm({
+    initial,
+    submitLabel,
+    onSave,
+    onCancel,
+}: {
+    initial: Draft;
+    submitLabel: string;
+    onSave: (d: Draft) => void;
+    onCancel?: () => void;
+}) {
+    const id = useId();
+    const [draft, setDraft] = useState(initial);
+    const [submitted, setSubmitted] = useState(false);
+    const [imageBroken, setImageBroken] = useState(false);
+    const errors = submitted ? validateProduct(draft) : {};
+    const set = (key: keyof Draft, value: string) => setDraft((d) => ({ ...d, [key]: value }));
 
-const COMMON_STYLES = `
-.nc-row{padding:.5rem 0;gap:1.5rem}
-.nc-row-item{border-radius:6px;background-color:#fff;box-shadow:0 1px 3px 0 rgba(0,0,0,.1),0 1px 2px -1px rgba(0,0,0,.1);overflow:hidden}
-.nc-row-item__url{text-decoration:none;color:inherit}
-.nc-row-item__content{padding:1rem;display:flex;flex-direction:column;gap:.5rem}
-.nc-row-item__img{width:100%;object-fit:cover;object-position:center;aspect-ratio:1/1}
-.nc-row-item__title{font-size:1.2rem;font-weight:600}
-.nc-row-item__price{font-size:1rem;margin-top:auto}
-.nc-row-item__desc{font-size:.75rem;opacity:.8;display:-webkit-box;overflow:hidden;-webkit-line-clamp:1;-webkit-box-orient:vertical}
-`
+    const save = () => {
+        setSubmitted(true);
+        if (Object.keys(validateProduct(draft)).length) return;
+        onSave(draft);
+        setDraft(EMPTY_DRAFT);
+        setSubmitted(false);
+    };
 
-const GRID_STYLES: Record<1 | 2, string> = {
-  1: `.nc-row{display:grid;grid-template-columns:1fr 1fr}`,
-  2: `.nc-row{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;padding-left:.25rem;padding-right:.25rem}.nc-row-item{width:18rem;scroll-snap-align:center;flex-shrink:0}`,
+    const imageOk = isWebUrl(draft.image.trim());
+
+    return (
+        <div className="flex flex-col gap-4 rounded-2xl border border-rule bg-[#faf9f6] p-4 sm:p-5">
+            <div className="grid gap-4 sm:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)]">
+                <Field label="Product name" htmlFor={`${id}-title`} error={errors.title}>
+                    <input
+                        id={`${id}-title`}
+                        value={draft.title}
+                        maxLength={LIMITS.title}
+                        onChange={(e) => set("title", e.target.value)}
+                        placeholder="Ceramic mug"
+                        className={inputClass}
+                        {...invalidProps(`${id}-title`, errors.title)}
+                    />
+                </Field>
+                <Field label="Price (optional)" htmlFor={`${id}-price`}>
+                    <input
+                        id={`${id}-price`}
+                        value={draft.price}
+                        maxLength={LIMITS.price}
+                        onChange={(e) => set("price", e.target.value)}
+                        placeholder="€24.00"
+                        className={inputClass}
+                    />
+                </Field>
+            </div>
+            <div className="grid gap-4 sm:grid-cols-[64px_minmax(0,1fr)] sm:items-start">
+                <div className="hidden size-16 items-center justify-center overflow-hidden rounded-xl border border-rule bg-white text-ink-faint sm:mt-7 sm:flex">
+                    {imageOk && !imageBroken ? (
+                        // eslint-disable-next-line @next/next/no-img-element
+                        <img src={draft.image.trim()} alt="" className="size-full object-cover" onError={() => setImageBroken(true)} />
+                    ) : (
+                        <ImageOff className="size-5" aria-hidden />
+                    )}
+                </div>
+                <Field
+                    label="Image link"
+                    htmlFor={`${id}-image`}
+                    error={errors.image}
+                    hint={imageOk && imageBroken ? "This image didn’t load - check the link is public." : "Right-click a product image in your store and copy its address."}
+                >
+                    <input
+                        id={`${id}-image`}
+                        inputMode="url"
+                        spellCheck={false}
+                        value={draft.image}
+                        maxLength={LIMITS.url}
+                        onChange={(e) => {
+                            set("image", e.target.value);
+                            setImageBroken(false);
+                        }}
+                        placeholder="https://cdn.shopify.com/…/mug.jpg"
+                        className={inputClass}
+                        {...invalidProps(`${id}-image`, errors.image)}
+                    />
+                </Field>
+            </div>
+            <Field label="Product link" htmlFor={`${id}-url`} error={errors.url} hint="A full link, or a path in your shop like /products/mug.">
+                <input
+                    id={`${id}-url`}
+                    inputMode="url"
+                    spellCheck={false}
+                    value={draft.url}
+                    maxLength={LIMITS.url}
+                    onChange={(e) => set("url", e.target.value)}
+                    placeholder="/products/ceramic-mug"
+                    className={inputClass}
+                    {...invalidProps(`${id}-url`, errors.url)}
+                />
+            </Field>
+            <Field label="Short description (optional)" htmlFor={`${id}-desc`}>
+                <textarea
+                    id={`${id}-desc`}
+                    value={draft.description}
+                    maxLength={LIMITS.description}
+                    onChange={(e) => set("description", e.target.value)}
+                    rows={2}
+                    className={cn(inputClass, "h-auto resize-y py-3 text-sm")}
+                />
+            </Field>
+            <div className="flex flex-col gap-2 sm:flex-row sm:justify-end">
+                {onCancel && (
+                    <button type="button" onClick={onCancel} className={cn(secondaryButton, "h-11")}>
+                        Cancel
+                    </button>
+                )}
+                <button type="button" onClick={save} className={cn(primaryButton, "h-11")}>
+                    <Check className="size-4" aria-hidden />
+                    {submitLabel}
+                </button>
+            </div>
+        </div>
+    );
 }
 
+// ─── Main ─────────────────────────────────────────────────────────────────────
+
 export default function ProductGrid() {
-  const [products, setProducts] = useState<Product[]>(DEFAULT_PRODUCTS)
-  const [design, setDesign] = useState<1 | 2>(2)
-  const [form, setForm] = useState<Product>(EMPTY)
-  const [showForm, setShowForm] = useState(false)
-  const [copied, setCopied] = useState(false)
+    const id = useId();
+    const [products, setProducts] = useLocalStorage<Product[]>("nc_grid_products", EXAMPLE_PRODUCTS, { initializeWithValue: false });
+    const [stored, setOptions] = useLocalStorage<GridOptions>("nc_grid_options", DEFAULT_OPTIONS, { initializeWithValue: false });
+    const options = { ...DEFAULT_OPTIONS, ...stored };
+    const setOption = <K extends keyof GridOptions>(key: K, value: GridOptions[K]) =>
+        setOptions((prev) => ({ ...DEFAULT_OPTIONS, ...prev, [key]: value }));
 
-  const html = useMemo(() => {
-    if (!products.length) return ""
-    const items = products.map((p) => `
-  <div class="nc-row-item">
-    <a href="${p.url}" class="nc-row-item__url" title="${p.title}">
-      <img src="${p.image}" class="nc-row-item__img" alt="${p.title}" loading="lazy">
-      <div class="nc-row-item__content">
-        <div class="nc-row-item__title">${p.title}</div>
-        ${p.description ? `<p class="nc-row-item__desc">${p.description}</p>` : ""}
-        ${p.price ? `<p class="nc-row-item__price">${p.price}</p>` : ""}
-      </div>
-    </a>
-  </div>`).join("")
-    return `<div class="nc-row">${items}\n</div>\n<style>${COMMON_STYLES}${GRID_STYLES[design]}</style>`
-  }, [products, design])
+    const [editingId, setEditingId] = useState<string | null>(null);
+    const [adding, setAdding] = useState(false);
+    const [undo, setUndo] = useState<{ label: string; snapshot: Product[] } | null>(null);
+    const [view, setView] = useState<"preview" | "code">("preview");
+    const [device, setDevice] = useState<"desktop" | "phone">("desktop");
+    const [copied, setCopied] = useState(false);
+    const [frameHeight, setFrameHeight] = useState(420);
+    const frameRef = useRef<HTMLIFrameElement>(null);
 
-  const addProduct = () => {
-    if (!form.title || !form.image || !form.url) {
-      alert("Title, Image URL, and Product URL are required.")
-      return
-    }
-    setProducts((prev) => [...prev, { ...form }])
-    setForm(EMPTY)
-    setShowForm(false)
-  }
+    const hasExamples = products.some((p) => p.id.startsWith("example-"));
+    const html = useMemo(() => buildHtml(products, options), [products, options]);
+    const doc = useMemo(() => previewDocument(html), [html]);
 
-  const copy = async () => {
-    await navigator.clipboard.writeText(html)
-    setCopied(true)
-    setTimeout(() => setCopied(false), 1500)
-  }
+    // Size the preview frame to its content (images load after the first paint)
+    const measure = () => {
+        const body = frameRef.current?.contentDocument?.body;
+        if (body) setFrameHeight(Math.max(240, body.scrollHeight + 8));
+    };
+    useEffect(() => {
+        const timers = [300, 900, 2000].map((ms) => window.setTimeout(measure, ms));
+        return () => timers.forEach(clearTimeout);
+    }, [doc, device, view]);
 
-  return (
-    <div className="space-y-6">
-      <div className="flex items-center justify-between">
-        <div className="flex gap-2">
-          <Button variant={design === 1 ? "default" : "outline"} size="icon" onClick={() => setDesign(1)} title="Grid layout">
-            <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" viewBox="0 0 24 24"><path fill="currentColor" d="M8.5 11H5.563a2.5 2.5 0 0 1-2.5-2.5V5.564a2.5 2.5 0 0 1 2.5-2.5H8.5a2.5 2.5 0 0 1 2.5 2.5V8.5A2.5 2.5 0 0 1 8.5 11m9.936 0H15.5A2.5 2.5 0 0 1 13 8.5V5.564a2.5 2.5 0 0 1 2.5-2.5h2.934a2.5 2.5 0 0 1 2.5 2.5V8.5a2.5 2.5 0 0 1-2.498 2.5M8.5 20.937H5.564a2.5 2.5 0 0 1-2.5-2.5V15.5a2.5 2.5 0 0 1 2.5-2.5H8.5a2.5 2.5 0 0 1 2.5 2.5v2.936a2.5 2.5 0 0 1-2.5 2.5m9.936 0H15.5a2.5 2.5 0 0 1-2.5-2.5V15.5a2.5 2.5 0 0 1 2.5-2.5h2.934a2.5 2.5 0 0 1 2.5 2.5v2.936a2.5 2.5 0 0 1-2.498 2.5"/></svg>
-          </Button>
-          <Button variant={design === 2 ? "default" : "outline"} size="icon" onClick={() => setDesign(2)} title="Carousel layout">
-            <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" viewBox="0 0 24 24"><path fill="currentColor" d="M18.436 20.937H15.5a2.5 2.5 0 0 1-2.5-2.5V5.565a2.5 2.5 0 0 1 2.5-2.5h2.933a2.5 2.5 0 0 1 2.5 2.5v12.872a2.5 2.5 0 0 1-2.497 2.5M8.5 20.937H5.564a2.5 2.5 0 0 1-2.5-2.5V5.565a2.5 2.5 0 0 1 2.5-2.5H8.5a2.5 2.5 0 0 1 2.5 2.5v12.872a2.5 2.5 0 0 1-2.5 2.5"/></svg>
-          </Button>
+    const update = (next: Product[], undoLabel?: string) => {
+        if (undoLabel) setUndo({ label: undoLabel, snapshot: products });
+        setProducts(next);
+    };
+
+    const move = (index: number, delta: number) => {
+        const to = index + delta;
+        if (to < 0 || to >= products.length) return;
+        const next = [...products];
+        const [item] = next.splice(index, 1);
+        next.splice(to, 0, item);
+        setProducts(next);
+    };
+
+    const copy = async () => {
+        try {
+            await navigator.clipboard.writeText(html);
+            setCopied(true);
+            window.setTimeout(() => setCopied(false), 1600);
+        } catch {
+            setView("code");
+        }
+    };
+
+    return (
+        <div className="flex flex-col">
+            <div className="grid grid-cols-[minmax(0,1fr)] lg:grid-cols-[minmax(0,1fr)_minmax(300px,360px)]">
+                {/* ── Products ── */}
+                <div className="flex min-w-0 flex-col gap-4 p-5 sm:p-8">
+                    <div className="flex flex-wrap items-center justify-between gap-3">
+                        <h2 className="text-lg font-semibold tracking-[-0.015em] text-ink">
+                            Products <span className="font-normal text-ink-faint">{products.length}</span>
+                        </h2>
+                        {undo ? (
+                            <span className="flex items-center gap-2 text-[13px] text-ink-muted">
+                                {undo.label}
+                                <button
+                                    type="button"
+                                    onClick={() => {
+                                        setProducts(undo.snapshot);
+                                        setUndo(null);
+                                    }}
+                                    className="inline-flex items-center gap-1 font-semibold text-brand hover:text-teal"
+                                >
+                                    <Undo2 className="size-3.5" aria-hidden />
+                                    Undo
+                                </button>
+                            </span>
+                        ) : (
+                            products.length > 0 && (
+                                <button
+                                    type="button"
+                                    onClick={() => update([], `Removed ${products.length} products`)}
+                                    className="text-[13px] font-semibold text-ink-muted hover:text-destructive"
+                                >
+                                    Remove all
+                                </button>
+                            )
+                        )}
+                    </div>
+
+                    {hasExamples && (
+                        <div className="flex flex-col gap-2 rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-[13px] text-amber-900 sm:flex-row sm:items-center sm:justify-between">
+                            <span>These are example products - replace them with your own before copying the code.</span>
+                            <button
+                                type="button"
+                                onClick={() => update(products.filter((p) => !p.id.startsWith("example-")), "Removed examples")}
+                                className="shrink-0 self-start font-semibold underline underline-offset-2 sm:self-auto"
+                            >
+                                Remove examples
+                            </button>
+                        </div>
+                    )}
+
+                    {products.length > 0 && (
+                        <ul className="flex flex-col divide-y divide-line rounded-2xl border border-rule">
+                            {products.map((p, i) =>
+                                editingId === p.id ? (
+                                    <li key={p.id} className="p-2">
+                                        <ProductForm
+                                            initial={p}
+                                            submitLabel="Save product"
+                                            onSave={(d) => {
+                                                setProducts(products.map((x) => (x.id === p.id ? { ...d, id: x.id.replace("example-", "edited-") } : x)));
+                                                setEditingId(null);
+                                            }}
+                                            onCancel={() => setEditingId(null)}
+                                        />
+                                    </li>
+                                ) : (
+                                    <li key={p.id} className="flex items-center gap-3 py-2 pr-1.5 pl-2.5">
+                                        <span className="size-12 shrink-0 overflow-hidden rounded-lg border border-rule bg-[#f4f3ef]">
+                                            {/* eslint-disable-next-line @next/next/no-img-element */}
+                                            <img src={p.image} alt="" className="size-full object-cover" />
+                                        </span>
+                                        <span className="flex min-w-0 flex-1 flex-col">
+                                            <span className="truncate text-sm font-semibold text-ink">{p.title}</span>
+                                            <span className="truncate text-xs text-ink-faint">
+                                                {[p.price, p.url].filter(Boolean).join(" · ")}
+                                            </span>
+                                        </span>
+                                        <span className="flex shrink-0">
+                                            <button
+                                                type="button"
+                                                onClick={() => move(i, -1)}
+                                                disabled={i === 0}
+                                                aria-label={`Move ${p.title} up`}
+                                                className="hidden size-9 items-center justify-center rounded-full text-ink-faint hover:bg-[#f4f3ef] hover:text-ink disabled:opacity-30 sm:flex"
+                                            >
+                                                <ArrowUp className="size-4" aria-hidden />
+                                            </button>
+                                            <button
+                                                type="button"
+                                                onClick={() => move(i, 1)}
+                                                disabled={i === products.length - 1}
+                                                aria-label={`Move ${p.title} down`}
+                                                className="flex size-9 items-center justify-center rounded-full text-ink-faint hover:bg-[#f4f3ef] hover:text-ink disabled:opacity-30"
+                                            >
+                                                <ArrowDown className="size-4" aria-hidden />
+                                            </button>
+                                            <button
+                                                type="button"
+                                                onClick={() => {
+                                                    setEditingId(p.id);
+                                                    setAdding(false);
+                                                }}
+                                                aria-label={`Edit ${p.title}`}
+                                                className="flex size-9 items-center justify-center rounded-full text-ink-faint hover:bg-[#f4f3ef] hover:text-ink"
+                                            >
+                                                <Pencil className="size-4" aria-hidden />
+                                            </button>
+                                            <button
+                                                type="button"
+                                                onClick={() => update(products.filter((x) => x.id !== p.id), `Removed “${p.title}”`)}
+                                                aria-label={`Remove ${p.title}`}
+                                                className="flex size-9 items-center justify-center rounded-full text-ink-faint hover:bg-[#f4f3ef] hover:text-destructive"
+                                            >
+                                                <Trash2 className="size-4" aria-hidden />
+                                            </button>
+                                        </span>
+                                    </li>
+                                )
+                            )}
+                        </ul>
+                    )}
+
+                    {adding ? (
+                        <ProductForm
+                            initial={EMPTY_DRAFT}
+                            submitLabel="Add product"
+                            onSave={(d) => {
+                                setProducts([...products, { ...d, id: uid() }]);
+                                if (products.length + 1 >= MAX_PRODUCTS) setAdding(false);
+                            }}
+                            onCancel={() => setAdding(false)}
+                        />
+                    ) : products.length < MAX_PRODUCTS ? (
+                        <button
+                            type="button"
+                            onClick={() => {
+                                setAdding(true);
+                                setEditingId(null);
+                            }}
+                            className={cn(secondaryButton, "self-start")}
+                        >
+                            <Plus className="size-4" aria-hidden />
+                            Add product
+                        </button>
+                    ) : (
+                        <p className="text-[13px] text-ink-faint">That’s {MAX_PRODUCTS} products - the most that fit one grid.</p>
+                    )}
+                </div>
+
+                {/* ── Options ── */}
+                <div className="border-t border-rule bg-[#f5f7fb] lg:border-t-0 lg:border-l">
+                    <div className="flex flex-col gap-5 p-5 sm:p-8">
+                        <Eyebrow>Design</Eyebrow>
+                        <div className="flex flex-col gap-2">
+                            <span className="text-sm font-semibold text-ink">Layout</span>
+                            <div role="group" aria-label="Layout" className="grid grid-cols-2 gap-2">
+                                <Chip active={options.layout === "grid"} onClick={() => setOption("layout", "grid")}>
+                                    Grid
+                                </Chip>
+                                <Chip active={options.layout === "carousel"} onClick={() => setOption("layout", "carousel")}>
+                                    Carousel
+                                </Chip>
+                            </div>
+                        </div>
+                        {options.layout === "grid" && (
+                            <div className="flex flex-col gap-2">
+                                <span className="text-sm font-semibold text-ink">
+                                    Columns on desktop <span className="font-normal text-ink-faint">(2 on phones)</span>
+                                </span>
+                                <div role="group" aria-label="Columns" className="grid grid-cols-3 gap-2">
+                                    {([2, 3, 4] as const).map((n) => (
+                                        <Chip key={n} active={options.columns === n} onClick={() => setOption("columns", n)}>
+                                            {n}
+                                        </Chip>
+                                    ))}
+                                </div>
+                            </div>
+                        )}
+                        <div className="grid grid-cols-2 gap-3">
+                            <div className="flex flex-col gap-2">
+                                <span className="text-sm font-semibold text-ink">Image</span>
+                                <div role="group" aria-label="Image shape" className="grid grid-cols-2 gap-1.5">
+                                    <Chip active={options.ratio === "square"} onClick={() => setOption("ratio", "square")}>
+                                        1:1
+                                    </Chip>
+                                    <Chip active={options.ratio === "portrait"} onClick={() => setOption("ratio", "portrait")}>
+                                        4:5
+                                    </Chip>
+                                </div>
+                            </div>
+                            <div className="flex flex-col gap-2">
+                                <span className="text-sm font-semibold text-ink">Corners</span>
+                                <div role="group" aria-label="Corner radius" className="grid grid-cols-3 gap-1.5">
+                                    {([0, 8, 16] as const).map((r) => (
+                                        <Chip key={r} active={options.radius === r} onClick={() => setOption("radius", r)} className="px-1 font-mono">
+                                            {r}
+                                        </Chip>
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
+                        <div className="flex flex-col gap-2">
+                            <label htmlFor={`${id}-button`} className="text-sm font-semibold text-ink">
+                                Button <span className="font-normal text-ink-faint">(leave empty for none)</span>
+                            </label>
+                            <div className="flex gap-2">
+                                <input
+                                    id={`${id}-button`}
+                                    value={options.button}
+                                    maxLength={LIMITS.button}
+                                    onChange={(e) => setOption("button", e.target.value)}
+                                    className={cn(inputClass, "h-11")}
+                                />
+                                <label className="relative size-11 shrink-0 cursor-pointer overflow-hidden rounded-xl border border-ink/12" style={{ backgroundColor: options.buttonColor }}>
+                                    <span className="sr-only">Button color</span>
+                                    <input
+                                        type="color"
+                                        value={options.buttonColor}
+                                        onChange={(e) => setOption("buttonColor", e.target.value)}
+                                        className="absolute inset-0 size-full cursor-pointer opacity-0"
+                                    />
+                                </label>
+                            </div>
+                        </div>
+                        <div className="flex flex-col gap-2.5 text-sm text-ink-soft">
+                            {(
+                                [
+                                    ["showPrice", "Show price"],
+                                    ["showDescription", "Show description"],
+                                    ["newTab", "Open links in a new tab"],
+                                ] as const
+                            ).map(([key, label]) => (
+                                <label key={key} className="flex items-center gap-2.5">
+                                    <input type="checkbox" checked={options[key]} onChange={(e) => setOption(key, e.target.checked)} className="size-4 accent-brand" />
+                                    {label}
+                                </label>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {/* ── Preview / code ── */}
+            <div className="flex flex-col gap-4 border-t border-rule p-5 sm:p-8">
+                <div className="flex flex-wrap items-center justify-between gap-3">
+                    <PillTabs
+                        label="Show"
+                        value={view}
+                        onChange={setView}
+                        options={[
+                            { id: "preview", label: "Preview" },
+                            { id: "code", label: "HTML code" },
+                        ]}
+                    />
+                    <div className="flex items-center gap-2">
+                        {view === "preview" && (
+                            <div role="group" aria-label="Preview width" className="flex rounded-full border border-rule bg-white p-0.5">
+                                {(
+                                    [
+                                        ["desktop", Monitor, "Desktop width"],
+                                        ["phone", Smartphone, "Phone width"],
+                                    ] as const
+                                ).map(([key, Icon, label]) => (
+                                    <button
+                                        key={key}
+                                        type="button"
+                                        aria-label={label}
+                                        aria-pressed={device === key}
+                                        onClick={() => setDevice(key)}
+                                        className={cn(
+                                            "flex size-9 items-center justify-center rounded-full transition-colors",
+                                            device === key ? "bg-brand text-white" : "text-ink-muted hover:text-ink"
+                                        )}
+                                    >
+                                        <Icon className="size-4" aria-hidden />
+                                    </button>
+                                ))}
+                            </div>
+                        )}
+                        <button type="button" onClick={copy} disabled={!html} className={cn(primaryButton, "h-11 px-5")}>
+                            {copied ? <Check className="size-4" aria-hidden /> : <Copy className="size-4" aria-hidden />}
+                            {copied ? "Copied" : "Copy code"}
+                        </button>
+                    </div>
+                </div>
+
+                {!html ? (
+                    <p className="rounded-2xl border border-dashed border-rule px-5 py-10 text-center text-sm text-ink-faint">
+                        Add a product to see the grid.
+                    </p>
+                ) : view === "preview" ? (
+                    <div className="rounded-2xl border border-rule bg-[#f4f3ef] p-2 sm:p-4">
+                        <iframe
+                            ref={frameRef}
+                            title="Product grid preview"
+                            srcDoc={doc}
+                            // No scripts run in the preview; same-origin only lets us measure its height
+                            sandbox="allow-same-origin allow-popups"
+                            onLoad={measure}
+                            className={cn("mx-auto block rounded-xl border-0 bg-white transition-[width]", device === "phone" ? "w-[390px] max-w-full" : "w-full")}
+                            style={{ height: frameHeight }}
+                        />
+                    </div>
+                ) : (
+                    <pre className="max-h-[520px] overflow-auto rounded-2xl border border-rule bg-[#111418] p-5 font-mono text-[13px] leading-relaxed text-[#e6e3dc]">
+                        <code>{html}</code>
+                    </pre>
+                )}
+                <p className="text-[13px] text-ink-faint">
+                    In Shopify: open a blog post, switch the editor to HTML with the <span className="font-mono">&lt;&gt;</span> button, and paste the code
+                    where the grid should go.
+                </p>
+            </div>
         </div>
-        <Button onClick={() => setShowForm(true)} className="gap-1.5">
-          <PlusIcon className="w-4 h-4" /> Add Product
-        </Button>
-      </div>
-
-      {/* Add form */}
-      {showForm && (
-        <div className="border rounded-xl p-4 bg-white space-y-4">
-          <p className="font-medium">New Product</p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div className="space-y-1.5">
-              <Label>Title *</Label>
-              <Input value={form.title} onChange={(e) => setForm((f) => ({ ...f, title: e.target.value }))} />
-            </div>
-            <div className="space-y-1.5">
-              <Label>Price</Label>
-              <Input value={form.price} onChange={(e) => setForm((f) => ({ ...f, price: e.target.value }))} placeholder="$19.99" />
-            </div>
-            <div className="space-y-1.5">
-              <Label>Image URL *</Label>
-              <Input value={form.image} onChange={(e) => setForm((f) => ({ ...f, image: e.target.value }))} placeholder="https://" />
-            </div>
-            <div className="space-y-1.5">
-              <Label>Product URL *</Label>
-              <Input value={form.url} onChange={(e) => setForm((f) => ({ ...f, url: e.target.value }))} placeholder="https://" />
-            </div>
-          </div>
-          <div className="space-y-1.5">
-            <Label>Description</Label>
-            <Textarea value={form.description} onChange={(e) => setForm((f) => ({ ...f, description: e.target.value }))} className="min-h-[60px] resize-none text-sm" />
-          </div>
-          <div className="flex justify-end gap-2">
-            <Button variant="ghost" onClick={() => { setShowForm(false); setForm(EMPTY) }}>Cancel</Button>
-            <Button onClick={addProduct}>Add</Button>
-          </div>
-        </div>
-      )}
-
-      {/* Live preview */}
-      {html ? (
-        <>
-          <div className="border rounded-xl overflow-hidden bg-white p-2">
-            <div dangerouslySetInnerHTML={{ __html: html }} />
-          </div>
-          <div className="flex justify-between">
-            <Button variant="ghost" className="text-destructive hover:text-destructive gap-1.5" onClick={() => setProducts([])}>
-              <TrashIcon className="w-4 h-4" /> Clear all
-            </Button>
-            <Button variant="outline" onClick={copy} className="gap-1.5">
-              {copied ? <CheckIcon className="w-4 h-4" /> : <CopyIcon className="w-4 h-4" />}
-              {copied ? "Copied!" : "Copy Code"}
-            </Button>
-          </div>
-        </>
-      ) : (
-        <p className="text-muted-foreground text-sm text-center py-8 border rounded-xl">No products added yet.</p>
-      )}
-    </div>
-  )
+    );
 }

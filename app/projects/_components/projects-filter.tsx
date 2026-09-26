@@ -1,51 +1,43 @@
 "use client";
 
 import { useState } from "react";
-import ProjectCard from "@/app/_components/project-card";
-import type { Project, ProjectType } from "@/app/_data/projects";
-import { typeLabel } from "@/app/_data/projects";
+import FilterPills from "@/app/_components/filter-pills";
+import { FeaturedProjectCard, ProjectCard } from "@/app/_components/project-cards";
+import type { Project, ProjectCategory } from "@/app/_data/projects";
+import { categoryLabel } from "@/app/_data/projects";
 
-const typeFilters: Array<"All" | ProjectType> = [
-    "All",
-    "web-app",
-    "mobile",
-    "business-website",
-    "ecommerce",
-];
+type FilterId = "all" | ProjectCategory;
 
 export default function ProjectsFilter({ projects }: { projects: Project[] }) {
-    const [active, setActive] = useState<"All" | ProjectType>("All");
+    const [active, setActive] = useState<FilterId>("all");
 
     const sorted = [...projects].sort((a, b) => a.sort - b.sort);
-    const availableTypes = new Set(projects.map((p) => p.type));
-    const filters = typeFilters.filter((t) => t === "All" || availableTypes.has(t));
-    const filtered = active === "All" ? sorted : sorted.filter((p) => p.type === active);
+    const categories = (Object.keys(categoryLabel) as ProjectCategory[]).filter((c) => projects.some((p) => p.category === c));
+    const filters = [
+        { id: "all" as FilterId, label: "All", count: projects.length },
+        ...categories.map((c) => ({
+            id: c as FilterId,
+            label: categoryLabel[c],
+            count: projects.filter((p) => p.category === c).length,
+        })),
+    ];
+
+    const visible = active === "all" ? sorted : sorted.filter((p) => p.category === active);
+    const featured = visible.filter((p) => p.featured);
+    const rest = visible.filter((p) => !p.featured);
 
     return (
-        <div>
-            <div className="mb-8 flex flex-wrap gap-2">
-                {filters.map((tag) => (
-                    <button
-                        key={tag}
-                        type="button"
-                        onClick={() => setActive(tag)}
-                        className={`rounded-full border px-3 py-1.5 text-sm font-medium transition-colors ${
-                            active === tag
-                                ? "border-ink bg-ink text-white"
-                                : "border-rule bg-white text-ink-muted hover:border-ink/30 hover:text-ink"
-                        }`}
-                    >
-                        {tag === "All" ? "All" : typeLabel[tag]}
-                    </button>
-                ))}
-            </div>
+        <div className="flex flex-col gap-6 sm:gap-10">
+            <FilterPills filters={filters} active={active} onChange={setActive} label="Filter projects by category" />
 
-            {filtered.length === 0 ? (
-                <p className="py-16 text-center text-ink-muted">No projects match this filter.</p>
-            ) : (
-                <ul className="grid grid-cols-1 gap-4 lg:grid-cols-2">
-                    {filtered.map((project) => (
-                        <li key={project.slug}>
+            {featured.map((project, i) => (
+                <FeaturedProjectCard key={project.slug} project={project} flip={i % 2 === 1} />
+            ))}
+
+            {rest.length > 0 && (
+                <ul className="grid gap-4 md:grid-cols-2 md:gap-5">
+                    {rest.map((project) => (
+                        <li key={project.slug} className="min-w-0">
                             <ProjectCard project={project} />
                         </li>
                     ))}
