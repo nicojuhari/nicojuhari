@@ -1,27 +1,31 @@
 import Link from "next/link";
 import { cn } from "@/lib/utils";
-import { WHATSAPP_URL } from "@/app/_data/services";
+import { whatsappLink } from "@/app/_data/services";
 import ContactButton from "./contact-button";
 
 type Props = {
     className?: string;
     title?: string;
     description?: string;
-    /** Label on the main button, which opens the contact form */
+    /** Label on the main button, which opens WhatsApp */
     primaryLabel?: string;
-    /** Outline button - WhatsApp by default */
+    /** Prefilled WhatsApp message */
+    whatsappText?: string;
+    /** Outline button - the contact form by default */
     secondary?: { label: string; href: string };
 };
+
+const outline =
+    "inline-flex h-12 items-center justify-center rounded-full border border-white/25 px-6 text-[15px] font-semibold text-white transition-colors hover:border-white/50 sm:text-sm";
 
 export default function CtaSection({
     className,
     title = "Let’s work together.",
     description = "Have a project in mind? Reach out and we’ll figure out the best way to approach it.",
-    primaryLabel = "Get in touch",
-    secondary = { label: "WhatsApp", href: WHATSAPP_URL },
+    primaryLabel = "Message me on WhatsApp",
+    whatsappText,
+    secondary,
 }: Props) {
-    const external = secondary.href.startsWith("http");
-
     return (
         <section
             id="contact"
@@ -38,25 +42,22 @@ export default function CtaSection({
             </div>
 
             <div className="flex shrink-0 flex-col gap-2.5 sm:flex-row">
-                <ContactButton className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-white px-6 text-[15px] font-semibold text-brand transition-colors hover:bg-white/90 sm:text-sm">
+                <a
+                    href={whatsappLink(whatsappText)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-white px-6 text-[15px] font-semibold text-brand transition-colors hover:bg-white/90 sm:text-sm"
+                >
                     {primaryLabel}
-                </ContactButton>
-                {external ? (
-                    <a
-                        href={secondary.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex h-12 items-center justify-center rounded-full border border-white/25 px-6 text-[15px] font-semibold text-white transition-colors hover:border-white/50 sm:text-sm"
-                    >
-                        {secondary.label}
-                    </a>
-                ) : (
-                    <Link
-                        href={secondary.href}
-                        className="inline-flex h-12 items-center justify-center rounded-full border border-white/25 px-6 text-[15px] font-semibold text-white transition-colors hover:border-white/50 sm:text-sm"
-                    >
+                </a>
+                {secondary ? (
+                    <Link href={secondary.href} className={outline}>
                         {secondary.label}
                     </Link>
+                ) : (
+                    <ContactButton className={outline} arrow={false}>
+                        Send an email
+                    </ContactButton>
                 )}
             </div>
         </section>

@@ -1,12 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
-import ContactButton from "./contact-button";
+import { WHATSAPP_URL } from "@/app/_data/services";
 import { socialLinks } from "./icons";
 
 const facts = [
     { label: "Focus", value: "Websites, stores & apps" },
-    { label: "Stack", value: "Next.js · Supabase · AI" },
-    { label: "Response", value: "Within 24h, Mon–Fri" },
+    { label: "Clients", value: "Austria · Romania · Moldova" },
+    { label: "Contact", value: "WhatsApp · Google Meet" },
 ];
 
 export default function ProfilePanel() {
@@ -43,11 +43,18 @@ export default function ProfilePanel() {
                 </h1>
 
                 <p className="mt-3.5 text-[15px] leading-relaxed text-ink-muted sm:mt-4.5">
-                    Websites, Shopify stores and web apps that bring in clients, sell more and save your team time.
+                    Websites, Shopify stores and automations for small businesses. Built to bring in clients and sales, and save you time.
                 </p>
 
                 <div className="mt-5 flex flex-col gap-2.5 sm:mt-6">
-                    <ContactButton className="btn-pill-primary h-12 w-full text-[15px] sm:h-[46px] sm:text-sm">Get in touch</ContactButton>
+                    <a
+                        href={WHATSAPP_URL}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn-pill-primary h-12 w-full text-[15px] sm:h-[46px] sm:text-sm"
+                    >
+                        Message on WhatsApp
+                    </a>
                     <Link href="/projects" className="btn-pill-secondary h-12 w-full text-[15px] sm:h-[46px] sm:text-sm">
                         See my projects
                     </Link>

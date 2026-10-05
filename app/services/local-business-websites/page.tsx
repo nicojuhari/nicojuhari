@@ -3,9 +3,9 @@ import ServiceDetail from "../_components/service-detail";
 import { pageMetadata } from "@/app/_lib/metadata";
 
 export const metadata: Metadata = pageMetadata({
-    title: "Local Business Websites & Google Maps | Vienna Web Designer",
+    title: "Local Business Websites in Vienna | Calls from Google & Maps",
     description:
-        "More calls and bookings from Google and Maps. Websites and Google Business Profiles for local and service businesses in Vienna.",
+        "Web designer for small and local businesses in Vienna. Website and Google profile built to bring calls and bookings. Starts with a free Google check.",
     path: "/services/local-business-websites",
 });
 
@@ -14,7 +14,7 @@ export default function LocalBusinessWebsitesPage() {
         <ServiceDetail
             slug="local-business-websites"
             schemaName="Local Business Website Design"
-            schemaDescription="Websites and Google Business Profiles for local and service businesses - a page for each service and area, call and booking buttons, and call tracking."
+            schemaDescription="Websites and Google Business Profiles for local and service businesses - a free Google check, a page for each service and area, call and WhatsApp buttons, review requests and a monthly count of calls."
         />
     );
 }

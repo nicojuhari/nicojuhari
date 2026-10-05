@@ -17,14 +17,28 @@ export function LiveDot() {
     );
 }
 
+const statusPill = {
+    private: { label: "Private", className: "bg-[#eef1f7] text-brand" },
+    "in-progress": { label: "In progress", className: "bg-[#fbf3e6] text-[#8a5a12]" },
+    closed: { label: "Closed", className: "bg-[#f1efea] text-ink-faint" },
+    deprecated: { label: "Deprecated", className: "bg-[#fbf3e6] text-[#8a5a12]" },
+};
+
 function StatusPill({ project }: { project: Project }) {
-    if (project.category === "other") {
+    if (project.status && project.status !== "live") {
+        const { label, className } = statusPill[project.status];
+        return <span className={cn("rounded-full px-2.5 py-1 text-xs font-semibold", className)}>{label}</span>;
+    }
+    if (project.category === "demo") {
+        return <span className="rounded-full bg-[#f4eef1] px-2.5 py-1 text-xs font-semibold text-[#6b4f5f]">Demo</span>;
+    }
+    if (project.category === "other" && project.status !== "live") {
         return (
             <span className="rounded-full bg-[#f4eef1] px-2.5 py-1 text-xs font-semibold text-[#6b4f5f]">Experiment</span>
         );
     }
     if (!project.url) {
-        return <span className="rounded-full bg-[#f1efea] px-2.5 py-1 text-xs font-semibold text-ink-faint">Discontinued</span>;
+        return <span className="rounded-full bg-[#f1efea] px-2.5 py-1 text-xs font-semibold text-ink-faint">Closed</span>;
     }
     return (
         <span className="inline-flex items-center gap-1.5 rounded-full bg-[#e9f5f3] px-2.5 py-1 text-xs font-semibold text-teal">
@@ -70,7 +84,7 @@ function FeatureGrid({ project, variant }: { project: Project; variant: "home" |
 
     return (
         <div
-            className={cn("flex flex-col border-rule", page ? "gap-6 p-6 sm:p-10" : "gap-5 p-6 sm:p-8")}
+            className={cn("flex h-full flex-col border-rule", page ? "gap-6 p-6 sm:p-10" : "gap-5 p-6 sm:p-8")}
             style={{ backgroundColor: panel.background }}
         >
             <p className="font-mono text-[11px] font-semibold tracking-[0.14em] text-ink-faint uppercase">What’s inside</p>

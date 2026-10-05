@@ -5,7 +5,7 @@ import Link from "next/link";
 import { MenuIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
-import ContactButton from "./contact-button";
+import { WHATSAPP_URL } from "@/app/_data/services";
 
 const navLinks = [
     { href: "/", label: "Home" },
@@ -43,7 +43,9 @@ export default function MobileNav() {
                     ))}
                 </nav>
                 <div className="px-6">
-                    <ContactButton className="btn-pill-primary w-full">Contact</ContactButton>
+                    <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-pill-primary w-full">
+                        Message on WhatsApp
+                    </a>
                 </div>
             </SheetContent>
         </Sheet>

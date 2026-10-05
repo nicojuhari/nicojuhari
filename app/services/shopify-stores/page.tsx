@@ -3,9 +3,9 @@ import ServiceDetail from "../_components/service-detail";
 import { pageMetadata } from "@/app/_lib/metadata";
 
 export const metadata: Metadata = pageMetadata({
-    title: "Shopify Developer in Vienna | Store Setup & Redesign",
+    title: "Shopify Store Check & Conversion Fixes | Vienna",
     description:
-        "Shopify developer in Vienna. Store setup or redesign, clear product pages, Klaviyo emails, reviews and shipping - so more of your visitors buy.",
+        "Shopify developer in Vienna. Store gets traffic but not enough sales? A store check (audit) finds where buyers drop off. Then fixes and a monthly plan.",
     path: "/services/shopify-stores",
 });
 
@@ -13,8 +13,8 @@ export default function ShopifyStoresPage() {
     return (
         <ServiceDetail
             slug="shopify-stores"
-            schemaName="Shopify Store Setup & Development"
-            schemaDescription="Shopify store setup and development - product pages, Klaviyo email flows, shipping integrations, reviews, and custom theme work. Built to launch and grow."
+            schemaName="Shopify Store Check & Conversion Fixes"
+            schemaDescription="A Shopify store check that finds where buyers drop off, fixes to product pages, checkout, speed and Klaviyo emails, and a monthly plan with a results note."
         />
     );
 }

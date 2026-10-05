@@ -12,11 +12,11 @@ export const SITE_TITLE = "Nicolae Cojuhari | Websites, Shopify Stores & Web App
  * Current: 144 chars.
  */
 export const SITE_DESCRIPTION =
-    "Software engineer in Vienna. Websites that bring in calls from Google and Maps, Shopify stores that sell, and web apps that save your team time.";
+    "Software engineer in Vienna. Websites that bring calls from Google and Maps, Shopify stores fixed to sell more, and simple tools for daily work.";
 
 /** Short profile bio (sidebar) - matches brand/positioning.md */
 export const SITE_BIO =
-    "Software engineer with a finance background. I use AI to build financial and business apps that replace spreadsheets and manual workflows.";
+    "Websites, stores and tools that bring a small business more clients and more sales, built and then kept improving every month.";
 
 export const SOCIAL_LINKS = [
     "https://www.linkedin.com/in/nicojuhari/",

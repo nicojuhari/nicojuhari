@@ -20,12 +20,10 @@ export const metadata: Metadata = pageMetadata({ title: SITE_TITLE, description:
 const proofs = services.flatMap((s) => (s.proof ? [s.proof] : []));
 
 const steps = [
-    { title: "First call", text: "You tell me what you want more of - clients, sales or time. I ask how things work today." },
-    { title: "Something real, early", text: "You see a working version early and give feedback on the real thing, not a slide deck." },
-    { title: "Launch & improve", text: "It goes live and it’s yours. Then I keep improving it, if you want." },
+    { title: "A small check first", text: "I look at your site, store or process and tell you what I’d fix first. You decide what happens next." },
+    { title: "Build or fix", text: "A fixed price, agreed before I start. You see the work early and give feedback on the real thing." },
+    { title: "Monthly plan", text: "I keep improving it each month and show you the numbers: calls, orders or hours saved." },
 ];
-
-const stack = ["TypeScript", "React", "Next.js", "Node.js", "Supabase", "Firebase", "Tailwind CSS", "Shopify", "MySQL"];
 
 const homeProjects = projects.filter((p) => p.showOnHome).sort((a, b) => a.sort - b.sort);
 const [leadProject, ...otherProjects] = homeProjects;
@@ -62,11 +60,12 @@ export default function Home() {
                         <section className="flex flex-col gap-5 sm:gap-7 lg:pt-2">
                             <p className="eyebrow">What I do</p>
                             <h2 className="max-w-[800px] text-[34px] leading-[1.06] font-semibold tracking-[-0.03em] text-ink sm:text-[44px] xl:text-[52px] xl:leading-[1.04] xl:tracking-[-0.035em]">
-                                More clients, more sales, <span className="text-brand">less manual work.</span>
+                                More clients and sales <span className="text-brand">for small businesses.</span>
                             </h2>
                             <p className="max-w-[640px] text-base leading-relaxed text-ink-muted sm:text-lg">
-                                I build websites that bring in calls from Google and Maps, Shopify stores that sell more, and
-                                web apps that save your team hours every week.
+                                A website that brings you more clients. More sales from your Shopify store, from the
+                                visitors you already have. Custom workflows and automations, so your team spends less time
+                                on repeat work. You save time and make more money.
                             </p>
 
                             <ul className="mt-1 grid gap-3 sm:mt-2 md:grid-cols-3">
@@ -87,6 +86,11 @@ export default function Home() {
                                                 <span className="flex flex-col gap-1 md:gap-3">
                                                     <span className="text-base font-semibold tracking-[-0.01em]">{service.title}</span>
                                                     <span className="text-sm leading-normal text-ink-muted">{service.tagline}</span>
+                                                    {service.firstStep && (
+                                                        <span className="text-[13px] font-semibold" style={{ color: service.accent }}>
+                                                            {service.firstStep.startsWith}
+                                                        </span>
+                                                    )}
                                                 </span>
                                             </Link>
                                         </li>
@@ -112,18 +116,20 @@ export default function Home() {
                         <section className="flex flex-col gap-4">
                             <SectionHeader
                                 eyebrow="Projects"
-                                title="Apps I built"
+                                title="An app I built and use every day"
                                 href="/projects"
                                 linkLabel="All projects"
                             />
                             <HomeFeaturedProject project={leadProject} />
-                            <ul className="grid gap-3 sm:grid-cols-2 sm:gap-4 xl:grid-cols-3">
-                                {otherProjects.map((project) => (
-                                    <li key={project.slug} className="min-w-0">
-                                        <HomeProjectCard project={project} />
-                                    </li>
-                                ))}
-                            </ul>
+                            {otherProjects.length > 0 && (
+                                <ul className="grid gap-3 sm:grid-cols-2 sm:gap-4 xl:grid-cols-3">
+                                    {otherProjects.map((project) => (
+                                        <li key={project.slug} className="min-w-0">
+                                            <HomeProjectCard project={project} />
+                                        </li>
+                                    ))}
+                                </ul>
+                            )}
                             <Link href="/projects" className="btn-pill-secondary h-12 sm:hidden">
                                 See all projects
                             </Link>
@@ -146,13 +152,6 @@ export default function Home() {
                                         </li>
                                     ))}
                                 </ol>
-                                <ul className="mt-1 flex flex-wrap gap-1.5 border-t border-line pt-4.5">
-                                    {stack.map((tech) => (
-                                        <li key={tech} className="rounded-full bg-[#f4f3ef] px-2.5 py-1 text-xs font-medium text-ink-soft">
-                                            {tech}
-                                        </li>
-                                    ))}
-                                </ul>
                             </div>
 
                             <div className="flex flex-col gap-3.5 rounded-[20px] border border-rule bg-white p-5.5 sm:p-7">
@@ -213,9 +212,8 @@ export default function Home() {
 
                         <CtaSection
                             title="Want more clients, more sales or more time?"
-                            description="Tell me about your business and what you want to change. I’ll reply within 24 hours with where I’d start."
-                            primaryLabel="Start a conversation"
-                            secondary={{ label: "Message on WhatsApp", href: "https://wa.me/+4369010196811" }}
+                            description="Tell me about your business on WhatsApp. I’ll reply within 24 hours with the first thing I’d change."
+                            whatsappText="Hi Nick, I’d like to talk about my business: "
                         />
                     </div>
                 </div>

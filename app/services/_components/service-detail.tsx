@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { cn } from "@/lib/utils";
 import { ArrowRight, Check, ChevronRight } from "lucide-react";
 import CtaSection from "@/app/_components/cta-section";
 import FaqSection from "@/app/_components/faq-section";
@@ -6,7 +7,7 @@ import ContactButton from "@/app/_components/contact-button";
 import { serviceIcons } from "@/app/_components/icons";
 import ProofBlock from "@/app/_components/proof-block";
 import { breadcrumbSchema, serviceSchema } from "@/app/_lib/schema";
-import { getService, services, type ServiceSlug } from "@/app/_data/services";
+import { getService, services, whatsappLink, type ServiceSlug } from "@/app/_data/services";
 
 const num = (i: number) => String(i + 1).padStart(2, "0");
 
@@ -21,6 +22,8 @@ export default function ServiceDetail({ slug, schemaName, schemaDescription }: P
     const service = getService(slug);
     const Icon = serviceIcons[slug];
     const related = services.filter((s) => s.slug !== slug);
+    const first = service.firstStep;
+    const whatsapp = whatsappLink(first?.whatsappText);
 
     return (
         <div className="container mt-5 sm:mt-10">
@@ -68,12 +71,20 @@ export default function ServiceDetail({ slug, schemaName, schemaDescription }: P
                     </h1>
                     <p className="max-w-[560px] text-base leading-relaxed text-ink-muted sm:text-lg">{service.intro}</p>
                     <div className="mt-1.5 flex flex-col gap-2.5 sm:flex-row sm:items-center sm:gap-3">
-                        <ContactButton className="btn-pill-primary h-12 px-6 text-[15px] sm:text-sm">Get in touch</ContactButton>
-                        <a href="#how" className="btn-pill-secondary h-12 px-5.5 text-[15px] sm:text-sm">
-                            How it works
+                        <a
+                            href={whatsapp}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="btn-pill-primary h-12 px-6 text-[15px] sm:text-sm"
+                        >
+                            {first?.cta ?? "Message me on WhatsApp"}
+                            <ArrowRight className="size-4" aria-hidden />
+                        </a>
+                        <a href={first ? `#${first.id}` : "#how"} className="btn-pill-secondary h-12 px-5.5 text-[15px] sm:text-sm">
+                            {first ? "See what’s included" : "How it works"}
                         </a>
                     </div>
-                    <span className="mt-1 font-mono text-xs text-ink-faint">Vienna · Replies within 24h, Mon–Fri</span>
+                    <span className="mt-1 font-mono text-xs text-ink-faint">WhatsApp · Replies within 24h, Mon–Fri · Calls on Google Meet</span>
                 </div>
 
                 <aside className="flex flex-col gap-4.5 rounded-3xl border border-rule bg-white p-5.5 shadow-[0_1px_2px_rgba(17,20,24,0.04),0_16px_36px_-20px_rgba(22,40,77,0.18)] sm:p-8">
@@ -96,6 +107,54 @@ export default function ServiceDetail({ slug, schemaName, schemaDescription }: P
                     </ul>
                 </aside>
             </section>
+
+            {/* First step */}
+            {first && (
+                <section
+                    id={first.id}
+                    className="mt-16 grid scroll-mt-28 gap-7 rounded-3xl border border-rule p-5.5 sm:mt-24 sm:rounded-[28px] sm:p-11 lg:grid-cols-[1fr_1.15fr] lg:gap-12"
+                    style={{ backgroundColor: service.tint }}
+                >
+                    <div className="flex flex-col gap-3.5">
+                        <p className="eyebrow">First step</p>
+                        <h2 className="text-[28px] leading-[1.1] font-semibold tracking-[-0.03em] text-ink sm:text-[38px]">{first.title}</h2>
+                        <p className="text-[15px] leading-relaxed text-ink-soft sm:text-base">{first.intro}</p>
+                        <p className="text-sm font-semibold" style={{ color: service.accent }}>
+                            {first.cost}
+                        </p>
+                        <div className="mt-2 flex flex-col gap-2.5 sm:flex-row">
+                            <a
+                                href={whatsapp}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="btn-pill-primary h-12 self-start px-6 text-[15px] sm:text-sm"
+                            >
+                                {first.cta}
+                                <ArrowRight className="size-4" aria-hidden />
+                            </a>
+                            <ContactButton className="btn-pill-secondary h-12 self-start px-5.5 text-[15px] sm:text-sm" arrow={false}>
+                                Send an email
+                            </ContactButton>
+                        </div>
+                    </div>
+                    <div className="flex flex-col gap-1 rounded-[20px] border border-rule bg-white p-5 sm:p-6">
+                        <h3 className="font-mono text-[11px] font-semibold tracking-[0.14em] text-ink-faint uppercase">What you get</h3>
+                        <ul>
+                            {first.items.map((item) => (
+                                <li key={item} className="flex items-start gap-3 border-b border-line py-3 last:border-b-0">
+                                    <span
+                                        className="mt-px flex size-5.5 shrink-0 items-center justify-center rounded-full"
+                                        style={{ backgroundColor: service.tint, color: service.accent }}
+                                    >
+                                        <Check className="size-[13px]" strokeWidth={2.6} aria-hidden />
+                                    </span>
+                                    <span className="text-[15px] leading-normal text-ink-soft">{item}</span>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                </section>
+            )}
 
             {/* What I build */}
             <section className="mt-16 flex flex-col gap-6 sm:mt-24 sm:gap-7">
@@ -130,9 +189,9 @@ export default function ServiceDetail({ slug, schemaName, schemaDescription }: P
             >
                 <div className="flex flex-col gap-2.5">
                     <p className="eyebrow">How it works</p>
-                    <h2 className="text-[26px] font-semibold tracking-[-0.03em] text-ink sm:text-[32px]">From first call to launch</h2>
+                    <h2 className="text-[26px] font-semibold tracking-[-0.03em] text-ink sm:text-[32px]">What happens after you get in touch</h2>
                 </div>
-                <ol className="grid gap-7 sm:grid-cols-2 lg:grid-cols-4">
+                <ol className={cn("grid gap-7 sm:grid-cols-2", service.steps.length === 3 ? "lg:grid-cols-3" : "lg:grid-cols-4")}>
                     {service.steps.map((step, i) => (
                         <li key={step.title} className="flex flex-col gap-3.5">
                             <div className="flex items-center gap-3">
@@ -181,7 +240,12 @@ export default function ServiceDetail({ slug, schemaName, schemaDescription }: P
                 </ul>
             </section>
 
-            <CtaSection className="mt-12 sm:mt-16" description={service.cta} />
+            <CtaSection
+                className="mt-12 sm:mt-16"
+                description={service.cta}
+                primaryLabel={first?.cta}
+                whatsappText={first?.whatsappText}
+            />
         </div>
     );
 }

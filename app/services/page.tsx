@@ -3,7 +3,7 @@ import Link from "next/link";
 import { ArrowRight, Check } from "lucide-react";
 import CtaSection from "@/app/_components/cta-section";
 import ProofBlock from "@/app/_components/proof-block";
-import { services, WHATSAPP_URL } from "@/app/_data/services";
+import { services, whatsappLink } from "@/app/_data/services";
 import { pageMetadata } from "@/app/_lib/metadata";
 
 export const metadata: Metadata = pageMetadata({
@@ -15,13 +15,21 @@ export const metadata: Metadata = pageMetadata({
 
 const questions: Record<string, string> = {
     "local-business-websites": "Want more calls and bookings from Google and Maps?",
-    "shopify-stores": "Selling products online, or planning to?",
-    "custom-web-apps": "Need one tool your business runs on?",
+    "shopify-stores": "Getting store traffic, but not enough sales?",
+    "custom-web-apps": "Losing hours to the same manual task every week?",
 };
+
+const ladder = [
+    { title: "A small check", text: "Free Google check, store check or process check. You see what to fix first." },
+    { title: "Build or fix", text: "A fixed price, agreed before I start. 50% upfront. No hourly billing." },
+    { title: "Monthly plan", text: "I keep improving it and show you the numbers each month." },
+];
+
+const proofs = services.flatMap((s) => (s.proof ? [s.proof] : []));
 
 const choose = [
     ...services.map((s) => ({ question: questions[s.slug], answer: s.singular, href: s.href, accent: s.accent, tint: s.tint })),
-    { question: "Still not sure which fits?", answer: "Let’s talk", href: WHATSAPP_URL, accent: "#3F434A", tint: "#F1EFEA" },
+    { question: "Still not sure which fits?", answer: "Ask on WhatsApp", href: whatsappLink(), accent: "#3F434A", tint: "#F1EFEA" },
 ];
 
 export default function ServicesPage() {
@@ -31,11 +39,11 @@ export default function ServicesPage() {
                 <div className="flex flex-col gap-3.5 sm:gap-5">
                     <p className="eyebrow">Services</p>
                     <h1 className="text-[34px] leading-[1.06] font-semibold tracking-[-0.03em] text-ink sm:text-5xl xl:text-[56px] xl:leading-[1.03] xl:tracking-[-0.035em]">
-                        More clients, more sales, less manual work.
+                        Websites, stores and tools that bring in clients and sales.
                     </h1>
                     <p className="max-w-[580px] text-base leading-relaxed text-ink-muted sm:text-lg">
-                        I build websites that bring in calls from Google and Maps, Shopify stores that sell more, and web apps that
-                        save your team hours every week.
+                        A website that brings you more clients. More sales from your Shopify store. Custom workflows and
+                        automations that take repeat work off your team. You save time and make more money.
                     </p>
                 </div>
 
@@ -100,10 +108,21 @@ export default function ServicesPage() {
                                 {service.tagline}
                             </p>
                             <p className="text-[15px] leading-[1.65] text-ink-muted">{service.summary}</p>
-                            <Link href={service.href} className="btn-pill-primary mt-auto h-[46px] self-start px-5.5">
-                                Explore {service.title}
-                                <ArrowRight className="size-[15px]" aria-hidden />
-                            </Link>
+                            <div className="mt-auto flex flex-col gap-3 pt-1 min-[480px]:flex-row min-[480px]:items-center min-[480px]:gap-5">
+                                <Link href={service.href} className="btn-pill-primary h-[46px] self-start px-5.5">
+                                    See the details
+                                    <ArrowRight className="size-[15px]" aria-hidden />
+                                </Link>
+                                {service.firstStep && (
+                                    <Link
+                                        href={`${service.href}#${service.firstStep.id}`}
+                                        className="py-2.5 text-sm font-semibold transition-colors hover:text-ink"
+                                        style={{ color: service.accent }}
+                                    >
+                                        {service.firstStep.startsWith}
+                                    </Link>
+                                )}
+                            </div>
                         </div>
 
                         <div className="grid gap-8 border-t border-line bg-[#faf9f6] p-6 sm:grid-cols-2 sm:p-10 lg:border-t-0 lg:border-l">
@@ -147,11 +166,37 @@ export default function ServicesPage() {
                 ))}
             </div>
 
-            {services[0].proof && <ProofBlock proof={services[0].proof} className="mt-4 sm:mt-5" />}
+            <div className="mt-4 flex flex-col gap-4 sm:mt-5 sm:gap-5">
+                {proofs.map((proof) => (
+                    <ProofBlock key={proof.title} proof={proof} />
+                ))}
+            </div>
+
+            <section className="mt-12 flex flex-col gap-7 rounded-3xl border border-rule bg-white p-5.5 sm:mt-16 sm:rounded-[28px] sm:p-11">
+                <div className="flex flex-col gap-2.5">
+                    <p className="eyebrow">How it works</p>
+                    <h2 className="text-[26px] font-semibold tracking-[-0.03em] text-ink sm:text-[32px]">The same three steps for every service</h2>
+                </div>
+                <ol className="grid gap-7 sm:grid-cols-3">
+                    {ladder.map((step, i) => (
+                        <li key={step.title} className="flex flex-col gap-3.5">
+                            <div className="flex items-center gap-3">
+                                <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-brand font-mono text-[13px] font-semibold text-white">
+                                    {String(i + 1).padStart(2, "0")}
+                                </span>
+                                <span className="h-px grow bg-rule" aria-hidden />
+                            </div>
+                            <h3 className="text-[17px] font-semibold text-ink">{step.title}</h3>
+                            <p className="text-sm leading-relaxed text-ink-muted">{step.text}</p>
+                        </li>
+                    ))}
+                </ol>
+            </section>
 
             <CtaSection
                 className="mt-12 sm:mt-16"
-                description="Tell me about your business and what you want more of - clients, sales or time. I’ll tell you where I’d start."
+                description="Tell me about your business and what you want more of - clients, sales or time. I’ll reply within 24 hours with where I’d start."
+                whatsappText="Hi Nick, I’d like to talk about my business: "
             />
         </div>
     );

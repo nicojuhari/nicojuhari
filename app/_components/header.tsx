@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import MobileNav from "./mobile-nav";
-import ContactButton from "./contact-button";
+import { WHATSAPP_URL } from "@/app/_data/services";
 import NavLinks from "./nav-links";
 
 export default function Header() {
@@ -16,21 +16,25 @@ export default function Header() {
 
                     <nav className="hidden items-center gap-1 md:flex">
                         <NavLinks />
-                        <ContactButton
-                            arrow={false}
+                        <a
+                            href={WHATSAPP_URL}
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="ml-2 inline-flex h-10 items-center rounded-full bg-brand px-4.5 text-[13px] font-semibold text-white transition-colors hover:bg-brand/90"
                         >
-                            Get in touch
-                        </ContactButton>
+                            Message on WhatsApp
+                        </a>
                     </nav>
 
                     <div className="flex items-center gap-1 md:hidden">
-                        <ContactButton
-                            arrow={false}
+                        <a
+                            href={WHATSAPP_URL}
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="inline-flex h-11 items-center rounded-full bg-brand px-4 text-[13px] font-semibold text-white"
                         >
-                            Contact
-                        </ContactButton>
+                            WhatsApp
+                        </a>
                         <MobileNav />
                     </div>
                 </div>

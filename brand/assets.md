@@ -23,3 +23,8 @@ Last updated: 2026-09-26
 ## 2026-09-26 — Services pages (Paid like a partner)
 - Landing page copy: app/_data/services.ts + app/services/page.tsx (notes: ./campaigns/services-pages/copy-notes.md, control)
 - Homepage audit + rewrite: ./campaigns/homepage/audit-2026-09-26.md (control, 53/70)
+
+## 2026-10-05 — Home + services change plan (freelance plan)
+- Plan: ./campaigns/services-pages/plan-2026-10-05.md (8 steps, keyword check, 3 open decisions)
+- LinkedIn profile (headline, About, banner, featured): ./campaigns/linkedin/profile.md (draft)
+- Projects: 17 new entries in app/_data/projects.ts (businesses, client work, closed/unreleased apps) for the user to prune
