@@ -5,7 +5,7 @@ import { pageMetadata } from "@/app/_lib/metadata";
 export const metadata: Metadata = pageMetadata({
     title: "Local Business Websites in Vienna | Calls from Google & Maps",
     description:
-        "Web designer for small and local businesses in Vienna. Website and Google profile built to bring calls and bookings. Starts with a free Google check.",
+        "Web designer for local businesses in Vienna. A website and Google Maps profile that bring you calls and bookings. Starts with a free Google check.",
     path: "/services/local-business-websites",
 });
 

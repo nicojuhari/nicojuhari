@@ -3,12 +3,6 @@ import Link from "next/link";
 import { WHATSAPP_URL } from "@/app/_data/services";
 import { socialLinks } from "./icons";
 
-const facts = [
-    { label: "Focus", value: "Websites, stores & apps" },
-    { label: "Clients", value: "Austria · Romania · Moldova" },
-    { label: "Contact", value: "WhatsApp · Google Meet" },
-];
-
 export default function ProfilePanel() {
     return (
         <aside className="lg:sticky lg:top-28">
@@ -43,7 +37,7 @@ export default function ProfilePanel() {
                 </h1>
 
                 <p className="mt-3.5 text-[15px] leading-relaxed text-ink-muted sm:mt-4.5">
-                    Websites, Shopify stores and automations for small businesses. Built to bring in clients and sales, and save you time.
+                    Business websites, online stores and custom apps that bring real results.
                 </p>
 
                 <div className="mt-5 flex flex-col gap-2.5 sm:mt-6">
@@ -60,16 +54,7 @@ export default function ProfilePanel() {
                     </Link>
                 </div>
 
-                <dl className="mt-5 flex flex-col border-t border-line sm:mt-6">
-                    {facts.map((fact) => (
-                        <div key={fact.label} className="flex justify-between gap-4 border-b border-line py-3 text-[13px] last:border-b-0">
-                            <dt className="text-ink-faint">{fact.label}</dt>
-                            <dd className="text-right font-medium text-ink">{fact.value}</dd>
-                        </div>
-                    ))}
-                </dl>
-
-                <ul className="mt-1 flex justify-center gap-2 sm:mt-2">
+                <ul className="mt-4 flex justify-center gap-2 border-t border-line pt-3 sm:mt-5">
                     {socialLinks.map(({ href, label, Icon }) => (
                         <li key={href}>
                             <a

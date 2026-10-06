@@ -12,12 +12,19 @@ const ID = {
 
 const TELEPHONE = "+4369010196811";
 
+/** Service-area business: city only, no street (matches the hidden address on Google Business Profile) */
 const address = {
     "@type": "PostalAddress",
-    streetAddress: "Kurt-Tichy-Gasse 5",
     addressLocality: "Vienna",
     addressCountry: "AT",
 };
+
+/** Where I work: Vienna in person, the rest of Austria online or on a visit */
+export const areaServed = [
+    { "@type": "City", name: "Vienna" },
+    { "@type": "State", name: "Lower Austria" },
+    { "@type": "Country", name: "Austria" },
+];
 
 function person() {
     return {
@@ -28,7 +35,7 @@ function person() {
         image: `${BASE}/nick-profile-photo.webp`,
         jobTitle: "Software Engineer",
         knowsAbout: ["Software Engineering", "Web Development", "Shopify", "Local SEO", "Finance", "Artificial Intelligence"],
-        address: { "@type": "PostalAddress", addressLocality: "Vienna", addressCountry: "AT" },
+        address,
         worksFor: { "@id": ID.business },
         sameAs: [...SOCIAL_LINKS],
     };
@@ -45,7 +52,7 @@ function business() {
         logo: `${BASE}/nicojuhari-logo.svg`,
         telephone: TELEPHONE,
         address,
-        areaServed: "Worldwide",
+        areaServed,
         founder: { "@id": ID.person },
         sameAs: [...SOCIAL_LINKS],
         hasOfferCatalog: {
@@ -84,7 +91,7 @@ export function serviceSchema(name: string, description: string, path: string) {
         description,
         url: `${BASE}${path}`,
         provider: { "@type": "ProfessionalService", "@id": ID.business, name: SITE_NAME, url: BASE },
-        areaServed: "Worldwide",
+        areaServed,
     };
 }
 
@@ -108,9 +115,64 @@ export function webAppSchema(name: string, description: string, slug: string) {
     };
 }
 
-export function breadcrumbSchema(items: { name: string; path: string }[]) {
+type ListEntry = { type: string; name: string; description?: string; url?: string; extra?: Record<string, unknown> };
+
+/** List pages (services, projects, tools): the page, what it lists, and its breadcrumb */
+export function collectionSchema(name: string, description: string, path: string, entries: ListEntry[]) {
+    const url = `${BASE}${path}`;
     return {
         "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "CollectionPage",
+                "@id": `${url}#page`,
+                name,
+                description,
+                url,
+                inLanguage: "en",
+                isPartOf: { "@id": ID.website },
+                author: { "@id": ID.person },
+                mainEntity: {
+                    "@type": "ItemList",
+                    numberOfItems: entries.length,
+                    itemListElement: entries.map((entry, index) => ({
+                        "@type": "ListItem",
+                        position: index + 1,
+                        item: {
+                            "@type": entry.type,
+                            name: entry.name,
+                            ...(entry.description && { description: entry.description }),
+                            ...(entry.url && { url: entry.url }),
+                            ...entry.extra,
+                        },
+                    })),
+                },
+                breadcrumb: { "@id": `${url}#breadcrumb` },
+            },
+            {
+                ...breadcrumbList([
+                    { name: "Home", path: "/" },
+                    { name, path },
+                ]),
+                "@id": `${url}#breadcrumb`,
+            },
+        ],
+    };
+}
+
+/** Full URL for a site path */
+export const absoluteUrl = (path: string) => `${BASE}${path}`;
+
+/** Shared provider/author references for list entries */
+export const businessRef = { "@id": ID.business };
+export const personRef = { "@id": ID.person };
+
+export function breadcrumbSchema(items: { name: string; path: string }[]) {
+    return { "@context": "https://schema.org", ...breadcrumbList(items) };
+}
+
+function breadcrumbList(items: { name: string; path: string }[]) {
+    return {
         "@type": "BreadcrumbList",
         itemListElement: items.map((item, index) => ({
             "@type": "ListItem",

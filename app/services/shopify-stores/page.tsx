@@ -3,9 +3,9 @@ import ServiceDetail from "../_components/service-detail";
 import { pageMetadata } from "@/app/_lib/metadata";
 
 export const metadata: Metadata = pageMetadata({
-    title: "Shopify Store Check & Conversion Fixes | Vienna",
+    title: "Shopify Store Audit, Redesign & CRO | Vienna",
     description:
-        "Shopify developer in Vienna. Store gets traffic but not enough sales? A store check (audit) finds where buyers drop off. Then fixes and a monthly plan.",
+        "Shopify developer in Vienna. Visitors but few sales? A store check finds what stops buyers. Then fixes, a redesign and monthly CRO.",
     path: "/services/shopify-stores",
 });
 
@@ -13,8 +13,8 @@ export default function ShopifyStoresPage() {
     return (
         <ServiceDetail
             slug="shopify-stores"
-            schemaName="Shopify Store Check & Conversion Fixes"
-            schemaDescription="A Shopify store check that finds where buyers drop off, fixes to product pages, checkout, speed and Klaviyo emails, and a monthly plan with a results note."
+            schemaName="Shopify Store Audit, Redesign & CRO"
+            schemaDescription="A Shopify store check that finds where buyers drop off, then fixes, store redesign, ads tracking, Klaviyo emails and monthly conversion rate optimization (CRO) with a results note."
         />
     );
 }

@@ -21,7 +21,7 @@ const proofs = services.flatMap((s) => (s.proof ? [s.proof] : []));
 
 const steps = [
     { title: "A small check first", text: "I look at your site, store or process and tell you what I’d fix first. You decide what happens next." },
-    { title: "Build or fix", text: "A fixed price, agreed before I start. You see the work early and give feedback on the real thing." },
+    { title: "Build or fix", text: "A fixed price, agreed before I start. You pay in stages, and you can ask for changes along the way." },
     { title: "Monthly plan", text: "I keep improving it each month and show you the numbers: calls, orders or hours saved." },
 ];
 
@@ -60,12 +60,10 @@ export default function Home() {
                         <section className="flex flex-col gap-5 sm:gap-7 lg:pt-2">
                             <p className="eyebrow">What I do</p>
                             <h2 className="max-w-[800px] text-[34px] leading-[1.06] font-semibold tracking-[-0.03em] text-ink sm:text-[44px] xl:text-[52px] xl:leading-[1.04] xl:tracking-[-0.035em]">
-                                More clients and sales <span className="text-brand">for small businesses.</span>
+                                More clients and sales <span className="text-brand">for your business.</span>
                             </h2>
                             <p className="max-w-[640px] text-base leading-relaxed text-ink-muted sm:text-lg">
-                                A website that brings you more clients. More sales from your Shopify store, from the
-                                visitors you already have. Custom workflows and automations, so your team spends less time
-                                on repeat work. You save time and make more money.
+                                Choose what you need below. Every project starts with a free look at what you have today.
                             </p>
 
                             <ul className="mt-1 grid gap-3 sm:mt-2 md:grid-cols-3">
@@ -103,7 +101,7 @@ export default function Home() {
                         <section className="flex flex-col gap-4">
                             <SectionHeader
                                 eyebrow="Results"
-                                title="Businesses I run on what I built"
+                                title="I run businesses on websites and apps I built"
                                 href="/services"
                                 linkLabel="See services"
                             />
@@ -161,8 +159,9 @@ export default function Home() {
                                     like to build things that solve real problems.
                                 </p>
                                 <p className="text-[15px] leading-[1.65] text-ink-soft">
-                                    Today I help run two businesses on software I built: a consumer credit company I
-                                    co-founded, and a local services business that gets most of its clients from its website.
+                                    Today I help run two businesses. Both run on software I built. One is a consumer credit
+                                    company I co-founded. The other is a local services business that gets most of its
+                                    clients from its website.
                                 </p>
                                 <p className="text-[15px] leading-[1.65] text-ink-soft">
                                     I build the same things for other businesses. I use AI every day to work faster. Outside
@@ -188,7 +187,7 @@ export default function Home() {
                         <section className="flex flex-col gap-4">
                             <SectionHeader
                                 eyebrow="Free tools"
-                                title="Small utilities, free to use"
+                                title="Free tools for everyday tasks"
                                 href="/tools"
                                 linkLabel="All tools"
                             />
@@ -203,7 +202,7 @@ export default function Home() {
                                         href="/tools"
                                         variant="compact"
                                         eyebrow={`${tools.length} tools`}
-                                        title="Free utilities for everyday tasks."
+                                        title="See all free tools."
                                         linkLabel="Browse all tools"
                                     />
                                 </li>

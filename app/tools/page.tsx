@@ -3,6 +3,7 @@ import { Check } from "lucide-react";
 import { tools } from "@/app/_data/tools";
 import ToolsFilter from "./_components/tools-filter";
 import { pageMetadata } from "@/app/_lib/metadata";
+import { absoluteUrl, collectionSchema, personRef } from "@/app/_lib/schema";
 
 export const metadata: Metadata = pageMetadata({
     title: "Free Browser Tools - QR Codes, Checklists & More",
@@ -11,11 +12,31 @@ export const metadata: Metadata = pageMetadata({
     path: "/tools",
 });
 
+const schema = collectionSchema(
+    "Free tools",
+    "Free browser tools for everyday tasks: split bills, make QR codes and checklists, crop images, count words and more. No sign-up needed.",
+    "/tools",
+    tools.map((t) => ({
+        type: "WebApplication",
+        name: t.title,
+        description: t.description,
+        url: absoluteUrl(`/tools/${t.slug}`),
+        extra: {
+            applicationCategory: "UtilitiesApplication",
+            operatingSystem: "Any",
+            isAccessibleForFree: true,
+            offers: { "@type": "Offer", price: "0", priceCurrency: "EUR" },
+            author: personRef,
+        },
+    }))
+);
+
 const perks = ["Free", "No sign-up", "In your browser"];
 
 export default function ToolsPage() {
     return (
         <div className="flex flex-col gap-8 sm:mt-6 sm:gap-10">
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
             <section className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between lg:gap-12">
                 <div className="flex max-w-[720px] flex-col gap-3.5 sm:gap-4.5">
                     <p className="eyebrow">Free tools</p>

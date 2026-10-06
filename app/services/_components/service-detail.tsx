@@ -24,6 +24,8 @@ export default function ServiceDetail({ slug, schemaName, schemaDescription }: P
     const related = services.filter((s) => s.slug !== slug);
     const first = service.firstStep;
     const whatsapp = whatsappLink(first?.whatsappText);
+    const send = service.send;
+    const sendLink = whatsappLink(send.whatsappText);
 
     return (
         <div className="container mt-5 sm:mt-10">
@@ -72,19 +74,20 @@ export default function ServiceDetail({ slug, schemaName, schemaDescription }: P
                     <p className="max-w-[560px] text-base leading-relaxed text-ink-muted sm:text-lg">{service.intro}</p>
                     <div className="mt-1.5 flex flex-col gap-2.5 sm:flex-row sm:items-center sm:gap-3">
                         <a
-                            href={whatsapp}
+                            href={sendLink}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="btn-pill-primary h-12 px-6 text-[15px] sm:text-sm"
                         >
-                            {first?.cta ?? "Message me on WhatsApp"}
+                            {send.label}
                             <ArrowRight className="size-4" aria-hidden />
                         </a>
-                        <a href={first ? `#${first.id}` : "#how"} className="btn-pill-secondary h-12 px-5.5 text-[15px] sm:text-sm">
-                            {first ? "See what’s included" : "How it works"}
+                        <a href="#problems" className="btn-pill-secondary h-12 px-5.5 text-[15px] sm:text-sm">
+                            What I check
                         </a>
                     </div>
-                    <span className="mt-1 font-mono text-xs text-ink-faint">WhatsApp · Replies within 24h, Mon–Fri · Calls on Google Meet</span>
+                    <p className="text-sm font-medium text-ink-soft">{send.note}</p>
+                    <span className="font-mono text-xs text-ink-faint">WhatsApp or email · Mon–Fri · Calls on Google Meet</span>
                 </div>
 
                 <aside className="flex flex-col gap-4.5 rounded-3xl border border-rule bg-white p-5.5 shadow-[0_1px_2px_rgba(17,20,24,0.04),0_16px_36px_-20px_rgba(22,40,77,0.18)] sm:p-8">
@@ -106,6 +109,65 @@ export default function ServiceDetail({ slug, schemaName, schemaDescription }: P
                         ))}
                     </ul>
                 </aside>
+            </section>
+
+            {/* Hidden problems: what it costs, how I find it, how I fix it */}
+            <section id="problems" className="mt-16 flex scroll-mt-28 flex-col gap-6 sm:mt-24 sm:gap-7">
+                <div className="flex flex-col gap-3 lg:flex-row lg:items-end lg:justify-between lg:gap-8">
+                    <div className="flex max-w-[640px] flex-col gap-2.5">
+                        <p className="eyebrow">What I check</p>
+                        <h2 className="text-[28px] leading-[1.1] font-semibold tracking-[-0.03em] text-ink sm:text-[38px]">
+                            {service.hiddenTitle}
+                        </h2>
+                    </div>
+                    <p className="max-w-[380px] text-[15px] leading-relaxed text-ink-muted">{service.hiddenIntro}</p>
+                </div>
+                <ul className="grid gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3">
+                    {service.hidden.map((item, i) => (
+                        <li key={item.title} className="flex flex-col gap-3 rounded-[20px] border border-rule bg-white p-5.5 sm:p-6.5">
+                            <span className="font-mono text-xs font-semibold" style={{ color: service.accent }}>
+                                {num(i)}
+                            </span>
+                            <h3 className="text-lg font-semibold tracking-[-0.015em] text-ink">{item.title}</h3>
+                            <p className="text-sm leading-relaxed text-ink-muted">{item.cost}</p>
+                            <dl className="mt-auto flex flex-col gap-2.5 border-t border-line pt-3.5">
+                                <div className="flex flex-col gap-0.5">
+                                    <dt className="font-mono text-[11px] font-semibold tracking-[0.12em] text-ink-faint uppercase">
+                                        How I find it
+                                    </dt>
+                                    <dd className="text-sm leading-relaxed text-ink-soft">{item.check}</dd>
+                                </div>
+                                <div className="flex flex-col gap-0.5">
+                                    <dt
+                                        className="font-mono text-[11px] font-semibold tracking-[0.12em] uppercase"
+                                        style={{ color: service.accent }}
+                                    >
+                                        How I fix it
+                                    </dt>
+                                    <dd className="text-sm leading-relaxed text-ink-soft">{item.fix}</dd>
+                                </div>
+                            </dl>
+                        </li>
+                    ))}
+                </ul>
+                <div
+                    className="flex flex-col gap-4 rounded-[20px] border border-rule p-5.5 sm:flex-row sm:items-center sm:justify-between sm:p-6.5"
+                    style={{ backgroundColor: service.tint }}
+                >
+                    <div className="flex flex-col gap-1">
+                        <p className="text-[17px] font-semibold text-ink">Not sure if you have any of these?</p>
+                        <p className="text-sm text-ink-soft">{send.note}</p>
+                    </div>
+                    <a
+                        href={sendLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn-pill-primary h-12 shrink-0 self-start px-6 text-[15px] sm:self-auto sm:text-sm"
+                    >
+                        {send.label}
+                        <ArrowRight className="size-4" aria-hidden />
+                    </a>
+                </div>
             </section>
 
             {/* First step */}
@@ -242,9 +304,10 @@ export default function ServiceDetail({ slug, schemaName, schemaDescription }: P
 
             <CtaSection
                 className="mt-12 sm:mt-16"
+                title="Let me take a look."
                 description={service.cta}
-                primaryLabel={first?.cta}
-                whatsappText={first?.whatsappText}
+                primaryLabel={send.label}
+                whatsappText={send.whatsappText}
             />
         </div>
     );

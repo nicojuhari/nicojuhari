@@ -2,6 +2,12 @@ import Link from "next/link";
 import Image from "next/image";
 import { navLinks } from "@/app/_lib/nav";
 
+const legalLinks = [
+    { href: "/imprint", label: "Imprint" },
+    { href: "/privacy", label: "Privacy" },
+    { href: "/terms", label: "Terms" },
+];
+
 export default function Footer() {
     const year = new Date().getFullYear();
 
@@ -14,13 +20,22 @@ export default function Footer() {
                 </p>
             </div>
 
-            <nav className="flex items-center gap-6 text-[13px] font-medium">
-                {navLinks.map(({ href, label }) => (
-                    <Link key={href} href={href} className="py-2 text-ink-muted transition-colors hover:text-ink">
-                        {label}
-                    </Link>
-                ))}
-            </nav>
+            <div className="flex flex-col items-center gap-1 sm:items-end">
+                <nav className="flex items-center gap-6 text-[13px] font-medium">
+                    {navLinks.map(({ href, label }) => (
+                        <Link key={href} href={href} className="py-2 text-ink-muted transition-colors hover:text-ink">
+                            {label}
+                        </Link>
+                    ))}
+                </nav>
+                <nav aria-label="Legal" className="flex items-center gap-5 text-xs">
+                    {legalLinks.map(({ href, label }) => (
+                        <Link key={href} href={href} className="py-1.5 text-ink-faint transition-colors hover:text-ink">
+                            {label}
+                        </Link>
+                    ))}
+                </nav>
+            </div>
         </footer>
     );
 }

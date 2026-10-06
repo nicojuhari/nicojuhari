@@ -1,5 +1,5 @@
 # Asset Registry
-Last updated: 2026-09-26
+Last updated: 2026-10-06
 
 | Asset | Type | Date | Campaign | Status | Notes |
 |-------|------|------|----------|--------|-------|
@@ -19,6 +19,9 @@ Last updated: 2026-09-26
 | Building Simple Trackr (build story) | content-brief | 2026-09-26 | content-plan | planning | DO FIRST - near-empty build-story SERP. `campaigns/content-plan/building-simple-trackr-invoicing-app.md` |
 | When a Spreadsheet Should Become a Web App | content-brief | 2026-09-26 | content-plan | planning | DO FIRST - neutral angle, replaces the Excel-risk brief. `campaigns/content-plan/spreadsheet-to-web-app.md` |
 | Bunny Storage File Manager | content-brief | 2026-09-26 | content-plan | planning | QUICK WIN - only docs rank. `campaigns/content-plan/bunny-storage-file-manager.md` |
+| Keyword Plan v2.1 (Pillar 6 Shopify Store Growth) | keyword-plan | 2026-10-06 | content-plan | active | 15 live searches EN+DE; apps demoted to high; calendar revised. `brand/keyword-plan.md` |
+| Google Ads Conversions But No Sales | content-brief | 2026-10-06 | content-plan | planning | DO FIRST - vendors cover the opposite case, forums rank. `campaigns/content-plan/google-ads-conversions-but-no-sales.md` |
+| Shopify Conversion Rate niedrig (DE) | content-brief | 2026-10-06 | content-plan | planning | DO SECOND - DE forum thread ranks. `campaigns/content-plan/shopify-conversion-rate-niedrig.md` |
 
 ## 2026-09-26 — Services pages (Paid like a partner)
 - Landing page copy: app/_data/services.ts + app/services/page.tsx (notes: ./campaigns/services-pages/copy-notes.md, control)

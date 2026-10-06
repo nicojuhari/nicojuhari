@@ -5,7 +5,7 @@ import { SITE_URL } from "./_lib/site";
 
 /** No lastModified: a build date on every URL tells Google nothing, and it ignores changeFrequency/priority */
 export default function sitemap(): MetadataRoute.Sitemap {
-    const paths = ["", "/services", ...services.map((s) => s.href), "/projects", "/tools", ...tools.map((t) => `/tools/${t.slug}`)];
+    const paths = ["", "/services", ...services.map((s) => s.href), "/projects", "/tools", ...tools.map((t) => `/tools/${t.slug}`), "/imprint", "/privacy", "/terms"];
 
     return paths.map((path) => ({ url: `${SITE_URL}${path}` }));
 }

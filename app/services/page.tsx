@@ -5,11 +5,12 @@ import CtaSection from "@/app/_components/cta-section";
 import ProofBlock from "@/app/_components/proof-block";
 import { services, whatsappLink } from "@/app/_data/services";
 import { pageMetadata } from "@/app/_lib/metadata";
+import { absoluteUrl, areaServed, businessRef, collectionSchema } from "@/app/_lib/schema";
 
 export const metadata: Metadata = pageMetadata({
-    title: "Web Development Services in Vienna | Nicojuhari",
+    title: "Web Design, Shopify & Custom Apps in Vienna | Nicojuhari",
     description:
-        "Web development in Vienna - local business websites that bring in calls, Shopify stores that sell, and custom web apps that save your team time.",
+        "Find out why people don’t call or buy, then fix it. Websites for local businesses, Shopify store checks and redesigns, custom apps. Free first look.",
     path: "/services",
 });
 
@@ -20,10 +21,32 @@ const questions: Record<string, string> = {
 };
 
 const ladder = [
-    { title: "A small check", text: "Free Google check, store check or process check. You see what to fix first." },
-    { title: "Build or fix", text: "A fixed price, agreed before I start. 50% upfront. No hourly billing." },
-    { title: "Monthly plan", text: "I keep improving it and show you the numbers each month." },
+    { title: "You send a link", text: "Your website, store or business name. On WhatsApp or email." },
+    { title: "I check and test", text: "I use your site like a customer and look at the numbers behind it." },
+    { title: "You see what I found", text: "What’s wrong, what it costs you, and what to fix first. In plain words." },
+    { title: "I fix it", text: "A fixed price, agreed before I start. Then I keep improving it, if you want." },
 ];
+
+const SEND_TEXT = "Hi Nick, please take a look at my website or store: ";
+const SEND_NOTE = "Free first look. I reply within 24 hours with what I found.";
+
+/** The first two hidden problems of each service */
+const hiddenPicks = services.flatMap((s) =>
+    s.hidden.slice(0, 2).map((item) => ({ ...item, href: `${s.href}#problems`, service: s.title, accent: s.accent, tint: s.tint }))
+);
+
+const schema = collectionSchema(
+    "Services",
+    "Local business websites, Shopify store checks, redesign and CRO, and custom web apps - each starts with a check that finds what to fix first.",
+    "/services",
+    services.map((s) => ({
+        type: "Service",
+        name: s.title,
+        description: s.summary,
+        url: absoluteUrl(s.href),
+        extra: { provider: businessRef, areaServed },
+    }))
+);
 
 const proofs = services.flatMap((s) => (s.proof ? [s.proof] : []));
 
@@ -35,16 +58,30 @@ const choose = [
 export default function ServicesPage() {
     return (
         <div className="container mt-6 sm:mt-16">
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
             <section className="grid items-center gap-8 lg:grid-cols-[1.15fr_1fr] lg:gap-16">
                 <div className="flex flex-col gap-3.5 sm:gap-5">
                     <p className="eyebrow">Services</p>
                     <h1 className="text-[34px] leading-[1.06] font-semibold tracking-[-0.03em] text-ink sm:text-5xl xl:text-[56px] xl:leading-[1.03] xl:tracking-[-0.035em]">
-                        Websites, stores and tools that bring in clients and sales.
+                        Find out why people don’t call or buy. Then fix it.
                     </h1>
                     <p className="max-w-[580px] text-base leading-relaxed text-ink-muted sm:text-lg">
-                        A website that brings you more clients. More sales from your Shopify store. Custom workflows and
-                        automations that take repeat work off your team. You save time and make more money.
+                        Most problems are hard to see in your own business. A form that sends to an old inbox. Shipping costs
+                        that scare buyers at the last step. Ads that pay for the wrong clicks. I check your website or store
+                        like a customer, find what’s wrong, and fix it.
                     </p>
+                    <div className="mt-1 flex flex-col gap-2.5">
+                        <a
+                            href={whatsappLink(SEND_TEXT)}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="btn-pill-primary h-12 self-start px-6 text-[15px] sm:text-sm"
+                        >
+                            Send your website link
+                            <ArrowRight className="size-4" aria-hidden />
+                        </a>
+                        <p className="text-sm font-medium text-ink-soft">{SEND_NOTE}</p>
+                    </div>
                 </div>
 
                 <aside className="overflow-hidden rounded-3xl border border-rule bg-white shadow-[0_1px_2px_rgba(17,20,24,0.04),0_16px_36px_-20px_rgba(22,40,77,0.18)]">
@@ -81,6 +118,45 @@ export default function ServicesPage() {
                         })}
                     </ul>
                 </aside>
+            </section>
+
+            <section className="mt-12 flex flex-col gap-6 sm:mt-18 sm:gap-7">
+                <div className="flex flex-col gap-3 lg:flex-row lg:items-end lg:justify-between lg:gap-8">
+                    <div className="flex max-w-[640px] flex-col gap-2.5">
+                        <p className="eyebrow">What I check</p>
+                        <h2 className="text-[28px] leading-[1.1] font-semibold tracking-[-0.03em] text-ink sm:text-[38px]">
+                            Problems most owners don’t see
+                        </h2>
+                    </div>
+                    <p className="max-w-[380px] text-[15px] leading-relaxed text-ink-muted">
+                        Nobody tells you about them. People just leave. I find them by testing, then I fix them.
+                    </p>
+                </div>
+                <ul className="grid gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3">
+                    {hiddenPicks.map((item) => (
+                        <li key={item.title}>
+                            <Link
+                                href={item.href}
+                                className="group flex h-full flex-col gap-3 rounded-[20px] border border-rule bg-white p-5.5 transition-colors hover:border-ink/20 sm:p-6.5"
+                            >
+                                <span
+                                    className="self-start rounded-full px-2.5 py-1 font-mono text-[11px] font-semibold tracking-[0.06em] uppercase"
+                                    style={{ backgroundColor: item.tint, color: item.accent }}
+                                >
+                                    {item.service}
+                                </span>
+                                <h3 className="text-lg font-semibold tracking-[-0.015em] text-ink">{item.title}</h3>
+                                <p className="text-sm leading-relaxed text-ink-muted">{item.cost}</p>
+                                <p className="mt-auto border-t border-line pt-3 text-sm leading-relaxed text-ink-soft">
+                                    <span className="font-semibold" style={{ color: item.accent }}>
+                                        Fix:{" "}
+                                    </span>
+                                    {item.fix}
+                                </p>
+                            </Link>
+                        </li>
+                    ))}
+                </ul>
             </section>
 
             <div className="mt-12 flex flex-col gap-4 sm:mt-18 sm:gap-5">
@@ -175,9 +251,9 @@ export default function ServicesPage() {
             <section className="mt-12 flex flex-col gap-7 rounded-3xl border border-rule bg-white p-5.5 sm:mt-16 sm:rounded-[28px] sm:p-11">
                 <div className="flex flex-col gap-2.5">
                     <p className="eyebrow">How it works</p>
-                    <h2 className="text-[26px] font-semibold tracking-[-0.03em] text-ink sm:text-[32px]">The same three steps for every service</h2>
+                    <h2 className="text-[26px] font-semibold tracking-[-0.03em] text-ink sm:text-[32px]">The same four steps for every service</h2>
                 </div>
-                <ol className="grid gap-7 sm:grid-cols-3">
+                <ol className="grid gap-7 sm:grid-cols-2 lg:grid-cols-4">
                     {ladder.map((step, i) => (
                         <li key={step.title} className="flex flex-col gap-3.5">
                             <div className="flex items-center gap-3">
@@ -195,8 +271,10 @@ export default function ServicesPage() {
 
             <CtaSection
                 className="mt-12 sm:mt-16"
-                description="Tell me about your business and what you want more of - clients, sales or time. I’ll reply within 24 hours with where I’d start."
-                whatsappText="Hi Nick, I’d like to talk about my business: "
+                title="Let me take a look."
+                description="Send me your website or store link. I’ll check it and reply within 24 hours with what I found. Free, no obligation."
+                primaryLabel="Send your website link"
+                whatsappText={SEND_TEXT}
             />
         </div>
     );

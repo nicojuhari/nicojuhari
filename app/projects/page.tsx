@@ -3,20 +3,36 @@ import { projects } from "@/app/_data/projects";
 import CtaSection from "@/app/_components/cta-section";
 import ProjectsFilter from "./_components/projects-filter";
 import { pageMetadata } from "@/app/_lib/metadata";
+import { collectionSchema, personRef } from "@/app/_lib/schema";
 
 export const metadata: Metadata = pageMetadata({
-    title: "Projects - Web Apps & Products I Built | Nicojuhari",
+    title: "Projects: Websites, Stores & Apps I Built | Nicolae Cojuhari",
     description:
-        "Web apps I built and run, like Simple Trackr for freelance finances and 1FoodMenu digital menus - what each one does, the stack and what I built.",
+        "Businesses I run, client websites, a Shopify store and web apps like Simple Trackr. What each one does, what I built, and where to try it.",
     path: "/projects",
 });
+
+const schema = collectionSchema(
+    "Projects",
+    "Businesses I run, client websites, a Shopify store and web apps like Simple Trackr. What each one does, what I built, and where to try it.",
+    "/projects",
+    [...projects]
+        .sort((a, b) => a.sort - b.sort)
+        .map((p) => ({
+            type: "CreativeWork",
+            name: p.title,
+            description: p.description,
+            url: p.url,
+            extra: { dateCreated: String(p.year), creator: personRef },
+        }))
+);
 
 const years = projects.map((p) => p.year);
 const firstYear = Math.min(...years);
 const lastYear = Math.max(...years);
 
 const stats = [
-    { value: String(projects.length), label: "Products shipped" },
+    { value: String(projects.length), label: "Projects" },
     { value: String(projects.filter((p) => p.url).length), label: "Live to try" },
     {
         value: (
@@ -33,15 +49,16 @@ const stats = [
 export default function ProjectsPage() {
     return (
         <div className="container mt-6 flex flex-col gap-8 sm:mt-16 sm:gap-10">
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
             <section className="grid items-end gap-6 lg:grid-cols-[1.4fr_1fr] lg:gap-12">
                 <div className="flex flex-col gap-3.5 sm:gap-4.5">
                     <p className="eyebrow">Projects</p>
                     <h1 className="text-[34px] leading-[1.06] font-semibold tracking-[-0.03em] text-ink sm:text-5xl xl:text-[56px] xl:leading-[1.02] xl:tracking-[-0.035em]">
-                        Apps I’ve designed, built and shipped.
+                        Websites, stores and apps I’ve built.
                     </h1>
                     <p className="max-w-[620px] text-base leading-relaxed text-ink-muted sm:text-lg">
-                        Each one started with a real problem - tracking money, running a menu, managing files. Here’s what it
-                        does, what I built, and where you can try it.
+                        Businesses I run, websites for clients, and apps I made for my own work. See what each one does and
+                        try the ones that are live.
                     </p>
                 </div>
                 <dl className="grid grid-cols-3 overflow-hidden rounded-[20px] border border-rule bg-white">
