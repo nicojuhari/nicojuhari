@@ -20,7 +20,10 @@ export const metadata: Metadata = pageMetadata({ title: SITE_TITLE, description:
 const proofs = services.flatMap((s) => (s.proof ? [s.proof] : []));
 
 const steps = [
-    { title: "A small check first", text: "I look at your site, store or process and tell you what I’d fix first. You decide what happens next." },
+    {
+        title: "A small check first",
+        text: "I look at your site, store or process and tell you what I’d fix first. You decide what happens next.",
+    },
     { title: "Build or fix", text: "A fixed price, agreed before I start. You pay in stages, and you can ask for changes along the way." },
     { title: "Monthly plan", text: "I keep improving it each month and show you the numbers: calls, orders or hours saved." },
 ];
@@ -59,11 +62,11 @@ export default function Home() {
                         {/* Intro */}
                         <section className="flex flex-col gap-5 sm:gap-7 lg:pt-2">
                             <p className="eyebrow">What I do</p>
-                            <h2 className="max-w-[800px] text-[34px] leading-[1.06] font-semibold tracking-[-0.03em] text-ink sm:text-[44px] xl:text-[52px] xl:leading-[1.04] xl:tracking-[-0.035em]">
-                                More clients and sales <span className="text-brand">for your business.</span>
-                            </h2>
+                            <h1 className="max-w-[800px] text-[34px] leading-[1.06] font-semibold tracking-[-0.03em] text-ink sm:text-[44px] xl:text-[52px] xl:leading-[1.04] xl:tracking-[-0.035em]">
+                                More clients and sales <span className="text-ink-faint">for your business.</span>
+                            </h1>
                             <p className="max-w-[640px] text-base leading-relaxed text-ink-muted sm:text-lg">
-                                Choose what you need below. Every project starts with a free look at what you have today.
+                                Fast, clean websites, stores and apps. Nothing extra, only what turns a visitor into a customer.
                             </p>
 
                             <ul className="mt-1 grid gap-3 sm:mt-2 md:grid-cols-3">
@@ -155,17 +158,16 @@ export default function Home() {
                             <div className="flex flex-col gap-3.5 rounded-[20px] border border-rule bg-white p-5.5 sm:p-7">
                                 <h2 className="eyebrow">About</h2>
                                 <p className="text-[15px] leading-[1.65] text-ink-soft">
-                                    I started in finance and spent years in the industry. Then I moved into software, because I
-                                    like to build things that solve real problems.
+                                    I started in finance and spent years in the industry. Then I moved into software, because I like to
+                                    build things that solve real problems.
                                 </p>
                                 <p className="text-[15px] leading-[1.65] text-ink-soft">
-                                    Today I help run two businesses. Both run on software I built. One is a consumer credit
-                                    company I co-founded. The other is a local services business that gets most of its
-                                    clients from its website.
+                                    Today I help run two businesses. Both run on software I built. One is a consumer credit company I
+                                    co-founded. The other is a local services business that gets most of its clients from its website.
                                 </p>
                                 <p className="text-[15px] leading-[1.65] text-ink-soft">
-                                    I build the same things for other businesses. I use AI every day to work faster. Outside
-                                    of work I ski and play basketball.
+                                    I build the same things for other businesses. I use AI every day to work faster. Outside of work I ski
+                                    and play basketball.
                                 </p>
                                 <div className="mt-auto flex items-center gap-3 pt-1.5">
                                     <Image
@@ -185,12 +187,7 @@ export default function Home() {
 
                         {/* Tools */}
                         <section className="flex flex-col gap-4">
-                            <SectionHeader
-                                eyebrow="Free tools"
-                                title="Free tools for everyday tasks"
-                                href="/tools"
-                                linkLabel="All tools"
-                            />
+                            <SectionHeader eyebrow="Free tools" title="Free tools for everyday tasks" href="/tools" linkLabel="All tools" />
                             <ul className="grid grid-cols-2 gap-2.5 sm:gap-3 md:grid-cols-4">
                                 {tools.map((tool) => (
                                     <li key={tool.slug} className="min-w-0">

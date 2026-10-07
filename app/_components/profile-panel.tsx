@@ -26,15 +26,14 @@ export default function ProfilePanel() {
                     </div>
                 </div>
 
-                <h1 className="mt-5 sm:mt-6">
+                <div className="mt-5 sm:mt-6">
                     <span className="block text-[28px] leading-[1.1] font-semibold tracking-[-0.025em] text-ink sm:text-[30px]">
                         Nicolae Cojuhari
                     </span>
                     <span className="mt-1.5 block text-sm font-medium text-ink-soft sm:mt-2">
-                        Software Engineer <span className="text-brand-green">·</span> Finance{" "}
-                        <span className="text-brand-green">·</span> AI
+                        Software Engineer <span className="text-brand-green">·</span> Finance <span className="text-brand-green">·</span> AI
                     </span>
-                </h1>
+                </div>
 
                 <p className="mt-3.5 text-[15px] leading-relaxed text-ink-muted sm:mt-4.5">
                     Business websites, online stores and custom apps that bring real results.
@@ -54,7 +53,7 @@ export default function ProfilePanel() {
                     </Link>
                 </div>
 
-                <ul className="mt-4 flex justify-center gap-2 border-t border-line pt-3 sm:mt-5">
+                <ul className="mt-4 flex justify-center gap-2 sm:mt-5">
                     {socialLinks.map(({ href, label, Icon }) => (
                         <li key={href}>
                             <a

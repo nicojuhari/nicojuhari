@@ -5,14 +5,14 @@ export const SITE_NAME = "Nicojuhari";
 export const PERSON_NAME = "Nicolae Cojuhari";
 
 /** 60 chars - at the ~60 title limit */
-export const SITE_TITLE = "Nicolae Cojuhari | Websites, Shopify Stores & Apps in Vienna";
+export const SITE_TITLE = "Websites, Shopify Stores & Apps in Vienna | Nicolae Cojuhari";
 
 /**
  * Meta description - keep under 155–160 characters.
- * Current: 145 chars.
+ * Current: 132 chars.
  */
 export const SITE_DESCRIPTION =
-    "More clients and sales for your business. Websites that bring calls from Google, Shopify stores that sell more, and custom apps. Free first look.";
+    "Fast, clean websites, Shopify stores and apps in Vienna. Nothing extra, only what turns a visitor into a customer. Free first check.";
 
 /** Short profile bio (sidebar) - matches brand/positioning.md */
 export const SITE_BIO =
