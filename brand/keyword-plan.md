@@ -122,6 +122,7 @@ Validation: search PASS · market PASS · competitive FAIL for most (saturated) 
 | Cluster | Priority | Action |
 |---|---|---|
 | add products to Shopify blog post without app / Shopify product grid HTML | QUICK WIN (DO FIRST) | Tool page upgrade - DONE 2026-09-26 |
+| free social media image maker no sign-up / no watermark + social media image sizes | QUICK WIN | Tool page copy, size table, FAQ - DONE 2026-10-12 (`campaigns/content-plan/social-media-image-maker.md`) |
 | square crop for menu / food photos | BACKLOG | Tool copy tweak, link to 1FoodMenu |
 | split bill with unequal shares | BACKLOG | Long-tail copy on the bill split page |
 | QR (Wi-Fi/vCard), checklist, whitespace/slug, word counter, RPS | NO SEO EFFORT | Keep as portfolio pieces |

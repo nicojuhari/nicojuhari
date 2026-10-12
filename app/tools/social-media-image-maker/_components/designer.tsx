@@ -208,6 +208,7 @@ export default function Designer() {
 
     const [design, setDesign] = useLocalStorage<Design>("nc_social_design", DEFAULT_DESIGN, { initializeWithValue: false });
     const [format, setFormat] = useLocalStorage<Format>("nc_social_format", "image/png", { initializeWithValue: false });
+    const [free, setFree] = useLocalStorage("nc_social_free", false, { initializeWithValue: false });
     const [selectedId, setSelectedId] = useState<string | null>(null);
     const [fontsVersion, setFontsVersion] = useState(0);
     const [picker, setPicker] = useState<"emoji" | "icon" | "image" | null>(null);
@@ -683,7 +684,7 @@ export default function Designer() {
                 >
                     {scale > 0 && (
                         <div className="shadow-[0_8px_30px_rgba(22,40,77,0.15)]">
-                            <DesignStage design={design} scale={scale} selectedId={selectedId} onSelect={setSelectedId} onChange={update} fontsVersion={fontsVersion} stageRef={stageRef} />
+                            <DesignStage design={design} scale={scale} selectedId={selectedId} onSelect={setSelectedId} onChange={update} fontsVersion={fontsVersion} stageRef={stageRef} free={free} />
                         </div>
                     )}
                 </div>
@@ -807,7 +808,24 @@ export default function Designer() {
                             <div className="flex flex-col gap-2.5">
                                 <Eyebrow>Padding</Eyebrow>
                                 <Range label="Space from the edges" value={design.padding ?? 0} min={0} max={200} step={4} unit=" px" onChange={(padding) => setDesign((d) => ({ ...d, padding }))} />
-                                <p className="text-[13px] text-ink-faint">Content stays inside the dashed line. The line is not in the download.</p>
+                                <button
+                                    type="button"
+                                    role="switch"
+                                    aria-checked={!free}
+                                    onClick={() => setFree((f) => !f)}
+                                    className="flex items-center justify-between gap-3 rounded-xl border border-rule bg-white px-3.5 py-3 text-left transition-colors hover:border-ink/25"
+                                >
+                                    <span className="flex flex-col gap-0.5">
+                                        <span className="text-[13px] font-semibold text-ink">Keep content inside</span>
+                                        <span className="text-[12px] text-ink-faint">
+                                            {free ? "Content can go past the dashed line and off the edges." : "Content stays inside the dashed line."}
+                                        </span>
+                                    </span>
+                                    <span className={cn("relative h-6 w-10 shrink-0 rounded-full transition-colors", free ? "bg-[#d9d5cc]" : "bg-brand")} aria-hidden>
+                                        <span className={cn("absolute top-0.5 size-5 rounded-full bg-white shadow-sm transition-[left]", free ? "left-0.5" : "left-[18px]")} />
+                                    </span>
+                                </button>
+                                <p className="text-[13px] text-ink-faint">The dashed line is not in the download.</p>
                             </div>
 
                             <div className="flex flex-col gap-2.5">

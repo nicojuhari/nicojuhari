@@ -21,6 +21,8 @@ type Props = {
     stageRef?: RefObject<Konva.Stage | null>;
     /** Thumbnail mode - no handles, no mouse */
     preview?: boolean;
+    /** Let content go past the padding and off the canvas edges */
+    free?: boolean;
 };
 
 function useImage(src: string) {
@@ -100,7 +102,7 @@ function backgroundFill({ width, height, background, gradient }: Design): Konva.
     };
 }
 
-export default function DesignStage({ design, scale, selectedId, onSelect, onChange, fontsVersion, stageRef, preview }: Props) {
+export default function DesignStage({ design, scale, selectedId, onSelect, onChange, fontsVersion, stageRef, preview, free }: Props) {
     const trRef = useRef<Konva.Transformer>(null);
     const [guides, setGuides] = useState<{ v: number[]; h: number[] }>({ v: [], h: [] });
     const padding = design.padding ?? 0;
@@ -131,8 +133,10 @@ export default function DesignStage({ design, scale, selectedId, onSelect, onCha
         const sx = nearest(edges(box(), "x"), lines.v, SNAP / scale);
         const sy = nearest(edges(box(), "y"), lines.h, SNAP / scale);
         node.position({ x: node.x() + (sx?.offset ?? 0), y: node.y() + (sy?.offset ?? 0) });
-        const { dx, dy } = keepInside(box(), design.width, design.height, padding);
-        node.position({ x: node.x() + dx, y: node.y() + dy });
+        if (!free) {
+            const { dx, dy } = keepInside(box(), design.width, design.height, padding);
+            node.position({ x: node.x() + dx, y: node.y() + dy });
+        }
         setGuides({ v: touching(edges(box(), "x"), lines.v), h: touching(edges(box(), "y"), lines.h) });
     };
 
@@ -250,7 +254,7 @@ export default function DesignStage({ design, scale, selectedId, onSelect, onCha
                         newBox.width < 10 ||
                         newBox.height < 10 ||
                         // shortcut: rotated elements aren't held inside the padding while resizing; good enough until someone asks
-                        (Math.abs(newBox.rotation) < 0.001 && resizeEscapes(toDesign(oldBox), toDesign(newBox), design.width, design.height, padding))
+                        (!free && Math.abs(newBox.rotation) < 0.001 && resizeEscapes(toDesign(oldBox), toDesign(newBox), design.width, design.height, padding))
                             ? oldBox
                             : newBox
                     }

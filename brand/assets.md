@@ -31,3 +31,6 @@ Last updated: 2026-10-06
 - Plan: ./campaigns/services-pages/plan-2026-10-05.md (8 steps, keyword check, 3 open decisions)
 - LinkedIn profile (headline, About, banner, featured): ./campaigns/linkedin/profile.md (draft)
 - Projects: 17 new entries in app/_data/projects.ts (businesses, client work, closed/unreleased apps) for the user to prune
+
+## 2026-10-12 — Social Media Image Maker tool page
+- SEO + copy: app/tools/social-media-image-maker/page.tsx (notes: ./campaigns/content-plan/social-media-image-maker.md, control, 38→57/70)

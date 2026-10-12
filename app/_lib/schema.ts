@@ -95,14 +95,14 @@ export function serviceSchema(name: string, description: string, path: string) {
     };
 }
 
-export function webAppSchema(name: string, description: string, slug: string) {
+export function webAppSchema(name: string, description: string, slug: string, category = "UtilitiesApplication") {
     return {
         "@context": "https://schema.org",
         "@type": "WebApplication",
         name,
         description,
         url: `${BASE}/tools/${slug}`,
-        applicationCategory: "UtilitiesApplication",
+        applicationCategory: category,
         operatingSystem: "Any",
         browserRequirements: "Requires a modern web browser",
         isAccessibleForFree: true,
