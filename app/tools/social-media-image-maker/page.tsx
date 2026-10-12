@@ -1,31 +1,30 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Check } from "lucide-react";
 import Designer from "./_components/designer";
 import { SIZES } from "./_components/data";
 import ToolPageShell from "@/app/_components/tool-page-shell";
 import { webAppSchema } from "@/app/_lib/schema";
 import { pageMetadata } from "@/app/_lib/metadata";
 
-const DESCRIPTION =
-    "Make posts, stories and thumbnails in the exact size for Instagram, Facebook, LinkedIn, X and YouTube. Free, no sign-up, no watermark.";
+const DESCRIPTION = "A simple Canva alternative for quick social posts. Make Instagram, LinkedIn, X and YouTube images in the exact size. No login, no watermark.";
 
 export const metadata: Metadata = pageMetadata({
-    title: "Free Social Media Image Maker - No Sign-Up, No Watermark",
+    title: "Social Media Image Maker - Simple Canva Alternative, No Login",
     description: DESCRIPTION,
     path: "/tools/social-media-image-maker",
 });
 
 const tips = [
     {
+        label: "Quick",
+        title: "One image, done in minutes",
+        text: "Pick a template - quote, sale, announcement, event, testimonial, tip, story or thumbnail - change the words and download. No project to set up.",
+    },
+    {
         label: "Sizes",
         title: "The exact size, every time",
         text: "Pick the platform and the canvas is set for you. The file you download has exactly those pixels, so the platform doesn’t crop or blur it.",
-    },
-    {
-        label: "Templates",
-        title: "Start from a ready design",
-        text: "Eight templates: quote, sale, announcement, event, testimonial, tip, story and YouTube thumbnail. Change the words and colors, and it’s ready to post.",
     },
     {
         label: "Private",
@@ -33,6 +32,15 @@ const tips = [
         text: "Everything happens in your browser. Nothing is uploaded, and your last design is still here when you come back.",
     },
 ];
+
+const goodFit = [
+    "You need one image for a post today",
+    "You don’t want to make an account or log in",
+    "You want the exact size for each platform",
+    "You want a clean download, with no watermark",
+];
+
+const biggerTool = ["You make videos, presentations or print designs", "A team works on the same designs", "You need a large library of stock photos and elements"];
 
 const steps = [
     {
@@ -58,8 +66,12 @@ function ratio(w: number, h: number) {
 
 const faq = [
     {
-        question: "Is it really free, with no watermark?",
-        answer: "Yes. There’s no account, no watermark and no download limit. The image you download is exactly what you see on the canvas.",
+        question: "Is this a Canva alternative?",
+        answer: "For simple social posts, yes. It’s made for one quick image in the right size: pick a template, change the text, download. No account and no watermark. For bigger design work - video, presentations, print or a team - Canva does much more.",
+    },
+    {
+        question: "Do I need to log in or create an account?",
+        answer: "No. Open the page and start. There’s no login, no watermark and no download limit, and the image you download is exactly what you see on the canvas.",
     },
     {
         question: "What size should a social media image be?",
@@ -88,72 +100,105 @@ export default function SocialImageMakerPage() {
         <ToolPageShell
             currentSlug="social-media-image-maker"
             title="Social Media Image Maker"
-            description="Make a post, story or thumbnail in the exact size each platform wants - add text and photos, then download it."
-            perks={["Free", "No sign-up", "No watermark", "No uploads"]}
+            description="A simple Canva alternative for quick posts. Pick the size, add your text and photo, download. No login, no watermark."
+            perks={["Free", "No login", "No watermark", "No uploads"]}
             schema={webAppSchema("Social Media Image Maker", DESCRIPTION, "social-media-image-maker", "DesignApplication")}
             tips={tips}
             faq={faq}
             bare
             guide={
-                <section className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] lg:gap-12">
-                    <div className="flex flex-col gap-2">
-                        <p className="eyebrow">How to</p>
-                        <h2 className="text-2xl font-semibold tracking-[-0.025em] text-ink sm:text-[28px]">How to make a social media image</h2>
-                    </div>
-                    <div className="flex flex-col gap-8">
-                        <ol className="grid gap-3 md:grid-cols-3">
-                            {steps.map((step, i) => (
-                                <li key={step.title} className="flex flex-col gap-2.5 rounded-[20px] border border-rule bg-white p-5.5">
-                                    <span className="font-mono text-xs font-semibold text-teal">{String(i + 1).padStart(2, "0")}</span>
-                                    <h3 className="text-base font-semibold text-ink">{step.title}</h3>
-                                    <p className="text-sm leading-relaxed text-ink-muted">{step.text}</p>
-                                </li>
-                            ))}
-                        </ol>
-
-                        <div className="flex flex-col gap-3">
-                            <h2 className="text-xl font-semibold tracking-[-0.02em] text-ink">Social media image sizes</h2>
-                            <div className="overflow-x-auto rounded-[20px] border border-rule bg-white">
-                                <table className="w-full min-w-[420px] text-left text-sm">
-                                    <thead className="border-b border-rule bg-[#faf9f6] text-[13px] text-ink-muted">
-                                        <tr>
-                                            <th scope="col" className="px-5 py-3 font-semibold">
-                                                Format
-                                            </th>
-                                            <th scope="col" className="px-5 py-3 font-semibold">
-                                                Size in pixels
-                                            </th>
-                                            <th scope="col" className="px-5 py-3 font-semibold">
-                                                Shape
-                                            </th>
-                                        </tr>
-                                    </thead>
-                                    <tbody className="divide-y divide-rule">
-                                        {SIZES.map((s) => (
-                                            <tr key={s.id}>
-                                                <th scope="row" className="px-5 py-3 font-medium text-ink">
-                                                    {s.label}
-                                                </th>
-                                                <td className="px-5 py-3 text-ink-soft tabular-nums">
-                                                    {s.width} × {s.height}
-                                                </td>
-                                                <td className="px-5 py-3 text-ink-muted tabular-nums">{ratio(s.width, s.height)}</td>
-                                            </tr>
-                                        ))}
-                                    </tbody>
-                                </table>
+                <div className="flex flex-col gap-12 sm:gap-16">
+                    <section className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] lg:gap-12">
+                        <div className="flex flex-col gap-2">
+                            <p className="eyebrow">When to use it</p>
+                            <h2 className="text-2xl font-semibold tracking-[-0.025em] text-ink sm:text-[28px]">A simple Canva alternative for quick posts</h2>
+                        </div>
+                        <div className="grid gap-3 md:grid-cols-2">
+                            <div className="flex flex-col gap-3 rounded-[20px] border border-rule bg-white p-5.5">
+                                <h3 className="text-base font-semibold text-ink">Use this tool when</h3>
+                                <ul className="flex flex-col gap-2 text-sm leading-relaxed text-ink-muted">
+                                    {goodFit.map((item) => (
+                                        <li key={item} className="flex gap-2.5">
+                                            <Check className="mt-0.5 size-4 shrink-0 text-teal" strokeWidth={2.4} aria-hidden />
+                                            {item}
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                            <div className="flex flex-col gap-3 rounded-[20px] border border-rule bg-[#faf9f6] p-5.5">
+                                <h3 className="text-base font-semibold text-ink">Use Canva or another full design app when</h3>
+                                <ul className="flex flex-col gap-2 text-sm leading-relaxed text-ink-muted">
+                                    {biggerTool.map((item) => (
+                                        <li key={item} className="flex gap-2.5">
+                                            <ArrowRight className="mt-0.5 size-4 shrink-0 text-ink-faint" aria-hidden />
+                                            {item}
+                                        </li>
+                                    ))}
+                                </ul>
                             </div>
                         </div>
+                    </section>
 
-                        <Link
-                            href="/services/local-business-websites"
-                            className="group inline-flex items-center gap-1.5 self-start text-sm font-semibold text-brand transition-colors hover:text-teal"
-                        >
-                            Your posts bring people to your website. Make sure it turns them into customers
-                            <ArrowRight className="size-4 shrink-0 transition-transform group-hover:translate-x-0.5" aria-hidden />
-                        </Link>
-                    </div>
-                </section>
+                    <section className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] lg:gap-12">
+                        <div className="flex flex-col gap-2">
+                            <p className="eyebrow">How to</p>
+                            <h2 className="text-2xl font-semibold tracking-[-0.025em] text-ink sm:text-[28px]">How to make a social media image</h2>
+                        </div>
+                        <div className="flex flex-col gap-8">
+                            <ol className="grid gap-3 md:grid-cols-3">
+                                {steps.map((step, i) => (
+                                    <li key={step.title} className="flex flex-col gap-2.5 rounded-[20px] border border-rule bg-white p-5.5">
+                                        <span className="font-mono text-xs font-semibold text-teal">{String(i + 1).padStart(2, "0")}</span>
+                                        <h3 className="text-base font-semibold text-ink">{step.title}</h3>
+                                        <p className="text-sm leading-relaxed text-ink-muted">{step.text}</p>
+                                    </li>
+                                ))}
+                            </ol>
+
+                            <div className="flex flex-col gap-3">
+                                <h2 className="text-xl font-semibold tracking-[-0.02em] text-ink">Social media image sizes</h2>
+                                <div className="overflow-x-auto rounded-[20px] border border-rule bg-white">
+                                    <table className="w-full min-w-[420px] text-left text-sm">
+                                        <thead className="border-b border-rule bg-[#faf9f6] text-[13px] text-ink-muted">
+                                            <tr>
+                                                <th scope="col" className="px-5 py-3 font-semibold">
+                                                    Format
+                                                </th>
+                                                <th scope="col" className="px-5 py-3 font-semibold">
+                                                    Size in pixels
+                                                </th>
+                                                <th scope="col" className="px-5 py-3 font-semibold">
+                                                    Shape
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody className="divide-y divide-rule">
+                                            {SIZES.map((s) => (
+                                                <tr key={s.id}>
+                                                    <th scope="row" className="px-5 py-3 font-medium text-ink">
+                                                        {s.label}
+                                                    </th>
+                                                    <td className="px-5 py-3 text-ink-soft tabular-nums">
+                                                        {s.width} × {s.height}
+                                                    </td>
+                                                    <td className="px-5 py-3 text-ink-muted tabular-nums">{ratio(s.width, s.height)}</td>
+                                                </tr>
+                                            ))}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <Link
+                                href="/services/local-business-websites"
+                                className="group inline-flex items-center gap-1.5 self-start text-sm font-semibold text-brand transition-colors hover:text-teal"
+                            >
+                                Your posts bring people to your website. Make sure it turns them into customers
+                                <ArrowRight className="size-4 shrink-0 transition-transform group-hover:translate-x-0.5" aria-hidden />
+                            </Link>
+                        </div>
+                    </section>
+                </div>
             }
         >
             <Designer />

@@ -34,3 +34,4 @@ Last updated: 2026-10-06
 
 ## 2026-10-12 — Social Media Image Maker tool page
 - SEO + copy: app/tools/social-media-image-maker/page.tsx (notes: ./campaigns/content-plan/social-media-image-maker.md, control, 38→57/70)
+- Revision: Canva-alternative angle (title, meta, fit section, 2 FAQs) - same file, 2026-10-12

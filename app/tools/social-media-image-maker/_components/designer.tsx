@@ -3,7 +3,7 @@
 import { useEffect, useId, useRef, useState, type RefObject } from "react";
 import dynamic from "next/dynamic";
 import type Konva from "konva";
-import { useLocalStorage, useMediaQuery, useResizeObserver } from "usehooks-ts";
+import { useLocalStorage, useMediaQuery, useResizeObserver, useWindowSize } from "usehooks-ts";
 import {
     AlignCenterHorizontal,
     AlignCenterVertical,
@@ -71,6 +71,8 @@ const FORMATS: { id: Format; label: string; ext: string }[] = [
     { id: "image/webp", label: "WebP", ext: "webp" },
 ];
 const MAX_PREVIEW_HEIGHT = 640;
+/** Room the pinned column needs besides the canvas: site header, toolbar, footer line, padding */
+const PINNED_CHROME = 330;
 const MAX_FILE_BYTES = 25 * 1024 * 1024;
 /** Uploads are stored in the browser, so keep them sharp but not huge */
 const MAX_IMAGE_SIDE = 2400;
@@ -224,7 +226,10 @@ export default function Designer() {
     const [dragging, setDragging] = useState(false);
 
     const { width: boxWidth = 0 } = useResizeObserver({ ref: boxRef as RefObject<HTMLDivElement> });
-    const scale = boxWidth ? Math.min(boxWidth / design.width, MAX_PREVIEW_HEIGHT / design.height) : 0;
+    const { height: windowHeight = 900 } = useWindowSize({ initializeWithValue: false });
+    // The canvas column is pinned while the sidebar scrolls, so it must fit the screen
+    const previewHeight = Math.max(280, Math.min(MAX_PREVIEW_HEIGHT, windowHeight - PINNED_CHROME));
+    const scale = boxWidth ? Math.min(boxWidth / design.width, previewHeight / design.height) : 0;
     const selected = design.layers.find((l) => l.id === selectedId) ?? null;
     const currentSize = SIZES.find((s) => s.width === design.width && s.height === design.height);
     const sizeId = SIZES.find((s) => s.width === design.width && s.height === design.height)?.id;
@@ -576,9 +581,11 @@ export default function Designer() {
     ] as const;
 
     return (
-        <div className="grid grid-cols-[minmax(0,1fr)] lg:grid-cols-[minmax(0,1fr)_minmax(320px,380px)]">
-            {/* ── Canvas ── */}
-            <div className="flex min-w-0 flex-col gap-4 p-5 sm:p-8">
+        <div>
+            {/* Own grid, so the pinned canvas stops where the sidebar ends instead of sliding over the templates */}
+            <div className="grid grid-cols-[minmax(0,1fr)] lg:grid-cols-[minmax(0,1fr)_minmax(320px,380px)]">
+            {/* ── Canvas ── stays in view on desktop while the sidebar scrolls */}
+            <div className="flex min-w-0 flex-col gap-4 p-5 sm:p-8 lg:sticky lg:top-20 lg:self-start">
                 <div className="flex items-center gap-2">
                     <div role="toolbar" aria-label="Add to design" className="flex min-w-0 flex-1 gap-0.5 rounded-2xl border border-rule bg-white p-1 shadow-[0_1px_2px_rgba(17,20,24,0.04)] sm:flex-none sm:gap-1">
                         {insertTools.map(({ id: tool, label, Icon }) => {
@@ -894,8 +901,10 @@ export default function Designer() {
                 </div>
             </div>
 
+            </div>
+
             {/* ── Templates + presets ── */}
-            <div className="flex flex-col gap-8 border-t border-rule p-5 sm:p-8 lg:col-span-2">
+            <div className="flex flex-col gap-8 border-t border-rule p-5 sm:p-8">
                 <section className="flex flex-col gap-3">
                     <Eyebrow>Templates</Eyebrow>
                     <ul className="grid grid-cols-2 gap-3 lg:grid-cols-4">
