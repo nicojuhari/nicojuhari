@@ -43,6 +43,15 @@ export const tools: Tool[] = [
     tint: "#FBF1E8",
   },
   {
+    slug: "social-media-image-maker",
+    title: "Social Media Image Maker",
+    shortTitle: "Social Image Maker",
+    description: "Design posts and stories in the right size",
+    category: "business",
+    accent: "#7A5E6E",
+    tint: "#F4EEF1",
+  },
+  {
     slug: "word-counter",
     title: "Word Counter Tool",
     shortTitle: "Word Counter",

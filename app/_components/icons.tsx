@@ -7,6 +7,7 @@ import {
     Download,
     FileText,
     FolderUp,
+    ImagePlus,
     Globe,
     LayoutGrid,
     List,
@@ -29,6 +30,7 @@ import { cn } from "@/lib/utils";
 export const toolIcons: Record<string, LucideIcon> = {
     "qr-code-generator": QrCode,
     "square-image-cropper": Crop,
+    "social-media-image-maker": ImagePlus,
     "word-counter": Type,
     "whitespace-remover": Space,
     "online-checklist-maker": ListChecks,

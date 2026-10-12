@@ -1,11 +1,12 @@
 import Link from "next/link";
-import { QrCode, Crop, Type, RemoveFormatting, ListTodo, LayoutGrid, DollarSign } from "lucide-react";
+import { QrCode, Crop, ImagePlus, Type, RemoveFormatting, ListTodo, LayoutGrid, DollarSign } from "lucide-react";
 import type { Tool } from "@/app/_data/tools";
 import { tools } from "@/app/_data/tools";
 
 const iconMap: Record<string, React.FC<{ className?: string }>> = {
     "qr-code-generator": QrCode,
     "square-image-cropper": Crop,
+    "social-media-image-maker": ImagePlus,
     "word-counter": Type,
     "whitespace-remover": RemoveFormatting,
     "online-checklist-maker": ListTodo,
