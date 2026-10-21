@@ -1,7 +1,17 @@
 export type Faq = { question: string; answer: string };
 
 /** Question list with FAQPage structured data */
-export default function FaqSection({ faq, title = "Common questions", className }: { faq: Faq[]; title?: string; className?: string }) {
+export default function FaqSection({
+    faq,
+    title = "Common questions",
+    eyebrow = "Questions",
+    className,
+}: {
+    faq: Faq[];
+    title?: string;
+    eyebrow?: string;
+    className?: string;
+}) {
     if (!faq.length) return null;
 
     return (
@@ -22,7 +32,7 @@ export default function FaqSection({ faq, title = "Common questions", className 
             />
             <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] lg:gap-12">
                 <div className="flex flex-col gap-2">
-                    <p className="eyebrow">Questions</p>
+                    <p className="eyebrow">{eyebrow}</p>
                     <h2 className="text-2xl font-semibold tracking-[-0.025em] text-ink sm:text-[28px]">{title}</h2>
                 </div>
                 <div className="divide-y divide-line rounded-[20px] border border-rule bg-white">

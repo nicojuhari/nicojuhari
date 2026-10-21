@@ -21,11 +21,14 @@ const proofs = services.flatMap((s) => (s.proof ? [s.proof] : []));
 
 const steps = [
     {
-        title: "A small check first",
-        text: "I look at your site, store or process and tell you what I’d fix first. You decide what happens next.",
+        title: "A free first look",
+        text: "I try your site or store like a customer, from the first click to your reply. You get the first thing I’d fix.",
     },
-    { title: "Build or fix", text: "A fixed price, agreed before I start. You pay in stages, and you can ask for changes along the way." },
-    { title: "Monthly plan", text: "I keep improving it each month and show you the numbers: calls, orders or hours saved." },
+    {
+        title: "Build the whole path",
+        text: "The page people find, a fast reply, the follow-up. A fixed price, paid in stages after each part is done.",
+    },
+    { title: "Count and improve", text: "Each month you see the calls, bookings or orders that came in. I keep improving what works, if you want." },
 ];
 
 const homeProjects = projects.filter((p) => p.showOnHome).sort((a, b) => a.sort - b.sort);
@@ -66,10 +69,10 @@ export default function Home() {
                                 More clients and sales <span className="text-ink-faint">for your business.</span>
                             </h1>
                             <p className="max-w-[640px] text-base leading-relaxed text-ink-muted sm:text-lg">
-                                Fast, clean websites, stores and apps. Nothing extra, only what turns a visitor into a customer.
+                                Fast, clean websites and apps. Nothing extra, only what turns a visitor into a customer.
                             </p>
 
-                            <ul className="mt-1 grid gap-3 sm:mt-2 md:grid-cols-3">
+                            <ul className="mt-1 grid gap-3 sm:mt-2 md:grid-cols-2">
                                 {services.map((service) => {
                                     const Icon = serviceIcons[service.slug];
                                     return (
@@ -104,7 +107,7 @@ export default function Home() {
                         <section className="flex flex-col gap-4">
                             <SectionHeader
                                 eyebrow="Results"
-                                title="I run businesses on websites and apps I built"
+                                title="Tested in my own business first"
                                 href="/services"
                                 linkLabel="See services"
                             />
@@ -117,7 +120,7 @@ export default function Home() {
                         <section className="flex flex-col gap-4">
                             <SectionHeader
                                 eyebrow="Projects"
-                                title="An app I built and use every day"
+                                title="Apps I use in my own businesses"
                                 href="/projects"
                                 linkLabel="All projects"
                             />
@@ -158,16 +161,16 @@ export default function Home() {
                             <div className="flex flex-col gap-3.5 rounded-[20px] border border-rule bg-white p-5.5 sm:p-7">
                                 <h2 className="eyebrow">About</h2>
                                 <p className="text-[15px] leading-[1.65] text-ink-soft">
-                                    I started in finance and spent years in the industry. Then I moved into software, because I like to
-                                    build things that solve real problems.
+                                    I started in finance, then moved into software. Now I also run businesses, so I care less about how a
+                                    website looks and more about who calls and who buys.
                                 </p>
                                 <p className="text-[15px] leading-[1.65] text-ink-soft">
-                                    Today I help run two businesses. Both run on software I built. One is a consumer credit company I
-                                    co-founded. The other is a local services business that gets most of its clients from its website.
+                                    I co-own a handyman business in Vienna. Almost all of its customers come from its website and Google
+                                    Maps. I also co-founded a consumer credit company and made the system it runs on every day.
                                 </p>
                                 <p className="text-[15px] leading-[1.65] text-ink-soft">
-                                    I build the same things for other businesses. I use AI every day to work faster. Outside of work I ski
-                                    and play basketball.
+                                    I do the same work for other businesses. I use AI every day to work faster. Outside of work I ski and
+                                    play basketball.
                                 </p>
                                 <div className="mt-auto flex items-center gap-3 pt-1.5">
                                     <Image
@@ -207,8 +210,8 @@ export default function Home() {
                         </section>
 
                         <CtaSection
-                            title="Want more clients, more sales or more time?"
-                            description="Tell me about your business on WhatsApp. I’ll reply within 24 hours with the first thing I’d change."
+                            title="Want more calls, bookings or orders?"
+                            description="Send me your website or store link on WhatsApp. I’ll reply within 24 hours with the first thing I’d change."
                             whatsappText="Hi Nick, I’d like to talk about my business: "
                         />
                     </div>

@@ -86,26 +86,26 @@ export const categoryMetaLabel: Record<ProjectCategory, string> = {
 
 export const projects: Project[] = [
     {
-        slug: "simple-trackr",
-        logo: "/projects/logos/simple-trackr.svg",
-        title: "Simple Trackr",
+        slug: "epufix",
+        logo: "/projects/logos/epufix.svg",
+        title: "EPUfix",
         year: 2026,
         stack: ["Next.js", "React", "Supabase", "Tailwind CSS", "Stripe"],
         stackShort: "Next.js · Supabase · Stripe",
         description:
-            "Expense, income and invoice tracking for freelancers. Log every transaction, turn offers into branded invoices, and see the month in one dashboard.",
+            "Offers, invoices, income and expenses for Austrian self-employed people. The numbers are finished on any day, and the handoff to the tax advisor takes minutes.",
         overview:
-            "Expense, income and invoice tracking for freelancers - log every transaction, turn offers into invoices, send branded invoices, and see the numbers in one dashboard.",
+            "Offers, invoices, income and expenses for one-person businesses in Austria (EPU) - an offer becomes an invoice, the payment becomes income, and each income lands in the right E1a category.",
         contribution:
-            "Built for my own freelance work first: transactions, offers, invoices, reports and CSV export - in one place instead of several files.",
+            "Built for my own two businesses first: offers, invoices with all Austrian required details, reports, a tax estimate and an export for the tax advisor - in one place instead of Excel and Word.",
         type: "web-app",
-        mark: "ST",
-        color: "#16284D",
-        url: "https://simple-trackr.com",
+        mark: "EF",
+        color: "#15161A",
+        url: "https://epufix.at",
         sort: 0,
         showOnHome: true,
         featured: true,
-        panel: { background: "#F5F7FB", border: "#DCE1EB", accent: "#16284D" },
+        panel: { background: "#F5F7F8", border: "#E4E9EC", accent: "#A3566A" },
         features: [
             {
                 icon: "list",
@@ -127,9 +127,9 @@ export const projects: Project[] = [
             },
             {
                 icon: "download",
-                title: "CSV export",
-                short: "Hand clean data to your accountant.",
-                text: "Hand clean data to your accountant at year end.",
+                title: "Tax advisor export",
+                short: "Hand sorted numbers to your tax advisor.",
+                text: "Hand a sorted income and expense report to your tax advisor in minutes.",
             },
         ],
         category: "finance",
@@ -206,7 +206,6 @@ export const projects: Project[] = [
         logo: "/projects/logos/vino-vistara.png",
         mark: "VV",
         color: "#7A2E3B",
-        url: "https://vinovistara.com",
         client: true,
         sort: 10,
         showOnHome: false,

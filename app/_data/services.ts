@@ -1,4 +1,4 @@
-export type ServiceSlug = "local-business-websites" | "shopify-stores" | "custom-web-apps";
+export type ServiceSlug = "local-business-websites" | "custom-web-apps";
 
 type Item = { title: string; description: string };
 
@@ -79,7 +79,7 @@ export const services: Service[] = [
         label: "For trades, clinics, salons & local services",
         title: "Local Business Websites",
         singular: "Local Business Website",
-        tagline: "More calls and bookings from Google and Maps.",
+        tagline: "More calls and bookings from Google search and Google Maps.",
         summary:
             "When people nearby search for your service, they should find you and call you. I build your website and Google Maps profile for that, and improve both every month.",
         goodFit: [
@@ -91,13 +91,17 @@ export const services: Service[] = [
         included: [
             "Free Google check",
             "Website design & build",
-            "Google Business Profile",
+            "Google Business Profile & SEO",
             "A page for each service & area",
+            "Landing pages for ads (funnels)",
+            "Fixes that turn visitors into customers (CRO)",
+            "Fast replies & follow-up",
             "Review requests",
-            "Monthly count of calls & requests",
+            "Tracking calls, requests & sales",
+            "Shopify stores too",
         ],
-        headline: "Get more calls from Google and Maps.",
-        intro: "When someone nearby searches for your service, they should find you first and call you. I build your website and Google Maps profile to make that happen.",
+        headline: "Websites that bring customers.",
+        intro: "More calls and booked jobs from Google search and Google Maps. When someone nearby searches for your service, they should find you first, call you, and book. Your website, Google Maps profile and replies work together to make that happen.",
         forYouIf: [
             "People nearby search for your service and find your competitors first",
             "Your site gets visitors, but not many of them call or book",
@@ -145,6 +149,12 @@ export const services: Service[] = [
                 fix: "A short message that asks every happy client for a review.",
             },
             {
+                title: "Your ads count the wrong thing",
+                cost: "In one store I checked, Google Ads showed 660 “conversions”. The store had 26 orders. So the ads brought more clicks, not more buyers.",
+                check: "I compare what your ad account counts with the real calls, requests or orders.",
+                fix: "Ads that count only real customers, so the budget goes to people who buy.",
+            },
+            {
                 title: "You can’t tell what works",
                 cost: "You don’t know how many clients came from the website, so you can’t tell what’s worth paying for.",
                 check: "I check if calls and form requests from the site are counted.",
@@ -187,6 +197,10 @@ export const services: Service[] = [
                 description: "Clear pages with your services, real photos and your contact details where people look for them.",
             },
             {
+                title: "Fast replies and follow-up",
+                description: "Every request reaches your phone right away. People who asked for a price but didn’t book get a friendly reminder.",
+            },
+            {
                 title: "Know where clients come from",
                 description: "Each month you see how many calls and form requests came from the website.",
             },
@@ -198,7 +212,7 @@ export const services: Service[] = [
         proof: {
             stat: "95%+",
             title: "of clients come from the website and Google Maps",
-            text: "That’s the result for a local services business I founded. I built its website and still improve it every week.",
+            text: "That’s a Vienna handyman business I co-own. I made its website and Google Maps profile, and I still improve them every week.",
             href: "https://handwerker-netz.at",
             linkLabel: "See handwerker-netz.at",
         },
@@ -239,6 +253,10 @@ export const services: Service[] = [
                 answer: "The Google check is free. The website is a fixed price, agreed before I start. You pay in stages, after each part is done. The monthly plan is a fixed monthly fee. No hourly billing.",
             },
             {
+                question: "Do you work with Shopify stores?",
+                answer: "Yes. Same approach: I find where buyers drop off, fix it, and count the orders before and after. You keep your store, products and customers.",
+            },
+            {
                 question: "Do you work outside Vienna?",
                 answer: "Yes. I work with businesses across Austria, in Romania and Moldova, and with English-speaking clients anywhere. We talk on WhatsApp or Google Meet.",
             },
@@ -249,205 +267,11 @@ export const services: Service[] = [
         ],
     },
     {
-        slug: "shopify-stores",
-        href: "/services/shopify-stores",
-        mark: "S",
-        accent: "#A63D6E",
-        tint: "#FBEFF4",
-        label: "For online stores that already get traffic",
-        title: "Shopify Stores",
-        singular: "Shopify Store",
-        tagline: "More sales from the visitors you already have.",
-        summary:
-            "Your store gets visitors, but not enough of them buy. I find out why, then fix or redesign the store and check the numbers after.",
-        goodFit: [
-            "You pay for ads, but the store doesn’t pay them back",
-            "Your store gets visitors, but few of them buy",
-            "Your store looks dated or needs a redesign",
-            "You don’t send abandoned-cart emails yet",
-        ],
-        included: [
-            "Store check",
-            "Store redesign",
-            "Conversion optimization (CRO)",
-            "Product page & checkout fixes",
-            "Ads tracking & landing pages",
-            "Klaviyo email flows",
-            "Monthly results note",
-        ],
-        headline: "More sales from the visitors you already pay for.",
-        intro: "You pay for ads or get traffic, but few people buy. I check your store and find what stops buyers. Then I fix it, from small changes to a full redesign, and we look at the numbers again after 14 days.",
-        forYouIf: [
-            "You run Meta or Google ads, but the store doesn’t pay them back",
-            "Your store gets visitors, but not enough of them buy",
-            "You don’t know where buyers drop off",
-            "Your ads person says the store is the problem",
-            "Your store looks dated, or doesn’t feel trustworthy on a phone",
-            "You don’t send abandoned-cart or after-purchase emails",
-            "You want someone to keep improving the store every month",
-        ],
-        send: {
-            label: "Send your store link",
-            note: "Free first look. I reply within 24 hours with the first things I found.",
-            whatsappText: "Hi Nick, please take a look at my store: ",
-        },
-        hiddenTitle: "Why visitors don’t buy",
-        hiddenIntro: "Your Shopify admin won’t show you these. I find them by checking your numbers and buying from your store like a customer.",
-        hidden: [
-            {
-                title: "Your ads count the wrong thing",
-                cost: "In one store I checked, Google Ads showed 660 “conversions”. The store had 26 orders. So Google brought more clicks, not more buyers.",
-                check: "I compare what your ad account counts with the real orders in Shopify.",
-                fix: "Ads that count only purchases, so the budget goes to people who buy.",
-            },
-            {
-                title: "Ads pay for the wrong searches",
-                cost: "Part of the budget goes to people looking for another shop’s name, or for something you don’t sell.",
-                check: "I read the searches people typed before they clicked your ads.",
-                fix: "I stop the searches that don’t bring buyers.",
-            },
-            {
-                title: "Shipping cost comes as a surprise",
-                cost: "Buyers see the shipping price at the last step and leave. It’s the most common reason people quit a checkout.",
-                check: "I make a test purchase on a phone and write down every step.",
-                fix: "Shipping shown early, or free shipping from an amount that fits your margins.",
-            },
-            {
-                title: "Most buyers leave at one step",
-                cost: "Many people add to cart, few pay. You see fewer sales, but not where they get lost.",
-                check: "I follow your numbers step by step: visits, cart, checkout, orders.",
-                fix: "I fix the step where most people leave, then check the numbers again.",
-            },
-            {
-                title: "Ads lead to the wrong page",
-                cost: "Someone clicks an ad in German and lands on a page in another language, or on the home page.",
-                check: "I click your ads and see where each one leads.",
-                fix: "Pages that match the ad: same product, same language, same offer.",
-            },
-            {
-                title: "Something small is broken",
-                cost: "Reviews that don’t load, a discount code that fails, a slow page on phones. Nobody tells you. They just leave.",
-                check: "I test the store on different phones and browsers.",
-                fix: "I fix what’s broken and remove apps that slow the store down.",
-            },
-        ],
-        firstStep: {
-            id: "store-check",
-            title: "Store check",
-            startsWith: "Starts with a store check",
-            intro: "Before I change anything, I find out where buyers drop off and why. You get a clear list of what to fix first.",
-            cost: "Fixed price, agreed before I start. If you then order the fixes, I take the check price off the bill.",
-            items: [
-                "Your numbers step by step: visits, add to cart, checkout, orders",
-                "Where your traffic comes from, and which visitors buy",
-                "A test purchase on a phone, step by step",
-                "A comparison with 3 competitors",
-                "A written list of fixes, most important first",
-                "A 10-minute video that walks you through it",
-            ],
-            cta: "Ask for a store check",
-            whatsappText: "Hi Nick, I’d like a store check. My store: ",
-        },
-        buildTitle: "What I do for your store",
-        buildIntro: "Every store is different. The store check shows which of these matter for yours, and in what order.",
-        build: [
-            {
-                title: "Store redesign",
-                description: "A new look for the pages that sell: home, collections and products. Built in the store you have, so you keep your products, customers and orders.",
-            },
-            {
-                title: "Testing and improving (CRO)",
-                description: "I change one thing at a time, measure it, and keep what brings more sales. This is conversion rate optimization.",
-            },
-            {
-                title: "Product pages",
-                description: "Photos, text, prices and shipping info that answer buyers’ questions, so they don’t leave to look elsewhere.",
-            },
-            {
-                title: "Cart and checkout",
-                description: "Fewer steps and no surprises at the end, like shipping costs shown too late.",
-            },
-            {
-                title: "Ads that count real sales",
-                description: "Your ads count purchases, not page views, and stop paying for searches that don’t sell.",
-            },
-            {
-                title: "Landing pages for ads",
-                description: "When someone clicks an ad, they land on a page about the same product and offer.",
-            },
-            {
-                title: "Emails that bring buyers back",
-                description: "Welcome, abandoned-cart and after-purchase emails with Klaviyo. They send on their own.",
-            },
-            {
-                title: "Reviews and trust",
-                description: "Product reviews, clear returns and contact details, so new buyers trust the store.",
-            },
-            {
-                title: "Speed",
-                description: "I remove apps you don’t need and make pages lighter, so the store loads fast on a phone.",
-            },
-        ],
-        steps: [
-            {
-                title: "You send your store link",
-                description: "On WhatsApp or email. Within 24 hours you get the first things I noticed. Free.",
-            },
-            {
-                title: "Store check",
-                description: "I go through your numbers and buy from your store on a phone, step by step.",
-            },
-            {
-                title: "You see what I found",
-                description: "A list of problems and fixes, most important first, with a short video.",
-            },
-            {
-                title: "I fix it and we measure",
-                description: "Fixes or a redesign, at a fixed price. After 14 days of new traffic, we compare the numbers. Then monthly tests and improvements, if you want them.",
-            },
-        ],
-        cta: "Send me your store link. I’ll look at it and reply within 24 hours with the first things I found. Free.",
-        faq: [
-            {
-                question: "My store gets traffic but no sales. Where do you start?",
-                answer: "With the numbers. I look at where people leave: the product page, the cart or the checkout. Then I make a test purchase on a phone. The cause is usually in one of those places.",
-            },
-            {
-                question: "Do I need a redesign?",
-                answer: "Not always. Often a few fixes bring more sales than a new look. If the design is what stops people from buying, I redesign the pages that matter, in the store you have. You keep your products, customers and orders.",
-            },
-            {
-                question: "What is CRO?",
-                answer: "Conversion rate optimization. In simple words: more of your visitors buy. I find what stops them, change it, and measure if sales go up. Then I do it again with the next thing.",
-            },
-            {
-                question: "Why fix the store before spending more on ads?",
-                answer: "If 1 in 400 visitors buys, you pay for 400 clicks to get one order. If 1 in 100 buys, you pay for 100. The same ad budget brings four times the orders.",
-            },
-            {
-                question: "How do we know if it worked?",
-                answer: "We write down your numbers before I change anything. After 14 days of new traffic, we compare them. If your traffic is low, it takes longer to see a clear result.",
-            },
-            {
-                question: "Do you run my ads?",
-                answer: "I don’t manage ad campaigns day to day. I fix what your ads count and which searches they pay for, and make pages that match them. If someone runs your ads, I work with them.",
-            },
-            {
-                question: "What does it cost?",
-                answer: "Every step has a fixed price, agreed before I start. You pay in stages, after each part is done. The store check is credited toward the fixes. No hourly billing. You can also pay part of the monthly fee as a share of the extra sales. For that, I need to see your sales and ad data.",
-            },
-            {
-                question: "Who owns the store?",
-                answer: "You do - the Shopify account, the theme, the apps and the customer data.",
-            },
-        ],
-    },
-    {
         slug: "custom-web-apps",
         href: "/services/custom-web-apps",
         mark: "A",
-        accent: "#127A6F",
-        tint: "#E9F5F3",
+        accent: "#A63D6E",
+        tint: "#FBEFF4",
         label: "For businesses with repeat manual work",
         title: "Custom Web Apps & Automations",
         singular: "Custom Web App",
@@ -558,7 +382,7 @@ export const services: Service[] = [
         proof: {
             stat: "Every day",
             title: "a lending company runs on a system I built",
-            text: "I co-founded a consumer credit company and built the internal system its daily work runs on. My own business runs on Simple Trackr, another app I built.",
+            text: "I co-founded a consumer credit company and built the internal system its daily work runs on. My own business runs on EPUfix, another app I built.",
             href: "/projects",
             linkLabel: "See my projects",
         },

@@ -8,6 +8,6 @@ export default function Image() {
     return ogImage({
         eyebrow: "Projects",
         title: alt,
-        text: "Businesses I run, client websites and apps like Simple Trackr - what each one does and what I built.",
+        text: "Businesses I run, client websites and apps like EPUfix - what each one does and what I built.",
     });
 }

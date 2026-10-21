@@ -15,7 +15,6 @@ import {
     QrCode,
     Receipt,
     Scissors,
-    ShoppingBag,
     Smartphone,
     Space,
     Truck,
@@ -40,7 +39,6 @@ export const toolIcons: Record<string, LucideIcon> = {
 
 export const serviceIcons: Record<ServiceSlug, LucideIcon> = {
     "local-business-websites": Globe,
-    "shopify-stores": ShoppingBag,
     "custom-web-apps": Cpu,
 };
 

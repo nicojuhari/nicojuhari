@@ -1,0 +1,17 @@
+# Nicolae Cojuhari (nicojuhari.com)
+
+> Software engineer in Vienna, Austria. Websites and custom web apps for small businesses that bring more calls, bookings and orders - from the first click to a paying customer. Proof from his own businesses: Handwerker Netz (Vienna handyman service) gets 95%+ of its customers from its website and Google Maps.
+
+## Services
+- [Local Business Websites](https://nicojuhari.com/services/local-business-websites): website, Google Business Profile, SEO, landing pages, tracking, fast replies and follow-up. Shopify stores too.
+- [Custom Web Apps & Automations](https://nicojuhari.com/services/custom-web-apps): internal tools, dashboards, connected tools, workflow automation, AI where it saves time.
+- [Softwareentwickler Wien (Deutsch)](https://nicojuhari.com/de/softwareentwickler-wien): the same offer in German, plus freelancer vs. agency comparison.
+
+## Proof
+- [Projects](https://nicojuhari.com/projects): Handwerker Netz, a consumer credit company system, EPUfix (invoicing for Austrian one-person businesses), 1FoodMenu.
+
+## Free tools
+- [All tools](https://nicojuhari.com/tools): social media image maker, Shopify product grid generator, bill split calculator, QR code generator, square image cropper and more. No sign-up.
+
+## Contact
+- WhatsApp +43 690 10196811 · contact@nicojuhari.com · Vienna, Austria. Fixed price, paid in stages; no hourly billing.

@@ -6,8 +6,8 @@ export const contentType = "image/png";
 
 export default function Image() {
     return ogImage({
-        eyebrow: "Websites \u00b7 Shopify \u00b7 Web apps",
+        eyebrow: "Websites \u00b7 Web apps \u00b7 Automations",
         title: alt,
-        text: "Websites that bring in calls from Google and Maps, Shopify stores that sell, and web apps that save your team time.",
+        text: "Websites that bring in calls from Google search and Google Maps, and web apps that save your team time.",
     });
 }

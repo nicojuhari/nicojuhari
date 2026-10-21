@@ -1,352 +1,65 @@
-## Last Updated
-2026-09-26 - core strategy changed to "Paid like a partner" (full doc: `brand/strategy.md`). Finance-Fluent Developer angle below is superseded as the lead; the tagline stays.
-2026-08-12 - tagline + short bio locked for site, LinkedIn, and profiles.
+# Positioning
+Last updated: 2026-10-21 by /positioning-angles
+Previous version (Paid like a partner, Finance-Fluent Developer, tagline + bio): `brand/.history/positioning-2026-10-21.md`
 
----
+Writing rule: plain business words a 5th-7th grader understands. Say calls, bookings, orders, customers, sales. Avoid jargon such as funnel, CRO, conversion and pipeline in client-facing copy; those words are fine internally.
 
-## 2026-09-26 - Current positioning: "Paid like a partner"
+## Chosen Angle
+Angle: From first click to paying customer
+Statement: Most providers stop when someone fills in a form. The system covers the whole path: the page that brings the visitor, the fast reply, the follow-up, the call, booking or order - and shows which visitors became paying customers.
+Mechanism: **The whole path** - one person builds every step from first click to paying customer (website or store, tracking, quick replies, follow-up, simple tools for the daily work), tests it in his own businesses first, and hands it over. Because the steps are built together, nothing gets lost between "someone got in touch" and "someone paid".
+Psychology: Every competitor stops at the inquiry. Owners complain that providers disappear after the sale and that they get "nichts Zählbares" (nothing they can count). This angle names the gap and promises something countable.
+Headline direction:
+- "More calls, bookings and orders. From the first click to a paying customer."
+- "Getting visitors is half the job. The other half is turning them into customers."
+- Shopify: "From first visit to placed order - and the next order after that."
+- Local services: "From a Google search to a booked job."
+- German: "Vom ersten Klick zum zahlenden Kunden."
+Best for: local service businesses and small B2B/service firms. Two services only (2026-10-21): Local Business Websites ("Websites that bring customers") + Custom Web Apps & Automations. Shopify is a side mention, not a service. Also works for companies hiring a developer: an engineer who knows how the code turns into sales.
 
-**Strategy (internal, clunky on purpose):**
-> We build and keep improving the system a small business makes money through - its website, store, lead source or core tool - and offer to be paid from the results as a partner, the way we already are in our own businesses.
+Supporting proof (angle 2, used under the headline): "Tested in my own businesses first" - Handwerker Netz gets 95%+ of its clients from its website and Google Maps. EPUfix and 1FoodMenu are shown as projects only, no result claims (EPUfix: no outside users yet; 1FoodMenu: 2 paying).
 
-**Two doors, every offer:**
-| Door | What it is |
-|---|---|
-| Build | Fixed price, clear scope, handover. The familiar option. |
-| Partner | I do the coding, SEO, marketing and automation; you run your business; I'm paid a small base fee + a % of a result we both see (sales, leads, bookings). 12-month minimum. |
+Secondary hooks for posts/ads: angle 4 ("Your website looks fine. The problem is what happens after someone contacts you.") and angle 3 ("More of the clients you want. Fewer of the ones you don't." - needs a real number before it leads).
 
-**Positioning statement:**
-> For owners of small businesses that already sell something people want, who need their website, store or core tool to bring in more but can't afford a technical co-founder, Nicolae is the only software engineer who builds and keeps improving that system as a partner paid from the results - because he already runs two businesses this way. Unlike freelancers and agencies, who charge for a project and leave, he stays and shares the risk.
-
-**Proof (use these, not credentials):**
-- Co-owner of handwerker-netz.at: website + SEO bring in 95%+ of its clients (with Google Maps); improved weekly.
-- Co-founder and senior engineer of a consumer credit company; built the internal system the whole company runs on (no public data - describe role and problem only).
-- Simple Trackr: the tool he runs his own freelance business on.
-
-**What changes vs. earlier angles:**
-- The finance background is no longer the headline or a credential. It shows up as understanding the money side of a partnership.
-- "Replace your Excel" / "Excel is a risk" angles are retired as leads (saturated, and conflict with the no-disparaging-tools rule).
-- Fiverr $5-$100 gigs and 1FoodMenu promotion are dropped.
-- Identity line **Software Engineer · Finance · AI** stays for profiles and the hiring audience (30% of the goal).
-
-**Elevator pitch:**
-> I build websites, stores and business apps. You can hire me for a fixed price, like any developer. Or we partner: I do the coding, SEO, marketing and automation, you do your work, and I get paid a percentage of the results. I already run two businesses this way.
-
-**Note:** the "Tagline & Bio" (2026-08-12) and "2026-07-30" sections below are kept for the identity line and hiring context. Their service descriptions (finance tools / business apps / websites) and the 80/20 fintech content mix should be read through the partner strategy above.
-2026-07-30 - repositioning update (see below). Original analysis from 2026-06-22 by /positioning-angles kept intact below; still valid, now extended.
-
----
-
-## 2026-08-12 - Tagline & Bio (current)
-
-**Canonical tagline:**
-> Software Engineer · Finance · AI
-
-**How the three words map:**
-| Word | Means |
-|---|---|
-| Software Engineer | Who you are |
-| Finance | Domain you understand |
-| AI | How you ship better apps |
-
-**LinkedIn headline (recommended):**
-> Software Engineer · Finance · AI | Financial & business apps for web & mobile
-
-**Short bio (site / profiles, ~40 words):**
-> Software engineer with a finance background. I use AI to build financial and business apps that replace spreadsheets and manual workflows.
-
-**LinkedIn About opener (~60 words):**
-> I’m a software engineer with a finance degree and years inside real finance operations. I build financial and business apps for web and mobile - and I use AI where it makes the product faster or smarter, not as a buzzword. Available for freelance projects and full-time roles.
-
-**LinkedIn / site About (full, 2026-08-12):**
-> I started in finance - a degree, then years working inside the industry. Later I switched to IT because I like to build: solving real problems and automating workflows.
->
-> Today I build financial and business apps for web and mobile - plus business websites, landing pages, and ecommerce / Shopify stores. AI is the tool I use most - for shipping faster, thinking through problems, and making products smarter when it actually helps. Next.js, React, Supabase: the stack I use day to day.
->
-> Outside of work I ski and play basketball. If you have a project and need someone who understands both the numbers and the code, let's work on it together.
->
-> Favorite joke about development: what one developer can do in one week, two developers can do in two weeks.
->
-> Cheers,
-> Nick
-
-**LinkedIn About (combined, current — use this on the profile):**
-> Software engineer with a finance background. I use AI to build financial and business apps that replace spreadsheets and manual workflows.
->
-> I started in finance - a degree, then years working inside the industry. Later I switched to IT because I like to build: solving real problems and automating workflows.
->
-> Now I build for web and mobile - plus business websites, landing pages, and ecommerce / Shopify stores. AI is the tool I use most, for shipping faster and making products smarter when it actually helps. Next.js, React, Supabase: the stack I use day to day.
->
-> Outside of work I ski and play basketball. If you have a project and need someone who understands both the numbers and the code, let's work on it together.
->
-> Favorite joke about development: what one developer can do in one week, two developers can do in two weeks.
->
-> Cheers,
-> Nick
-
-**Availability line:**
-> Available for freelance projects and full-time roles.
-
-**One-sentence pitch:**
-> Software engineer with finance knowledge who uses AI to build financial and business apps for web and mobile.
-
-**Scope note:** Core identity = financial + business apps. Business websites, landing pages, and Shopify are part of the offer (About + Services) - not in the tagline.
-Use this triad on the website profile, LinkedIn, GitHub bio, and email signature. Longer marketing angles below remain useful for case studies and content; the tagline above is the public identity line.
-
----
-
-## 2026-07-30 Update - Fintech + AI + Security Repositioning
-
-**Why this changed:** Nicolae's main focus shifted to landing a full-time fintech/finance-adjacent engineering role in Vienna (see the separate job-search business plan for hiring tactics, target companies, salary bands, and skill roadmap). The website now needs to serve **two audiences at once**, not just freelance leads:
-
-1. **Hiring managers/recruiters at fintech companies** - evaluating him for full-time roles
-2. **Freelance/consulting clients** - SMEs needing custom software, Excel-killer apps, Shopify builds
-
-Both audiences respond to the *same* underlying differentiator, so this isn't two separate brands - it's one identity with a dual CTA.
-
-**Content mix: 80% fintech, 20% broader business IT.** Four out of five case studies / content pieces should be fintech or finance-operations flavored (the Ideal Credit loan-tracking case study is the anchor). The remaining fifth shows range (Shopify, general SME automation) without diluting the core identity.
-
-**Evolved angle (builds on Angle 1 below, adds AI + security layer):**
-
-> Statement: Nicolae is a finance-fluent full-stack engineer who builds secure, AI-enabled software for fintech and business operations - informed by a finance degree and 15 years inside a real consumer credit company, not a bootcamp portfolio project pretending to be one.
-
-**Headline direction (superseded for public tagline by 2026-08-12 - keep as long-form angle):**
-- Primary: "Finance-Fluent Software Engineer - Fintech, AI & Secure Business Systems"
-- Public identity line now: "Software Engineer · Finance · AI"
-- Sub: "15 years inside a consumer credit company. A finance degree. Full-stack engineering. I build software that understands the business problem before a line of code is written - and I build it securely, with AI where it earns its place."
-
-**Dual CTA (replaces the single "hire me" freelance CTA):**
-> "Open to full-time fintech/finance engineering roles in Vienna - and taking select consulting projects in finance & business automation."
-
-This single line does the audience-splitting work: recruiters read "open to full-time roles" and know what to do; SME leads read "select consulting projects" and know what to do. Don't build two separate pages/personas - one identity, one CTA line that branches.
-
-**What's new vs. the June angle:** the original "Finance-Fluent Developer" angle didn't yet include the security or AI dimensions, and was framed purely for client acquisition. The security overlay (OWASP-aware, auth/secrets-conscious development) and applied-AI capability (shipping LLM features into real finance tools, e.g. Trackr) are now part of the core claim - they're exactly what differentiates a "finance-fluent dev" from a "fintech engineer a bank would actually hire." Fold both into the About page and at least one dedicated case study/article (see content plan below).
-
-**Content plan additions (fintech-weighted):**
-1. *(80% - fintech)* Case study: consumer credit loan-tracking app - already written (`case-study-finance-tool.md`), strengthen with specific security/data-access details
-2. *(80%)* Case study: Trackr (financial tracker) once the AI transaction-categorization feature ships - this is the piece that proves "applied AI in a real finance tool," a direct interview talking point
-3. *(80%)* Article: "What 15 years inside a lending company taught me about building financial software" - authority piece, works for both audiences
-4. *(80%)* Article/short piece: OWASP Top 10 explained in plain English for finance/business owners - dual-purpose: security credibility for recruiters, trust signal for clients
-5. *(20% - breadth)* Case study: Shopify store or general SME Excel-killer (non-finance) - keeps the "20% rest" promise visible, proves range without becoming the headline
-
-**Site structure implication:** Services pages (`business-websites`, `custom-web-apps`, `shopify-stores`) stay as the "20%/consulting" offer, now positioned as secondary to a new fintech-forward hero and case-study section. About/positioning copy should read as a professional identity page first, service menu second.
-
----
-
----
-
-## Competitive Landscape Summary
-
-```
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-  COMPETITIVE MESSAGING LANDSCAPE
-  Custom Business Software / Excel Replacement
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-  Competitors Analyzed
-  ├── i3solutions -- "Transform Excel Spreadsheets
-  │   into Enterprise-Ready Web Applications"
-  ├── Laramate -- "Replacing Excel with Custom
-  │   Business Software That Grows with Your Business"
-  ├── Knack -- "Transform Your Spreadsheets into
-  │   Dynamic Web Apps"
-  ├── Generic Upwork/Freelancer devs -- no
-  │   consistent positioning; compete on price
-  └── No-code platforms (Tadabase, Glide) --
-      "Build your own app. Zero code."
-
-  ─────────────────────────────────────────────────
-
-  Saturated Claims (everyone says this)
-  ├── "Transform your spreadsheets into web apps"
-  ├── "Replace Excel with something better"
-  ├── "Real-time collaboration / multi-user access"
-  ├── "Scalable as your business grows"
-  └── "End-to-end custom development"
-
-  Partially Claimed (1-2 competitors)
-  ├── "No vendor lock-in / source code is yours"
-      -- Laramate only
-  ├── "Built for SMBs specifically" -- Laramate,
-      Knack (but Knack is no-code DIY)
-  └── "Enterprise-grade security" -- i3solutions
-      (enterprise market, not SMB)
-
-  Underexploited Territory (white space)
-  ├── Nobody leads with DOMAIN EXPERTISE --
-  │   competitors position as generalist devs
-  │   or tech-forward platforms. The finance +
-  │   dev combination is unclaimed territory.
-  ├── Nobody frames the risk angle -- "your Excel
-  │   is a business risk, not just an inconvenience"
-  ├── The CFO/CTO bilingual angle -- speaking
-  │   both business and technical languages in
-  │   the same conversation -- no competitor uses
-  │   this as a positioning hook.
-  └── Nobody champions the SMB European market
-      (DACH, Romania, Moldova) with this combo.
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-```
-
-Sophistication: Stage 3 -- mechanism needed
-Primary alternative: Staying on Excel / cobbling together SaaS tools
-
-Saturated claims:
-- "Transform your spreadsheets into web apps"
-- "Replace Excel with something better"
-- "Scalable, collaborative, real-time"
-- "Custom development, end-to-end"
-
-White space identified:
-- Finance domain expertise as the mechanism (not just "we build apps")
-- The business risk framing (Excel as liability, not just limitation)
-- Bilingual expertise: business language + technical language in one person
-- Specificity to the operator who is closest to the problem (the person who owns the Excel)
-
----
+Offer detail (FAQ, never the headline): fixed price, paid in stages, client owns everything.
 
 ## Market Assessment
+Category: website + marketing help for small businesses ("someone to get me more customers")
+Sophistication: Stage 3 - Mechanism (claim fatigue: everyone says "websites that bring customers" and "measurable")
+Primary alternative: paying a directory, agency or website builder every month and hoping; or doing it yourself with apps
+AI consensus: hire by role - developer for the site, agency for traffic, assistant for follow-up; judged on price and portfolio. nicojuhari.com: ABSENT. Blind spots: one owner for the whole path, what happens after the inquiry, fixed price + ownership, own-business proof.
 
-```
-  MARKET ASSESSMENT
+## Competitive Landscape (as of 2026-10-21)
+Saturated (never lead with): "Websites, die Kunden bringen" / "a website that brings inquiries"; "messbar" / data-driven; free first call or check; fast personal replies; local SEO / AI visibility.
+Contested: public prices (bigls.net); no lock-in, pay for results (digital-now.com); "connected systems" as a retainer (redefineweb.com); AI agents (blckalpaca.at); "zero upfront" partner (clicksgeek.com); audit as a product (optiexperts.co.uk).
+White space: what happens after the inquiry; one owner for the whole path; better-fit clients; tracking each inquiry to money; fixed price + you own it; proof from own businesses (only thevibemarketer.com, non-local).
+Reference only (not competitors, DIY subscriptions): boringfunnels.com, boringmarketing.com, thevibemarketer.com - study their plain sentences, exact numbers, and "say what it is not"; don't copy wording.
+Data: LIVE (10 competitors; ad libraries not readable - Meta 403, Google needs a browser; VoC from Trustpilot, Shopify Community, trade forums; Reddit not reachable)
 
-  Sophistication: Stage 3 -- mechanism needed.
-    Many players say "we'll replace your Excel."
-    The market needs to know WHY this one is
-    different and HOW it actually works.
+## VoC Language Bank
+- PAIN: "the only calls i get are from google or someone wanting to update my site" (arboristsite.com/threads/website-help.207079)
+- PAIN: "the guy who sold it to me dosnt return calls" (same)
+- PAIN: "I did a lot paid ads but not getting results." (community.shopify.com/t/312488)
+- PAIN: "The only time they would actually give attention to us was whenever it was time to renew our contract." (trustpilot.com/review/hibu.com)
+- PAIN: "Ich zahle einen fünfstelligen Betrag an diese Firma und bekomme so gut wie nichts Zählbares zurück." (de.trustpilot.com/review/www.11880.com)
+- PAIN: "Sobald der Vertag abgeschlossen ist, wird keine Mail mehr beantwortet." (same)
+- DESIRE: "I want access to people who can help me generate sales on Shopify." (community.shopify.com/t/391072)
+- DESIRE: "We expected a much more comprehensive system for automatically engaging customers and helping move them toward scheduling." (trustpilot.com/review/scorpion.co)
+- DESIRE: "I Have a Great Company and a Beautiful Website, How Do I Get the Phones Ringing?" (alignable.com forum)
+- OBJECTION: "There are so many people who claim they help and they actually don't help at all and money is wasted." (community.shopify.com/t/391072)
+- OBJECTION: "So, I do not have ownership of the website I paid for" (ca.trustpilot.com/review/venturewebdesigner.com)
+- OBJECTION: "Abofalle läuft trotz Absage weiter – 279€/Monat für nichts!" (at.trustpilot.com/review/herold.at)
+- OBJECTION: "Over promise and under deliver." (trustpilot.com/review/hibu.com)
 
-  Transformation: From a business where critical
-    data is trapped in one person's spreadsheet
-    to a business where the whole team has
-    real-time visibility and the owner can make
-    decisions in seconds instead of waiting for
-    a report.
-
-  Mechanism: Finance degree + development skills
-    = understanding the business problem before
-    touching the code. Every other dev asks
-    "what do you need built?" Nicolae asks
-    "what decision are you trying to make
-    faster?" That difference changes the output.
-
-  Primary alternative: Excel / Google Sheets
-    (status quo), generic freelance dev (no
-    domain expertise), SaaS tools (don't fit
-    the specific workflow), dev agency (slow,
-    expensive, impersonal).
-```
-
----
-
-## Primary Positioning
-
-Angle: The Finance-Fluent Developer
-Statement: Nicolae is the only developer who brings a finance degree to the brief - which means he understands what the software needs to do for the business before writing a line of code.
-Psychology: SMB owners and finance directors are burned by developers who build exactly what was spec'd but miss what was actually needed. A developer who speaks business language removes the translation tax and eliminates the most common reason custom software fails.
-Headline direction: "Finance degree. Developer. I speak both languages - and build software that proves it."
-Best for: SME owners, operations managers, finance directors who have been burned by "technical" solutions that didn't fit how their business actually works. Global market, primary in Europe and DACH.
-
----
-
-## All Angles Explored
-
-### Angle 1: THE FINANCE-FLUENT DEVELOPER (recommended ★)
-
-Statement: Nicolae is the only developer who brings a finance degree to the brief, which means he understands what the business needs the software to do before writing a single line of code.
-
-Psychology: The biggest failure mode in custom software is the translation gap between what a business owner needs and what a developer builds. Clients fear investing in something that gets built correctly but solves the wrong problem. A developer with genuine finance and business fluency collapses that gap. This is the mechanism - not just technical skill, but domain understanding that changes what gets built. No competitor in this space claims it because no competitor has it.
-
-Headline: "Finance degree. Developer. I speak both languages - and build software that proves it."
-
-Supporting lines:
-- "I can sit in the same meeting as your CFO and your CTO and make sense to both."
-- "Most developers ask what you want built. I ask what decision you need to make faster."
-- "The finance background isn't a credential - it's why the software actually fits."
-
-Best for: Finance directors, operations managers, SME owners across Europe who have had custom software miss the mark because the developer didn't understand the business. Global market, primary DACH/Romania/Moldova. Works especially well in fintech, financial operations, and any business where Excel is currently running critical financial processes.
-
-Why ★ recommended: This is the only claim in the competitive landscape that no one else can make. Every other developer (freelance, agency, no-code platform) positions on tech capability or price. The finance + development combination is genuine white space - and it directly addresses the #1 fear of the target audience (spending money on software that doesn't actually fit). At Stage 3 sophistication, the market needs to know WHY this is different. This is the WHY.
-
----
-
-### Angle 2: THE EXCEL IS A RISK (Enemy Angle)
-
-Statement: Your Excel spreadsheet isn't just slowing you down - it's a business risk. One person quits, one file corrupts, one formula breaks, and your operations stop.
-
-Psychology: Pain is more motivating than gain at the same intensity. Most competitors lead with the positive outcome ("get real-time collaboration!"). Leading with the hidden risk reframes the conversation from "nice to have" to "need to fix this." SMB owners who have lived with Excel for years have normalized the pain - they need a jolt to see it as a problem worth solving now, not eventually.
-
-Headline: "If your most important business data lives in a spreadsheet only one person can access, you have a risk problem - not just a software problem."
-
-Supporting lines:
-- "Excel doesn't have an access log, a backup policy, or a succession plan."
-- "The day that person is unavailable is the day your business finds out how fragile the system is."
-- "Manual data entry isn't an inefficiency. It's an error rate waiting to become a crisis."
-
-Best for: Business owners and operations managers who are vaguely aware the current setup is imperfect but haven't prioritized changing it. Creates urgency without being fear-mongering - it's just naming the actual risk plainly. Works especially well in finance, loan tracking, inventory management, and HR processes where data accuracy is non-negotiable.
-
----
-
-### Angle 3: THE TRANSFORMATION (Before/After)
-
-Statement: From a business where critical decisions wait on one person's report to a business where any manager can pull real data in one click, any time, from any device.
-
-Psychology: Decision-makers respond to specific, concrete transformations - not abstract "efficiency gains." The before/after structure lets the prospect self-identify in the "before" state and project themselves into the "after" state. The case study proof (consumer finance company) makes this immediately credible and not theoretical.
-
-Headline: "Reports went from zero to instant. Manual entry eliminated. The whole team got access. One project."
-
-Supporting lines:
-- "Before: one person, one spreadsheet, no visibility. After: the whole team, real data, decisions in seconds."
-- "I replaced a loan tracking Excel with a web app that gave a consumer finance company everything they couldn't see before."
-- "Your data already exists. It's just locked in a format only one person can use."
-
-Best for: Prospects who are in the "problem-aware" stage - they know they have a bottleneck, they've felt the pain, they just haven't seen what "after" looks like for a business their size. The case study proof point is the load-bearing element here. Works as social proof content (case study posts, LinkedIn) more than as a homepage hero.
-
----
-
-### Angle 4: SOFTWARE THAT FITS YOUR PROCESS (NOT THE OTHER WAY AROUND)
-
-Statement: Off-the-shelf SaaS tools make you change how you work to fit the software. Custom software is built to fit how you actually work - so adoption is immediate and the ROI is immediate.
-
-Psychology: One of the core objections to SaaS tools is the "we'll change our process to fit the tool" tax - the months of adoption friction, the features nobody uses, the workarounds that become permanent. Business owners have been burned by this. Custom software that maps to existing workflows eliminates the adoption problem and directly addresses the "will people actually use this?" fear.
-
-Headline: "Most software makes your team change how they work. This one adapts to how they already work."
-
-Supporting lines:
-- "You're not buying a platform. You're getting software built specifically for your process."
-- "No feature bloat. No monthly fee per seat. No 6-month onboarding."
-- "If your team already knows how the process works, they'll know how to use the app."
-
-Best for: Business owners who have tried (and been burned by) SaaS tools - CRMs they never fully adopted, project management tools that got abandoned, "all-in-one" platforms that never quite fit. Works across all segments but is strongest for businesses that have already tried the SaaS path and been disappointed.
-
----
-
-### Angle 5: THE SPECIALIST (Specificity Angle)
-
-Statement: Not a generalist web developer - a developer who specializes in replacing manual, Excel-driven business processes with purpose-built web applications for SMBs in finance, operations, and business management.
-
-Psychology: Specialists command more trust and more money than generalists in the same category. "I build web apps" is a commodity claim. "I build web apps that replace Excel-based financial and operational processes for small and medium businesses" is a specialist claim - it signals immediate fit for the right prospect and filters out the wrong ones. The narrower the claim, the stronger the resonance with the exact prospect you want.
-
-Headline: "I build one type of software: custom web apps that replace the Excel your business has outgrown."
-
-Supporting lines:
-- "Not websites. Not mobile apps. Not SaaS startups. Business process software for companies running on spreadsheets."
-- "Consumer finance loan tracking. Inventory management. Client portals. Operations dashboards. If it's currently in Excel, I can build it properly."
-- "Every project I take is a version of the same problem: a business that needs real software but has been making do with spreadsheets."
-
-Best for: Direct-response contexts - landing pages, outreach, LinkedIn. Creates an immediate signal of fit for the right prospect. Also works for SEO and content marketing where specificity drives qualified inbound traffic over volume.
-
----
-
-## Why ★ Angle 1 (The Finance-Fluent Developer)
-
-At Stage 3 market sophistication, "replace your Excel with a web app" is a commodity promise - everyone says it. The mechanism is what sells. Nicolae's finance degree is the mechanism: it explains WHY the software will actually fit, not just technically work. No competitor in this space can claim it because no competitor has it. This angle turns the finance background from a footnote into the core differentiator - and it directly addresses the primary fear of the target audience (investing in custom software that misses what the business actually needs). It pairs naturally with Angle 2 (risk framing) for urgency and Angle 3 (transformation) for proof.
-
-Recommended pairing strategy:
-- Homepage hero: Angle 1 (the mechanism / differentiator)
-- Homepage social proof / case study: Angle 3 (before/after transformation)
-- Outreach / cold email opener: Angle 2 (risk framing for urgency)
-- About page / LinkedIn bio: Angle 1 + "Finance degree. Developer. I speak both languages."
-- Content marketing / SEO: Angle 5 (specificity drives qualified search traffic)
+## Angles Explored
+### 1. From first click to paying customer (selected)
+- Statement: covers every step after the inquiry too, and shows which visitors became customers.
+- Headline: "More calls, bookings and orders. From the first click to a paying customer."
+### 2. Tested in my own businesses first (proof - used under angle 1)
+- Headline: "The sales systems my own businesses run on, built for yours."
+### 3. Fewer, better clients
+- Headline: "More of the clients you want. Fewer of the ones you don't."
+### 4. A nicer website won't fix it
+- Headline: "Your website looks fine. The problem is what happens after someone contacts you."
+### 5. Pay once, own it, count everything (FAQ detail)
+- Headline: "You pay in stages, you own the system, and you see what every inquiry brought in."

@@ -35,3 +35,11 @@ Last updated: 2026-10-06
 ## 2026-10-12 — Social Media Image Maker tool page
 - SEO + copy: app/tools/social-media-image-maker/page.tsx (notes: ./campaigns/content-plan/social-media-image-maker.md, control, 38→57/70)
 - Revision: Canva-alternative angle (title, meta, fit section, 2 FAQs) - same file, 2026-10-12
+
+## 2026-10-21 — Site audit
+- Audit: ./campaigns/audit/audit-2026-10-21.md (share of model 0/12, homepage 39/70, tool page 44/70)
+
+## 2026-10-21 — Positioning: First click to paying customer
+- ./brand/positioning.md (prior version in ./brand/.history/positioning-2026-10-21.md)
+- Homepage + services copy, angle "first click to paying customer": ./campaigns/homepage/copy-2026-10-21.md (52/70)
+- German local page "Softwareentwickler Wien": app/de/softwareentwickler-wien/page.tsx (notes ./campaigns/content/softwareentwickler-wien.md) + public/llms.txt — 2026-10-21

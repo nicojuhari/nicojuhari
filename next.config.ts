@@ -20,6 +20,12 @@ const nextConfig: NextConfig = {
                 destination: "/services/local-business-websites",
                 permanent: true,
             },
+            // Shopify service merged into websites
+            {
+                source: "/services/shopify-stores",
+                destination: "/services/local-business-websites",
+                permanent: true,
+            },
             // Restaurant examples (section removed, redirect to home)
             {
                 source: "/restaurant-website-examples/:slug",

@@ -36,7 +36,7 @@ export default function ProfilePanel() {
                 </div>
 
                 <p className="mt-3.5 text-[15px] leading-relaxed text-ink-muted sm:mt-4.5">
-                    Business websites, online stores and custom apps that bring real results.
+                    Business websites and custom apps that bring real results.
                 </p>
 
                 <div className="mt-5 flex flex-col gap-2.5 sm:mt-6">

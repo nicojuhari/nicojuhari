@@ -8,15 +8,14 @@ import { pageMetadata } from "@/app/_lib/metadata";
 import { absoluteUrl, areaServed, businessRef, collectionSchema } from "@/app/_lib/schema";
 
 export const metadata: Metadata = pageMetadata({
-    title: "Web Design, Shopify & Custom Apps in Vienna | Nicojuhari",
+    title: "Websites & Custom Apps in Vienna | Nicojuhari",
     description:
-        "Find out why people don’t call or buy, then fix it. Websites for local businesses, Shopify store checks and redesigns, custom apps. Free first look.",
+        "Find out why people don’t call or buy, then fix it. Websites that bring customers, and custom apps and automations that save time. Free first look.",
     path: "/services",
 });
 
 const questions: Record<string, string> = {
-    "local-business-websites": "Want more calls and bookings from Google and Maps?",
-    "shopify-stores": "Getting store traffic, but not enough sales?",
+    "local-business-websites": "Want more calls and bookings from Google search and Google Maps?",
     "custom-web-apps": "Losing hours to the same manual task every week?",
 };
 
@@ -30,14 +29,14 @@ const ladder = [
 const SEND_TEXT = "Hi Nick, please take a look at my website or store: ";
 const SEND_NOTE = "Free first look. I reply within 24 hours with what I found.";
 
-/** The first two hidden problems of each service */
+/** The first three hidden problems of each service */
 const hiddenPicks = services.flatMap((s) =>
-    s.hidden.slice(0, 2).map((item) => ({ ...item, href: `${s.href}#problems`, service: s.title, accent: s.accent, tint: s.tint }))
+    s.hidden.slice(0, 3).map((item) => ({ ...item, href: `${s.href}#problems`, service: s.title, accent: s.accent, tint: s.tint }))
 );
 
 const schema = collectionSchema(
     "Services",
-    "Local business websites, Shopify store checks, redesign and CRO, and custom web apps - each starts with a check that finds what to fix first.",
+    "Local business websites and custom web apps & automations - each starts with a check that finds what to fix first.",
     "/services",
     services.map((s) => ({
         type: "Service",

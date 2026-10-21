@@ -9,3 +9,4 @@ Last updated: 2026-06-22
 
 ## Audience Insights
 (no entries yet)
+- [2026-10-21] [/positioning-angles] Chose "From first click to paying customer" (Stage 3, white space = after the inquiry). Copy must use plain 5th-7th grade business words: calls, bookings, orders, customers.
