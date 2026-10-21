@@ -8,6 +8,6 @@ export default function Image() {
     return ogImage({
         eyebrow: "Services",
         title: alt,
-        text: "More calls from Google search and Google Maps, and hours saved every week.",
+        text: "More calls from Google and Google Maps, and hours saved every week.",
     });
 }

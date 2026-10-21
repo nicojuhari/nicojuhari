@@ -6,15 +6,15 @@ import { pageMetadata } from "@/app/_lib/metadata";
 import { collectionSchema, personRef } from "@/app/_lib/schema";
 
 export const metadata: Metadata = pageMetadata({
-    title: "Projects: Websites, Stores & Apps I Built | Nicolae Cojuhari",
+    title: "Projects: Websites & Apps I Built | Nicolae Cojuhari",
     description:
-        "Businesses I run, client websites, a Shopify store and web apps like EPUfix. What each one does, what I built, and where to try it.",
+        "Businesses I run, client websites and web apps like EPUfix. What each one does and where to try it.",
     path: "/projects",
 });
 
 const schema = collectionSchema(
     "Projects",
-    "Businesses I run, client websites, a Shopify store and web apps like EPUfix. What each one does, what I built, and where to try it.",
+    "Businesses I run, client websites and web apps like EPUfix. What each one does and where to try it.",
     "/projects",
     [...projects]
         .sort((a, b) => a.sort - b.sort)
@@ -54,7 +54,7 @@ export default function ProjectsPage() {
                 <div className="flex flex-col gap-3.5 sm:gap-4.5">
                     <p className="eyebrow">Projects</p>
                     <h1 className="text-[34px] leading-[1.06] font-semibold tracking-[-0.03em] text-ink sm:text-5xl xl:text-[56px] xl:leading-[1.02] xl:tracking-[-0.035em]">
-                        Websites, stores and apps I’ve built.
+                        Websites and apps I’ve built.
                     </h1>
                     <p className="max-w-[620px] text-base leading-relaxed text-ink-muted sm:text-lg">
                         Businesses I run, websites for clients, and apps I made for my own work. See what each one does and

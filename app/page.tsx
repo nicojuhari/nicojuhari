@@ -22,10 +22,10 @@ const proofs = services.flatMap((s) => (s.proof ? [s.proof] : []));
 const steps = [
     {
         title: "A free first look",
-        text: "I try your site or store like a customer, from the first click to your reply. You get the first thing I’d fix.",
+        text: "I try your website like a customer, from the first click to your reply. You get the first thing I’d fix.",
     },
     {
-        title: "Build the whole path",
+        title: "Build and fix",
         text: "The page people find, a fast reply, the follow-up. A fixed price, paid in stages after each part is done.",
     },
     { title: "Count and improve", text: "Each month you see the calls, bookings or orders that came in. I keep improving what works, if you want." },
@@ -161,12 +161,12 @@ export default function Home() {
                             <div className="flex flex-col gap-3.5 rounded-[20px] border border-rule bg-white p-5.5 sm:p-7">
                                 <h2 className="eyebrow">About</h2>
                                 <p className="text-[15px] leading-[1.65] text-ink-soft">
-                                    I started in finance, then moved into software. Now I also run businesses, so I care less about how a
-                                    website looks and more about who calls and who buys.
+                                    I started in finance, then moved into software. Now I also run businesses. I care less about how a website
+                                    looks and more about who calls and buys.
                                 </p>
                                 <p className="text-[15px] leading-[1.65] text-ink-soft">
-                                    I co-own a handyman business in Vienna. Almost all of its customers come from its website and Google
-                                    Maps. I also co-founded a consumer credit company and made the system it runs on every day.
+                                    I co-own a handyman business in Vienna and co-founded a consumer credit company. Both run on systems I
+                                    made.
                                 </p>
                                 <p className="text-[15px] leading-[1.65] text-ink-soft">
                                     I do the same work for other businesses. I use AI every day to work faster. Outside of work I ski and
@@ -211,7 +211,7 @@ export default function Home() {
 
                         <CtaSection
                             title="Want more calls, bookings or orders?"
-                            description="Send me your website or store link on WhatsApp. I’ll reply within 24 hours with the first thing I’d change."
+                            description="Send me your website link on WhatsApp. I’ll reply within 24 hours with the first thing I’d change."
                             whatsappText="Hi Nick, I’d like to talk about my business: "
                         />
                     </div>

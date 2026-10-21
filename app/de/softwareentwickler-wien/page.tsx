@@ -39,11 +39,11 @@ const offers = [
 ];
 
 const path = [
-    { title: "Gefunden werden", text: "Ihre Kunden suchen auf Google und Google Maps. Sie finden zuerst Sie, nicht die Konkurrenz." },
-    { title: "Vertrauen", text: "Klare Seiten mit Ihren Leistungen, echten Fotos und Bewertungen. Anrufen geht mit einem Tipp." },
-    { title: "Schnell antworten", text: "Jede Anfrage landet sofort auf Ihrem Handy. Wer zuerst antwortet, bekommt oft den Auftrag." },
-    { title: "Nachfassen", text: "Wer ein Angebot bekommen, aber nicht gebucht hat, bekommt eine freundliche Erinnerung." },
-    { title: "Zählen", text: "Sie sehen, welche Anfragen zu zahlenden Kunden wurden. So wissen Sie, was sich lohnt." },
+    { title: "Gefunden werden", text: "Kunden finden Sie auf Google und Google Maps." },
+    { title: "Vertrauen", text: "Klare Seiten, echte Fotos, Bewertungen." },
+    { title: "Schnell antworten", text: "Jede Anfrage landet sofort auf Ihrem Handy." },
+    { title: "Nachfassen", text: "Wer nicht gebucht hat, bekommt eine Erinnerung." },
+    { title: "Zählen", text: "Sie sehen, welche Anfragen zu Kunden wurden." },
 ];
 
 const compare = [
@@ -139,9 +139,8 @@ export default function SoftwareentwicklerWienPage() {
                     Softwareentwickler in Wien. <span className="text-ink-faint">Für mehr Kunden und weniger Handarbeit.</span>
                 </h1>
                 <p className="max-w-[660px] text-base leading-relaxed text-ink-muted sm:text-lg">
-                    Ich bin Nicolae Cojuhari, freiberuflicher Software- und Webentwickler in Wien. Ich mache Websites, Web-Apps und
-                    Automationen für kleine und mittlere Unternehmen. Das Ziel ist nicht nur eine schöne Seite. Das Ziel sind mehr
-                    Anrufe, Buchungen und Aufträge: vom ersten Klick bis zum zahlenden Kunden.
+                    Websites und Apps für kleine Unternehmen, die mehr Anrufe, Buchungen und Aufträge bringen. Freiberuflich, direkt
+                    mit mir: Nicolae Cojuhari.
                 </p>
                 <div className="mt-1 flex flex-col gap-2.5 sm:flex-row sm:items-center sm:gap-3">
                     <a
@@ -168,8 +167,7 @@ export default function SoftwareentwicklerWienPage() {
                     <p className="eyebrow">Leistungen</p>
                     <h2 className="text-[28px] leading-[1.1] font-semibold tracking-[-0.03em] text-ink sm:text-[38px]">Was ich für Sie mache</h2>
                     <p className="text-[15px] leading-relaxed text-ink-muted">
-                        Zwei Dinge, die zusammengehören: Die Website bringt die Kunden. Die App und die Automationen erledigen die Arbeit,
-                        die diese Kunden machen.
+                        Die Website bringt die Kunden. Die App erledigt die Arbeit danach.
                     </p>
                 </div>
                 <ul className="grid gap-3 md:grid-cols-2 md:gap-4">
@@ -211,14 +209,12 @@ export default function SoftwareentwicklerWienPage() {
                         Vom ersten Klick zum zahlenden Kunden
                     </h2>
                     <p className="text-[15px] leading-relaxed text-ink-muted">
-                        Besucher auf die Website zu bringen, ist nur die halbe Arbeit. Die andere Hälfte passiert, nachdem sich jemand
-                        meldet: eine schnelle Antwort, ein Nachfassen, ein gebuchter Termin. Viele Anbieter hören bei der Anfrage auf.
-                        Ich kümmere mich um beide Hälften.
+                        Viele Anbieter hören bei der Anfrage auf. Ich kümmere mich auch um alles danach.
                     </p>
                 </div>
-                <ol className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
+                <ol className="grid gap-2 sm:grid-cols-2 sm:gap-3 lg:grid-cols-5">
                     {path.map((step, i) => (
-                        <li key={step.title} className="flex flex-col gap-2 rounded-[20px] border border-rule bg-white p-5.5">
+                        <li key={step.title} className="flex flex-col gap-1 rounded-[20px] border border-rule bg-white px-5 py-4 lg:gap-2 lg:p-5.5">
                             <span className="font-mono text-xs font-semibold text-teal">{String(i + 1).padStart(2, "0")}</span>
                             <h3 className="text-base font-semibold text-ink">{step.title}</h3>
                             <p className="text-sm leading-relaxed text-ink-muted">{step.text}</p>
@@ -235,9 +231,8 @@ export default function SoftwareentwicklerWienPage() {
                         Freelancer oder Agentur in Wien?
                     </h2>
                     <p className="text-[15px] leading-relaxed text-ink-muted">
-                        Für kleine und mittlere Unternehmen ist ein Freelancer oft die bessere Wahl: ein Ansprechpartner, kurze Wege und
-                        meist niedrigere Kosten. Eine Agentur passt besser, wenn ein großes Projekt viele Leute gleichzeitig braucht. Beide
-                        können gute Arbeit machen. Wichtig ist, wer nach dem Start noch für Sie da ist.
+                        Für kleine und mittlere Unternehmen ist ein Freelancer oft die bessere Wahl: ein Ansprechpartner und meist
+                        niedrigere Kosten. Eine Agentur passt besser zu großen Projekten mit vielen Leuten.
                     </p>
                 </div>
                 <div className="overflow-x-auto rounded-[20px] border border-rule bg-white">

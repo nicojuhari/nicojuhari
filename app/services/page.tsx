@@ -15,7 +15,7 @@ export const metadata: Metadata = pageMetadata({
 });
 
 const questions: Record<string, string> = {
-    "local-business-websites": "Want more calls and bookings from Google search and Google Maps?",
+    "local-business-websites": "Want more calls and bookings from Google and Google Maps?",
     "custom-web-apps": "Losing hours to the same manual task every week?",
 };
 
@@ -26,12 +26,12 @@ const ladder = [
     { title: "I fix it", text: "A fixed price, agreed before I start. Then I keep improving it, if you want." },
 ];
 
-const SEND_TEXT = "Hi Nick, please take a look at my website or store: ";
+const SEND_TEXT = "Hi Nick, please take a look at my website: ";
 const SEND_NOTE = "Free first look. I reply within 24 hours with what I found.";
 
-/** The first three hidden problems of each service */
+/** The first two hidden problems of each service - the rest live on the service page */
 const hiddenPicks = services.flatMap((s) =>
-    s.hidden.slice(0, 3).map((item) => ({ ...item, href: `${s.href}#problems`, service: s.title, accent: s.accent, tint: s.tint }))
+    s.hidden.slice(0, 2).map((item) => ({ ...item, href: `${s.href}#problems`, service: s.title, accent: s.accent, tint: s.tint }))
 );
 
 const schema = collectionSchema(
@@ -65,9 +65,8 @@ export default function ServicesPage() {
                         Find out why people don’t call or buy. Then fix it.
                     </h1>
                     <p className="max-w-[580px] text-base leading-relaxed text-ink-muted sm:text-lg">
-                        Most problems are hard to see in your own business. A form that sends to an old inbox. Shipping costs
-                        that scare buyers at the last step. Ads that pay for the wrong clicks. I check your website or store
-                        like a customer, find what’s wrong, and fix it.
+                        Most problems are hard to see in your own business. A form that sends to an old inbox. Ads that pay for
+                        the wrong clicks. I test your website like a customer and fix what I find.
                     </p>
                     <div className="mt-1 flex flex-col gap-2.5">
                         <a
@@ -131,7 +130,7 @@ export default function ServicesPage() {
                         Nobody tells you about them. People just leave. I find them by testing, then I fix them.
                     </p>
                 </div>
-                <ul className="grid gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3">
+                <ul className="grid gap-3 sm:grid-cols-2 sm:gap-4">
                     {hiddenPicks.map((item) => (
                         <li key={item.title}>
                             <Link
@@ -271,7 +270,7 @@ export default function ServicesPage() {
             <CtaSection
                 className="mt-12 sm:mt-16"
                 title="Let me take a look."
-                description="Send me your website or store link. I’ll check it and reply within 24 hours with what I found. Free, no obligation."
+                description="Send me your website link. I’ll check it and reply within 24 hours with what I found. Free, no obligation."
                 primaryLabel="Send your website link"
                 whatsappText={SEND_TEXT}
             />

@@ -43,3 +43,6 @@ Last updated: 2026-10-06
 - ./brand/positioning.md (prior version in ./brand/.history/positioning-2026-10-21.md)
 - Homepage + services copy, angle "first click to paying customer": ./campaigns/homepage/copy-2026-10-21.md (52/70)
 - German local page "Softwareentwickler Wien": app/de/softwareentwickler-wien/page.tsx (notes ./campaigns/content/softwareentwickler-wien.md) + public/llms.txt — 2026-10-21
+- Teardown + fixes, German page: ./campaigns/de-softwareentwickler-wien/teardown.md (44→47/70) — 2026-10-21
+- Copy audit home/hub/services: ./campaigns/homepage/copy-audit-2026-10-21.md — 2026-10-21
+- Technical SEO check: ./campaigns/audit/technical-seo-2026-10-21.md — 2026-10-21

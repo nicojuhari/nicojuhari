@@ -17,7 +17,7 @@ const tips = [
     {
         label: "Batch",
         title: "Crop a whole menu at once",
-        text: "Add up to 30 photos, adjust the ones that need it - the rest are cropped from the center - and download them all as one ZIP, ready for a digital menu like 1FoodMenu.",
+        text: "Add up to 30 photos and adjust the ones that need it. The rest are cropped from the center. Download them all as one ZIP, ready for a digital menu like 1FoodMenu.",
     },
     {
         label: "Size",

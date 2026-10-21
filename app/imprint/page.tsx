@@ -6,7 +6,7 @@ import { pageMetadata } from "@/app/_lib/metadata";
 export const metadata: Metadata = pageMetadata({
     title: "Imprint (Impressum) | Nicojuhari",
     description:
-        "Legal information for Nicolae Cojuhari trading as Nicojuhari. Web design and software development business in Vienna, Austria. Contact details and business regulations.",
+        "Legal information for Nicolae Cojuhari, trading as Nicojuhari: web design and software development in Vienna, Austria. Contact details and regulations.",
     path: "/imprint",
 });
 

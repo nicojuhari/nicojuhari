@@ -44,8 +44,7 @@ export default function ToolsPage() {
                         Simple tools for everyday tasks.
                     </h1>
                     <p className="text-base leading-relaxed text-ink-muted sm:text-lg">
-                        Built for me, sharing with you. Split bills, make QR codes and checklists, crop images and more - free,
-                        no sign-up needed.
+                        Tools I made for my own work. Split bills, make QR codes, crop images and more. Free, no sign-up.
                     </p>
                 </div>
                 <ul className="flex shrink-0 flex-wrap gap-2">

@@ -79,9 +79,9 @@ export const services: Service[] = [
         label: "For trades, clinics, salons & local services",
         title: "Local Business Websites",
         singular: "Local Business Website",
-        tagline: "More calls and bookings from Google search and Google Maps.",
+        tagline: "More calls and bookings from Google and Google Maps.",
         summary:
-            "When people nearby search for your service, they should find you and call you. I build your website and Google Maps profile for that, and improve both every month.",
+            "Your website and Google Maps profile, set up so people nearby find you and call. Then improved every month.",
         goodFit: [
             "People nearby find your competitors first",
             "Your site gets visitors, but few of them call",
@@ -101,7 +101,7 @@ export const services: Service[] = [
             "Shopify stores too",
         ],
         headline: "Websites that bring customers.",
-        intro: "More calls and booked jobs from Google search and Google Maps. When someone nearby searches for your service, they should find you first, call you, and book. Your website, Google Maps profile and replies work together to make that happen.",
+        intro: "More calls and booked jobs from Google and Google Maps. Your website, Google profile and replies work together, so people nearby find you, call and book.",
         forYouIf: [
             "People nearby search for your service and find your competitors first",
             "Your site gets visitors, but not many of them call or book",
@@ -186,7 +186,7 @@ export const services: Service[] = [
             },
             {
                 title: "Found for every service",
-                description: "A page for each service and area you cover, so Google and AI search show you for each of them.",
+                description: "A page for each service and area you cover. Google shows you for each one.",
             },
             {
                 title: "Easy to call or book",
@@ -277,7 +277,7 @@ export const services: Service[] = [
         singular: "Custom Web App",
         tagline: "Less manual work. Clear numbers.",
         summary:
-            "When the same task takes hours every week, an app or automation can do most of it. First I check how much time the task costs you. Then you decide if it’s worth building.",
+            "Apps and automations that do the repeat work for your team. It starts with counting the hours a task costs you.",
         goodFit: [
             "Several people edit the same spreadsheets",
             "Your tools don’t connect to each other",
@@ -408,7 +408,7 @@ export const services: Service[] = [
         faq: [
             {
                 question: "When is a custom app better than a spreadsheet or a no-code tool?",
-                answer: "When several people work on the same data, and you need to know who changed what or who can see what. If a spreadsheet or a ready-made tool still does the job, I’ll tell you.",
+                answer: "When several people use the same data, and you need to control who sees and changes what. If a spreadsheet or a ready-made tool still does the job, I’ll tell you.",
             },
             {
                 question: "What does it cost?",

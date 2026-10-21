@@ -82,10 +82,10 @@ export default function ProductGridPage() {
                             ))}
                         </ol>
                         <Link
-                            href="/services/shopify-stores"
+                            href="/services/local-business-websites"
                             className="group inline-flex items-center gap-1.5 self-start text-sm font-semibold text-brand transition-colors hover:text-teal"
                         >
-                            Need the whole store set up properly? See Shopify Stores
+                            Want more orders from your store? See how I can help
                             <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" aria-hidden />
                         </Link>
                     </div>
