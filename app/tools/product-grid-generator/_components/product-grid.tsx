@@ -3,7 +3,7 @@
 import { useEffect, useId, useMemo, useRef, useState } from "react";
 import { useLocalStorage } from "usehooks-ts";
 import { ArrowDown, ArrowUp, Check, Copy, ImageOff, Monitor, Pencil, Plus, Smartphone, Trash2, Undo2 } from "lucide-react";
-import { Chip, Eyebrow, Field, inputClass, invalidProps, PillTabs, primaryButton, secondaryButton } from "@/app/tools/_components/tool-ui";
+import { Chip, Eyebrow, Field, iconButton, inputClass, invalidProps, PillTabs, primaryButton, secondaryButton } from "@/app/tools/_components/tool-ui";
 import { cn } from "@/lib/utils";
 import {
     buildHtml,
@@ -21,6 +21,9 @@ import {
 type Draft = Omit<Product, "id">;
 const EMPTY_DRAFT: Draft = { title: "", image: "", url: "", price: "", description: "" };
 const MAX_PRODUCTS = 24;
+/** Chips on the off-white sidebar fill white when not selected */
+const onSoft = (active: boolean) => !active && "bg-white hover:bg-[#e9ecf3]";
+const rowButton = cn(iconButton, "bg-transparent text-[#4a4f57] hover:bg-white hover:text-ink");
 
 // ─── Product form ─────────────────────────────────────────────────────────────
 
@@ -53,7 +56,7 @@ function ProductForm({
     const imageOk = isWebUrl(draft.image.trim());
 
     return (
-        <div className="flex flex-col gap-4 rounded-2xl border border-rule bg-[#faf9f6] p-4 sm:p-5">
+        <div className="flex flex-col gap-4 rounded-[20px] bg-bg-soft p-4 sm:p-5">
             <div className="grid gap-4 sm:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)]">
                 <Field label="Product name" htmlFor={`${id}-title`} error={errors.title}>
                     <input
@@ -62,7 +65,7 @@ function ProductForm({
                         maxLength={LIMITS.title}
                         onChange={(e) => set("title", e.target.value)}
                         placeholder="Ceramic mug"
-                        className={inputClass}
+                        className={cn(inputClass, "bg-white")}
                         {...invalidProps(`${id}-title`, errors.title)}
                     />
                 </Field>
@@ -73,12 +76,12 @@ function ProductForm({
                         maxLength={LIMITS.price}
                         onChange={(e) => set("price", e.target.value)}
                         placeholder="€24.00"
-                        className={inputClass}
+                        className={cn(inputClass, "bg-white")}
                     />
                 </Field>
             </div>
             <div className="grid gap-4 sm:grid-cols-[64px_minmax(0,1fr)] sm:items-start">
-                <div className="hidden size-16 items-center justify-center overflow-hidden rounded-xl border border-rule bg-white text-ink-faint sm:mt-7 sm:flex">
+                <div className="hidden size-16 items-center justify-center overflow-hidden rounded-[14px] bg-white text-[#5b6068] sm:mt-7 sm:flex">
                     {imageOk && !imageBroken ? (
                         // eslint-disable-next-line @next/next/no-img-element
                         <img src={draft.image.trim()} alt="" className="size-full object-cover" onError={() => setImageBroken(true)} />
@@ -103,7 +106,7 @@ function ProductForm({
                             setImageBroken(false);
                         }}
                         placeholder="https://cdn.shopify.com/…/mug.jpg"
-                        className={inputClass}
+                        className={cn(inputClass, "bg-white")}
                         {...invalidProps(`${id}-image`, errors.image)}
                     />
                 </Field>
@@ -117,7 +120,7 @@ function ProductForm({
                     maxLength={LIMITS.url}
                     onChange={(e) => set("url", e.target.value)}
                     placeholder="/products/ceramic-mug"
-                    className={inputClass}
+                    className={cn(inputClass, "bg-white")}
                     {...invalidProps(`${id}-url`, errors.url)}
                 />
             </Field>
@@ -128,7 +131,7 @@ function ProductForm({
                     maxLength={LIMITS.description}
                     onChange={(e) => set("description", e.target.value)}
                     rows={2}
-                    className={cn(inputClass, "h-auto resize-y py-3 text-sm")}
+                    className={cn(inputClass, "h-auto resize-y bg-white py-3 text-sm")}
                 />
             </Field>
             <div className="flex flex-col gap-2 sm:flex-row sm:justify-end">
@@ -210,10 +213,10 @@ export default function ProductGrid() {
                 <div className="flex min-w-0 flex-col gap-4 p-5 sm:p-8">
                     <div className="flex flex-wrap items-center justify-between gap-3">
                         <h2 className="text-lg font-semibold tracking-[-0.015em] text-ink">
-                            Products <span className="font-normal text-ink-faint">{products.length}</span>
+                            Products <span className="font-normal text-[#5b6068] tabular-nums">{products.length}</span>
                         </h2>
                         {undo ? (
-                            <span className="flex items-center gap-2 text-[13px] text-ink-muted">
+                            <span className="flex items-center gap-2 text-[13px] text-[#5b6068]">
                                 {undo.label}
                                 <button
                                     type="button"
@@ -221,7 +224,7 @@ export default function ProductGrid() {
                                         setProducts(undo.snapshot);
                                         setUndo(null);
                                     }}
-                                    className="inline-flex items-center gap-1 font-semibold text-brand hover:text-teal"
+                                    className="inline-flex min-h-11 items-center gap-1 font-semibold text-brand hover:text-teal"
                                 >
                                     <Undo2 className="size-3.5" aria-hidden />
                                     Undo
@@ -232,7 +235,7 @@ export default function ProductGrid() {
                                 <button
                                     type="button"
                                     onClick={() => update([], `Removed ${products.length} products`)}
-                                    className="text-[13px] font-semibold text-ink-muted hover:text-destructive"
+                                    className="inline-flex min-h-11 items-center text-[13px] font-semibold text-[#5b6068] hover:text-destructive"
                                 >
                                     Remove all
                                 </button>
@@ -241,12 +244,12 @@ export default function ProductGrid() {
                     </div>
 
                     {hasExamples && (
-                        <div className="flex flex-col gap-2 rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-[13px] text-amber-900 sm:flex-row sm:items-center sm:justify-between">
+                        <div className="flex flex-col gap-2 rounded-[14px] bg-[#f3e7ec] px-4 py-3 text-[13px] text-ink sm:flex-row sm:items-center sm:justify-between">
                             <span>These are example products - replace them with your own before copying the code.</span>
                             <button
                                 type="button"
                                 onClick={() => update(products.filter((p) => !p.id.startsWith("example-")), "Removed examples")}
-                                className="shrink-0 self-start font-semibold underline underline-offset-2 sm:self-auto"
+                                className="inline-flex min-h-11 shrink-0 items-center self-start font-semibold underline underline-offset-2 sm:self-auto"
                             >
                                 Remove examples
                             </button>
@@ -254,10 +257,10 @@ export default function ProductGrid() {
                     )}
 
                     {products.length > 0 && (
-                        <ul className="flex flex-col divide-y divide-line rounded-2xl border border-rule">
+                        <ul className="flex flex-col gap-1.5">
                             {products.map((p, i) =>
                                 editingId === p.id ? (
-                                    <li key={p.id} className="p-2">
+                                    <li key={p.id}>
                                         <ProductForm
                                             initial={p}
                                             submitLabel="Save product"
@@ -269,14 +272,14 @@ export default function ProductGrid() {
                                         />
                                     </li>
                                 ) : (
-                                    <li key={p.id} className="flex items-center gap-3 py-2 pr-1.5 pl-2.5">
-                                        <span className="size-12 shrink-0 overflow-hidden rounded-lg border border-rule bg-[#f4f3ef]">
+                                    <li key={p.id} className="flex items-center gap-3 rounded-[14px] bg-bg-soft py-2 pr-1.5 pl-2">
+                                        <span className="size-12 shrink-0 overflow-hidden rounded-[10px] bg-white">
                                             {/* eslint-disable-next-line @next/next/no-img-element */}
                                             <img src={p.image} alt="" className="size-full object-cover" />
                                         </span>
                                         <span className="flex min-w-0 flex-1 flex-col">
                                             <span className="truncate text-sm font-semibold text-ink">{p.title}</span>
-                                            <span className="truncate text-xs text-ink-faint">
+                                            <span className="truncate text-[13px] text-[#5b6068]">
                                                 {[p.price, p.url].filter(Boolean).join(" · ")}
                                             </span>
                                         </span>
@@ -286,7 +289,7 @@ export default function ProductGrid() {
                                                 onClick={() => move(i, -1)}
                                                 disabled={i === 0}
                                                 aria-label={`Move ${p.title} up`}
-                                                className="hidden size-9 items-center justify-center rounded-full text-ink-faint hover:bg-[#f4f3ef] hover:text-ink disabled:opacity-30 sm:flex"
+                                                className={cn(rowButton, "hidden sm:inline-flex")}
                                             >
                                                 <ArrowUp className="size-4" aria-hidden />
                                             </button>
@@ -295,7 +298,7 @@ export default function ProductGrid() {
                                                 onClick={() => move(i, 1)}
                                                 disabled={i === products.length - 1}
                                                 aria-label={`Move ${p.title} down`}
-                                                className="flex size-9 items-center justify-center rounded-full text-ink-faint hover:bg-[#f4f3ef] hover:text-ink disabled:opacity-30"
+                                                className={rowButton}
                                             >
                                                 <ArrowDown className="size-4" aria-hidden />
                                             </button>
@@ -306,7 +309,7 @@ export default function ProductGrid() {
                                                     setAdding(false);
                                                 }}
                                                 aria-label={`Edit ${p.title}`}
-                                                className="flex size-9 items-center justify-center rounded-full text-ink-faint hover:bg-[#f4f3ef] hover:text-ink"
+                                                className={rowButton}
                                             >
                                                 <Pencil className="size-4" aria-hidden />
                                             </button>
@@ -314,7 +317,7 @@ export default function ProductGrid() {
                                                 type="button"
                                                 onClick={() => update(products.filter((x) => x.id !== p.id), `Removed “${p.title}”`)}
                                                 aria-label={`Remove ${p.title}`}
-                                                className="flex size-9 items-center justify-center rounded-full text-ink-faint hover:bg-[#f4f3ef] hover:text-destructive"
+                                                className={cn(rowButton, "hover:text-destructive")}
                                             >
                                                 <Trash2 className="size-4" aria-hidden />
                                             </button>
@@ -348,21 +351,21 @@ export default function ProductGrid() {
                             Add product
                         </button>
                     ) : (
-                        <p className="text-[13px] text-ink-faint">That’s {MAX_PRODUCTS} products - the most that fit one grid.</p>
+                        <p className="text-[13px] text-[#5b6068]">That’s {MAX_PRODUCTS} products - the most that fit one grid.</p>
                     )}
                 </div>
 
                 {/* ── Options ── */}
-                <div className="border-t border-rule bg-[#f5f7fb] lg:border-t-0 lg:border-l">
-                    <div className="flex flex-col gap-5 p-5 sm:p-8">
+                <div className="px-5 pb-5 sm:px-8 sm:pb-8 lg:pt-8 lg:pl-0">
+                    <div className="flex flex-col gap-5 rounded-[20px] bg-bg-soft p-4 sm:p-5">
                         <Eyebrow>Design</Eyebrow>
                         <div className="flex flex-col gap-2">
                             <span className="text-sm font-semibold text-ink">Layout</span>
                             <div role="group" aria-label="Layout" className="grid grid-cols-2 gap-2">
-                                <Chip active={options.layout === "grid"} onClick={() => setOption("layout", "grid")}>
+                                <Chip active={options.layout === "grid"} onClick={() => setOption("layout", "grid")} className={cn(onSoft(options.layout === "grid"))}>
                                     Grid
                                 </Chip>
-                                <Chip active={options.layout === "carousel"} onClick={() => setOption("layout", "carousel")}>
+                                <Chip active={options.layout === "carousel"} onClick={() => setOption("layout", "carousel")} className={cn(onSoft(options.layout === "carousel"))}>
                                     Carousel
                                 </Chip>
                             </div>
@@ -370,11 +373,11 @@ export default function ProductGrid() {
                         {options.layout === "grid" && (
                             <div className="flex flex-col gap-2">
                                 <span className="text-sm font-semibold text-ink">
-                                    Columns on desktop <span className="font-normal text-ink-faint">(2 on phones)</span>
+                                    Columns on desktop <span className="font-normal text-[#5b6068]">(2 on phones)</span>
                                 </span>
                                 <div role="group" aria-label="Columns" className="grid grid-cols-3 gap-2">
                                     {([2, 3, 4] as const).map((n) => (
-                                        <Chip key={n} active={options.columns === n} onClick={() => setOption("columns", n)}>
+                                        <Chip key={n} active={options.columns === n} onClick={() => setOption("columns", n)} className={cn("tabular-nums", onSoft(options.columns === n))}>
                                             {n}
                                         </Chip>
                                     ))}
@@ -385,10 +388,10 @@ export default function ProductGrid() {
                             <div className="flex flex-col gap-2">
                                 <span className="text-sm font-semibold text-ink">Image</span>
                                 <div role="group" aria-label="Image shape" className="grid grid-cols-2 gap-1.5">
-                                    <Chip active={options.ratio === "square"} onClick={() => setOption("ratio", "square")}>
+                                    <Chip active={options.ratio === "square"} onClick={() => setOption("ratio", "square")} className={cn("tabular-nums", onSoft(options.ratio === "square"))}>
                                         1:1
                                     </Chip>
-                                    <Chip active={options.ratio === "portrait"} onClick={() => setOption("ratio", "portrait")}>
+                                    <Chip active={options.ratio === "portrait"} onClick={() => setOption("ratio", "portrait")} className={cn("tabular-nums", onSoft(options.ratio === "portrait"))}>
                                         4:5
                                     </Chip>
                                 </div>
@@ -397,7 +400,7 @@ export default function ProductGrid() {
                                 <span className="text-sm font-semibold text-ink">Corners</span>
                                 <div role="group" aria-label="Corner radius" className="grid grid-cols-3 gap-1.5">
                                     {([0, 8, 16] as const).map((r) => (
-                                        <Chip key={r} active={options.radius === r} onClick={() => setOption("radius", r)} className="px-1 font-mono">
+                                        <Chip key={r} active={options.radius === r} onClick={() => setOption("radius", r)} className={cn("px-1 tabular-nums", onSoft(options.radius === r))}>
                                             {r}
                                         </Chip>
                                     ))}
@@ -406,7 +409,7 @@ export default function ProductGrid() {
                         </div>
                         <div className="flex flex-col gap-2">
                             <label htmlFor={`${id}-button`} className="text-sm font-semibold text-ink">
-                                Button <span className="font-normal text-ink-faint">(leave empty for none)</span>
+                                Button <span className="font-normal text-[#5b6068]">(leave empty for none)</span>
                             </label>
                             <div className="flex gap-2">
                                 <input
@@ -414,9 +417,9 @@ export default function ProductGrid() {
                                     value={options.button}
                                     maxLength={LIMITS.button}
                                     onChange={(e) => setOption("button", e.target.value)}
-                                    className={cn(inputClass, "h-11")}
+                                    className={cn(inputClass, "h-11 bg-white")}
                                 />
-                                <label className="relative size-11 shrink-0 cursor-pointer overflow-hidden rounded-xl border border-ink/12" style={{ backgroundColor: options.buttonColor }}>
+                                <label className="relative size-11 shrink-0 cursor-pointer overflow-hidden rounded-full focus-within:ring-2 focus-within:ring-teal focus-within:ring-offset-2 focus-within:ring-offset-bg-soft" style={{ backgroundColor: options.buttonColor }}>
                                     <span className="sr-only">Button color</span>
                                     <input
                                         type="color"
@@ -427,7 +430,7 @@ export default function ProductGrid() {
                                 </label>
                             </div>
                         </div>
-                        <div className="flex flex-col gap-2.5 text-sm text-ink-soft">
+                        <div className="flex flex-col text-sm text-[#4a4f57]">
                             {(
                                 [
                                     ["showPrice", "Show price"],
@@ -435,8 +438,8 @@ export default function ProductGrid() {
                                     ["newTab", "Open links in a new tab"],
                                 ] as const
                             ).map(([key, label]) => (
-                                <label key={key} className="flex items-center gap-2.5">
-                                    <input type="checkbox" checked={options[key]} onChange={(e) => setOption(key, e.target.checked)} className="size-4 accent-brand" />
+                                <label key={key} className="flex min-h-11 cursor-pointer items-center gap-3">
+                                    <input type="checkbox" checked={options[key]} onChange={(e) => setOption(key, e.target.checked)} className="size-5 accent-brand" />
                                     {label}
                                 </label>
                             ))}
@@ -446,7 +449,7 @@ export default function ProductGrid() {
             </div>
 
             {/* ── Preview / code ── */}
-            <div className="flex flex-col gap-4 border-t border-rule p-5 sm:p-8">
+            <div className="flex flex-col gap-4 px-5 pb-5 sm:px-8 sm:pb-8">
                 <div className="flex flex-wrap items-center justify-between gap-3">
                     <PillTabs
                         label="Show"
@@ -459,7 +462,7 @@ export default function ProductGrid() {
                     />
                     <div className="flex items-center gap-2">
                         {view === "preview" && (
-                            <div role="group" aria-label="Preview width" className="flex rounded-full border border-rule bg-white p-0.5">
+                            <div role="group" aria-label="Preview width" className="flex gap-1 rounded-[16px] bg-bg-soft p-1.5">
                                 {(
                                     [
                                         ["desktop", Monitor, "Desktop width"],
@@ -473,8 +476,8 @@ export default function ProductGrid() {
                                         aria-pressed={device === key}
                                         onClick={() => setDevice(key)}
                                         className={cn(
-                                            "flex size-9 items-center justify-center rounded-full transition-colors",
-                                            device === key ? "bg-brand text-white" : "text-ink-muted hover:text-ink"
+                                            "flex size-11 items-center justify-center rounded-[12px] transition-colors",
+                                            device === key ? "bg-white text-ink shadow-[0_1px_3px_rgba(17,20,24,0.12)]" : "text-[#4a4f57] hover:text-ink"
                                         )}
                                     >
                                         <Icon className="size-4" aria-hidden />
@@ -490,11 +493,11 @@ export default function ProductGrid() {
                 </div>
 
                 {!html ? (
-                    <p className="rounded-2xl border border-dashed border-rule px-5 py-10 text-center text-sm text-ink-faint">
+                    <p className="rounded-[24px] bg-[#e9ecf3] px-5 py-10 text-center text-sm text-[#4a4f57]">
                         Add a product to see the grid.
                     </p>
                 ) : view === "preview" ? (
-                    <div className="rounded-2xl border border-rule bg-[#f4f3ef] p-2 sm:p-4">
+                    <div className="rounded-[24px] bg-[#e9ecf3] p-2 sm:p-4">
                         <iframe
                             ref={frameRef}
                             title="Product grid preview"
@@ -502,17 +505,17 @@ export default function ProductGrid() {
                             // No scripts run in the preview; same-origin only lets us measure its height
                             sandbox="allow-same-origin allow-popups"
                             onLoad={measure}
-                            className={cn("mx-auto block rounded-xl border-0 bg-white transition-[width]", device === "phone" ? "w-[390px] max-w-full" : "w-full")}
+                            className={cn("mx-auto block rounded-[14px] border-0 bg-white transition-[width]", device === "phone" ? "w-[390px] max-w-full" : "w-full")}
                             style={{ height: frameHeight }}
                         />
                     </div>
                 ) : (
-                    <pre className="max-h-[520px] overflow-auto rounded-2xl border border-rule bg-[#111418] p-5 font-mono text-[13px] leading-relaxed text-[#e6e3dc]">
+                    <pre className="max-h-[520px] overflow-auto rounded-[24px] bg-[#111418] p-5 font-mono text-[13px] leading-relaxed text-[#e6e3dc]">
                         <code>{html}</code>
                     </pre>
                 )}
-                <p className="text-[13px] text-ink-faint">
-                    In Shopify: open a blog post, switch the editor to HTML with the <span className="font-mono">&lt;&gt;</span> button, and paste the code
+                <p className="text-[13px] text-[#5b6068]">
+                    In Shopify: open a blog post, switch the editor to HTML with the <span className="font-semibold text-ink">&lt;&gt;</span> button, and paste the code
                     where the grid should go.
                 </p>
             </div>

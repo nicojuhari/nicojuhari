@@ -1,11 +1,11 @@
 # Hi, I'm Nick 👋
 
-**Software Engineer** - I build websites and web apps that help businesses grow.
+I build websites and apps for small businesses. Websites that bring calls, bookings and orders. Apps that take over the repeat work.
 
-8+ years of experience delivering fast, pixel-perfect, and SEO-friendly products - from custom Shopify storefronts to full-stack JavaScript applications.
+I run my own businesses on what I build, so I test it there first.
 
 ---
 
-**What I work with:** JavaScript · TypeScript · React · Next.js · Shopify · Node.js · Tailwind CSS
+**What I work with:** TypeScript · React · Next.js · Node.js · Supabase · Tailwind CSS · Shopify
 
 **Find me at:** [nicojuhari.com](https://nicojuhari.com)

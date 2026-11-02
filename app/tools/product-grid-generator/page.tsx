@@ -67,23 +67,23 @@ export default function ProductGridPage() {
                 <section className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] lg:gap-12">
                     <div className="flex flex-col gap-2">
                         <p className="eyebrow">How to</p>
-                        <h2 className="text-2xl font-semibold tracking-[-0.025em] text-ink sm:text-[28px]">
+                        <h2 className="text-[26px] leading-tight font-semibold tracking-[-0.03em] text-ink sm:text-[32px]">
                             How to add products to a Shopify blog post without an app
                         </h2>
                     </div>
                     <div className="flex flex-col gap-4">
                         <ol className="grid gap-3 md:grid-cols-3">
                             {steps.map((step, i) => (
-                                <li key={step.title} className="flex flex-col gap-2.5 rounded-[20px] border border-rule bg-white p-5.5">
-                                    <span className="font-mono text-xs font-semibold text-teal">{String(i + 1).padStart(2, "0")}</span>
+                                <li key={step.title} className="flex flex-col gap-2.5 rounded-[22px] bg-white p-6">
+                                    <span className="text-sm font-bold text-teal">{String(i + 1).padStart(2, "0")}</span>
                                     <h3 className="text-base font-semibold text-ink">{step.title}</h3>
-                                    <p className="text-sm leading-relaxed text-ink-muted">{step.text}</p>
+                                    <p className="text-[15px] leading-relaxed text-[#4a4f57]">{step.text}</p>
                                 </li>
                             ))}
                         </ol>
                         <Link
                             href="/services/local-business-websites"
-                            className="group inline-flex items-center gap-1.5 self-start text-sm font-semibold text-brand transition-colors hover:text-teal"
+                            className="group inline-flex items-center gap-1.5 self-start min-h-11 text-[15px] font-semibold text-teal hover:underline"
                         >
                             Want more orders from your store? See how I can help
                             <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" aria-hidden />

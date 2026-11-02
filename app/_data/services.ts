@@ -86,13 +86,13 @@ export const services: Service[] = [
         label: "For trades, clinics, salons & local services",
         title: "Local Business Websites",
         singular: "Local Business Website",
-        tagline: "More calls and bookings from Google and Google Maps.",
+        tagline: "More calls and bookings from Google, Google Maps and ads.",
         question: "Want more calls and bookings from Google?",
         highlights: [
             "A fast website that people trust",
             "Your Google Maps profile, set up right",
             "A page for each service and area",
-            "Clear call and WhatsApp buttons",
+            "Landing pages that make your ads cheaper",
             "You see how many people called and booked",
         ],
         summary:
@@ -101,6 +101,7 @@ export const services: Service[] = [
             "People nearby find your competitors first",
             "Your site gets visitors, but few of them call",
             "Your Google Maps profile is empty or out of date",
+            "You pay for ads, but few people call or book",
             "You don’t have a website yet",
         ],
         included: [
@@ -108,21 +109,22 @@ export const services: Service[] = [
             "Website design & build",
             "Google Business Profile & SEO",
             "A page for each service & area",
-            "Landing pages for ads (funnels)",
+            "Landing pages for Google & Meta ads",
             "Fixes that turn visitors into customers (CRO)",
-            "Fast replies & follow-up",
+            "Automatic replies & follow-up",
             "Review requests",
             "Tracking calls, requests & sales",
             "Shopify stores too",
         ],
         headline: "Websites that bring customers.",
-        intro: "More calls and booked jobs from Google and Google Maps. Your website, Google profile and replies work together, so people nearby find you, call and book.",
+        intro: "More calls and booked jobs from Google, Google Maps and your ads. Your website, Google profile and replies work together, so people find you, call and book.",
         forYouIf: [
             "People nearby search for your service and find your competitors first",
             "Your site gets visitors, but not many of them call or book",
             "Your Google Maps profile is empty, half done or out of date",
             "You don’t have a website yet, or it hasn’t changed in years",
             "You offer several services, but have one page for all of them",
+            "You pay for Google or Meta ads, but the clicks don’t turn into calls",
             "You don’t know how many clients come from your website",
         ],
         send: {
@@ -164,10 +166,10 @@ export const services: Service[] = [
                 fix: "A short message that asks every happy client for a review.",
             },
             {
-                title: "Your ads count the wrong thing",
-                cost: "In one store I checked, Google Ads showed 660 “conversions”. The store had 26 orders. So the ads brought more clicks, not more buyers.",
-                check: "I compare what your ad account counts with the real calls, requests or orders.",
-                fix: "Ads that count only real customers, so the budget goes to people who buy.",
+                title: "Your ads cost more than they should",
+                cost: "Ads send people to a slow or general page. Most leave, so you pay for many clicks to get one call.",
+                check: "I click your ads on a phone and follow the path to a call or booking.",
+                fix: "A landing page for each ad, made to get calls. Google charges less per click for a better page, and more clicks turn into customers.",
             },
             {
                 title: "You can’t tell what works",
@@ -208,12 +210,16 @@ export const services: Service[] = [
                 description: "Call, WhatsApp and booking buttons on every page, easy to tap on a phone.",
             },
             {
+                title: "Landing pages for your ads",
+                description: "One clear page for each ad, with one goal: a call or a booking. Better pages make each customer from ads cheaper.",
+            },
+            {
                 title: "A site people trust",
                 description: "Clear pages with your services, real photos and your contact details where people look for them.",
             },
             {
                 title: "Fast replies and follow-up",
-                description: "Every request reaches your phone right away. People who asked for a price but didn’t book get a friendly reminder.",
+                description: "Every request reaches your phone right away, with an automatic first reply. People who asked for a price but didn’t book get a friendly reminder.",
             },
             {
                 title: "Know where clients come from",
@@ -260,6 +266,10 @@ export const services: Service[] = [
                 answer: "Fixes to your Google profile can show within a few weeks. New pages usually take a few months to show up in search. It depends on your area and how many competitors you have.",
             },
             {
+                question: "Can a better website make my ads cheaper?",
+                answer: "Yes. Google rates the page your ad sends people to. A fast, clear page gets a better rating, so you pay less per click. And when more visitors call or book, each customer costs you less. Testing and improving the page for this is called CRO.",
+            },
+            {
                 question: "What’s in the monthly plan?",
                 answer: "Google profile posts, review requests, new service or area pages, and small fixes. Each month you get a count of the calls and form requests the website brought in.",
             },
@@ -296,9 +306,9 @@ export const services: Service[] = [
         highlights: [
             "An app built around how your team works",
             "Your tools connected, so data is typed once",
-            "Repeat tasks done for you",
+            "Repeat tasks done by automations and AI",
             "Today’s numbers, not last month’s",
-            "We count the hours saved before we build",
+            "First we count the hours a task costs",
         ],
         summary:
             "Apps and automations that do the repeat work for your team. It starts with counting the hours a task costs you.",
@@ -311,9 +321,9 @@ export const services: Service[] = [
         included: [
             "Process check",
             "Dashboards & reports",
-            "Automations",
+            "Automated flows (n8n, Make, Zapier)",
             "Connections to your tools",
-            "AI features (OpenAI, Claude)",
+            "AI agents & features (OpenAI, Claude)",
             "Finance tools & calculators",
         ],
         headline: "Less manual work. Clear numbers.",
@@ -391,6 +401,10 @@ export const services: Service[] = [
                 description: "A dashboard that updates on its own, and a weekly report in your inbox.",
             },
             {
+                title: "Automated flows",
+                description: "A new order, form or email starts a flow that updates your tools and tells the right person. Built with n8n, Make or Zapier, or custom code.",
+            },
+            {
                 title: "Payments in the app",
                 description: "One-time payments, subscriptions and invoices with Stripe.",
             },
@@ -437,6 +451,10 @@ export const services: Service[] = [
             {
                 question: "What does it cost?",
                 answer: "The process check is a fixed price. After it, you get a list of what I’ll build, the timeline and a fixed price. You pay in stages, as each part is delivered. No hourly billing.",
+            },
+            {
+                question: "Do you use n8n, Make or Zapier?",
+                answer: "Yes. For simple flows between tools, n8n, Make or Zapier are often the fastest and cheapest way. n8n can also run on your own server, so your data stays with you. When a flow gets too big for these tools, I build it as custom code.",
             },
             {
                 question: "Can it connect to the tools we already use?",

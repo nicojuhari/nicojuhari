@@ -14,7 +14,7 @@ import {
     AlertDialogTitle,
     AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
-import { Chip, Eyebrow, Field, inputClass, invalidProps, primaryButton, secondaryButton } from "@/app/tools/_components/tool-ui";
+import { Chip, Eyebrow, Field, iconButton, inputClass, invalidProps, primaryButton, secondaryButton } from "@/app/tools/_components/tool-ui";
 import { cn } from "@/lib/utils";
 import {
     balances,
@@ -149,6 +149,7 @@ export default function GroupSplit() {
     const exactTotal = participants.reduce((a, pid) => a + exactCents(pid), 0);
     const exactLeft = amountCents !== null ? amountCents - exactTotal : 0;
 
+    const participantKey = participants.join();
     const preview: Record<string, number> = useMemo(() => {
         if (amountCents === null || !participants.length) return {};
         if (form.mode === "exact") return Object.fromEntries(participants.map((pid) => [pid, exactCents(pid)]));
@@ -156,7 +157,7 @@ export default function GroupSplit() {
         const parts = allocate(amountCents, weights);
         return Object.fromEntries(participants.map((pid, i) => [pid, parts[i]]));
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [amountCents, form.mode, form.values, participants.join()]);
+    }, [amountCents, form.mode, form.values, participantKey]);
 
     const validate = (): FormErrors => {
         const errors: FormErrors = {};
@@ -323,20 +324,20 @@ export default function GroupSplit() {
                                                     if (e.key === "Enter") saveRename();
                                                     if (e.key === "Escape") setRenaming(null);
                                                 }}
-                                                className="h-10 w-36 rounded-full border border-brand/40 px-3.5 text-sm outline-none focus:ring-4 focus:ring-brand/8"
+                                                className={cn(inputClass, "h-11 w-36 rounded-full px-4 text-sm")}
                                             />
-                                            <button type="button" onClick={saveRename} aria-label="Save name" className="flex size-10 items-center justify-center rounded-full text-teal hover:bg-[#e9f5f3]">
+                                            <button type="button" onClick={saveRename} aria-label="Save name" className={cn(iconButton, "bg-[#e3f1ee] text-teal hover:bg-[#d5ebe6]")}>
                                                 <Check className="size-4" aria-hidden />
                                             </button>
                                         </li>
                                     ) : (
-                                        <li key={p.id} className="flex h-10 items-center gap-0.5 rounded-full border border-rule bg-white pr-1 pl-3.5 text-sm font-medium text-ink">
+                                        <li key={p.id} className="flex h-11 items-center rounded-full bg-bg-soft pl-4 text-sm font-medium text-ink">
                                             {p.name}
                                             <button
                                                 type="button"
                                                 onClick={() => setRenaming({ id: p.id, name: p.name })}
                                                 aria-label={`Rename ${p.name}`}
-                                                className="ml-1 flex size-8 items-center justify-center rounded-full text-ink-faint hover:bg-[#f4f3ef] hover:text-ink"
+                                                className="ml-1 flex size-11 items-center justify-center rounded-full text-[#5b6068] transition-colors hover:bg-[#ece9e2] hover:text-ink"
                                             >
                                                 <Pencil className="size-3.5" aria-hidden />
                                             </button>
@@ -344,7 +345,7 @@ export default function GroupSplit() {
                                                 type="button"
                                                 onClick={() => removePerson(p.id)}
                                                 aria-label={`Remove ${p.name}`}
-                                                className="flex size-8 items-center justify-center rounded-full text-ink-faint hover:bg-[#f4f3ef] hover:text-destructive"
+                                                className="flex size-11 items-center justify-center rounded-full text-[#5b6068] transition-colors hover:bg-[#f3e7ec] hover:text-destructive"
                                             >
                                                 <X className="size-3.5" aria-hidden />
                                             </button>
@@ -353,25 +354,23 @@ export default function GroupSplit() {
                                 )}
                             </ul>
                         ) : (
-                            <p className="text-sm text-ink-faint">Add everyone who shares costs - at least two people.</p>
+                            <p className="text-sm text-[#5b6068]">Add everyone who shares costs - at least two people.</p>
                         )}
                     </Card>
-
-                    <div className="h-px bg-line" />
 
                     <div id={`${id}-expense`} className="scroll-mt-28">
                         <Card
                             title={editingId ? "Edit expense" : "Add an expense"}
                             action={
                                 editingId && (
-                                    <button type="button" onClick={resetForm} className="text-[13px] font-semibold text-ink-muted hover:text-ink">
+                                    <button type="button" onClick={resetForm} className="inline-flex min-h-11 items-center text-[13px] font-semibold text-[#4a4f57] hover:text-ink">
                                         Cancel editing
                                     </button>
                                 )
                             }
                         >
                             {!canAddExpense ? (
-                                <p className="rounded-2xl border border-dashed border-rule px-4 py-6 text-center text-sm text-ink-faint">
+                                <p className="rounded-[20px] bg-bg-soft px-4 py-6 text-center text-sm text-[#5b6068]">
                                     Add people first, then log what each person paid.
                                 </p>
                             ) : (
@@ -406,7 +405,7 @@ export default function GroupSplit() {
                                             id={`${id}-paid`}
                                             value={form.paidBy}
                                             onChange={(e) => setForm((f) => ({ ...f, paidBy: e.target.value }))}
-                                            className={cn(inputClass, "cursor-pointer", !form.paidBy && "text-ink-faint")}
+                                            className={cn(inputClass, "cursor-pointer", !form.paidBy && "text-[#5b6068]")}
                                             {...invalidProps(`${id}-paid`, errors.paidBy)}
                                         >
                                             <option value="">Choose a person</option>
@@ -440,16 +439,16 @@ export default function GroupSplit() {
                                                         participants: participants.length === group.people.length ? [] : null,
                                                     }))
                                                 }
-                                                className="text-[13px] font-semibold text-brand hover:text-teal"
+                                                className="inline-flex min-h-11 items-center text-[13px] font-semibold text-brand hover:text-teal"
                                             >
                                                 {participants.length === group.people.length ? "Clear all" : "Select everyone"}
                                             </button>
                                         </div>
-                                        <ul className="flex flex-col divide-y divide-line rounded-2xl border border-rule">
+                                        <ul className="flex flex-col gap-1 rounded-[20px] bg-bg-soft p-1.5">
                                             {group.people.map((p) => {
                                                 const on = participants.includes(p.id);
                                                 return (
-                                                    <li key={p.id} className="flex min-h-13 items-center gap-3 px-3.5 py-1.5">
+                                                    <li key={p.id} className="flex min-h-13 items-center gap-3 rounded-[14px] bg-white px-3.5 py-1.5">
                                                         <label className="flex flex-1 cursor-pointer items-center gap-3 py-2 text-sm font-medium text-ink">
                                                             <input
                                                                 type="checkbox"
@@ -466,7 +465,7 @@ export default function GroupSplit() {
                                                                 value={form.values[p.id] ?? ""}
                                                                 onChange={(e) => setForm((f) => ({ ...f, values: { ...f.values, [p.id]: e.target.value } }))}
                                                                 placeholder="0.00"
-                                                                className="h-10 w-28 rounded-xl border border-[#d9d5cc] px-3 text-right font-mono text-sm outline-none focus:border-brand/40 focus:ring-4 focus:ring-brand/8"
+                                                                className={cn(inputClass, "h-11 w-28 rounded-[12px] px-3 text-right text-sm tabular-nums")}
                                                             />
                                                         )}
                                                         {on && form.mode === "shares" && (
@@ -475,18 +474,18 @@ export default function GroupSplit() {
                                                                 aria-label={`Shares for ${p.name}`}
                                                                 value={form.values[p.id] ?? "1"}
                                                                 onChange={(e) => setForm((f) => ({ ...f, values: { ...f.values, [p.id]: e.target.value } }))}
-                                                                className="h-10 w-16 rounded-xl border border-[#d9d5cc] px-3 text-center font-mono text-sm outline-none focus:border-brand/40 focus:ring-4 focus:ring-brand/8"
+                                                                className={cn(inputClass, "h-11 w-16 rounded-[12px] px-3 text-center text-sm tabular-nums")}
                                                             />
                                                         )}
                                                         {on && form.mode !== "exact" && preview[p.id] !== undefined && (
-                                                            <span className="w-24 text-right font-mono text-[13px] text-ink-faint">{money(preview[p.id])}</span>
+                                                            <span className="w-24 text-right text-[13px] text-[#5b6068] tabular-nums">{money(preview[p.id])}</span>
                                                         )}
                                                     </li>
                                                 );
                                             })}
                                         </ul>
                                         {form.mode === "exact" && amountCents !== null && participants.length > 0 && !errors.split && (
-                                            <p className={cn("text-[13px]", exactLeft === 0 ? "text-teal" : "text-ink-faint")}>
+                                            <p className={cn("text-[13px]", exactLeft === 0 ? "text-teal" : "text-[#5b6068]")}>
                                                 {exactLeft === 0
                                                     ? "Everything assigned"
                                                     : exactLeft > 0
@@ -519,12 +518,12 @@ export default function GroupSplit() {
                 </div>
 
                 {/* ── Right: summary ── */}
-                <div className="border-t border-rule bg-[#f5f7fb] lg:border-t-0 lg:border-l">
-                    <div className="flex flex-col gap-6 p-5 sm:p-8 lg:sticky lg:top-24">
-                        <div className="flex flex-col gap-2">
-                            <Eyebrow>Total spent</Eyebrow>
-                            <p className="font-mono text-[40px] leading-none font-semibold tracking-[-0.03em] text-ink">{money(total)}</p>
-                            <p className="text-[13px] text-ink-faint">
+                <div className="px-5 pb-5 sm:px-8 sm:pb-8 lg:pt-8 lg:pl-0">
+                    <div className="flex flex-col gap-6 rounded-[24px] bg-[#e9ecf3] p-5 sm:p-6 lg:sticky lg:top-24">
+                        <div className="flex flex-col gap-2 rounded-[20px] bg-brand p-5 text-white">
+                            <Eyebrow className="text-white">Total spent</Eyebrow>
+                            <p className="text-[40px] leading-none font-semibold tracking-[-0.03em] text-white tabular-nums">{money(total)}</p>
+                            <p className="text-[13px] text-white/80">
                                 {group.expenses.length} {group.expenses.length === 1 ? "expense" : "expenses"} · {group.people.length}{" "}
                                 {group.people.length === 1 ? "person" : "people"}
                             </p>
@@ -535,17 +534,17 @@ export default function GroupSplit() {
                             {transfers.length > 0 ? (
                                 <ul className="flex flex-col gap-2">
                                     {transfers.map((t) => (
-                                        <li key={`${t.from}-${t.to}`} className="flex items-center gap-3 rounded-2xl border border-[#dce1eb] bg-white px-4 py-3">
+                                        <li key={`${t.from}-${t.to}`} className="flex items-center gap-3 rounded-[20px] bg-white py-2 pr-2 pl-4">
                                             <span className="flex min-w-0 flex-1 flex-wrap items-center gap-x-1.5 text-sm text-ink">
                                                 <strong className="font-semibold">{nameOf(t.from)}</strong>
-                                                <ArrowRight className="size-3.5 text-ink-faint" aria-label="pays" />
+                                                <ArrowRight className="size-3.5 text-[#5b6068]" aria-label="pays" />
                                                 <strong className="font-semibold">{nameOf(t.to)}</strong>
                                             </span>
-                                            <span className="font-mono text-sm font-semibold text-ink">{money(t.amount)}</span>
+                                            <span className="text-sm font-semibold text-ink tabular-nums">{money(t.amount)}</span>
                                             <button
                                                 type="button"
                                                 onClick={() => markPaid(t)}
-                                                className="h-9 shrink-0 rounded-full border border-[#dce1eb] px-3 text-xs font-semibold text-teal transition-colors hover:bg-[#e9f5f3]"
+                                                className="h-11 shrink-0 rounded-full bg-[#e3f1ee] px-4 text-[13px] font-semibold text-teal transition-colors hover:bg-[#d5ebe6]"
                                             >
                                                 Mark paid
                                             </button>
@@ -553,14 +552,14 @@ export default function GroupSplit() {
                                     ))}
                                 </ul>
                             ) : (
-                                <p className="rounded-2xl border border-[#dce1eb] bg-white px-4 py-3 text-sm text-ink-muted">
+                                <p className="rounded-[20px] bg-white px-4 py-3 text-sm text-[#4a4f57]">
                                     {group.expenses.length ? "Everyone is settled up." : "Payments to settle up will show here."}
                                 </p>
                             )}
                             {group.payments.length > 0 && (
                                 <ul className="flex flex-col gap-1">
                                     {group.payments.map((p) => (
-                                        <li key={p.id} className="flex items-center justify-between gap-2 text-[13px] text-ink-faint">
+                                        <li key={p.id} className="flex items-center justify-between gap-2 text-[13px] text-[#4a4f57]">
                                             <span className="flex items-center gap-1.5">
                                                 <Check className="size-3.5 text-teal" aria-hidden />
                                                 {nameOf(p.from)} paid {nameOf(p.to)} {money(p.amount)}
@@ -568,7 +567,7 @@ export default function GroupSplit() {
                                             <button
                                                 type="button"
                                                 onClick={() => updateGroup((g) => ({ ...g, payments: g.payments.filter((x) => x.id !== p.id) }))}
-                                                className="font-semibold text-ink-muted hover:text-ink"
+                                                className="inline-flex min-h-11 items-center px-2 font-semibold text-brand hover:text-teal"
                                             >
                                                 Undo
                                             </button>
@@ -581,19 +580,19 @@ export default function GroupSplit() {
                         {group.people.length > 0 && group.expenses.length > 0 && (
                             <div className="flex flex-col gap-3">
                                 <Eyebrow>Balances</Eyebrow>
-                                <ul className="flex flex-col rounded-2xl border border-[#dce1eb] bg-white">
-                                    {list.map((b, i) => (
-                                        <li key={b.id} className={cn("flex items-center justify-between gap-3 px-4 py-3", i > 0 && "border-t border-line")}>
+                                <ul className="flex flex-col gap-1 rounded-[20px] bg-white p-1.5">
+                                    {list.map((b) => (
+                                        <li key={b.id} className="flex items-center justify-between gap-3 rounded-[14px] px-3.5 py-2.5">
                                             <span className="flex min-w-0 flex-col">
                                                 <span className="truncate text-sm font-semibold text-ink">{nameOf(b.id)}</span>
-                                                <span className="text-xs text-ink-faint">
+                                                <span className="text-xs text-[#5b6068]">
                                                     paid {money(b.paid)} · share {money(b.share)}
                                                 </span>
                                             </span>
                                             <span
                                                 className={cn(
-                                                    "shrink-0 font-mono text-sm font-semibold",
-                                                    b.net > 0 ? "text-teal" : b.net < 0 ? "text-[#a2471a]" : "text-ink-faint"
+                                                    "shrink-0 text-sm font-semibold tabular-nums",
+                                                    b.net > 0 ? "text-teal" : b.net < 0 ? "text-[#a2471a]" : "text-[#5b6068]"
                                                 )}
                                             >
                                                 {b.net > 0 ? `gets ${money(b.net)}` : b.net < 0 ? `owes ${money(-b.net)}` : "even"}
@@ -609,7 +608,7 @@ export default function GroupSplit() {
                                 type="button"
                                 onClick={() => copyText(summaryText(group), "Summary copied - paste it in your group chat")}
                                 disabled={!group.expenses.length}
-                                className={cn(secondaryButton, "px-3")}
+                                className={cn(secondaryButton, "bg-white px-3 hover:bg-white/80")}
                             >
                                 <Copy className="size-4" aria-hidden />
                                 Copy summary
@@ -618,13 +617,13 @@ export default function GroupSplit() {
                                 type="button"
                                 onClick={() => copyText(transactionsText(group), "All transactions copied")}
                                 disabled={!group.expenses.length}
-                                className={cn(secondaryButton, "px-3")}
+                                className={cn(secondaryButton, "bg-white px-3 hover:bg-white/80")}
                             >
                                 <ListOrdered className="size-4" aria-hidden />
                                 Copy transactions
                             </button>
                         </div>
-                        <p aria-live="polite" className="-mt-3 min-h-5 text-center text-xs text-ink-faint">
+                        <p aria-live="polite" className="-mt-3 min-h-5 text-center text-xs text-[#4a4f57]">
                             {notice}
                         </p>
                     </div>
@@ -632,11 +631,11 @@ export default function GroupSplit() {
             </div>
 
             {/* ── Expenses ── */}
-            <div className="flex flex-col gap-4 border-t border-rule p-5 sm:p-8">
+            <div className="flex flex-col gap-4 p-5 sm:p-8">
                 <div className="flex items-center justify-between gap-3">
                     <h2 className="text-lg font-semibold tracking-[-0.015em] text-ink">Expenses</h2>
                     {undo && (
-                        <span className="flex items-center gap-2 text-[13px] text-ink-muted">
+                        <span className="flex items-center gap-2 text-[13px] text-[#4a4f57]">
                             {undo.label}
                             <button
                                 type="button"
@@ -644,7 +643,7 @@ export default function GroupSplit() {
                                     undo.restore();
                                     setUndo(null);
                                 }}
-                                className="inline-flex items-center gap-1 font-semibold text-brand hover:text-teal"
+                                className="inline-flex min-h-11 items-center gap-1 font-semibold text-brand hover:text-teal"
                             >
                                 <Undo2 className="size-3.5" aria-hidden />
                                 Undo
@@ -653,7 +652,7 @@ export default function GroupSplit() {
                     )}
                 </div>
                 {group.expenses.length ? (
-                    <ul className="flex flex-col divide-y divide-line rounded-2xl border border-rule">
+                    <ul className="flex flex-col gap-1.5">
                         {group.expenses.map((e) => {
                             const shares = expenseShares(e);
                             const between =
@@ -661,26 +660,26 @@ export default function GroupSplit() {
                                     ? "everyone"
                                     : e.participants.map(nameOf).join(", ");
                             return (
-                                <li key={e.id} className={cn("flex flex-wrap items-center gap-x-4 gap-y-2 px-4 py-3.5 sm:flex-nowrap", editingId === e.id && "bg-[#f5f7fb]")}>
+                                <li key={e.id} className={cn("flex flex-wrap items-center gap-x-4 gap-y-2 rounded-[20px] px-4 py-3.5 sm:flex-nowrap", editingId === e.id ? "bg-[#e9ecf3]" : "bg-bg-soft")}>
                                     <div className="flex min-w-0 flex-1 flex-col gap-0.5">
                                         <span className="truncate text-[15px] font-semibold text-ink">{e.title}</span>
-                                        <span className="text-[13px] text-ink-faint">
+                                        <span className="text-[13px] text-[#5b6068]">
                                             {nameOf(e.paidBy)} paid · split{" "}
                                             {e.mode === "equal" ? "equally" : e.mode === "exact" ? "by amount" : "by shares"} between {between}
                                         </span>
                                         {e.mode !== "equal" && (
-                                            <span className="text-xs text-ink-faint">
+                                            <span className="text-xs text-[#5b6068]">
                                                 {e.participants.map((pid) => `${nameOf(pid)} ${money(shares[pid])}`).join(" · ")}
                                             </span>
                                         )}
                                     </div>
-                                    <span className="font-mono text-[15px] font-semibold text-ink">{money(e.amount)}</span>
+                                    <span className="text-[15px] font-semibold text-ink tabular-nums">{money(e.amount)}</span>
                                     <div className="flex shrink-0 gap-1">
                                         <button
                                             type="button"
                                             onClick={() => editExpense(e)}
                                             aria-label={`Edit ${e.title}`}
-                                            className="flex size-10 items-center justify-center rounded-full text-ink-muted transition-colors hover:bg-[#f4f3ef] hover:text-ink"
+                                            className={cn(iconButton, "bg-white text-[#4a4f57] hover:bg-white hover:text-ink")}
                                         >
                                             <Pencil className="size-4" aria-hidden />
                                         </button>
@@ -688,7 +687,7 @@ export default function GroupSplit() {
                                             type="button"
                                             onClick={() => deleteExpense(e)}
                                             aria-label={`Delete ${e.title}`}
-                                            className="flex size-10 items-center justify-center rounded-full text-ink-muted transition-colors hover:bg-[#f4f3ef] hover:text-destructive"
+                                            className={cn(iconButton, "bg-white text-[#4a4f57] hover:bg-[#f3e7ec] hover:text-destructive")}
                                         >
                                             <Trash2 className="size-4" aria-hidden />
                                         </button>
@@ -698,14 +697,14 @@ export default function GroupSplit() {
                         })}
                     </ul>
                 ) : (
-                    <p className="rounded-2xl border border-dashed border-rule px-4 py-8 text-center text-sm text-ink-faint">
+                    <p className="rounded-[20px] bg-bg-soft px-4 py-8 text-center text-sm text-[#5b6068]">
                         No expenses yet. Add the first one above.
                     </p>
                 )}
             </div>
 
             {/* Settings */}
-            <div className="flex flex-col gap-3 border-t border-line p-5 sm:flex-row sm:items-center sm:justify-between sm:px-8">
+            <div className="flex flex-col gap-3 px-5 pb-5 sm:flex-row sm:items-center sm:justify-between sm:px-8 sm:pb-8">
                 <div className="flex items-center gap-3">
                     <label htmlFor={`${id}-currency`} className="text-sm font-semibold text-ink">
                         Currency
@@ -729,7 +728,7 @@ export default function GroupSplit() {
                             <button
                                 type="button"
                                 disabled={!group.people.length && !group.expenses.length}
-                                className={cn(secondaryButton, "w-full px-4 text-ink-muted hover:text-destructive sm:w-auto")}
+                                className={cn(secondaryButton, "w-full bg-bg-soft px-4 text-[#4a4f57] hover:bg-[#f3e7ec] hover:text-destructive sm:w-auto")}
                             />
                         }
                     >

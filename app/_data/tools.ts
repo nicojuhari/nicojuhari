@@ -37,7 +37,7 @@ export const tools: Tool[] = [
   {
     slug: "square-image-cropper",
     title: "Square Image Cropper",
-    description: "Crop images to squares for digital menus",
+    description: "Crop photos to squares for menus, shops and posts",
     category: "business",
     accent: "#A2471A",
     tint: "#FBF1E8",
@@ -87,7 +87,7 @@ export const tools: Tool[] = [
   {
     slug: "bill-split-calculator",
     title: "Bill Split Calculator",
-    description: "Split bills with friends easily",
+    description: "Split a bill or shared trip costs",
     category: "everyday",
     accent: "#A2471A",
     tint: "#FBF1E8",

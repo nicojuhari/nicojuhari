@@ -3,7 +3,7 @@
 import { useId, useMemo, useState } from "react";
 import { useLocalStorage } from "usehooks-ts";
 import { ArrowLeftToLine, Check, Copy, X } from "lucide-react";
-import { Chip, Eyebrow, inputClass, primaryButton, secondaryButton } from "@/app/tools/_components/tool-ui";
+import { Chip, Eyebrow, iconButton, inputClass, primaryButton, secondaryButton } from "@/app/tools/_components/tool-ui";
 import { cn } from "@/lib/utils";
 import { CASES, FIXED_CASE, PRESETS, stats, transform, type CaseId, type PresetId } from "./transforms";
 
@@ -67,7 +67,7 @@ export default function WhitespaceRemover() {
     return (
         <div className="flex flex-col">
             {/* ── Options ── */}
-            <div className="flex flex-col gap-5 border-b border-line p-5 sm:p-8">
+            <div className="flex flex-col gap-5 p-5 pb-0 sm:p-8 sm:pb-0">
                 <div className="flex flex-col gap-2.5">
                     <Eyebrow>What should happen?</Eyebrow>
                     <div role="group" aria-label="Clean-up preset" className="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-5">
@@ -77,8 +77,8 @@ export default function WhitespaceRemover() {
                             </Chip>
                         ))}
                     </div>
-                    <p className="text-[13px] text-ink-faint">
-                        {current.hint} <span className="font-mono text-ink-muted">{current.example}</span>
+                    <p className="text-[13px] text-[#5b6068]">
+                        {current.hint} <span className="font-semibold whitespace-pre-wrap text-ink">{current.example}</span>
                     </p>
                 </div>
 
@@ -90,7 +90,7 @@ export default function WhitespaceRemover() {
                             </label>
                             <div className="flex gap-1.5">
                                 {["-", "_", ".", "/", "+"].map((s) => (
-                                    <Chip key={s} active={separator === s} onClick={() => update({ separator: s })} className="w-11 font-mono text-base">
+                                    <Chip key={s} active={separator === s} onClick={() => update({ separator: s })} className="w-11 text-base">
                                         {s}
                                     </Chip>
                                 ))}
@@ -101,7 +101,7 @@ export default function WhitespaceRemover() {
                                     onChange={(e) => update({ separator: e.target.value })}
                                     aria-label="Custom separator"
                                     placeholder="custom"
-                                    className={cn(inputClass, "h-11 w-24 text-center font-mono")}
+                                    className={cn(inputClass, "h-11 w-24 text-center")}
                                 />
                             </div>
                         </div>
@@ -109,7 +109,7 @@ export default function WhitespaceRemover() {
                     <div className="flex min-w-0 flex-col gap-2">
                         <span className="text-sm font-semibold text-ink">Letter case</span>
                         {caseFixed ? (
-                            <p className="flex h-11 items-center text-[13px] text-ink-faint">Set by the {current.label} format.</p>
+                            <p className="flex h-11 items-center text-[13px] text-[#5b6068]">Set by the {current.label} format.</p>
                         ) : (
                             <div role="group" aria-label="Letter case" className="flex flex-wrap gap-1.5">
                                 {CASES.map((c) => (
@@ -130,7 +130,7 @@ export default function WhitespaceRemover() {
                         <label htmlFor={`${id}-input`} className="text-sm font-semibold text-ink">
                             Your text
                         </label>
-                        <span className="font-mono text-xs text-ink-faint">
+                        <span className="text-[13px] text-[#5b6068] tabular-nums">
                             {before.chars.toLocaleString()} chars · {before.lines} {before.lines === 1 ? "line" : "lines"}
                         </span>
                     </div>
@@ -142,14 +142,14 @@ export default function WhitespaceRemover() {
                             onChange={(e) => setText(e.target.value)}
                             placeholder="Paste or type your text here…"
                             spellCheck={false}
-                            className={cn(inputClass, "h-auto min-h-64 resize-y py-3.5 font-mono text-sm leading-relaxed lg:min-h-80")}
+                            className={cn(inputClass, "h-auto min-h-64 resize-y py-3.5 pr-14 text-sm leading-relaxed lg:min-h-80")}
                         />
                         {text && (
                             <button
                                 type="button"
                                 onClick={() => setText("")}
                                 aria-label="Clear text"
-                                className="absolute top-2.5 right-2.5 flex size-9 items-center justify-center rounded-full bg-white/90 text-ink-faint transition-colors hover:bg-[#f4f3ef] hover:text-ink"
+                                className={cn(iconButton, "absolute top-1.5 right-1.5 bg-white text-[#5b6068] hover:text-ink")}
                             >
                                 <X className="size-4" aria-hidden />
                             </button>
@@ -160,12 +160,12 @@ export default function WhitespaceRemover() {
                     )}
                 </div>
 
-                <div className="flex flex-col gap-3 border-t border-rule bg-[#f5f7fb] p-5 sm:p-8 lg:border-t-0 lg:border-l">
+                <div className="flex flex-col gap-3 p-5 pt-0 sm:p-8 sm:pt-0 lg:pt-8 lg:pl-0">
                     <div className="flex items-center justify-between gap-3">
                         <span id={`${id}-result`} className="text-sm font-semibold text-ink">
                             Result
                         </span>
-                        <span className="font-mono text-xs text-ink-faint">
+                        <span className="text-[13px] text-[#5b6068] tabular-nums">
                             {after.chars.toLocaleString()} chars
                             {text && removed !== 0 && (
                                 <span className={removed > 0 ? "text-teal" : ""}>
@@ -179,15 +179,15 @@ export default function WhitespaceRemover() {
                         aria-labelledby={`${id}-result`}
                         aria-live="polite"
                         className={cn(
-                            "block max-h-[480px] min-h-64 overflow-auto rounded-[14px] border border-[#dce1eb] bg-white px-4 py-3.5 font-mono text-sm leading-relaxed break-words whitespace-pre-wrap text-ink lg:min-h-80",
-                            !result && "text-ink-faint"
+                            "block max-h-[480px] min-h-64 overflow-auto rounded-[24px] bg-[#e9ecf3] px-4 py-3.5 text-sm leading-relaxed break-words whitespace-pre-wrap text-ink sm:px-5 lg:min-h-80",
+                            !result && "text-[#5b6068]"
                         )}
                     >
                         {result ? showSpaces ? <VisibleWhitespace text={result} /> : result : "The cleaned text appears here."}
                     </output>
                     <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-                        <label className="flex items-center gap-2 text-[13px] text-ink-soft">
-                            <input type="checkbox" checked={showSpaces} onChange={(e) => setShowSpaces(e.target.checked)} className="size-4 accent-brand" />
+                        <label className="flex min-h-11 items-center gap-2 text-[13px] text-[#4a4f57]">
+                            <input type="checkbox" checked={showSpaces} onChange={(e) => setShowSpaces(e.target.checked)} className="size-5 accent-brand" />
                             Show spaces as ·
                         </label>
                         <div className="flex gap-2">

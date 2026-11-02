@@ -10,7 +10,7 @@ import { absoluteUrl, areaServed, businessRef, collectionSchema } from "@/app/_l
 export const metadata: Metadata = pageMetadata({
     title: "Websites & Custom Apps in Vienna | Nicojuhari",
     description:
-        "Find out why people don’t call or buy, then fix it. Websites that bring customers, and custom apps and automations that save time. Free first look.",
+        "Find out why people don’t call or buy, then fix it. Websites and ad landing pages that bring customers, and AI automations that save time. Free first look.",
     path: "/services",
 });
 

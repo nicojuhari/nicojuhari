@@ -27,9 +27,9 @@ export default function IconPicker({ onPick }: { onPick: (svg: string) => void }
     const names = Object.keys(ICONS).filter((n) => n.toLowerCase().includes(words));
 
     return (
-        <div className="flex flex-col gap-2 p-2">
-            <input value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Search icons" aria-label="Search icons" className={cn(inputClass, "h-10 text-sm")} />
-            <div role="group" aria-label="Icons" className="grid max-h-56 grid-cols-8 gap-1 overflow-y-auto sm:grid-cols-12">
+        <div className="flex flex-col gap-3 p-3">
+            <input value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Search icons" aria-label="Search icons" className={cn(inputClass, "h-11 text-sm")} />
+            <div role="group" aria-label="Icons" className="grid max-h-56 grid-cols-[repeat(auto-fill,minmax(44px,1fr))] gap-1 overflow-y-auto">
                 {names.map((name) => {
                     const Icon = ICONS[name];
                     return (
@@ -42,13 +42,13 @@ export default function IconPicker({ onPick }: { onPick: (svg: string) => void }
                                 const svg = e.currentTarget.querySelector("svg");
                                 if (svg) onPick(svg.outerHTML);
                             }}
-                            className="flex aspect-square items-center justify-center rounded-lg text-ink hover:bg-[#f4f3ef]"
+                            className="flex aspect-square items-center justify-center rounded-[12px] text-ink transition-colors hover:bg-bg-soft"
                         >
                             <Icon className="size-6" aria-hidden />
                         </button>
                     );
                 })}
-                {!names.length && <p className="col-span-full p-3 text-center text-[13px] text-ink-faint">No icons match “{query}”.</p>}
+                {!names.length && <p className="col-span-full p-3 text-center text-[13px] text-[#5b6068]">No icons match “{query}”.</p>}
             </div>
         </div>
     );

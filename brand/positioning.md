@@ -63,3 +63,7 @@ Data: LIVE (10 competitors; ad libraries not readable - Meta 403, Google needs a
 - Headline: "Your website looks fine. The problem is what happens after someone contacts you."
 ### 5. Pay once, own it, count everything (FAQ detail)
 - Headline: "You pay in stages, you own the system, and you see what every inquiry brought in."
+
+## 2026-11-02 Update - Ads angle and modern keywords
+Customers come from Google search, Google Maps AND ads (Google, Meta). Supporting angle: better pages make ads cheaper - Google rates the landing page (lower cost per click), and more visitors who call or book means a lower cost per customer. Landing pages for ads are part of Local Business Websites; Custom Web Apps covers AI automations, AI agents and automated flows (n8n, Make, Zapier).
+Writing rule change: keywords such as CRO, n8n, AI agents are now allowed, but only as a label next to a plain sentence, in lists, FAQs, meta descriptions and llms.txt. Never alone in a headline. This replaces the "avoid CRO in client-facing copy" line above.

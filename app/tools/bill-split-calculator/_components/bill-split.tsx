@@ -17,8 +17,8 @@ export default function BillSplit() {
 
     return (
         <div>
-            <div className="border-b border-line p-3 sm:p-4">
-                <div role="tablist" aria-label="Calculator mode" className="grid grid-cols-2 gap-1 rounded-2xl bg-[#f4f3ef] p-1">
+            <div className="px-5 pt-5 sm:px-8 sm:pt-8">
+                <div role="tablist" aria-label="Calculator mode" className="grid grid-cols-2 gap-1 rounded-[16px] bg-bg-soft p-1.5">
                     {MODES.map((m) => (
                         <button
                             key={m.id}
@@ -27,12 +27,12 @@ export default function BillSplit() {
                             aria-selected={mode === m.id}
                             onClick={() => setMode(m.id)}
                             className={cn(
-                                "flex flex-col items-center justify-center rounded-xl px-3 py-2.5 transition-colors sm:py-3",
-                                mode === m.id ? "bg-white text-ink shadow-[0_1px_2px_rgba(17,20,24,0.08)]" : "text-ink-muted hover:text-ink"
+                                "flex min-h-11 flex-col items-center justify-center rounded-[12px] px-3 py-2.5 transition-colors sm:py-3",
+                                mode === m.id ? "bg-white text-ink shadow-[0_1px_3px_rgba(17,20,24,0.12)]" : "text-[#4a4f57] hover:text-ink"
                             )}
                         >
                             <span className="text-sm font-semibold">{m.label}</span>
-                            <span className="hidden text-xs text-ink-faint sm:block">{m.hint}</span>
+                            <span className="hidden text-xs text-[#5b6068] sm:block">{m.hint}</span>
                         </button>
                     ))}
                 </div>

@@ -71,11 +71,11 @@ export default function ContactFormInner({ onSuccess }: Props) {
             </div>
             <div className="space-y-1.5">
                 <Label htmlFor="message">Message</Label>
-                <Textarea id="message" placeholder="Tell me about your project" className="min-h-30 resize-none" {...register("message")} />
+                <Textarea id="message" placeholder="What do you need help with?" className="min-h-30 resize-none" {...register("message")} />
                 {errors.message && <p className="text-sm text-destructive">{errors.message.message}</p>}
             </div>
             <div className="flex items-center justify-between gap-4">
-                {sent && <p className="text-sm text-green-600 font-medium">Message sent! I&apos;ll be in touch shortly.</p>}
+                {sent && <p className="text-sm text-green-600 font-medium">Message sent. I&apos;ll reply within 24 hours.</p>}
                 <Button type="submit" className="ml-auto px-8" disabled={isSubmitting || sent}>
                     {isSubmitting ? "Sending…" : "Send message"}
                 </Button>

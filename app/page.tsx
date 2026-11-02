@@ -16,10 +16,10 @@ const SEND_TEXT = "Hi Nick, please take a look at my website: ";
 
 /** The customer path the hero card shows; the last step is highlighted */
 const flow = [
-    { icon: Search, title: "People find you", text: "On Google and Google Maps" },
+    { icon: Search, title: "People find you", text: "On Google, Google Maps and your ads" },
     { icon: Phone, title: "They call, book or order", text: "One tap, on any phone" },
-    { icon: MessageCircle, title: "You reply fast", text: "Requests go straight to your phone" },
-    { icon: ChartLine, title: "You see what came in", text: "Calls, bookings and orders, each month" },
+    { icon: MessageCircle, title: "You reply fast", text: "Automatic replies and follow-ups" },
+    { icon: ChartLine, title: "You see what came in", text: "Calls, bookings and orders from each source" },
 ];
 
 const results = [
@@ -95,7 +95,7 @@ export default function Home() {
                 <div className="relative flex flex-col gap-5 overflow-hidden rounded-[24px] bg-brand p-5.5 text-white sm:rounded-[28px] sm:p-10">
                     <span className="absolute -top-20 -right-20 size-64 rounded-full bg-[#1d3463]" aria-hidden />
                     <p className="relative text-xs font-semibold tracking-[0.08em] text-[#b9c3dc] uppercase sm:text-[13px]">
-                        One system, from search to sale
+                        One system, from first click to sale
                     </p>
                     <ol className="relative flex flex-col gap-2.5 sm:gap-3.5">
                         <span className="absolute top-7 bottom-7 left-[26px] w-0.5 bg-[#2c4377]" aria-hidden>

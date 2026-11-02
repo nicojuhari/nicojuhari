@@ -19,7 +19,7 @@ import {
     ZoomOut,
 } from "lucide-react";
 import { useLocalStorage } from "usehooks-ts";
-import { Chip, Eyebrow, inputClass, primaryButton, secondaryButton } from "@/app/tools/_components/tool-ui";
+import { Chip, Eyebrow, iconButton, inputClass, primaryButton, secondaryButton } from "@/app/tools/_components/tool-ui";
 import { cn } from "@/lib/utils";
 import { createZip } from "./zip";
 
@@ -130,7 +130,9 @@ export default function ImageCropper() {
 
     // Release image memory when leaving the page
     const itemsRef = useRef(items);
-    itemsRef.current = items;
+    useEffect(() => {
+        itemsRef.current = items;
+    });
     useEffect(() => () => itemsRef.current.forEach((i) => URL.revokeObjectURL(i.url)), []);
 
     const addFiles = useCallback(
@@ -299,7 +301,7 @@ export default function ImageCropper() {
     );
 
     const errorList = errors.length > 0 && (
-        <ul role="alert" className="flex flex-col gap-1 rounded-xl bg-destructive/8 px-4 py-3 text-[13px] text-destructive">
+        <ul role="alert" className="flex flex-col gap-1 rounded-[14px] bg-destructive/8 px-4 py-3 text-[13px] text-destructive">
             {errors.map((e) => (
                 <li key={e}>{e}</li>
             ))}
@@ -320,16 +322,16 @@ export default function ImageCropper() {
                     onDragLeave={() => setDragging(false)}
                     onDrop={onDrop}
                     className={cn(
-                        "flex cursor-pointer flex-col items-center gap-4 rounded-3xl border-2 border-dashed px-6 py-14 text-center transition-colors focus-within:border-brand/50 sm:py-20",
-                        dragging ? "border-brand bg-[#eef1f7]" : "border-[#d9d5cc] bg-[#faf9f6] hover:border-ink/30"
+                        "flex cursor-pointer flex-col items-center gap-4 rounded-[24px] border-2 border-dashed bg-[#e9ecf3] px-6 py-14 text-center transition-colors focus-within:border-brand sm:py-20",
+                        dragging ? "border-brand" : "border-[#c9d1e2] hover:border-brand"
                     )}
                 >
-                    <span className="flex size-14 items-center justify-center rounded-2xl border border-rule bg-white text-brand">
+                    <span className="flex size-14 items-center justify-center rounded-[16px] bg-white text-brand">
                         <ImagePlus className="size-6" aria-hidden />
                     </span>
                     <span className="flex flex-col gap-1">
                         <span className="text-lg font-semibold text-ink">Drop images here or choose files</span>
-                        <span className="text-sm text-ink-muted">
+                        <span className="text-sm text-[#4a4f57]">
                             JPG, PNG or WebP - up to {MAX_FILES} at once. You can also paste an image with ⌘V / Ctrl+V.
                         </span>
                     </span>
@@ -343,14 +345,13 @@ export default function ImageCropper() {
 
     // ─── Editor ──────────────────────────────────────────────────────────────
 
-    const toolButton =
-        "flex size-11 items-center justify-center rounded-xl border border-rule bg-white text-ink-soft transition-colors hover:border-ink/25 hover:text-ink";
+    const toolButton = iconButton;
 
     return (
         <div className="grid grid-cols-[minmax(0,1fr)] lg:grid-cols-[minmax(0,1fr)_minmax(320px,380px)]">
             <div className="flex min-w-0 flex-col gap-4 p-5 sm:p-8">
                 {active && (
-                    <div className="overflow-hidden rounded-2xl bg-[#1d2330]">
+                    <div className="overflow-hidden rounded-[24px] bg-[#1d2330]">
                         <Cropper
                             key={active.id}
                             ref={cropperRef}
@@ -377,7 +378,7 @@ export default function ImageCropper() {
                     <button type="button" onClick={() => cropperRef.current?.flipImage(false, true)} aria-label="Flip vertically" className={toolButton}>
                         <FlipVertical2 className="size-4" aria-hidden />
                     </button>
-                    <span className="mx-1 h-6 w-px bg-rule" aria-hidden />
+                    <span className="w-2" aria-hidden />
                     <button type="button" onClick={() => cropperRef.current?.zoomImage(1.25)} aria-label="Zoom in" className={toolButton}>
                         <ZoomIn className="size-4" aria-hidden />
                     </button>
@@ -402,11 +403,11 @@ export default function ImageCropper() {
                         <Eyebrow>
                             {items.length} {items.length === 1 ? "image" : "images"}
                         </Eyebrow>
-                        <button type="button" onClick={clearAll} className="text-[13px] font-semibold text-ink-muted hover:text-destructive">
+                        <button type="button" onClick={clearAll} className="inline-flex min-h-11 items-center text-[13px] font-semibold text-[#5b6068] hover:text-destructive">
                             Remove all
                         </button>
                     </div>
-                    <ul className="flex gap-2 overflow-x-auto pb-1">
+                    <ul className="flex gap-2 overflow-x-auto pt-2 pr-2 pb-1">
                         {items.map((item) => (
                             <li key={item.id} className="relative shrink-0">
                                 <button
@@ -418,8 +419,8 @@ export default function ImageCropper() {
                                     aria-label={`Edit ${item.name}`}
                                     aria-current={item.id === activeId}
                                     className={cn(
-                                        "block size-16 overflow-hidden rounded-xl border-2 bg-[#f4f3ef] transition-colors",
-                                        item.id === activeId ? "border-brand" : "border-transparent hover:border-ink/25"
+                                        "block size-16 overflow-hidden rounded-[14px] border-2 bg-bg-soft transition-colors",
+                                        item.id === activeId ? "border-brand" : "border-transparent hover:border-[#c9d1e2]"
                                     )}
                                 >
                                     {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -429,7 +430,7 @@ export default function ImageCropper() {
                                     type="button"
                                     onClick={() => removeItem(item.id)}
                                     aria-label={`Remove ${item.name}`}
-                                    className="absolute -top-1.5 -right-1.5 flex size-6 items-center justify-center rounded-full border border-rule bg-white text-ink-muted shadow-sm hover:text-destructive"
+                                    className="absolute -top-1.5 -right-1.5 flex size-6 items-center justify-center rounded-full bg-white text-[#5b6068] shadow-[0_1px_3px_rgba(17,20,24,0.12)] hover:text-destructive"
                                 >
                                     <X className="size-3" aria-hidden />
                                 </button>
@@ -438,7 +439,7 @@ export default function ImageCropper() {
                         <li className="shrink-0">
                             <label
                                 htmlFor={`${id}-file`}
-                                className="flex size-16 cursor-pointer items-center justify-center rounded-xl border-2 border-dashed border-[#d9d5cc] text-ink-faint transition-colors hover:border-ink/30 hover:text-ink"
+                                className="flex size-16 cursor-pointer items-center justify-center rounded-[14px] border-2 border-dashed border-[#c9d1e2] bg-[#e9ecf3] text-brand transition-colors hover:border-brand"
                                 title="Add images"
                             >
                                 <Plus className="size-5" aria-hidden />
@@ -448,31 +449,31 @@ export default function ImageCropper() {
                         </li>
                     </ul>
                     {items.length > 1 && (
-                        <p className="text-[13px] text-ink-faint">Images you don’t adjust are cropped from the center.</p>
+                        <p className="text-[13px] text-[#5b6068]">Images you don’t adjust are cropped from the center.</p>
                     )}
                 </div>
                 {errorList}
             </div>
 
             {/* ── Output ── */}
-            <div className="border-t border-rule bg-[#f5f7fb] lg:border-t-0 lg:border-l">
-                <div className="flex flex-col gap-6 p-5 sm:p-8 lg:sticky lg:top-24">
-                    <div className="flex items-center gap-4">
-                        <div className="size-24 shrink-0 overflow-hidden rounded-2xl border border-[#dce1eb] bg-[repeating-conic-gradient(#eef0f4_0%_25%,#fff_0%_50%)] bg-[length:12px_12px]">
+            <div className="px-5 pb-5 sm:px-8 sm:pb-8 lg:pt-8 lg:pl-0">
+                <div className="flex flex-col gap-6 lg:sticky lg:top-24">
+                    <div className="flex items-center gap-4 rounded-[24px] bg-[#e9ecf3] p-4">
+                        <div className="size-24 shrink-0 overflow-hidden rounded-[16px] bg-[repeating-conic-gradient(#eef0f4_0%_25%,#fff_0%_50%)] bg-[length:12px_12px]">
                             {/* eslint-disable-next-line @next/next/no-img-element */}
                             {preview && <img src={preview} alt="Crop preview" className="size-full object-cover" />}
                         </div>
                         <div className="flex min-w-0 flex-col gap-1">
                             <Eyebrow>Preview</Eyebrow>
                             <p className="truncate text-sm font-semibold text-ink">{active?.name}</p>
-                            <p className="font-mono text-xs text-ink-faint">
+                            <p className="text-[13px] text-[#4a4f57] tabular-nums">
                                 crop {cropSide} × {cropSide} px → {output.size} × {output.size} px
                             </p>
                         </div>
                     </div>
 
                     {upscaled && (
-                        <p className="flex gap-2 rounded-xl border border-amber-200 bg-amber-50 px-3.5 py-2.5 text-[13px] leading-snug text-amber-900">
+                        <p className="flex gap-2 rounded-[14px] bg-amber-50 px-3.5 py-2.5 text-[13px] leading-snug text-amber-900">
                             <AlertTriangle className="mt-0.5 size-4 shrink-0" aria-hidden />
                             Your crop is {cropSide} px - enlarging it to {output.size} px may look soft. Pick a smaller size or a bigger area.
                         </p>
@@ -482,13 +483,13 @@ export default function ImageCropper() {
                         <span className="text-sm font-semibold text-ink">Size</span>
                         <div role="group" aria-label="Output size" className="grid grid-cols-4 gap-2">
                             {SIZE_PRESETS.map((s) => (
-                                <Chip key={s} active={!customSize && output.size === s} onClick={() => setSize(s)} className="font-mono">
+                                <Chip key={s} active={!customSize && output.size === s} onClick={() => setSize(s)} className="tabular-nums">
                                     {s}
                                 </Chip>
                             ))}
                         </div>
                         <div className="flex items-center gap-2">
-                            <label htmlFor={`${id}-custom`} className="text-[13px] text-ink-muted">
+                            <label htmlFor={`${id}-custom`} className="text-[13px] text-[#4a4f57]">
                                 Custom
                             </label>
                             <input
@@ -503,9 +504,9 @@ export default function ImageCropper() {
                                 }}
                                 placeholder={String(output.size)}
                                 aria-invalid={Boolean(customError) || undefined}
-                                className={cn(inputClass, "h-10 w-24 text-center font-mono text-sm")}
+                                className={cn(inputClass, "h-11 w-24 text-center text-sm tabular-nums")}
                             />
-                            <span className="text-[13px] text-ink-faint">px</span>
+                            <span className="text-[13px] text-[#5b6068]">px</span>
                         </div>
                         {customError && <p className="text-[13px] text-destructive">{customError}</p>}
                     </div>
@@ -519,14 +520,14 @@ export default function ImageCropper() {
                                 </Chip>
                             ))}
                         </div>
-                        <p className="text-[13px] text-ink-faint">{format.hint}</p>
+                        <p className="text-[13px] text-[#5b6068]">{format.hint}</p>
                     </div>
 
                     {output.format !== "image/png" && (
                         <label className="flex flex-col gap-2">
                             <span className="flex justify-between text-sm font-semibold text-ink">
                                 Quality
-                                <span className="font-mono font-medium text-ink-faint">{output.quality}%</span>
+                                <span className="font-medium text-[#5b6068] tabular-nums">{output.quality}%</span>
                             </span>
                             <input
                                 type="range"
@@ -535,7 +536,7 @@ export default function ImageCropper() {
                                 step={5}
                                 value={output.quality}
                                 onChange={(e) => setOutput((o) => ({ ...o, quality: Number(e.target.value) }))}
-                                className="w-full accent-brand"
+                                className="h-11 w-full accent-brand"
                             />
                         </label>
                     )}
@@ -551,7 +552,7 @@ export default function ImageCropper() {
                                 Download all {items.length} as ZIP
                             </button>
                         )}
-                        <p aria-live="polite" className="min-h-5 text-center text-xs text-ink-faint">
+                        <p aria-live="polite" className="min-h-5 text-center text-[13px] text-[#5b6068]">
                             {estimate && `Last file: ${estimate}`}
                         </p>
                     </div>

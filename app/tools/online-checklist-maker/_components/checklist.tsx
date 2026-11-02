@@ -14,7 +14,7 @@ import {
     AlertDialogTitle,
     AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
-import { Eyebrow, inputClass, PillTabs, primaryButton, secondaryButton } from "@/app/tools/_components/tool-ui";
+import { Eyebrow, iconButton, inputClass, PillTabs, primaryButton, secondaryButton } from "@/app/tools/_components/tool-ui";
 import { cn } from "@/lib/utils";
 import {
     downloadText,
@@ -36,7 +36,7 @@ const DEFAULT_TITLE = "My checklist";
 const EMPTY: Task[] = [];
 
 const actionButton =
-    "inline-flex h-11 items-center gap-2.5 rounded-xl px-3 text-sm font-medium text-ink-soft transition-colors hover:bg-white hover:text-ink disabled:pointer-events-none disabled:opacity-40";
+    "inline-flex h-11 items-center gap-2.5 rounded-[12px] px-3 text-sm font-medium text-[#4a4f57] transition-colors hover:bg-white hover:text-ink disabled:pointer-events-none disabled:opacity-40";
 
 export default function Checklist() {
     const id = useId();
@@ -215,9 +215,9 @@ export default function Checklist() {
                         maxLength={60}
                         onChange={(e) => setTitle(e.target.value)}
                         onBlur={() => !title.trim() && setTitle(DEFAULT_TITLE)}
-                        className="-mx-2 rounded-lg px-2 py-1 text-2xl font-semibold tracking-[-0.02em] text-ink outline-none hover:bg-[#faf9f6] focus:bg-[#faf9f6] focus:ring-4 focus:ring-brand/8"
+                        className="-mx-2 min-h-11 rounded-[12px] px-2 py-1 text-2xl font-semibold tracking-[-0.02em] text-ink outline-none hover:bg-bg-soft focus:bg-bg-soft focus:ring-2 focus:ring-teal"
                     />
-                    <p className="text-[13px] text-ink-faint">Tap the name to rename your list.</p>
+                    <p className="text-[13px] text-[#5b6068]">Tap the name to rename your list.</p>
                 </div>
 
                 {/* Add */}
@@ -263,7 +263,7 @@ export default function Checklist() {
                         <button
                             type="button"
                             onClick={() => setShowNotes(true)}
-                            className="inline-flex items-center gap-1.5 self-start py-1 text-[13px] font-semibold text-brand hover:text-teal"
+                            className="inline-flex min-h-11 items-center gap-1.5 self-start text-[13px] font-semibold text-brand hover:text-teal"
                         >
                             <StickyNote className="size-3.5" aria-hidden />
                             Add a note
@@ -289,7 +289,7 @@ export default function Checklist() {
                             ]}
                         />
                         {undo && (
-                            <span className="flex items-center gap-2 text-[13px] text-ink-muted">
+                            <span className="flex items-center gap-2 text-[13px] text-[#4a4f57]">
                                 <span className="max-w-48 truncate">{undo.label}</span>
                                 <button
                                     type="button"
@@ -297,7 +297,7 @@ export default function Checklist() {
                                         setTasks(undo.snapshot);
                                         setUndo(null);
                                     }}
-                                    className="inline-flex items-center gap-1 font-semibold text-brand hover:text-teal"
+                                    className="inline-flex min-h-11 items-center gap-1 font-semibold text-brand hover:text-teal"
                                 >
                                     <Undo2 className="size-3.5" aria-hidden />
                                     Undo
@@ -309,22 +309,22 @@ export default function Checklist() {
 
                 {/* Tasks */}
                 {tasks.length === 0 ? (
-                    <div className="flex flex-col items-center gap-4 rounded-2xl border border-dashed border-rule px-5 py-10 text-center">
-                        <p className="text-sm text-ink-muted">No tasks yet. Add one above, paste a list, or start from a template:</p>
+                    <div className="flex flex-col items-center gap-4 rounded-[24px] bg-bg-soft px-5 py-10 text-center">
+                        <p className="text-sm text-[#4a4f57]">No tasks yet. Add one above, paste a list, or start from a template:</p>
                         <div className="flex flex-wrap justify-center gap-2">
                             {TEMPLATES.map((t) => (
-                                <button key={t.id} type="button" onClick={() => addTemplate(t.id)} className={cn(secondaryButton, "h-10 px-4 text-[13px]")}>
+                                <button key={t.id} type="button" onClick={() => addTemplate(t.id)} className={cn(secondaryButton, "h-11 bg-white px-4 text-[13px] hover:bg-white/70")}>
                                     {t.label}
                                 </button>
                             ))}
                         </div>
                     </div>
                 ) : visible.length === 0 ? (
-                    <p className="rounded-2xl border border-dashed border-rule px-5 py-8 text-center text-sm text-ink-faint">
+                    <p className="rounded-[24px] bg-bg-soft px-5 py-8 text-center text-sm text-[#5b6068]">
                         {filter === "todo" ? "Everything is done." : "Nothing ticked off yet."}
                     </p>
                 ) : (
-                    <ul className="flex flex-col divide-y divide-line rounded-2xl border border-rule" onPointerMove={onDragMove} onPointerUp={endDrag} onPointerCancel={endDrag}>
+                    <ul className="flex flex-col gap-2" onPointerMove={onDragMove} onPointerUp={endDrag} onPointerCancel={endDrag}>
                         {visible.map((task) => {
                             const isEditing = editing?.id === task.id;
                             return (
@@ -335,8 +335,9 @@ export default function Checklist() {
                                         else rowRefs.current.delete(task.id);
                                     }}
                                     className={cn(
-                                        "flex items-start gap-1 py-1.5 pr-1.5 pl-1 transition-colors",
-                                        draggingId === task.id && "relative z-10 rounded-xl bg-[#eef1f7] shadow-[0_8px_24px_-12px_rgba(22,40,77,0.4)]"
+                                        "flex items-start gap-1 rounded-[14px] bg-bg-soft py-1.5 pr-1.5 pl-1 transition-colors",
+                                        task.completed && !isEditing && "bg-[#e3f1ee]",
+                                        draggingId === task.id && "relative z-10 bg-[#e9ecf3] shadow-[0_8px_24px_-12px_rgba(22,40,77,0.4)]"
                                     )}
                                 >
                                     {canReorder ? (
@@ -350,7 +351,7 @@ export default function Checklist() {
                                                 }
                                             }}
                                             aria-label={`Move “${task.title}” - drag, or use the arrow keys`}
-                                            className="flex h-11 w-7 shrink-0 cursor-grab touch-none items-center justify-center rounded-lg text-ink-faint/70 hover:text-ink active:cursor-grabbing"
+                                            className="flex size-11 shrink-0 cursor-grab touch-none items-center justify-center rounded-[12px] text-[#5b6068] hover:text-ink active:cursor-grabbing"
                                         >
                                             <GripVertical className="size-4" aria-hidden />
                                         </button>
@@ -370,7 +371,7 @@ export default function Checklist() {
                                                     if (e.key === "Enter") saveEdit();
                                                     if (e.key === "Escape") setEditing(null);
                                                 }}
-                                                className={cn(inputClass, "h-11 text-[15px]")}
+                                                className={cn(inputClass, "h-11 bg-white text-[15px]")}
                                             />
                                             <textarea
                                                 aria-label="Note"
@@ -380,13 +381,13 @@ export default function Checklist() {
                                                 onKeyDown={(e) => e.key === "Escape" && setEditing(null)}
                                                 rows={2}
                                                 placeholder="Note (optional)"
-                                                className={cn(inputClass, "h-auto resize-y py-2.5 text-sm")}
+                                                className={cn(inputClass, "h-auto resize-y bg-white py-2.5 text-sm")}
                                             />
                                             <div className="flex justify-end gap-2">
-                                                <button type="button" onClick={() => setEditing(null)} className={cn(secondaryButton, "h-10 px-4 text-[13px]")}>
+                                                <button type="button" onClick={() => setEditing(null)} className={cn(secondaryButton, "h-11 bg-white px-4 text-[13px] hover:bg-white/70")}>
                                                     Cancel
                                                 </button>
-                                                <button type="button" onClick={saveEdit} className={cn(primaryButton, "h-10 px-4 text-[13px]")}>
+                                                <button type="button" onClick={saveEdit} className={cn(primaryButton, "h-11 px-4 text-[13px]")}>
                                                     <Check className="size-4" aria-hidden />
                                                     Save
                                                 </button>
@@ -395,23 +396,26 @@ export default function Checklist() {
                                     ) : (
                                         <>
                                             <label className="flex min-w-0 flex-1 cursor-pointer items-start gap-3 py-2.5">
-                                                <input
-                                                    type="checkbox"
-                                                    checked={task.completed}
-                                                    onChange={() => toggle(task.id)}
-                                                    className="mt-0.5 size-5 shrink-0 cursor-pointer accent-teal"
-                                                />
+                                                <span className="relative mt-px flex size-6 shrink-0">
+                                                    <input
+                                                        type="checkbox"
+                                                        checked={task.completed}
+                                                        onChange={() => toggle(task.id)}
+                                                        className="peer size-6 cursor-pointer appearance-none rounded-[8px] bg-white ring-2 ring-[#c9d1e2] ring-inset transition-colors checked:bg-teal checked:ring-teal focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
+                                                    />
+                                                    <Check className="pointer-events-none absolute inset-1 hidden size-4 text-white peer-checked:block" strokeWidth={3} aria-hidden />
+                                                </span>
                                                 <span className="flex min-w-0 flex-col gap-0.5">
                                                     <span
                                                         className={cn(
                                                             "text-[15px] leading-snug break-words text-ink",
-                                                            task.completed && "text-ink-faint line-through"
+                                                            task.completed && "text-[#5b6068] line-through"
                                                         )}
                                                     >
                                                         {task.title}
                                                     </span>
                                                     {task.notes && (
-                                                        <span className="text-[13px] leading-snug break-words whitespace-pre-line text-ink-faint">
+                                                        <span className="text-[13px] leading-snug break-words whitespace-pre-line text-[#5b6068]">
                                                             {task.notes}
                                                         </span>
                                                     )}
@@ -424,7 +428,7 @@ export default function Checklist() {
                                                     setError("");
                                                 }}
                                                 aria-label={`Edit “${task.title}”`}
-                                                className="flex size-10 shrink-0 items-center justify-center rounded-full text-ink-faint transition-colors hover:bg-[#f4f3ef] hover:text-ink"
+                                                className={cn(iconButton, "bg-transparent text-[#5b6068] hover:bg-white hover:text-ink")}
                                             >
                                                 <Pencil className="size-4" aria-hidden />
                                             </button>
@@ -432,7 +436,7 @@ export default function Checklist() {
                                                 type="button"
                                                 onClick={() => remove(task)}
                                                 aria-label={`Delete “${task.title}”`}
-                                                className="flex size-10 shrink-0 items-center justify-center rounded-full text-ink-faint transition-colors hover:bg-[#f4f3ef] hover:text-destructive"
+                                                className={cn(iconButton, "bg-transparent text-[#5b6068] hover:bg-white hover:text-destructive")}
                                             >
                                                 <Trash2 className="size-4" aria-hidden />
                                             </button>
@@ -446,13 +450,13 @@ export default function Checklist() {
             </div>
 
             {/* ── Side panel ── */}
-            <div className="border-t border-rule bg-[#f5f7fb] lg:border-t-0 lg:border-l">
-                <div className="flex flex-col gap-6 p-5 sm:p-8 lg:sticky lg:top-24">
+            <div className="px-5 pb-5 sm:px-8 sm:pb-8 lg:pt-8 lg:pl-0">
+                <div className="flex flex-col gap-6 rounded-[20px] bg-bg-soft p-4 sm:p-5 lg:sticky lg:top-24">
                     <div className="flex flex-col gap-3">
                         <Eyebrow>Progress</Eyebrow>
                         <p className="flex items-baseline gap-2">
-                            <span className="font-mono text-[40px] leading-none font-semibold tracking-[-0.03em] text-ink">{done}</span>
-                            <span className="text-sm text-ink-muted">of {tasks.length} done</span>
+                            <span className="text-[40px] leading-none font-semibold tracking-[-0.03em] text-ink tabular-nums">{done}</span>
+                            <span className="text-sm text-[#4a4f57]">of {tasks.length} done</span>
                         </p>
                         <div
                             role="progressbar"
@@ -460,7 +464,7 @@ export default function Checklist() {
                             aria-valuenow={percent}
                             aria-valuemin={0}
                             aria-valuemax={100}
-                            className="h-2.5 overflow-hidden rounded-full bg-[#dfe4ee]"
+                            className="h-2.5 overflow-hidden rounded-full bg-white"
                         >
                             <div className="h-full rounded-full bg-teal transition-[width] duration-300" style={{ width: `${percent}%` }} />
                         </div>
@@ -486,7 +490,7 @@ export default function Checklist() {
                             <Printer className="size-4" aria-hidden />
                             Print
                         </button>
-                        <div className="my-1.5 h-px bg-[#dce1eb]" />
+                        <div className="h-3" />
                         <button
                             type="button"
                             onClick={() => withUndo("Unchecked all", (prev) => prev.map((t) => ({ ...t, completed: false })))}
@@ -532,7 +536,7 @@ export default function Checklist() {
                                 </AlertDialogFooter>
                             </AlertDialogContent>
                         </AlertDialog>
-                        <p aria-live="polite" className="min-h-5 pt-1 text-xs text-ink-faint">
+                        <p aria-live="polite" className="min-h-5 pt-1 text-[13px] text-[#5b6068]">
                             {notice}
                         </p>
                     </div>
@@ -546,7 +550,7 @@ export default function Checklist() {
                                         key={t.id}
                                         type="button"
                                         onClick={() => addTemplate(t.id)}
-                                        className="h-9 rounded-full border border-[#dce1eb] bg-white px-3.5 text-[13px] font-semibold text-ink-soft transition-colors hover:border-ink/25 hover:text-ink"
+                                        className="h-11 rounded-full bg-white px-4 text-[13px] font-semibold text-[#4a4f57] transition-colors hover:bg-[#e9ecf3] hover:text-brand"
                                     >
                                         {t.label}
                                     </button>

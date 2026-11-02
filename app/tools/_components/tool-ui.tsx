@@ -2,8 +2,9 @@ import { cn } from "@/lib/utils";
 
 /** Shared form pieces for the tool pages */
 
+/** Filled input: off-white fill, no border until focus. On an off-white surface, add `bg-white` */
 export const inputClass =
-    "h-12 w-full min-w-0 rounded-[14px] border border-[#d9d5cc] bg-white px-4 text-base text-ink outline-none transition-[border-color,box-shadow] placeholder:text-ink-faint/70 focus:border-brand/40 focus:ring-4 focus:ring-brand/8 disabled:bg-[#faf9f6] disabled:text-ink-faint aria-invalid:border-destructive aria-invalid:ring-destructive/10";
+    "h-12 w-full min-w-0 rounded-[14px] border-2 border-transparent bg-bg-soft px-4 text-base text-ink outline-none transition-[border-color,background-color] placeholder:text-[#5b6068]/70 focus:border-teal focus:bg-white disabled:opacity-60 aria-invalid:border-destructive";
 
 export function Field({
     label,
@@ -31,7 +32,7 @@ export function Field({
                     {error}
                 </p>
             ) : (
-                hint && <p className="text-[13px] text-ink-faint">{hint}</p>
+                hint && <p className="text-[13px] text-[#5b6068]">{hint}</p>
             )}
         </div>
     );
@@ -59,8 +60,8 @@ export function Chip({
             aria-pressed={active}
             onClick={onClick}
             className={cn(
-                "flex h-11 min-w-0 items-center justify-center gap-2 rounded-xl border px-2.5 text-[13px] font-semibold transition-colors",
-                active ? "border-brand bg-[#eef1f7] text-brand" : "border-rule bg-white text-ink-soft hover:border-ink/25 hover:text-ink",
+                "flex h-11 min-w-0 items-center justify-center gap-2 rounded-[12px] px-3 text-sm font-semibold transition-colors",
+                active ? "bg-brand text-white" : "bg-bg-soft text-ink hover:bg-[#ece9e2]",
                 className
             )}
         >
@@ -71,7 +72,7 @@ export function Chip({
 
 export function Eyebrow({ children, className }: { children: React.ReactNode; className?: string }) {
     return (
-        <p className={cn("font-mono text-[11px] font-semibold tracking-[0.14em] text-ink-faint uppercase", className)}>{children}</p>
+        <p className={cn("text-sm font-semibold text-ink", className)}>{children}</p>
     );
 }
 
@@ -88,7 +89,7 @@ export function PillTabs<T extends string>({
     label: string;
 }) {
     return (
-        <div role="group" aria-label={label} className="-mx-1 flex gap-1.5 overflow-x-auto px-1 pb-1 [scrollbar-width:none]">
+        <div role="group" aria-label={label} className="flex max-w-full gap-1 self-start overflow-x-auto rounded-[16px] bg-bg-soft p-1.5 [scrollbar-width:none]">
             {options.map((o) => (
                 <button
                     key={o.id}
@@ -96,8 +97,8 @@ export function PillTabs<T extends string>({
                     aria-pressed={value === o.id}
                     onClick={() => onChange(o.id)}
                     className={cn(
-                        "h-10 shrink-0 rounded-full border px-4 text-[13px] font-semibold whitespace-nowrap transition-colors",
-                        value === o.id ? "border-brand bg-brand text-white" : "border-rule bg-white text-ink-soft hover:border-ink/25 hover:text-ink"
+                        "h-11 shrink-0 rounded-[12px] px-4 text-sm font-semibold whitespace-nowrap transition-colors",
+                        value === o.id ? "bg-white text-ink shadow-[0_1px_3px_rgba(17,20,24,0.12)]" : "text-[#4a4f57] hover:text-ink"
                     )}
                 >
                     {o.label}
@@ -108,7 +109,11 @@ export function PillTabs<T extends string>({
 }
 
 export const primaryButton =
-    "inline-flex h-12 items-center justify-center gap-2 rounded-full bg-brand px-5 text-sm font-semibold text-white transition-colors hover:bg-brand/90 disabled:opacity-40";
+    "inline-flex h-12 items-center justify-center gap-2 rounded-full bg-teal px-5.5 text-[15px] font-semibold text-white transition-colors hover:bg-teal/90 disabled:opacity-40";
 
 export const secondaryButton =
-    "inline-flex h-12 items-center justify-center gap-2 rounded-full border border-[#dce1eb] bg-white px-5 text-sm font-semibold text-ink transition-colors hover:border-ink/25 disabled:opacity-40";
+    "inline-flex h-12 items-center justify-center gap-2 rounded-full bg-[#e9ecf3] px-5.5 text-[15px] font-semibold text-brand transition-colors hover:bg-[#dfe4ee] disabled:opacity-40";
+
+/** Round icon-only button (add `aria-label`) */
+export const iconButton =
+    "inline-flex size-11 shrink-0 items-center justify-center rounded-full bg-bg-soft text-ink transition-colors hover:bg-[#ece9e2] disabled:opacity-40";

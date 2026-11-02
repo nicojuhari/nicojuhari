@@ -86,7 +86,7 @@ export const projects: Project[] = [
         stack: ["Next.js", "React", "Supabase", "Tailwind CSS", "Stripe"],
         stackShort: "Next.js · Supabase · Stripe",
         description:
-            "Offers, invoices, income and expenses for Austrian self-employed people. The numbers are finished on any day, and the handoff to the tax advisor takes minutes.",
+            "Offers, invoices, income and expenses for Austrian self-employed people. Your numbers are ready on any day. Sending them to the tax advisor takes minutes.",
         overview:
             "Offers, invoices, income and expenses for one-person businesses in Austria (EPU) - an offer becomes an invoice, the payment becomes income, and each income lands in the right E1a category.",
         contribution:
@@ -175,23 +175,6 @@ export const projects: Project[] = [
     },
 
     // ── Client work ──
-    {
-        slug: "vino-vistara",
-        title: "Vino Vistara",
-        year: 2025,
-        stack: ["Shopify", "Liquid"],
-        stackShort: "Shopify · Horizon theme",
-        description: "Shopify wine store, built on the Horizon theme.",
-        overview: "An online wine store on Shopify.",
-        contribution: "Set up the store and customised the Horizon theme.",
-        type: "ecommerce",
-        logo: "/projects/logos/vino-vistara.png",
-        mark: "VV",
-        color: "#7A2E3B",
-        client: true,
-        sort: 10,
-        category: "client",
-    },
     {
         slug: "postu-bau",
         logo: "/projects/logos/postu-bau.svg",
@@ -296,7 +279,7 @@ export const projects: Project[] = [
         overview:
             "A live digital menu for restaurants and food trucks - photos, prices, hours and a QR code. Update from your phone; guests open it in the browser, no app needed.",
         contribution:
-            "I build and run it as my own product: menu editor, public menu pages, QR codes, restaurant and food-truck modes, and Stripe billing. Free to start.",
+            "Built as my own product: menu editor, public menu pages, QR codes, restaurant and food-truck modes, and Stripe billing. Free to start.",
         type: "web-app",
         mark: "1F",
         color: "#C8551E",
@@ -544,7 +527,7 @@ export const projects: Project[] = [
         stackShort: "JavaScript · CSS · npm",
         description: "Digital menu templates for menus made with the 1FoodMenu app.",
         overview: "A public npm package with the JavaScript and CSS templates for menus made with the 1FoodMenu app.",
-        contribution: "Wrote and published the package. Deprecated for now - new updates are coming soon.",
+        contribution: "Wrote and published the package. No longer updated.",
         type: "package",
         logo: "/projects/logos/1food-menu.svg",
         mark: "1F",

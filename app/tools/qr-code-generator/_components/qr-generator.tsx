@@ -6,7 +6,7 @@ import { AlertTriangle, Check, Copy, Download, ImageUp, Link2, RotateCcw, X } fr
 import type QRCodeStyling from "qr-code-styling";
 import type { Options } from "qr-code-styling";
 import { cn } from "@/lib/utils";
-import { Chip, Eyebrow, Field, inputClass, PillTabs } from "@/app/tools/_components/tool-ui";
+import { Chip, Eyebrow, Field, inputClass, PillTabs, primaryButton, secondaryButton } from "@/app/tools/_components/tool-ui";
 import {
     byteLength,
     CONTENT_TYPES,
@@ -167,11 +167,11 @@ function ColorField({
     return (
         <label
             className={cn(
-                "flex min-w-0 cursor-pointer items-center gap-2.5 rounded-xl border border-rule px-2.5 py-2 transition-colors hover:border-ink/25",
+                "flex min-h-14 min-w-0 cursor-pointer items-center gap-3 rounded-[14px] bg-bg-soft px-3 py-2 transition-colors focus-within:ring-2 focus-within:ring-brand hover:bg-[#ece9e2]",
                 disabled && "pointer-events-none opacity-45"
             )}
         >
-            <span className="relative size-8 shrink-0 overflow-hidden rounded-lg border border-ink/12" style={{ backgroundColor: value }}>
+            <span className="relative size-8 shrink-0 overflow-hidden rounded-full ring-1 ring-ink/15 ring-inset" style={{ backgroundColor: value }}>
                 <input
                     type="color"
                     value={value}
@@ -183,7 +183,7 @@ function ColorField({
             </span>
             <span className="flex min-w-0 flex-col">
                 <span className="truncate text-[13px] font-semibold text-ink">{label}</span>
-                <span className="font-mono text-[11px] text-ink-faint uppercase">{value}</span>
+                <span className="text-xs text-[#5b6068] uppercase tabular-nums">{value}</span>
             </span>
         </label>
     );
@@ -209,10 +209,10 @@ function Slider({
     disabled?: boolean;
 }) {
     return (
-        <label className={cn("flex flex-col gap-2", disabled && "opacity-45")}>
+        <label className={cn("flex flex-col gap-1", disabled && "opacity-45")}>
             <span className="flex justify-between text-sm font-semibold text-ink">
                 {label}
-                <span className="font-mono font-medium text-ink-faint">{display}</span>
+                <span className="font-medium text-[#5b6068] tabular-nums">{display}</span>
             </span>
             <input
                 type="range"
@@ -222,7 +222,7 @@ function Slider({
                 value={value}
                 disabled={disabled}
                 onChange={(e) => onChange(Number(e.target.value))}
-                className="w-full accent-brand"
+                className="h-11 w-full cursor-pointer accent-brand"
             />
         </label>
     );
@@ -260,10 +260,11 @@ export default function QrGenerator() {
         s.transparent
     );
 
+    const styleKey = JSON.stringify(s);
     const previewOptions = useMemo(
         () => buildOptions(encoded.data, s, logo, logoSize, PREVIEW_SIZE, "svg", s.transparent),
         // eslint-disable-next-line react-hooks/exhaustive-deps
-        [encoded.data, JSON.stringify(s), logo, logoSize]
+        [encoded.data, styleKey, logo, logoSize]
     );
 
     // Draw the preview - one instance, updated in place
@@ -372,7 +373,7 @@ export default function QrGenerator() {
                         hint="A website, menu, social profile or document. We add https:// if it’s missing."
                     >
                         <div className="relative">
-                            <Link2 className="pointer-events-none absolute top-1/2 left-4 size-[18px] -translate-y-1/2 text-ink-faint" aria-hidden />
+                            <Link2 className="pointer-events-none absolute top-1/2 left-4 size-[18px] -translate-y-1/2 text-[#5b6068]" aria-hidden />
                             <input
                                 id={fid("url")}
                                 type="url"
@@ -441,7 +442,7 @@ export default function QrGenerator() {
                                     </Chip>
                                 ))}
                             </div>
-                            <label className="mt-1 flex items-center gap-2 text-sm text-ink-soft">
+                            <label className="flex min-h-11 cursor-pointer items-center gap-2 text-sm text-[#4a4f57]">
                                 <input
                                     type="checkbox"
                                     checked={fields.wifiHidden}
@@ -534,7 +535,7 @@ export default function QrGenerator() {
                 )}
 
                 {tooLong && (
-                    <p role="alert" className="rounded-xl bg-destructive/8 px-4 py-3 text-[13px] text-destructive">
+                    <p role="alert" className="rounded-[14px] bg-destructive/8 px-4 py-3 text-[13px] text-destructive">
                         Too much content for one QR code ({bytes.toLocaleString()} of {maxBytes.toLocaleString()} bytes
                         {logo ? " with a logo" : ""}). Shorten it{logo ? " or remove the logo" : ""}.
                     </p>
@@ -542,14 +543,14 @@ export default function QrGenerator() {
             </div>
 
             {/* ── Preview + download ── */}
-            <div className="border-y border-rule bg-[#f5f7fb] lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:border-y-0 lg:border-l">
-                <div className="flex flex-col gap-5 p-5 sm:p-8 lg:sticky lg:top-24">
+            <div className="mx-4 rounded-[24px] bg-[#e9ecf3] sm:mx-8 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:my-6 lg:mr-6 lg:ml-0">
+                <div className="flex flex-col gap-5 p-5 sm:p-7 lg:sticky lg:top-24">
                     <div className="flex items-center justify-between">
                         <Eyebrow>Live preview</Eyebrow>
                         <button
                             type="button"
                             onClick={reset}
-                            className="inline-flex h-9 items-center gap-1.5 rounded-full border border-[#dce1eb] bg-white px-3 text-xs font-semibold text-ink-soft transition-colors hover:text-ink"
+                            className="inline-flex h-11 items-center gap-1.5 rounded-full bg-white px-4 text-[13px] font-semibold text-[#4a4f57] transition-colors hover:text-ink"
                         >
                             <RotateCcw className="size-[13px]" aria-hidden />
                             Reset style
@@ -558,10 +559,10 @@ export default function QrGenerator() {
 
                     <div
                         className={cn(
-                            "mx-auto flex aspect-square w-full max-w-[340px] items-center justify-center rounded-3xl border border-[#dce1eb] p-5",
+                            "mx-auto flex aspect-square w-full max-w-[340px] items-center justify-center rounded-[20px] p-5",
                             s.transparent
                                 ? "bg-[repeating-conic-gradient(#eef0f4_0%_25%,#fff_0%_50%)] bg-[length:16px_16px]"
-                                : "bg-white shadow-[0_12px_32px_-18px_rgba(22,40,77,0.35)]"
+                                : "bg-white shadow-[0_1px_3px_rgba(17,20,24,0.08)]"
                         )}
                     >
                         {encoded.data && !tooLong ? (
@@ -572,20 +573,20 @@ export default function QrGenerator() {
                                 className="aspect-square w-full [&>canvas]:size-full [&>svg]:size-full"
                             />
                         ) : (
-                            <p className="px-6 text-center text-sm text-ink-faint">
+                            <p className="px-6 text-center text-sm text-[#5b6068]">
                                 {tooLong ? "Too much content to fit in a QR code." : "Fill in the details to see your QR code."}
                             </p>
                         )}
                     </div>
 
                     {encoded.summary && !tooLong && (
-                        <p className="truncate text-center font-mono text-xs text-ink-faint">{encoded.summary}</p>
+                        <p className="truncate text-center text-[13px] text-[#4a4f57]">{encoded.summary}</p>
                     )}
 
                     {renderError && <p role="alert" className="text-center text-[13px] text-destructive">{renderError}</p>}
 
                     {warning && ready && (
-                        <p className="flex gap-2 rounded-xl border border-amber-200 bg-amber-50 px-3.5 py-2.5 text-[13px] leading-snug text-amber-900">
+                        <p className="flex gap-2 rounded-[14px] bg-amber-50 px-3.5 py-2.5 text-[13px] leading-snug text-amber-900">
                             <AlertTriangle className="mt-0.5 size-4 shrink-0" aria-hidden />
                             {warning}
                         </p>
@@ -593,7 +594,7 @@ export default function QrGenerator() {
 
                     <div className="flex flex-col gap-2.5">
                         <span className="text-sm font-semibold text-ink">Download quality</span>
-                        <div role="group" aria-label="Download quality" className="grid grid-cols-3 gap-1 rounded-[14px] bg-[#e9edf4] p-1">
+                        <div role="group" aria-label="Download quality" className="grid grid-cols-3 gap-1 rounded-[16px] bg-[#dfe4ee] p-1.5">
                             {QUALITIES.map((q) => (
                                 <button
                                     key={q.id}
@@ -601,12 +602,12 @@ export default function QrGenerator() {
                                     aria-pressed={quality === q.id}
                                     onClick={() => setQuality(q.id)}
                                     className={cn(
-                                        "flex h-12 flex-col items-center justify-center rounded-[10px] text-[13px] font-semibold transition-colors",
-                                        quality === q.id ? "bg-white text-ink shadow-[0_1px_2px_rgba(17,20,24,0.08)]" : "text-ink-muted hover:text-ink"
+                                        "flex h-12 flex-col items-center justify-center rounded-[12px] text-sm font-semibold transition-colors",
+                                        quality === q.id ? "bg-white text-ink shadow-[0_1px_3px_rgba(17,20,24,0.12)]" : "text-[#4a4f57] hover:text-ink"
                                     )}
                                 >
                                     {q.label}
-                                    <span className="font-mono text-[10px] font-medium opacity-70">{q.px} px</span>
+                                    <span className="text-xs font-medium tabular-nums">{q.px} px</span>
                                 </button>
                             ))}
                         </div>
@@ -617,7 +618,7 @@ export default function QrGenerator() {
                             type="button"
                             onClick={() => download("png")}
                             disabled={!ready}
-                            className="flex h-12 items-center justify-center gap-2 rounded-full bg-brand text-sm font-semibold text-white transition-colors hover:bg-brand/90 disabled:opacity-40"
+                            className={cn(primaryButton, "px-3")}
                         >
                             <Download className="size-4" aria-hidden />
                             PNG
@@ -628,7 +629,7 @@ export default function QrGenerator() {
                                 type="button"
                                 onClick={() => download(ext)}
                                 disabled={!ready}
-                                className="h-12 rounded-full border border-[#dce1eb] bg-white text-sm font-semibold text-ink uppercase transition-colors hover:border-ink/25 disabled:opacity-40"
+                                className={cn(secondaryButton, "bg-white px-3 hover:bg-white/70")}
                             >
                                 {ext === "jpeg" ? "JPEG" : "SVG"}
                             </button>
@@ -639,13 +640,13 @@ export default function QrGenerator() {
                         type="button"
                         onClick={copyImage}
                         disabled={!ready}
-                        className="inline-flex h-10 items-center justify-center gap-2 self-center rounded-full px-4 text-[13px] font-semibold text-brand transition-colors hover:bg-white disabled:opacity-40"
+                        className="inline-flex h-11 items-center justify-center gap-2 self-center rounded-full px-4 text-sm font-semibold text-brand transition-colors hover:bg-white disabled:opacity-40"
                     >
                         {status?.kind === "ok" ? <Check className="size-4" aria-hidden /> : <Copy className="size-4" aria-hidden />}
                         {status?.kind === "ok" ? status.text : "Copy image"}
                     </button>
 
-                    <p aria-live="polite" className={cn("text-center text-xs leading-normal", status?.kind === "error" ? "text-destructive" : "text-ink-faint")}>
+                    <p aria-live="polite" className={cn("text-center text-[13px] leading-normal", status?.kind === "error" ? "text-destructive" : "text-[#5b6068]")}>
                         {status?.kind === "error"
                             ? status.text
                             : s.transparent
@@ -656,7 +657,7 @@ export default function QrGenerator() {
             </div>
 
             {/* ── Style ── */}
-            <div className="flex flex-col gap-7 border-line p-5 sm:p-8 lg:col-start-1 lg:row-start-2 lg:border-t lg:pt-7">
+            <div className="flex flex-col gap-9 p-5 sm:p-8 lg:col-start-1 lg:row-start-2 lg:pt-3">
                 <section className="flex flex-col gap-4">
                     <Eyebrow>Style</Eyebrow>
                     <div className="flex flex-col gap-2.5">
@@ -696,8 +697,6 @@ export default function QrGenerator() {
                     </div>
                 </section>
 
-                <div className="h-px bg-line" />
-
                 <section className="flex flex-col gap-3.5">
                     <Eyebrow>Colors</Eyebrow>
                     <div className="grid grid-cols-2 gap-2.5 sm:grid-cols-4">
@@ -711,7 +710,7 @@ export default function QrGenerator() {
                         <ColorField label="Corner" value={s.cornerColor} onChange={(v) => updateStyle({ cornerColor: v })} />
                         <ColorField label="Corner dot" value={s.cornerDotColor} onChange={(v) => updateStyle({ cornerDotColor: v })} />
                     </div>
-                    <label className="flex items-center gap-2 text-sm text-ink-soft">
+                    <label className="flex min-h-11 cursor-pointer items-center gap-2 self-start text-sm text-[#4a4f57]">
                         <input
                             type="checkbox"
                             checked={s.transparent}
@@ -722,42 +721,40 @@ export default function QrGenerator() {
                     </label>
                 </section>
 
-                <div className="h-px bg-line" />
-
                 <section className="grid gap-5 sm:grid-cols-[1.4fr_1fr]">
                     <div className="flex flex-col gap-2.5">
                         <span className="text-sm font-semibold text-ink">
-                            Center logo <span className="font-normal text-ink-faint">(optional)</span>
+                            Center logo <span className="font-normal text-[#5b6068]">(optional)</span>
                         </span>
                         {logo ? (
-                            <div className="flex items-center gap-3.5 rounded-[14px] border border-rule bg-[#faf9f6] px-4 py-3">
+                            <div className="flex items-center gap-3.5 rounded-[20px] bg-bg-soft px-4 py-3">
                                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                                <img src={logo.src} alt="" className="size-10 shrink-0 rounded-[10px] border border-rule bg-white object-contain p-1" />
+                                <img src={logo.src} alt="" className="size-10 shrink-0 rounded-[12px] bg-white object-contain p-1" />
                                 <span className="min-w-0 flex-1 truncate text-sm font-medium text-ink">{logo.name}</span>
                                 <button
                                     type="button"
                                     onClick={() => setLogo(null)}
                                     aria-label="Remove logo"
-                                    className="flex size-9 shrink-0 items-center justify-center rounded-full text-ink-muted transition-colors hover:bg-white hover:text-destructive"
+                                    className="flex size-11 shrink-0 items-center justify-center rounded-full text-[#4a4f57] transition-colors hover:bg-white hover:text-destructive"
                                 >
                                     <X className="size-4" aria-hidden />
                                 </button>
                             </div>
                         ) : (
                             <label
-                                className="relative flex cursor-pointer items-center gap-3.5 rounded-[14px] border-[1.5px] border-dashed border-[#d9d5cc] bg-[#faf9f6] px-4 py-3.5 transition-colors focus-within:border-brand/50 hover:border-ink/30"
+                                className="relative flex cursor-pointer items-center gap-3.5 rounded-[20px] bg-bg-soft px-4 py-3.5 transition-colors focus-within:ring-2 focus-within:ring-brand hover:bg-[#ece9e2]"
                                 onDragOver={(e) => e.preventDefault()}
                                 onDrop={(e) => {
                                     e.preventDefault();
                                     handleLogo(e.dataTransfer.files[0]);
                                 }}
                             >
-                                <span className="flex size-10 shrink-0 items-center justify-center rounded-[10px] border border-rule bg-white text-brand">
+                                <span className="flex size-10 shrink-0 items-center justify-center rounded-[12px] bg-white text-brand">
                                     <ImageUp className="size-[18px]" aria-hidden />
                                 </span>
                                 <span className="flex flex-col gap-0.5">
                                     <span className="text-sm font-semibold text-ink">Upload an image</span>
-                                    <span className="text-xs text-ink-faint">PNG, JPG, SVG or WebP, up to 2 MB</span>
+                                    <span className="text-[13px] text-[#5b6068]">PNG, JPG, SVG or WebP, up to 2 MB</span>
                                 </span>
                                 <input
                                     type="file"
@@ -772,7 +769,7 @@ export default function QrGenerator() {
                         )}
                         {logoError && <p role="alert" className="text-[13px] text-destructive">{logoError}</p>}
                     </div>
-                    <div className="flex flex-col gap-4.5">
+                    <div className="flex flex-col gap-3">
                         <Slider
                             label="Logo size"
                             value={Math.round(logoSize * 100)}

@@ -50,11 +50,11 @@ export default function ImprintPage() {
             title="Imprint"
             intro="Information under § 5 E-Commerce Act (ECG), § 14 Commercial Code (UGB) and § 25 Media Act (MedienG)."
         >
-            <dl className="overflow-hidden rounded-[20px] border border-rule bg-white">
+            <dl className="flex flex-col rounded-[24px] bg-white p-2">
                 {rows.map(([label, value]) => (
                     <div
                         key={label}
-                        className="grid gap-1 border-b border-line px-5 py-3.5 last:border-b-0 sm:grid-cols-[180px_1fr] sm:gap-4 sm:px-6"
+                        className="grid gap-1 rounded-[16px] px-4 py-3.5 odd:bg-bg-soft sm:grid-cols-[180px_1fr] sm:gap-4 sm:px-5"
                     >
                         <dt className="text-sm font-semibold text-ink">{label}</dt>
                         <dd className="text-sm text-ink-soft">{value}</dd>

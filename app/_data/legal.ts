@@ -19,7 +19,7 @@ export const LEGAL = {
     chamber: "Wirtschaftskammer Wien (Austrian Economic Chamber, Vienna), UBIT section",
     /** Kleinunternehmer: no VAT on invoices */
     vat: "Small business exempt from VAT under § 6 (1) 27 UStG",
-    lastUpdated: "6 October 2026",
+    lastUpdated: "2 November 2026",
 } as const;
 
 export const legalAddress = `${LEGAL.street}, ${LEGAL.postcode} ${LEGAL.city}, ${LEGAL.country}`;

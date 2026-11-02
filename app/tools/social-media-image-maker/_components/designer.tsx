@@ -38,7 +38,7 @@ import {
     AlertDialogHeader,
     AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
-import { Chip, Eyebrow, inputClass, primaryButton, secondaryButton } from "@/app/tools/_components/tool-ui";
+import { Chip, Eyebrow, iconButton, inputClass, primaryButton, secondaryButton } from "@/app/tools/_components/tool-ui";
 import { cn } from "@/lib/utils";
 import {
     DEFAULT_DESIGN,
@@ -72,7 +72,7 @@ const FORMATS: { id: Format; label: string; ext: string }[] = [
 ];
 const MAX_PREVIEW_HEIGHT = 640;
 /** Room the pinned column needs besides the canvas: site header, toolbar, footer line, padding */
-const PINNED_CHROME = 330;
+const PINNED_CHROME = 362; // +32 for the padding around the canvas area
 const MAX_FILE_BYTES = 25 * 1024 * 1024;
 /** Uploads are stored in the browser, so keep them sharp but not huge */
 const MAX_IMAGE_SIDE = 2400;
@@ -147,9 +147,9 @@ function isTyping(el: HTMLElement | null) {
 function Range({ label, value, min, max, step = 1, unit = "", onChange }: { label: string; value: number; min: number; max: number; step?: number; unit?: string; onChange: (n: number) => void }) {
     return (
         <label className="flex flex-col gap-1.5">
-            <span className="flex justify-between text-[13px] font-semibold text-ink">
+            <span className="flex justify-between text-sm font-semibold text-ink">
                 {label}
-                <span className="font-mono font-medium text-ink-faint">
+                <span className="font-medium text-[#5b6068] tabular-nums">
                     {value}
                     {unit}
                 </span>
@@ -163,9 +163,9 @@ function ColorField({ label, value, onChange }: { label: string; value: string; 
     const commit = (v: string) => /^#[0-9a-f]{6}$/i.test(v) && onChange(v);
     return (
         <div className="flex min-w-0 flex-col gap-1.5">
-            <span className="text-[13px] font-semibold text-ink">{label}</span>
+            <span className="text-sm font-semibold text-ink">{label}</span>
             <div className="flex items-center gap-2">
-                <input type="color" value={value} onChange={(e) => onChange(e.target.value)} aria-label={`${label} picker`} className="size-10 shrink-0 cursor-pointer rounded-lg border border-rule bg-white p-0.5" />
+                <input type="color" value={value} onChange={(e) => onChange(e.target.value)} aria-label={`${label} picker`} className="size-11 shrink-0 cursor-pointer rounded-[12px] bg-white p-1" />
                 <input
                     key={value}
                     defaultValue={value}
@@ -173,17 +173,18 @@ function ColorField({ label, value, onChange }: { label: string; value: string; 
                     onKeyDown={(e) => e.key === "Enter" && commit(e.currentTarget.value)}
                     aria-label={`${label} hex`}
                     spellCheck={false}
-                    className={cn(inputClass, "h-10 px-3 font-mono text-sm uppercase")}
+                    className={cn(inputClass, "h-11 bg-white px-3 text-sm uppercase tabular-nums")}
                 />
             </div>
         </div>
     );
 }
 
-const iconButton =
-    "flex size-10 items-center justify-center rounded-xl border border-rule bg-white text-ink-soft transition-colors hover:border-ink/25 hover:text-ink disabled:opacity-40";
-const toolButton = cn(secondaryButton, "h-11 px-4 text-[13px]");
-const kbd = "inline-flex min-w-6 items-center justify-center rounded-md border border-rule bg-white px-1.5 py-0.5 font-sans text-[11px] font-semibold text-ink-soft shadow-[0_1px_0_#e6e3dc]";
+/** Icon buttons and chips sit on the off-white sidebar/cards, so they fill white */
+const iconBtn = cn(iconButton, "bg-white hover:bg-[#e9ecf3]");
+const onSoft = (active: boolean) => !active && "bg-white hover:bg-[#e9ecf3]";
+const toolButton = cn(secondaryButton, "h-11 px-4 text-sm");
+const kbd = "inline-flex min-w-6 items-center justify-center rounded-md bg-bg-soft px-1.5 py-0.5 font-sans text-[12px] font-semibold text-[#4a4f57]";
 
 const insertTools = [
     { id: "text", label: "Text", Icon: Type },
@@ -485,8 +486,8 @@ export default function Designer() {
         setConfirm({ title: `Delete “${preset.name}”?`, text: "It will be removed from this browser.", label: "Delete", run: () => setPresets((list) => list.filter((p) => p.id !== preset.id)) });
 
     const thumb = (d: Design) => (
-        <div className="flex aspect-square w-full items-center justify-center overflow-hidden rounded-xl bg-[#eef0f4]">
-            <div className="shadow-[0_4px_14px_rgba(22,40,77,0.15)]">
+        <div className="flex aspect-square w-full items-center justify-center overflow-hidden rounded-[14px] bg-[#e9ecf3]">
+            <div className="shadow-[0_4px_14px_rgba(17,20,24,0.12)]">
                 <DesignStage preview design={d} scale={thumbSize / Math.max(d.width, d.height)} selectedId={null} onSelect={() => {}} onChange={() => {}} fontsVersion={fontsVersion} />
             </div>
         </div>
@@ -499,20 +500,20 @@ export default function Designer() {
         return (
             <>
                 <label className="flex flex-col gap-1.5">
-                    <span className="text-[13px] font-semibold text-ink">Text</span>
+                    <span className="text-sm font-semibold text-ink">Text</span>
                     <textarea
                         value={layer.text}
                         onChange={(e) => update(layer.id, { text: e.target.value })}
                         rows={3}
-                        className={cn(inputClass, "h-auto resize-y py-3 text-sm")}
+                        className={cn(inputClass, "h-auto resize-y bg-white py-3 text-sm")}
                     />
                 </label>
                 <label className="flex flex-col gap-1.5">
-                    <span className="text-[13px] font-semibold text-ink">Font</span>
+                    <span className="text-sm font-semibold text-ink">Font</span>
                     <select
                         value={layer.font}
                         onChange={(e) => update(layer.id, { font: e.target.value, weight: FONTS.find((f) => f.name === e.target.value)!.weights.includes(layer.weight) ? layer.weight : 400 })}
-                        className={cn(inputClass, "h-10 px-3 text-sm")}
+                        className={cn(inputClass, "h-11 bg-white px-3 text-sm")}
                     >
                         {FONTS.map((f) => (
                             <option key={f.name} value={f.name}>
@@ -522,16 +523,16 @@ export default function Designer() {
                     </select>
                 </label>
                 <div className="grid grid-cols-2 gap-2">
-                    <Chip active={layer.weight === 400} onClick={() => update(layer.id, { weight: 400 })}>
+                    <Chip active={layer.weight === 400} onClick={() => update(layer.id, { weight: 400 })} className={cn(onSoft(layer.weight === 400))}>
                         Regular
                     </Chip>
-                    <Chip active={layer.weight === 700} onClick={() => update(layer.id, { weight: 700 })} className={cn(!font?.weights.includes(700) && "hidden")}>
+                    <Chip active={layer.weight === 700} onClick={() => update(layer.id, { weight: 700 })} className={cn(onSoft(layer.weight === 700), !font?.weights.includes(700) && "hidden")}>
                         Bold
                     </Chip>
                 </div>
                 <div className="grid grid-cols-3 gap-2">
                     {(["left", "center", "right"] as const).map((a) => (
-                        <Chip key={a} active={layer.align === a} onClick={() => update(layer.id, { align: a })} className="capitalize">
+                        <Chip key={a} active={layer.align === a} onClick={() => update(layer.id, { align: a })} className={cn("capitalize", onSoft(layer.align === a))}>
                             {a}
                         </Chip>
                     ))}
@@ -540,12 +541,12 @@ export default function Designer() {
                 <Range label="Line height" value={layer.lineHeight} min={0.8} max={2.5} step={0.05} onChange={(lineHeight) => update(layer.id, { lineHeight })} />
                 <ColorField label="Text color" value={layer.color} onChange={(color) => update(layer.id, { color })} />
 
-                <Eyebrow className="pt-2">Box</Eyebrow>
+                <Eyebrow className="pt-3">Box</Eyebrow>
                 <div className="flex items-end gap-2">
                     <div className="min-w-0 flex-1">
                         <ColorField label="Background" value={layer.bg || "#ffffff"} onChange={(bg) => update(layer.id, { bg })} />
                     </div>
-                    <Chip active={!layer.bg} onClick={() => update(layer.id, { bg: layer.bg ? "" : "#ffffff" })} className="h-10 px-3">
+                    <Chip active={!layer.bg} onClick={() => update(layer.id, { bg: layer.bg ? "" : "#ffffff" })} className={cn("px-3", onSoft(!layer.bg))}>
                         None
                     </Chip>
                 </div>
@@ -587,7 +588,7 @@ export default function Designer() {
             {/* ── Canvas ── stays in view on desktop while the sidebar scrolls */}
             <div className="flex min-w-0 flex-col gap-4 p-5 sm:p-8 lg:sticky lg:top-20 lg:self-start">
                 <div className="flex items-center gap-2">
-                    <div role="toolbar" aria-label="Add to design" className="flex min-w-0 flex-1 gap-0.5 rounded-2xl border border-rule bg-white p-1 shadow-[0_1px_2px_rgba(17,20,24,0.04)] sm:flex-none sm:gap-1">
+                    <div role="toolbar" aria-label="Add to design" className="flex min-w-0 flex-1 gap-1 rounded-[16px] bg-bg-soft p-1.5 sm:flex-none">
                         {insertTools.map(({ id: tool, label, Icon }) => {
                             const open = picker === tool;
                             return (
@@ -597,8 +598,8 @@ export default function Designer() {
                                     onClick={() => (tool === "text" ? addText() : setPicker(open ? null : tool))}
                                     aria-expanded={tool === "text" ? undefined : open}
                                     className={cn(
-                                        "flex h-10 min-w-0 flex-1 items-center justify-center gap-1.5 rounded-xl px-2 text-[13px] font-semibold transition-colors sm:flex-none sm:gap-2 sm:px-3.5",
-                                        open ? "bg-[#eef1f7] text-brand" : "text-ink-soft hover:bg-[#f4f3ef] hover:text-ink"
+                                        "flex h-11 min-w-0 flex-1 items-center justify-center gap-1.5 rounded-[12px] px-2 text-sm font-semibold transition-colors sm:flex-none sm:gap-2 sm:px-3.5",
+                                        open ? "bg-white text-brand shadow-[0_1px_3px_rgba(17,20,24,0.12)]" : "text-[#4a4f57] hover:text-ink"
                                     )}
                                 >
                                     <Icon className="size-4 shrink-0" aria-hidden />
@@ -611,7 +612,7 @@ export default function Designer() {
                         type="button"
                         onClick={startOver}
                         aria-label="Start over"
-                        className="ml-auto flex h-10 shrink-0 items-center gap-2 rounded-xl px-3 text-[13px] font-semibold text-ink-muted transition-colors hover:bg-[#fbeeee] hover:text-destructive"
+                        className="ml-auto flex h-11 shrink-0 items-center gap-2 rounded-full px-4 text-sm font-semibold text-[#5b6068] transition-colors hover:bg-[#fbeeee] hover:text-destructive"
                     >
                         <RotateCcw className="size-4" aria-hidden />
                         <span className="hidden sm:inline">Start over</span>
@@ -619,7 +620,7 @@ export default function Designer() {
                 </div>
 
                 {picker && (
-                    <div className="overflow-hidden rounded-2xl border border-rule bg-white shadow-[0_6px_24px_rgba(22,40,77,0.08)]">
+                    <div className="overflow-hidden rounded-[20px] bg-white shadow-[0_6px_24px_rgba(17,20,24,0.10)]">
                         {picker === "emoji" && <EmojiPicker onPick={addEmoji} />}
                         {picker === "icon" && <IconPicker onPick={addIcon} />}
                         {picker === "image" && (
@@ -627,11 +628,11 @@ export default function Designer() {
                                 <button
                                     type="button"
                                     onClick={() => fileRef.current?.click()}
-                                    className="flex flex-col items-center gap-1.5 rounded-xl border-2 border-dashed border-[#d9d5cc] px-4 py-6 text-center transition-colors hover:border-brand/40 hover:bg-[#f7f8fb]"
+                                    className="flex flex-col items-center gap-1.5 rounded-[24px] border-2 border-dashed border-[#c9d1e2] bg-[#e9ecf3] px-4 py-6 text-center transition-colors hover:border-brand/40"
                                 >
                                     <ImagePlus className="size-6 text-brand" aria-hidden />
                                     <span className="text-sm font-semibold text-ink">Upload from your device</span>
-                                    <span className="text-[13px] text-ink-faint">JPG, PNG or WebP - or drop it on the canvas</span>
+                                    <span className="text-[13px] text-[#5b6068]">JPG, PNG or WebP - or drop it on the canvas</span>
                                 </button>
                                 <form
                                     onSubmit={(e) => {
@@ -644,14 +645,14 @@ export default function Designer() {
                                         Image link
                                     </label>
                                     <div className="relative min-w-0 flex-1">
-                                        <Link2 className="pointer-events-none absolute top-1/2 left-3.5 size-4 -translate-y-1/2 text-ink-faint" aria-hidden />
+                                        <Link2 className="pointer-events-none absolute top-1/2 left-3.5 size-4 -translate-y-1/2 text-[#5b6068]" aria-hidden />
                                         <input id={`${id}-url`} value={imageUrl} onChange={(e) => setImageUrl(e.target.value)} placeholder="Paste an image link (https://…)" inputMode="url" className={cn(inputClass, "h-11 pl-10 text-sm")} />
                                     </div>
-                                    <button type="submit" disabled={!imageUrl.trim() || busy} className={cn(secondaryButton, "h-11 shrink-0 px-4 text-[13px]")}>
+                                    <button type="submit" disabled={!imageUrl.trim() || busy} className={cn(secondaryButton, "h-11 shrink-0 px-4 text-sm")}>
                                         {busy ? <Loader2 className="size-4 animate-spin" aria-hidden /> : "Add"}
                                     </button>
                                 </form>
-                                <p className="hidden text-[13px] text-ink-faint sm:block">
+                                <p className="hidden text-[13px] text-[#5b6068] sm:block">
                                     Copied an image? Press <kbd className={kbd}>⌘</kbd> <kbd className={kbd}>V</kbd> or <kbd className={kbd}>Ctrl</kbd> <kbd className={kbd}>V</kbd> anywhere on this page.
                                 </p>
                             </div>
@@ -685,20 +686,20 @@ export default function Designer() {
                         uploadFiles(e.dataTransfer.files);
                     }}
                     className={cn(
-                        "flex min-h-72 items-center justify-center rounded-2xl bg-[repeating-conic-gradient(#eef0f4_0%_25%,#fff_0%_50%)] bg-[length:16px_16px] outline-2 outline-offset-4 transition-[outline-color]",
+                        "flex min-h-72 items-center justify-center rounded-[24px] bg-[#e9ecf3] p-3 outline-2 sm:p-4 outline-offset-4 transition-[outline-color]",
                         dragging ? "outline-brand outline-dashed" : "outline-transparent"
                     )}
                 >
                     {scale > 0 && (
-                        <div className="shadow-[0_8px_30px_rgba(22,40,77,0.15)]">
+                        <div className="shadow-[0_6px_24px_rgba(17,20,24,0.12)]">
                             <DesignStage design={design} scale={scale} selectedId={selectedId} onSelect={setSelectedId} onChange={update} fontsVersion={fontsVersion} stageRef={stageRef} free={free} />
                         </div>
                     )}
                 </div>
-                <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 text-[13px] text-ink-faint">
+                <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 text-[13px] text-[#5b6068]">
                     <span className="flex items-center gap-2">
                         {currentSize?.platforms.map((p) => <PlatformIcon key={p} platform={p} className="size-3.5" />)}
-                        <span className="font-semibold text-ink-soft">{currentSize?.label ?? "Custom size"}</span>
+                        <span className="font-semibold text-ink">{currentSize?.label ?? "Custom size"}</span>
                         <span className="tabular-nums">
                             {design.width} × {design.height} px
                         </span>
@@ -709,39 +710,39 @@ export default function Designer() {
                     </span>
                 </div>
                 <p aria-live="polite" className="flex min-h-9 justify-center">
-                    {notice && <span className="rounded-full bg-[#eef1f7] px-4 py-2 text-center text-[13px] font-medium text-brand">{notice}</span>}
+                    {notice && <span className="rounded-full bg-[#e9ecf3] px-4 py-2 text-center text-[13px] font-medium text-brand">{notice}</span>}
                 </p>
             </div>
 
             {/* ── Settings ── */}
-            <div className="border-t border-rule bg-[#f5f7fb] lg:border-t-0 lg:border-l">
-                <div className="flex flex-col gap-5 p-5 sm:p-8">
+            <div className="px-5 pb-5 sm:px-8 sm:pb-8 lg:pt-8 lg:pl-0">
+                <div className="flex flex-col gap-5 rounded-[20px] bg-bg-soft p-4 sm:p-5">
                     {selected ? (
                         <>
                             <div className="flex items-center justify-between">
                                 <Eyebrow>{{ text: "Text", image: "Image", icon: "Icon" }[selected.type]}</Eyebrow>
-                                <button type="button" onClick={() => setSelectedId(null)} className="text-[13px] font-semibold text-ink-muted hover:text-ink">
+                                <button type="button" onClick={() => setSelectedId(null)} className="h-11 rounded-full px-4 text-sm font-semibold text-[#4a4f57] transition-colors hover:bg-white hover:text-ink">
                                     Done
                                 </button>
                             </div>
                             <div className="flex flex-wrap gap-1.5">
                                 {alignButtons.map(({ edge, label, Icon }) => (
-                                    <button key={edge} type="button" onClick={() => align(edge)} aria-label={label} title={label} className={iconButton}>
+                                    <button key={edge} type="button" onClick={() => align(edge)} aria-label={label} title={label} className={iconBtn}>
                                         <Icon className="size-4" aria-hidden />
                                     </button>
                                 ))}
                             </div>
                             <div className="flex flex-wrap gap-1.5">
-                                <button type="button" onClick={() => move(1)} aria-label="Bring forward" title="Bring forward" className={iconButton}>
+                                <button type="button" onClick={() => move(1)} aria-label="Bring forward" title="Bring forward" className={iconBtn}>
                                     <ArrowUp className="size-4" aria-hidden />
                                 </button>
-                                <button type="button" onClick={() => move(-1)} aria-label="Send backward" title="Send backward" className={iconButton}>
+                                <button type="button" onClick={() => move(-1)} aria-label="Send backward" title="Send backward" className={iconBtn}>
                                     <ArrowDown className="size-4" aria-hidden />
                                 </button>
-                                <button type="button" onClick={duplicate} aria-label="Duplicate" title="Duplicate" className={iconButton}>
+                                <button type="button" onClick={duplicate} aria-label="Duplicate" title="Duplicate" className={iconBtn}>
                                     <CopyPlus className="size-4" aria-hidden />
                                 </button>
-                                <button type="button" onClick={() => remove(selected.id)} aria-label="Delete" title="Delete" className={cn(iconButton, "hover:text-destructive")}>
+                                <button type="button" onClick={() => remove(selected.id)} aria-label="Delete" title="Delete" className={cn(iconBtn, "hover:text-destructive")}>
                                     <Trash2 className="size-4" aria-hidden />
                                 </button>
                             </div>
@@ -764,21 +765,21 @@ export default function Designer() {
                                                     setCustom({ w: "", h: "" });
                                                 }}
                                                 className={cn(
-                                                    "flex min-w-0 flex-col gap-2 rounded-xl border p-3 text-left transition-colors",
-                                                    active ? "border-brand bg-white shadow-[0_0_0_3px_rgba(22,40,77,0.08)]" : "border-rule bg-white hover:border-ink/25"
+                                                    "flex min-w-0 flex-col gap-2 rounded-[14px] p-3 text-left transition-colors",
+                                                    active ? "bg-brand text-white" : "bg-white hover:bg-[#e9ecf3]"
                                                 )}
                                             >
-                                                <span className={cn("flex w-full items-center justify-between", active ? "text-brand" : "text-ink-faint")}>
+                                                <span className={cn("flex w-full items-center justify-between", active ? "text-white" : "text-[#5b6068]")}>
                                                     <span className="flex gap-1.5">
                                                         {s.platforms.map((p) => (
-                                                            <PlatformIcon key={p} platform={p} className={cn("size-4", active ? "text-brand" : "text-ink-soft")} />
+                                                            <PlatformIcon key={p} platform={p} className={cn("size-4", active ? "text-white" : "text-[#4a4f57]")} />
                                                         ))}
                                                     </span>
                                                     <RatioShape width={s.width} height={s.height} />
                                                 </span>
                                                 <span className="flex min-w-0 flex-col">
-                                                    <span className="truncate text-[13px] font-semibold text-ink">{s.label}</span>
-                                                    <span className="text-[11px] text-ink-faint tabular-nums">
+                                                    <span className={cn("truncate text-sm font-semibold", active ? "text-white" : "text-ink")}>{s.label}</span>
+                                                    <span className={cn("text-[13px] tabular-nums", active ? "text-white/85" : "text-[#5b6068]")}>
                                                         {s.width} × {s.height}
                                                     </span>
                                                 </span>
@@ -788,14 +789,14 @@ export default function Designer() {
                                 </div>
                                 <div
                                     className={cn(
-                                        "flex h-12 items-center gap-2 rounded-xl border bg-white px-3 transition-colors focus-within:border-brand/40",
-                                        !sizeId ? "border-brand shadow-[0_0_0_3px_rgba(22,40,77,0.08)]" : "border-rule"
+                                        "flex min-h-14 items-center gap-2 rounded-[14px] bg-white px-3 ring-2 transition-shadow",
+                                        !sizeId ? "ring-brand" : "ring-transparent focus-within:ring-teal"
                                     )}
                                 >
-                                    <span className={cn("flex-1 text-[13px] font-semibold", !sizeId ? "text-brand" : "text-ink")}>Custom</span>
+                                    <span className={cn("flex-1 text-sm font-semibold", !sizeId ? "text-brand" : "text-ink")}>Custom</span>
                                     {(["w", "h"] as const).map((side, i) => (
                                         <span key={side} className="flex items-center gap-2">
-                                            {i === 1 && <span className="text-[13px] text-ink-faint" aria-hidden>×</span>}
+                                            {i === 1 && <span className="text-[13px] text-[#5b6068]" aria-hidden>×</span>}
                                             <input
                                                 inputMode="numeric"
                                                 value={custom[side]}
@@ -803,11 +804,11 @@ export default function Designer() {
                                                 placeholder={String(side === "w" ? design.width : design.height)}
                                                 aria-label={side === "w" ? "Custom width in pixels" : "Custom height in pixels"}
                                                 aria-invalid={Boolean(customError(custom[side])) || undefined}
-                                                className="h-8 w-16 rounded-lg bg-[#f5f7fb] px-2 text-center text-sm text-ink tabular-nums outline-none placeholder:text-ink-faint focus:ring-2 focus:ring-brand/20 aria-invalid:bg-red-50 aria-invalid:ring-2 aria-invalid:ring-destructive/30"
+                                                className="h-11 w-16 rounded-[12px] bg-bg-soft px-2 text-center text-sm text-ink tabular-nums outline-none placeholder:text-[#5b6068]/70 focus:ring-2 focus:ring-teal aria-invalid:bg-red-50 aria-invalid:ring-2 aria-invalid:ring-destructive/30"
                                             />
                                         </span>
                                     ))}
-                                    <span className="text-[13px] text-ink-faint">px</span>
+                                    <span className="text-[13px] text-[#5b6068]">px</span>
                                 </div>
                                 {(customError(custom.w) || customError(custom.h)) && <p className="text-[13px] text-destructive">Use a whole number from {MIN_SIDE} to {MAX_SIDE}</p>}
                             </div>
@@ -820,28 +821,28 @@ export default function Designer() {
                                     role="switch"
                                     aria-checked={!free}
                                     onClick={() => setFree((f) => !f)}
-                                    className="flex items-center justify-between gap-3 rounded-xl border border-rule bg-white px-3.5 py-3 text-left transition-colors hover:border-ink/25"
+                                    className="flex min-h-11 items-center justify-between gap-3 rounded-[14px] bg-white px-3.5 py-3 text-left transition-colors hover:bg-[#e9ecf3]"
                                 >
                                     <span className="flex flex-col gap-0.5">
-                                        <span className="text-[13px] font-semibold text-ink">Keep content inside</span>
-                                        <span className="text-[12px] text-ink-faint">
+                                        <span className="text-sm font-semibold text-ink">Keep content inside</span>
+                                        <span className="text-[13px] text-[#5b6068]">
                                             {free ? "Content can go past the dashed line and off the edges." : "Content stays inside the dashed line."}
                                         </span>
                                     </span>
-                                    <span className={cn("relative h-6 w-10 shrink-0 rounded-full transition-colors", free ? "bg-[#d9d5cc]" : "bg-brand")} aria-hidden>
+                                    <span className={cn("relative h-6 w-10 shrink-0 rounded-full transition-colors", free ? "bg-[#c9d1e2]" : "bg-brand")} aria-hidden>
                                         <span className={cn("absolute top-0.5 size-5 rounded-full bg-white shadow-sm transition-[left]", free ? "left-0.5" : "left-[18px]")} />
                                     </span>
                                 </button>
-                                <p className="text-[13px] text-ink-faint">The dashed line is not in the download.</p>
+                                <p className="text-[13px] text-[#5b6068]">The dashed line is not in the download.</p>
                             </div>
 
                             <div className="flex flex-col gap-2.5">
                                 <Eyebrow>Background</Eyebrow>
                                 <div role="group" aria-label="Background type" className="grid grid-cols-2 gap-2">
-                                    <Chip active={!design.gradient} onClick={() => setDesign(({ gradient: _, ...d }) => d)}>
+                                    <Chip active={!design.gradient} onClick={() => setDesign(({ gradient: _, ...d }) => d)} className={cn(onSoft(!design.gradient))}>
                                         Solid
                                     </Chip>
-                                    <Chip active={Boolean(design.gradient)} onClick={() => setDesign((d) => ({ ...d, gradient: d.gradient ?? { to: GRADIENTS[0].to, angle: 135 } }))}>
+                                    <Chip active={Boolean(design.gradient)} onClick={() => setDesign((d) => ({ ...d, gradient: d.gradient ?? { to: GRADIENTS[0].to, angle: 135 } }))} className={cn(onSoft(Boolean(design.gradient)))}>
                                         Gradient
                                     </Chip>
                                 </div>
@@ -855,7 +856,7 @@ export default function Designer() {
                                                 aria-label={`Gradient ${g.from} to ${g.to}`}
                                                 aria-pressed={design.background === g.from && design.gradient?.to === g.to}
                                                 style={{ backgroundImage: `linear-gradient(${g.angle}deg, ${g.from}, ${g.to})` }}
-                                                className="aspect-square rounded-xl border border-rule transition-shadow hover:shadow-[0_2px_8px_rgba(22,40,77,0.18)] aria-pressed:ring-2 aria-pressed:ring-brand aria-pressed:ring-offset-2 aria-pressed:ring-offset-[#f5f7fb]"
+                                                className="aspect-square rounded-full transition-opacity hover:opacity-90 aria-pressed:ring-2 aria-pressed:ring-brand aria-pressed:ring-offset-2 aria-pressed:ring-offset-bg-soft"
                                             />
                                         ))}
                                     </div>
@@ -880,11 +881,11 @@ export default function Designer() {
                     )}
 
                     {/* ── Export ── */}
-                    <div className="flex flex-col gap-2.5 border-t border-rule pt-5">
+                    <div className="flex flex-col gap-2.5 pt-3">
                         <Eyebrow>Download</Eyebrow>
                         <div role="group" aria-label="Format" className="grid grid-cols-3 gap-2">
                             {FORMATS.map((f) => (
-                                <Chip key={f.id} active={format === f.id} onClick={() => setFormat(f.id)}>
+                                <Chip key={f.id} active={format === f.id} onClick={() => setFormat(f.id)} className={cn(onSoft(format === f.id))}>
                                     {f.label}
                                 </Chip>
                             ))}
@@ -904,17 +905,17 @@ export default function Designer() {
             </div>
 
             {/* ── Templates + presets ── */}
-            <div className="flex flex-col gap-8 border-t border-rule p-5 sm:p-8">
+            <div className="flex flex-col gap-8 p-5 pt-3 sm:p-8 sm:pt-4">
                 <section className="flex flex-col gap-3">
                     <Eyebrow>Templates</Eyebrow>
                     <ul className="grid grid-cols-2 gap-3 lg:grid-cols-4">
                         {TEMPLATES.map((t) => (
                             <li key={t.id}>
-                                <button type="button" onClick={() => choose({ padding: design.padding, ...t.design })} className="group flex w-full flex-col gap-2 rounded-2xl border border-rule bg-white p-2 text-left transition-colors hover:border-brand/40">
+                                <button type="button" onClick={() => choose({ padding: design.padding, ...t.design })} className="group flex w-full flex-col gap-2 rounded-[20px] bg-bg-soft p-2 text-left transition-colors hover:bg-[#ece9e2]">
                                     {thumb(t.design)}
-                                    <span className="flex justify-between gap-2 px-1 pb-1 text-[13px] font-semibold text-ink">
+                                    <span className="flex justify-between gap-2 px-1 pb-1 text-sm font-semibold text-ink">
                                         {t.label}
-                                        <span className="font-mono text-[11px] font-medium text-ink-faint">
+                                        <span className="text-[13px] font-medium text-[#5b6068] tabular-nums">
                                             {t.design.width}×{t.design.height}
                                         </span>
                                     </span>
@@ -964,16 +965,16 @@ export default function Designer() {
                     {presets.length ? (
                         <ul className="grid grid-cols-2 gap-3 lg:grid-cols-4">
                             {presets.map((p) => (
-                                <li key={p.id} className="flex flex-col gap-2 rounded-2xl border border-rule bg-white p-2">
-                                    <button type="button" onClick={() => choose({ padding: design.padding, ...p.design })} aria-label={`Use ${p.name}`} className="rounded-xl transition-opacity hover:opacity-90">
+                                <li key={p.id} className="flex flex-col gap-2 rounded-[20px] bg-bg-soft p-2">
+                                    <button type="button" onClick={() => choose({ padding: design.padding, ...p.design })} aria-label={`Use ${p.name}`} className="rounded-[14px] transition-opacity hover:opacity-90">
                                         {thumb(p.design)}
                                     </button>
                                     <div className="flex items-center gap-1 pl-1">
-                                        <span className="min-w-0 flex-1 truncate text-[13px] font-semibold text-ink">{p.name}</span>
-                                        <button type="button" onClick={() => downloadPreset(p)} aria-label={`Download ${p.name} as .json`} title="Download .json" className={cn(iconButton, "size-9")}>
+                                        <span className="min-w-0 flex-1 truncate text-sm font-semibold text-ink">{p.name}</span>
+                                        <button type="button" onClick={() => downloadPreset(p)} aria-label={`Download ${p.name} as .json`} title="Download .json" className={iconBtn}>
                                             <Download className="size-4" aria-hidden />
                                         </button>
-                                        <button type="button" onClick={() => deletePreset(p)} aria-label={`Delete ${p.name}`} title="Delete" className={cn(iconButton, "size-9 hover:text-destructive")}>
+                                        <button type="button" onClick={() => deletePreset(p)} aria-label={`Delete ${p.name}`} title="Delete" className={cn(iconBtn, "hover:text-destructive")}>
                                             <Trash2 className="size-4" aria-hidden />
                                         </button>
                                     </div>
@@ -981,7 +982,7 @@ export default function Designer() {
                             ))}
                         </ul>
                     ) : (
-                        <p className="text-[13px] text-ink-faint">Save a design to reuse it later. Presets stay in this browser - download one as .json to keep a copy or move it to another device.</p>
+                        <p className="text-[13px] text-[#5b6068]">Save a design to reuse it later. Presets stay in this browser - download one as .json to keep a copy or move it to another device.</p>
                     )}
                 </section>
             </div>

@@ -111,13 +111,13 @@ export default function QuickSplit() {
                                 onChange={(e) => setCustomTip(e.target.value)}
                                 placeholder="Other"
                                 className={cn(
-                                    "h-11 w-full rounded-xl border pr-6 pl-2 text-center text-[13px] font-semibold outline-none placeholder:font-medium placeholder:text-ink-faint",
-                                    usingCustom ? "border-brand bg-[#eef1f7] text-brand" : "border-rule bg-white",
+                                    "h-11 w-full rounded-[12px] border-2 border-transparent pr-6 pl-2 text-center text-sm font-semibold outline-none transition-colors placeholder:font-semibold placeholder:text-ink focus:border-teal",
+                                    usingCustom ? "bg-brand text-white" : "bg-bg-soft text-ink",
                                     tipError && "border-destructive"
                                 )}
                                 aria-invalid={Boolean(tipError)}
                             />
-                            <span className="pointer-events-none absolute top-1/2 right-3 -translate-y-1/2 text-[13px] text-ink-faint">%</span>
+                            <span className={cn("pointer-events-none absolute top-1/2 right-3 -translate-y-1/2 text-[13px]", usingCustom ? "text-white" : "text-[#5b6068]")}>%</span>
                         </label>
                     </div>
                     {tipError && <p className="text-[13px] text-destructive">{tipError}</p>}
@@ -128,17 +128,17 @@ export default function QuickSplit() {
                         <span id={`${id}-people`} className="text-sm font-semibold text-ink">
                             People
                         </span>
-                        <div className="flex h-12 items-center justify-between rounded-[14px] border border-[#d9d5cc] bg-white p-1" aria-labelledby={`${id}-people`}>
+                        <div className="flex h-[52px] items-center justify-between rounded-[14px] bg-bg-soft p-1" aria-labelledby={`${id}-people`}>
                             <button
                                 type="button"
                                 onClick={() => setPeople((n) => Math.max(1, n - 1))}
                                 disabled={people <= 1}
                                 aria-label="One person fewer"
-                                className="flex size-10 items-center justify-center rounded-[10px] text-ink transition-colors hover:bg-[#f4f3ef] disabled:opacity-30"
+                                className="flex size-11 items-center justify-center rounded-[12px] bg-white text-ink transition-colors hover:bg-white/70 disabled:opacity-30"
                             >
                                 <Minus className="size-4" aria-hidden />
                             </button>
-                            <span className="font-mono text-lg font-semibold text-ink tabular-nums" aria-live="polite">
+                            <span className="text-lg font-semibold text-ink tabular-nums" aria-live="polite">
                                 {people}
                             </span>
                             <button
@@ -146,7 +146,7 @@ export default function QuickSplit() {
                                 onClick={() => setPeople((n) => Math.min(MAX_PEOPLE, n + 1))}
                                 disabled={people >= MAX_PEOPLE}
                                 aria-label="One more person"
-                                className="flex size-10 items-center justify-center rounded-[10px] text-ink transition-colors hover:bg-[#f4f3ef] disabled:opacity-30"
+                                className="flex size-11 items-center justify-center rounded-[12px] bg-white text-ink transition-colors hover:bg-white/70 disabled:opacity-30"
                             >
                                 <Plus className="size-4" aria-hidden />
                             </button>
@@ -165,33 +165,33 @@ export default function QuickSplit() {
                 </div>
             </div>
 
-            <div className="border-t border-rule bg-[#f5f7fb] lg:border-t-0 lg:border-l">
-                <div className="flex flex-col gap-5 p-5 sm:p-8">
+            <div className="px-5 pb-5 sm:px-8 sm:pb-8 lg:pt-8 lg:pl-0">
+                <div className="flex flex-col gap-5 rounded-[24px] bg-[#e9ecf3] p-5 sm:p-6">
                     <Eyebrow>Each person pays</Eyebrow>
-                    <p className="font-mono text-[44px] leading-none font-semibold tracking-[-0.03em] text-ink sm:text-[52px]" aria-live="polite">
+                    <p className="text-[44px] leading-none font-semibold tracking-[-0.03em] text-ink tabular-nums sm:text-[52px]" aria-live="polite">
                         {ready ? money(perPerson) : "-"}
                     </p>
                     {ready && !roundTo && high !== low && (
-                        <p className="-mt-2 text-[13px] text-ink-faint">
+                        <p className="-mt-2 text-[13px] text-[#5b6068]">
                             Exact: {parts.filter((p) => p === high).length} pay {money(high)}, the rest {money(low)}.
                         </p>
                     )}
 
-                    <dl className="flex flex-col rounded-2xl border border-[#dce1eb] bg-white text-sm">
+                    <dl className="flex flex-col rounded-[20px] bg-white p-1.5 text-sm">
                         {[
                             ["Bill", ready ? money(cents) : "-"],
                             [`Tip${tipPercent ? ` (${tipPercent}%)` : ""}`, ready ? money(tipCents) : "-"],
                             ["Total", ready ? money(grand) : "-"],
                             ...(roundTo && ready ? [["Collected after rounding", `${money(collected)} (+${money(extra)})`]] : []),
-                        ].map(([label, value], i) => (
-                            <div key={label} className={cn("flex justify-between gap-4 px-4 py-3", i > 0 && "border-t border-line")}>
-                                <dt className="text-ink-muted">{label}</dt>
-                                <dd className={cn("text-right font-mono text-ink", label === "Total" && "font-semibold")}>{value}</dd>
+                        ].map(([label, value]) => (
+                            <div key={label} className={cn("flex justify-between gap-4 rounded-[14px] px-3.5 py-2.5", label === "Total" && "bg-bg-soft")}>
+                                <dt className="text-[#4a4f57]">{label}</dt>
+                                <dd className={cn("text-right text-ink tabular-nums", label === "Total" && "font-semibold")}>{value}</dd>
                             </div>
                         ))}
                     </dl>
 
-                    <button type="button" onClick={copy} disabled={!ready} className={secondaryButton}>
+                    <button type="button" onClick={copy} disabled={!ready} className={cn(secondaryButton, "bg-white hover:bg-white/80")}>
                         {copied ? <Check className="size-4" aria-hidden /> : <Copy className="size-4" aria-hidden />}
                         {copied ? "Copied" : "Copy result"}
                     </button>

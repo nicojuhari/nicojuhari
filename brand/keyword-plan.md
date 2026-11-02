@@ -5,7 +5,7 @@
 2026-09-26 by /keyword-research (full rebuild; replaces the 2026-06-22 "Excel Killer" plan)
 
 ## Status (2026-10-06)
-One exception to "no new articles": the Google Ads "conversions but no sales" article (Pillar 6, DO FIRST). Everything else in Pillar 6 goes onto the existing Shopify service page (FAQ + wording). Real Vino Vistara numbers stay anonymized ("a small Austrian wine shop") until the owner agrees to be named.
+One exception to "no new articles": the Google Ads "conversions but no sales" article (Pillar 6, DO FIRST). Everything else in Pillar 6 goes onto the existing Shopify service page (FAQ + wording).
 
 ## Status (2026-09-26)
 Decision: **no new articles for now** - improve existing pages first. Articles in the calendar below are on hold.
@@ -128,7 +128,7 @@ Validation: search PASS · market PASS · competitive FAIL for most (saturated) 
 | QR (Wi-Fi/vCard), checklist, whitespace/slug, word counter, RPS | NO SEO EFFORT | Keep as portfolio pieces |
 
 ### Pillar 6: Shopify Store Growth - Priority: CRITICAL (added 2026-10-06)
-Validation: search PASS (many vendor articles + active Shopify Community threads in EN and DE) · market PASS (owners describe these problems in their own words) · competitive PASS in DE and on EN long-tail, FAIL on generic EN "shopify conversion rate" (app vendors, agencies) · advantage YES (real before/after from the Shopify pilot, campaigns/vino-vistara/)
+Validation: search PASS (many vendor articles + active Shopify Community threads in EN and DE) · market PASS (owners describe these problems in their own words) · competitive PASS in DE and on EN long-tail, FAIL on generic EN "shopify conversion rate" (app vendors, agencies) · advantage NOT YET (no Shopify before/after to show)
 Verdict: VALID PILLAR
 
 | Cluster | Priority | Intent | Content Type | Status |

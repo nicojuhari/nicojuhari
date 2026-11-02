@@ -6,7 +6,7 @@ import { pageMetadata } from "@/app/_lib/metadata";
 export const metadata: Metadata = pageMetadata({
     title: "Privacy Policy | Nicojuhari",
     description:
-        "Learn how nicojuhari.com protects your data under GDPR. Discover what personal information we collect, why, how long we keep it, and your privacy rights.",
+        "How nicojuhari.com handles your data under GDPR: what is collected, why, how long it is kept, and your rights. No cookies and no tracking profiles.",
     path: "/privacy",
 });
 
@@ -46,7 +46,12 @@ export default function PrivacyPage() {
             <p>Legal basis: legitimate interest in knowing which pages are useful (Art. 6 (1) (f) GDPR).</p>
 
             <h2>Fonts</h2>
-            <p>The fonts are stored on this website’s own server. Your browser does not connect to Google to load them.</p>
+            <p>The fonts of this website are stored on its own server. Your browser does not connect to Google to load them.</p>
+            <p>
+                One exception: the Social Media Image Maker loads the fonts you can pick in it from Google Fonts (Google Ireland Limited,
+                Gordon House, Barrow Street, Dublin 4, Ireland). This only happens when you open that tool. Your browser then sends your IP
+                address to Google. Legal basis: legitimate interest in offering a choice of fonts (Art. 6 (1) (f) GDPR).
+            </p>
 
             <h2>Contact form</h2>
             <p>
@@ -69,9 +74,9 @@ export default function PrivacyPage() {
 
             <h2>Free tools</h2>
             <p>
-                The free tools run in your browser. What you type, upload or calculate is not sent to me. The bill split calculator saves
-                your groups in your browser’s local storage so they are there next time. You can delete them at any time in the tool or in
-                your browser settings.
+                The free tools run in your browser. What you type, upload or calculate is not sent to me. Some tools save your work in your
+                browser’s local storage, for example your bill split groups, your checklist, your text or your last design, so it is there
+                next time. It stays on your device. You can delete it at any time in the tool or in your browser settings.
             </p>
             <p>
                 The product grid generator loads product images from the web addresses you enter. To show them, your browser connects to the
