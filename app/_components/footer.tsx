@@ -3,6 +3,7 @@ import Image from "next/image";
 import { navLinks } from "@/app/_lib/nav";
 
 const legalLinks = [
+    { href: "/uses", label: "Uses" },
     { href: "/imprint", label: "Imprint" },
     { href: "/privacy", label: "Privacy" },
     { href: "/terms", label: "Terms" },

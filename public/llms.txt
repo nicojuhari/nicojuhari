@@ -13,5 +13,9 @@
 ## Free tools
 - [All tools](https://nicojuhari.com/tools): social media image maker, Shopify product grid generator, bill split calculator, QR code generator, square image cropper and more. No sign-up.
 
+## About
+- [Notes](https://nicojuhari.com/notes): short notes with real numbers - Google Ads counting page views as sales, why he built EPUfix.
+- [Uses](https://nicojuhari.com/uses): the tools he works with (Next.js, Supabase, Stripe, Claude Code and more) and why.
+
 ## Contact
 - WhatsApp +43 690 10196811 · contact@nicojuhari.com · Vienna, Austria. Fixed price, paid in stages; no hourly billing.
