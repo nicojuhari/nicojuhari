@@ -3,32 +3,42 @@ import Image from "next/image";
 import MobileNav from "./mobile-nav";
 import { WHATSAPP_URL } from "@/app/_data/services";
 import NavLinks from "./nav-links";
+import { WhatsAppIcon } from "./icons";
 
 export default function Header() {
     return (
-        <header className="fixed inset-x-0 top-0 z-50 pt-3 sm:pt-5">
-            <div className="container">
-                <div className="flex h-14 items-center justify-between rounded-full border border-rule bg-white/90 pl-3.5 pr-1.5 shadow-[0_1px_2px_rgba(17,20,24,0.04)] backdrop-blur-md sm:h-15 sm:pl-5 sm:pr-2.5">
-                    <Link href="/" title="Nicojuhari" className="flex shrink-0 items-center gap-2.5 text-ink">
-                        <Image src="/nicojuhari-logo.svg" alt="Nicojuhari logo" width={28} height={28} priority />
-                        <span className="text-[15px] font-semibold tracking-tight">Nicojuhari</span>
-                    </Link>
+        <header className="sticky top-0 z-50 bg-bg-soft/90 backdrop-blur-md">
+            <div className="container flex h-16 items-center justify-between gap-4 sm:h-[76px]">
+                <Link href="/" title="Nicojuhari" className="flex shrink-0 items-center gap-2.5 text-ink">
+                    <Image src="/nicojuhari-logo.svg" alt="Nicojuhari logo" width={28} height={28} priority />
+                    <span className="text-[17px] font-bold tracking-[-0.02em] sm:text-lg">Nicojuhari</span>
+                </Link>
 
-                    <nav className="hidden items-center gap-1 md:flex">
-                        <NavLinks />
-                        <a
-                            href={WHATSAPP_URL}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="ml-2 inline-flex h-10 items-center rounded-full bg-teal px-4.5 text-[13px] font-semibold text-white transition-colors hover:bg-teal/90"
-                        >
-                            Message on WhatsApp
-                        </a>
-                    </nav>
+                <nav aria-label="Main" className="hidden items-center gap-8 md:flex">
+                    <NavLinks />
+                </nav>
 
-                    <div className="flex items-center gap-1 md:hidden">
-                        <MobileNav />
-                    </div>
+                <a
+                    href={WHATSAPP_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hidden h-11 items-center gap-2 rounded-full bg-brand px-4.5 text-[15px] font-semibold text-white transition-colors hover:bg-brand/90 md:inline-flex"
+                >
+                    <WhatsAppIcon className="size-[17px]" />
+                    WhatsApp me
+                </a>
+
+                <div className="flex items-center gap-2 md:hidden">
+                    <a
+                        href={WHATSAPP_URL}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Message on WhatsApp"
+                        className="flex size-11 items-center justify-center rounded-full bg-teal text-white"
+                    >
+                        <WhatsAppIcon className="size-[19px]" />
+                    </a>
+                    <MobileNav />
                 </div>
             </div>
         </header>

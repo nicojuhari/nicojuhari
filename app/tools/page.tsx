@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import CtaSection from "@/app/_components/cta-section";
 import { Check } from "lucide-react";
 import { tools } from "@/app/_data/tools";
 import ToolsFilter from "./_components/tools-filter";
@@ -35,25 +36,25 @@ const perks = ["Free", "No sign-up", "In your browser"];
 
 export default function ToolsPage() {
     return (
-        <div className="flex flex-col gap-8 sm:mt-6 sm:gap-10">
+        <div className="flex flex-col gap-10 sm:mt-4 sm:gap-12">
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
             <section className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between lg:gap-12">
-                <div className="flex max-w-[720px] flex-col gap-3.5 sm:gap-4.5">
+                <div className="flex max-w-[720px] flex-col gap-5 sm:gap-6">
                     <p className="eyebrow">Free tools</p>
-                    <h1 className="text-[34px] leading-[1.06] font-semibold tracking-[-0.03em] text-ink sm:text-5xl xl:text-[56px] xl:leading-[1.03] xl:tracking-[-0.035em]">
-                        Simple tools for everyday tasks.
+                    <h1 className="text-[40px] leading-[1.03] font-semibold tracking-[-0.04em] text-ink sm:text-[54px] xl:text-[64px]">
+                        Simple tools for <span className="text-teal">everyday tasks.</span>
                     </h1>
-                    <p className="text-base leading-relaxed text-ink-muted sm:text-lg">
-                        Tools I made for my own work. Split bills, make QR codes, crop images and more. Free, no sign-up.
+                    <p className="text-lg leading-normal text-[#4a4f57] sm:text-xl">
+                        Tools I made for my own work. Split bills, make QR codes, crop images and more.
                     </p>
                 </div>
                 <ul className="flex shrink-0 flex-wrap gap-2">
                     {perks.map((perk) => (
                         <li
                             key={perk}
-                            className="inline-flex h-9 items-center gap-2 rounded-full border border-rule bg-white px-3.5 text-[13px] font-semibold text-ink-soft sm:h-10"
+                            className="inline-flex h-9 items-center gap-2 rounded-full bg-[#e3f1ee] px-3.5 text-sm font-semibold text-[#0f5f57]"
                         >
-                            <Check className="size-[15px] text-teal" strokeWidth={2.2} aria-hidden />
+                            <Check className="size-[15px]" strokeWidth={2.4} aria-hidden />
                             {perk}
                         </li>
                     ))}
@@ -61,6 +62,15 @@ export default function ToolsPage() {
             </section>
 
             <ToolsFilter tools={tools} />
+
+            <CtaSection
+                className="mt-6 sm:mt-12"
+                title="Need a tool built for your business?"
+                description="Calculators, dashboards and internal tools, built around how your team works. Tell me the task on WhatsApp."
+                primaryLabel="Tell me the task"
+                whatsappText="Hi Nick, the task that takes us the most time is: "
+                secondary={{ label: "See custom web apps", href: "/services/custom-web-apps" }}
+            />
         </div>
     );
 }

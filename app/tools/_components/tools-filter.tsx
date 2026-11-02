@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import FilterPills from "@/app/_components/filter-pills";
-import ToolTile, { ToolPromoTile } from "@/app/_components/tool-tile";
+import ToolTile from "@/app/_components/tool-tile";
 import type { Tool, ToolCategory } from "@/app/_data/tools";
 import { toolFilterLabel } from "@/app/_data/tools";
 
@@ -35,15 +35,6 @@ export default function ToolsFilter({ tools }: { tools: Tool[] }) {
                         <ToolTile tool={tool} />
                     </li>
                 ))}
-                <li className="min-w-0">
-                    <ToolPromoTile
-                        href="/services/custom-web-apps"
-                        eyebrow="Custom tools"
-                        title="Need a tool built for your business?"
-                        description="Calculators, dashboards and internal tools, built around your process."
-                        linkLabel="See custom web apps"
-                    />
-                </li>
             </ul>
         </div>
     );

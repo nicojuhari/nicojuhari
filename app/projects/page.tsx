@@ -27,56 +27,26 @@ const schema = collectionSchema(
         }))
 );
 
-const years = projects.map((p) => p.year);
-const firstYear = Math.min(...years);
-const lastYear = Math.max(...years);
-
-const stats = [
-    { value: String(projects.length), label: "Projects" },
-    { value: String(projects.filter((p) => p.url).length), label: "Live to try" },
-    {
-        value: (
-            <>
-                {firstYear}
-                <span className="text-[#9a9ea5]">–</span>
-                {String(lastYear).slice(2)}
-            </>
-        ),
-        label: "Years building",
-    },
-];
-
 export default function ProjectsPage() {
     return (
-        <div className="container mt-6 flex flex-col gap-8 sm:mt-16 sm:gap-10">
+        <div className="container mt-8 flex flex-col gap-10 sm:mt-14 sm:gap-12">
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
-            <section className="grid items-end gap-6 lg:grid-cols-[1.4fr_1fr] lg:gap-12">
-                <div className="flex flex-col gap-3.5 sm:gap-4.5">
-                    <p className="eyebrow">Projects</p>
-                    <h1 className="text-[34px] leading-[1.06] font-semibold tracking-[-0.03em] text-ink sm:text-5xl xl:text-[56px] xl:leading-[1.02] xl:tracking-[-0.035em]">
-                        Websites and apps I’ve built.
-                    </h1>
-                    <p className="max-w-[620px] text-base leading-relaxed text-ink-muted sm:text-lg">
-                        Businesses I run, websites for clients, and apps I made for my own work. See what each one does and
-                        try the ones that are live.
-                    </p>
-                </div>
-                <dl className="grid grid-cols-3 overflow-hidden rounded-[20px] border border-rule bg-white">
-                    {stats.map((stat) => (
-                        <div key={stat.label} className="flex flex-col-reverse gap-1 border-r border-line p-4 last:border-r-0 sm:p-5">
-                            <dt className="text-xs text-ink-faint sm:text-[13px]">{stat.label}</dt>
-                            <dd className="font-mono text-xl font-semibold tracking-[-0.02em] text-ink sm:text-[28px]">{stat.value}</dd>
-                        </div>
-                    ))}
-                </dl>
+            <section className="flex max-w-[720px] flex-col gap-5 sm:gap-6">
+                <p className="eyebrow">Projects</p>
+                <h1 className="text-[40px] leading-[1.03] font-semibold tracking-[-0.04em] text-ink sm:text-[54px] xl:text-[64px]">
+                    Websites and apps <span className="text-teal">in use today.</span>
+                </h1>
+                <p className="text-lg leading-normal text-[#4a4f57] sm:text-xl">
+                    Businesses I run, websites for clients, and apps for my own work. Try the ones that are live.
+                </p>
             </section>
 
             <ProjectsFilter projects={projects} />
 
             <CtaSection
-                className="mt-2 sm:mt-6"
-                title="Want something like this for your business?"
-                description="Tell me about the workflow you want to improve. I reply within 24 hours, Monday to Friday."
+                className="mt-6 sm:mt-12"
+                title="Want a website or app like these?"
+                description="Tell me about your business on WhatsApp. I’ll reply within 24 hours with the first step."
                 secondary={{ label: "See services", href: "/services" }}
             />
         </div>

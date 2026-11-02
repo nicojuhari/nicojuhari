@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Check, ChevronRight } from "lucide-react";
 import { tools } from "@/app/_data/tools";
@@ -18,8 +19,6 @@ type Props = {
     children: React.ReactNode;
     /** Short cards under the tool */
     tips?: ToolTip[];
-    /** Older free-form notes - used until a tool gets its `tips` */
-    notes?: React.ReactNode;
     perks?: string[];
     /** Common questions - rendered on the page and as FAQPage structured data */
     faq?: Faq[];
@@ -36,7 +35,6 @@ export default function ToolPageShell({
     schema,
     children,
     tips,
-    notes,
     perks = ["Free", "No sign-up"],
     faq,
     guide,
@@ -47,7 +45,7 @@ export default function ToolPageShell({
     const otherTools = tools.filter((t) => t.slug !== currentSlug);
 
     return (
-        <div className="sm:mt-2">
+        <div className="sm:mt-4">
             {schema && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />}
             <script
                 type="application/ld+json"
@@ -62,12 +60,12 @@ export default function ToolPageShell({
                 }}
             />
 
-            <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-[13px] text-ink-faint">
-                <Link href="/tools" className="py-1.5 font-medium text-ink-muted transition-colors hover:text-ink">
-                    Tools
+            <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-sm text-[#5b6068]">
+                <Link href="/tools" className="py-1.5 transition-colors hover:text-ink">
+                    Free tools
                 </Link>
-                <ChevronRight className="size-3.5 text-[#9a9ea5]" aria-hidden />
-                <span aria-current="page" className="font-medium text-ink">
+                <ChevronRight className="size-3.5" aria-hidden />
+                <span aria-current="page" className="text-ink">
                     {title}
                 </span>
             </nav>
@@ -83,19 +81,19 @@ export default function ToolPageShell({
                         </span>
                     )}
                     <div className="flex flex-col gap-1.5">
-                        <h1 className="text-[28px] leading-[1.08] font-semibold tracking-[-0.025em] text-ink sm:text-[44px] sm:leading-[1.05] sm:tracking-[-0.03em]">
+                        <h1 className="text-[32px] leading-[1.05] font-semibold tracking-[-0.035em] text-ink sm:text-[48px] xl:text-[56px]">
                             {title}
                         </h1>
-                        <p className="text-[15px] leading-normal text-ink-muted sm:text-[17px]">{description}</p>
+                        <p className="text-base leading-normal text-[#4a4f57] sm:text-lg">{description}</p>
                     </div>
                 </div>
                 <ul className="flex shrink-0 flex-wrap gap-2">
                     {perks.map((perk) => (
                         <li
                             key={perk}
-                            className="inline-flex h-8 items-center gap-1.5 rounded-full border border-rule bg-white px-3 text-[13px] font-semibold text-ink-soft sm:h-9"
+                            className="inline-flex h-8 items-center gap-1.5 rounded-full bg-[#e3f1ee] px-3 text-[13px] font-semibold text-[#0f5f57] sm:h-9 sm:text-sm"
                         >
-                            <Check className="size-3.5 text-teal" strokeWidth={2.4} aria-hidden />
+                            <Check className="size-3.5" strokeWidth={2.4} aria-hidden />
                             {perk}
                         </li>
                     ))}
@@ -104,7 +102,7 @@ export default function ToolPageShell({
 
             <div
                 className={cn(
-                    "mt-6 overflow-clip rounded-3xl border border-rule bg-white shadow-[0_1px_2px_rgba(17,20,24,0.04),0_24px_48px_-32px_rgba(22,40,77,0.22)] sm:mt-7 sm:rounded-[28px]",
+                    "mt-6 overflow-clip rounded-[24px] bg-white shadow-[0_24px_48px_-32px_rgba(22,40,77,0.22)] sm:mt-8 sm:rounded-[32px]",
                     !bare && "p-5 sm:p-6 lg:p-8"
                 )}
             >
@@ -112,33 +110,58 @@ export default function ToolPageShell({
             </div>
 
             {tips && tips.length > 0 && (
-                <ul className="mt-12 grid gap-3 sm:mt-16 md:grid-cols-3 md:gap-4">
-                    {tips.map((tip, i) => (
-                        <li key={tip.title} className="flex flex-col gap-3 rounded-[20px] border border-rule bg-white p-5.5 sm:p-6.5">
-                            <span className="font-mono text-xs font-semibold text-teal">
-                                {String(i + 1).padStart(2, "0")} · {tip.label}
-                            </span>
-                            <h2 className="text-[17px] font-semibold text-ink">{tip.title}</h2>
-                            <p className="text-sm leading-relaxed text-ink-muted">{tip.text}</p>
-                        </li>
-                    ))}
-                </ul>
-            )}
-
-            {!tips && notes && (
-                <div className="mt-10 max-w-2xl space-y-3 text-sm leading-relaxed text-ink-muted">{notes}</div>
+                <section className="mt-14 flex flex-col gap-6 sm:mt-20 sm:gap-7">
+                    <h2 className="text-[26px] font-semibold tracking-[-0.03em] text-ink sm:text-[34px]">Tips</h2>
+                    <ul className="grid gap-3 md:grid-cols-3 md:gap-4">
+                        {tips.map((tip, i) => (
+                            <li key={tip.title} className="flex flex-col gap-2.5 rounded-[22px] bg-white p-6 sm:p-7">
+                                <span className="text-sm font-bold text-teal">
+                                    {String(i + 1).padStart(2, "0")} · {tip.label}
+                                </span>
+                                <h3 className="text-[19px] font-semibold tracking-[-0.02em] text-ink">{tip.title}</h3>
+                                <p className="text-[15px] leading-relaxed text-[#4a4f57]">{tip.text}</p>
+                            </li>
+                        ))}
+                    </ul>
+                </section>
             )}
 
             {guide && <div className="mt-12 sm:mt-16">{guide}</div>}
 
-            {faq && <FaqSection faq={faq} className="mt-12 sm:mt-16" />}
+            {faq && <FaqSection faq={faq} className="mt-14 sm:mt-20" />}
 
-            <section className="mt-12 flex flex-col gap-4 sm:mt-16">
-                <div className="flex items-end justify-between gap-4">
-                    <h2 className="eyebrow">More tools</h2>
+            {/* Free tools lead to the service: a free check for business owners */}
+            <section className="mt-14 flex flex-col gap-6 rounded-[24px] bg-brand p-6 text-white sm:mt-20 sm:flex-row sm:items-center sm:justify-between sm:rounded-[28px] sm:p-12">
+                <div className="flex max-w-[680px] items-start gap-4 sm:gap-5">
+                    <Image
+                        src="/nick-profile-photo.webp"
+                        alt=""
+                        width={104}
+                        height={104}
+                        className="size-12 shrink-0 rounded-full object-cover ring-3 ring-[#1f3561] sm:size-13"
+                    />
+                    <div className="flex flex-col gap-2">
+                        <h2 className="text-[22px] leading-tight font-semibold tracking-[-0.02em] sm:text-[28px]">Running a small business?</h2>
+                        <p className="text-base leading-normal text-[#c3cbe0] sm:text-[17px]">
+                            Your website should make it easy to call or book. I can check yours for free.
+                        </p>
+                    </div>
+                </div>
+                <Link
+                    href="/services/local-business-websites#google-check"
+                    className="inline-flex h-13 shrink-0 items-center justify-center gap-2.5 rounded-full bg-white px-6 text-base font-semibold text-brand transition-opacity hover:opacity-90"
+                >
+                    Get a free check
+                    <ArrowRight className="size-4" aria-hidden />
+                </Link>
+            </section>
+
+            <section className="mt-14 flex flex-col gap-5 sm:mt-20 sm:gap-6">
+                <div className="flex items-baseline justify-between gap-4">
+                    <h2 className="text-[26px] font-semibold tracking-[-0.03em] text-ink sm:text-[34px]">More free tools</h2>
                     <Link
                         href="/tools"
-                        className="inline-flex items-center gap-1.5 py-2 text-sm font-semibold text-brand transition-colors hover:text-teal"
+                        className="inline-flex items-center gap-1.5 py-2 text-[15px] font-semibold text-teal hover:underline"
                     >
                         All tools
                         <ArrowRight className="size-[15px]" aria-hidden />

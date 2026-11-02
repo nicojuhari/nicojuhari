@@ -40,11 +40,17 @@ export type Service = {
     mark: string;
     accent: string;
     tint: string;
+    /** Dark text colour on the tint */
+    ink: string;
     label: string;
     title: string;
     /** Singular name used in the chooser, e.g. "Local Business Website" */
     singular: string;
     tagline: string;
+    /** Question in the services hub chooser */
+    question: string;
+    /** 5 short bullets on the home card */
+    highlights: string[];
     /** Services hub card */
     summary: string;
     goodFit: string[];
@@ -75,11 +81,20 @@ export const services: Service[] = [
         href: "/services/local-business-websites",
         mark: "L",
         accent: "#16284D",
-        tint: "#EEF1F7",
+        tint: "#E9ECF3",
+        ink: "#16284D",
         label: "For trades, clinics, salons & local services",
         title: "Local Business Websites",
         singular: "Local Business Website",
         tagline: "More calls and bookings from Google and Google Maps.",
+        question: "Want more calls and bookings from Google?",
+        highlights: [
+            "A fast website that people trust",
+            "Your Google Maps profile, set up right",
+            "A page for each service and area",
+            "Clear call and WhatsApp buttons",
+            "You see how many people called and booked",
+        ],
         summary:
             "Your website and Google Maps profile, set up so people nearby find you and call. Then improved every month.",
         goodFit: [
@@ -270,12 +285,21 @@ export const services: Service[] = [
         slug: "custom-web-apps",
         href: "/services/custom-web-apps",
         mark: "A",
-        accent: "#A63D6E",
-        tint: "#FBEFF4",
+        accent: "#127A6F",
+        tint: "#E3F1EE",
+        ink: "#0B4C45",
         label: "For businesses with repeat manual work",
         title: "Custom Web Apps & Automations",
         singular: "Custom Web App",
         tagline: "Less manual work. Clear numbers.",
+        question: "Losing hours to the same task every week?",
+        highlights: [
+            "An app built around how your team works",
+            "Your tools connected, so data is typed once",
+            "Repeat tasks done for you",
+            "Today’s numbers, not last month’s",
+            "We count the hours saved before we build",
+        ],
         summary:
             "Apps and automations that do the repeat work for your team. It starts with counting the hours a task costs you.",
         goodFit: [

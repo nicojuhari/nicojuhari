@@ -1,3 +1,5 @@
+import { Plus } from "lucide-react";
+
 export type Faq = { question: string; answer: string };
 
 /** Question list with FAQPage structured data */
@@ -30,21 +32,23 @@ export default function FaqSection({
                     }),
                 }}
             />
-            <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] lg:gap-12">
-                <div className="flex flex-col gap-2">
+            <div className="grid items-start gap-7 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.6fr)] lg:gap-16">
+                <div className="flex flex-col gap-3">
                     <p className="eyebrow">{eyebrow}</p>
-                    <h2 className="text-2xl font-semibold tracking-[-0.025em] text-ink sm:text-[28px]">{title}</h2>
+                    <h2 className="section-title">{title}</h2>
                 </div>
-                <div className="divide-y divide-line rounded-[20px] border border-rule bg-white">
+                <div className="flex flex-col gap-2.5">
                     {faq.map((f) => (
-                        <details key={f.question} className="group px-5 py-4 sm:px-6">
-                            <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-[15px] font-semibold text-ink [&::-webkit-details-marker]:hidden">
+                        <details key={f.question} className="group rounded-[20px] bg-white">
+                            <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-4 px-5 py-4.5 text-base font-semibold text-ink sm:px-6 sm:py-5 sm:text-[17px] [&::-webkit-details-marker]:hidden">
                                 {f.question}
-                                <span className="text-xl leading-none font-normal text-ink-faint transition-transform group-open:rotate-45" aria-hidden>
-                                    +
-                                </span>
+                                <Plus
+                                    className="size-8 shrink-0 rounded-full bg-bg-soft p-2 text-ink transition-transform group-open:rotate-45"
+                                    strokeWidth={2.4}
+                                    aria-hidden
+                                />
                             </summary>
-                            <p className="mt-2.5 text-sm leading-relaxed text-ink-muted">{f.answer}</p>
+                            <p className="px-5 pb-5 text-[15px] leading-relaxed text-ink-muted sm:px-6 sm:text-base">{f.answer}</p>
                         </details>
                     ))}
                 </div>

@@ -4,14 +4,8 @@ export type ProjectType = "web-app" | "mobile" | "business-website" | "ecommerce
 
 export type ProjectIcon = "bookmark" | "wallet" | "folder-up" | "scissors";
 
-export type FeatureIcon = "list" | "file" | "chart" | "download" | "phone" | "qr" | "truck" | "card";
-
 export type ProjectFeature = {
-    icon: FeatureIcon;
     title: string;
-    /** Short line for the homepage card */
-    short: string;
-    /** Longer line for the projects page */
     text: string;
 };
 
@@ -45,13 +39,12 @@ export type Project = {
     /** Built for a client (vs personal / product) */
     client?: boolean;
     sort: number;
-    showOnHome: boolean;
+    /** A real result, shown big on "Businesses I run" cards */
+    result?: { stat: string; text: string };
     /** Large card on the projects page */
     featured?: boolean;
     /** "What's inside" list for featured cards */
     features?: ProjectFeature[];
-    /** Colours of the "What's inside" panel */
-    panel?: { background: string; border: string; accent: string };
     category: ProjectCategory;
 };
 
@@ -103,32 +96,22 @@ export const projects: Project[] = [
         color: "#15161A",
         url: "https://epufix.at",
         sort: 0,
-        showOnHome: true,
         featured: true,
-        panel: { background: "#F5F7F8", border: "#E4E9EC", accent: "#A3566A" },
         features: [
             {
-                icon: "list",
                 title: "Transactions",
-                short: "Income and expenses, categorised in one list.",
                 text: "Log income and expenses and keep them categorised in one list.",
             },
             {
-                icon: "file",
                 title: "Offers → invoices",
-                short: "Turn an accepted offer into a branded invoice.",
                 text: "Turn an accepted offer into a branded invoice and send it.",
             },
             {
-                icon: "chart",
                 title: "Dashboard & reports",
-                short: "See income, costs and net for any period.",
                 text: "See income, costs and net for any period at a glance.",
             },
             {
-                icon: "download",
                 title: "Tax advisor export",
-                short: "Hand sorted numbers to your tax advisor.",
                 text: "Hand a sorted income and expense report to your tax advisor in minutes.",
             },
         ],
@@ -151,8 +134,8 @@ export const projects: Project[] = [
         mark: "HN",
         color: "#16284D",
         url: "https://handwerker-netz.at",
+        result: { stat: "95%+", text: "of clients come from the website and Google Maps" },
         sort: 1,
-        showOnHome: false,
         category: "business",
     },
     {
@@ -168,9 +151,9 @@ export const projects: Project[] = [
         type: "web-app",
         mark: "IC",
         color: "#127A6F",
+        result: { stat: "Every day", text: "the company runs on it" },
         status: "private",
         sort: 2,
-        showOnHome: false,
         category: "business",
     },
     {
@@ -188,7 +171,6 @@ export const projects: Project[] = [
         color: "#127A6F",
         url: "https://idealcredit.md",
         sort: 3,
-        showOnHome: false,
         category: "business",
     },
 
@@ -208,7 +190,6 @@ export const projects: Project[] = [
         color: "#7A2E3B",
         client: true,
         sort: 10,
-        showOnHome: false,
         category: "client",
     },
     {
@@ -227,7 +208,6 @@ export const projects: Project[] = [
         url: "https://postu-bau.com",
         client: true,
         sort: 11,
-        showOnHome: false,
         category: "client",
     },
     {
@@ -246,7 +226,6 @@ export const projects: Project[] = [
         url: "https://balanceandbuddy.at",
         client: true,
         sort: 12,
-        showOnHome: false,
         category: "client",
     },
     {
@@ -265,7 +244,6 @@ export const projects: Project[] = [
         url: "https://lisatongesolicitors.com",
         client: true,
         sort: 13,
-        showOnHome: false,
         category: "client",
     },
     {
@@ -283,7 +261,6 @@ export const projects: Project[] = [
         url: "https://pompadecaldura.md",
         client: true,
         sort: 15,
-        showOnHome: false,
         category: "client",
     },
 
@@ -304,7 +281,6 @@ export const projects: Project[] = [
         url: "https://jakconstruction.co.uk",
         client: true,
         sort: 16,
-        showOnHome: false,
         category: "client",
     },
 
@@ -326,32 +302,21 @@ export const projects: Project[] = [
         color: "#C8551E",
         url: "https://1food.menu",
         sort: 20,
-        showOnHome: false,
-        featured: true,
-        panel: { background: "#FBF5EF", border: "#EADFD4", accent: "#A2471A" },
         features: [
             {
-                icon: "phone",
                 title: "Edit from your phone",
-                short: "Change prices, photos and hours in seconds.",
                 text: "Change prices, photos and hours in seconds - the menu updates live.",
             },
             {
-                icon: "qr",
                 title: "QR code included",
-                short: "Guests scan and open the menu in the browser.",
                 text: "Guests scan and open the menu in the browser - no app needed.",
             },
             {
-                icon: "truck",
                 title: "Restaurants & food trucks",
-                short: "Modes for a fixed restaurant and a food truck.",
                 text: "Separate modes for a fixed restaurant and a food truck.",
             },
             {
-                icon: "card",
                 title: "Free to start",
-                short: "Paid plans handled with Stripe billing.",
                 text: "Paid plans handled with Stripe billing when you need more.",
             },
         ],
@@ -373,7 +338,6 @@ export const projects: Project[] = [
         color: "#127A6F",
         url: "https://bookmarks-manager.online/",
         sort: 22,
-        showOnHome: false,
         category: "productivity",
     },
     {
@@ -391,7 +355,6 @@ export const projects: Project[] = [
         color: "#7A5E6E",
         url: "https://saver-wallet.netlify.app/",
         sort: 23,
-        showOnHome: false,
         category: "finance",
     },
     {
@@ -409,7 +372,6 @@ export const projects: Project[] = [
         color: "#A2471A",
         url: "https://bunny-cdn.netlify.app/",
         sort: 24,
-        showOnHome: false,
         category: "management",
     },
     {
@@ -429,7 +391,6 @@ export const projects: Project[] = [
         linkLabel: "Play it",
         status: "live",
         sort: 30,
-        showOnHome: false,
         category: "other",
     },
     {
@@ -448,7 +409,6 @@ export const projects: Project[] = [
         color: "#A2471A",
         status: "closed",
         sort: 21,
-        showOnHome: false,
         category: "other",
     },
     {
@@ -466,7 +426,6 @@ export const projects: Project[] = [
         mark: "CO",
         color: "#16284D",
         sort: 25,
-        showOnHome: false,
         category: "finance",
     },
     {
@@ -484,7 +443,6 @@ export const projects: Project[] = [
         mark: "SA",
         color: "#5B4FD6",
         sort: 26,
-        showOnHome: false,
         category: "finance",
     },
     {
@@ -503,7 +461,6 @@ export const projects: Project[] = [
         color: "#127A6F",
         status: "private",
         sort: 27,
-        showOnHome: false,
         category: "management",
     },
     {
@@ -522,7 +479,6 @@ export const projects: Project[] = [
         color: "#3F434A",
         status: "in-progress",
         sort: 28,
-        showOnHome: false,
         category: "productivity",
     },
     {
@@ -541,7 +497,6 @@ export const projects: Project[] = [
         color: "#B8860B",
         status: "closed",
         sort: 31,
-        showOnHome: false,
         category: "other",
     },
     {
@@ -560,7 +515,6 @@ export const projects: Project[] = [
         url: "https://search-favorite-movies.vercel.app",
         linkLabel: "See the demo",
         sort: 32,
-        showOnHome: false,
         category: "demo",
     },
     {
@@ -580,7 +534,6 @@ export const projects: Project[] = [
         url: "https://www.npmjs.com/package/ideal-credit",
         linkLabel: "See on npm",
         sort: 33,
-        showOnHome: false,
         category: "finance",
     },
     {
@@ -600,7 +553,6 @@ export const projects: Project[] = [
         linkLabel: "See on npm",
         status: "deprecated",
         sort: 34,
-        showOnHome: false,
         category: "productivity",
     },
 
@@ -620,7 +572,6 @@ export const projects: Project[] = [
         url: "https://nicojuhari.github.io/landing-burger-max/",
         linkLabel: "See the demo",
         sort: 40,
-        showOnHome: false,
         category: "demo",
     },
     {
@@ -638,7 +589,6 @@ export const projects: Project[] = [
         url: "https://nicojuhari.github.io/travel-blog/",
         linkLabel: "See the demo",
         sort: 41,
-        showOnHome: false,
         category: "demo",
     },
     {
@@ -656,7 +606,6 @@ export const projects: Project[] = [
         url: "https://github.com/nicojuhari/weather-journal",
         linkLabel: "See the code",
         sort: 42,
-        showOnHome: false,
         category: "demo",
     },
     {
@@ -674,7 +623,6 @@ export const projects: Project[] = [
         url: "https://github.com/nicojuhari/natural-language-processing",
         linkLabel: "See the code",
         sort: 43,
-        showOnHome: false,
         category: "demo",
     },
 ];

@@ -46,3 +46,6 @@ Last updated: 2026-10-06
 - Teardown + fixes, German page: ./campaigns/de-softwareentwickler-wien/teardown.md (44→47/70) — 2026-10-21
 - Copy audit home/hub/services: ./campaigns/homepage/copy-audit-2026-10-21.md — 2026-10-21
 - Technical SEO check: ./campaigns/audit/technical-seo-2026-10-21.md — 2026-10-21
+- 2026-10-22 | epufix-launch | social/linkedin-founder-story.md + social/x-founder-story.md | 58/70
+- 2026-11-02 | epufix-linkedin | social/linkedin-svs-back-payment.md | 58/70
+- 2026-11-02 | epufix-linkedin | social/x/text-post-01.md | 8.6/10

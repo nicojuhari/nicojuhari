@@ -17,7 +17,7 @@ type Props = {
 };
 
 const outline =
-    "inline-flex h-12 w-full items-center justify-center rounded-full border border-white/25 px-6 text-[15px] font-semibold text-white transition-colors hover:border-white/50 sm:text-sm";
+    "inline-flex h-12 w-full items-center justify-center rounded-full border border-white/35 px-6 text-[15px] font-semibold text-white transition-colors hover:border-white/70";
 
 export default function CtaSection({
     className,
@@ -31,23 +31,22 @@ export default function CtaSection({
         <section
             id="contact"
             className={cn(
-                "navy-dots flex scroll-mt-28 flex-col gap-5 rounded-3xl px-5.5 py-7 sm:rounded-[28px] sm:p-12 lg:flex-row lg:items-center lg:justify-between lg:gap-8",
+                "relative flex scroll-mt-28 flex-col gap-6 overflow-hidden rounded-[26px] bg-teal px-5.5 py-8 text-white sm:rounded-[32px] sm:p-14 lg:flex-row lg:items-center lg:justify-between lg:gap-8",
                 className
             )}
         >
-            <div className="flex max-w-2xl flex-col gap-2.5 sm:gap-3">
-                <h2 className="text-[26px] leading-[1.12] font-semibold tracking-[-0.025em] sm:text-[34px] sm:leading-[1.1] sm:tracking-[-0.03em]">
-                    {title}
-                </h2>
-                <p className="text-[15px] leading-relaxed text-[#c5cddc] sm:text-base">{description}</p>
+            <span className="absolute -bottom-28 -left-16 size-72 rounded-full bg-[#158a7e]" aria-hidden />
+            <div className="relative flex max-w-2xl flex-col gap-3">
+                <h2 className="text-[30px] leading-[1.08] font-semibold tracking-[-0.035em] sm:text-[40px] lg:text-[44px]">{title}</h2>
+                <p className="text-base leading-relaxed text-[#e2f3f0] sm:text-lg">{description}</p>
             </div>
 
-            <div className="flex w-full shrink-0 flex-col gap-2.5 sm:w-72">
+            <div className="relative flex w-full shrink-0 flex-col gap-2.5 sm:w-72">
                 <a
                     href={whatsappLink(whatsappText)}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-white px-6 text-[15px] font-semibold text-teal transition-colors hover:bg-white/90 sm:text-sm"
+                    className="inline-flex h-14 w-full items-center justify-center gap-2.5 rounded-full bg-white px-6 text-base font-semibold text-[#0b4c45] transition-colors hover:bg-white/90"
                 >
                     <WhatsAppIcon className="size-[18px]" />
                     {primaryLabel}

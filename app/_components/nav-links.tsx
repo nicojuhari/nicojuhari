@@ -18,8 +18,8 @@ export default function NavLinks() {
                         href={href}
                         aria-current={active ? "page" : undefined}
                         className={cn(
-                            "rounded-full px-4 py-2 text-sm transition-colors",
-                            active ? "bg-[#f1efea] font-semibold text-ink" : "font-medium text-ink-muted hover:text-ink"
+                            "py-2.5 text-[15px] transition-colors",
+                            active ? "font-semibold text-teal" : "font-medium text-brand hover:text-teal"
                         )}
                     >
                         {label}

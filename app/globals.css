@@ -156,8 +156,6 @@
   }
   body {
     @apply relative overflow-x-hidden bg-bg-soft text-foreground antialiased;
-    background-image: radial-gradient(circle, rgb(17 20 24 / 0.05) 0.9px, transparent 0.9px);
-    background-size: 20px 20px;
   }
 }
 
@@ -188,7 +186,12 @@ button {
   }
 
   .eyebrow {
-    @apply font-mono text-xs font-semibold uppercase tracking-[0.16em] text-ink-faint;
+    @apply text-[13px] font-semibold uppercase tracking-[0.08em] text-teal sm:text-sm;
+  }
+
+  /* Section heading of the 2026-11 design */
+  .section-title {
+    @apply text-[32px] leading-[1.08] font-semibold tracking-[-0.035em] text-ink sm:text-[40px] lg:text-[46px];
   }
 
   .container-sm {
@@ -248,4 +251,15 @@ button {
     opacity: 1;
     transform: translateY(0);
   }
+}
+/* Home hero: a dot moves down the customer steps, and the label dot pulses */
+@keyframes flow {
+  0% { top: 0; opacity: 0; }
+  8%, 92% { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+
+@keyframes ping-soft {
+  0%, 100% { transform: scale(1); opacity: 0.55; }
+  50% { transform: scale(1.9); opacity: 0; }
 }

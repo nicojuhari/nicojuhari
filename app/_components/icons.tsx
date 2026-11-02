@@ -1,28 +1,21 @@
 import {
     Bookmark,
-    ChartLine,
-    CreditCard,
     Crop,
     Cpu,
-    Download,
-    FileText,
     FolderUp,
     ImagePlus,
     Globe,
     LayoutGrid,
-    List,
     ListChecks,
     QrCode,
     Receipt,
     Scissors,
-    Smartphone,
     Space,
-    Truck,
     Type,
     WalletCards,
     type LucideIcon,
 } from "lucide-react";
-import type { FeatureIcon, Project, ProjectIcon } from "@/app/_data/projects";
+import type { Project, ProjectIcon } from "@/app/_data/projects";
 import type { ServiceSlug } from "@/app/_data/services";
 import { cn } from "@/lib/utils";
 
@@ -40,17 +33,6 @@ export const toolIcons: Record<string, LucideIcon> = {
 export const serviceIcons: Record<ServiceSlug, LucideIcon> = {
     "local-business-websites": Globe,
     "custom-web-apps": Cpu,
-};
-
-export const featureIcons: Record<FeatureIcon, LucideIcon> = {
-    list: List,
-    file: FileText,
-    chart: ChartLine,
-    download: Download,
-    phone: Smartphone,
-    qr: QrCode,
-    truck: Truck,
-    card: CreditCard,
 };
 
 const projectIcons: Record<ProjectIcon, LucideIcon> = {
