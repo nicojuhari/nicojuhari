@@ -17,7 +17,7 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
     const note = getNote((await params).slug);
     if (!note) return {};
-    const meta = pageMetadata({ title: `${note.title} | ${PERSON_NAME}`, description: note.description, path: `/notes/${note.slug}` });
+    const meta = pageMetadata({ title: note.title, description: note.description, path: `/notes/${note.slug}` });
     return {
         ...meta,
         openGraph: { ...meta.openGraph, type: "article", publishedTime: note.date, modifiedTime: note.updated ?? note.date, authors: [PERSON_NAME] },

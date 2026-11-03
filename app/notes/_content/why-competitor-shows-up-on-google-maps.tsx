@@ -4,7 +4,7 @@ import type { Note } from "./types";
 // Ranking factors: Google's own help page (relevance, distance, prominence). Painter example is illustrative, not a client case.
 export const whyCompetitorOnGoogleMaps: Note = {
     slug: "why-competitor-shows-up-on-google-maps",
-    title: "Why does your competitor show up on Google Maps and you don't?",
+    title: "Why is your competitor on Google Maps and you're not?",
     description:
         "On the map, Google mostly looks at your Business Profile, not your website: what you picked as your category, your reviews, and how close you are.",
     date: "2026-11-03",

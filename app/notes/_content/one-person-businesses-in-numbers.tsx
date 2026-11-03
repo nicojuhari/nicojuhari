@@ -53,9 +53,9 @@ export const onePersonBusinessesInNumbers: Note = {
 
             <h2>Most software is made for teams</h2>
             <p>Roles, settings, and someone whose job is to set it all up.</p>
-            <p>But one person is the sales team, the bookkeeper and the support desk at the same time. Nobody has time to set up a big system.</p>
+            <p>But in a small business, one or two people are the sales team, the bookkeeper and the support desk at the same time. Nobody has time to set up a big system.</p>
             <p>
-                <strong>For one person, the best tool isn&apos;t the one with the most features. It&apos;s the one where the boring steps happen on their own.</strong>
+                <strong>For a small business, the best tool isn&apos;t the one with the most features. It&apos;s the one where the boring steps happen on their own.</strong>
             </p>
             <p>An invoice that books the income when it&apos;s paid. A form that sends the reply. A report that is ready when the tax advisor asks.</p>
             <p>

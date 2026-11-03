@@ -4,7 +4,7 @@ import { absoluteUrl, collectionSchema, personRef } from "@/app/_lib/schema";
 import NotesFilter from "./_components/notes-filter";
 import { formatDate, notes } from "./_content";
 
-const description = "Short notes on what I build, find and use: code, money, AI and small-business work. Real numbers and screens.";
+const description = "Short notes on what I build, find and use: code, money, AI and small business. Real numbers, real screens, and simple words.";
 
 export const metadata: Metadata = pageMetadata({ title: "Notes | Nicolae Cojuhari", description, path: "/notes" });
 

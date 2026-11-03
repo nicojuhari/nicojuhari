@@ -6,7 +6,7 @@ import { formatDate } from "@/app/notes/_content";
 import { pageMetadata } from "@/app/_lib/metadata";
 import { collectionSchema } from "@/app/_lib/schema";
 
-const description = "The tools I use to build websites and apps, run my numbers and find customers, with one line on why.";
+const description = "The tools I use to build websites and apps, keep my numbers in order and find customers. Only what I use today, with one line on why.";
 
 export const metadata: Metadata = pageMetadata({ title: "Uses: Tools I Work With | Nicolae Cojuhari", description, path: "/uses" });
 

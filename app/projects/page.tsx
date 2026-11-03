@@ -8,13 +8,13 @@ import { collectionSchema, personRef } from "@/app/_lib/schema";
 export const metadata: Metadata = pageMetadata({
     title: "Projects: Websites & Apps I Built | Nicolae Cojuhari",
     description:
-        "Businesses I run, client websites and web apps like EPUfix. What each one does and where to try it.",
+        "Businesses I run, client websites and web apps like EPUfix. What each one does, who it’s for, and where you can try it yourself.",
     path: "/projects",
 });
 
 const schema = collectionSchema(
     "Projects",
-    "Businesses I run, client websites and web apps like EPUfix. What each one does and where to try it.",
+    "Businesses I run, client websites and web apps like EPUfix. What each one does, who it’s for, and where you can try it yourself.",
     "/projects",
     [...projects]
         .sort((a, b) => a.sort - b.sort)

@@ -327,7 +327,7 @@ export const services: Service[] = [
             "Finance tools & calculators",
         ],
         headline: "Less manual work. Clear numbers.",
-        intro: "An app or automation does the repeat work, so your team doesn’t have to. Before I build anything, I count the hours the task costs you. Then you decide if it’s worth it.",
+        intro: "The best tool isn’t the one with the most features. It’s the one where the boring steps happen on their own. Before I build anything, I count the hours a task costs you. Then you decide if it’s worth it.",
         forYouIf: [
             "Several people edit the same spreadsheets to run the business",
             "Your team switches between tools that don’t connect",
