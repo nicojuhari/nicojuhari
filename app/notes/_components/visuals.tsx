@@ -1,5 +1,4 @@
 import Image from "next/image";
-import type { LucideIcon } from "lucide-react";
 
 /** Image, screenshot or custom SVG with an optional caption. Pass `src` for an image, or children for inline SVG. */
 export function Figure({
@@ -74,24 +73,5 @@ export function Stats({ items }: { items: { value: string; label: string }[] }) 
                 </div>
             ))}
         </dl>
-    );
-}
-
-/** A flow in order, optionally with a lucide icon per step */
-export function Steps({ items }: { items: { title: string; text?: string; icon?: LucideIcon }[] }) {
-    return (
-        <ol className="my-8 flex flex-col gap-3">
-            {items.map(({ title, text, icon: Icon }, i) => (
-                <li key={title} className="surface-card flex gap-4 p-4 sm:p-5">
-                    <span className="flex size-9 shrink-0 items-center justify-center rounded-full bg-bg-soft text-sm font-semibold text-teal">
-                        {Icon ? <Icon className="size-4.5" aria-hidden /> : i + 1}
-                    </span>
-                    <span className="flex flex-col gap-0.5">
-                        <span className="font-semibold text-ink">{title}</span>
-                        {text && <span className="text-[15px] text-ink-muted">{text}</span>}
-                    </span>
-                </li>
-            ))}
-        </ol>
     );
 }

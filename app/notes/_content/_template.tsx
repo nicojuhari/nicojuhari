@@ -1,6 +1,5 @@
 import Link from "next/link";
-import { Megaphone, MousePointerClick, PhoneCall } from "lucide-react";
-import { BarChart, Figure, Stats, Steps } from "../_components/visuals";
+import { BarChart, Figure, Stats } from "../_components/visuals";
 import type { Note } from "./types";
 
 /**
@@ -9,7 +8,7 @@ import type { Note } from "./types";
  */
 export const templateNote: Note = {
     slug: "note-template",
-    title: "A question someone would type, under 60 characters?",
+    title: "A hook: a question, a strong claim, or the surprise. Under 60 characters",
     description: "The answer in one plain sentence. This is the meta description and the text in the notes list.",
     date: "2026-11-02",
     tag: "business",
@@ -18,8 +17,8 @@ export const templateNote: Note = {
     body: (
         <>
             <p>
-                First one or two sentences answer the title directly. This is the part search engines and AI answers quote, so put
-                the number or the finding here.
+                Hook first: the surprise, the number, or the moment it went wrong. Then answer the title. This is the part search
+                engines and AI answers quote.
             </p>
             <p>
                 Then the context: what happened, what I noticed, one <strong>real detail</strong>. Link to a{" "}
@@ -45,13 +44,18 @@ export const templateNote: Note = {
 
             <h2>A short subheading if the note needs one</h2>
 
-            <Steps
-                items={[
-                    { title: "Ad", text: "Someone sees the ad.", icon: Megaphone },
-                    { title: "Page", text: "One clear page, one button.", icon: MousePointerClick },
-                    { title: "Call", text: "They tap to call.", icon: PhoneCall },
-                ]}
-            />
+            {/* Lists: plain <ul>/<ol> with a <strong> lead word. No cards, no icons. */}
+            <ol>
+                <li>
+                    <strong>Ad</strong> - someone sees the ad.
+                </li>
+                <li>
+                    <strong>Page</strong> - one clear page, one button.
+                </li>
+                <li>
+                    <strong>Call</strong> - they tap to call.
+                </li>
+            </ol>
 
             {/* Screenshot: put files in public/notes/<slug>/ */}
             {/* <Figure src="/notes/<slug>/before-after.png" alt="Describe what the image shows" caption="Fake data." /> */}

@@ -6,20 +6,20 @@ import type { Note } from "./types";
 // US Census nonemployer release Nov 2025 (2023 data), ILO 2021 summary + ILO "Small Matters" (2019).
 export const onePersonBusinessesInNumbers: Note = {
     slug: "one-person-businesses-in-numbers",
-    title: "How many people run a business alone? Austria and the world",
+    title: "Most businesses in Austria have no employees at all",
     description:
-        "In Austria, 6 in 10 businesses are one person: about 376,000 in 2025. Around the world, about 1.5 billion people work for themselves.",
+        "In Austria, 6 in 10 businesses have no employees: about 376,000 in 2025. Around the world, about 1.5 billion people work for themselves.",
     date: "2026-11-02",
     tag: "business",
     draft: false,
     body: (
         <>
+            <p>When we think of &quot;a business&quot;, we picture an office and a team.</p>
+            <p>But in Austria, 6 in 10 businesses are just one person.</p>
             <p>
-                In Austria, about <strong>376,000 people</strong> ran a one-person business (EPU) in 2025. That is{" "}
-                <strong>62% of all businesses</strong> in the country, and 3.9% more than a year before. Around the world, about 1.5
-                billion people work for themselves.
+                About <strong>376,000 people</strong> ran a one-person business (EPU) in 2025. That&apos;s 62% of all businesses in the
+                country, and 3.9% more than a year before.
             </p>
-            <p>I looked these numbers up because I build for this group. I didn&apos;t expect it to be the biggest one.</p>
 
             <Stats
                 items={[
@@ -38,10 +38,7 @@ export const onePersonBusinessesInNumbers: Note = {
                     { label: "Personal services", value: 29000 },
                 ]}
             />
-            <p>
-                Consulting and IT is the second largest group. Many of them are developers, designers and consultants like me, working
-                alone.
-            </p>
+            <p>Consulting and IT is the second largest group. Developers, designers, consultants, each working alone.</p>
 
             <h2>Around the world</h2>
             <Stats
@@ -51,21 +48,18 @@ export const onePersonBusinessesInNumbers: Note = {
                     { value: "~46%", label: "of all workers worldwide work for themselves" },
                 ]}
             />
-            <p>
-                In the US, businesses with no employees made $1.8 trillion in sales in 2023. Worldwide, the ILO counts about 1.5 billion
-                self-employed people in 2021. Counted together with micro and small companies, small units hold about 70% of all jobs.
-            </p>
+            <p>In the US, businesses with no employees sold $1.8 trillion in 2023.</p>
+            <p>Worldwide, about 1.5 billion people work for themselves (ILO, 2021). Together with micro and small companies, small units hold about 70% of all jobs.</p>
 
-            <h2>What this means for software</h2>
+            <h2>Most software is made for teams</h2>
+            <p>Roles, settings, and someone whose job is to set it all up.</p>
+            <p>But one person is the sales team, the bookkeeper and the support desk at the same time. Nobody has time to set up a big system.</p>
             <p>
-                One person is the sales team, the bookkeeper and the support desk at the same time. There is nobody to set up a big
-                system or keep it running. So the software has to work on day one: one place, each number typed once, nothing to
-                configure.
+                <strong>For one person, the best tool isn&apos;t the one with the most features. It&apos;s the one where the boring steps happen on their own.</strong>
             </p>
+            <p>An invoice that books the income when it&apos;s paid. A form that sends the reply. A report that is ready when the tax advisor asks.</p>
             <p>
-                AI and automations help most here. A small business doesn&apos;t need more tools. It needs the boring steps between them to
-                happen on their own: an invoice that books the income when it&apos;s paid, a form that sends the reply, a report that
-                is ready when the tax advisor asks. That is what I try to build, in{" "}
+                That&apos;s what I try to build, in{" "}
                 <a href="https://epufix.at/?utm_source=nicojuhari&utm_campaign=one-person-businesses-in-numbers">EPUfix</a> and for{" "}
                 <Link href="/services">clients</Link>.
             </p>

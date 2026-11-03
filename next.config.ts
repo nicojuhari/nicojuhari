@@ -3,6 +3,17 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
     async redirects() {
         return [
+            // Note slug changes
+            {
+                source: "/notes/trust-online-ai",
+                destination: "/notes/trust-ai-online",
+                permanent: true,
+            },
+            {
+                source: "/notes/google-ads-660-conversions-26-sales",
+                destination: "/notes/google-ads-vs-shopify-conversions",
+                permanent: true,
+            },
             // Tool slug changes
             {
                 source: "/tools/qr-code-menu-generator",

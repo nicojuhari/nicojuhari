@@ -67,7 +67,7 @@ export default async function NotePage({ params }: { params: Promise<{ slug: str
                     <h1 className="text-[34px] leading-[1.08] font-semibold tracking-[-0.035em] text-ink sm:text-[46px]">{note.title}</h1>
                 </header>
 
-                <div className="text-[17px] leading-[1.7] text-ink-soft sm:text-lg [&_a]:font-medium [&_a]:text-brand [&_a]:underline [&_a]:decoration-teal/40 [&_a]:underline-offset-4 hover:[&_a]:text-teal [&_h2]:mt-10 [&_h2]:mb-3 [&_h2]:text-2xl [&_h2]:font-semibold [&_h2]:tracking-[-0.02em] [&_h2]:text-ink [&_li]:my-1 [&_ol:not([class])]:list-decimal [&_ol:not([class])]:pl-6 [&_p]:my-4 [&_strong]:font-semibold [&_strong]:text-ink [&_ul:not([class])]:list-disc [&_ul:not([class])]:pl-6">
+                <div className="text-[17px] leading-[1.7] text-ink-soft sm:text-lg [&_a]:font-medium [&_a]:text-brand [&_a]:underline [&_a]:decoration-teal/40 [&_a]:underline-offset-4 hover:[&_a]:text-teal [&_h2]:mt-12 [&_h2]:mb-4 [&_h2]:text-2xl [&_h2]:font-semibold [&_h2]:tracking-[-0.02em] [&_h2]:text-ink [&_li]:my-2 [&_ol:not([class])]:list-decimal [&_ol:not([class])]:pl-6 [&_p]:my-6 [&_strong]:font-semibold [&_strong]:text-ink [&_ul:not([class])]:list-disc [&_ul:not([class])]:pl-6">
                     {note.body}
                 </div>
 
