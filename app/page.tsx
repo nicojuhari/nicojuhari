@@ -45,7 +45,7 @@ export default function Home() {
             {/* Hero */}
             <section className="container mt-8 grid items-center gap-10 sm:mt-14 lg:grid-cols-2 lg:gap-16">
                 <div className="flex flex-col gap-6 sm:gap-7">
-                    <p className="inline-flex items-center gap-2.5 self-start rounded-full bg-[#e3f1ee] px-3.5 py-2 text-[13px] font-semibold text-[#0f5f57] sm:text-sm">
+                    <p className="inline-flex items-center gap-2.5 self-start rounded-full border border-ink/10 bg-white px-3.5 py-1.5 text-[13px] font-medium text-ink-muted sm:text-sm">
                         <span className="relative size-2" aria-hidden>
                             <span className="absolute inset-0 rounded-full bg-teal motion-safe:animate-[ping-soft_2.4s_ease-in-out_infinite]" />
                             <span className="absolute inset-0 rounded-full bg-teal" />
@@ -55,7 +55,7 @@ export default function Home() {
                     <h1 className="text-[44px] leading-[1.02] font-semibold tracking-[-0.04em] text-ink sm:text-[60px] xl:text-[72px]">
                         More customers.
                         <br />
-                        <span className="text-teal">Less manual work.</span>
+                        <span className="text-ink-muted">Less manual work.</span>
                     </h1>
                     <p className="max-w-[520px] text-lg leading-normal text-[#4a4f57] sm:text-xl">
                         Websites and apps that bring calls, bookings and orders. Tested in my own businesses first.
@@ -65,14 +65,14 @@ export default function Home() {
                             href={whatsappLink(SEND_TEXT)}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="btn-pill-primary h-14 px-6.5 text-base sm:text-[17px]"
+                            className="btn-pill-primary h-13 px-6.5 text-base sm:h-14 sm:text-[17px]"
                         >
                             Send your website link
                             <ArrowRight className="size-[18px]" aria-hidden />
                         </a>
                         <a
                             href="#services"
-                            className="inline-flex h-14 items-center justify-center rounded-full bg-[#e9ecf3] px-6 text-base font-semibold text-brand transition-colors hover:bg-[#dfe4ee] sm:text-[17px]"
+                            className="inline-flex h-13 items-center justify-center rounded-full border border-ink/15 px-6 text-base font-semibold text-ink transition-colors hover:bg-ink/5 sm:h-14 sm:text-[17px]"
                         >
                             See what I do
                         </a>

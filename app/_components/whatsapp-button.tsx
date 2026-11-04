@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-const WHATSAPP_URL = "https://wa.me/+4369010196811";
+import { WHATSAPP_URL } from "@/app/_data/services";
 
 export default function WhatsAppButton({ className, anchorText }: { className?: string; anchorText?: string }) {
     return (

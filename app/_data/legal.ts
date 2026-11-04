@@ -12,7 +12,7 @@ export const LEGAL = {
     city: "Vienna",
     country: "Austria",
     email: "contact@nicojuhari.com",
-    phone: "+43 690 10196811",
+    phone: "+43 690 2010 8484",
     purpose: "Web design, software development and online marketing services",
     tradeLicence: "Dienstleistungen in der automatischen Datenverarbeitung und Informationstechnik",
     tradeAuthority: "Magistratisches Bezirksamt für den 10. Bezirk, Vienna",

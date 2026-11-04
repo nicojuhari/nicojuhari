@@ -478,7 +478,7 @@ export function getService(slug: ServiceSlug): Service {
     return service;
 }
 
-export const WHATSAPP_URL = "https://wa.me/4369010196811";
+export const WHATSAPP_URL = "https://wa.me/4369020108484";
 
 /** WhatsApp link with an optional prefilled message */
 export function whatsappLink(text?: string): string {

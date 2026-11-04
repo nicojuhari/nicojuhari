@@ -7,7 +7,7 @@ export const googleAds660Conversions: Note = {
     slug: "google-ads-vs-shopify-conversions",
     title: "Why does Google Ads show more sales than your shop?",
     description:
-        "Often it counts page views and add-to-cart as conversions. In one shop: 660 conversions in Google Ads, 26 real orders.",
+        "Google Ads showed 660 conversions, but only 26 real orders. Learn why your ads report inflated numbers and how to fix it for accurate ROI tracking.",
     date: "2026-11-02",
     tag: "business",
     draft: false,
@@ -39,7 +39,9 @@ export const googleAds660Conversions: Note = {
 
             <h2>The part nobody sees</h2>
             <p>Google Ads learns from what you call a win.</p>
-            <p>Tell it a win is &quot;someone looked at a page&quot;, and it finds more people who look. Looking is cheap. Buying is not.</p>
+            <p>
+                Tell it a win is &quot;someone looked at a page&quot;, and it finds more people who look. Looking is cheap. Buying is not.
+            </p>
             <p>
                 <strong>A wrong number doesn&apos;t just look nice. It teaches the ads to find the wrong people.</strong>
             </p>
@@ -50,7 +52,9 @@ export const googleAds660Conversions: Note = {
                 For a shop, <strong>purchase</strong> should be the main one. The others can stay as secondary. You still see them, but
                 Google doesn&apos;t chase them.
             </p>
-            <p>The two numbers never match exactly. Ad blockers, a click today and an order next week. But 660 vs. 26 is not a small gap.</p>
+            <p>
+                The two numbers never match exactly. Ad blockers, a click today and an order next week. But 660 vs. 26 is not a small gap.
+            </p>
             <p>
                 It&apos;s one of the first things worth checking before spending more on ads. More on{" "}
                 <Link href="/services/local-business-websites">websites and ad pages</Link>.

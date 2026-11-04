@@ -49,3 +49,9 @@ Last updated: 2026-10-06
 - 2026-10-22 | epufix-launch | social/linkedin-founder-story.md + social/x-founder-story.md | 58/70
 - 2026-11-02 | epufix-linkedin | social/linkedin-svs-back-payment.md | 58/70
 - 2026-11-02 | epufix-linkedin | social/x/text-post-01.md | 8.6/10
+
+## 2026-11-03 - Outreach
+- Outreach playbook (rounds of 20 emails, DE + EN templates): `brand/outreach.md` · artifact: https://claude.ai/artifact/EAAbLeLKp6pY8AVroxP3iz
+
+## 2026-11-04 - Notes
+- 2026-11-04 | notes | app/notes/_content/small-tasks-add-up.tsx (draft, custom-web-apps) | audited: clarity/simplicity

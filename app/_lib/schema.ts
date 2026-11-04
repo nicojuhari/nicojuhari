@@ -10,7 +10,7 @@ const ID = {
     website: `${BASE}/#website`,
 };
 
-const TELEPHONE = "+4369010196811";
+const TELEPHONE = "+4369020108484";
 
 /** Service-area business: city only, no street (matches the hidden address on Google Business Profile) */
 const address = {

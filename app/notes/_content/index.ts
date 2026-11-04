@@ -1,5 +1,6 @@
 import { googleAds660Conversions } from "./google-ads-vs-shopify-conversions";
 import { onePersonBusinessesInNumbers } from "./one-person-businesses-in-numbers";
+import { smallTasksAddUp } from "./small-tasks-add-up";
 import { trustOnlineAi } from "./trust-ai-online";
 import type { Note } from "./types";
 import { whyCompetitorOnGoogleMaps } from "./why-competitor-shows-up-on-google-maps";
@@ -8,7 +9,7 @@ import { whyIBuiltEpufix } from "./why-i-built-epufix";
 export * from "./types";
 
 /** Add every note here */
-const all: Note[] = [whyCompetitorOnGoogleMaps, trustOnlineAi, onePersonBusinessesInNumbers, googleAds660Conversions, whyIBuiltEpufix];
+const all: Note[] = [smallTasksAddUp, whyCompetitorOnGoogleMaps, trustOnlineAi, onePersonBusinessesInNumbers, googleAds660Conversions, whyIBuiltEpufix];
 
 /** Newest first; drafts only in `next dev` */
 export const notes = all
