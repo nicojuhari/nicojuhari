@@ -10,6 +10,15 @@ export const noteTagLabel: Record<NoteTag, string> = {
     business: "Business",
 };
 
+/** Pill colors per tag: dark text on a light tint (AA contrast at 12px) */
+export const noteTagColor: Record<NoteTag, string> = {
+    code: "bg-sky-50 text-sky-800",
+    finance: "bg-amber-50 text-amber-800",
+    ai: "bg-violet-50 text-violet-700",
+    tools: "bg-rose-50 text-rose-700",
+    business: "bg-teal/10 text-teal",
+};
+
 export type Note = {
     /** URL: /notes/<slug> */
     slug: string;
