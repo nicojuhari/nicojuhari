@@ -129,7 +129,7 @@ export const services: Service[] = [
         ],
         send: {
             label: "Send your business name",
-            note: "Free. I reply within 24 hours with what I found.",
+            note: "Free. I reply within 3 hours with what I found.",
             whatsappText: "Hi Nick, please check my business on Google. Name and city: ",
         },
         hiddenTitle: "Why people don’t call you",
@@ -338,7 +338,7 @@ export const services: Service[] = [
         ],
         send: {
             label: "Tell me the task",
-            note: "I reply within 24 hours and tell you if an app or automation is worth it.",
+            note: "I reply within 3 hours and tell you if an app or automation is worth it.",
             whatsappText: "Hi Nick, the task that takes us the most time is: ",
         },
         hiddenTitle: "Where your team loses time",
@@ -427,7 +427,7 @@ export const services: Service[] = [
         steps: [
             {
                 title: "You tell me the task",
-                description: "A few lines on WhatsApp or email. I reply within 24 hours.",
+                description: "A few lines on WhatsApp or email. I reply within 3 hours.",
             },
             {
                 title: "Process check",

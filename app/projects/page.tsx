@@ -6,7 +6,7 @@ import { pageMetadata } from "@/app/_lib/metadata";
 import { collectionSchema, personRef } from "@/app/_lib/schema";
 
 export const metadata: Metadata = pageMetadata({
-    title: "Projects: Websites & Apps I Built | Nicolae Cojuhari",
+    title: "Projects: Websites & Apps I Built",
     description:
         "Businesses I run, client websites and web apps like EPUfix. What each one does, who it’s for, and where you can try it yourself.",
     path: "/projects",
@@ -46,7 +46,7 @@ export default function ProjectsPage() {
             <CtaSection
                 className="mt-6 sm:mt-12"
                 title="Want a website or app like these?"
-                description="Tell me about your business on WhatsApp. I’ll reply within 24 hours with the first step."
+                description="Tell me about your business on WhatsApp. I’ll reply within 3 hours with the first step."
                 secondary={{ label: "See services", href: "/services" }}
             />
         </div>

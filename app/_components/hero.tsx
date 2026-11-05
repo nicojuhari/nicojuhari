@@ -49,7 +49,7 @@ export default function Hero() {
                         </Link>
                     </div>
 
-                    <p className="mt-10 font-mono text-sm text-ink-muted">Vienna · Replies within 24h · M–F</p>
+                    <p className="mt-10 font-mono text-sm text-ink-muted">Vienna · Replies within 3h · M–F</p>
                 </div>
 
                 <div className="relative mx-auto w-full max-w-md lg:max-w-none">

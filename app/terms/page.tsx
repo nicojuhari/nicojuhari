@@ -5,7 +5,7 @@ import { LEGAL } from "@/app/_data/legal";
 import { pageMetadata } from "@/app/_lib/metadata";
 
 export const metadata: Metadata = pageMetadata({
-    title: "Terms and Conditions | Nicojuhari",
+    title: "Terms and Conditions",
     description: "The terms for working with Nicojuhari: offers, payment in stages, ownership, liability, monthly plans and the free tools.",
     path: "/terms",
 });
@@ -126,7 +126,13 @@ export default function TermsPage() {
                 jurisdiction the law gives them.
             </p>
 
-            <h2>15. Other</h2>
+            <h2>15. Reply times</h2>
+            <p>
+                I usually reply within 1 to 3 hours on working days (Monday to Friday) during working hours. Weekends and Austrian
+                public holidays are not included. When there is an emergency or a lot of requests at once, I may reply later.
+            </p>
+
+            <h2>16. Other</h2>
             <p>
                 If one part of these terms is invalid, the rest still applies. The invalid part is replaced by a valid rule that
                 comes closest to what was meant.

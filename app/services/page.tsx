@@ -8,7 +8,7 @@ import { pageMetadata } from "@/app/_lib/metadata";
 import { absoluteUrl, areaServed, businessRef, collectionSchema } from "@/app/_lib/schema";
 
 export const metadata: Metadata = pageMetadata({
-    title: "Websites & Custom Apps in Vienna | Nicojuhari",
+    title: "Services: Websites & Custom Apps in Vienna",
     description:
         "Find out why people don’t call or buy, then fix it. Websites and ad landing pages that bring customers, and AI automations that save time. Free first look.",
     path: "/services",
@@ -67,7 +67,7 @@ export default function ServicesPage() {
                             <ArrowRight className="size-[18px]" aria-hidden />
                         </a>
                         <p className="text-[15px] text-[#4a4f57]">
-                            <span className="font-semibold text-ink">Free first look.</span> Reply within 24 hours.
+                            <span className="font-semibold text-ink">Free first look.</span> Reply within 3 hours.
                         </p>
                     </div>
                 </div>
@@ -242,7 +242,7 @@ export default function ServicesPage() {
             <div className="container mt-16 sm:mt-24">
                 <CtaSection
                     title="Not sure where to start?"
-                    description="Send me your website link. I’ll tell you the first thing I’d fix. Free, within 24 hours."
+                    description="Send me your website link. I’ll tell you the first thing I’d fix. Free, within 3 hours."
                     primaryLabel="Send your website link"
                     whatsappText={SEND_TEXT}
                 />

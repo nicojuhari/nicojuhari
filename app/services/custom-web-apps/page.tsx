@@ -3,7 +3,7 @@ import ServiceDetail from "../_components/service-detail";
 import { pageMetadata } from "@/app/_lib/metadata";
 
 export const metadata: Metadata = pageMetadata({
-    title: "Custom Web Apps & Automations in Vienna | Nicojuhari",
+    title: "Custom Web Apps & Automations in Vienna",
     description:
         "Custom web apps, AI automations and n8n flows for small businesses: dashboards, orders to invoices, AI that sorts requests. Starts with a check of one task.",
     path: "/services/custom-web-apps",

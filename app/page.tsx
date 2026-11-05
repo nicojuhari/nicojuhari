@@ -86,7 +86,7 @@ export default function Home() {
                             className="size-10 rounded-full object-cover ring-3 ring-white"
                         />
                         <p className="text-sm leading-snug text-[#4a4f57] sm:text-[15px]">
-                            <span className="font-semibold text-ink">Free first look.</span> I reply within 24 hours
+                            <span className="font-semibold text-ink">Free first look.</span> I reply within 3 hours
                             <br className="hidden sm:block" /> with the first thing I’d fix.
                         </p>
                     </div>
@@ -289,7 +289,7 @@ export default function Home() {
             <div className="container mt-16 sm:mt-24">
                 <CtaSection
                     title="Want more calls, bookings or orders?"
-                    description="Send me your website link on WhatsApp. I’ll reply within 24 hours with the first thing I’d change."
+                    description="Send me your website link on WhatsApp. I’ll reply within 3 hours with the first thing I’d change."
                     whatsappText="Hi Nick, I’d like to talk about my business: "
                 />
             </div>

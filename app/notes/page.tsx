@@ -6,7 +6,7 @@ import { formatDate, notes } from "./_content";
 
 const description = "Short notes on what I build, find and use: code, money, AI and small business. Real numbers, real screens, and simple words.";
 
-export const metadata: Metadata = pageMetadata({ title: "Notes | Nicolae Cojuhari", description, path: "/notes" });
+export const metadata: Metadata = pageMetadata({ title: "Notes on Code, Money, AI and Small Business", description, path: "/notes" });
 
 const schema = collectionSchema(
     "Notes",

@@ -7,7 +7,7 @@ const legalLinks = [
     { href: "/imprint", label: "Imprint" },
     { href: "/privacy", label: "Privacy" },
     { href: "/terms", label: "Terms" },
-    { href: "/de/softwareentwickler-wien", label: "Deutsch" },
+    { href: "/de/softwareentwickler-wien", label: "Softwareentwickler Wien (DE)" },
 ];
 
 export default function Footer() {

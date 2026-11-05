@@ -12,9 +12,9 @@ const PATH = "/de/softwareentwickler-wien";
 const WHATSAPP_TEXT = "Hallo Nick, ich möchte über mein Unternehmen sprechen: ";
 
 export const metadata: Metadata = pageMetadata({
-    title: "Softwareentwickler Wien (Freelancer) | Nicolae Cojuhari",
+    title: "Freelancer für Softwareentwicklung in Wien",
     description:
-        "Freiberuflicher Software- und Webentwickler in Wien. Websites, Landingpages für Werbung, Web-Apps und KI-Automationen für mehr Anrufe und Aufträge. Antwort in 24 h.",
+        "Softwareentwickler in Wien: Websites, Landingpages, Web-Apps und KI-Automationen. Als Freelancer direkt mit mir. Antwort in 3 Stunden.",
     path: PATH,
     locale: "de_AT",
 });
@@ -109,7 +109,7 @@ const projects = [
 const steps = [
     {
         title: "Sie schreiben mir",
-        text: "Ein paar Zeilen auf WhatsApp oder per E-Mail. Ich antworte innerhalb von 24 Stunden.",
+        text: "Ein paar Zeilen auf WhatsApp oder per E-Mail. Ich antworte innerhalb von 3 Stunden.",
     },
     {
         title: "Kurzer Check",
@@ -157,22 +157,26 @@ const faq = [
         answer: "Ja, für einzelne Projekte. Schreiben Sie mir, worum es geht und welche Technik Sie verwenden.",
     },
     {
+        question: "Übernehmen Sie auch Software-Architektur?",
+        answer: "Ja. Bevor ich Code schreibe, plane ich den Aufbau: Datenbank, Schnittstellen, Hosting und wie das System später wachsen kann. So habe ich zum Beispiel das System für eine Kreditfirma aufgebaut, mit dem das Team jeden Tag arbeitet.",
+    },
+    {
         question: "Wie läuft die Kommunikation?",
-        answer: "Über WhatsApp oder E-Mail. Gespräche führen wir auf Google Meet. Ich arbeite von Wien aus, für Unternehmen in ganz Österreich.",
+        answer: "Über WhatsApp oder E-Mail. Gespräche führen wir auf Google Meet. Ich arbeite von Wien aus für Unternehmen in ganz Österreich.",
     },
 ];
 
 const proof = {
     stat: "95%+",
     title: "der Kunden kommen über die Website und Google Maps",
-    text: "Das ist das Ergebnis bei Handwerker Netz, einem Handwerker-Service in Wien, den ich mitbesitze. Ich habe die Website und das Google-Profil gemacht und verbessere beides jede Woche.",
+    text: "Das ist das Ergebnis bei Handwerker Netz, einem Handwerker-Service in Wien, den ich mitbesitze. Ich habe die Website und das Google-Profil erstellt und verbessere beides jede Woche.",
     href: "https://handwerker-netz.at",
     linkLabel: "handwerker-netz.at ansehen",
 };
 
 const schemaService = {
     ...serviceSchema(
-        "Softwareentwicklung und Webentwicklung in Wien",
+        "Freelancer für Softwareentwicklung in Wien",
         "Freiberuflicher Software- und Webentwickler in Wien: Websites für lokale Unternehmen, Web-Apps und Automationen, die mehr Anrufe, Buchungen und Aufträge bringen.",
         PATH,
     ),
@@ -196,14 +200,13 @@ export default function SoftwareentwicklerWienPage() {
             />
 
             {/* Hero */}
-            <section className="container mt-8 flex flex-col gap-5 sm:mt-14 sm:gap-6.5">
-                <p className="eyebrow">Freelancer · Wien</p>
+            <section className="container mt-10 flex flex-col gap-5 sm:mt-24 sm:gap-6.5">
                 <h1 className="max-w-[900px] text-[38px] leading-[1.04] font-semibold tracking-[-0.04em] text-ink sm:text-[52px] xl:text-[62px]">
-                    Softwareentwickler in Wien. <span className="text-teal">Für mehr Kunden und weniger Handarbeit.</span>
+                    Freelancer für Softwareentwicklung in Wien.
                 </h1>
                 <p className="max-w-[640px] text-lg leading-normal text-[#4a4f57] sm:text-xl">
-                    Websites und Apps für kleine Unternehmen, die mehr Anrufe, Buchungen und Aufträge bringen. Freiberuflich, direkt mit
-                    mir: Nicolae Cojuhari.
+                    Ich bin Softwareentwickler in Wien. Ich baue Websites und Apps für kleine Unternehmen:
+                    <span className="text-teal font-medium"> mehr Kunden, weniger Handarbeit.</span>
                 </p>
                 <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
                     <a
@@ -222,7 +225,7 @@ export default function SoftwareentwicklerWienPage() {
                         Was ich mache
                     </a>
                 </div>
-                <p className="text-[15px] text-[#4a4f57]">Antwort innerhalb von 24 Stunden · Mo–Fr · Gespräche auf Google Meet</p>
+                <p className="text-[15px] text-[#4a4f57]">Antwort innerhalb von 3 Stunden · Mo–Fr · Gespräche auf Google Meet</p>
             </section>
 
             {/* Proof */}
@@ -388,11 +391,12 @@ export default function SoftwareentwicklerWienPage() {
 
                 <div className="flex flex-col gap-5 rounded-[24px] bg-white p-6 sm:p-8">
                     <h2 className="text-[24px] leading-tight font-semibold tracking-[-0.03em] text-ink sm:text-[28px]">
-                        Sie suchen einen Entwickler?
+                        Freelance-Softwareentwickler für Ihr Team
                     </h2>
                     <p className="text-base leading-relaxed text-[#2c3440]">
-                        Sie haben ein Team und brauchen Unterstützung für ein Projekt? Ich arbeite als freiberuflicher Full-Stack-Entwickler
-                        mit. Ich denke nicht nur an den Code. Ich denke auch daran, wie er Ihnen Kunden und Umsatz bringt.
+                        Ihr Team braucht Hilfe bei einem Projekt? Ich arbeite als Freelancer mit: Full-Stack-Entwicklung und
+                        Software-Architektur, remote oder vor Ort in Wien. Ich denke nicht nur an den Code, sondern auch daran, wie er
+                        Ihnen Kunden und Umsatz bringt.
                     </p>
                     <ul className="flex flex-wrap gap-2 text-sm font-medium text-[#2c3440]">
                         {stack.map((tech) => (
@@ -427,7 +431,7 @@ export default function SoftwareentwicklerWienPage() {
             <div className="container mt-16 sm:mt-24">
                 <CtaSection
                     title="Mehr Kunden und weniger Handarbeit?"
-                    description="Schreiben Sie mir kurz, worum es geht. Ich antworte innerhalb von 24 Stunden mit dem ersten Schritt, den ich vorschlagen würde."
+                    description="Schreiben Sie mir kurz, worum es geht. Ich antworte innerhalb von 3 Stunden mit dem ersten Schritt, den ich vorschlagen würde."
                     primaryLabel="Auf WhatsApp schreiben"
                     whatsappText={WHATSAPP_TEXT}
                     secondary={{

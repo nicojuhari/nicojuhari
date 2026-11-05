@@ -75,7 +75,7 @@ export default function ContactFormInner({ onSuccess }: Props) {
                 {errors.message && <p className="text-sm text-destructive">{errors.message.message}</p>}
             </div>
             <div className="flex items-center justify-between gap-4">
-                {sent && <p className="text-sm text-green-600 font-medium">Message sent. I&apos;ll reply within 24 hours.</p>}
+                {sent && <p className="text-sm text-green-600 font-medium">Message sent. I&apos;ll reply within 3 hours.</p>}
                 <Button type="submit" className="ml-auto px-8" disabled={isSubmitting || sent}>
                     {isSubmitting ? "Sending…" : "Send message"}
                 </Button>

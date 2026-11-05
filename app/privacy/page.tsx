@@ -4,7 +4,7 @@ import { LEGAL, legalAddress } from "@/app/_data/legal";
 import { pageMetadata } from "@/app/_lib/metadata";
 
 export const metadata: Metadata = pageMetadata({
-    title: "Privacy Policy | Nicojuhari",
+    title: "Privacy Policy",
     description:
         "How nicojuhari.com handles your data under GDPR: what is collected, why, how long it is kept, and your rights. No cookies and no tracking profiles.",
     path: "/privacy",

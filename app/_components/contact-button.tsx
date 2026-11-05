@@ -29,7 +29,7 @@ export default function ContactButton({ className, children = "Get in touch", ar
                 <DialogContent className="max-w-lg">
                     <DialogHeader>
                         <DialogTitle>Get in touch</DialogTitle>
-                        <DialogDescription>I&apos;ll get back to you within 24 hours.</DialogDescription>
+                        <DialogDescription>I&apos;ll get back to you within 3 hours.</DialogDescription>
                     </DialogHeader>
                     <ContactFormInner onSuccess={() => setTimeout(() => setOpen(false), 1500)} />
                 </DialogContent>

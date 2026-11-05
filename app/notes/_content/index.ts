@@ -1,3 +1,4 @@
+import { firstReplyGetsTheJob } from "./first-reply-gets-the-job";
 import { googleAds660Conversions } from "./google-ads-vs-shopify-conversions";
 import { onePersonBusinessesInNumbers } from "./one-person-businesses-in-numbers";
 import { smallTasksAddUp } from "./small-tasks-add-up";
@@ -9,7 +10,7 @@ import { whyIBuiltEpufix } from "./why-i-built-epufix";
 export * from "./types";
 
 /** Add every note here */
-const all: Note[] = [smallTasksAddUp, whyCompetitorOnGoogleMaps, trustOnlineAi, onePersonBusinessesInNumbers, googleAds660Conversions, whyIBuiltEpufix];
+const all: Note[] = [firstReplyGetsTheJob, smallTasksAddUp, whyCompetitorOnGoogleMaps, trustOnlineAi, onePersonBusinessesInNumbers, googleAds660Conversions, whyIBuiltEpufix];
 
 /** Newest first; drafts only in `next dev` */
 export const notes = all

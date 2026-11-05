@@ -71,6 +71,7 @@ function website() {
         "@type": "WebSite",
         "@id": ID.website,
         name: SITE_NAME,
+        alternateName: PERSON_NAME,
         url: BASE,
         description: SITE_DESCRIPTION,
         publisher: { "@id": ID.person },

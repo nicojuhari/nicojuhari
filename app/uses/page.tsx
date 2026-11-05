@@ -8,7 +8,7 @@ import { collectionSchema } from "@/app/_lib/schema";
 
 const description = "The tools I use to build websites and apps, keep my numbers in order and find customers. Only what I use today, with one line on why.";
 
-export const metadata: Metadata = pageMetadata({ title: "Uses: Tools I Work With | Nicolae Cojuhari", description, path: "/uses" });
+export const metadata: Metadata = pageMetadata({ title: "Uses: Tools I Work With", description, path: "/uses" });
 
 const icons: Record<UseGroup["id"], typeof Code2> = { code: Code2, ai: Sparkles, business: BarChart3, marketing: Megaphone };
 

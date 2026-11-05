@@ -84,7 +84,7 @@ export default async function NotePage({ params }: { params: Promise<{ slug: str
             <CtaSection
                 className="container"
                 title="Want this kind of result for your business?"
-                description="Tell me about your business on WhatsApp. I’ll reply within 24 hours with the first step."
+                description="Tell me about your business on WhatsApp. I’ll reply within 3 hours with the first step."
                 secondary={{ label: "See services", href: "/services" }}
             />
         </div>
