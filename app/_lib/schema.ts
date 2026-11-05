@@ -161,6 +161,34 @@ export function collectionSchema(name: string, description: string, path: string
     };
 }
 
+/** Plain pages (legal): the page and its breadcrumb */
+export function webPageSchema(name: string, description: string, path: string) {
+    const url = `${BASE}${path}`;
+    return {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "WebPage",
+                "@id": `${url}#page`,
+                name,
+                description,
+                url,
+                inLanguage: "en",
+                isPartOf: { "@id": ID.website },
+                about: { "@id": ID.person },
+                breadcrumb: { "@id": `${url}#breadcrumb` },
+            },
+            {
+                ...breadcrumbList([
+                    { name: "Home", path: "/" },
+                    { name, path },
+                ]),
+                "@id": `${url}#breadcrumb`,
+            },
+        ],
+    };
+}
+
 /** Full URL for a site path */
 export const absoluteUrl = (path: string) => `${BASE}${path}`;
 

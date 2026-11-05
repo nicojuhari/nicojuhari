@@ -1,16 +1,20 @@
 import { LEGAL } from "@/app/_data/legal";
+import { webPageSchema } from "@/app/_lib/schema";
 
 type Props = {
     eyebrow: string;
     title: string;
     intro?: string;
+    /** Site path, for the structured data */
+    path: string;
     children: React.ReactNode;
 };
 
 /** Shared layout for the imprint, privacy policy and terms */
-export default function LegalPage({ eyebrow, title, intro, children }: Props) {
+export default function LegalPage({ eyebrow, title, intro, path, children }: Props) {
     return (
         <div className="container-sm mt-6 sm:mt-16">
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema(title, intro ?? title, path)) }} />
             <header className="flex flex-col gap-3.5 sm:gap-4">
                 <p className="eyebrow">{eyebrow}</p>
                 <h1 className="text-[34px] leading-[1.06] font-semibold tracking-[-0.03em] text-ink sm:text-5xl">{title}</h1>

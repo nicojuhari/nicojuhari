@@ -14,6 +14,7 @@ export default function TermsPage() {
     return (
         <LegalPage
             eyebrow="Legal"
+            path="/terms"
             title="Terms and conditions"
             intro={`These terms apply to all work ${LEGAL.name} (${LEGAL.tradingAs}) does for clients: websites, Shopify stores, web apps, checks and monthly plans. They also cover the free tools on this website.`}
         >

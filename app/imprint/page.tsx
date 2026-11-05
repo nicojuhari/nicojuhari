@@ -47,6 +47,7 @@ export default function ImprintPage() {
     return (
         <LegalPage
             eyebrow="Legal"
+            path="/imprint"
             title="Imprint"
             intro="Information under § 5 E-Commerce Act (ECG), § 14 Commercial Code (UGB) and § 25 Media Act (MedienG)."
         >

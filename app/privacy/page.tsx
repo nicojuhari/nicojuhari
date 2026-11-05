@@ -4,7 +4,7 @@ import { LEGAL, legalAddress } from "@/app/_data/legal";
 import { pageMetadata } from "@/app/_lib/metadata";
 
 export const metadata: Metadata = pageMetadata({
-    title: "Privacy Policy",
+    title: "Privacy Policy - How Your Data Is Protected Under GDPR",
     description:
         "How nicojuhari.com handles your data under GDPR: what is collected, why, how long it is kept, and your rights. No cookies and no tracking profiles.",
     path: "/privacy",
@@ -14,6 +14,7 @@ export default function PrivacyPage() {
     return (
         <LegalPage
             eyebrow="Legal"
+            path="/privacy"
             title="Privacy policy"
             intro="This page explains what data this website processes, why, and what rights you have. In short: no cookies, no tracking profiles, and your data is never sold."
         >
