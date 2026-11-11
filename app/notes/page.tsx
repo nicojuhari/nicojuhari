@@ -4,7 +4,7 @@ import { absoluteUrl, collectionSchema, personRef } from "@/app/_lib/schema";
 import NotesFilter from "./_components/notes-filter";
 import { formatDate, notes } from "./_content";
 
-const description = "Things I notice while building apps and running small businesses. Real numbers, real screens, simple words.";
+const description = "Short ideas on software, business and AI. Real numbers, simple words. Insights for app builders and small business owners. Things I notice while growing ventures.";
 
 export const metadata: Metadata = pageMetadata({ title: "Short Ideas on Software, Business and AI", description, path: "/notes" });
 

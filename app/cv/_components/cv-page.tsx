@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Download } from "lucide-react";
 import { pageMetadata } from "@/app/_lib/metadata";
 import { SITE_URL } from "@/app/_lib/site";
+import { profilePageSchema } from "@/app/_lib/schema";
 import { cv, type CvLang } from "@/app/_data/cv";
 import AutoPrint from "./auto-print";
 import CvSheet from "./cv-sheet";
@@ -31,6 +32,7 @@ export function CvPage({ lang }: { lang: CvLang }) {
     const other = lang === "en" ? "de" : "en";
     return (
         <div className="container mt-8 flex flex-col gap-5 sm:mt-12">
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(profilePageSchema(base[lang], lang)) }} />
             <div className="flex items-center justify-end gap-3">
                 <Link href={base[other]} hrefLang={other} className="inline-flex h-11 items-center rounded-full border border-ink/15 px-5 text-[15px] font-semibold text-ink transition-colors hover:bg-ink/5">
                     {cv[lang].ui.switchTo}

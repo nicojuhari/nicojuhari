@@ -231,6 +231,6 @@ function breadcrumbList(items: { name: string; path: string }[]) {
 }
 
 /** /about: tells search engines the page is about the person */
-export function profilePageSchema(path: string) {
-    return { "@context": "https://schema.org", "@type": "ProfilePage", url: absoluteUrl(path), mainEntity: person() };
+export function profilePageSchema(path: string, inLanguage = "en") {
+    return { "@context": "https://schema.org", "@type": "ProfilePage", url: absoluteUrl(path), inLanguage, mainEntity: person() };
 }
