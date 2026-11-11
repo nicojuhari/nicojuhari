@@ -12,6 +12,9 @@ const ID = {
 
 const TELEPHONE = "+4369020108484";
 
+/** The freelance side; the site description is about the person now */
+const BUSINESS_DESCRIPTION = "Freelance websites and custom web apps for small businesses in Vienna, by Nicolae Cojuhari.";
+
 /** Service-area business: city only, no street (matches the hidden address on Google Business Profile) */
 const address = {
     "@type": "PostalAddress",
@@ -33,8 +36,23 @@ function person() {
         name: PERSON_NAME,
         url: BASE,
         image: `${BASE}/nick-profile-photo.webp`,
-        jobTitle: "Software Engineer",
-        knowsAbout: ["Software Engineering", "Web Development", "Shopify", "Local SEO", "Finance", "Artificial Intelligence"],
+        jobTitle: "Full-Stack Engineer",
+        description: SITE_DESCRIPTION,
+        knowsAbout: [
+            "Full-Stack Development",
+            "TypeScript",
+            "React",
+            "Next.js",
+            "Node.js",
+            "PostgreSQL",
+            "Supabase",
+            "Stripe",
+            "Loan Management Software",
+            "Invoicing Software",
+            "Web Development",
+        ],
+        knowsLanguage: ["en", "ro", "ru", "de"],
+        alumniOf: { "@type": "CollegeOrUniversity", name: "State Agrarian University of Moldova" },
         address,
         worksFor: { "@id": ID.business },
         sameAs: [...SOCIAL_LINKS],
@@ -47,7 +65,7 @@ function business() {
         "@id": ID.business,
         name: SITE_NAME,
         url: BASE,
-        description: SITE_DESCRIPTION,
+        description: BUSINESS_DESCRIPTION,
         image: `${BASE}/nicojuhari-og-image.jpg`,
         logo: `${BASE}/nicojuhari-logo.svg`,
         telephone: TELEPHONE,
@@ -210,4 +228,9 @@ function breadcrumbList(items: { name: string; path: string }[]) {
             item: item.path === "/" ? BASE : `${BASE}${item.path}`,
         })),
     };
+}
+
+/** /about: tells search engines the page is about the person */
+export function profilePageSchema(path: string) {
+    return { "@context": "https://schema.org", "@type": "ProfilePage", url: absoluteUrl(path), mainEntity: person() };
 }

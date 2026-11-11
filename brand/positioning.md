@@ -2,6 +2,42 @@
 Last updated: 2026-10-21 by /positioning-angles
 Previous version (Paid like a partner, Finance-Fluent Developer, tagline + bio): `brand/.history/positioning-2026-10-21.md`
 
+## 2026-11-11 - Job-first positioning (PRIMARY - home page, About, CV, LinkedIn, GitHub)
+
+Goal: a full-time job as a full-stack software engineer. Freelance work and own apps continue on the side. Everything below this section is the **services** positioning - it still applies to /services and /de pages, not to the home page.
+
+**Role:** Full-stack software engineer - fintech and business software.
+**Where:** Vienna (hybrid) or remote.
+
+**Headline (hero, updated 2026-11-11):** Full-Stack Engineer in Vienna. Home <title>: "Full-Stack Engineer in Vienna | Freelancer" (no full name). "Engineer" in English headings, "developer" in meta/descriptions for search, "Entwickler" in German. (No "fintech" in the headline - the user chose plain "Full-stack engineer"; fintech shows through the projects.)
+**Sub-line:** I'm Nick. 10+ years of building web applications - from a senior role at bwin to the loan system a credit company runs on every day.
+
+**Why fintech is earned, not claimed:**
+- 5 years in credit before code: credit economist at Victoriabank (2009-2010), then running the loan portfolio at Ideal Credit (2010-2014).
+- Built and still runs Ideal Credit Management: loans, clients, payments, income and expenses - used by the team every day.
+- EPUfix: invoicing, income, expenses and tax export for Austrian self-employed, with Stripe billing.
+Show these as facts. Never write "finance expert" or "finance-fluent" as a label (see feedback: show, don't tell; degree only on About/CV).
+
+**Proof, in order of weight for recruiters:**
+1. Senior Software Engineer, bwin.party Services (Vienna), 2020-2024 - front end developer, promoted to senior in 2022.
+2. Ideal Credit Management - full system, live daily (private; case study with screenshots/diagrams, no client data).
+3. EPUfix - own SaaS: Next.js, Supabase, Stripe.
+4. 10 years total: UK agencies 2016-2019 (WordPress, Magento, Shopify), bwin, independent since 08.2024.
+
+**Lead skills (in this order):** TypeScript, React / Next.js, Node.js, PostgreSQL (Supabase), Stripe, Tailwind CSS. Also: Vue / Nuxt, PHP. AI is how the work gets done, not a headline.
+
+**Freelance line (one sentence, below the work):** I also take on a few freelance projects - websites and custom apps for small businesses. → /services
+
+**Contact for recruiters:** email + LinkedIn + CV download. WhatsApp only on services pages.
+
+**Retire (old CV wording):** "pixel-perfect", "[I CAN DO] attitude", "eager to learn", "Front End | JavaScript | Vue.js" title, "Basic - TypeScript", Magento/WordPress at the top.
+
+**Gap to fill before step 2:** 08.2024-now reads as "Freelancer". Rename to "Independent - building EPUfix, Ideal Credit Management and client projects" so it reads as product work.
+
+---
+
+## Services positioning (SECONDARY since 2026-11-11 - /services and /de only)
+
 Writing rule: plain business words a 5th-7th grader understands. Say calls, bookings, orders, customers, sales. Avoid jargon such as funnel, CRO, conversion and pipeline in client-facing copy; those words are fine internally.
 
 ## Chosen Angle

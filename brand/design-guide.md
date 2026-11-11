@@ -1,4 +1,22 @@
 # Website Design Guide - nicojuhari.com
+
+## 2026-11-11 - Job-first polish (current rules for the home page and new pages)
+
+Audience is now recruiters and engineering leads first, small-business clients second (`brand/positioning.md`). The visual world stays: DM Sans, navy `--brand` #16284d, teal `--teal` #127a6f, rose `--brand-rose`, warm canvas `--bg-soft` #f6f5f1, big rounded surfaces. What changed is restraint and structure:
+
+- **No eyebrow labels above headings.** The heading carries the section. (Older pages still have `.eyebrow`; remove it when you touch them.)
+- **No equal-card grids as page structure.** Work uses one lead project (wide, with its features) plus two smaller ones. Experience and notes are hairline-divided lists (`border-rule` / `border-white/15`), not cards.
+- **Dates and numbers:** `tabular-nums` in the sans face. No monospace as decoration.
+- **One authored motion moment per page.** Home: the headline rises in (`hero-rise`, ease-out-expo) and a rose dot travels down the career-path card (`flow`). Everything else is still, apart from hover nudges. Always `motion-safe:`.
+- **Hero card = real content.** The navy card shows the career path (2009 credit → 2014 first code → 2020 bwin → now EPUfix), with the last step in white. No stat-box or "big number" templates.
+- **Spacing rhythm:** sections `mt-20 sm:mt-28`; the freelance block and contact block sit together as one closing pair.
+- **Depth:** one soft offset shadow on the hero card only (`0 24px 60px -24px` navy). Other surfaces are flat with a 1px `border-rule`.
+- **Browser surfaces are themed** (globals.css): teal-tinted `::selection`, a 2px teal `:focus-visible` outline with 3px offset, smooth scroll only without reduced motion, and link underline offset 0.2em.
+- **Recruiter CTAs:** "See my work", "View CV", email, LinkedIn. WhatsApp only on services pages.
+- **CV sheet** (`/cv`) has its own world on purpose: it mirrors the PDF CV (Barlow, navy sidebar #313d5e, cream #fffcf7, light-blue chips #7dd3fc).
+
+---
+
 **Last updated:** 2026-08-12  
 **Status:** v2 - hybrid layout (Aria visuals + Marc Lou clarity)
 

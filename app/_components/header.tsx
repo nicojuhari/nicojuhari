@@ -1,9 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import MobileNav from "./mobile-nav";
-import { WHATSAPP_URL } from "@/app/_data/services";
+import { FileText } from "lucide-react";
 import NavLinks from "./nav-links";
-import { WhatsAppIcon } from "./icons";
 
 export default function Header() {
     return (
@@ -18,15 +17,13 @@ export default function Header() {
                     <NavLinks />
                 </nav>
 
-                <a
-                    href={WHATSAPP_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                <Link
+                    href="/cv"
                     className="hidden h-11 items-center gap-2 rounded-full bg-brand px-4.5 text-[15px] font-semibold text-white transition-colors hover:bg-brand/90 md:inline-flex"
                 >
-                    <WhatsAppIcon className="size-[17px]" />
-                    WhatsApp me
-                </a>
+                    <FileText className="size-[17px]" aria-hidden />
+                    View CV
+                </Link>
 
                 <div className="md:hidden">
                     <MobileNav />

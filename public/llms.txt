@@ -1,21 +1,27 @@
 # Nicolae Cojuhari (nicojuhari.com)
 
-> Software engineer in Vienna, Austria. Websites and custom web apps for small businesses that bring more calls, bookings and orders - from the first click to a paying customer. Proof from his own businesses: Handwerker Netz (Vienna handyman service) gets 95%+ of its customers from its website and Google Maps.
-
-## Services
-- [Local Business Websites](https://nicojuhari.com/services/local-business-websites): website, Google Business Profile, SEO, landing pages for Google and Meta ads (better pages lower the cost per click and per customer), conversion fixes (CRO), tracking, automatic replies and follow-up. Shopify stores too.
-- [Custom Web Apps & Automations](https://nicojuhari.com/services/custom-web-apps): internal tools, dashboards, connected tools, automated flows (n8n, Make, Zapier), AI agents and automations where they save time.
-- [Softwareentwickler Wien (Deutsch)](https://nicojuhari.com/de/softwareentwickler-wien): the same offer in German, plus freelancer vs. agency comparison.
-
-## Proof
-- [Projects](https://nicojuhari.com/projects): Handwerker Netz, a consumer credit company system, EPUfix (invoicing for Austrian one-person businesses), 1FoodMenu.
-
-## Free tools
-- [All tools](https://nicojuhari.com/tools): social media image maker, Shopify product grid generator, bill split calculator, QR code generator, square image cropper and more. No sign-up.
+> Senior full-stack engineer in Vienna, Austria. 10+ years building web applications (TypeScript, React, Next.js, Node.js, PostgreSQL), and 5 years in banking and credit before that. Open to full-time roles in Vienna (hybrid) or remote. Also takes on a few freelance projects for small businesses.
 
 ## About
-- [Notes](https://nicojuhari.com/notes): short notes with real numbers - Google Ads counting page views as sales, why he built EPUfix.
-- [Uses](https://nicojuhari.com/uses): the tools he works with (Next.js, Supabase, Stripe, Claude Code and more) and why.
+- [About](https://nicojuhari.com/about): career path - credit economist (2009), first code for a credit company (2014), web agencies in the UK (2016-2019), senior software engineer at bwin in Vienna (2020-2024), own products since 2024.
+- [CV (English)](https://nicojuhari.com/cv) · [Lebenslauf (Deutsch)](https://nicojuhari.com/de/cv)
+
+## Case studies
+- [EPUfix](https://nicojuhari.com/projects/epufix): invoicing and bookkeeping app for self-employed people in Austria. Next.js, Supabase (Postgres with row-level security and triggers), Stripe. Austrian invoice rules and a tax estimate in code.
+- [Ideal Credit Management](https://nicojuhari.com/projects/ideal-credit-system): loan management system for a consumer credit company, used every day. Rebuilt from Express and MySQL to Next.js and Postgres. Daily interest and penalty engine, payment allocation, regulator reports.
+- [Handwerker Netz](https://nicojuhari.com/projects/handwerker-netz): bilingual website for a Vienna handyman business he co-owns. Data-driven service pages, structured data, local SEO.
+- [All work](https://nicojuhari.com/projects)
+
+## Freelance services
+- [Local Business Websites](https://nicojuhari.com/services/local-business-websites): website, Google Business Profile, SEO, landing pages for Google and Meta ads, conversion fixes (CRO), tracking, automatic replies and follow-up.
+- [Custom Web Apps & Automations](https://nicojuhari.com/services/custom-web-apps): internal tools, dashboards, automated flows (n8n, Make, Zapier), AI automations where they save time.
+- [Softwareentwickler Wien (Deutsch)](https://nicojuhari.com/de/softwareentwickler-wien): freelance offer in German.
+
+## More
+- [Notes](https://nicojuhari.com/notes): short notes with real numbers.
+- [Free tools](https://nicojuhari.com/tools): social media image maker, product grid generator, bill split calculator, QR code generator and more. No sign-up.
+- [Uses](https://nicojuhari.com/uses): the tools he works with.
 
 ## Contact
-- WhatsApp +43 690 2010 8484 · contact@nicojuhari.com · Vienna, Austria. Fixed price, paid in stages; no hourly billing.
+- Jobs: nicojuhari@gmail.com · [LinkedIn](https://www.linkedin.com/in/nicojuhari/) · [GitHub](https://github.com/nicojuhari)
+- Freelance: WhatsApp +43 690 2010 8484 · contact@nicojuhari.com · Vienna, Austria

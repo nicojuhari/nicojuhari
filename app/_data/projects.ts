@@ -100,7 +100,7 @@ export const projects: Project[] = [
         features: [
             {
                 title: "Transactions",
-                text: "Log income and expenses and keep them categorised in one list.",
+                text: "Log income and expenses and keep them categorized in one list.",
             },
             {
                 title: "Offers → invoices",
@@ -129,7 +129,7 @@ export const projects: Project[] = [
         overview:
             "A Vienna handyman business - furniture assembly, wall mounting and smart home installation, at a fixed price agreed before the job.",
         contribution:
-            "The bilingual website (German and English) with a page for each service, quote requests with photos, and the Google Business Profile. I still improve it every week.",
+            "The bilingual website (German and English) with a page for each service, quote requests on WhatsApp, and the Google Business Profile. I still improve it every week.",
         type: "business-website",
         mark: "HN",
         color: "#16284D",

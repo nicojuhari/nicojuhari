@@ -23,11 +23,6 @@ const ladder = [
 
 const SEND_TEXT = "Hi Nick, please take a look at my website: ";
 
-/** The first two hidden problems of each service - the rest live on the service page */
-const hiddenPicks = services.flatMap((s) =>
-    s.hidden.slice(0, 2).map((item) => ({ ...item, href: `${s.href}#problems`, tag: s.slug === "custom-web-apps" ? "Apps" : "Websites", ink: s.ink, tint: s.tint }))
-);
-
 const schema = collectionSchema(
     "Services",
     "Local business websites and custom web apps & automations - each starts with a check that finds what to fix first.",
@@ -186,36 +181,6 @@ export default function ServicesPage() {
                         </div>
                     </article>
                 ))}
-            </section>
-
-            {/* Problems I find most often */}
-            <section className="container mt-16 flex flex-col gap-8 sm:mt-24 sm:gap-10">
-                <div className="flex max-w-[680px] flex-col gap-3">
-                    <p className="eyebrow">What I find most often</p>
-                    <h2 className="section-title">Small problems that cost you customers.</h2>
-                </div>
-                <ul className="grid gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-4">
-                    {hiddenPicks.map((item) => (
-                        <li key={item.title}>
-                            <Link href={item.href} className="flex h-full flex-col gap-3 rounded-[24px] bg-white p-6 transition-shadow hover:shadow-[0_8px_24px_-12px_rgba(22,40,77,0.25)] sm:p-7">
-                                <span
-                                    className="self-start rounded-full px-2.5 py-1 text-[13px] font-semibold"
-                                    style={{ backgroundColor: item.tint, color: item.ink }}
-                                >
-                                    {item.tag}
-                                </span>
-                                <h3 className="text-[19px] leading-tight font-semibold tracking-[-0.02em] text-ink sm:text-xl">{item.title}</h3>
-                                <p className="text-[15px] leading-relaxed text-[#4a4f57]">{item.cost}</p>
-                                <p className="mt-auto pt-3 text-[15px] leading-normal text-ink">
-                                    <span className="font-semibold" style={{ color: item.ink }}>
-                                        The fix:{" "}
-                                    </span>
-                                    {item.fix}
-                                </p>
-                            </Link>
-                        </li>
-                    ))}
-                </ul>
             </section>
 
             {/* How it works */}

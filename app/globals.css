@@ -154,6 +154,22 @@
   html {
     scrollbar-gutter: stable;
   }
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+  ::selection {
+    background: rgb(18 122 111 / 0.18);
+    color: var(--ink);
+  }
+  :focus-visible {
+    outline: 2px solid var(--teal);
+    outline-offset: 3px;
+  }
+  a {
+    text-underline-offset: 0.2em;
+  }
   body {
     @apply relative overflow-x-hidden bg-bg-soft text-foreground antialiased;
   }
@@ -173,18 +189,6 @@ button {
 }
 
 @layer components {
-  .section {
-    @apply py-12 md:py-16;
-  }
-
-  .section-band {
-    @apply py-16 md:py-20;
-  }
-
-  .section-rule {
-    @apply border-t border-rule;
-  }
-
   .eyebrow {
     @apply text-[13px] font-semibold uppercase tracking-[0.08em] text-teal sm:text-sm;
   }
@@ -202,43 +206,16 @@ button {
     margin-right: auto;
   }
 
-  .dot-grid {
-    background-image: radial-gradient(circle, rgb(17 20 24 / 0.05) 0.9px, transparent 0.9px);
-    background-size: 20px 20px;
-  }
-
   .surface-card {
     @apply rounded-2xl border border-rule bg-white transition-colors duration-200;
-  }
-
-  .navy-dots {
-    @apply bg-brand text-white;
-    background-image: radial-gradient(circle, rgb(255 255 255 / 0.07) 0.9px, transparent 0.9px);
-    background-size: 20px 20px;
-  }
-
-  .chip {
-    @apply rounded-full border border-rule px-2.5 py-1 text-xs font-medium text-ink-soft;
-  }
-
-  .live-dot {
-    @apply inline-flex items-center gap-1.5 text-xs font-semibold text-teal;
   }
 
   .surface-card-interactive {
     @apply rounded-2xl border border-rule bg-white transition-colors duration-200 hover:border-ink/20 active:scale-[0.99];
   }
 
-  .btn-pill {
-    @apply inline-flex items-center justify-center gap-1.5 rounded-full px-5 py-2.5 text-sm font-medium transition-[transform,background-color,color] duration-200 active:scale-[0.97];
-  }
-
   .btn-pill-primary {
     @apply inline-flex h-11 items-center justify-center gap-2 rounded-full bg-teal px-5 text-sm font-semibold text-white transition-[transform,background-color,color] duration-200 hover:bg-teal/90 active:scale-[0.97];
-  }
-
-  .btn-pill-secondary {
-    @apply inline-flex h-11 items-center justify-center gap-2 rounded-full border border-[#e0ddd5] bg-white px-5 text-sm font-semibold text-ink transition-[transform,background-color,color] duration-200 hover:border-ink/25 active:scale-[0.97];
   }
 }
 
@@ -252,7 +229,7 @@ button {
     transform: translateY(0);
   }
 }
-/* Home hero: a dot moves down the customer steps, and the label dot pulses */
+/* Home hero: a dot moves down the career path, and the status dot pulses */
 @keyframes flow {
   0% { top: 0; opacity: 0; }
   8%, 92% { opacity: 1; }
@@ -262,4 +239,38 @@ button {
 @keyframes ping-soft {
   0%, 100% { transform: scale(1); opacity: 0.55; }
   50% { transform: scale(1.9); opacity: 0; }
+}
+
+/* CV print view (/cv/print, /de/cv/print): sheet only, on screen and paper */
+body:has(.cv-print) > header,
+body:has(.cv-print) > footer {
+  display: none;
+}
+
+@media print {
+  @page {
+    size: A4;
+    margin: 0;
+  }
+  body:has(.cv-sheet) > header,
+  body:has(.cv-sheet) > footer,
+  .cv-sheet ~ *,
+  main:has(.cv-sheet) .container > :not(.cv-sheet) {
+    display: none;
+  }
+  main:has(.cv-sheet) .container {
+    margin: 0;
+    padding: 0;
+    max-width: none;
+  }
+  /* Root background repeats on every page, so the navy sidebar fills page 2 too */
+  html:has(.cv-sheet) {
+    background: linear-gradient(90deg, #313d5e 0 46%, #fffcf7 46% 100%);
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+  html:has(.cv-sheet) body,
+  .cv-sheet {
+    background: transparent;
+  }
 }

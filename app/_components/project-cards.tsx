@@ -1,4 +1,6 @@
-import { ArrowUpRight } from "lucide-react";
+import Link from "next/link";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { getCaseStudy } from "@/app/_data/case-studies";
 import type { Project } from "@/app/_data/projects";
 import { categoryMetaLabel, typeLabel } from "@/app/_data/projects";
 import { cn } from "@/lib/utils";
@@ -46,6 +48,16 @@ function VisitLink({ project, className }: { project: Project; className?: strin
     );
 }
 
+function CaseStudyLink({ project, className }: { project: Project; className?: string }) {
+    if (!getCaseStudy(project.slug)) return null;
+    return (
+        <Link href={`/projects/${project.slug}`} className={cn("inline-flex shrink-0 items-center gap-1.5 py-2.5 text-sm font-semibold hover:underline", className)}>
+            Case study
+            <ArrowRight className="size-3.5" aria-hidden />
+        </Link>
+    );
+}
+
 /** Large dark card: a product I run, with its main features */
 export function FeaturedProjectCard({ project }: { project: Project }) {
     return (
@@ -64,17 +76,20 @@ export function FeaturedProjectCard({ project }: { project: Project }) {
                 </div>
                 <p className="text-[22px] leading-tight font-semibold tracking-[-0.02em] sm:text-[28px]">{project.overview}</p>
                 <p className="text-base leading-relaxed text-[#c3cbe0] sm:text-[17px]">{project.contribution}</p>
-                {project.url && (
-                    <a
-                        href={project.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="mt-auto inline-flex h-12 items-center gap-2 self-start rounded-full bg-white px-5 text-[15px] font-semibold text-brand transition-opacity hover:opacity-90"
-                    >
-                        Visit {hostname(project.url)}
-                        <ArrowUpRight className="size-4" aria-hidden />
-                    </a>
-                )}
+                <div className="mt-auto flex flex-wrap items-center gap-x-6 gap-y-2">
+                    {project.url && (
+                        <a
+                            href={project.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex h-12 items-center gap-2 rounded-full bg-white px-5 text-[15px] font-semibold text-brand transition-opacity hover:opacity-90"
+                        >
+                            Visit {hostname(project.url)}
+                            <ArrowUpRight className="size-4" aria-hidden />
+                        </a>
+                    )}
+                    <CaseStudyLink project={project} className="text-[15px] text-white" />
+                </div>
             </div>
             {project.features && (
                 <ul className="grid content-start gap-3 sm:grid-cols-2">
@@ -116,7 +131,8 @@ export function BusinessCard({ project, tint, ink }: { project: Project; tint: s
                 </p>
             )}
             <p className="text-[15px] leading-relaxed text-[#2c3440] sm:text-base">{project.contribution}</p>
-            <div className="mt-auto flex items-center gap-3 pt-1">
+            <div className="mt-auto flex flex-wrap items-center gap-x-5 pt-1">
+                <CaseStudyLink project={project} className="text-[15px]" />
                 {project.url ? (
                     <VisitLink project={project} className="text-[15px]" />
                 ) : (
@@ -146,7 +162,10 @@ export function ProjectCard({ project }: { project: Project }) {
             <p className="text-[15px] leading-relaxed text-[#4a4f57]">{project.description}</p>
             <div className="mt-auto flex flex-wrap items-center justify-between gap-x-3 pt-1">
                 <span className="text-[13px] text-[#5b6068]">{project.stackShort}</span>
-                <VisitLink project={project} />
+                <span className="flex items-center gap-4">
+                    <CaseStudyLink project={project} className="text-brand" />
+                    <VisitLink project={project} />
+                </span>
             </div>
         </article>
     );

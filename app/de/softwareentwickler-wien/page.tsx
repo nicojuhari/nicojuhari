@@ -92,7 +92,7 @@ const compare = [
 const projects = [
     {
         title: "Handwerker Netz",
-        text: "Handwerker-Service in Wien. Website auf Deutsch und Englisch, Google-Maps-Profil, Anfragen mit Fotos.",
+        text: "Handwerker-Service in Wien. Website auf Deutsch und Englisch, Google-Maps-Profil, Anfragen per WhatsApp.",
         href: "https://handwerker-netz.at",
     },
     {
@@ -134,7 +134,7 @@ const faq = [
     },
     {
         question: "Freelancer oder Agentur: was ist besser?",
-        answer: "Für kleine und mittlere Unternehmen ist ein Freelancer oft die bessere Wahl: ein Ansprechpartner, kurze Wege, meist niedrigere Kosten. Eine Agentur passt besser zu großen Projekten mit vielen Teilen gleichzeitig.",
+        answer: "Es kommt auf das Projekt an. Bei klaren Projekten haben Sie mit einem Freelancer einen direkten Ansprechpartner. Bei sehr großen Projekten mit vielen Teilen hat eine Agentur mehr Leute. Die Tabelle oben zeigt die Unterschiede.",
     },
     {
         question: "Wem gehören die Website, der Code und die Daten?",
@@ -150,7 +150,7 @@ const faq = [
     },
     {
         question: "Wie lange dauert ein Projekt?",
-        answer: "Das hängt vom Umfang ab. Nach dem ersten Check bekommen Sie einen Zeitplan. Sie sehen jede Woche, was fertig ist.",
+        answer: "Nach dem ersten Check bekommen Sie einen Zeitplan. Danach sehen Sie jede Woche, was fertig ist.",
     },
     {
         question: "Arbeiten Sie auch als Entwickler in einem bestehenden Team?",
@@ -397,6 +397,12 @@ export default function SoftwareentwicklerWienPage() {
                         Ihr Team braucht Hilfe bei einem Projekt? Ich arbeite als Freelancer mit: Full-Stack-Entwicklung und
                         Software-Architektur, remote oder vor Ort in Wien. Ich denke nicht nur an den Code, sondern auch daran, wie er
                         Ihnen Kunden und Umsatz bringt.
+                    </p>
+                    <p className="text-base leading-relaxed text-[#2c3440]">
+                        Ich bin auch offen für eine Festanstellung als Full-Stack-Entwickler, in Wien (hybrid) oder remote.{" "}
+                        <Link href="/de/cv" className="font-semibold text-brand underline decoration-teal/40 underline-offset-4 hover:text-teal">
+                            Mein Lebenslauf
+                        </Link>
                     </p>
                     <ul className="flex flex-wrap gap-2 text-sm font-medium text-[#2c3440]">
                         {stack.map((tech) => (

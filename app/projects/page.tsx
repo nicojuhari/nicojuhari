@@ -6,9 +6,9 @@ import { pageMetadata } from "@/app/_lib/metadata";
 import { collectionSchema, personRef } from "@/app/_lib/schema";
 
 export const metadata: Metadata = pageMetadata({
-    title: "Projects: Websites & Apps I Built",
+    title: "Work: Web Apps & Websites I Built",
     description:
-        "Businesses I run, client websites and web apps like EPUfix. What each one does, who it’s for, and where you can try it yourself.",
+        "Web apps and websites I built: EPUfix, a loan management system, Handwerker Netz and client sites. Case studies with the stack and the hard parts.",
     path: "/projects",
 });
 
@@ -32,7 +32,7 @@ export default function ProjectsPage() {
         <div className="container mt-8 flex flex-col gap-10 sm:mt-14 sm:gap-12">
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
             <section className="flex max-w-[720px] flex-col gap-5 sm:gap-6">
-                <p className="eyebrow">Projects</p>
+                <p className="eyebrow">Work</p>
                 <h1 className="text-[40px] leading-[1.03] font-semibold tracking-[-0.04em] text-ink sm:text-[54px] xl:text-[64px]">
                     Websites and apps <span className="text-teal">in use today.</span>
                 </h1>

@@ -1,13 +1,13 @@
 import { ogImage, OG_SIZE } from "@/app/_lib/og";
 
-export const alt = "More clients, more sales, less manual work.";
+export const alt = "Full-Stack Engineer in Vienna";
 export const size = OG_SIZE;
 export const contentType = "image/png";
 
 export default function Image() {
     return ogImage({
-        eyebrow: "Websites \u00b7 Web apps \u00b7 Automations",
-        title: alt,
-        text: "Websites that bring in calls from Google and Google Maps, and web apps that save your team time.",
+        eyebrow: "Nicolae Cojuhari \u00b7 Vienna",
+        title: "Full-Stack Engineer in Vienna",
+        text: "10+ years of web applications - from bwin to a loan system a credit company runs on every day.",
     });
 }

@@ -4,19 +4,12 @@ export const SITE_URL = "https://nicojuhari.com";
 export const SITE_NAME = "Nicojuhari";
 export const PERSON_NAME = "Nicolae Cojuhari";
 
-/** 53 chars - under the ~60 title limit. No name: Google shows the site name separately */
-export const SITE_TITLE = "Websites & Custom Apps for Small Businesses in Vienna";
+/** 42 chars - under the ~60 title limit. No name: Google shows the site name separately */
+export const SITE_TITLE = "Full-Stack Engineer in Vienna | Freelancer";
 
-/**
- * Meta description - keep under 155–160 characters.
- * Current: 144 chars.
- */
+/** Meta description - keep under 155–160 characters */
 export const SITE_DESCRIPTION =
-    "Websites and apps for small businesses in Vienna that bring more calls, bookings and orders. Free first look, fixed price, reply within 3 hours.";
-
-/** Short profile bio (sidebar) - matches brand/positioning.md */
-export const SITE_BIO =
-    "Business websites and custom apps that bring real results.";
+    "Full-stack developer in Vienna with 10+ years of TypeScript, React, Next.js and Node.js. Open to full-time roles and freelance projects.";
 
 export const SOCIAL_LINKS = [
     "https://www.linkedin.com/in/nicojuhari/",

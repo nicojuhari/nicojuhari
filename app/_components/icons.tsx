@@ -1,10 +1,8 @@
 import {
     Bookmark,
     Crop,
-    Cpu,
     FolderUp,
     ImagePlus,
-    Globe,
     LayoutGrid,
     ListChecks,
     QrCode,
@@ -16,7 +14,6 @@ import {
     type LucideIcon,
 } from "lucide-react";
 import type { Project, ProjectIcon } from "@/app/_data/projects";
-import type { ServiceSlug } from "@/app/_data/services";
 import { cn } from "@/lib/utils";
 
 export const toolIcons: Record<string, LucideIcon> = {
@@ -28,11 +25,6 @@ export const toolIcons: Record<string, LucideIcon> = {
     "online-checklist-maker": ListChecks,
     "product-grid-generator": LayoutGrid,
     "bill-split-calculator": Receipt,
-};
-
-export const serviceIcons: Record<ServiceSlug, LucideIcon> = {
-    "local-business-websites": Globe,
-    "custom-web-apps": Cpu,
 };
 
 const projectIcons: Record<ProjectIcon, LucideIcon> = {

@@ -1,13 +1,13 @@
 import { ogImage, OG_SIZE } from "@/app/_lib/og";
 
-export const alt = "Websites, stores and apps I built";
+export const alt = "Web apps and websites I built";
 export const size = OG_SIZE;
 export const contentType = "image/png";
 
 export default function Image() {
     return ogImage({
-        eyebrow: "Projects",
+        eyebrow: "Work",
         title: alt,
-        text: "Businesses I run, client websites and apps like EPUfix - what each one does and what I built.",
+        text: "EPUfix, a loan management system, Handwerker Netz and client sites - with case studies.",
     });
 }

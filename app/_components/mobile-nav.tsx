@@ -2,12 +2,10 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { MenuIcon } from "lucide-react";
+import { FileText, MenuIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
-import { WHATSAPP_URL } from "@/app/_data/services";
 import { navLinks } from "@/app/_lib/nav";
-import { WhatsAppIcon } from "./icons";
 
 const links = [{ href: "/", label: "Home" }, ...navLinks];
 
@@ -40,10 +38,10 @@ export default function MobileNav() {
                     ))}
                 </nav>
                 <div className="px-6 pt-4">
-                    <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-pill-primary h-12 w-full text-[15px]">
-                        <WhatsAppIcon className="size-[18px]" />
-                        Message on WhatsApp
-                    </a>
+                    <Link href="/cv" onClick={() => setOpen(false)} className="btn-pill-primary h-12 w-full text-[15px]">
+                        <FileText className="size-[18px]" aria-hidden />
+                        View CV
+                    </Link>
                 </div>
             </SheetContent>
         </Sheet>

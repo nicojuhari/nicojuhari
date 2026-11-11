@@ -3,6 +3,7 @@ import Image from "next/image";
 import { navLinks } from "@/app/_lib/nav";
 
 const legalLinks = [
+    { href: "/cv", label: "CV" },
     { href: "/uses", label: "Uses" },
     { href: "/imprint", label: "Imprint" },
     { href: "/privacy", label: "Privacy" },
@@ -21,7 +22,7 @@ export default function Footer() {
                         <Image src="/nicojuhari-logo.svg" alt="" width={24} height={24} />
                         <span className="text-[17px] font-bold tracking-[-0.02em]">Nicojuhari</span>
                     </Link>
-                    <p className="text-[15px] text-[#4a4f57]">Websites and apps for small businesses.</p>
+                    <p className="text-[15px] text-[#4a4f57]">Full-stack engineer in Vienna. Websites and apps on the side.</p>
                 </div>
                 <nav aria-label="Footer" className="flex flex-wrap items-center gap-x-7 gap-y-1 text-[15px] font-medium">
                     {navLinks.map(({ href, label }) => (
