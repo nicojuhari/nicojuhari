@@ -93,7 +93,7 @@ export const cv: Record<CvLang, Cv> = {
             "Full-stack engineer with 10+ years of building web applications, and a background in banking and credit.",
             "I build with TypeScript, React, Next.js, Node.js and PostgreSQL - from loan management software and business dashboards to consumer platforms used by millions.",
             "AI coding tools are part of my daily work: cleaner code, faster delivery and less repetitive work.",
-            "Open to full-time roles in Vienna (hybrid) or remote.",
+            "I don’t just write code: I find out what a task is for and build the solution. I can work on my own from a few details, or follow exact specs - and I say when something can be done better.",
         ],
         languages: [
             { name: "English", level: 4, label: "Professional" },
@@ -223,7 +223,7 @@ export const cv: Record<CvLang, Cv> = {
             "Full-Stack Engineer mit über 10 Jahren Erfahrung in der Entwicklung von Webanwendungen und einem Hintergrund in Bank- und Kreditwesen.",
             "Ich arbeite mit TypeScript, React, Next.js, Node.js und PostgreSQL - von Kreditverwaltungssoftware und Business-Dashboards bis zu Plattformen mit Millionen von Nutzern.",
             "KI-Tools gehören zu meinem Arbeitsalltag: saubererer Code, schnellere Lieferung, weniger Routinearbeit.",
-            "Offen für Vollzeitstellen in Wien (hybrid) oder remote.",
+            "Ich schreibe nicht nur Code: Ich frage, wofür eine Aufgabe da ist, und baue die Lösung. Ich arbeite selbstständig mit wenigen Vorgaben oder nach genauen Specs - und sage es, wenn etwas besser geht.",
         ],
         languages: [
             { name: "Englisch", level: 4, label: "Verhandlungssicher" },

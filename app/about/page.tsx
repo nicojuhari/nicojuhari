@@ -127,10 +127,14 @@ export default function AboutPage() {
             </section>
 
             <section className="surface-card flex flex-col gap-4 p-6 sm:p-8">
-                <h2 className="text-2xl font-semibold tracking-[-0.02em] text-ink">What I’m looking for</h2>
+                <h2 className="text-2xl font-semibold tracking-[-0.02em] text-ink">How I work</h2>
                 <p className="text-base leading-relaxed text-ink-soft sm:text-lg">
-                    A full-time full-stack role in Vienna (hybrid) or remote. On the side, I take on a few freelance projects: websites and
-                    custom apps for small businesses.
+                    I don’t just write code. I find out what a task is for, then build the solution. Give me a task with few details, and
+                    I’ll find the path on my own. Give me exact steps, and I’ll follow them - but if one looks weak, I’ll say so and suggest
+                    a better way.
+                </p>
+                <p className="text-base leading-relaxed text-ink-soft sm:text-lg">
+                    I work as a full-stack engineer and freelancer, with two services: websites for local businesses and custom web apps.
                 </p>
                 <div className="flex flex-wrap gap-x-6 gap-y-2">
                     <Link href="/projects" className="inline-flex items-center gap-2 py-2 text-[15px] font-semibold text-teal hover:underline">

@@ -50,6 +50,21 @@ const [lead, ...others] = [
 
 const jobs = cv.en.jobs.slice(0, 3);
 
+const approach = [
+  {
+    title: "I start with the why",
+    text: "Before I write code, I find out what the task is for. Then I build what solves it.",
+  },
+  {
+    title: "I find the path",
+    text: "Give me a task with few details. I’ll figure out the way and get it done on my own.",
+  },
+  {
+    title: "I say when it can be better",
+    text: "I follow clear instructions. If a step looks weak or doesn’t make sense, I tell you and suggest a better way.",
+  },
+];
+
 /** One line per job that says something the work cards above don't */
 const jobNotes: Record<string, string> = {
     "Self-Employed": "My own products and a few client projects.",
@@ -81,19 +96,15 @@ export default function Home() {
               className="size-11 rounded-full object-cover ring-3 ring-white"
             />
             <p className="inline-flex items-center gap-2.5 rounded-full border border-ink/10 bg-white px-3.5 py-1.5 text-[13px] font-medium text-ink-muted sm:text-sm">
-              <span className="relative size-2" aria-hidden>
-                <span className="absolute inset-0 rounded-full bg-teal motion-safe:animate-[ping-soft_2.4s_ease-in-out_infinite]" />
-                <span className="absolute inset-0 rounded-full bg-teal" />
-              </span>
-              Open to full-time roles · Vienna &amp; remote
+              Hi, I’m Nick 👋
             </p>
           </div>
           <h1 className="text-[44px] leading-[1.02] font-semibold tracking-[-0.04em] text-balance text-ink motion-safe:animate-[hero-rise_0.7s_cubic-bezier(0.16,1,0.3,1)_both] sm:text-[60px] xl:text-[72px]">
             Full-Stack Engineer in Vienna.
           </h1>
           <p className="max-w-[560px] text-lg leading-normal text-[#4a4f57] sm:text-xl">
-            I’m Nick. 10+ years of building web applications - from a senior
-            role at bwin to the loan system a credit company runs on every day.
+            10+ years of building fast web applications that bring more sales
+            or save hours of manual work.
           </p>
           <div className="flex flex-col gap-3 sm:flex-row">
             <a
@@ -318,6 +329,23 @@ export default function Home() {
         </div>
       </section>
 
+      {/* How I work */}
+      <section className="container mt-20 flex flex-col gap-6 sm:mt-28 sm:gap-8">
+        <h2 className="section-title max-w-[640px] text-balance">
+          I don’t just write code. I build the solution.
+        </h2>
+        <ul className="grid gap-4 md:grid-cols-3">
+          {approach.map((a) => (
+            <li key={a.title} className="surface-card flex flex-col gap-2 p-6">
+              <h3 className="text-xl font-semibold tracking-[-0.02em] text-ink">
+                {a.title}
+              </h3>
+              <p className="text-base leading-relaxed text-ink-soft">{a.text}</p>
+            </li>
+          ))}
+        </ul>
+      </section>
+
       {/* Notes */}
       {notes.length > 0 && (
         <section className="container mt-20 flex flex-col gap-6 sm:mt-28 sm:gap-8">
@@ -367,11 +395,11 @@ export default function Home() {
         <div className="grid gap-6 rounded-[24px] bg-[#f3e7ec] p-6 sm:rounded-[28px] sm:p-10 md:grid-cols-[1.2fr_1fr] md:items-center md:gap-10">
           <div className="flex flex-col gap-3">
             <h2 className="text-[26px] leading-tight font-semibold tracking-[-0.03em] text-ink sm:text-[32px]">
-              Freelance, on the side.
+              Two freelance services.
             </h2>
             <p className="text-base leading-relaxed text-[#2c2a30] sm:text-lg">
-              I build websites and custom apps for a few small businesses.
-              Tested in my own businesses first.
+              Websites that bring local businesses more calls, and custom apps
+              that save teams time. Tested in my own businesses first.
             </p>
           </div>
           <ul className="flex flex-col gap-2">
@@ -397,7 +425,7 @@ export default function Home() {
       <section id="contact" className="container mt-4 scroll-mt-28 sm:mt-5">
         <div className="flex flex-col items-start gap-6 rounded-[24px] bg-brand p-7 text-white sm:rounded-[28px] sm:p-14">
           <h2 className="section-title text-white">
-            Hiring a full-stack engineer?
+            Have a project in mind?
           </h2>
           <p className="max-w-[560px] text-lg leading-normal text-[#c3cbe0]">
             Send me an email or a message on LinkedIn. I reply the same day.

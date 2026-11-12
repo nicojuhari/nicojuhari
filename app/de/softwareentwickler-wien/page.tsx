@@ -399,7 +399,7 @@ export default function SoftwareentwicklerWienPage() {
                         Ihnen Kunden und Umsatz bringt.
                     </p>
                     <p className="text-base leading-relaxed text-[#2c3440]">
-                        Ich bin auch offen für eine Festanstellung als Full-Stack-Entwickler, in Wien (hybrid) oder remote.{" "}
+                        Meine Erfahrung im Detail:{" "}
                         <Link href="/de/cv" className="font-semibold text-brand underline decoration-teal/40 underline-offset-4 hover:text-teal">
                             Mein Lebenslauf
                         </Link>

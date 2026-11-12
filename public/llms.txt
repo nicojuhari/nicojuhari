@@ -1,6 +1,6 @@
 # Nicolae Cojuhari (nicojuhari.com)
 
-> Senior full-stack engineer in Vienna, Austria. 10+ years building web applications (TypeScript, React, Next.js, Node.js, PostgreSQL), and 5 years in banking and credit before that. Open to full-time roles in Vienna (hybrid) or remote. Also takes on a few freelance projects for small businesses.
+> Senior full-stack engineer in Vienna, Austria. 10+ years building web applications (TypeScript, React, Next.js, Node.js, PostgreSQL), and 5 years in banking and credit before that. Works as a freelancer with two services: websites for local businesses and custom web apps.
 
 ## About
 - [About](https://nicojuhari.com/about): career path - credit economist (2009), first code for a credit company (2014), web agencies in the UK (2016-2019), senior software engineer at bwin in Vienna (2020-2024), own products since 2024.

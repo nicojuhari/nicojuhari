@@ -236,11 +236,6 @@ button {
   100% { top: 100%; opacity: 0; }
 }
 
-@keyframes ping-soft {
-  0%, 100% { transform: scale(1); opacity: 0.55; }
-  50% { transform: scale(1.9); opacity: 0; }
-}
-
 /* CV print view (/cv/print, /de/cv/print): sheet only, on screen and paper */
 body:has(.cv-print) > header,
 body:has(.cv-print) > footer {
